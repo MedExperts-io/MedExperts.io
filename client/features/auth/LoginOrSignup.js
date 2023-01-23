@@ -1,27 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { authenticate } from "../../app/store";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Container from "react-bootstrap/Container";
+import React from "react";
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Typography from "@mui/material/Typography";
-import { InputGroup } from "react-bootstrap";
-import Signup from "./Signup";
-import Login from "./Login";
+import Container from "react-bootstrap/Container";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 const LoginOrSignup = () => {
   return (
-    <Container>
+    <Container className="p-4">
       <Card className="mx-auto" style={{ maxWidth: "800px" }}>
         <Col>
           <center>
@@ -35,7 +23,7 @@ const LoginOrSignup = () => {
                 {<Login />}
               </Tab>
               <Tab eventKey="signup" title="Sign Up">
-                {<Signup />}
+                {<SignUp />}
               </Tab>
             </Tabs>
           </center>
