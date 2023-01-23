@@ -1,15 +1,14 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { authenticate } from "../../app/store";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React, { useState } from "react";
 import { InputGroup } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import { useDispatch, useSelector } from "react-redux";
+import { authenticate } from "../../app/store";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -30,12 +29,7 @@ const Login = () => {
   };
   return (
     <Container>
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        name="login"
-      >
+      <Form onSubmit={handleSubmit} name="login">
         <hr />
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Form.Group controlId="email">
