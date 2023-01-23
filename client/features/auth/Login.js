@@ -61,10 +61,10 @@ const Login = () => {
                 <Form.Control
                   required
                   type={passwordShown ? "text" : "password"}
-                  placeholder="Enter Password"
+                  placeholder="Enter password"
                 />
                 <Button
-                  variant="outline-primary"
+                  variant="outline-secondary"
                   onClick={togglePassword}
                   size="md"
                   style={{ zIndex: 0 }}
@@ -79,7 +79,7 @@ const Login = () => {
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit" size="md">
+        <Button id="buttons" variant="secondary" type="submit" size="md">
           Login
         </Button>
         <br />
