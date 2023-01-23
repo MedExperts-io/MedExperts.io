@@ -2,12 +2,14 @@ body {
   font-family: sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
 
 label {
   display: block;
 }
 
 
+
+.nav-links:hover {
+  background-color:rgba(255, 255, 255, 0.414); /*will change background-color of element on hover */
+
+  }

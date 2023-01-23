@@ -50,7 +50,7 @@ const SignUp = () => {
                 <Form.Control
                   required
                   type="text"
-                  placeholder="Enter First Name"
+                  placeholder="Enter first name"
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide your first name.
@@ -70,7 +70,7 @@ const SignUp = () => {
                 <Form.Control
                   required
                   type="text"
-                  placeholder="Enter Last Name"
+                  placeholder="Enter last name"
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide your last name.
@@ -109,10 +109,10 @@ const SignUp = () => {
                 <Form.Control
                   required
                   type={passwordShown ? "text" : "password"}
-                  placeholder="Enter Password"
+                  placeholder="Enter password"
                 />
                 <Button
-                  variant="outline-primary"
+                  variant="outline-secondary"
                   onClick={togglePassword}
                   size="md"
                   style={{ zIndex: 0 }}
@@ -127,7 +127,7 @@ const SignUp = () => {
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button id="buttons" variant="secondary" type="submit" size="md">
           Sign Up
         </Button>
       </Form>
