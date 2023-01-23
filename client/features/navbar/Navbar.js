@@ -17,22 +17,34 @@ const SiteNavbar = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <button type="button" onClick={logoutAndRedirectHome}>
-            Logout
-          </button>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
+    <Navbar style={{ backgroundColor: "#FF6262" }} expand="lg">
+      <Container>
+        <Navbar.Brand href="/">
+          <img
+            src="/MedExpert.png"
+            height="30"
+            className="d-inline-block align-top"
+            alt="Med Expert Logo"
+          />
+        </Navbar.Brand>
+        <Nav>
+          {" "}
+          {isLoggedIn ? (
+            <div>
+              <Link to="/home">Home</Link>
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            // temporarily moved some logged-in user features to this section so I can visualize what they look like & until we hook up login features completely
+            <div>
+              <Link to="/home">Home</Link>
+              <Link to="/profile">Profile</Link>
+            </div>
+          )}
+        </Nav>
+      </Container>
     </Navbar>
   );
 };
