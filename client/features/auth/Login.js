@@ -30,7 +30,6 @@ const Login = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit} name="login">
-        <hr />
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Form.Group controlId="email">
             <Row style={{ margin: "0px", padding: "0px" }}>
