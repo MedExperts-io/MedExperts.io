@@ -1,12 +1,9 @@
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authenticate } from "../../app/store";
+import { Button, Col, Container, Form, Row, InputGroup } from "react-bootstrap";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import React, { useState } from "react";
-import { Col, InputGroup, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import { useDispatch } from "react-redux";
-import { authenticate } from "../../app/store";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -50,7 +47,7 @@ const SignUp = () => {
                 <Form.Control
                   required
                   type="text"
-                  placeholder="Enter First Name"
+                  placeholder="Enter first name"
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide your first name.
@@ -63,14 +60,14 @@ const SignUp = () => {
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Form.Group controlId="lastName">
             <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Label label="Last Name">Last Name</Form.Label>
+              <Form.Label label="Last Name">Test Name</Form.Label>
             </Row>
             <Col sm={6}>
               <InputGroup>
                 <Form.Control
                   required
                   type="text"
-                  placeholder="Enter Last Name"
+                  placeholder="Enter last name"
                 />
                 <Form.Control.Feedback type="invalid">
                   Please provide your last name.
@@ -109,10 +106,10 @@ const SignUp = () => {
                 <Form.Control
                   required
                   type={passwordShown ? "text" : "password"}
-                  placeholder="Enter Password"
+                  placeholder="Enter password"
                 />
                 <Button
-                  variant="outline-primary"
+                  variant="outline-secondary"
                   onClick={togglePassword}
                   size="md"
                   style={{ zIndex: 0 }}
@@ -127,7 +124,7 @@ const SignUp = () => {
           </Form.Group>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <Button id="buttons" variant="secondary" type="submit" size="md">
           Sign Up
         </Button>
       </Form>

@@ -1,12 +1,7 @@
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
-import { InputGroup } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../app/store";
 
@@ -19,6 +14,7 @@ const Login = () => {
     evt.preventDefault();
     setPasswordShown(!passwordShown);
   };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
@@ -28,64 +24,53 @@ const Login = () => {
     dispatch(authenticate({ email, password, method: formName }));
   };
   return (
-    <Container>
-      <Form onSubmit={handleSubmit} name="login">
-        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
-          <Form.Group controlId="email">
-            <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Label label="Email Address" style={{ paddingLeft: "16px" }}>
-                Email Address
-              </Form.Label>
-            </Row>
-
-            <Col sm={6}>
-              <InputGroup>
-                <Form.Control required type="text" placeholder="Enter email" />
-                <Form.Control.Feedback type="invalid">
-                  Please provide your email.
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Col>
+    <div className="mb-3 mt-md-4">
+      <div className="mb-3">
+        <Form onSubmit={handleSubmit} name="login">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label className="text-center">Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid email address.
+            </Form.Control.Feedback>
           </Form.Group>
-        </Row>
-        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
-          <Form.Group controlId="password">
-            <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
-                Password
-              </Form.Label>
-            </Row>
 
-            <Col sm={6}>
-              <InputGroup>
-                <Form.Control
-                  required
-                  type={passwordShown ? "text" : "password"}
-                  placeholder="Enter Password"
-                />
-                <Button
-                  variant="outline-primary"
-                  onClick={togglePassword}
-                  size="md"
-                  style={{ zIndex: 0 }}
-                >
-                  {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
-                </Button>
-                <Form.Control.Feedback type="invalid">
-                  Please provide a password.
-                </Form.Control.Feedback>
-              </InputGroup>
-            </Col>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <InputGroup>
+              <Form.Control
+                required
+                type={passwordShown ? "text" : "password"}
+                placeholder="Enter password"
+              />
+              <Button
+                variant="outline-secondary"
+                onClick={togglePassword}
+                size="md"
+                style={{ zIndex: 0 }}
+              >
+                {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+              </Button>
+              <Form.Control.Feedback type="invalid">
+                Please provide a password.
+              </Form.Control.Feedback>
+            </InputGroup>
           </Form.Group>
-        </Row>
-
-        <Button variant="primary" type="submit" size="md">
-          Login
-        </Button>
-        <br />
-      </Form>
-      <div className="p-1"></div>
-    </Container>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <p className="small">
+              <a className="text" style={{ color: "#FF6262" }} href="#">
+                Forgot password?
+              </a>
+            </p>
+          </Form.Group>
+          <div className="d-grid">
+            <Button variant="secondary" type="submit">
+              Login
+            </Button>
+          </div>
+        </Form>
+      </div>
+    </div>
   );
 };
 
