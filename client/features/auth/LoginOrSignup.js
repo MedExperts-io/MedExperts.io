@@ -28,32 +28,6 @@ const LoginOrSignup = () => {
         </Col>
       </Row>
     </Container>
-
-    // <Container className="d-flex">
-    //   <
-    //     style={{
-    //       maxWidth: "500px",
-    //     }}
-    //   >
-    //     <Col>
-    //       {/* <center> */}
-    //       <Tabs
-    //         defaultActiveKey="login"
-    //         id="justify-tab-login"
-    //         className="mb-3"
-    //         justify
-    //       >
-    //         <Tab eventKey="login" title="Login">
-    //           {<Login />}
-    //         </Tab>
-    //         <Tab eventKey="signup" title="Sign Up">
-    //           {<SignUp />}
-    //         </Tab>
-    //       </Tabs>
-    //       {/* </center> */}
-    //     </Col>
-    //   </Card>
-    // </Container>
   );
 };
 export default LoginOrSignup;
