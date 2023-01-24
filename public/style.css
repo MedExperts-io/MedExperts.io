@@ -1,18 +1,4 @@
 body {
   font-family: sans-serif;
-  height:calc(100vh - (56px))
+  /* height:calc(100vh - (56px)) */
 }
-
-.nav-links:hover {
-  background-color:rgba(255, 255, 255, 0.414); 
-
-  }
-
-  #centre{
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%)
-  }
