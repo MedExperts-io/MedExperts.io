@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { InputGroup } from "react-bootstrap";
-import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import React, { useState } from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../app/store";
 
@@ -60,7 +58,9 @@ const Login = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <p className="small">
-              <a className="text-primary">Forgot password?</a>
+              <a className="text" style={{ color: "#FF6262" }} href="#">
+                Forgot password?
+              </a>
             </p>
           </Form.Group>
           <div className="d-grid">

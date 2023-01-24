@@ -1,12 +1,10 @@
-import PersonIcon from "@mui/icons-material/Person";
 import React, { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Dropdown from "react-bootstrap/Dropdown";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import zIndex from "@mui/material/styles/zIndex";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -26,17 +24,19 @@ const SiteNavbar = () => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="/">
-          <img
-            src="/MedExpert.png"
-            height="30"
-            className="d-inline-block align-top"
-            alt="Med Expert Logo"
-          />
-        </Navbar.Brand>
+        <Nav>
+          <Navbar.Brand href="/">
+            <img
+              src="/MedExpert.png"
+              height="30"
+              className="d-inline-block align-top"
+              alt="Med Expert Logo"
+            />
+          </Navbar.Brand>
+        </Nav>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto d-flex">
+          <Nav className="mx-auto my-2 my-lg-0">
             {isLoggedIn ? (
               <div>
                 <Link to="/home">Home</Link>
@@ -71,21 +71,20 @@ const SiteNavbar = () => {
             )}
           </Nav>
           <Nav>
-            <Dropdown drop={"start"}>
-              <Dropdown.Toggle variant="light" style={{ color: "#FF6262" }}>
-                <PersonIcon sx={{ color: "#FF6262" }} />
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                <Dropdown.Item
-                  onClick={logoutAndRedirectHome}
-                  style={{ color: "#FF6262" }}
-                >
-                  Logout
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <NavDropdown
+              title={<AccountCircleRoundedIcon />}
+              drop={"start"}
+              id="collasible-nav-dropdown"
+            >
+              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item
+                onClick={logoutAndRedirectHome}
+                style={{ color: "#FF6262" }}
+              >
+                Logout
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
