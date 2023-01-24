@@ -7,7 +7,7 @@ const Question_Answer = db.define("question_answer", {
     allowNull: false,
   },
   questionImage: {
-    type: Sequelize.STRING,
+    type: Sequelize.ARRAY(Sequelize.TEXT),
   },
   answerOptions: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
@@ -20,7 +20,7 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.TEXT,
   },
   explanationImage: {
-    type: Sequelize.STRING,
+    type: Sequelize.ARRAY(Sequelize.TEXT),
   },
   explanationLinks: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
