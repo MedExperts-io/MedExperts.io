@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import zIndex from "@mui/material/styles/zIndex";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -17,12 +16,7 @@ const SiteNavbar = () => {
   };
 
   return (
-    <Navbar
-      collapseOnSelect
-      style={{ backgroundColor: "#FF6262" }}
-      expand="lg"
-      variant="dark"
-    >
+    <Navbar collapseOnSelect style={{ backgroundColor: "#FF6262" }} expand="lg" variant="dark">
       <Container fluid>
         <Nav>
           <Navbar.Brand href="/">
@@ -44,29 +38,15 @@ const SiteNavbar = () => {
             ) : (
               // temporarily moved some logged-in user features to this section so I can visualize what they look like & until we hook up login features completely
               <>
-                <Nav.Link
-                  className="nav-links"
-                  style={{ color: "white" }}
-                  to="/questions"
-                >
-                  Questions
-                </Nav.Link>
-
-                <Nav.Link
-                  className="nav-links"
-                  style={{ color: "white" }}
-                  to="/dashboard"
-                >
+                <Button variant="outline-light" href="/dashboard" style={{ marginRight: "10px" }}>
                   Dashboard
-                </Nav.Link>
-
-                <Nav.Link
-                  className="nav-links"
-                  style={{ color: "white" }}
-                  to="/favorites"
-                >
+                </Button>
+                <Button variant="outline-light" href="/questions" style={{ marginRight: "10px" }}>
+                  Questions
+                </Button>
+                <Button variant="outline-light" href="/favorites" style={{ marginRight: "10px" }}>
                   Favorites
-                </Nav.Link>
+                </Button>
               </>
             )}
           </Nav>
@@ -78,10 +58,7 @@ const SiteNavbar = () => {
             >
               <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                onClick={logoutAndRedirectHome}
-                style={{ color: "#FF6262" }}
-              >
+              <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
                 Logout
               </NavDropdown.Item>
             </NavDropdown>
