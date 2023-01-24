@@ -28,7 +28,7 @@ const User = db.define("user", {
     type: Sequelize.STRING,
   },
   school: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING, 
   },
   expertise: {
     type: Sequelize.ENUM(
