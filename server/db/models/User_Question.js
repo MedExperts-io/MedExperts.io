@@ -13,7 +13,7 @@ const User_Question = db.define("user_question", {
   answered: {
     type: Sequelize.ENUM("right", "wrong", "none"),
   },
-  showAnswer: {
+  showExplanation: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
   },
