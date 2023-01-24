@@ -1,11 +1,13 @@
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
-import { Col, InputGroup, Row } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import { useDispatch } from "react-redux";
+import Row from "react-bootstrap/Row";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../app/store";
 
 const SignUp = () => {
@@ -63,7 +65,7 @@ const SignUp = () => {
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Form.Group controlId="lastName">
             <Row style={{ margin: "0px", padding: "0px" }}>
-              <Form.Label label="Last Name">Last Name</Form.Label>
+              <Form.Label label="Last Name">Test Name</Form.Label>
             </Row>
             <Col sm={6}>
               <InputGroup>
