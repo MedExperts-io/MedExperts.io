@@ -36,8 +36,8 @@ async function seed() {
       Non-specific (NS) pulmonary function pattern refers to pulmonary function test (PFT) with a low forced expiratory volume in first second (FEV1) or low forced vital capacity (FVC) or both; with normal FEV1/FVC ratio and normal total lung capacity (TLC). It is generally believed that that NS pattern may be a consequence of an obstructive disease (including asthma, chronic obstructive pulmonary disease [COPD] and bronchiectasis) or can also be seen in those with restricted expansion of the thorax or the lung as seen in Obesity or interstitial processes. [2] `,
       explanationImage: [],
       explanationLinks: [
-      `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/">Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
-      `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/'>Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`
+      `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
+      `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`
         ],
       level: 'easy',
       category: 'anatomy'
@@ -57,9 +57,9 @@ async function seed() {
       `,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/17155963/">Di Nisio M, Squizzato A, Rutjes AW, Büller HR, Zwinderman AH, Bossuyt PM.  Diagnostic accuracy of D-dimer test for exclusion of venous thromboembolism: a systematic review. J Thromb Haemost. 2007;5(2):296-304.<a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/16461960/">Le Gal G, Righini M, Roy P-M, et al. Prediction of pulmonary embolism in the emergency department: the revised Geneva score. Ann Intern Med. 2006;144(3):165-171. <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/23750684/">Andro M, Righini M, Le Gal G. Adapting the D-dimer cutoff for thrombosis detection in elderly outpatients. Expert Rev Cardiovasc Ther. 2013;11(6):751-759. <a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/17155963/" target="_blank">Di Nisio M, Squizzato A, Rutjes AW, Büller HR, Zwinderman AH, Bossuyt PM.  Diagnostic accuracy of D-dimer test for exclusion of venous thromboembolism: a systematic review. J Thromb Haemost. 2007;5(2):296-304.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/16461960/" target="_blank">Le Gal G, Righini M, Roy P-M, et al. Prediction of pulmonary embolism in the emergency department: the revised Geneva score. Ann Intern Med. 2006;144(3):165-171. </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/23750684/" target="_blank">Andro M, Righini M, Le Gal G. Adapting the D-dimer cutoff for thrombosis detection in elderly outpatients. Expert Rev Cardiovasc Ther. 2013;11(6):751-759. </a>`,
       ],
       level: "easy",
       category: "anatomy",
@@ -85,8 +85,8 @@ async function seed() {
       `,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/19025712/">Agarwal R, Srinivas R, Agarwal AN, Saxena AK. Pulmonary masses in allergic bronchopulmonary aspergillosis: mechanistic explanations. Respiratory care 2008; 53:1744-8.<a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/848802/">Rosenberg M, Patterson R, Mintzer R, Cooper BJ, Roberts M, Harris KE. Clinical and immunologic criteria for the diagnosis of allergic bronchopulmonary aspergillosis. Annals of internal medicine 1977; 86:405-14<a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/19025712/" target="_blank">Agarwal R, Srinivas R, Agarwal AN, Saxena AK. Pulmonary masses in allergic bronchopulmonary aspergillosis: mechanistic explanations. Respiratory care 2008; 53:1744-8.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/848802/" target="_blank">Rosenberg M, Patterson R, Mintzer R, Cooper BJ, Roberts M, Harris KE. Clinical and immunologic criteria for the diagnosis of allergic bronchopulmonary aspergillosis. Annals of internal medicine 1977; 86:405-14</a>`,
       ],
       level: "easy",
       category: "anatomy",
@@ -101,8 +101,8 @@ async function seed() {
       explanation: `Acute chest syndrome [ACS] occurs due to vaso-occlusion within the pulmonary vasculature of patients with sickle cell disease [SCD].  It is the most common cause of death in patients with SCD. Etiologies include infection (bacterial or viral), fat embolism, and pulmonary infarction. Chlamydia pneumonia and mycoplasma are the most identified bacterial pathogens. Viral infections like Viral (respiratory syncytial virus, parvovirus, rhinovirus) may also be a contributing cause. SCD does not seem to be a risk factor for severe TB. Pediatric patients are more likely to have an infectious cause and will therefore present with symptoms such as wheezing, cough, increased work of breathing, and fever. Adult patients with ACS are more likely to present with chest pain, pain in the arms and legs, shortness of breath, or a vaso-occlusive crisis. The risk factor for Low HbF, young age, history of asthma, and history of smoking. Acute management of ACS includes pain control, intravenous (IV) fluids, antibiotics, supplemental oxygen, and blood transfusions. More severe presentations may require treatment with simple or exchange transfusion and/or noninvasive or invasive respiratory support. Performing a red cell exchange can reduce blood viscosity as well as improve oxygenation.`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/30037443/">Porter M. Rapid Fire: Sickle Cell Disease. Emerg Med Clin North Am. 2018 Aug;36(3):567-576.<a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/28401342/">Droz N, et al.Tuberculosis in children with sickle cell anaemia: a retrospective study in French tertiary care centres. Eur J Pediatr. 2017 Jun;176(6):723-729.<a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/30037443/" target="_blank">Porter M. Rapid Fire: Sickle Cell Disease. Emerg Med Clin North Am. 2018 Aug;36(3):567-576.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/28401342/" target="_blank">Droz N, et al.Tuberculosis in children with sickle cell anaemia: a retrospective study in French tertiary care centres. Eur J Pediatr. 2017 Jun;176(6):723-729.</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -117,7 +117,7 @@ async function seed() {
       explanation: `A mediastinal mass is often an incidental finding on radiology images and can present in several ways.  Most mediastinal masses are asymptomatic. Patients usually present with secondary complaints due to local mass effects such as chest pain or weight loss.   In some, patient's systemic symptoms can be present due to tumors or a variety of paraneoplastic syndromes. Mediastinum can be divided into three regions, anterior, middle, and posterior mediastinum. Most common anterior mediastinal masses are thymoma and lymphomas.  In the middle, mediastinal masses are lymph node enlargement and vascular masses.  In the posterior side, masses are of neurogenic tumors and esophageal abnormalities.  A combination of clinical factors and imaging features often narrow the differential diagnosis when a mediastinal mass is detected. The above patient appears to have a neurilemmoma (or schwannoma), a benign neoplasm arising from neural tissue located in the posterior mediastinum.  The treatment is dependent on underlying etiology.  Benign lesions can be observed while malignant tumors should be removed.  In case of lymphomas, chemotherapy is the best treatment.`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/24701488/">AR Aroor, RS Prakasha, A Study of Clinical Characteristics of Mediastinal Mass. J Clin Diagn Res. 2014; (8)2: 77-80  <a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/24701488/" target="_blank">AR Aroor, RS Prakasha, A Study of Clinical Characteristics of Mediastinal Mass. J Clin Diagn Res. 2014; (8)2: 77-80  </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -135,7 +135,7 @@ async function seed() {
       Antibodies against voltage gated calcium channels are seen in Lambert Eaton syndrome which result in decreased release of acetylcholine. These patients present with diminished or absent deep tendon reflexes along with muscle weakness. Six-minute walk test can help in evaluating patient’s shortness of breath but would not help in making diagnosis in this patient. Nerve conduction test measures how fast an electrical impulse moves but won’t help in diagnosing this patient as myasthenia gravis is an autoimmune disease.`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://www.ncbi.nlm.nih.gov/books/NBK559331/">Beloor Suresh A, Asuncion RMD. Myasthenia Gravis. [Updated 2020 Aug 10]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan.<a>`,
+          `<a href="https://www.ncbi.nlm.nih.gov/books/NBK559331/" target="_blank">Beloor Suresh A, Asuncion RMD. Myasthenia Gravis. [Updated 2020 Aug 10]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan.</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -154,7 +154,7 @@ async function seed() {
           PDE5 inhibitors are contraindicated within 24 hours [Sildenafil] (or 48 hours with tadalafil) of taking alpha-blockers, or nitrate medications such as isosorbide mononitrate or isosorbide dinitrate. Concurrent use of these medications can lead to life-threatening low blood pressure.`,
           explanationImage: [],
           explanationLinks: [
-              `<a href="https://pubmed.ncbi.nlm.nih.gov/26219978/">Humbert M., Ghofrani H.A. The molecular targets of approved treatments for pulmonary arterial hypertension. Thorax. 2016;71(1):73–83 <a>`,
+              `<a href="https://pubmed.ncbi.nlm.nih.gov/26219978/" target="_blank">Humbert M., Ghofrani H.A. The molecular targets of approved treatments for pulmonary arterial hypertension. Thorax. 2016;71(1):73–83 </a>`,
            ],
           level: "easy",
           category: "anatomy",
@@ -173,7 +173,7 @@ async function seed() {
           explanation: `Pulmonary arterial hypertension (PAH) is characterized by pathological hemodynamic elevation in pulmonary artery pressure. Heritable PAH and Idiopathic PAH [IPAH] occur twice as frequently in females compared to males. Similarly, PAH associated with CTD is reported to occur in a female-to-male ratio of 3.8:1. In addition, women with systemic sclerosis are eight times more likely than men to suffer from PAH. Recent registries have shown that females with PAH have better survival compared to males.`,
           explanationImage: [],
           explanationLinks: [
-              `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4096686/">Lai YC, Potoka KC, Champion HC, Pulmonary Arterial Hypertension: The Clinical Syndrome; Circ Res. 2014 Jun 20; 115(1): 115–130.<a>`,
+              `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4096686/" target="_blank">Lai YC, Potoka KC, Champion HC, Pulmonary Arterial Hypertension: The Clinical Syndrome; Circ Res. 2014 Jun 20; 115(1): 115–130.</a>`,
            ],
           level: "easy",
           category: "anatomy",
@@ -188,7 +188,7 @@ async function seed() {
       explanation: `This patient’s presentation is suggestive of chronic thromboembolic pulmonary hypertension (CTEPH) therefore the more appropriate next step in diagnosis is a ventilation/perfusion scan and remains the screening test of choice. Patients have evidence of past DVT and PE now has pulmonary hypertension on ECHO. Given in this picture is the specimen of clots removed through embolectomy.`,
       explanationImage: [`public/Images/Q9/A9 img1.jpg`],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/21330453/">Fedullo P, Kerr KM, Kim NH, Auger WR. Chronic thromboembolic pulmonary hypertension. Am J Respir Crit Care Med. 2011;183:1605-1613. <a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/21330453/" target="_blank">Fedullo P, Kerr KM, Kim NH, Auger WR. Chronic thromboembolic pulmonary hypertension. Am J Respir Crit Care Med. 2011;183:1605-1613. </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -210,10 +210,10 @@ async function seed() {
       `,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6429642/">Gyawali B,Ramakrishna K, Dhamoon AS, Sepsis: The Evolution in definition, pathophysiology and management. Sage Open Med 2019, 7:1-13 <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/35041780/">Finfer, S et al. Balanced Multielectrolyte Solution versus Saline in Critically Ill Adults. NEJM. 2022 <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/34599691/">Evans, Laura et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021. Crit Care Med. 2021 <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/24635773/">ProCESS Investigators. A randomized trial of protocol-based care for early septic shock. NEJM. 201<a>`,
+          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6429642/" target="_blank">Gyawali B,Ramakrishna K, Dhamoon AS, Sepsis: The Evolution in definition, pathophysiology and management. Sage Open Med 2019, 7:1-13 </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/35041780/" target="_blank">Finfer, S et al. Balanced Multielectrolyte Solution versus Saline in Critically Ill Adults. NEJM. 2022 </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/34599691/" target="_blank">Evans, Laura et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021. Crit Care Med. 2021 </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/24635773/" target="_blank">ProCESS Investigators. A randomized trial of protocol-based care for early septic shock. NEJM. 201</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -228,9 +228,9 @@ async function seed() {
       explanation: `This patient has status asthmaticus caused by severe airflow limitation.  Severe obstruction in patients may result in breath stacking and end positive end-expiratory pressure (auto-PEEP) because of insufficient time to complete preceding breath. Auto PEEP can result in decreased venous return, hypotension, and barotraumas.  The goal of managing ventilation is to allow adequate time for exhalation which can be achieved by increasing expiratory time, decreasing the tidal volume and respiration rate, increasing inspiratory flow rates, or using sedative.  An increased expiration duration allows time for optimal exhalation and avoiding air trapping.  In asthma patient, there are few criteria for intubation such as, physical exhaustion, altered sensorium, such as lethargy or agitation, pH < 7.2, carbon dioxide pressure increasing by more than 5 mm Hg/h or greater than 55 to 70 mm Hg or respiratory rate of greater than 40 breaths/minute, silent chest despite respiratory effort. Shortening of inspiration with a square wave pattern and an inspiratory flow rate of 60 L/min allows greater time for exhalation in each respiratory cycle and might help control hyperinflation.`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://www.atsjournals.org/doi/full/10.1513/pats.p09st4">Barry Brenner, Thomas Corbridge, and Antoine Kazzi "Intubation and Mechanical Ventilation of the Asthmatic Patient in Respiratory Failure", Proceedings of the American Thoracic Society, Vol. 6, No. 4 (2009), pp. 371-379. <a>`,
-          `<a href=https://pubmed.ncbi.nlm.nih.gov/32222313/">Hall JB, Wood LDH. Management of the critically ill asthmatic patient. Med Clin North Am 1990; 74:779-796 <a>`,
-          `<a href="https://www.thoracic.org/statements/resources/allergy-asthma/asthma.pdf">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol 1999; 13:419–428. <a>`,
+          `<a href="https://www.atsjournals.org/doi/full/10.1513/pats.p09st4" target="_blank">Barry Brenner, Thomas Corbridge, and Antoine Kazzi "Intubation and Mechanical Ventilation of the Asthmatic Patient in Respiratory Failure", Proceedings of the American Thoracic Society, Vol. 6, No. 4 (2009), pp. 371-379. </a>`,
+          `<a href=https://pubmed.ncbi.nlm.nih.gov/32222313/" target="_blank">Hall JB, Wood LDH. Management of the critically ill asthmatic patient. Med Clin North Am 1990; 74:779-796 </a>`,
+          `<a href="https://www.thoracic.org/statements/resources/allergy-asthma/asthma.pdf" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol 1999; 13:419–428. </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -255,8 +255,8 @@ async function seed() {
       `,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/17980914/">Diederen BM, Legionella spp and Legionnaires’ disease. J Infect 2008; 56:1-12 <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/28696077/">Sivagnanam S. Legionnaires’ disease in transplant recipients: A 15-year retrospective study in a tertiary referral center. Transpl Infect Dis, 2017; 19(5) <a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/17980914/" target="_blank">Diederen BM, Legionella spp and Legionnaires’ disease. J Infect 2008; 56:1-12 </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/28696077/" target="_blank">Sivagnanam S. Legionnaires’ disease in transplant recipients: A 15-year retrospective study in a tertiary referral center. Transpl Infect Dis, 2017; 19(5) </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -271,8 +271,8 @@ async function seed() {
       explanation: `Mepolizumab: It is a humanized monoclonal antibody to IL-5. This drug is approved by FDA for use in patients with age above 12 years, who have severe asthma and EGPA. A subcutaneous dose of 300 mg every four weeks is recommended. Studies have shown that this drug has a glucocorticoid sparing effect on patients [1]. It reduces exacerbations in patients with severe asthma.  It also helps improve outcomes in patients with severe asthma and eosinophilia [2].`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/25199060/">Bel EH, Wenzel SE, Thompson PJ, Oral glucocorticoid-sparing effect of mepolizumab in eosinophilic asthma. N Engl J Med 2014; 371(13):1189-97 <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/25199059/">HG Ortega, Mepolizumab treatment in patients with severe eosinophilic asthma. N Engl J Med 2014, 371:1198-1207 <a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/25199060/" target="_blank">Bel EH, Wenzel SE, Thompson PJ, Oral glucocorticoid-sparing effect of mepolizumab in eosinophilic asthma. N Engl J Med 2014; 371(13):1189-97 </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/25199059/" target="_blank">HG Ortega, Mepolizumab treatment in patients with severe eosinophilic asthma. N Engl J Med 2014, 371:1198-1207 </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -287,8 +287,8 @@ async function seed() {
       explanation: `C-ANCA: These antibodies are against neutrophil cytoplasmic antigens and are associated with EGPA. Studies have shown that these antibodies are found in more than 50% of EGPA patients and this percentage is more in patients with active or undetected disease [1]. Also, the clinical symptoms vary according to presence and absence of these antibodies [2]. For example, ANCA positive patients are more likely to have glomerulonephritis, alveolar hemorrhage and neurological disease as compared to ANCA negative patients [2].`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/12967693/">Keogh KA, Churg-Strauss syndrome: clinical presentation, antineutrophil cytoplasmic antibodies, and leukotriene receptor antagonists. Am J Med 2003, 115(4): 284-90 <a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/16142760/">Sinico RA. Prevalence and clinical significance of antineurophil cytoplasmic antibodies in Churg-Strauss syndrome. Arthritis Rheum 2005; 52(9): 2926-35<a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/12967693/" target="_blank">Keogh KA, Churg-Strauss syndrome: clinical presentation, antineutrophil cytoplasmic antibodies, and leukotriene receptor antagonists. Am J Med 2003, 115(4): 284-90 </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/16142760/" target="_blank">Sinico RA. Prevalence and clinical significance of antineurophil cytoplasmic antibodies in Churg-Strauss syndrome. Arthritis Rheum 2005; 52(9): 2926-35</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -319,7 +319,7 @@ async function seed() {
       explanation: `Neuroleptics are generally the preferred agents for treatment of acute delirium and agitation. Haloperidol has been the most widely used neuroleptic. The effectiveness of haloperidol has been established by randomized, controlled clinical trials. Some atypical antipsychotics, such as risperidone, olanzapine and quetiapine have been used clinically to treat agitation in patients with delirium, with controlled trials showing efficacy at least comparable to haloperidol. However, no data are available to demonstrate any verifiable advantage of one antipsychotic over another.`,
       explanationImage: [`public/Images/Q16/A16 img1.png`],
       explanationLinks: [
-          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065676/">Fong T.G et al. Delirium in elderly adults: diagnosis, prevention and treatment. Nat Rev Neurol. 2009 Apr; 5(4): 210–220. <a>`,
+          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065676/" target="_blank">Fong T.G et al. Delirium in elderly adults: diagnosis, prevention and treatment. Nat Rev Neurol. 2009 Apr; 5(4): 210–220. </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -339,8 +339,8 @@ async function seed() {
       `,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4075318/">Shilpa Jain, Unraveling restrictive chronic lung disease in sickle cell disease Int J Tuberc Lung Dis. 2013 Sep; 17(9): 1123–1124.<a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/">Bellet P. Incentive Spirometry to Prevent Acute Pulmonary Complications in Sickle cell disease. NEJM 1995; 333:11, 669- 703<a>`,
+          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4075318/" target="_blank">Shilpa Jain, Unraveling restrictive chronic lung disease in sickle cell disease Int J Tuberc Lung Dis. 2013 Sep; 17(9): 1123–1124.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet P. Incentive Spirometry to Prevent Acute Pulmonary Complications in Sickle cell disease. NEJM 1995; 333:11, 669- 703</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -355,7 +355,7 @@ async function seed() {
       explanation: `Vocal cord dysfunction (VCD) involves inappropriate (paradoxical adduction) of the vocal cord that produces partial airway obstruction, especially during inspiration. It is condition more predominant in females than male and occurring in 20 to 40 years of age.  Symptoms include  wheezing, cough, tightness in the throat, hoarseness and voice change, inspiratory difficulty, choking sensation and stridor.  VCD is often misdiagnosed as asthma exacerbation because of the wheezing and respiratory distress associated with it. Thus, a careful history is needed for a clear diagnosis.   The vocal cords abduction, or opening is controlled by the posterior cricoarytenoid muscle and adduction (closing) is via contraction of the lateral cricoarytenoid muscle. These muscles are innervated by the recurrent laryngeal nerve.  In the normal respiratory cycle, vocal cords partially abduct with inhalation and partially adduct with exhalation.  VCD is believed to be the result of laryngeal hyperresponsiveness that is prompted by irritant and non-irritants triggers that activate sensory receptors in larynx and trachea.  VCD is often diagnosed only after other potential conditions have been excluded and patients had failure to therapy.  Pulmonary function testing with a flow-volume loop reveals flattened inspiratory loop that indicates decreased airflow into the lungs (as seen in the flow loop provided).  The most effective diagnostic strategy is to confirm VCD on direct laryngoscopic visualization during a symptomatic episode.  While the anterior cord appears normal, the posterior cords will show “glottis chink”. [1]   Patients with VCD and in acute distress should be instructed with simple breathing guidance.  They should be instructed to have rapid and shallow breaths.  In other cases, use of a helium and oxygen mixture (heliox) is also effective.  For long term management strategies, treatment for symptom triggers and speech therapy along with patient education are effective parts of the treatment plan.`,
       explanationImage: [`public/Images/Q18/A18 img1.png`,`public/Images/Q18/A18 img2.png`],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/21205712/">Kenn K, Balkissoon R. Vocal cord dysfunction: what do we know? The European respiratory journal 2011;37:194-200.<a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/21205712/" target="_blank">Kenn K, Balkissoon R. Vocal cord dysfunction: what do we know? The European respiratory journal 2011;37:194-200.</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -370,8 +370,8 @@ async function seed() {
       explanation: `The clinical presentation and radiographic finding for above patient indicate a pattern consistent with Interstitial pulmonary fibrosis, particularly with a nonspecific interstitial pneumonia (NSIP).  Many cases occur in the context of an underlying connective tissue disease or drug‐induced interstitial lung disease (flecainide, nitrofurantoin).  Patients present with a dry cough, shortness of breath, clubbing.  Patient’s pulmonary function testing (PFTs) are projected to demonstrate a restrictive ventilatory defect with decrease in gas transfer.  While PFTs are not essential for making the diagnosis, continued monitoring of FVC and DLCO is helpful to assess progression of disease and response to therapy and prognosis.  The most common HRCT abnormality in NSIP is bilateral ground-glass opacity with lower lobe predilection and subpleural sparing that is helping in distinguishing NSIP from UIP.  Another feature distinguishing NSIP from UIP is its responsiveness to steroids.  In more severe disease or inadequate response to steroids, azathioprine, cyclophosphamide, and cyclosporine are used.   However, Methotrexate is avoided due to pulmonary toxicity.  Patients unresponsive to medications should be considered for lung transplant.`,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/24032382/">Travis WD, Costabel U, Hansell DM, et al. An official American Thoracic Society/European Respiratory Society statement: Update of the international multidisciplinary classification of the idiopathic interstitial pneumonias. American journal of respiratory and critical care medicine 2013;188:733-48.<a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/9769293/">Cottin V, Donsbeck AV, Revel D, Loire R, Cordier JF. Nonspecific interstitial pneumonia. Individualization of a clinicopathologic entity in a series of 12 patients. American journal of respiratory and critical care medicine 1998;158:1286-93. <a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/24032382/" target="_blank">Travis WD, Costabel U, Hansell DM, et al. An official American Thoracic Society/European Respiratory Society statement: Update of the international multidisciplinary classification of the idiopathic interstitial pneumonias. American journal of respiratory and critical care medicine 2013;188:733-48.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/9769293/" target="_blank">Cottin V, Donsbeck AV, Revel D, Loire R, Cordier JF. Nonspecific interstitial pneumonia. Individualization of a clinicopathologic entity in a series of 12 patients. American journal of respiratory and critical care medicine 1998;158:1286-93. </a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -392,8 +392,8 @@ async function seed() {
       `,
       explanationImage: [],
       explanationLinks: [
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/25693017/">Wessels MR, Brigham KS, DeMaria A, Jr. Case records of the Massachusetts General Hospital. Case 6-2015. A 16-year-old boy with coughing spells. The New England journal of medicine 2015;372:765-73.<a>`,
-          `<a href="https://pubmed.ncbi.nlm.nih.gov/23425962/">Centers for Disease C, Prevention. Updated recommendations for use of tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine (Tdap) in pregnant women--Advisory Committee on Immunization Practices (ACIP), 2012. MMWR Morbidity and mortality weekly report 2013;62:131-5.<a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/25693017/" target="_blank">Wessels MR, Brigham KS, DeMaria A, Jr. Case records of the Massachusetts General Hospital. Case 6-2015. A 16-year-old boy with coughing spells. The New England journal of medicine 2015;372:765-73.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/23425962/" target="_blank">Centers for Disease C, Prevention. Updated recommendations for use of tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine (Tdap) in pregnant women--Advisory Committee on Immunization Practices (ACIP), 2012. MMWR Morbidity and mortality weekly report 2013;62:131-5.</a>`,
        ],
       level: "easy",
       category: "anatomy",
@@ -462,7 +462,7 @@ module.exports = seed
     //     explanation: ``,
     //     explanationImage: [],
     //     explanationLinks: [
-    //         `<a href=""><a>`,
+    //         `<a href="" target="_blank"></a>`,
     //      ],
     //     level: "easy",
     //     category: "anatomy",
