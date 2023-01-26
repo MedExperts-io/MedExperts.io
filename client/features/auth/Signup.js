@@ -82,17 +82,12 @@ const SignUp = () => {
             </Form.Group>
           </Col>
           <Col>
-            <Form.Group controlId="lastName">
-              <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Last Name">Last Name</Form.Label>
-              </Row>
-              <Col sm={12}>
-                <InputGroup>
-                  <Form.Control style={{ borderRadius: "10px" }} required type="text" placeholder="Enter last name" />
-                  <Form.Control.Feedback type="invalid">Please provide your last name.</Form.Control.Feedback>
-                </InputGroup>
-              </Col>
-            </Form.Group>
+            <Form.Label label="Expertise Level">Expertise Level</Form.Label>
+            <Form.Select aria-label="Default select example">
+              {expertiseLevel.map((level) => (
+                <option value={level}>{level}</option>
+              ))}
+            </Form.Select>
           </Col>
         </Row>
 
