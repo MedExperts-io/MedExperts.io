@@ -19,48 +19,70 @@ const SiteNavbar = () => {
   return (
     <Navbar collapseOnSelect style={{ backgroundColor: "#FF6262" }} expand="lg" variant="dark">
       <Container fluid>
-        <section style={{ width: "33%" }}>
-          <Nav className="NAV WRAPPER">
-            <Navbar.Brand href="/" className="NAV BRAND">
-              <img src="/MedExpert.png" height="30" className="d-inline-block align-top" alt="Med Expert Logo" />
-            </Navbar.Brand>
-          </Nav>
-        </section>
+        <Navbar.Brand href="/">
+          <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-        <Navbar.Collapse id="responsive-navbar-nav" className="UH the other stuff" style={{ textAlign: "right" }}>
-          <section style={{ width: "50%", textAlign: "center" }}>
-            {isLoggedIn ? (
-              <div>
-                <Link to="/home">Home</Link>
-              </div>
-            ) : (
-              // temporarily moved some logged-in user features to this section so I can visualize what they look like & until we hook up login features completely
-              <>
-                <Button variant="outline-light" href="/dashboard" style={{ marginRight: "10px" }}>
-                  Dashboard
-                </Button>
-                <Button variant="outline-light" href="/questions" style={{ marginRight: "10px" }}>
-                  Questions
-                </Button>
-                <Button variant="outline-light" href="/favorites" style={{ marginRight: "10px" }}>
-                  Favorites
-                </Button>
-              </>
-            )}
-          </section>
-          <section style={{ width: "50%" }}>
-            <Nav style={{ justifyContent: "right" }}>
-              <NavDropdown title={<AccountCircleRoundedIcon />} drop={"start"} id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
-                  Logout
-                </NavDropdown.Item>
-              </NavDropdown>
+        {isLoggedIn ? (
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Button variant="light" href="/home" style={{ color: "#FF6262" }} className="m-2">
+                Dashboard
+              </Button>
+              <Button
+                variant="light"
+                href="/questions"
+                style={{ color: "#FF6262" }}
+                className="m-2"
+              >
+                Questions
+              </Button>
+              <Button
+                variant="light"
+                href="/favorites"
+                style={{ color: "#FF6262" }}
+                className="m-2"
+              >
+                Favorites
+              </Button>
             </Nav>
-          </section>
-        </Navbar.Collapse>
+            <Nav>
+              <Button
+                className="m-2"
+                variant="light"
+                style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
+              >
+                <NavDropdown
+                  className="buttonIcon"
+                  style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
+                  title={
+                    <AccountCircleRoundedIcon
+                      style={{
+                        color: "#FF6262",
+                        height: "30",
+                        width: "30",
+                        paddingRight: "5px",
+                        paddingTop: "0",
+                        paddingBottom: "0",
+                        marginTop: "0",
+                        marginBottom: "0",
+                      }}
+                    />
+                  }
+                  drop={"start"}
+                  id="collapsible-nav-dropdown"
+                >
+                  <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
+        ) : null}
       </Container>
     </Navbar>
   );
