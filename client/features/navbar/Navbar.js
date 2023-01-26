@@ -18,51 +18,79 @@ const SiteNavbar = () => {
   return (
     <Navbar collapseOnSelect style={{ backgroundColor: "#FF6262" }} expand="lg" variant="dark">
       <Container fluid>
-        <Nav>
-          <Navbar.Brand href="/">
-            <img
-              src="/MedExpert.png"
-              height="30"
-              className="d-inline-block align-top"
-              alt="Med Expert Logo"
-            />
-          </Navbar.Brand>
-        </Nav>
+        <Navbar.Brand href="/">
+          <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto my-2 my-lg-0">
+          <Nav className="me-auto">
             {isLoggedIn ? (
-              <div>
+              <>
                 <Link to="/home">Home</Link>
-              </div>
+              </>
             ) : (
               // temporarily moved some logged-in user features to this section so I can visualize what they look like & until we hook up login features completely
               <>
-                <Button variant="outline-light" href="/dashboard" className="m-2">
-                  {/* <Button variant="outline-light" href="/dashboard" style={{ marginRight: "10px" }}> */}
+                <Button
+                  variant="light"
+                  href="/dashboard"
+                  style={{ color: "#FF6262" }}
+                  className="m-2"
+                >
                   Dashboard
                 </Button>
-                <Button variant="outline-light" href="/questions" className="m-2">
+                <Button
+                  variant="light"
+                  href="/questions"
+                  style={{ color: "#FF6262" }}
+                  className="m-2"
+                >
                   Questions
                 </Button>
-                <Button variant="outline-light" href="/favorites" className="m-2">
+                <Button
+                  variant="light"
+                  href="/favorites"
+                  style={{ color: "#FF6262" }}
+                  className="m-2"
+                >
                   Favorites
                 </Button>
               </>
             )}
           </Nav>
           <Nav>
-            <NavDropdown
-              title={<AccountCircleRoundedIcon />}
-              drop={"start"}
-              id="collasible-nav-dropdown"
+            <Button
+              className="m-2"
+              variant="light"
+              style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
             >
-              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
+              <NavDropdown
+                className="buttonIcon"
+                style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
+                title={
+                  <AccountCircleRoundedIcon
+                    style={{
+                      color: "#FF6262",
+                      height: "30",
+                      width: "30",
+                      paddingRight: "5px",
+                      paddingTop: "0",
+                      paddingBottom: "0",
+                      marginTop: "0",
+                      marginBottom: "0",
+                    }}
+                  />
+                }
+                drop={"start"}
+                id="collapsible-nav-dropdown"
+              >
+                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
