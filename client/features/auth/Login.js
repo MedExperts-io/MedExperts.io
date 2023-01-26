@@ -25,6 +25,11 @@ const Login = () => {
     const password = evt.target.password.value;
 
     dispatch(authenticate({ email, password, method: formName }));
+    setValidated(true);
+
+    if (validated) {
+      navigate("/home");
+    }
   };
   return (
     <div className="mb-3 mt-md-4">
@@ -72,6 +77,7 @@ const Login = () => {
             <Button variant="secondary" type="submit">
               Login
             </Button>
+            {error ? <p>{error}</p> : null}
           </div>
         </Form>
       </div>
