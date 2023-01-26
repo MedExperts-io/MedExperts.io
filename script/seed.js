@@ -467,3 +467,459 @@ module.exports = seed
     //     level: "easy",
     //     category: "anatomy",
     //   }),
+
+
+
+
+
+      //Q21
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q22
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q23
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q24
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q25
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q26
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q27
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q28
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q29
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q30
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q31
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q32
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q33
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q34
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q35
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q36
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q37
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q38
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q39
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q40
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q41
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q42
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q43
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q44
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q45
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q46
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q47
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q48
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q49
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q50
+      Question_Answer.create({ 
+        question: ``,
+        questionImage: [``], 
+        answerOptions: [``,``,``,``],
+        correctAnswer:``,
+        explanation: ``,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="" target="_blank"></a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
