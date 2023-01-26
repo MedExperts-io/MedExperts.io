@@ -807,6 +807,209 @@ async function seed() {
         category: "anatomy",
       }),
 
+         //Q42
+         Question_Answer.create({ 
+          question: `A 60-year-old patient presents with a 2.5cm lung nodule located in the peripheral region of the right lower lobe. You suspect lung cancer. Patient is refusing CT guided biopsy. Which of the following is the most located cancer in the periphery of the lung?`,
+          questionImage: [``], 
+          answerOptions: [`Adenocarcinoma`,`Squamous cell carcinoma`,`Small cell carcinoma`,`Large cell undifferentiated carcinoma`],
+          correctAnswer:`Adenocarcinoma`,
+          explanation: `Adenocarcinoma is commonly peripheral and represents about 30% of the total number of lung cancer cases. Its incidence is rising especially in females. 
+  
+          Adenocarcinoma frequently present as an incidental finding on x-ray.  Other major histological types of lung cancer tend to have central localization and are as follows: 
+          
+          Squamous carcinoma is 80% central.  If in periphery, they tend to have cavitation 
+          
+          Small Cell carcinoma originates from the neuroendocrine cells of the bronchial mucosa. It is usually central with mediastinal involvement 
+          
+          Large cell undifferentiated carcinoma often develops on the outer regions of the lungs. They tend to grow rapidly and spread more aggressively than other kinds of lung cancer. 
+          
+          Bronchoalveolar carcinoma is a variant of adenocarcinoma that rises from Type II pneumocytes in the alveoli. They usually present as solitary or multiple nodules and stimulate pneumonia with infections and asthma.
+          `,
+          explanationImage: [],
+          explanationLinks: [
+              `<a href="https://pubmed.ncbi.nlm.nih.gov/27261908/" target="_blank">Zheng M. Classification and Pathology of Lung Cancer. Surg Oncol Clin N Am. 2016 Jul;25(3):447-68</a>`,
+           ],
+          level: "easy",
+          category: "anatomy",
+        }),
+
+        //Q43
+      Question_Answer.create({ 
+        question: `Asplenia is an in important risk factor for serious infections in infants < 6 months old?`,
+        questionImage: [``], 
+        answerOptions: [`Capnocytophaga canimorsus.`,`Capnocytophaga cynodegmi.`,`Babesia.`,`E. coli.`],
+        correctAnswer:`E. coli.`,
+        explanation: `Patients with asplenia are at a greater risk of fatal septicemia. The risk of post splenectomy infection is unpredictable and related to: 
+        a) indications for splenectomy (health trauma patients, hereditary spherocytosis
+        b) age (child <5 years) 
+        c) time since surgery (high risk in 1st year after surgery)
+        Impaired clearance of bacteria from bloodstream and humoral immune deficiency (low IgM) are common reasons for high risk for infections in asplenic patients. E. coli and Klebsiella bacteria are commonly seen in infants < 6 months old. Capnocytophaga canimorsus and Capnocytophaga cynodegmi are common after animal bites and babesia is common after tick bite. Asplenic patients who develop fever should be started on empirical antibiotic therapy immediately. Patients are vaccinated against pneumococcus, Haemophilus influenzae type B, influenza virus and meningococcal. Giving prophylactic antibiotics for the first two years after surgery is also recommended therapy for children >5 years and adults. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/25054718/" target="_blank">Rubin L.G. Schaffner W.  Care of the Asplenic patient.  NEJM 2014 371 (4) 349-356.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q44
+      Question_Answer.create({ 
+        question: `A College student is admitted with a history of Fever and Bilateral infiltrates. His laboratory examination reveals Hg of 10 gm/dl. Further work up establishes presence of Autoimmune Hemolytic Anemia caused by cold reacting antibodies. Which of the following organisms is associated with this condition?`,
+        questionImage: [``], 
+        answerOptions: [`Coccidioidomycosis`,`Cryptococcosis`,`Mycoplasma Pneumoniae`,`Streptococcus Pneumoniae`],
+        correctAnswer:`Mycoplasma Pneumoniae`,
+        explanation: `Cold agglutinin disease is a form of autoimmune hemolytic anemia caused by cold-reacting autoantibodies. Autoantibodies bind to the erythrocyte membrane leading to premature erythrocyte destruction (hemolysis) characterize autoimmune hemolytic anemia. The primary cold agglutinin disease is associated with monoclonal cold reacting antibodies. However, secondary cold reacting antibodies which are seen with Mycoplasma pneumoniae infection are polyclonal in nature.
+        Cold agglutinins can be seen in infections with Mycoplasmas Pneumoniae, Infectious Mononucleosis, and viral infections like Influenza virus and HIV infection.
+        The family Mycoplasmataceae contains two genera that infect humans: Mycoplasma and Ureaplasma, which are usually referred to collectively as mycoplasmas. Only four Mycoplasma Species are recognized as human pathogens; 
+        Mycoplasma pneumoniae- Atypical Pneumonia,
+        Mycoplasma hominis, - cause Pyelonephritis, Pelvic inflammatory disorder
+        Mycoplasma genitalium and Ureaplasma urealyticum both caus non gonococcal urethritis 
+        Mycoplasmas are the smallest free-living bacteria. The mycoplasmas are facultative anaerobes, except for M. pneumoniae, which is a strict aerobe. A characteristic feature that distinguishes the mycoplasmas from other bacteria is the lack of a cell wall which explains why they are resistant to penicillins and cephalosporins.  The mycoplasmas are extracellular pathogens that adhere to epithelial cell surfaces.  Mycoplasma Pneumonia is spread by close contact via aerosolized droplets and thus is most easily spread in confined populations (e.g., families, schools, and army barracks). The disease is primarily one of the young individuals. Treatment is with Macrolides, tetracyclines or Fluoroquinolones.
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997415/" target="_blank">Bajantri B., Venkatrm S, Fuentesa GD, Mycoplasma pneumoniae: A Potentially Severe Infection;J Clin Med Res. 2018 Jul; 10(7): 535–544.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q45
+      Question_Answer.create({ 
+        question: `Which of the following is most likely to improve hypoxemia in hepatopulmonary syndrome?`,
+        questionImage: [``], 
+        answerOptions: [`Administer supplemental O2`,`Administer diltiazem`,`Administer ibuprofen`,`Liver transplantation`],
+        correctAnswer:`Liver transplantation`,
+        explanation: `Hepatopulmonary syndrome (HPS) is a triad of hypoxemia, liver disease and intrapulmonary vascular dilatations. Mortality can be due to complications of underlying liver diseases such as hepatic failure, organ failure due to sepsis, hepatocellular cancer and bleeding in the GI tract.  
+ 
+        HPS is due to vascular dilations causing vascular mediators from the liver to enter into the lungs. This leads to remodeling of pulmonary vessels. There is an increased nitric oxide production which leads to vasodilation and increased carbon monoxide.  
+         
+        The only definitive intervention for patients with HPS is liver transplantation which is usually reserved for serve HPS. Partial pressure of oxygen (PaO2) <60 mmHg should be evaluated for liver transplantation. It reverses hypoxemia in about 85% of cases.  
+         
+        Administering supplemental O2 has been attempted to improve gas exchange and decrease hypoxemia but there is no effective therapy for HPS. Oxygen therapy can improve conditions related to intrapulmonary vascular shunts (dyspnea, desaturation, fatigue) which patients with HPS.  
+         
+        Patients with mild to moderate HPS can be monitored with observation every 6 to 12 months using pulse oximetry.  
+        `,
+        explanationImage: [],
+        explanationLinks: [],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q46
+      Question_Answer.create({ 
+        question: `Which statement about pulmonary oxygen toxicity is true?`,
+        questionImage: [``], 
+        answerOptions: [`The histopathologic finding are specific for that condition`,`Can result in massive Pulmonary Hemorrhage`,`FiO2  < 0.6 been shown to be toxic`,`Hyperoxia can result in absorption atelectasis`],
+        correctAnswer:`Hyperoxia can result in absorption atelectasis`,
+        explanation: `Extended exposure to above-normal oxygen partial pressures, or shorter exposures to very high partial pressures, can cause oxidative damage to cell membranes leading to the collapse of the alveoli in the lungs . Hydroxyl radical (OH), Hydrogen peroxide (H2O2) and superoxide radical (O2) are produced by stepwise reduction of O2 to water to form oxygen free radicals (OFR).
+        Oxygen toxicity causes cell membrane damage resulting in increased cell permeability. Lysosomal membrane damage releases proteolytic enzymes leading to inactive cell enzymes, DNA damage and recruitment of neutrophils. Pulmonary capillary endothelial and alveolar epithelial cells are targets for (OFR) resulting in injury-induced lung edema, flooding of alveolar, hemorrhage, and deposits of collagen, elastin and hyaline membrane formation.  However these pathological findings are nonspecific and can be seen in many other disorders. Oxygen is toxic to lungs when high FIO2 (>0.60) is administered over >24 hours at normal barometric pressure. A high concentration of oxygen displaces nitrogen in the alveoli and the oxygen in alveoli may be absorbed, reducing alveolar volume. Thus hypoxia can result in absorption atelectasis which could result in increased physiological shunting and hypoxemia.
+        `,
+        explanationImage: [],
+        explanationLinks: [],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q47
+      Question_Answer.create({ 
+        question: `All the following are effective in preventing or treating the acute chest syndrome, except:`,
+        questionImage: [``], 
+        answerOptions: [`Incentive spirometry`,`Hydration`,`Supplemental oxygen`,`Plasmapheresis`],
+        correctAnswer:`Plasmapheresis`,
+        explanation: `Appropriate therapy for acute chest syndrome (ACS) is needed to prevent rapid decline and multiorgan failure. Pain is controlled with parenteral opioids.  
+ 
+        Fluids should be administered to prevent hypovolemia.  
+         
+        The mainstay of acute treatment of acute chest syndrome is red blood cell transfusions. The need for transfusion depends on severity and progression of the disease. Transfusions are given to improve oxygenation in ACS and when the hemoglobin is 10% to 20% below baseline.  
+         
+        Exchange transfusions are used in severe cases of ACS which patients present with hypoxemia, multilobar disease on imaging or failure of blood transfusions. The goal of RBC exchange is to increase hemoglobin to 10 and decrease HbS to less than 30%.   
+         
+        Incentive spirometry is used to prevent acute chest syndrome episodes in children with sickle cell disease and those who are admitted in the hospital with a painful crisis. It is recommended 10 maximal breaths every 2 hours can prevent ACS during vaso-occlusive pain episodes.  
+         
+        Supplemental oxygen should be delivered to patients with low oxygen saturation (SaO2) or low partial pressure (PaO2).  
+        
+        Plasmapheresis will not help to improve the patient hemoglobin hence it will not be helpful for in patients with acute chest syndrome 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet PS. Incentive spirometry to prevent acute pulmonary complications in sickle cell diseases.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">N Engl J Med 1995; 333:699-703</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q48
+      Question_Answer.create({ 
+        question: `Which of the following is the mechanism of action of sildenafil used as a medical therapy in pulmonary arterial hypertension?`,
+        questionImage: [``], 
+        answerOptions: [`Phosphodiesterase 5 inhibitor`,`Nitric oxide synthase inhibitor`,`Phosphodiesterase 4 inhibitor`,`Guanylate cyclase inhibitor`],
+        correctAnswer:`Phosphodiesterase 5 inhibitor`,
+        explanation: `The ability of sildenafil in PAH relies upon the inhibition of PDE-V.  This reduces cyclic guanosine monophosphate degradation with resultant reductions in pulmonary smooth muscle cytoplasmic calcium levels causing vasodilation.  This relieves the elevated arterial pressures of PAH and reduces the progression of PAH associated pathology.  Sildenafil is a selective and potent inhibitor of PDE type 5 which specifically degrades cyclic guanosine monophosphate and is found in high concentrations in pulmonary arteries and the corpora cavernosum.  Normally, endothelium-derived NO stimulates intracellular soluble guanylate cyclase resulting in increased levels of cGMP, which then acts to mediate smooth muscle relaxation (Figure 1). Sildenafil inhibits the degradation of cGMP by PDE 5 and prolongs the actions of cGMP.  Metabolism of sildenafil occurs primarily by hepatic cytochrome P450 enzymes yielding one active metabolite with a potency of approximately 50% of the parent drug.  Patients with age greater than 65, with creatinine clearance less than 30, and with hepatic cirrhosis have reduced clearance of sildenafil `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994020/" target="_blank">Barnett C, Machado R. Sildenafil in the treatment of pulmonary hypertension. VascHealth Risk Manag.
+            2006;2(4):411-22.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       
+
+      //Q49
+      Question_Answer.create({ 
+        question: `TNF inhibitors have become widely used for their immunosuppressive properties over the last few years. They are used in all fields of medicine from Rheumatology, Gastroenterology, Dermatology and many more.  However, they are not without risks. Which of the following TNF Inhibitors pose the greatest risk of recrudescence of tuberculosis?`,
+        questionImage: [``], 
+        answerOptions: [`Infliximab (Remicade)`,`Etanercept (Enbrel)`,`Adalimumab (Humira)`,`Certolizumab pegol (Cimzia)`],
+        correctAnswer:`Infliximab (Remicade)`,
+        explanation: `Patients on anti-TNF therapy are at a higher risk of infection, ranging from minor to life-threatening bacterial infections, and including the reactivation of granulomatous and fungal infections. More importantly, these agents are similar to steroids in blunting signs of infection, which may delay diagnosis and treatment. 
+ 
+        The management of infection in patients on anti-TNF medications varies from case to case. In general, patients with a minor infection that does not require hospitalization or intravenous antibiotics can continue the biologic therapy while taking oral antibiotics. TNF inhibitors must be held in the event of a major infection. 
+        
+        Consultation with an infectious disease specialist is recommended, especially in complex cases. 
+         
+        Granulomatous Infections such as Tuberculosis 
+         
+        Anti-TNF agents increase the risk of de novo granulomatous infections and of reactivating such infections. Granuloma formation and intracellular destruction of mycobacteria depend on TNF. TNF is important in maintaining the anatomic integrity of granulomas where these organisms have been sequestered, and blocking TNF leads to breakdown of granulomas and release of virulent organisms. 
+         
+        TNF inhibitors increase the risk of reactivation of latent tuberculosis infection. The risk is greater with infliximab and adalimumab than with etanercept, and it has been described with certolizumab. Study results are varied thus far but show a risk of tuberculosis reactivation five to 30 times higher than in the general population, with tremendous variability in risk depending on background rates of previous exposure. 
+        
+        The absence of typical tuberculosis symptoms further complicates care in these cases. Fever, weight loss, and night sweats tend to be TNF-mediated and are therefore masked by anti-TNF agents, leading to atypical presentations. In addition, active tuberculosis infection associated with TNF inhibitors is more likely to involve extrapulmonary sites such as the skin and musculoskeletal system and to be disseminated at presentation. 
+         
+        A paradoxical worsening of tuberculosis symptoms may also be seen in patients with latent tuberculosis reactivation, especially after discontinuing anti-TNF therapy. This is thought to result from an immune reconstitution inflammatory syndrome. The pretreatment evaluation should include a history of risk factors, a physical examination, and either a tuberculin skin test or an interferon-gamma-release assay. Interferon- gamma-release assays are particularly helpful in patients who have received bacille Calmette-Guérin vaccination. In patients who test positive or have been exposed, tuberculosis treatment should begin 4 weeks before starting anti-TNF therapy, though the optimal timing of antituberculosis agents is still controversial. 
+         
+        If tuberculosis develops in a patient on anti- TNF therapy, he or she should receive antituberculosis drugs. Anti-TNF therapy should be stopped and should be resumed after 2 months only if no other treatment option is available. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24493494/" target="_blank">Hadam J, Aoun E, Clarke K, Wasko MC. Managing risks of TNF inhibitors: An update for the internist. Cleve Clin J Med. 2014 Feb;81(2):115-27.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/12905464/" target="_blank">Gómez-Reino JJ, Carmona L, Valverde VR, Mola EM, Montero MD; BIOBADASER Group. Treatment of rheumatoid arthritis with tumor necrosis factor inhibitors may predispose to significant increase in tuberculosis risk: a multicenter active-surveillance report. Arthritis Rheum 2003; 48:2122–2127.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/11596589/" target="_blank">Keane J, Gershon S, Wise RP, et al. Tuberculosis associated with infliximab, a tumor necrosis factor alpha-neutralizing agent. N Engl J Med 2001; 345:1098–1104.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/19218645/" target="_blank">Demkow U, Broniarek-Samson B, Filewska M, et al. Prevalence of latent tuberculosis infection in health care workers in Poland assessed by interferon-gamma whole blood and tuberculin skin tests. J Physiol 2008; 59(6):209-17</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q50
+      Question_Answer.create({ 
+        question: `Which of the following is true about treatment for malignant pleural mesothelioma (MPM)?`,
+        questionImage: [``], 
+        answerOptions: [`Pleurectomy-Decortication plus adjuvant treatment`,`Pleurectomy only`,`CT and or RT`,`There has been no ideal treatment found for MPM`],
+        correctAnswer:`here has been no ideal treatment found for MPM`,
+        explanation: `Malignant pleural mesothelioma presents difficulties in obtaining an early diagnosis. It is a malignant tumor with a very poor prognosis. The cure is not achieved with radical surgery (pleuropneumonectomy) alone so liberation of the tumor mass with pleurectomy/decortication combined with chemo- or radiation therapy (multimodal treatment) has been gaining popularity. If surgery is not feasible, chemotherapy (a combination of pemetrexed and platinum-derived compounds) with pleurodesis or a tunneled pleural drainage catheter, if control of pleural effusion is required, can be considered. Radiation therapy is reserved for treatment of pain associated with infiltration of the chest wall or neighboring structures. Hence, there is no one ideal treatment for this disease.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/25059587/" target="_blank">Rodríguez Panadero F. Diagnosis and Treatment of Malignant Pleural Mesothelioma. Arch Bronconeumol. 2015;51(4):177–184).</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
 
 
     
@@ -882,153 +1085,6 @@ module.exports = seed
 
 
 
-
-
-    
-
-
-
-     
-
-     
-
-     
-
-     
-
-      // //Q42
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q43
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q44
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q45
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q46
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q47
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q48
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q49
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q50
-      // Question_Answer.create({ 
-      //   question: ``,
-      //   questionImage: [``], 
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
+      
 
 
