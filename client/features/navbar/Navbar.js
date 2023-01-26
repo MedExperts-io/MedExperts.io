@@ -26,12 +26,7 @@ const SiteNavbar = () => {
         {isLoggedIn ? (
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Button
-                variant="light"
-                href="/dashboard"
-                style={{ color: "#FF6262" }}
-                className="m-2"
-              >
+              <Button variant="light" href="/home" style={{ color: "#FF6262" }} className="m-2">
                 Dashboard
               </Button>
               <Button
