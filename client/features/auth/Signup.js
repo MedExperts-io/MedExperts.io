@@ -9,6 +9,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
   const [errors, setErrors] = useState("");
+  const expertiseLevel = ["Student", "Resident", "Fellow", "P/A", "N/P", "Nurse", "Pharmacist", "Internal med", "Other Board certified professionals"];
 
   const togglePassword = (evt) => {
     evt.preventDefault();
@@ -42,7 +43,6 @@ const SignUp = () => {
               <Row style={{ margin: "0px" }}>
                 <Form.Label label="First Name">First Name</Form.Label>
               </Row>
-
               <Col sm={12}>
                 <InputGroup>
                   <Form.Control style={{ borderRadius: "10px" }} required type="text" placeholder="Enter first name" />
@@ -51,6 +51,7 @@ const SignUp = () => {
               </Col>
             </Form.Group>
           </Col>
+
           <Col>
             <Form.Group controlId="lastName">
               <Row style={{ margin: "0px", padding: "0px" }}>
@@ -72,7 +73,6 @@ const SignUp = () => {
               <Row style={{ margin: "0px" }}>
                 <Form.Label label="Email Address">Email Address</Form.Label>
               </Row>
-
               <Col sm={12}>
                 <InputGroup>
                   <Form.Control style={{ borderRadius: "10px" }} required type="text" placeholder="Enter email" />
@@ -81,6 +81,7 @@ const SignUp = () => {
               </Col>
             </Form.Group>
           </Col>
+
           <Col>
             <Form.Label label="Expertise Level">Expertise Level</Form.Label>
             <Form.Select aria-label="Default select example">
@@ -98,22 +99,25 @@ const SignUp = () => {
                 Password
               </Form.Label>
             </Row>
+            <Row>
+              <Col sm={6}>
+                <InputGroup>
+                  <Form.Control required type={passwordShown ? "text" : "password"} placeholder="Enter password" />
+                  <Button variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
+                    {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+                  </Button>
+                  <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
+                </InputGroup>
+              </Col>
 
-            <Col sm={6}>
-              <InputGroup>
-                <Form.Control required type={passwordShown ? "text" : "password"} placeholder="Enter password" />
-                <Button variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
-                  {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+              <Col>
+                <Button style={{ textAlign: "right", justifyContent: "right", float: "right" }} id="buttons" variant="secondary" type="submit" size="md">
+                  Sign Up
                 </Button>
-                <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
-              </InputGroup>
-            </Col>
+              </Col>
+            </Row>
           </Form.Group>
         </Row>
-
-        <Button id="buttons" variant="secondary" type="submit" size="md">
-          Sign Up
-        </Button>
       </Form>
       <div className="p-1"></div>
     </Container>
