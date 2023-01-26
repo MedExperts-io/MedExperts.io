@@ -1011,6 +1011,202 @@ async function seed() {
         category: "anatomy",
       }),
 
+       //Q51
+       Question_Answer.create({ 
+        question: `Which is true regarding the chest wall tumors?`,
+        answerOptions: [`Malignant tumors are more frequent than the benign tumors`,`Female and male are affected equally`,`Radiation is the main cause`,`Leiomyosarcoma is the most frequent rib tumor`],
+        questionImage: [``],    
+        correctAnswer:`Malignant tumors are more frequent than the benign tumors`,
+        explanation: `Tumors of the chest wall can arise from any soft tissue or bony structure. Primary chest wall tumors arise from muscle, fat, blood vessel, nerve sheath, cartilage, or bone of the chest wall. Secondary chest wall tumors arise from direct invasion of breast carcinoma or lung carcinoma or metastases from a distant site. Up to 50 to 80% of chest wall tumors are malignant, and 55% of these arise from bone or cartilage and 45% from soft tissue. Primary chest wall leiomyosarcoma is a rare, malignant soft-tissue tumor. It most commonly affects the extremities. 
+ 
+        The female or male preponderance is not very clear. Desmoid tumors are aggressive fibromatosis that develop at the site of a previous thoracotomy. 
+        Radiation-associated malignant tumors of the chest wall are uncommon.  
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3140237/" target="_blank">David EA, Marshall MB. Review of chest wall tumors: a diagnostic, therapeutic, and reconstructive challenge. Semin Plast Surg. 2011;25(1):16-24.</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/books/NBK539908/" target="_blank">Bajaj T, Aboeed A. Chest Wall Tumors. [Updated 2020 Jun 27]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; Jan 2020.</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8776346/" target="_blank">Shikhare S. Primary chest-wall leiomyosarcoma: a rare mimic of a malignant rib lesion. CSO 2016;14(10):431-433.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+    
+       //Q52
+       Question_Answer.create({ 
+        question: `Which statement is correct regarding tuberculosis?`,
+        answerOptions: [`Lung surgery is frequently indicated for active tuberculosis`,`There is a correlation between lung cancer and previous tuberculosis`,`Post TB bronchiectasis can be treated with surgery`,`Most common antitubercular drug causing hepatitis toxicity is INH`],
+        questionImage: [``],    
+        correctAnswer:`Most common antitubercular drug causing hepatitis toxicity is INH`,
+        explanation: `Lung surgery in TB is indicated to support the diagnosis and treatment of only the most complex cases to improve their therapeutic outcomes. Surgical intervention is required for 
+        a.	elimination of contagious persisting tubercular cavities despite appropriate chemotherapy 
+        b.	treatment of the destroyed lung 
+        c.	Tuberculoma resection 
+        d.	Tuberculous pleural empyema treatment 
+         
+        The most common TB medication that causes hepatitis is INH.  
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4958807/" target="_blank">Subotic D, Yablonskiy P, Sulis G et al. Surgery and pleuro-pulmonary tuberculosis: a scientific literature review. J Thorac Dis 2016;8(7):E474-E485.</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5887688/" target="_blank">Keikha M, Esfahani BN. The Relationship between Tuberculosis and Lung Cancer. Adv Biomed Res. 2018 Mar 27;7:58.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+        //Q53
+        Question_Answer.create({ 
+          question: "A strong risk factor for malignancy in a SPN is",
+          answerOptions: ["Presence of calcium deposits in the lesion", "Calculated doubling time of less than 30 days", "A SUV of less than 2.5 on PET scan", "A spiculated border on CT scan"],
+          questionImage: [``],    
+          correctAnswer:`A spiculated border on CT scan`,
+          explanation: `Benign solitary pulmonary nodules lesions have regular, smooth edges, while typical malignant nodules usually have lobulated, spiculated or irregular edges. Lobulation is associated with a greater risk for malignant pulmonary nodules than spiculation. The greatest risk factor for malignant SPNs was an edge characterized by lobulation and spiculation.`,
+          explanationImage: [],
+          explanationLinks: [
+              `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5438732/" target="_blank">Yang L, Zhang Q, Bai L, Li TY, He C, Ma QL, Li LS, Huang XQ, Qian GS. Assessment of the cancer risk factors of solitary pulmonary nodules. Oncotarget. 2017 Apr 25;8(17):29318-29327.</a>`,
+           ],
+          level: "easy",
+          category: "anatomy",
+        }),
+
+
+       //Q54
+       Question_Answer.create({ 
+        question: "In the event of exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy, the most efficient way of stopping the hemorrhage is:",
+        answerOptions: ["Cryotherapy", "Arrange for emergency", "Platelet transfusion", "Bleeding site tamponade done with a balloon-tipped vascular catheter"],
+        questionImage: [``],    
+        correctAnswer:`Bleeding site tamponade done with a balloon-tipped vascular catheter`,
+        explanation: `Initial salvage treatment of an exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy should involve the following steps: 
+
+        Step 1:  Rigid bronchoscope wedged into the hemorrhaging bronchus  
+        Step 2: Bleeding site tamponade done with a balloon-tipped vascular catheter  
+                     Step 3:  Bronchoscope removed, and patient intubated with a double-lumen tube 
+                     Step 4: Arrange Emergency definitive surgery 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC471410/" target="_blank">Maguire MF, Berry CB, Gellett L, Berrisford RG. Catastrophic haemoptysis during rigid bronchoscopy: a discussion of treatment options to salvage patients during catastrophic haemoptysis at rigid bronchoscopy. Interact Cardiovasc Thorac Surg. 2004;3(2):222-225.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q55
+       Question_Answer.create({ 
+        question: "Nocturnal leg cramps are a common phenomenon and are often considered to be idiopathic. The precise mechanism of leg cramps is still unknown, but several theories have been suggested. Which of the following is not considered part of the differential diagnosis in nocturnal leg cramping?",
+        answerOptions: ["Claudication", "Peripheral neuropathy", "Restless Leg Syndrome", "Cardiovascular Accident (Stroke)"],
+        questionImage: [``],    
+        correctAnswer:`Cardiovascular Accident (Stroke)`,
+        explanation: `The precise mechanism of leg cramps is unknown, but several myopathic, neurologic, and metabolic causes have been suggested. Most cases of leg cramps are idiopathic. 
+
+        Electromyographic studies suggest that leg cramps originate in the lower motor neurons with hyperactive, high-frequency, involuntary nerve discharge.  Some scientists hypothesize that our “civilized” lifestyle no longer requires repetitive squatting that stretches the leg tendons and muscles.  Others have suggested that in the nocturnal recumbent position, the foot is passively in plantar flexion and the calf muscle fibers are already maximally shortened, so uninhibited nerve stimulation leads to cramping. 
+        
+         Exercise research suggests that muscle fatigue is a primary cause of leg cramps. Studies of endurance athletes show that a higher-than-normal intensity of exercise is associated with leg cramps.  The mechanism of this association remains unclear. Nerve dysfunction or damage has been suggested as a cause of leg cramps because of the high prevalence in patients with neurologic conditions such as parkinsonism. Metabolic causes are suggested by the high prevalence in patients undergoing hemodialysis that is associated with hyperphosphatemia, but not with hyper- or hypocalcemia. Patients with low parathyroid hormone levels who are undergoing hemodialysis have a lower-than expected incidence of leg cramps. 
+        
+        Neither exercise-related cramps nor nocturnal cramps have been associated with hypovolemia (caused by dehydration) or disturbances of electrolytes such as potassium, sodium and magnesium. One study of patients with nonalcoholic cirrhosis demonstrated that leg cramps are not related to changes in the levels of creatinine, calcium, magnesium, sodium, potassium, zinc, glucose, alanine transaminase, total bilirubin, or albumin. 
+        
+        Muscle cramps are reported as an adverse effect for hundreds of medications, but only a few are specific to the legs. Medication related leg cramps are most commonly associated with intravenous iron sucrose, conjugated estrogens, raloxifene (Evista), naproxen (Naprosyn), and teriparatide (Forteo), although the overall incidence is very low (Table 1).11 Leg cramps also have been reported in studies of medications such as clonazepam (Klonopin), citalopram (Celexa), celecoxib (Celebrex), gabapentin (Neurontin), and zolpidem (Ambien), which, ironically, are used to treat leg cramps. A recent study found an association between leg cramps and the use of quinine in the year following new prescriptions for diuretics, statins, and inhaled long acting beta2 agonists. However, the study was complicated by worsening disease states (such as vascular disease) and by increased patient-physician contact. Diuretics, such as hydrochlorothiazide, are commonly believed to cause leg cramps secondary to electrolyte abnormalities, but they have not been implicated in evidence-based reviews. 
+        
+        Several medical conditions are associated with leg cramps. A study of outpatient veterans reported leg cramps in 75 percent of those with peripheral vascular disease, 63 percent of those with hypokalemia, and 62 percent of those with coronary artery disease. About 60 percent of patients with cirrhosis reportedly have leg cramps, most of whom are older patients with advanced disease. Leg cramps have been linked to neurologic diseases such as parkinsonism and peripheral neuropathy. Lumbar canal stenosis also is associated with leg cramps.  Nerve damage from cancer treatment may be a cause of leg cramps, with a small study demonstrating that leg cramps were present in 82 percent of patients with cancer.  Hemodialysis is linked to cramps, but chronic kidney disease is not. Venous insufficiency is also linked to leg cramps, but research has not demonstrated that cramps are caused by tissue hypoxia or toxic metabolites, and treatment of venous insufficiency has not been shown to relieve cramps. Pregnancy historically has been associated with leg cramps, although it is difficult to differentiate pregnancy itself as the primary cause as opposed to venous insufficiency. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/22963024/" target="_blank">Allen RE, Kirby KA. Nocturnal leg cramps Am Fam Physician. 2012 Aug 15;86(4):350-5. Nocturnal Leg Cramps</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       //Q56
+       Question_Answer.create({ 
+        question: "There are many causes of Chronic Obstructive Pulmonary Disease (COPD), some of them being smoking, occupational exposure, air pollution and genetics. The genetic component is centered on alpha-1 antitrypsin deficiency (AATD). Which of the following does not pertain to the AATD pathophysiology?",
+        answerOptions: ["This mutation is the result of a single amino acid mutation at position 342 (glu --> lys)", "The resulting COPD is panlobular and not centrilobular", "The mechanism of lung tissue destruction is due to an imbalance in the proteinase and anti- proteinase", "Lymphocytes are the primary cause of destruction of lung tissue in AATD"],
+        questionImage: [``],    
+        correctAnswer:`Lymphocytes are the primary cause of destruction of lung tissue in AATD`,
+        explanation: `Alpha 1-Antitrypsin (AAT) is a classic proteinase inhibitor, and the relationship of deficiency suggests that the destructive process leading to emphysema was driven by an enzyme(s) normally controlled by AAT. By the mid-1970s, the concept that it was destruction of lung elastin central to the process led to the demonstration that elastase from the neutrophil was the likely culprit. 7 Indeed, AAT has the greatest affinity for this enzyme, rapidly inactivating it, and this led to substantiation of the proteinase/antiproteinase theory of emphysema. Release of elastase by migrating neutrophils was assumed to cause the damage to elastin and the development of emphysema. Since these cells represent a key component of the lung defenses, this concept is consistent with both the age-related changes in “healthy individuals” and the accelerated changes in AATD. The next logical step, therefore, was to enhance the protection of the lung by augmentation of the low levels of AAT toward a normal or “protective” level. In the 1980s, purification of AAT from human plasma was shown to be feasible, and weekly infusions boosted the levels of AAT to those believed to be protective, leading to the belief that the problem/disease was resolved. 
+ 
+        Studies carried on with the identification of the gene and its chromosomal location and an understanding of the genetic defect resulting in the common severe deficiency gene (the Z phenotype). The point mutation resulted in a single amino acid change at position 342 (glu to lys). However, multiple, though less frequent, defects became recognized, including other point mutations, insertions, and deletions resulting in premature stop codons and even gene deletion. At this time, lung disease led to genetic disease monitoring. 
+        
+        The link between AATD and emphysema established the proteinase/antiproteinase 
+        balance as the important mechanism of lung tissue destruction. This led to studies of AAT and its phenotypes to determine whether this was a more general feature. However, most patients with COPD had normal serum levels of AAT, and so alternative mechanisms resulting in uncontrolled proteinase activity in the lung were sought. As the structure/function knowledge of AAT grew, it became recognized that the amino acid at position 358 was critical for its function. In normal AAT this is methionine, which gives the protein its specificity for interaction with the catalytic triad of serine proteinases, especially neutrophil elastase (NE). The only other naturally occurring active site variant identified had arginine at this site changing the protein into an antithrombin. No such active site variants were found in COPD, but experiments showed that cigarette smoke oxidized the normal methionine, reducing the inhibition of NE 2,000-fold. Initial lung lavage studies demonstrated a reduction in AAT function in healthy smokers and 
+        evidence of oxidized methionine residues, adding credence to the theory that usual COPD emphysema was also due to a proteinase/antiproteinase imbalance due to cigarette 
+        smoke induction of functional AATD. 
+         
+        For some years it has been recognized that neutrophils from patients with COPD have increased chemotactic response and destructive capability, increased adhesion and spontaneous migration under flow conditions, and a chaotic chemotactic migration pathway. The latter two studies were consistently different from matched patients with AATD (overcoming any effects secondary to the presence and severity of airflow obstruction and treatment) and probably reflect abnormal signaling through PI3K. Studies of early emphysema, preceding the development of airflow obstruction, highlighted local neutrophilic inflammation present in BAL.  More recently, PET CT scanning highlighted an enhanced neutrophil signal in usual COPD localized to where the emphysema occurs (the apices) compared with subjects with AATD in whom the signal was normal. Since the release of proteinases by an activated neutrophil exceeds the inhibitory capacity of even normal concentrations of active AAT. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24297124/" target="_blank">Stockley RA. α1-Antitrypsin Deficiency: What Has It Ever Done for Us? Chest. 2013;144(6):1923-1929.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+       //Q57
+       Question_Answer.create({ 
+        question: `A 40-year HIV positive male is admitted to hospital for fever, chills, cough, shortness of breath and weight loss for the past two days.   The cough and shortness of breath started two weeks ago and has gotten worse in the past few days.  On physical examination, the patient was tachypneic, tachycardic with mild crackles.  Patient is on HAART since he was diagnosed 2 years ago.  CD 4 count is <200 and CT scan done in the ER showed diffuse  opacities.  Patients have an A-a gradient >45mmHg.  Which of the following is the treatment of choice for this patient if he is allergic to Sulfa drugs?`,
+        answerOptions: [`Trimethoprim-sulfamethoxazole (TMP-SMX)`,`Pentamidine`,`Rifampin`,`Amphotericin.`],
+        questionImage: [`public/Images/Q57/Q57 img1.png`],    
+        correctAnswer:`Pentamidine`,
+        explanation: `Pneumocystis carinii pneumonia (PCP) is an opportunistic infection common in immunocompromised patients such as HIV patients.  Defective T-Cell immunity, with CD4 count < 200 per mm2 is primary risk factor for PCP.    Patients present with classic triad of fever, exertional dyspnea and nonproductive cough.  Physical exam reveals fine dry rales.   Diagnosis can be confirmed by chest x-ray which shows diffuse interstitial pulmonary infiltrates along with a blood gas analysis that shows hypoxemia.  [A-a] gradient of more than 45 indicates severe prognosis.  PCP is diagnosed routinely with sputum induction and bronchoalveolar lavage with methenamine silver stain. Hospitalized patients receive IV therapy and switched to oral treatment; however mild cases can be treated with oral therapy from the outset.  The primary drug of choice for treatment and prophylaxis is trimethoprim-sulfamethoxazole (TMP-SMX), but alternatives may be needed because of adverse effects, poor response or allergy to Sulfa containing drugs.  Pentamidine is used in patients who are allergic to TMP-SMX or can’t tolerate it.  It is less effective compared to TMP-SMX.  Serious adverse effects include nephrotoxicity, hyperglycemia or hypoglycemia, pancreatitis and torsade de pointes.  Therefore, it is important to monitor glucose levels, QT prolongation and creatinine.  Other drugs available include Clindamycin plus primaquine, Atovaquone and Dapsone.  Adjunctive corticosteroid therapy within the first 72 hours improves survival in moderate to severe cases.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/10537385/" target="_blank">Wilkin, A.  J. Feinberg.  Pneumocystis carinii Pneumonia: A Clinical Review.  Am Fam Physician. 1999 Oct 15;60(6):1699-1708.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+       //Q58
+       Question_Answer.create({ 
+        question: `When B lines are seen in all lung fields, this suggests the possibility of all the following except:`,
+        answerOptions: [`ARDS`,`Cardiogenic Pulmonary Edema`,`PCP Pneumonia`,`Status Asthmaticus`],
+        questionImage: [``],    
+        correctAnswer:`Status Asthmaticus`,
+        explanation: `Pulmonary edema is defined as abnormal accumulation of extravascular fluid in the lung [1]. The most common cause of pulmonary edema is renal or cardiac insufficiency. On radiograph imaging patients with pulmonary congestion, B lines can be seen which represents interlobular septal thickening.  
+
+        ARDS is syndrome where signs and symptoms of pulmonary edema occur in absence of elevated pulmonary venous pressure. B lines generate an image as “white lung” which shows a typical pattern as wet lungs [2].
+        
+        In all the choices above, status asthmaticus do not show B lines and instead would show hyperinflation.  
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/31476240/" target="_blank">Loebelenz LI. Kerley B lines in the lung apex- a distinct CT sign for pulmonary congestion. Swiss Med Wkly 2019, 149:w20119</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24247614/" target="_blank">Corradi F. Chest ultrasound in acute respiratory distress syndrome. Curr Crit Care 2014; 20(1):98-103</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q59
+       Question_Answer.create({ 
+        question: `A 72-year-old man with a 15-year history of COPD presents to the clinic. His current COPD therapy consists of a LABA/LAMA combination.  He has very severe COPD, with a forced expiratory volume in 1 second value of 30% of what was predicted one years ago. During the visit, he mentions that he is adherent to his treatment regimen, and he shows appropriate use of his inhaler device. He has had 3 exacerbations in the past year. Which of the following is the next best step for this patient?`,
+        answerOptions: [`Add an oral corticosteroid to his current treatment plan`,`Add an inhaled corticosteroid (ICS) to his current treatment plan`,`Change his inhaler device`,`Add Roflumilast to his current treatment regimen`],
+        questionImage: [``],    
+        correctAnswer:`Add an inhaled corticosteroid (ICS) to his current treatment plan`,
+        explanation: `This patient demonstrates correct inhaler technique; thus, ruling out error with inhaler as a cause of this patient’s worsening COPD symptoms. Adding an oral CS or starting him on a methylxanthine are not recommended due to a number of adverse events and treatment related toxicity. The Global Strategy for the Diagnosis, Management, and Prevention of COPD guidelines suggest adding an inhaled corticosteroid (ICS) to LAMA/LABA treatment if symptoms persist. This triple therapy has shown improvement in COPD symptoms and lung function compared with monotherapy or ICS/LABA therapy. 
+ 
+        Roflumilast is a PDE4 inhibitor with demonstrated efficacy for improving lung function and decreasing exacerbations in patients with severe to very severe COPD associated with chronic bronchitis. This includes decreasing the incidence of exacerbations in frequent exacerbators and also of hospitalization. However, one would add inhaled corticosteroid before adding Roflumilast to the regimen.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2707800/" target="_blank">Montuschi P, Pharmacological treatment of chronic obstructive pulmonary disease; Int J Chron Obstruct Pulmon Dis. 2006 Dec; 1(4): 409–423.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      
+
+      
 
     
 
@@ -1071,8 +1267,8 @@ module.exports = seed
     //   //Qx
     //   Question_Answer.create({ 
     //     question: ``,
-    //     questionImage: [``], 
     //     answerOptions: [``,``,``,``],
+    //     questionImage: [``],    
     //     correctAnswer:``,
     //     explanation: ``,
     //     explanationImage: [],
@@ -1083,8 +1279,6 @@ module.exports = seed
     //     category: "anatomy",
     //   }),
 
-
-
-      
+ 
 
 
