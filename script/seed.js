@@ -807,7 +807,406 @@ async function seed() {
         category: "anatomy",
       }),
 
+         //Q42
+         Question_Answer.create({ 
+          question: `A 60-year-old patient presents with a 2.5cm lung nodule located in the peripheral region of the right lower lobe. You suspect lung cancer. Patient is refusing CT guided biopsy. Which of the following is the most located cancer in the periphery of the lung?`,
+          questionImage: [``], 
+          answerOptions: [`Adenocarcinoma`,`Squamous cell carcinoma`,`Small cell carcinoma`,`Large cell undifferentiated carcinoma`],
+          correctAnswer:`Adenocarcinoma`,
+          explanation: `Adenocarcinoma is commonly peripheral and represents about 30% of the total number of lung cancer cases. Its incidence is rising especially in females. 
+  
+          Adenocarcinoma frequently present as an incidental finding on x-ray.  Other major histological types of lung cancer tend to have central localization and are as follows: 
+          
+          Squamous carcinoma is 80% central.  If in periphery, they tend to have cavitation 
+          
+          Small Cell carcinoma originates from the neuroendocrine cells of the bronchial mucosa. It is usually central with mediastinal involvement 
+          
+          Large cell undifferentiated carcinoma often develops on the outer regions of the lungs. They tend to grow rapidly and spread more aggressively than other kinds of lung cancer. 
+          
+          Bronchoalveolar carcinoma is a variant of adenocarcinoma that rises from Type II pneumocytes in the alveoli. They usually present as solitary or multiple nodules and stimulate pneumonia with infections and asthma.
+          `,
+          explanationImage: [],
+          explanationLinks: [
+              `<a href="https://pubmed.ncbi.nlm.nih.gov/27261908/" target="_blank">Zheng M. Classification and Pathology of Lung Cancer. Surg Oncol Clin N Am. 2016 Jul;25(3):447-68</a>`,
+           ],
+          level: "easy",
+          category: "anatomy",
+        }),
 
+        //Q43
+      Question_Answer.create({ 
+        question: `Asplenia is an in important risk factor for serious infections in infants < 6 months old?`,
+        questionImage: [``], 
+        answerOptions: [`Capnocytophaga canimorsus.`,`Capnocytophaga cynodegmi.`,`Babesia.`,`E. coli.`],
+        correctAnswer:`E. coli.`,
+        explanation: `Patients with asplenia are at a greater risk of fatal septicemia. The risk of post splenectomy infection is unpredictable and related to: 
+        a) indications for splenectomy (health trauma patients, hereditary spherocytosis
+        b) age (child <5 years) 
+        c) time since surgery (high risk in 1st year after surgery)
+        Impaired clearance of bacteria from bloodstream and humoral immune deficiency (low IgM) are common reasons for high risk for infections in asplenic patients. E. coli and Klebsiella bacteria are commonly seen in infants < 6 months old. Capnocytophaga canimorsus and Capnocytophaga cynodegmi are common after animal bites and babesia is common after tick bite. Asplenic patients who develop fever should be started on empirical antibiotic therapy immediately. Patients are vaccinated against pneumococcus, Haemophilus influenzae type B, influenza virus and meningococcal. Giving prophylactic antibiotics for the first two years after surgery is also recommended therapy for children >5 years and adults. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/25054718/" target="_blank">Rubin L.G. Schaffner W.  Care of the Asplenic patient.  NEJM 2014 371 (4) 349-356.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q44
+      Question_Answer.create({ 
+        question: `A College student is admitted with a history of Fever and Bilateral infiltrates. His laboratory examination reveals Hg of 10 gm/dl. Further work up establishes presence of Autoimmune Hemolytic Anemia caused by cold reacting antibodies. Which of the following organisms is associated with this condition?`,
+        questionImage: [``], 
+        answerOptions: [`Coccidioidomycosis`,`Cryptococcosis`,`Mycoplasma Pneumoniae`,`Streptococcus Pneumoniae`],
+        correctAnswer:`Mycoplasma Pneumoniae`,
+        explanation: `Cold agglutinin disease is a form of autoimmune hemolytic anemia caused by cold-reacting autoantibodies. Autoantibodies bind to the erythrocyte membrane leading to premature erythrocyte destruction (hemolysis) characterize autoimmune hemolytic anemia. The primary cold agglutinin disease is associated with monoclonal cold reacting antibodies. However, secondary cold reacting antibodies which are seen with Mycoplasma pneumoniae infection are polyclonal in nature.
+        Cold agglutinins can be seen in infections with Mycoplasmas Pneumoniae, Infectious Mononucleosis, and viral infections like Influenza virus and HIV infection.
+        The family Mycoplasmataceae contains two genera that infect humans: Mycoplasma and Ureaplasma, which are usually referred to collectively as mycoplasmas. Only four Mycoplasma Species are recognized as human pathogens; 
+        Mycoplasma pneumoniae- Atypical Pneumonia,
+        Mycoplasma hominis, - cause Pyelonephritis, Pelvic inflammatory disorder
+        Mycoplasma genitalium and Ureaplasma urealyticum both caus non gonococcal urethritis 
+        Mycoplasmas are the smallest free-living bacteria. The mycoplasmas are facultative anaerobes, except for M. pneumoniae, which is a strict aerobe. A characteristic feature that distinguishes the mycoplasmas from other bacteria is the lack of a cell wall which explains why they are resistant to penicillins and cephalosporins.  The mycoplasmas are extracellular pathogens that adhere to epithelial cell surfaces.  Mycoplasma Pneumonia is spread by close contact via aerosolized droplets and thus is most easily spread in confined populations (e.g., families, schools, and army barracks). The disease is primarily one of the young individuals. Treatment is with Macrolides, tetracyclines or Fluoroquinolones.
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997415/" target="_blank">Bajantri B., Venkatrm S, Fuentesa GD, Mycoplasma pneumoniae: A Potentially Severe Infection;J Clin Med Res. 2018 Jul; 10(7): 535–544.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q45
+      Question_Answer.create({ 
+        question: `Which of the following is most likely to improve hypoxemia in hepatopulmonary syndrome?`,
+        questionImage: [``], 
+        answerOptions: [`Administer supplemental O2`,`Administer diltiazem`,`Administer ibuprofen`,`Liver transplantation`],
+        correctAnswer:`Liver transplantation`,
+        explanation: `Hepatopulmonary syndrome (HPS) is a triad of hypoxemia, liver disease and intrapulmonary vascular dilatations. Mortality can be due to complications of underlying liver diseases such as hepatic failure, organ failure due to sepsis, hepatocellular cancer and bleeding in the GI tract.  
+ 
+        HPS is due to vascular dilations causing vascular mediators from the liver to enter into the lungs. This leads to remodeling of pulmonary vessels. There is an increased nitric oxide production which leads to vasodilation and increased carbon monoxide.  
+         
+        The only definitive intervention for patients with HPS is liver transplantation which is usually reserved for serve HPS. Partial pressure of oxygen (PaO2) <60 mmHg should be evaluated for liver transplantation. It reverses hypoxemia in about 85% of cases.  
+         
+        Administering supplemental O2 has been attempted to improve gas exchange and decrease hypoxemia but there is no effective therapy for HPS. Oxygen therapy can improve conditions related to intrapulmonary vascular shunts (dyspnea, desaturation, fatigue) which patients with HPS.  
+         
+        Patients with mild to moderate HPS can be monitored with observation every 6 to 12 months using pulse oximetry.  
+        `,
+        explanationImage: [],
+        explanationLinks: [],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q46
+      Question_Answer.create({ 
+        question: `Which statement about pulmonary oxygen toxicity is true?`,
+        questionImage: [``], 
+        answerOptions: [`The histopathologic finding are specific for that condition`,`Can result in massive Pulmonary Hemorrhage`,`FiO2  < 0.6 been shown to be toxic`,`Hyperoxia can result in absorption atelectasis`],
+        correctAnswer:`Hyperoxia can result in absorption atelectasis`,
+        explanation: `Extended exposure to above-normal oxygen partial pressures, or shorter exposures to very high partial pressures, can cause oxidative damage to cell membranes leading to the collapse of the alveoli in the lungs . Hydroxyl radical (OH), Hydrogen peroxide (H2O2) and superoxide radical (O2) are produced by stepwise reduction of O2 to water to form oxygen free radicals (OFR).
+        Oxygen toxicity causes cell membrane damage resulting in increased cell permeability. Lysosomal membrane damage releases proteolytic enzymes leading to inactive cell enzymes, DNA damage and recruitment of neutrophils. Pulmonary capillary endothelial and alveolar epithelial cells are targets for (OFR) resulting in injury-induced lung edema, flooding of alveolar, hemorrhage, and deposits of collagen, elastin and hyaline membrane formation.  However these pathological findings are nonspecific and can be seen in many other disorders. Oxygen is toxic to lungs when high FIO2 (>0.60) is administered over >24 hours at normal barometric pressure. A high concentration of oxygen displaces nitrogen in the alveoli and the oxygen in alveoli may be absorbed, reducing alveolar volume. Thus hypoxia can result in absorption atelectasis which could result in increased physiological shunting and hypoxemia.
+        `,
+        explanationImage: [],
+        explanationLinks: [],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q47
+      Question_Answer.create({ 
+        question: `All the following are effective in preventing or treating the acute chest syndrome, except:`,
+        questionImage: [``], 
+        answerOptions: [`Incentive spirometry`,`Hydration`,`Supplemental oxygen`,`Plasmapheresis`],
+        correctAnswer:`Plasmapheresis`,
+        explanation: `Appropriate therapy for acute chest syndrome (ACS) is needed to prevent rapid decline and multiorgan failure. Pain is controlled with parenteral opioids.  
+ 
+        Fluids should be administered to prevent hypovolemia.  
+         
+        The mainstay of acute treatment of acute chest syndrome is red blood cell transfusions. The need for transfusion depends on severity and progression of the disease. Transfusions are given to improve oxygenation in ACS and when the hemoglobin is 10% to 20% below baseline.  
+         
+        Exchange transfusions are used in severe cases of ACS which patients present with hypoxemia, multilobar disease on imaging or failure of blood transfusions. The goal of RBC exchange is to increase hemoglobin to 10 and decrease HbS to less than 30%.   
+         
+        Incentive spirometry is used to prevent acute chest syndrome episodes in children with sickle cell disease and those who are admitted in the hospital with a painful crisis. It is recommended 10 maximal breaths every 2 hours can prevent ACS during vaso-occlusive pain episodes.  
+         
+        Supplemental oxygen should be delivered to patients with low oxygen saturation (SaO2) or low partial pressure (PaO2).  
+        
+        Plasmapheresis will not help to improve the patient hemoglobin hence it will not be helpful for in patients with acute chest syndrome 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet PS. Incentive spirometry to prevent acute pulmonary complications in sickle cell diseases.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">N Engl J Med 1995; 333:699-703</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q48
+      Question_Answer.create({ 
+        question: `Which of the following is the mechanism of action of sildenafil used as a medical therapy in pulmonary arterial hypertension?`,
+        questionImage: [``], 
+        answerOptions: [`Phosphodiesterase 5 inhibitor`,`Nitric oxide synthase inhibitor`,`Phosphodiesterase 4 inhibitor`,`Guanylate cyclase inhibitor`],
+        correctAnswer:`Phosphodiesterase 5 inhibitor`,
+        explanation: `The ability of sildenafil in PAH relies upon the inhibition of PDE-V.  This reduces cyclic guanosine monophosphate degradation with resultant reductions in pulmonary smooth muscle cytoplasmic calcium levels causing vasodilation.  This relieves the elevated arterial pressures of PAH and reduces the progression of PAH associated pathology.  Sildenafil is a selective and potent inhibitor of PDE type 5 which specifically degrades cyclic guanosine monophosphate and is found in high concentrations in pulmonary arteries and the corpora cavernosum.  Normally, endothelium-derived NO stimulates intracellular soluble guanylate cyclase resulting in increased levels of cGMP, which then acts to mediate smooth muscle relaxation (Figure 1). Sildenafil inhibits the degradation of cGMP by PDE 5 and prolongs the actions of cGMP.  Metabolism of sildenafil occurs primarily by hepatic cytochrome P450 enzymes yielding one active metabolite with a potency of approximately 50% of the parent drug.  Patients with age greater than 65, with creatinine clearance less than 30, and with hepatic cirrhosis have reduced clearance of sildenafil `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994020/" target="_blank">Barnett C, Machado R. Sildenafil in the treatment of pulmonary hypertension. VascHealth Risk Manag.
+            2006;2(4):411-22.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       
+
+      //Q49
+      Question_Answer.create({ 
+        question: `TNF inhibitors have become widely used for their immunosuppressive properties over the last few years. They are used in all fields of medicine from Rheumatology, Gastroenterology, Dermatology and many more.  However, they are not without risks. Which of the following TNF Inhibitors pose the greatest risk of recrudescence of tuberculosis?`,
+        questionImage: [``], 
+        answerOptions: [`Infliximab (Remicade)`,`Etanercept (Enbrel)`,`Adalimumab (Humira)`,`Certolizumab pegol (Cimzia)`],
+        correctAnswer:`Infliximab (Remicade)`,
+        explanation: `Patients on anti-TNF therapy are at a higher risk of infection, ranging from minor to life-threatening bacterial infections, and including the reactivation of granulomatous and fungal infections. More importantly, these agents are similar to steroids in blunting signs of infection, which may delay diagnosis and treatment. 
+ 
+        The management of infection in patients on anti-TNF medications varies from case to case. In general, patients with a minor infection that does not require hospitalization or intravenous antibiotics can continue the biologic therapy while taking oral antibiotics. TNF inhibitors must be held in the event of a major infection. 
+        
+        Consultation with an infectious disease specialist is recommended, especially in complex cases. 
+         
+        Granulomatous Infections such as Tuberculosis 
+         
+        Anti-TNF agents increase the risk of de novo granulomatous infections and of reactivating such infections. Granuloma formation and intracellular destruction of mycobacteria depend on TNF. TNF is important in maintaining the anatomic integrity of granulomas where these organisms have been sequestered, and blocking TNF leads to breakdown of granulomas and release of virulent organisms. 
+         
+        TNF inhibitors increase the risk of reactivation of latent tuberculosis infection. The risk is greater with infliximab and adalimumab than with etanercept, and it has been described with certolizumab. Study results are varied thus far but show a risk of tuberculosis reactivation five to 30 times higher than in the general population, with tremendous variability in risk depending on background rates of previous exposure. 
+        
+        The absence of typical tuberculosis symptoms further complicates care in these cases. Fever, weight loss, and night sweats tend to be TNF-mediated and are therefore masked by anti-TNF agents, leading to atypical presentations. In addition, active tuberculosis infection associated with TNF inhibitors is more likely to involve extrapulmonary sites such as the skin and musculoskeletal system and to be disseminated at presentation. 
+         
+        A paradoxical worsening of tuberculosis symptoms may also be seen in patients with latent tuberculosis reactivation, especially after discontinuing anti-TNF therapy. This is thought to result from an immune reconstitution inflammatory syndrome. The pretreatment evaluation should include a history of risk factors, a physical examination, and either a tuberculin skin test or an interferon-gamma-release assay. Interferon- gamma-release assays are particularly helpful in patients who have received bacille Calmette-Guérin vaccination. In patients who test positive or have been exposed, tuberculosis treatment should begin 4 weeks before starting anti-TNF therapy, though the optimal timing of antituberculosis agents is still controversial. 
+         
+        If tuberculosis develops in a patient on anti- TNF therapy, he or she should receive antituberculosis drugs. Anti-TNF therapy should be stopped and should be resumed after 2 months only if no other treatment option is available. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24493494/" target="_blank">Hadam J, Aoun E, Clarke K, Wasko MC. Managing risks of TNF inhibitors: An update for the internist. Cleve Clin J Med. 2014 Feb;81(2):115-27.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/12905464/" target="_blank">Gómez-Reino JJ, Carmona L, Valverde VR, Mola EM, Montero MD; BIOBADASER Group. Treatment of rheumatoid arthritis with tumor necrosis factor inhibitors may predispose to significant increase in tuberculosis risk: a multicenter active-surveillance report. Arthritis Rheum 2003; 48:2122–2127.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/11596589/" target="_blank">Keane J, Gershon S, Wise RP, et al. Tuberculosis associated with infliximab, a tumor necrosis factor alpha-neutralizing agent. N Engl J Med 2001; 345:1098–1104.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/19218645/" target="_blank">Demkow U, Broniarek-Samson B, Filewska M, et al. Prevalence of latent tuberculosis infection in health care workers in Poland assessed by interferon-gamma whole blood and tuberculin skin tests. J Physiol 2008; 59(6):209-17</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q50
+      Question_Answer.create({ 
+        question: `Which of the following is true about treatment for malignant pleural mesothelioma (MPM)?`,
+        questionImage: [``], 
+        answerOptions: [`Pleurectomy-Decortication plus adjuvant treatment`,`Pleurectomy only`,`CT and or RT`,`There has been no ideal treatment found for MPM`],
+        correctAnswer:`here has been no ideal treatment found for MPM`,
+        explanation: `Malignant pleural mesothelioma presents difficulties in obtaining an early diagnosis. It is a malignant tumor with a very poor prognosis. The cure is not achieved with radical surgery (pleuropneumonectomy) alone so liberation of the tumor mass with pleurectomy/decortication combined with chemo- or radiation therapy (multimodal treatment) has been gaining popularity. If surgery is not feasible, chemotherapy (a combination of pemetrexed and platinum-derived compounds) with pleurodesis or a tunneled pleural drainage catheter, if control of pleural effusion is required, can be considered. Radiation therapy is reserved for treatment of pain associated with infiltration of the chest wall or neighboring structures. Hence, there is no one ideal treatment for this disease.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/25059587/" target="_blank">Rodríguez Panadero F. Diagnosis and Treatment of Malignant Pleural Mesothelioma. Arch Bronconeumol. 2015;51(4):177–184).</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       //Q51
+       Question_Answer.create({ 
+        question: `Which is true regarding the chest wall tumors?`,
+        answerOptions: [`Malignant tumors are more frequent than the benign tumors`,`Female and male are affected equally`,`Radiation is the main cause`,`Leiomyosarcoma is the most frequent rib tumor`],
+        questionImage: [``],    
+        correctAnswer:`Malignant tumors are more frequent than the benign tumors`,
+        explanation: `Tumors of the chest wall can arise from any soft tissue or bony structure. Primary chest wall tumors arise from muscle, fat, blood vessel, nerve sheath, cartilage, or bone of the chest wall. Secondary chest wall tumors arise from direct invasion of breast carcinoma or lung carcinoma or metastases from a distant site. Up to 50 to 80% of chest wall tumors are malignant, and 55% of these arise from bone or cartilage and 45% from soft tissue. Primary chest wall leiomyosarcoma is a rare, malignant soft-tissue tumor. It most commonly affects the extremities. 
+ 
+        The female or male preponderance is not very clear. Desmoid tumors are aggressive fibromatosis that develop at the site of a previous thoracotomy. 
+        Radiation-associated malignant tumors of the chest wall are uncommon.  
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3140237/" target="_blank">David EA, Marshall MB. Review of chest wall tumors: a diagnostic, therapeutic, and reconstructive challenge. Semin Plast Surg. 2011;25(1):16-24.</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/books/NBK539908/" target="_blank">Bajaj T, Aboeed A. Chest Wall Tumors. [Updated 2020 Jun 27]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; Jan 2020.</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8776346/" target="_blank">Shikhare S. Primary chest-wall leiomyosarcoma: a rare mimic of a malignant rib lesion. CSO 2016;14(10):431-433.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+    
+       //Q52
+       Question_Answer.create({ 
+        question: `Which statement is correct regarding tuberculosis?`,
+        answerOptions: [`Lung surgery is frequently indicated for active tuberculosis`,`There is a correlation between lung cancer and previous tuberculosis`,`Post TB bronchiectasis can be treated with surgery`,`Most common antitubercular drug causing hepatitis toxicity is INH`],
+        questionImage: [``],    
+        correctAnswer:`Most common antitubercular drug causing hepatitis toxicity is INH`,
+        explanation: `Lung surgery in TB is indicated to support the diagnosis and treatment of only the most complex cases to improve their therapeutic outcomes. Surgical intervention is required for 
+        a.	elimination of contagious persisting tubercular cavities despite appropriate chemotherapy 
+        b.	treatment of the destroyed lung 
+        c.	Tuberculoma resection 
+        d.	Tuberculous pleural empyema treatment 
+         
+        The most common TB medication that causes hepatitis is INH.  
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4958807/" target="_blank">Subotic D, Yablonskiy P, Sulis G et al. Surgery and pleuro-pulmonary tuberculosis: a scientific literature review. J Thorac Dis 2016;8(7):E474-E485.</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5887688/" target="_blank">Keikha M, Esfahani BN. The Relationship between Tuberculosis and Lung Cancer. Adv Biomed Res. 2018 Mar 27;7:58.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+        //Q53
+        Question_Answer.create({ 
+          question: "A strong risk factor for malignancy in a SPN is",
+          answerOptions: ["Presence of calcium deposits in the lesion", "Calculated doubling time of less than 30 days", "A SUV of less than 2.5 on PET scan", "A spiculated border on CT scan"],
+          questionImage: [``],    
+          correctAnswer:`A spiculated border on CT scan`,
+          explanation: `Benign solitary pulmonary nodules lesions have regular, smooth edges, while typical malignant nodules usually have lobulated, spiculated or irregular edges. Lobulation is associated with a greater risk for malignant pulmonary nodules than spiculation. The greatest risk factor for malignant SPNs was an edge characterized by lobulation and spiculation.`,
+          explanationImage: [],
+          explanationLinks: [
+              `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5438732/" target="_blank">Yang L, Zhang Q, Bai L, Li TY, He C, Ma QL, Li LS, Huang XQ, Qian GS. Assessment of the cancer risk factors of solitary pulmonary nodules. Oncotarget. 2017 Apr 25;8(17):29318-29327.</a>`,
+           ],
+          level: "easy",
+          category: "anatomy",
+        }),
+
+
+       //Q54
+       Question_Answer.create({ 
+        question: "In the event of exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy, the most efficient way of stopping the hemorrhage is:",
+        answerOptions: ["Cryotherapy", "Arrange for emergency", "Platelet transfusion", "Bleeding site tamponade done with a balloon-tipped vascular catheter"],
+        questionImage: [``],    
+        correctAnswer:`Bleeding site tamponade done with a balloon-tipped vascular catheter`,
+        explanation: `Initial salvage treatment of an exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy should involve the following steps: 
+
+        Step 1:  Rigid bronchoscope wedged into the hemorrhaging bronchus  
+        Step 2: Bleeding site tamponade done with a balloon-tipped vascular catheter  
+                     Step 3:  Bronchoscope removed, and patient intubated with a double-lumen tube 
+                     Step 4: Arrange Emergency definitive surgery 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC471410/" target="_blank">Maguire MF, Berry CB, Gellett L, Berrisford RG. Catastrophic haemoptysis during rigid bronchoscopy: a discussion of treatment options to salvage patients during catastrophic haemoptysis at rigid bronchoscopy. Interact Cardiovasc Thorac Surg. 2004;3(2):222-225.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q55
+       Question_Answer.create({ 
+        question: "Nocturnal leg cramps are a common phenomenon and are often considered to be idiopathic. The precise mechanism of leg cramps is still unknown, but several theories have been suggested. Which of the following is not considered part of the differential diagnosis in nocturnal leg cramping?",
+        answerOptions: ["Claudication", "Peripheral neuropathy", "Restless Leg Syndrome", "Cardiovascular Accident (Stroke)"],
+        questionImage: [``],    
+        correctAnswer:`Cardiovascular Accident (Stroke)`,
+        explanation: `The precise mechanism of leg cramps is unknown, but several myopathic, neurologic, and metabolic causes have been suggested. Most cases of leg cramps are idiopathic. 
+
+        Electromyographic studies suggest that leg cramps originate in the lower motor neurons with hyperactive, high-frequency, involuntary nerve discharge.  Some scientists hypothesize that our “civilized” lifestyle no longer requires repetitive squatting that stretches the leg tendons and muscles.  Others have suggested that in the nocturnal recumbent position, the foot is passively in plantar flexion and the calf muscle fibers are already maximally shortened, so uninhibited nerve stimulation leads to cramping. 
+        
+         Exercise research suggests that muscle fatigue is a primary cause of leg cramps. Studies of endurance athletes show that a higher-than-normal intensity of exercise is associated with leg cramps.  The mechanism of this association remains unclear. Nerve dysfunction or damage has been suggested as a cause of leg cramps because of the high prevalence in patients with neurologic conditions such as parkinsonism. Metabolic causes are suggested by the high prevalence in patients undergoing hemodialysis that is associated with hyperphosphatemia, but not with hyper- or hypocalcemia. Patients with low parathyroid hormone levels who are undergoing hemodialysis have a lower-than expected incidence of leg cramps. 
+        
+        Neither exercise-related cramps nor nocturnal cramps have been associated with hypovolemia (caused by dehydration) or disturbances of electrolytes such as potassium, sodium and magnesium. One study of patients with nonalcoholic cirrhosis demonstrated that leg cramps are not related to changes in the levels of creatinine, calcium, magnesium, sodium, potassium, zinc, glucose, alanine transaminase, total bilirubin, or albumin. 
+        
+        Muscle cramps are reported as an adverse effect for hundreds of medications, but only a few are specific to the legs. Medication related leg cramps are most commonly associated with intravenous iron sucrose, conjugated estrogens, raloxifene (Evista), naproxen (Naprosyn), and teriparatide (Forteo), although the overall incidence is very low (Table 1).11 Leg cramps also have been reported in studies of medications such as clonazepam (Klonopin), citalopram (Celexa), celecoxib (Celebrex), gabapentin (Neurontin), and zolpidem (Ambien), which, ironically, are used to treat leg cramps. A recent study found an association between leg cramps and the use of quinine in the year following new prescriptions for diuretics, statins, and inhaled long acting beta2 agonists. However, the study was complicated by worsening disease states (such as vascular disease) and by increased patient-physician contact. Diuretics, such as hydrochlorothiazide, are commonly believed to cause leg cramps secondary to electrolyte abnormalities, but they have not been implicated in evidence-based reviews. 
+        
+        Several medical conditions are associated with leg cramps. A study of outpatient veterans reported leg cramps in 75 percent of those with peripheral vascular disease, 63 percent of those with hypokalemia, and 62 percent of those with coronary artery disease. About 60 percent of patients with cirrhosis reportedly have leg cramps, most of whom are older patients with advanced disease. Leg cramps have been linked to neurologic diseases such as parkinsonism and peripheral neuropathy. Lumbar canal stenosis also is associated with leg cramps.  Nerve damage from cancer treatment may be a cause of leg cramps, with a small study demonstrating that leg cramps were present in 82 percent of patients with cancer.  Hemodialysis is linked to cramps, but chronic kidney disease is not. Venous insufficiency is also linked to leg cramps, but research has not demonstrated that cramps are caused by tissue hypoxia or toxic metabolites, and treatment of venous insufficiency has not been shown to relieve cramps. Pregnancy historically has been associated with leg cramps, although it is difficult to differentiate pregnancy itself as the primary cause as opposed to venous insufficiency. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/22963024/" target="_blank">Allen RE, Kirby KA. Nocturnal leg cramps Am Fam Physician. 2012 Aug 15;86(4):350-5. Nocturnal Leg Cramps</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       //Q56
+       Question_Answer.create({ 
+        question: "There are many causes of Chronic Obstructive Pulmonary Disease (COPD), some of them being smoking, occupational exposure, air pollution and genetics. The genetic component is centered on alpha-1 antitrypsin deficiency (AATD). Which of the following does not pertain to the AATD pathophysiology?",
+        answerOptions: ["This mutation is the result of a single amino acid mutation at position 342 (glu --> lys)", "The resulting COPD is panlobular and not centrilobular", "The mechanism of lung tissue destruction is due to an imbalance in the proteinase and anti- proteinase", "Lymphocytes are the primary cause of destruction of lung tissue in AATD"],
+        questionImage: [``],    
+        correctAnswer:`Lymphocytes are the primary cause of destruction of lung tissue in AATD`,
+        explanation: `Alpha 1-Antitrypsin (AAT) is a classic proteinase inhibitor, and the relationship of deficiency suggests that the destructive process leading to emphysema was driven by an enzyme(s) normally controlled by AAT. By the mid-1970s, the concept that it was destruction of lung elastin central to the process led to the demonstration that elastase from the neutrophil was the likely culprit. 7 Indeed, AAT has the greatest affinity for this enzyme, rapidly inactivating it, and this led to substantiation of the proteinase/antiproteinase theory of emphysema. Release of elastase by migrating neutrophils was assumed to cause the damage to elastin and the development of emphysema. Since these cells represent a key component of the lung defenses, this concept is consistent with both the age-related changes in “healthy individuals” and the accelerated changes in AATD. The next logical step, therefore, was to enhance the protection of the lung by augmentation of the low levels of AAT toward a normal or “protective” level. In the 1980s, purification of AAT from human plasma was shown to be feasible, and weekly infusions boosted the levels of AAT to those believed to be protective, leading to the belief that the problem/disease was resolved. 
+ 
+        Studies carried on with the identification of the gene and its chromosomal location and an understanding of the genetic defect resulting in the common severe deficiency gene (the Z phenotype). The point mutation resulted in a single amino acid change at position 342 (glu to lys). However, multiple, though less frequent, defects became recognized, including other point mutations, insertions, and deletions resulting in premature stop codons and even gene deletion. At this time, lung disease led to genetic disease monitoring. 
+        
+        The link between AATD and emphysema established the proteinase/antiproteinase 
+        balance as the important mechanism of lung tissue destruction. This led to studies of AAT and its phenotypes to determine whether this was a more general feature. However, most patients with COPD had normal serum levels of AAT, and so alternative mechanisms resulting in uncontrolled proteinase activity in the lung were sought. As the structure/function knowledge of AAT grew, it became recognized that the amino acid at position 358 was critical for its function. In normal AAT this is methionine, which gives the protein its specificity for interaction with the catalytic triad of serine proteinases, especially neutrophil elastase (NE). The only other naturally occurring active site variant identified had arginine at this site changing the protein into an antithrombin. No such active site variants were found in COPD, but experiments showed that cigarette smoke oxidized the normal methionine, reducing the inhibition of NE 2,000-fold. Initial lung lavage studies demonstrated a reduction in AAT function in healthy smokers and 
+        evidence of oxidized methionine residues, adding credence to the theory that usual COPD emphysema was also due to a proteinase/antiproteinase imbalance due to cigarette 
+        smoke induction of functional AATD. 
+         
+        For some years it has been recognized that neutrophils from patients with COPD have increased chemotactic response and destructive capability, increased adhesion and spontaneous migration under flow conditions, and a chaotic chemotactic migration pathway. The latter two studies were consistently different from matched patients with AATD (overcoming any effects secondary to the presence and severity of airflow obstruction and treatment) and probably reflect abnormal signaling through PI3K. Studies of early emphysema, preceding the development of airflow obstruction, highlighted local neutrophilic inflammation present in BAL.  More recently, PET CT scanning highlighted an enhanced neutrophil signal in usual COPD localized to where the emphysema occurs (the apices) compared with subjects with AATD in whom the signal was normal. Since the release of proteinases by an activated neutrophil exceeds the inhibitory capacity of even normal concentrations of active AAT. 
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24297124/" target="_blank">Stockley RA. α1-Antitrypsin Deficiency: What Has It Ever Done for Us? Chest. 2013;144(6):1923-1929.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+       //Q57
+       Question_Answer.create({ 
+        question: `A 40-year HIV positive male is admitted to hospital for fever, chills, cough, shortness of breath and weight loss for the past two days.   The cough and shortness of breath started two weeks ago and has gotten worse in the past few days.  On physical examination, the patient was tachypneic, tachycardic with mild crackles.  Patient is on HAART since he was diagnosed 2 years ago.  CD 4 count is <200 and CT scan done in the ER showed diffuse  opacities.  Patients have an A-a gradient >45mmHg.  Which of the following is the treatment of choice for this patient if he is allergic to Sulfa drugs?`,
+        answerOptions: [`Trimethoprim-sulfamethoxazole (TMP-SMX)`,`Pentamidine`,`Rifampin`,`Amphotericin.`],
+        questionImage: [`public/Images/Q57/Q57 img1.png`],    
+        correctAnswer:`Pentamidine`,
+        explanation: `Pneumocystis carinii pneumonia (PCP) is an opportunistic infection common in immunocompromised patients such as HIV patients.  Defective T-Cell immunity, with CD4 count < 200 per mm2 is primary risk factor for PCP.    Patients present with classic triad of fever, exertional dyspnea and nonproductive cough.  Physical exam reveals fine dry rales.   Diagnosis can be confirmed by chest x-ray which shows diffuse interstitial pulmonary infiltrates along with a blood gas analysis that shows hypoxemia.  [A-a] gradient of more than 45 indicates severe prognosis.  PCP is diagnosed routinely with sputum induction and bronchoalveolar lavage with methenamine silver stain. Hospitalized patients receive IV therapy and switched to oral treatment; however mild cases can be treated with oral therapy from the outset.  The primary drug of choice for treatment and prophylaxis is trimethoprim-sulfamethoxazole (TMP-SMX), but alternatives may be needed because of adverse effects, poor response or allergy to Sulfa containing drugs.  Pentamidine is used in patients who are allergic to TMP-SMX or can’t tolerate it.  It is less effective compared to TMP-SMX.  Serious adverse effects include nephrotoxicity, hyperglycemia or hypoglycemia, pancreatitis and torsade de pointes.  Therefore, it is important to monitor glucose levels, QT prolongation and creatinine.  Other drugs available include Clindamycin plus primaquine, Atovaquone and Dapsone.  Adjunctive corticosteroid therapy within the first 72 hours improves survival in moderate to severe cases.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/10537385/" target="_blank">Wilkin, A.  J. Feinberg.  Pneumocystis carinii Pneumonia: A Clinical Review.  Am Fam Physician. 1999 Oct 15;60(6):1699-1708.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+       //Q58
+       Question_Answer.create({ 
+        question: `When B lines are seen in all lung fields, this suggests the possibility of all the following except:`,
+        answerOptions: [`ARDS`,`Cardiogenic Pulmonary Edema`,`PCP Pneumonia`,`Status Asthmaticus`],
+        questionImage: [``],    
+        correctAnswer:`Status Asthmaticus`,
+        explanation: `Pulmonary edema is defined as abnormal accumulation of extravascular fluid in the lung [1]. The most common cause of pulmonary edema is renal or cardiac insufficiency. On radiograph imaging patients with pulmonary congestion, B lines can be seen which represents interlobular septal thickening.  
+
+        ARDS is syndrome where signs and symptoms of pulmonary edema occur in absence of elevated pulmonary venous pressure. B lines generate an image as “white lung” which shows a typical pattern as wet lungs [2].
+        
+        In all the choices above, status asthmaticus do not show B lines and instead would show hyperinflation.  
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/31476240/" target="_blank">Loebelenz LI. Kerley B lines in the lung apex- a distinct CT sign for pulmonary congestion. Swiss Med Wkly 2019, 149:w20119</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24247614/" target="_blank">Corradi F. Chest ultrasound in acute respiratory distress syndrome. Curr Crit Care 2014; 20(1):98-103</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q59
+       Question_Answer.create({ 
+        question: `A 72-year-old man with a 15-year history of COPD presents to the clinic. His current COPD therapy consists of a LABA/LAMA combination.  He has very severe COPD, with a forced expiratory volume in 1 second value of 30% of what was predicted one years ago. During the visit, he mentions that he is adherent to his treatment regimen, and he shows appropriate use of his inhaler device. He has had 3 exacerbations in the past year. Which of the following is the next best step for this patient?`,
+        answerOptions: [`Add an oral corticosteroid to his current treatment plan`,`Add an inhaled corticosteroid (ICS) to his current treatment plan`,`Change his inhaler device`,`Add Roflumilast to his current treatment regimen`],
+        questionImage: [``],    
+        correctAnswer:`Add an inhaled corticosteroid (ICS) to his current treatment plan`,
+        explanation: `This patient demonstrates correct inhaler technique; thus, ruling out error with inhaler as a cause of this patient’s worsening COPD symptoms. Adding an oral CS or starting him on a methylxanthine are not recommended due to a number of adverse events and treatment related toxicity. The Global Strategy for the Diagnosis, Management, and Prevention of COPD guidelines suggest adding an inhaled corticosteroid (ICS) to LAMA/LABA treatment if symptoms persist. This triple therapy has shown improvement in COPD symptoms and lung function compared with monotherapy or ICS/LABA therapy. 
+ 
+        Roflumilast is a PDE4 inhibitor with demonstrated efficacy for improving lung function and decreasing exacerbations in patients with severe to very severe COPD associated with chronic bronchitis. This includes decreasing the incidence of exacerbations in frequent exacerbators and also of hospitalization. However, one would add inhaled corticosteroid before adding Roflumilast to the regimen.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2707800/" target="_blank">Montuschi P, Pharmacological treatment of chronic obstructive pulmonary disease; Int J Chron Obstruct Pulmon Dis. 2006 Dec; 1(4): 409–423.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      
+
+      
 
 
 
@@ -870,6 +1269,7 @@ module.exports = seed
     //     question: ``,
     //     questionImage: [``],
     //     answerOptions: [``,``,``,``],
+    //     questionImage: [``],    
     //     correctAnswer:``,
     //     explanation: ``,
     //     explanationImage: [],
@@ -880,156 +1280,5 @@ module.exports = seed
     //     category: "anatomy",
     //   }),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // //Q42
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q43
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q44
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q45
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q46
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q47
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q48
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q49
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
-
-      // //Q50
-      // Question_Answer.create({
-      //   question: ``,
-      //   questionImage: [``],
-      //   answerOptions: [``,``,``,``],
-      //   correctAnswer:``,
-      //   explanation: ``,
-      //   explanationImage: [],
-      //   explanationLinks: [
-      //       `<a href="" target="_blank"></a>`,
-      //    ],
-      //   level: "easy",
-      //   category: "anatomy",
-      // }),
 
 
