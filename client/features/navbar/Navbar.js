@@ -38,13 +38,14 @@ const SiteNavbar = () => {
             ) : (
               // temporarily moved some logged-in user features to this section so I can visualize what they look like & until we hook up login features completely
               <>
-                <Button variant="outline-light" href="/dashboard" style={{ marginRight: "10px" }}>
+                <Button variant="outline-light" href="/dashboard" className="m-2">
+                  {/* <Button variant="outline-light" href="/dashboard" style={{ marginRight: "10px" }}> */}
                   Dashboard
                 </Button>
-                <Button variant="outline-light" href="/questions" style={{ marginRight: "10px" }}>
+                <Button variant="outline-light" href="/questions" className="m-2">
                   Questions
                 </Button>
-                <Button variant="outline-light" href="/favorites" style={{ marginRight: "10px" }}>
+                <Button variant="outline-light" href="/favorites" className="m-2">
                   Favorites
                 </Button>
               </>
