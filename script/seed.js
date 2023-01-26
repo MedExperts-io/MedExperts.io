@@ -399,6 +399,418 @@ async function seed() {
       category: "anatomy",
     }),
 
+    //Q21
+    Question_Answer.create({
+      question: `A 36-year-old African American man was evaluated in the outpatient clinic for dyspnea on exertion. His medical history was unremarkable, except he was involved in motor vehicle accident 2 years ago. He denies any history of smoking. Physical examination shows dullness and decreased breath sounds at the base of the right lung and rest of the exam is normal. Laboratory studies, including fasting blood glucose, antinuclear antibody, creatinine kinase, and thyroid stimulating hormone, where normal Chest radiograph image is shown below. A pulmonary function test was done that showed moderate restrictive defect with FEV1 60% of predicted, FVC 62 % of predicted, FEV1/FVC ratio of 73%, TLC of 60% predicted, DLCO of 76 % of predicted.  Which of the following tests will confirm the diagnosis? `,
+      questionImage: [`public/Images/Q21/Q21 img1.png`],
+      answerOptions: [`Echocardiogram study`,`Arterial blood gas`,`Sniff test`,`Cardiopulmonary exercise test`],
+      correctAnswer:`Sniff test`,
+      explanation: `The above patient has a motor vehicle accident and his physical findings are significant for dullness to percussion and absent breath sounds over the lower base of right lung, which is suggestive for right-sided diaphragmatic paralysis/weakness. Compression or destruction of the phrenic nerve by surgery, trauma, or enlargement of lymph nodes or aneurysmal vessels may also cause the condition. Bilateral diaphragmatic paralysis can result from several causes, including cervical and thoracic surgery, cold cardioplegia for cardiac surgery, trauma, multiple sclerosis, and neuralgic amyotrophy. Unilateral diaphragmatic paralysis is most often detected as an asymptomatic radiographic finding. In the absence of associated pleuropulmonary disease, most adult patients with unilateral diaphragmatic paralysis but without a coexisting pulmonary disease remain asymptomatic. Sniff test (chest fluoroscopy) is an exam that checks how the diaphragm moves when you breathe normally and when you inhale quickly. The diaphragm normally moves down when you inhale, and up when you exhale. Both the right and left sides of the diaphragm should move in the same direction at the same time. This will exaggerate the difference in a paralyzed or abnormal hemi-diaphragm, which will move paradoxically in the wrong direction. Maximal expiratory pressure (MIP), sniff nasal inspiratory pressure (SNIP), and maximal expiratory pressure (MEP) measurements can localize respiratory muscle weakness. A low MIP and SNIP but a normal MEP suggests isolated inspiratory muscle weakness (usually diaphragmatic), while a low MIP, SNIP, and MEP suggests generalized skeletal muscle weakness. Isolated expiratory muscle weakness (normal MIP and SNIP and low MEP) is rare. Pulmonary function tests may also be helpful. A decrease in vital capacity of 30 to 50% when the patient is supine supports the diagnosis of bilateral diaphragmatic paralysis, whereas a decrease in vital capacity of 10 to 30% may be seen with mild diaphragmatic weakness or unilateral diaphragmatic paralysis. Ultrasonography can also distinguish a functioning from a non functioning diaphragm; it can be used to diagnose both unilateral and bilateral diaphragmatic paralysis and to monitor recovery of the paralyzed diaphragm.  Chest MRI is useful to evaluate tumors, but it will not be helpful to diagnose diaphragmatic paralysis.`,
+      explanationImage: [],
+      explanationLinks: [
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/3752705/" target="_blank">Lisboa C, Paré PD, Pertuzé J, Contreras G, Moreno R, Guillemi S, Cruz E. Inspiratory muscle function in unilateral diaphragmatic paralysis. Am Rev Respir Dis. 1986 Sep; 134(3):488-92 </a>`,
+          `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC461156/" target="_blank">Laroche CM, Mier AK, Moxham J, Green M. Diaphragm strength in patients with recent hemidiaphragm paralysis. Thorax. 1988 Mar; 43(3):170-4. </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/3202460/" target="_blank">Laroche CM, Carroll N, Moxham J, Green M. Clinical significance of severe isolated diaphragm weakness. Am Rev Respir Dis. 1988 Oct; 138(4):862-6. </a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/3354995/" target="_blank">Mier-Jedrzejowicz A, Brophy C, Moxham J, Green M. Assessment of diaphragm weakness. Am Rev Respir Dis. 1988 Apr; 137(4):877-83 </a>`,
+       ],
+      level: "easy",
+      category: "anatomy",
+    }),
+
+    //Q22
+    Question_Answer.create({
+      question: `The biomarker exhaled nitric oxide (FeNO) is most reduced in response to which of the following biologic therapies for bronchial asthma?`,
+      questionImage: [``],
+      answerOptions: [`Anti-IL-4 receptor and anti-IL-13`,`Anti-IL-5`,`CXCR2 antagonist`,`Anti-IL-17 receptor monoclonal antibody`],
+      correctAnswer:`Anti-IL-4 receptor and anti-IL-13`,
+      explanation: `In allergic airway inflammation, mast cells and antigen-specific Th2 cells are activated, resulting in the production of cytokines, including IL-4, IL-5, and IL-13. IL-4 and IL-13 result in the upregulation of inducible nitric oxide synthase (iNOS). This upregulation  results in the increased production of FENO in airway epithelial cells.Thus,  Fractional exhaled nitric oxide (FENO) is used as a marker of T-helper cell type 2-mediated allergic airway inflammation. In general Sputum eosinophil is a good biomarker to adjust treatment with inhaled corticosteroids (ICS) and can be satisfactorily approached by FENO and blood eosinophil counts in clinical practice. In general, FENO and serum periostin are markers of the potential response to omalizumab, anti-IL-13 and anti-IL-4 therapy while blood eosinophils are best predictor for a response to anti-IL-5 therapy. Agents CXCR2 Antagonist and ANTI-IL -17 Receptor  monoclonal Antibody are not associated with changes with nitric oxide.`,
+      explanationImage: [],
+      explanationLinks: [
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/26467509/" target="_blank">Schleich F,  Demarche Sophie D, and Louis Renaud L. Biomarkers in the Management
+          of Difficult Asthma. Curr Top Med Chem. 2016 Apr; 16(14): 1561–1573.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/26836891/" target="_blank">Srinivas R. Mummadi R, Peter Y. Hahn   Update on Exhaled Nitric Oxide in Clinical Practice Asthma is characterized by chronic airway inflammation. CHEST 2016; 149(5):1340-1344</a>`,
+       ],
+      level: "easy",
+      category: "anatomy",
+    }),
+
+    //Q23
+    Question_Answer.create({
+      question: `A 62-year-old man is brought to the emergency department after losing consciousness at work. He reports difficulty walking over the past couple of days due to an infected wound on his right foot. His other medical problems include diabetes mellitus and hyperlipidemia. His blood pressure is 80/40 mm Hg and pulse is 120/min and regular. His skin is cold and clammy. Right heart catheterization is performed, and the following results are obtained: Right atrial pressure, mean 20 mm Hg (N: 0-8mm Hg), Pulmonary artery pressure 40/20 mm Hg (N: 15-28/5-16mm Hg), Pulmonary capillary wedge pressure 8mm Hg (N: 6-12mm Hg) Which of the following is the most likely diagnosis?`,
+      questionImage: [``],
+      answerOptions: [`Aortic dissection`,`Hypovolemic shock`,`Left anterior descending artery occlusion`,`Massive Pulmonary embolism`],
+      correctAnswer:`Massive Pulmonary embolism`,
+      explanation: `This patient is hemodynamically unstable (hypotension, tachycardia, cold and clammy skin, evidence of shock) due to infection of the foot presenting with massive pulmonary embolism (PE). Consequences of massive PE can lead to right ventricular dysfunction. Pulmonary artery pressure will rise leading to right ventricular function impairment and dilatation of the RV. This can lead to RV ischemia eventually leading to LV filling impairment with compromised cardiac output and hypoperfusion. The capillary wedge pressure is normal in these patients.
+      Patients with aortic dissection present with severe substernal chest pain that radiates to the back and elevated blood pressure. On physical examination diastolic decrescendo murmur can be present if the aortic valve is involved. Left Anterior descending artery occlusion results in ST segment elevation leading to myocardial infarction or cardiogenic shock. The different types of shock are shown in the chart below.
+      `,
+      explanationImage: [`public/Images/Q23/A23 img1.png`],
+      explanationLinks: [
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/23319967/" target="_blank">Sekhri V, Mehta N, Rawat N, Management of massive and nonmassive pulmonary embolism. Arch Med Sci. 2012 Dec 20; 8(6): 957–969.</a>`,
+       ],
+      level: "easy",
+      category: "anatomy",
+    }),
+
+    //Q24
+    Question_Answer.create({
+      question: `What is the most common comorbid condition in COPD?`,
+      questionImage: [``],
+      answerOptions: [`Lung cancer`,`Osteoporosis`,`Cardiovascular disease`,`Gastroesophageal reflux`],
+      correctAnswer:`Cardiovascular disease`,
+      explanation: `COPD patients are likely to have many comorbidities. Among these comorbidities cardiovascular diseases are most seen in patients with COPD. In fact, studies have shown that cardiovascular disease is more common in COPD patients as compared to non- COPD patients [1,2]. Therefore, in patients with COPD certain tests like baseline ECG, dobutamine stress imaging, and limitations may preclude exercise stress testing, and potential bronchoconstriction is often a contraindication to vasodilator radionuclide myocardial perfusion imaging. Also, serum troponin is measured in patients who come with COPD exacerbation [3]`,
+      explanationImage: [],
+      explanationLinks: [
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/20871122/" target="_blank">Feary JR, Rodrigues LC, Smith CJ. Prevalence of major comorbidities in subjects with COPD and incidence of myocardial infarction and stroke: a comprehensive analysis using data from primary care. Thorax 2010; 65(11):9556-62</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/26208998/" target="_blank">Chen W, Thamas J, Sadatsafavi M, FitzGerald JM, Risk of cardiovascular comorbidity in patients with chronic obstructive pulmonary disease: a systematic review and meta-analysis. Lancet Respir Med. 2015 Aug;3(8):631-9.</a>`,
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/29966745/" target="_blank">Vespasiani-Gentilucci U .The pharmacological treatment of chronic comorbidities in COPD: mind the gap! Pulm Pharmacol Ther. 2018 Aug;51:48-58</a>`,
+       ],
+      level: "easy",
+      category: "anatomy",
+    }),
+
+    //Q25
+    Question_Answer.create({
+      question: `If you called upon to intubate a patient. Which one of the following choices you would consider as the best predictor of a difficult intubation?`,
+      questionImage: [``],
+      answerOptions: [`Degree of cervical spine mobility.`,`Prominence of the incisors.`,`Short hyomental–thyromental distance.`,`Inability to bite the upper lip with the lower teeth.`],
+      correctAnswer:`Inability to bite the upper lip with the lower teeth.`,
+      explanation: `One of the most important advances in airway management has been the development of physical examination grading scales to help predict a difficult airway. Some scales rely only on the visibility of the vocal cords on laryngoscopy, whereas others use pre-laryngoscopic factors. The factors used in assessment include increased weight, decreased cervical spine mobility, decreased jaw mobility, retrognathia, and prominent incisors, all of which are associated with increased difficulty in intubation. Other aspects of physical examination that can be used to assess the likelihood of a difficult intubation include the hyomental–thyromental distance, with shorter distances indicating greater difficulty, and the Mallampati score, which is used to assess the visibility of oropharyngeal structures with the mouth opened maximally. Findings from a recent systematic review suggest that the best predictor is the inability to bite the upper lip with the lower teeth. However, no finding on physical examination and no specific risk factor consistently rule out a potentially difficult intubation. In short, one should always be prepared to manage a difficult airway.`,
+      explanationImage: [],
+      explanationLinks: [
+          `<a href="https://pubmed.ncbi.nlm.nih.gov/30721300/" target="_blank">Detsky ME, Jivraj N, Adhikari NK Will This Patient Be Difficult to Intubate? The Rational Clinical Examination Systematic Review. JAMA 2019; 321(5): 493-503</a>`,
+       ],
+      level: "easy",
+      category: "anatomy",
+    }),
+
+
+      //Q26
+      Question_Answer.create({
+        question: `An 18-year-old male patient with cystic fibrosis underwent bilateral lung transplant and is recovering in ICU with mechanical ventilation (MV).  Both intraoperative and early post-operative periods were uneventful therefore, he was weaned off MV. Two months later he developed progressive severe hypoxemia (PO2/FiO2 of 130 mmHg), with normal filling pressures (a central venous pressure of 7 mmHg and a wedge pressure of 12 mmHg). His further clinical course was complicated by grade 3 primary graft rejection and was treated with ECMO resulting in improvement of respiratory failure.  PFTs values at 6 months intervals were FEV1 72 % of predicted, FVC 68 % of predicted, FEV1/FVC 88% of predicted. At 9-month post-transplant interval, he reports of having nonproductive cough and dyspnea on exertion. Which of the following is an early indicator of allograft dysfunction in patients with lung transplant?`,
+        questionImage: [``],
+        answerOptions: [`Decrease in FEV1`,`Sputum production`,`Increase in Neutrophils`,`Chest x ray`],
+        correctAnswer:`Decrease in FEV1`,
+        explanation: `Chronic allograft rejection has remained a major source of morbidity and mortality following lung transplantation.  A major obstacle limiting survival is Bronchiolitis Obliterans Syndrome (BOS).  BOS occurs via a fibrotic process causing progressive narrowing of lumen and airflow obstruction as a pathological manifestation.  Some of the risk factors are listed below. The clinical symptoms are non-special with dyspnea on exertion and nonspecific cough and a normal physical exam.  The key clinical indicator for BOS is a reduction of forced expiratory volume in 1 second (FEV1) that is unresponsive to bronchodilators.  The diagnosis of BOS is usually made by clinical, physiological, and radiographic parameters.  No labs test is available to diagnosis BOS.  Chest imaging studies have a low sensitivity for identification of BO and are not used for screening; however, HRCT (with inspiratory/expiratory view) can show areas of hyperinflation and possibly bronchiectasis.  Treatment includes long-term azithromycin, immunosuppressive medication.  Statins, Captopril and Extracorporeal Photopheresis
+        have also indicated some efficacy in treating BOS.`,
+        explanationImage: [`public/Images/Q26/A26 img 1.png`],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/21813529/" target="_blank">Bronchiolitis Obliterans Syndrome The Final Frontier for Lung Transplantation Jamie L. Todd, MD; and Scott M. Palmer, MD, MHS, FCCP CHEST 2011; 140(2): 502 – 508</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/11897517/" target="_blank">Estenne M, Maurer JR, Bohler A, et al. Bronchiolitis obliterans syndrome 2001: An update of the diagnostic criteria. J Heart Lung Transplant 2002; 21:297</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q27
+      Question_Answer.create({
+        question: `27.	A previously healthy 70-year-old woman presented to the emergency department ninety minutes after developing acute onset speech difficulty and right-sided weakness.  On presentation, she patient had a blood pressure of 140/70 mmHg, heart rate of 50 beats per minute, respiratory rate of 20 breaths per minute and temperature of 36.6 degrees Celsius. Physical examination findings were significant for global aphasia, right central type facial palsy and right hemiplegia. The rest of her exam was normal.
+        Pt was diagnosed as a case of ischemic stroke and intravenous recombinant tissue plasminogen activator (rtPA) infusion was started. During the infusion, the patient developed severe shortness of breath with pink frothy secretions. Vital signs showed BP 175/100 mmHg, HR 115 bpm, RR 28 bpm, oxygen saturation 77% on room air. Chest auscultation revealed bilateral crackles and rales. The infusion was discontinued, and the patient was intubated for hypoxic respiratory failure and placed on a mechanical ventilator.  Repeat head CT showed evidence of cerebral edema with subarachnoid hemorrhage.  Chest x-ray revealed generalized increased pulmonary infiltration and CT scan of the chest showed interlobular septal thickening with ground glass opacities. Which of the following is the most appropriate ventilation strategy in the management of this patient?`,
+        questionImage: [``],
+        answerOptions: [`Permissive Hypercapnia and low tidal volume ventilation`,`Optimal oxygenation with PEEP`,`Start low dose steroids`,`Extracorporeal membrane oxygenation`],
+        correctAnswer:`Optimal oxygenation with PEEP`,
+        explanation: `Neurogenic pulmonary edema (NPE) is an increase in pulmonary interstitial and alveolar fluid that is due to an acute central nervous system injury and can develop within minutes to hours of a severe central nervous system insult. It is sometimes classified as a form of the acute respiratory distress syndrome (ARDS), but its pathophysiology and prognosis are different.  NPE characteristically presents soon after severe central nervous system insult such as subarachnoid hemorrhage (SAH) or traumatic brain injury (TBI).  Dyspnea is the most common symptom along with pink frothy secretion.  Physical examination generally reveals tachypnea, tachycardia, and basilar rales. Chest radiographs typically show a normal size heart with bilateral alveolar opacities.  Hemodynamic measurements are usually normal by the time NPE is diagnosed, including the blood pressure, cardiac output, and pulmonary capillary wedge pressure.  Definitive diagnosis of neurogenic pulmonary edema (NPE) is difficult, and it is based on the following criteria:   The presence of bilateral opacities   
+        ●	PaO2/FiO2 ratio <200 
+        ●	No evidence of left atrial hypertension 
+        ●	Presence of central nervous system (CNS) injury (severe enough to have caused significantly increased intracranial pressure) 
+        ●	Absence of other common causes of acute respiratory failure or acute respiratory distress   syndrome  (ARDS; eg, aspiration, massive blood transfusion, sepsis) 
+        Regarding treatment and management, the focus is on controlling the underlying neurological injury.  In many cases, NPE resolves within 48-72 hours.  General supportive care including:   
+        ●	Supplemental oxygen to correct for hypoxemia. 
+        ●	PEEP to prevent atelectasis and severe hypoxemia. 
+        ●	Peak inspiratory (plateau) pressure should be kept below 30-35 cm H2O, and normocapnia (pCO2 35-40 mmHg) should be maintained to prevent an increase in ICP.
+        Other options include inhaled nitric oxide, and extra corporeal membrane oxygenation (ECMO) in patients with NPE and severe hypoxemia, but there is no systematic evidence supporting a benefit from these treatments in such patients.
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/26066018/" target="_blank">Busl, KM et al.  Neurogenic pulmonary edema.  Crit Care Med 2015;43:17105.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/22429697/" target="_blank">Davison DL, et al.  Neurogenic pulmonary edema. Crit Care. 2012;16(2):212</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       //Q28
+       Question_Answer.create({
+        question: `In what situations are pulmonary fungal infections not typically found?`,
+        questionImage: [``],
+        answerOptions: [`Patient on Systemic chemotherapy`,`Organ transplant patients`,`HIV positive patient with CD4 counts <200`,`Patients with complications of tuberculosis`],
+        correctAnswer:`Patients with complications of tuberculosis`,
+        explanation: `Opportunistic fungi like Aspergillus, Cryptococcus, Pneumocystis and endemic fungi are the most common causes of fungal lung infections in immunocompromised patients. These include patients suffering from immunodeficiency disorders like HIV/AIDS, cancer patients on chemotherapy or patients of bone marrow/stem cell transplantation on immunosuppressive therapy. The macrophages, dendritic cells and recruited neutrophils are the first line of defense against fungal infection. NK cells, inflammatory cytokines, interferon gamma and IL-17 are involved in host’s defense against pulmonary fungal infection.  Tuberculosis infection is not a neutrophilic phenomenon and not associated with invasive fungal infection.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/31333658/" target="_blank">Li Z, Lu G, Meng G. Pathogenic Fungal Infection in the Lung 2019. Front. Immunol. 10:1524</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+      //Q29
+      Question_Answer.create({
+        question: `Which one of the following statements is true regarding contraception and pregnancy in patients with pulmonary arterial hypertension?`,
+        questionImage: [``],
+        answerOptions: [`Patients should be carefully followed during pregnancy; the presence of pulmonary hypertension is not a major factor in management of these patients.`,`Bosentan can be used in patients on Progesterone only contraceptive pills.`,`In general, patients with PAH are advised to use two methods of contraception to be used at the same time.`,`Estrogen-containing contraceptives can safely be used in all patients with PAH.`],
+        correctAnswer:`In general, patients with PAH are advised to use two methods of contraception to be used at the same time.`,
+        explanation: `Pregnancy in women with pulmonary hypertension (PH) is known to be associated with significantly high morbidity and mortality rates, with an estimated mortality between 30% and 56%. [1] The physiological changes that occur during pregnancy and the peripartum period are poorly tolerated.   The causes of poor maternal outcomes are varied and include risk of death from right heart failure and stroke from intracardiac shunting. Most of the maternal PH-associated deaths occur during labor or within 1-month post- delivery.[2] Current guidelines clearly recommend the avoidance of pregnancy in women with PAH and termination when pregnancy does occur [3].
+
+        Estrogen-containing contraceptives increase risk of VTE but may be used when patients are on anticoagulation. Progestogen-only methods of contraception can be used in women with PAH. However, Progestogen-only pills may have reduced efficacy in women taking Bosentan and should not be used as the sole method of contraception in these patients. Given the risk of drug–drug interactions, the potential contraindication of hormonal methods and the unreliability of barrier methods, two methods of contraception may be used at the same time [4]
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/22848817/" target="_blank">Bassily-Marcus AM, Yuan C, Oropello J, Manasia A, Kohli-Seth R, Benjamin E. Pulmonary hypertension in pregnancy: Critical care management. Pulm Med. 2012;2012:709407</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/22139549/" target="_blank">Smith JS, Mueller J, Daniels CJ. Pulmonary arterial hypertension in the setting of pregnancy: A case series and standard treatment approach. Lung. 2012;190:155-160</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/26320113/" target="_blank">Galiè N, Humbert M, Vachiery JL, et al. 2015 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension.  Eur Heart J 2016; 37: 67–119</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4556496/" target="_blank">Hemnes AR, Kiely DG, Cockrill BA, et al. Statement on pregnancy in pulmonary hypertension from the Pulmonary Vascular Research Institute. Pulm Circ 2015; 5: 435–465</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+
+      //Q30
+      Question_Answer.create({
+        question: `30.	What is the most common cause of bronchiolitis obliterans in children? `,
+        questionImage: [``],
+        answerOptions: [`Bacterial Pneumonia`,`Trauma`,`Adenovirus infection`,`Hematopoietic Stem Cell Transplantation`],
+        correctAnswer:`Adenovirus infection`,
+        explanation: `Bronchiolitis Obliterans (BO) is an infrequent chronic and obstructive lung disease secondary to an insult to the terminal airway and its surroundings. In children, the most common presentation is the post-infectious variant [most commonly due to adenovirus infection], closely related to a severe viral infection in the first three years of life. When it occurs after lung transplantation of hematopoietic stem cell transplantation (HSCT) it is called bronchiolitis obliterans syndrome. It is one of the most common noninfectious complications after lung transplant and hematopoietic stem cell transplantation.
+
+        Post-transplant BO is progressive while post-infectious BO does not seem to be, but both forms share some common pathways that result in a characteristic histopathology of bronchiolar obliteration. In adults outside of transplantation, bronchiolitis obliterans can be seen after exposure to inhaled toxins and gasses including sulfur mustard gas, nitrogen oxides, diacetyl (used as popcorn flavoring), fly ash and fiberglass. Bronchiolitis obliterans is also associated with autoimmune disorders, especially rheumatoid arthritis and less commonly with inflammatory bowel disease.
+
+        Though it can occur in children after any viral infection however, adenovirus (Ad) is by far the most common agent linked to the development of post-infectious BO. Mechanical ventilation is also a strong risk factor for the development of the disease. Lung function is characterized by a moderately severe to severe obstruction. HRCT shows mosaic attenuation, bronchial wall thickening, atelectasis or bronchiectasis. Treatment includes steroids, bronchodilators, Azithromycin as an anti-inflammatory agent.  Lung transplantation remains the final option for children with PIBO who have progressed to end-stage lung disease.
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/30798629/" target="_blank">Kavaliunaite E, Aurora P. Diagnosing and managing bronchiolitis obliterans in children. Expert Rev Respir Med. 2019 May;13(5):481-488</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/30523731/" target="_blank">Bondeelle L, Bergeron A. Managing pulmonary complications in allogeneic hematopoietic stem cell transplantation. Expert Rev Respir Med. 2019 Jan;13(1):105-119</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+ //Q31
+ Question_Answer.create({
+  question: `In a patient Pulmonary Artery hypertension (Group 1) is present if Mean Pulmonary Artery pressure [MPAP] is:`,
+  questionImage: [``],
+  answerOptions: [`10 mmHg with PCWP < 15 mmHg`,`15 mmHg with PCWP < 15 mmHg`,`25 mmHg with PCWP < 15 mmHg`,`30 mmHg with PCWP >15 mmHg`],
+  correctAnswer:`25 mmHg with PCWP < 15 mmHg`,
+  explanation: `The hemodynamic definition of pulmonary arterial hypertension (PAH) is a mean pulmonary artery pressure at rest greater than or equal to 20 mmHg in the presence of a pulmonary capillary wedge pressure less than or equal to 15 mmHg. A normal mean pulmonary artery pressure for a healthy patient is 12-16 mmHg and a normal wedge pressure is 6-12 mmHg. Basically, in patients with PAH the pressures in the right side of the heart and the pulmonary arteries are elevated while the pressures in the left side of the heart are normal. These specific pressures can only be measured accurately via right heart catheterization.`,
+  explanationImage: [],
+  explanationLinks: [
+      `<a href="https://pubmed.ncbi.nlm.nih.gov/30545968/" target="_blank">Simonneau G, Montani D, Celermajer DS, Denton CP, Gatzoulis MA, Krowka M, et al. Haemodynamic definitions and updated clinical classification of pulmonary hypertension. Eur Respir J. 2019;53(1).</a>`,
+   ],
+  level: "easy",
+  category: "anatomy",
+}),
+
+
+
+      //Q32
+      Question_Answer.create({
+        question: `Which is NOT true for mediastinal goiter?`,
+        questionImage: [``],
+        answerOptions: [`Most of the lesions can be resected via collar incision`,`Goiter is seen in only in anterior or middle mediastinum`,`Calcification is a common sign of mediastinal goiter`,`Vena cava superior syndrome is rare`],
+        correctAnswer:`Goiter is seen in only in anterior or middle mediastinum`,
+        explanation: `Goiter is seen only in anterior or middle mediastinum Intrathoracic thyroid adenoma or goiter is mostly located in the anterior mediastinum. 10%-15% are in the posterior mediastinum. Generally, patients have no symptoms in the case of a small goiter.
+        As it increases in size, clinical symptoms may appear due to the compression of surrounding organs and tissues (i.e. trachea, esophagus, lungs, or even superior vena cava leading to the SVC syndrome). When the trachea, esophagus or vena cava is compressed, surgical resection of the goiter must be done. Most of the anterior goiters are removed by a transcervical approach, but posterior mediastinal goiters may need extra cervical incisions. CT scan may show a mass of variable density depending on the amount of iodine contained, presence of colloid cysts and calcified plaque. Common postoperative complications include airway collapse, hypocalcemia,
+        respiratory tract infection and bleeding.
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3826527/" target="_blank">Chen et al.: Complete excision of a giant thyroid goiter in posterior mediastinum. Journal of Cardiothoracic Surgery 2013. 8:207.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q33
+      Question_Answer.create({
+        question: `In Familial Pulmonary Artery Hypertension an abnormality has been described in which of the genes.`,
+        questionImage: [``],
+        answerOptions: [`Bone morphogenetic protein receptor II gene`,`FOXG1 gene`,`Homeobox gene`,`CFTR gene mutation`],
+        correctAnswer:`Bone morphogenetic protein receptor II gene`,
+        explanation: `Genetic mutation is one of the causes of familial pulmonary artery hypertension (PAH). The most common gene associated with familial PAH is bone morphogenetic protein receptor II gene (BMPR II) which is associated with 75% of familial PAH cases and 25% of sporadic PAH cases. BMPR II gene normally inhibits vascular smooth muscle proliferation. Due to inactivating mutation of this gene, it results in excess endothelial cell proliferation and results in pulmonary artery hypertension.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/17065373/" target="_blank">Morrell NW. Pulmonary hypertension due to BMPR2 mutation: a new paradigm for tissue remodeling? Proceedings of the American Thoracic Society 2006; 3:680-6.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q34
+      Question_Answer.create({
+        question: `A 24-year-old female has Pulmonary Artery Hypertension. Her doctor comments that her physical findings are classic for tricuspid insufficiency. Which of the following is associated with tricuspid insufficiency?`,
+        questionImage: [``],
+        answerOptions: [`Large v wave in the jugular pulse`,`Increased pulse pressure`,`Diastolic murmur`,`Pansystolic murmur`],
+        correctAnswer:`Pansystolic murmur`,
+        explanation: `Pulmonary hypertension is defined as mean pulmonary artery pressure more than 25 mmHg at rest. These patients present with dyspnea, fatigue, exertional angina or syncope. On examination, patients have jugular venous distension, loud P2, palpable left parasternal lift and   a pansystolic murmur at the lower left sternal border (tricuspid regurgitation) and hepatomegaly. In later stages of the disease these patients can have ascites. The murmur of tricuspid regurgitation is a high pitched, pansystolic murmur and is best heard at the left lower sternal border and it radiates to the right lower sternal border.  The intensity significantly increases with inspiration due to increased venous return helping to distinguish it from mitral regurgitation. This inspiratory enhancement of the tricuspid regurgitation murmur is called "Carvallo's sign".`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/6375982/" target="_blank">O'Rourke RA, Crawford MH. Mitral valve regurgitation. Curr Probl Cardiol. 1984 May;9(2):1-52</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q35
+      Question_Answer.create({
+        question: `Which of the following is a sensitive measure of respiratory muscle strength in patients with neuromuscular disease (NMD)?`,
+        questionImage: [``],
+        answerOptions: [`a reduction in the total lung capacity (TLC).`,`a flat flow-volume loop.`,`a reduced forced vital capacity (FVC).`,`a reduced maximum inspiratory pressure (MIP).`],
+        correctAnswer:`a reduced maximum inspiratory pressure (MIP).`,
+        explanation: `Maximal inspiratory pressure (MIP) and maximal expiratory pressure (MEP) are direct measures of respiratory muscle strength and may be more sensitive in detecting early respiratory muscle dysfunction compared with spirometry[1]. MIP and MEP are noninvasive, straightforward tests in which individuals are asked to perform a forceful inspiration after an expiration to residual volume level (in the case of MIP) or expiration after a full inspiration to total lung capacity (TLC; in the case of MEP) with an open glottis against an occluded mouthpiece. They are indicated if muscle weakness could be contributing to abnormal spirometry test results, such as a low vital capacity (VC) [1].
+        MIP is a measure of global inspiratory muscle strength and therefore has a close relationship with diaphragmatic strength, since the diaphragm is the major inspiratory muscle; MEP is generated through the abdominal and intercostal muscles. A low MIP but a normal MEP suggest isolated inspiratory muscle weakness [usually diaphragm] while a low MIP and MEP suggest generalized muscle weakness.  Isolated expiratory muscle weakness [normal MIP and Low MEP] is rare. The VC and the maximal inspiratory pressure (MIP also known as negative inspiratory force [NIF]) are the main respiratory parameters that are used to monitor respiratory muscle strength
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/19796415/" target="_blank">Evans JA, Whitelaw WA. The assessment of maximal respiratory mouth pressures in adults. Respir Care. 2009;54:1348–59.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/12186831/" target="_blank">American Thoracic Society/European Respiratory Society (ATS/ERS). ATS/ERS Statement on respiratory muscle testing. Am J Respir Crit Care Med. 2002;166:518–624.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/28302142/" target="_blank">Benedikt Schoser, Edward Fong, Tarekegn Geberhiwot. Maximum inspiratory pressure as a clinically meaningful trial endpoint for neuromuscular diseases: a comprehensive review of the literature. Orphanet Journal of Rare Diseases volume 12, Article number: 52 (2017) </a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+      //Q36
+      Question_Answer.create({
+        question: `What is the drug of choice for chronic thromboembolic Pulmonary Hypertension (CTPH) for patients who cannot undergo surgical intervention for CTPH?`,
+        questionImage: [``],
+        answerOptions: [`Orenitram`,`Revatio`,`Bosentan`,`Riociguat`],
+        correctAnswer:`Riociguat`,
+        explanation: `The preferred treatment with patients with CTEPH is thromboendarterectomy. For patients who cannot undergo surgery and have persistent CTPH, Riociguat can be used which is a stimulator of soluble guanylate cyclase. It increases sensitivity of guanylate cyclase to endogenous nitric oxide which is a pulmonary vasodilator and also directly stimulates receptors that mimic the action of NO. Patients are started with a dose of 0.5 mg 3 times daily. As this drug can cause hypotension, so for patients in whom systolic pressure remains above 95 mmHg even after drug use, dose can be increased from 0.5 mg to 1.0 mg 3 times daily. This dose is further adjusted in patients with renal and hepatic impairment.`,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/23883377/" target="_blank">Ghofrani HA, D'Armini AM, Grimminger F, et al. Riociguat for the treatment of chronic thromboembolic pulmonary hypertension. The New England journal of medicine 2013;369:319</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5402909/" target="_blank">Lian TY, Jiang X, Jing ZC. Riociguat: a soluble guanylate cyclase stimulator for the treatment of pulmonary hypertension. Drug design, development and therapy 2017;11:1195-207.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+      //Q37
+      Question_Answer.create({
+        question: `All of the following help in preventing development of high-altitude pulmonary edema in travelers with history of high-altitude pulmonary edema except?`,
+        questionImage: [``],
+        answerOptions: [`Taking nifedipine one day before ascent`,`Phosphodiesterase-5 inhibitors one day before ascent`,`Acetazolamide one day before ascent`,`Allowing time for proper acclimatization`],
+        correctAnswer:`Acetazolamide one day before ascent`,
+        explanation: `High-altitude pulmonary edema is the leading cause of death from altitude illness, but it is avoidable with careful ascent and reversible with early recognition and treatment. Small randomized trials have shown that when started one day before ascent, prophylactic, nifedipine [1] and phosphodiesterase-5 inhibitors (tadalafil , sildenafil [2] reduce the incidence of high-altitude pulmonary edema in persons with a history of the condition, whereas acetazolamide does not.[1] [4] No comparative studies have shown one type of prophylactic agent to be superior to another.
+          It is well known that supplemental oxygen, relative rest, and descent lead to improvement in persons with high-altitude pulmonary edema.[5] Immediate descent is the treatment of choice. Supplemental oxygen may be administered if available, and simulated descent by placing the patient in a portable hyperbaric chamber may be helpful temporarily. When descent is not possible, limited evidence suggests that treatment with acetazolamide, bed rest, nifedipine, supplemental oxygen, salmeterol, or phosphodiesterase-5 inhibitors may improve oxygen saturation and pulmonary edema.[5] There is no strong evidence that medications improve outcomes or facilitate resolution of high-altitude pulmonary edema is better than descent alone.
+          `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/1922223/" target="_blank">Bärtsch P, Maggiorini M, Ritter M, Noti C, Vock P, Oelz O. Prevention of high-altitude pulmonary edema by nifedipine. N Engl J Med 1991;325:1284-9.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/17015867/" target="_blank">Maggiorini M, Brunner-La Rocca HP, Peth S, et al. Both tadalafil and dexamethasone may reduce the incidence of high-altitude pulmonary edema: a randomized trial. Ann Intern Med. 2006;145(7):497–506</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/18800957/" target="_blank">Basnyat B, Hargrove J, Holck PS, et al. Acetazolamide fails to decrease pulmonary artery pressure at high altitude in partially acclimatized humans. High Alt Med Biol. 2008;9(3):209–216.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/31248818/" target="_blank">Luks AM, Auerbach PS, Freer L, et al.Wilderness Medical Society clinical practice guidelines for the prevention andtreatment of acute altitude illness: 2019 update. Wilderness Environ Med 2019;30:Suppl:S3-S18.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/35081281/" target="_blank">Luks AM, Hackett PH. Medical Conditions and High-Altitude Travel.N Engl J Med. 2022 Jan 27;386(4):364-373.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q38
+       Question_Answer.create({
+        question: `Which of these counseling techniques do you think   provides the greatest likelihood of achieving successful tobacco cessation?`,
+        questionImage: [``],
+        answerOptions: [`Group counseling`,`Individual counseling`,`Brief physician advice`,`Motivational interviewing`],
+        correctAnswer:`Motivational interviewing`,
+        explanation: `Healthcare professionals frequently advise people to improve their health by stopping smoking. Such advice may be brief, or part of more intensive interventions.
+
+        Group counseling is a form of therapy which works on the belief people benefit from shared experience. Usually, it focused on a particular issue, like obsessive-compulsive disorder or anger management. While a therapist usually manages the group, contributions from other members are considered valuable since all in the group share similar issues.
+
+        Individual counseling is a one-on-one discussion between the counselor and the client, who is the person seeking treatment. The two form an alliance, relationship or bond that enables trust and personal growth.
+
+        Brief physician advice may also help patients quit smoking [1]. Assuming an unassisted quit rate of 2 to 3%, a brief advice intervention can increase quitting by a further 1 to 3%.
+
+        Motivational Interviewing, originally developed by William Miller[2] in his work with problem drinkers, is a counseling style designed to help clients build commitment and reach a decision to change. The principal purpose of motivational interviewing is to help clients resolve their ambivalence (“I know smoking is not good for me, BUT I enjoy it; it calms me down; it helps me keep weight off, etc.”) and move along the continuum of change. “Motivational Interviewing assists the individual in changing his or her perception of consequences…that [ultimately] change behavior”[3] Motivational interviewing (MI) is a treatment approach that has been widely examined as an intervention for tobacco dependence and is recommended in clinical practice guidelines.[4]
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/23728631/" target="_blank">Stead LF, Physician advice for smoking cessation.  Cochrane Database Syst Rev. 2013 May 31;5 </a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2759607/" target="_blank">Miller WR, Rollnick S. Motivational interviewing: Preparing people for change. 2nd ed. New York, NY: Guilford Press; 2002</a>`,
+            `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2991057/" target="_blank">Ingersoll KS, Wagner CC, Gharib S. Motivational groups for community substance abuse programs. 3rd edition. Rockville, MD: Substance Abuse Mental Health Services Administration; 2006.</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/21114344/" target="_blank">Hettema JE, Hendricks PS. Motivational interviewing for smoking cessation: a meta-analytic review. J Consult Clin Psychol. 2010 Dec;78(6):868-84.</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+       //Q39
+       Question_Answer.create({
+        question: `Which of the following is the most common secondary complication of Cystic Fibrosis?`,
+        questionImage: [``],
+        answerOptions: [`Dementia`,`Osteoporosis`,`Depression`,`Cystic Fibrosis related Diabetes`],
+        correctAnswer:`Cystic Fibrosis related Diabetes`,
+        explanation: `Cystic Fibrosis is the most common fatal recessive genetic disorder in white population.  It is caused by abnormalities in cystic fibrosis Transmembrane conductance regulator [CFTRE]-a chloride channel involved in electrolyte and water across the cell membrane.  The most common mutation of CFTR is ∆ F508 in which a phenylalanine is lost at position 508 [1].
+
+        Cystic Fibrosis related Diabetes [CFRD] is the most common secondary complication of cystic fibrosis [2]. It contributes to morbidity and mortality of this condition. Adolescents with cystic fibrosis have much higher prevalence of Diabetes than any other similar age population. CFRD is unique as it has features of both type 1 and type 2 diabetes. Though the pathophysiology is poorly understood Insulin deficiency is clearly the main component.
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/2570460/" target="_blank">Kerem B, Rommens JM. et.al. Identification of cystic fibrosis gene: genetic analysis Science. 1989; 245:1073-80</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24622267/" target="_blank">Ode KL, Moran A. New insights into cystic fibrosis-related diabetes in children. The LANCET Diabetes and Endocrinology 2013 June 30-35</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q40
+       Question_Answer.create({
+        question: `Which Cardiac arrhythmia occurs most commonly during sleep in patients with Obstructive Sleep Apnea?`,
+        questionImage: [``],
+        answerOptions: [`Atrial fibrillation`,`Sinus Arrest`,`Non-Sustained ventricular Tachycardia`,`Atrioventricular conduction block`],
+        correctAnswer:`Non-Sustained ventricular Tachycardia`,
+        explanation: `It is estimated that up to 50% of patients with OSA display sleep related cardiac arrhythmias and their frequency increases in proportion to the AHI [Apnea Hypopnea
+          Index] and the depth of hypoxemia [1]. Non sustained ventricular tachycardia appears to be the most common, followed by sinus arrest, second degree atrioventricular conduction block, and premature contractions [2]. There is also a well-established association between atrial fibrillation and OSA. The sleep heart Health study revealed that 4.8% of patients with OSA [AHI>5] suffered from atrial fibrillation as compared to 0.9% of those without OSA [3].
+          `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/6193700/" target="_blank">Guilleminault C, et.al. Cardiac arrhythmia and conduction disturbances. Am j cardiol  1983; 52: 490-494</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/7774322/" target="_blank">Hoffsttein V, et al. Cardiac arrhythmias, snoring and sleep apnea. Chest 1994;106:466-471</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/16424443/" target="_blank">Mehra R, et.al. Association of nocturnal arrhythmias with sleep-disordered breathing: The Sleep Heart Health Study. Am J Crit Care Med 2006;173:910-916</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+       //Q41
+       Question_Answer.create({
+        question: `Which of the following is true about obstructive Sleep Apnea?`,
+        questionImage: [``],
+        answerOptions: [`The prevalence is 2% in males and 4% in females`,`OSA is present in more than 50% of patients with BMI higher than 40 kg/m²`,`Patients have low leptin levels`,`Weight loss does not result in improvement of symptoms`],
+        correctAnswer:`OSA is present in more than 50% of patients with BMI higher than 40 kg/m²`,
+        explanation: `The prevalence is 4% in males and 2% in females and increases in accordance with a variety of risk factors [1] Obesity, male gender, aging, Ingestion of Alcohol, Menopausal status and history of smoking are known to increase its prevalence [2]. Prevalence of OSA in obese patients is twice than that of normal weighted individuals. The severity of OSA increases with weight. Weight loss is one of the treatments of OSA and results in reduction in severity of OSA [3]. It has been suggested that a 10% weight loss is associated with a 26% decrease in AHI [4]. 
+
+        Leptin is secreted by fat cells and is received by receptors in the hypothalamus [5]. In normally healthy people, if leptin is present and receptors are sensitive, feeding is inhibited. More body fat means less food is required, and so leptin is secreted to inhibit feeding and the accumulation of excess adipose tissue. Overweight people generally have higher circulating leptin while leaner people have lower leptin levels. Patients with OSA also have high leptin levels [6].
+        `,
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/8464434/" target="_blank">Young T, et.al. The occurrence of sleep-disordered breathing among middle-aged adults. N EJM 1993; 328:1230-1235</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/12133673/" target="_blank">Malhotra A,et.al. Obstructive sleep apnea. Lancet 2002; 360:237-245</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/19786682/" target="_blank">Foster GD, et.al. A Randomized Study on the Effect of Weight Loss on Obstructive Sleep Apnea Among Obese Patients with Type 2 Diabetes. Arch intern mED 2009; 169: 1619-1626</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/11122588/" target="_blank">Peppard PE, et.al. Longitudinal study of moderate weight change and sleep-disordered breathing. JAMA; 284:3015-3021</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24080454/" target="_blank">Pan Weihong et al. Leptin: A biomarker for sleep disorders? Sleep Med Rev 2014; 18(3):283 - 290</a>`,
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/10899061/" target="_blank">Phillips BG, et.al. Increases in leptin levels, sympathetic drive, and weight gain in obstructive sleep apnea. Am J Physiol hear Circ physiol 2000;279:H234-237</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
+
+
+
+
+
   ])
 
   console.log(`seeded ${users.length} users, and ${Question.length} question(s)`)
@@ -467,3 +879,157 @@ module.exports = seed
     //     level: "easy",
     //     category: "anatomy",
     //   }),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // //Q42
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q43
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q44
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q45
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q46
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q47
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q48
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q49
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+      // //Q50
+      // Question_Answer.create({
+      //   question: ``,
+      //   questionImage: [``],
+      //   answerOptions: [``,``,``,``],
+      //   correctAnswer:``,
+      //   explanation: ``,
+      //   explanationImage: [],
+      //   explanationLinks: [
+      //       `<a href="" target="_blank"></a>`,
+      //    ],
+      //   level: "easy",
+      //   category: "anatomy",
+      // }),
+
+
