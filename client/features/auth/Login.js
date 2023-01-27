@@ -23,12 +23,10 @@ const Login = () => {
     const formName = evt.target.name;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-
-    dispatch(authenticate({ email, password, method: formName }));
     setValidated(true);
 
     if (validated) {
-      navigate("/home");
+      dispatch(authenticate({ email, password, method: formName })).then(() => navigate("/home"));
     }
   };
   return (
