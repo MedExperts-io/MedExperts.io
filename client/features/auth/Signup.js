@@ -8,6 +8,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 const SignUp = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
+  const [validated, setValidated] = useState(false);
   const [errors, setErrors] = useState("");
   const expertiseLevel = [
     "Student",
@@ -49,14 +50,12 @@ const SignUp = () => {
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit} name="signup">
-        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
-          <Col>
-            <Form.Group controlId="firstName">
-              <Row style={{ margin: "0px" }}>
-                <Form.Label label="First Name">First Name</Form.Label>
-              </Row>
+    <div className="mb-3 mt-md-4">
+      <div className="mb-3">
+        <Form onSubmit={handleSubmit} noValidate validated={validated} name="signup">
+          <Row className="mb-3">
+            <Form.Group as={Col} controlId="firstName">
+              <Form.Label label="First Name">First Name</Form.Label>
               <Col sm={12}>
                 <InputGroup>
                   <Form.Control
@@ -71,13 +70,9 @@ const SignUp = () => {
                 </InputGroup>
               </Col>
             </Form.Group>
-          </Col>
 
-          <Col>
-            <Form.Group controlId="lastName">
-              <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Last Name">Last Name</Form.Label>
-              </Row>
+            <Form.Group as={Col} controlId="lastName">
+              <Form.Label label="Last Name">Last Name</Form.Label>
               <Col sm={12}>
                 <InputGroup>
                   <Form.Control
@@ -92,12 +87,10 @@ const SignUp = () => {
                 </InputGroup>
               </Col>
             </Form.Group>
-          </Col>
-        </Row>
+          </Row>
 
-        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
-          <Col>
-            <Form.Group controlId="expertiseLevel">
+          <Row>
+            <Form.Group className="mb-3" as={Col} controlId="expertiseLevel">
               <Form.Label label="Expertise Level">Expertise Level</Form.Label>
               <Form.Select aria-label="Default select example">
                 {expertiseLevel.map((level) => (
@@ -107,12 +100,28 @@ const SignUp = () => {
                 ))}
               </Form.Select>
             </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group controlId="email">
-              <Row style={{ margin: "0px" }}>
-                <Form.Label label="Email Address">Email Address</Form.Label>
-              </Row>
+
+            <Form.Group as={Col} controlId="school">
+              <Form.Label label="School Affiliation">School Affiliation</Form.Label>
+              <Col sm={12}>
+                <InputGroup>
+                  <Form.Control
+                    style={{ borderRadius: "10px" }}
+                    type="text"
+                    placeholder="Enter school name"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your school affiliation.
+                  </Form.Control.Feedback>
+                </InputGroup>
+              </Col>
+            </Form.Group>
+          </Row>
+
+          <Row>
+            <Form.Group as={Col} controlId="email">
+              <Form.Label label="Email Address">Email Address</Form.Label>
+
               <Col sm={12}>
                 <InputGroup>
                   <Form.Control
@@ -125,18 +134,11 @@ const SignUp = () => {
                 </InputGroup>
               </Col>
             </Form.Group>
-          </Col>
-        </Row>
 
-        <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
-          <Col>
-            <Form.Group controlId="password">
-              <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="Password" style={{ paddingLeft: "16px" }}>
-                  Password
-                </Form.Label>
-              </Row>
-              <Row>
+            <Form.Group as={Col} controlId="password">
+              <Form.Label label="Password">Password</Form.Label>
+
+              <Row className="mb-3">
                 <Col sm={12}>
                   <InputGroup>
                     <Form.Control
@@ -159,42 +161,23 @@ const SignUp = () => {
                 </Col>
               </Row>
             </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group controlId="school">
-              <Row style={{ margin: "0px", padding: "0px" }}>
-                <Form.Label label="School Affiliation">School Affiliation</Form.Label>
-              </Row>
-              <Col sm={12}>
-                <InputGroup>
-                  <Form.Control
-                    style={{ borderRadius: "10px" }}
-                    type="text"
-                    placeholder="Enter school name"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide your school affiliation.
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </Col>
-            </Form.Group>
-          </Col>
-        </Row>
+          </Row>
 
-        <Row className="p-2">
-          <Button
-            // style={{ textAlign: "right", justifyContent: "right", float: "right" }}
-            id="buttons"
-            variant="secondary"
-            type="submit"
-            size="md"
-          >
-            Sign Up
-          </Button>
-        </Row>
-      </Form>
-      <div className="p-1"></div>
-    </Container>
+          <div className="d-grid">
+            <Button
+              onClick={() => setValidated(true)}
+              // style={{ textAlign: "right", justifyContent: "right", float: "right" }}
+              id="buttons"
+              variant="secondary"
+              type="submit"
+              size="md"
+            >
+              Sign Up
+            </Button>
+          </div>
+        </Form>
+      </div>
+    </div>
   );
 };
 
