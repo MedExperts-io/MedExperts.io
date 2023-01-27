@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Row, Col, Container, Card, Button } from "react-bootstrap";
+import { Form, Row, Col, Container, Card, Button, Modal } from "react-bootstrap";
 import { editProfile } from "./authSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const { id, firstName, lastName, email, expertise } = useSelector((state) => state.auth.me);
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
   const [userEmail, setUserEmail] = useState(email);
   const [userExpertise, setUserExpertise] = useState(expertise);
+  // modal details
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // end modal
 
   const clearText = (evt) => {
     evt.target.value = "";
@@ -18,7 +26,6 @@ const Profile = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // notify();
 
     dispatch(
       editProfile({
@@ -29,7 +36,7 @@ const Profile = () => {
         expertise: userExpertise,
       })
     );
-    console.log("submitted");
+
     setValidated(true);
   };
 
@@ -108,9 +115,20 @@ const Profile = () => {
                   </Form.Select>
                 </Form.Group>
               </Row>
-              <Button type="submit" variant="secondary">
+              <Button type="submit" variant="secondary" onClick={handleShow}>
                 Update
               </Button>
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Body>Your changes have been recorded!</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Keep Editing
+                  </Button>
+                  <Button variant="secondary" onClick={() => navigate("/home")}>
+                    Dashboard
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </Form>
           </Card>
         </Col>
