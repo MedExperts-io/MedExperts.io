@@ -5,6 +5,7 @@ import QuestionsAnswers from "../features/allQA/AllQA";
 import LoginOrSignup from "../features/auth/LoginOrSignup";
 import Home from "../features/home/Home";
 import Profile from "../features/auth/Profile";
+import ResetPassword from "../features/auth/ResetPassword";
 import { me } from "./store";
 
 const AppRoutes = () => {
@@ -27,6 +28,7 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           <Route path="/*" element={<LoginOrSignup />} />
+          <Route path="/reset" element={<ResetPassword />} />
         </Routes>
       )}
     </div>

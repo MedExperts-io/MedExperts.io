@@ -65,7 +65,7 @@ const Login = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="checkbox">
             <p className="small">
-              <a className="text" style={{ color: "#FF6262" }} href="#">
+              <a className="text" style={{ color: "#FF6262" }} href="/reset">
                 Forgot password?
               </a>
             </p>
