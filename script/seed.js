@@ -20,7 +20,7 @@ async function seed() {
       email: "cody@lol.com",
       isAdmin: false,
       firstName: "cody",
-      lastName: "cody",
+      lastName: "pug",
       school: "harvard med",
       expertise: "Student",
     }),
@@ -39,10 +39,7 @@ async function seed() {
     Question_Answer.create({
       question:
         "A 50-year-old male comes to the clinic for evaluation for progressive shortness of breath. PFT of the patient suggests which of the following? Pulmonary function tests are provided below: ",
-      questionImage: [
-        "public/Images/Q1/Q1 img1.png",
-        "public/Images/Q1/Q1img2.png",
-      ],
+      questionImage: ["public/Images/Q1/Q1 img1.png", "public/Images/Q1/Q1img2.png"],
       answerOptions: [
         "Obstructive Lung Disease",
         "Restrictive Lung Disease",
@@ -126,12 +123,7 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following is generally not a cause of acute chest syndrome in a patient with sickle cell disease?`,
       questionImage: [``],
-      answerOptions: [
-        `M. Tuberculosis`,
-        `Chlamydia pneumonia`,
-        `RSV infection`,
-        `Fat embolism`,
-      ],
+      answerOptions: [`M. Tuberculosis`, `Chlamydia pneumonia`, `RSV infection`, `Fat embolism`],
       correctAnswer: `M. Tuberculosis`,
       explanation: `Acute chest syndrome [ACS] occurs due to vaso-occlusion within the pulmonary vasculature of patients with sickle cell disease [SCD].  It is the most common cause of death in patients with SCD. Etiologies include infection (bacterial or viral), fat embolism, and pulmonary infarction. Chlamydia pneumonia and mycoplasma are the most identified bacterial pathogens. Viral infections like Viral (respiratory syncytial virus, parvovirus, rhinovirus) may also be a contributing cause. SCD does not seem to be a risk factor for severe TB. Pediatric patients are more likely to have an infectious cause and will therefore present with symptoms such as wheezing, cough, increased work of breathing, and fever. Adult patients with ACS are more likely to present with chest pain, pain in the arms and legs, shortness of breath, or a vaso-occlusive crisis. The risk factor for Low HbF, young age, history of asthma, and history of smoking. Acute management of ACS includes pain control, intravenous (IV) fluids, antibiotics, supplemental oxygen, and blood transfusions. More severe presentations may require treatment with simple or exchange transfusion and/or noninvasive or invasive respiratory support. Performing a red cell exchange can reduce blood viscosity as well as improve oxygenation.`,
       explanationImage: [],
@@ -147,12 +139,7 @@ async function seed() {
     Question_Answer.create({
       question: `A 40-year-old male comes to the ER with epigastric pain and cough. He has been having these symptoms over the past 15 days along with exertional dyspnea. He has no other significant medical problems. He has smoked one pack/day for the past 20 years. Physical examination reveals normal breath sounds bilaterally, no cervical or axillary lymphadenopathy. Blood pressure 126/79 mmHg, RR 18 breaths/min, PaO2 98% on room air, HR 78 beats/min. The right posterior mediastinum mass seen on CT scan is likely derived from which cell type?`,
       questionImage: [`public/Images/Q5/Q5 img1.png`],
-      answerOptions: [
-        `Metastatic origin`,
-        `Lymphoid origin`,
-        `Neural origin`,
-        `Germ cell origin`,
-      ],
+      answerOptions: [`Metastatic origin`, `Lymphoid origin`, `Neural origin`, `Germ cell origin`],
       correctAnswer: `Neural origin`,
       explanation: `A mediastinal mass is often an incidental finding on radiology images and can present in several ways.  Most mediastinal masses are asymptomatic. Patients usually present with secondary complaints due to local mass effects such as chest pain or weight loss.   In some, patient's systemic symptoms can be present due to tumors or a variety of paraneoplastic syndromes. Mediastinum can be divided into three regions, anterior, middle, and posterior mediastinum. Most common anterior mediastinal masses are thymoma and lymphomas.  In the middle, mediastinal masses are lymph node enlargement and vascular masses.  In the posterior side, masses are of neurogenic tumors and esophageal abnormalities.  A combination of clinical factors and imaging features often narrow the differential diagnosis when a mediastinal mass is detected. The above patient appears to have a neurilemmoma (or schwannoma), a benign neoplasm arising from neural tissue located in the posterior mediastinum.  The treatment is dependent on underlying etiology.  Benign lesions can be observed while malignant tumors should be removed.  In case of lymphomas, chemotherapy is the best treatment.`,
       explanationImage: [],
@@ -328,12 +315,7 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following treatments for Eosinophilic Granulomatous Polyangiitis (EGPA) has been shown to demonstrate improvements in remission, oral corticosteroid dose reductions and/or remaining free of EGPA relapse? `,
       questionImage: [``],
-      answerOptions: [
-        `Azathioprine`,
-        `Cyclophosphamide`,
-        `Mepolizumab`,
-        `Methotrexate`,
-      ],
+      answerOptions: [`Azathioprine`, `Cyclophosphamide`, `Mepolizumab`, `Methotrexate`],
       correctAnswer: `Mepolizumab`,
       explanation: `Mepolizumab: It is a humanized monoclonal antibody to IL-5. This drug is approved by FDA for use in patients with age above 12 years, who have severe asthma and EGPA. A subcutaneous dose of 300 mg every four weeks is recommended. Studies have shown that this drug has a glucocorticoid sparing effect on patients [1]. It reduces exacerbations in patients with severe asthma.  It also helps improve outcomes in patients with severe asthma and eosinophilia [2].`,
       explanationImage: [],
@@ -455,10 +437,7 @@ async function seed() {
       ],
       correctAnswer: `Refer to speech therapist for breathing exercises`,
       explanation: `Vocal cord dysfunction (VCD) involves inappropriate (paradoxical adduction) of the vocal cord that produces partial airway obstruction, especially during inspiration. It is condition more predominant in females than male and occurring in 20 to 40 years of age.  Symptoms include  wheezing, cough, tightness in the throat, hoarseness and voice change, inspiratory difficulty, choking sensation and stridor.  VCD is often misdiagnosed as asthma exacerbation because of the wheezing and respiratory distress associated with it. Thus, a careful history is needed for a clear diagnosis.   The vocal cords abduction, or opening is controlled by the posterior cricoarytenoid muscle and adduction (closing) is via contraction of the lateral cricoarytenoid muscle. These muscles are innervated by the recurrent laryngeal nerve.  In the normal respiratory cycle, vocal cords partially abduct with inhalation and partially adduct with exhalation.  VCD is believed to be the result of laryngeal hyperresponsiveness that is prompted by irritant and non-irritants triggers that activate sensory receptors in larynx and trachea.  VCD is often diagnosed only after other potential conditions have been excluded and patients had failure to therapy.  Pulmonary function testing with a flow-volume loop reveals flattened inspiratory loop that indicates decreased airflow into the lungs (as seen in the flow loop provided).  The most effective diagnostic strategy is to confirm VCD on direct laryngoscopic visualization during a symptomatic episode.  While the anterior cord appears normal, the posterior cords will show “glottis chink”. [1]   Patients with VCD and in acute distress should be instructed with simple breathing guidance.  They should be instructed to have rapid and shallow breaths.  In other cases, use of a helium and oxygen mixture (heliox) is also effective.  For long term management strategies, treatment for symptom triggers and speech therapy along with patient education are effective parts of the treatment plan.`,
-      explanationImage: [
-        `public/Images/Q18/A18 img1.png`,
-        `public/Images/Q18/A18 img2.png`,
-      ],
+      explanationImage: [`public/Images/Q18/A18 img1.png`, `public/Images/Q18/A18 img2.png`],
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21205712/" target="_blank">Kenn K, Balkissoon R. Vocal cord dysfunction: what do we know? The European respiratory journal 2011;37:194-200.</a>`,
       ],
@@ -470,16 +449,8 @@ async function seed() {
     //Q19
     Question_Answer.create({
       question: `A 44-year-old female, a smoker, has had an 8-month history of progressive dyspnea, cough, chest tightness and joint pain. She has worked as a hairstylist in a hair salon since age 20.  Her vital signs are stable and a physical exam reveals regular sinus rhythm and fine bibasilar crackles.  No rashes, clubbing, cyanosis, or edema is present.  A high-resolution chest CT confirmed b/l ground glass opacities without significant adenopathy or pleural fluid [IMAGE BELOW].  All labs, CBC, LFTs, renal functions are within normal.  The ANA titer is elevated at 1:360 and Rheumatoid factor is also minimally elevated at 1:50. On PFTs, VC is 65% of predicted, FEV1 is 59% of predicted, total lung capacity is 71% of predicted, residual volume is 72% of predicted, and DLCO is 60% of predicted. What is the initial treatment that you will consider in this patient?`,
-      questionImage: [
-        `public/Images/Q19/Q19 img1.png`,
-        `public/Images/Q19/Q19 img2.png`,
-      ],
-      answerOptions: [
-        `Oral Prednisone`,
-        `Cellcept`,
-        `Azathioprine`,
-        `Methotrexate`,
-      ],
+      questionImage: [`public/Images/Q19/Q19 img1.png`, `public/Images/Q19/Q19 img2.png`],
+      answerOptions: [`Oral Prednisone`, `Cellcept`, `Azathioprine`, `Methotrexate`],
       correctAnswer: `Oral Prednisone`,
       explanation: `The clinical presentation and radiographic finding for above patient indicate a pattern consistent with Interstitial pulmonary fibrosis, particularly with a nonspecific interstitial pneumonia (NSIP).  Many cases occur in the context of an underlying connective tissue disease or drug‐induced interstitial lung disease (flecainide, nitrofurantoin).  Patients present with a dry cough, shortness of breath, clubbing.  Patient’s pulmonary function testing (PFTs) are projected to demonstrate a restrictive ventilatory defect with decrease in gas transfer.  While PFTs are not essential for making the diagnosis, continued monitoring of FVC and DLCO is helpful to assess progression of disease and response to therapy and prognosis.  The most common HRCT abnormality in NSIP is bilateral ground-glass opacity with lower lobe predilection and subpleural sparing that is helping in distinguishing NSIP from UIP.  Another feature distinguishing NSIP from UIP is its responsiveness to steroids.  In more severe disease or inadequate response to steroids, azathioprine, cyclophosphamide, and cyclosporine are used.   However, Methotrexate is avoided due to pulmonary toxicity.  Patients unresponsive to medications should be considered for lung transplant.`,
       explanationImage: [],
@@ -938,12 +909,7 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following is the most common secondary complication of Cystic Fibrosis?`,
       questionImage: [``],
-      answerOptions: [
-        `Dementia`,
-        `Osteoporosis`,
-        `Depression`,
-        `Cystic Fibrosis related Diabetes`,
-      ],
+      answerOptions: [`Dementia`, `Osteoporosis`, `Depression`, `Cystic Fibrosis related Diabetes`],
       correctAnswer: `Cystic Fibrosis related Diabetes`,
       explanation: `Cystic Fibrosis is the most common fatal recessive genetic disorder in white population.  It is caused by abnormalities in cystic fibrosis Transmembrane conductance regulator [CFTRE]-a chloride channel involved in electrolyte and water across the cell membrane.  The most common mutation of CFTR is ∆ F508 in which a phenylalanine is lost at position 508 [1].
 
@@ -1144,12 +1110,7 @@ async function seed() {
     Question_Answer.create({
       question: `All the following are effective in preventing or treating the acute chest syndrome, except:`,
       questionImage: [``],
-      answerOptions: [
-        `Incentive spirometry`,
-        `Hydration`,
-        `Supplemental oxygen`,
-        `Plasmapheresis`,
-      ],
+      answerOptions: [`Incentive spirometry`, `Hydration`, `Supplemental oxygen`, `Plasmapheresis`],
       correctAnswer: `Plasmapheresis`,
       explanation: `Appropriate therapy for acute chest syndrome (ACS) is needed to prevent rapid decline and multiorgan failure. Pain is controlled with parenteral opioids.
 
@@ -1442,12 +1403,7 @@ async function seed() {
     //Q58
     Question_Answer.create({
       question: `When B lines are seen in all lung fields, this suggests the possibility of all the following except:`,
-      answerOptions: [
-        `ARDS`,
-        `Cardiogenic Pulmonary Edema`,
-        `PCP Pneumonia`,
-        `Status Asthmaticus`,
-      ],
+      answerOptions: [`ARDS`, `Cardiogenic Pulmonary Edema`, `PCP Pneumonia`, `Status Asthmaticus`],
       questionImage: [``],
       correctAnswer: `Status Asthmaticus`,
       explanation: `Pulmonary edema is defined as abnormal accumulation of extravascular fluid in the lung [1]. The most common cause of pulmonary edema is renal or cardiac insufficiency. On radiograph imaging patients with pulmonary congestion, B lines can be seen which represents interlobular septal thickening.
@@ -1488,9 +1444,7 @@ async function seed() {
     }),
   ]);
 
-  console.log(
-    `seeded ${users.length} users, and ${Question.length} question(s)`
-  );
+  console.log(`seeded ${users.length} users, and ${Question.length} question(s)`);
   console.log(`seeded successfully`);
   return {
     users: {

@@ -62,7 +62,7 @@ export const editProfile = createAsyncThunk(
       if (token) {
         const { data } = await axios.put(
           "/auth/profile",
-          { firstName, lastName, email, expertiseLevel },
+          { firstName, lastName, email, expertise },
           { headers: { authorization: token } }
         );
         return data;
