@@ -2,9 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
 
-/**
- * COMPONENT
- */
 const Home = (props) => {
   const { firstName, email } = useSelector((state) => state.auth.me);
   return (
