@@ -16,13 +16,14 @@ router.post("/login", async (req, res, next) => {
 router.post("/signup", async (req, res, next) => {
   try {
     //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-    const { firstName, lastName, email, password, expertise } = req.body;
+    const { firstName, lastName, email, password, expertise, school } = req.body;
     const user = await User.create({
       firstName,
       lastName,
       email,
       password,
       expertise,
+      school,
     });
     res.send({ token: await user.generateToken() });
   } catch (err) {
