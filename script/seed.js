@@ -413,6 +413,13 @@ async function seed() {
         `Hemoglobin SC genotype`,
       ],
       correctAnswer: `Number of episodes of acute chest syndrome`,
+      answerOptions: [
+        `Blood hemoglobin level`,
+        `Number of episodes of acute chest syndrome`,
+        `History of cigarette smoking`,
+        `Hemoglobin SC genotype`,
+      ],
+      correctAnswer: `Number of episodes of acute chest syndrome`,
       explanation: `The leading cause of mortality in adults with sickle cell anemia is acute lung disease particularly pulmonary hypertension and pulmonary fibrosis.  On spirometry, pulmonary fibrosis is associated with restrictive lung diseases. Recurrent acute chest syndrome, infections, vascular infarction, and extrapulmonary restriction can lead to long standing chronic inflammation of small airways.
 
       In some incidents, patients with ACS can have focal changes in the body thorax indicating bone infarction. There has been some correlation of thoracic infarction and a presence of pulmonary infiltrate. Incentive spirometry can be used to prevent these complications and relieve pain.
@@ -424,6 +431,7 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4075318/" target="_blank">Shilpa Jain, Unraveling restrictive chronic lung disease in sickle cell disease Int J Tuberc Lung Dis. 2013 Sep; 17(9): 1123–1124.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet P. Incentive Spirometry to Prevent Acute Pulmonary Complications in Sickle cell disease. NEJM 1995; 333:11, 669- 703</a>`,
       ],
+
       level: "easy",
       category: "anatomy",
     }),
@@ -439,6 +447,13 @@ async function seed() {
         `Discontinue albuterol`,
       ],
       correctAnswer: `Refer to speech therapist for breathing exercises`,
+      answerOptions: [
+        `Advise her to quit heavy exercise.`,
+        `Try a short course of oral steroids.`,
+        `Refer to speech therapist for breathing exercises`,
+        `Discontinue albuterol`,
+      ],
+      correctAnswer: `Refer to speech therapist for breathing exercises`,
       explanation: `Vocal cord dysfunction (VCD) involves inappropriate (paradoxical adduction) of the vocal cord that produces partial airway obstruction, especially during inspiration. It is condition more predominant in females than male and occurring in 20 to 40 years of age.  Symptoms include  wheezing, cough, tightness in the throat, hoarseness and voice change, inspiratory difficulty, choking sensation and stridor.  VCD is often misdiagnosed as asthma exacerbation because of the wheezing and respiratory distress associated with it. Thus, a careful history is needed for a clear diagnosis.   The vocal cords abduction, or opening is controlled by the posterior cricoarytenoid muscle and adduction (closing) is via contraction of the lateral cricoarytenoid muscle. These muscles are innervated by the recurrent laryngeal nerve.  In the normal respiratory cycle, vocal cords partially abduct with inhalation and partially adduct with exhalation.  VCD is believed to be the result of laryngeal hyperresponsiveness that is prompted by irritant and non-irritants triggers that activate sensory receptors in larynx and trachea.  VCD is often diagnosed only after other potential conditions have been excluded and patients had failure to therapy.  Pulmonary function testing with a flow-volume loop reveals flattened inspiratory loop that indicates decreased airflow into the lungs (as seen in the flow loop provided).  The most effective diagnostic strategy is to confirm VCD on direct laryngoscopic visualization during a symptomatic episode.  While the anterior cord appears normal, the posterior cords will show “glottis chink”. [1]   Patients with VCD and in acute distress should be instructed with simple breathing guidance.  They should be instructed to have rapid and shallow breaths.  In other cases, use of a helium and oxygen mixture (heliox) is also effective.  For long term management strategies, treatment for symptom triggers and speech therapy along with patient education are effective parts of the treatment plan.`,
       explanationImage: [
         `public/Images/Q18/A18 img1.png`,
@@ -447,6 +462,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21205712/" target="_blank">Kenn K, Balkissoon R. Vocal cord dysfunction: what do we know? The European respiratory journal 2011;37:194-200.</a>`,
       ],
+
       level: "easy",
       category: "anatomy",
     }),
