@@ -13,12 +13,12 @@ const SignUp = () => {
     "Student",
     "Resident",
     "Fellow",
-    "P/A",
-    "N/P",
+    "Physician Assistant",
     "Nurse",
+    "Nurse Practitioner",
     "Pharmacist",
-    "Internal med",
-    "Other Board certified professionals",
+    "Internal Med",
+    "Other",
   ];
 
   const togglePassword = (evt) => {
@@ -32,6 +32,9 @@ const SignUp = () => {
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
+    const expertise = evt.target.expertiseLevel.value;
+    console.log(email);
+    console.log(expertise);
 
     dispatch(
       authenticate({
@@ -39,6 +42,7 @@ const SignUp = () => {
         lastName,
         email,
         password,
+        expertise,
         method: "signup",
       })
     );
@@ -93,7 +97,7 @@ const SignUp = () => {
 
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Col>
-            <Form.Group controlId="emailAddress">
+            <Form.Group controlId="email">
               <Row style={{ margin: "0px" }}>
                 <Form.Label label="Email Address">Email Address</Form.Label>
               </Row>
@@ -112,14 +116,16 @@ const SignUp = () => {
           </Col>
 
           <Col>
-            <Form.Label label="Expertise Level">Expertise Level</Form.Label>
-            <Form.Select aria-label="Default select example">
-              {expertiseLevel.map((level) => (
-                <option key={level} value={level}>
-                  {level}
-                </option>
-              ))}
-            </Form.Select>
+            <Form.Group controlId="expertiseLevel">
+              <Form.Label label="Expertise Level">Expertise Level</Form.Label>
+              <Form.Select aria-label="Default select example">
+                {expertiseLevel.map((level) => (
+                  <option key={level} value={level}>
+                    {level}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
           </Col>
         </Row>
 

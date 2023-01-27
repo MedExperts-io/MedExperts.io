@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import QuestionsAnswers from "../features/allQA/AllQA";
 import LoginOrSignup from "../features/auth/LoginOrSignup";
 import Home from "../features/home/Home";
+import Profile from "../features/auth/Profile";
 import { me } from "./store";
 
 const AppRoutes = () => {
@@ -21,6 +22,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       ) : (
         <Routes>
