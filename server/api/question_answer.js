@@ -4,6 +4,9 @@ const {
 } = require("../db");
 module.exports = router;
 
+// Tasnim adding middleware and two api routes specifically for admins and students
+
+// Incomplete API
 router.get("/", async (req, res, next) => {
   try {
     const allQAs = await Question_Answer.findAll();
@@ -12,3 +15,13 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+
+
+// router.get("/", isLoggedIn, isAdmin, async (req, res, next) => {
+//   try {
+//     const allQAs = await Question_Answer.findAll();
+//     res.json(allQAs);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
