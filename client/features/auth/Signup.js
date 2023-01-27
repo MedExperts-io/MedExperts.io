@@ -166,7 +166,6 @@ const SignUp = () => {
           <div className="d-grid">
             <Button
               onClick={() => setValidated(true)}
-              // style={{ textAlign: "right", justifyContent: "right", float: "right" }}
               id="buttons"
               variant="secondary"
               type="submit"
