@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Row, Col, Container, Card, Button, Modal } from "react-bootstrap";
 import { editProfile } from "./authSlice";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -41,10 +41,10 @@ const Profile = () => {
   };
 
   return (
-    <Container fluid>
-      <Row>
-        <Col className="mx-auto" sm={8}>
-          <Card border="light">
+    <Container>
+      <Row className="d-flex justify-content-center align-items-center">
+        <Col md={8} lg={6} xs={12}>
+          <Card border="light" className="mx-auto" style={{ maxWidth: "800px" }}>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <h1>Edit My Profile</h1>
               <Row className="mb-3">
@@ -131,7 +131,7 @@ const Profile = () => {
               </Modal>
             </Form>
           </Card>
-        </Col>
+        </Col>{" "}
       </Row>
     </Container>
   );
