@@ -17,8 +17,7 @@ const Profile = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // end modal
+  // end modal details
 
   const clearText = (evt) => {
     evt.target.value = "";
@@ -26,7 +25,6 @@ const Profile = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     dispatch(
       editProfile({
         id,
@@ -36,15 +34,14 @@ const Profile = () => {
         expertise: userExpertise,
       })
     );
-
     setValidated(true);
   };
 
   return (
     <Container>
-      <Row className="d-flex justify-content-center align-items-center">
-        <Col md={8} lg={6} xs={12}>
-          <Card border="light" className="mx-auto" style={{ maxWidth: "800px" }}>
+      <Row className="p-5">
+        <Card border="light" className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
+          <Col>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <h1>Edit My Profile</h1>
               <Row className="mb-3">
@@ -115,9 +112,12 @@ const Profile = () => {
                   </Form.Select>
                 </Form.Group>
               </Row>
-              <Button type="submit" variant="secondary" onClick={handleShow}>
-                Update
-              </Button>
+              <center>
+                <Button type="submit" variant="secondary" onClick={handleShow}>
+                  Update
+                </Button>
+              </center>
+
               <Modal show={show} onHide={handleClose}>
                 <Modal.Body>Your changes have been recorded!</Modal.Body>
                 <Modal.Footer>
@@ -130,8 +130,8 @@ const Profile = () => {
                 </Modal.Footer>
               </Modal>
             </Form>
-          </Card>
-        </Col>{" "}
+          </Col>
+        </Card>
       </Row>
     </Container>
   );
