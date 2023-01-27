@@ -9,7 +9,17 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
   const [errors, setErrors] = useState("");
-  const expertiseLevel = ["Student", "Resident", "Fellow", "P/A", "N/P", "Nurse", "Pharmacist", "Internal med", "Other Board certified professionals"];
+  const expertiseLevel = [
+    "Student",
+    "Resident",
+    "Fellow",
+    "Physician Assistant",
+    "Nurse",
+    "Nurse Practitioner",
+    "Pharmacist",
+    "Internal Med",
+    "Other",
+  ];
 
   const togglePassword = (evt) => {
     evt.preventDefault();
@@ -22,6 +32,9 @@ const SignUp = () => {
     const lastName = evt.target.lastName.value;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
+    const expertise = evt.target.expertiseLevel.value;
+    console.log(email);
+    console.log(expertise);
 
     dispatch(
       authenticate({
@@ -29,6 +42,7 @@ const SignUp = () => {
         lastName,
         email,
         password,
+        expertise,
         method: "signup",
       })
     );
@@ -45,8 +59,15 @@ const SignUp = () => {
               </Row>
               <Col sm={12}>
                 <InputGroup>
-                  <Form.Control style={{ borderRadius: "10px" }} required type="text" placeholder="Enter first name" />
-                  <Form.Control.Feedback type="invalid">Please provide your first name.</Form.Control.Feedback>
+                  <Form.Control
+                    style={{ borderRadius: "10px" }}
+                    required
+                    type="text"
+                    placeholder="Enter first name"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your first name.
+                  </Form.Control.Feedback>
                 </InputGroup>
               </Col>
             </Form.Group>
@@ -59,8 +80,15 @@ const SignUp = () => {
               </Row>
               <Col sm={12}>
                 <InputGroup>
-                  <Form.Control style={{ borderRadius: "10px" }} required type="text" placeholder="Enter last name" />
-                  <Form.Control.Feedback type="invalid">Please provide your last name.</Form.Control.Feedback>
+                  <Form.Control
+                    style={{ borderRadius: "10px" }}
+                    required
+                    type="text"
+                    placeholder="Enter last name"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide your last name.
+                  </Form.Control.Feedback>
                 </InputGroup>
               </Col>
             </Form.Group>
@@ -69,13 +97,18 @@ const SignUp = () => {
 
         <Row className="p-2" style={{ margin: "0px", padding: "0px" }}>
           <Col>
-            <Form.Group controlId="emailAddress">
+            <Form.Group controlId="email">
               <Row style={{ margin: "0px" }}>
                 <Form.Label label="Email Address">Email Address</Form.Label>
               </Row>
               <Col sm={12}>
                 <InputGroup>
-                  <Form.Control style={{ borderRadius: "10px" }} required type="text" placeholder="Enter email" />
+                  <Form.Control
+                    style={{ borderRadius: "10px" }}
+                    required
+                    type="text"
+                    placeholder="Enter email"
+                  />
                   <Form.Control.Feedback type="invalid">Enter email</Form.Control.Feedback>
                 </InputGroup>
               </Col>
@@ -83,12 +116,16 @@ const SignUp = () => {
           </Col>
 
           <Col>
-            <Form.Label label="Expertise Level">Expertise Level</Form.Label>
-            <Form.Select aria-label="Default select example">
-              {expertiseLevel.map((level) => (
-                <option value={level}>{level}</option>
-              ))}
-            </Form.Select>
+            <Form.Group controlId="expertiseLevel">
+              <Form.Label label="Expertise Level">Expertise Level</Form.Label>
+              <Form.Select aria-label="Default select example">
+                {expertiseLevel.map((level) => (
+                  <option key={level} value={level}>
+                    {level}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
           </Col>
         </Row>
 
@@ -102,16 +139,33 @@ const SignUp = () => {
             <Row>
               <Col sm={6}>
                 <InputGroup>
-                  <Form.Control required type={passwordShown ? "text" : "password"} placeholder="Enter password" />
-                  <Button variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
+                  <Form.Control
+                    required
+                    type={passwordShown ? "text" : "password"}
+                    placeholder="Enter password"
+                  />
+                  <Button
+                    variant="outline-secondary"
+                    onClick={togglePassword}
+                    size="md"
+                    style={{ zIndex: 0 }}
+                  >
                     {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
                   </Button>
-                  <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a password.
+                  </Form.Control.Feedback>
                 </InputGroup>
               </Col>
 
               <Col>
-                <Button style={{ textAlign: "right", justifyContent: "right", float: "right" }} id="buttons" variant="secondary" type="submit" size="md">
+                <Button
+                  style={{ textAlign: "right", justifyContent: "right", float: "right" }}
+                  id="buttons"
+                  variant="secondary"
+                  type="submit"
+                  size="md"
+                >
                   Sign Up
                 </Button>
               </Col>
