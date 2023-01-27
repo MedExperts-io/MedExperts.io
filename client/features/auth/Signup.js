@@ -33,8 +33,6 @@ const SignUp = () => {
     const email = evt.target.email.value;
     const password = evt.target.password.value;
     const expertise = evt.target.expertiseLevel.value;
-    console.log(email);
-    console.log(expertise);
 
     dispatch(
       authenticate({
