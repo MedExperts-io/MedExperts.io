@@ -8,7 +8,6 @@ const User_Question = db.define("user_question", {
   },
   userInput: {
     type: Sequelize.TEXT,
-    allowNull: false,
   },
   answered: {
     type: Sequelize.ENUM("right", "wrong", "none"),

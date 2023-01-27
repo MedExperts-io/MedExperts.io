@@ -4,20 +4,10 @@ const {
 } = require("../db");
 module.exports = router;
 
-// Tasnim adding middleware and two api routes specifically for admins and students
+const { getToken, isAdmin } = require("./userCheckMiddleware");
 
-// Incomplete API
-router.get("/", async (req, res, next) => {
-  try {
-    const allQAs = await Question_Answer.findAll();
-    res.json(allQAs);
-  } catch (err) {
-    next(err);
-  }
-});
-
-
-// router.get("/", isLoggedIn, isAdmin, async (req, res, next) => {
+// GET/api/questions ------  Admin only
+// router.get("/admin", getToken, isAdmin, async (req, res, next) => {
 //   try {
 //     const allQAs = await Question_Answer.findAll();
 //     res.json(allQAs);
@@ -25,3 +15,22 @@ router.get("/", async (req, res, next) => {
 //     next(err);
 //   }
 // });
+
+// ----- GET/api/questions ---- Answer & explanation restricted in case of Postman Insomnia use
+router.get("/", getToken, async (req, res, next) => {
+  try {
+    const allQs = await Question_Answer.findAll({
+      attributes: [
+        "id",
+        "question",
+        "questionImage",
+        "answerOptions",
+        "level",
+        "category",
+      ],
+    });
+    res.json(allQs);
+  } catch (err) {
+    next(err);
+  }
+});
