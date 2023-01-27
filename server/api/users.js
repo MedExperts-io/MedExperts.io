@@ -8,9 +8,7 @@ const { getToken, isAdmin } = require("./userCheckMiddleware");
 router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
-      // explicitly select only the id and username fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
+      // Security1: Hiding secrets in Sequelize (explicitly select only a few fields to send)
       attributes: ["id", "email", "expertise", "school"],
     });
     res.json(users);
