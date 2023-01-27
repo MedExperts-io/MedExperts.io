@@ -23,7 +23,6 @@ const Login = () => {
     const formName = evt.target.name;
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-    setValidated(true);
 
     if (validated) {
       dispatch(authenticate({ email, password, method: formName })).then(() => navigate("/home"));
@@ -72,7 +71,7 @@ const Login = () => {
             </p>
           </Form.Group>
           <div className="d-grid">
-            <Button variant="secondary" type="submit">
+            <Button onClick={() => setValidated(true)} variant="secondary" type="submit">
               Login
             </Button>
             {error ? <p>{error}</p> : null}
