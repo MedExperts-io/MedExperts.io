@@ -78,6 +78,21 @@ export const editProfile = createAsyncThunk(
   }
 );
 
+export const forgotPassword = createAsyncThunk("auth/forgotPassword", async ({ email }) => {
+  // token?
+  try {
+    const { data } = await axios.post("/auth/forgotPassword", { email });
+
+    return data;
+  } catch (err) {
+    if (err.response.data) {
+      return thunkAPI.rejectWithValue(err.response.data);
+    } else {
+      return "There was an issue with your request.";
+    }
+  }
+});
+
 /*
   SLICE
 */
@@ -108,6 +123,12 @@ export const authSlice = createSlice({
       state.me = action.payload;
     });
     builder.addCase(editProfile.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(forgotPassword.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
+    builder.addCase(forgotPassword.rejected, (state, action) => {
       state.error = action.error;
     });
   },

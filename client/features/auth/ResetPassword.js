@@ -1,24 +1,26 @@
-import React from "react";
-import { Form, Button, Container, Card, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Container, Row, Card, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
+  
   return (
     <Container>
       <Row className="p-5">
         <Card border="light" className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
-          <Form>
-            <h1>Reset Password</h1>
-            <p>
-              Please enter your email address. You will receive a link to create a new password via
-              email.
-            </p>
-            <Form.Group className="mb-3" controlId="resetPassWordForm">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+          <Form >
+            <h1>Create new password</h1>
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Enter new password</Form.Label>
+              <Form.Control type="password" placeholder="Enter password" />
             </Form.Group>
-
-            <Button variant="secondary" type="submit">
-              Get New Password
+            <Form.Group className="mb-3" controlId="password">
+              <Form.Label>Re-enter new password</Form.Label>
+              <Form.Control type="password" placeholder="Enter password" />
+            </Form.Group>
+            <Button  variant="secondary" type="submit">
+              Submit
             </Button>
           </Form>
         </Card>

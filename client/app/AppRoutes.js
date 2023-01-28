@@ -5,8 +5,9 @@ import QuestionsAnswers from "../features/allQA/AllQA";
 import LoginOrSignup from "../features/auth/LoginOrSignup";
 import Home from "../features/home/Home";
 import Profile from "../features/auth/Profile";
-import ResetPassword from "../features/auth/ResetPassword";
+import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
+import ResetPassword from "../features/auth/ResetPassword";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -28,7 +29,9 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           <Route path="/*" element={<LoginOrSignup />} />
-          <Route path="/reset" element={<ResetPassword />} />
+          <Route path="/reset" element={<RequestNewPassword />} />
+          //temporary route just to check styling
+          <Route path = "/create" element = {<ResetPassword/>}/>
         </Routes>
       )}
     </div>
