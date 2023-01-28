@@ -33,7 +33,10 @@ export const me = createAsyncThunk("auth/me", async () => {
 
 export const authenticate = createAsyncThunk(
   "auth/authenticate",
-  async ({ firstName, lastName, email, password, expertise, method }, thunkAPI) => {
+  async (
+    { firstName, lastName, email, password, expertise, method },
+    thunkAPI
+  ) => {
     try {
       const res = await axios.post(`/auth/${method}`, {
         firstName,
@@ -44,6 +47,29 @@ export const authenticate = createAsyncThunk(
       });
       window.localStorage.setItem(TOKEN, res.data.token);
       thunkAPI.dispatch(me());
+    } catch (err) {
+      if (err.response.data) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      } else {
+        return "There was an issue with your request.";
+      }
+    }
+  }
+);
+
+export const editProfile = createAsyncThunk(
+  "auth/profile",
+  async ({ firstName, lastName, email, expertise }) => {
+    const token = window.localStorage.getItem(TOKEN);
+    try {
+      if (token) {
+        const { data } = await axios.put(
+          "/auth/profile",
+          { firstName, lastName, email, expertise },
+          { headers: { authorization: token } }
+        );
+        return data;
+      }
     } catch (err) {
       if (err.response.data) {
         return thunkAPI.rejectWithValue(err.response.data);
@@ -79,6 +105,12 @@ export const authSlice = createSlice({
     });
     builder.addCase(authenticate.rejected, (state, action) => {
       state.error = action.payload;
+    });
+    builder.addCase(editProfile.fulfilled, (state, action) => {
+      state.me = action.payload;
+    });
+    builder.addCase(editProfile.rejected, (state, action) => {
+      state.error = action.error;
     });
   },
 });

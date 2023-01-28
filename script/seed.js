@@ -21,7 +21,7 @@ async function seed() {
       email: "cody@lol.com",
       isAdmin: false,
       firstName: "cody",
-      lastName: "cody",
+      lastName: "pug",
       school: "harvard med",
       expertise: "Student",
     }),
@@ -41,7 +41,9 @@ async function seed() {
       question:
         "A 50-year-old male comes to the clinic for evaluation for progressive shortness of breath. PFT of the patient suggests which of the following? Pulmonary function tests are provided below: ",
       questionImage: ["public/Images/Q1/Q1 img1.png", "public/Images/Q1/Q1img2.png"],
+
       answerOptions: ["Obstructive Lung Disease", "Restrictive Lung Disease", "Nonspecific Pattern", "Mixed Ventilatory Defect"],
+
       correctAnswer: "Nonspecific Pattern ",
       explanation: `An obstructive ventilatory defect is a disproportionate reduction in maximal airflow from the lung in relation to the maximal volume (i.e. vital capacity, VC) that can be displaced from the lung [1]. It is defined by a reduced Forced Expiratory Volume in 1 second (FEV1)/FVC ratio below the 5th percentile of the predicted value as per ATS/ERS task force [1] or less than 0.70.   In this patient FEV1/FVC is normal.
 
@@ -1274,7 +1276,7 @@ async function seed() {
       showExplanation: false,
     }),
   ]);
-
+  
   console.log(`seeded ${users.length} users, and ${Question.length} question(s)`);
   console.log(`seeded successfully`);
   return {
