@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const {
-  models: { User },
+  models: { User, Password_Reset },
 } = require("../db");
 const { getToken } = require("../api/userCheckMiddleware");
-module.exports = router;
+const crypto = require("crypto");
+require("dotenv").config();
+const nodemailer = require("nodemailer");
 
 router.post("/login", async (req, res, next) => {
   try {
@@ -62,3 +64,78 @@ router.put("/profile", getToken, async (req, res, next) => {
     next(err);
   }
 });
+
+/** Route1: when a user requests a new password from the 'forgot password' link we
+ * 1) check if the email exists in our db
+ * 2) if another reset token was generated, we make it invalid/expired
+ * 3) generate a new reset token
+ * 4) store new token in our db **/
+
+router.post("/forgotPassword", async function (req, res, next) {
+  const { email } = req.body;
+
+  let userEmail = await User.findOne({ where: { email: email } });
+
+  if (userEmail == null) {
+    /**
+     * we don't want to tell attackers that an
+     * email doesn't exist, because that will let
+     * them use this form to find ones that do
+     * exist.
+     **/
+    return res.json({ status: "ok" });
+  }
+
+  await Password_Reset.update(
+    {
+      used: 1,
+    },
+    {
+      where: {
+        email: email,
+      },
+    }
+  );
+
+  // creating random reset token
+  let fpSalt = crypto.randomBytes(64).toString("base64");
+
+  //token expires after one hour
+  var expireDate = new Date(new Date().getTime() + 60 * 60 * 1000);
+
+  await Password_Reset.create({
+    email: email,
+    expiration: expireDate,
+    token: fpSalt,
+    used: 0,
+  });
+
+  //HOLD OFF ON THIS STEP
+  //create email
+  // const message = {
+  //   from: process.env.SENDER_ADDRESS,
+  //   to: req.body.email,
+  //   replyTo: process.env.REPLYTO_ADDRESS,
+  //   subject: process.env.FORGOT_PASS_SUBJECT_LINE,
+  //   text:
+  //     "To reset your password, please click the link below.\n\nhttps://" +
+  //     process.env.DOMAIN +
+  //     "/user/reset-password?token=" +
+  //     encodeURIComponent(token) +
+  //     "&email=" +
+  //     req.body.email,
+  // };
+
+  // //send email
+  // transport.sendMail(message, function (err, info) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log(info);
+  //   }
+  // });
+
+  return res.json({ status: "ok" });
+});
+
+module.exports = router;

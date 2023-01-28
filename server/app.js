@@ -43,10 +43,6 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || "Internal server error.");
 });
 
-function sendEmail() {
-  return new Promise((resolve, reject)=> {
-    var transporter = nodemailer.crea
-  }  )
-}
 
-module.exports = app;
+
+module.exports = app
