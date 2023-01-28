@@ -13,6 +13,8 @@ const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
 
+  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
+  console.log("USERQUESTIONS", userQuestions, userId);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
@@ -44,8 +46,9 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = allQuestions.filter((question) => question.id === questionId);
-    question ? question.favorite : false;
+    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    if (question[0] && question[0].favorite) return true;
+    return false;
   };
 
   const favorite = (userId, questionId) => {

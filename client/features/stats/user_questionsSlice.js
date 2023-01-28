@@ -15,13 +15,38 @@ export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", a
   }
 });
 
-export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (id) => {
+export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (userId) => {
   try {
-    const { data } = await axios.get(`/api/user_questions/${id}`, {
+    const { data } = await axios.get(`/api/user_questions/${userId}`, {
       headers: {
         authorization: token,
       },
     });
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const updateUserQuestion = createAsyncThunk("fetchUserQuestions", async ({ userId, questionAnswerId, favorite, userInput, answered, showExplanation }) => {
+  try {
+    const { data } = await axios.put(
+      `/api/user_questions/${userId}`,
+      {
+        questionAnswerId: questionAnswerId,
+        favorite: favorite,
+        userInput: userInput,
+        answered: answered,
+        showExplanation: showExplanation,
+      },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -43,6 +68,10 @@ export const allUser_QuestionsSlice = createSlice({
         state.allUserQuestions = action.payload;
       })
       .addCase(fetchUserQuestions.fulfilled, (state, action) => {
+        console.log("User_Questions", action.payload);
+        state.UserQuestions = action.payload;
+      })
+      .addCase(updateUserQuestion.fulfilled, (state, action) => {
         console.log("User_Questions", action.payload);
         state.UserQuestions = action.payload;
       })
