@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const token = window.localStorage.getItem("token");
 
+
+// --------For admin's dashboard analytics (aggregate)--------------
 export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", async () => {
   try {
     const { data } = await axios.get(`/api/user_questions`, {
@@ -15,6 +17,7 @@ export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", a
   }
 });
 
+// --------For logged in user's dashboard analytics--------------
 export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (userId) => {
   try {
     const { data } = await axios.get(`/api/user_questions/${userId}`, {
@@ -29,7 +32,8 @@ export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (
   }
 });
 
-export const updateUserQuestion = createAsyncThunk("fetchUserQuestions", async ({ userId, questionAnswerId, favorite, userInput, answered, showExplanation }) => {
+// --------TO FAVORITE, UNFAVORITE, ANSWERED OR NOT--------------
+export const updateUserQuestion = createAsyncThunk("fetchUserQuestions", async ({ userId, questionAnswerId, favorite, userInput, answered, userExpertise }) => {
   try {
     const { data } = await axios.put(
       `/api/user_questions/${userId}`,
@@ -38,7 +42,7 @@ export const updateUserQuestion = createAsyncThunk("fetchUserQuestions", async (
         favorite: favorite,
         userInput: userInput,
         answered: answered,
-        showExplanation: showExplanation,
+        userExpertise: userExpertise,
       },
       {
         headers: {
