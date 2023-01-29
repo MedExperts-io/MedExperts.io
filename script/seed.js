@@ -33,25 +33,6 @@ async function seed() {
     }),
   ]);
 
-  // Creating User_Question
-  const user_questions = await Promise.all([
-    User_Question.create({
-      userId: 1,
-      questionAnswerId: 1,
-      favorite: true,
-      userInput: "Nonspecific Pattern",
-      answered: "right",
-    }),
-    // User_Question.create({
-    //   userId: 1,
-    //   questionAnswerId: 2,
-    //   favorite: true,
-    //   userInput: `D-Dimer test is positive and indicates immediate treatment of PE.`,
-    //   answered: "wrong",
-    //   showExplanation: true,
-    // }),
-  ]);
-
   const Question = await Promise.all([
     //Q1
     Question_Answer.create({
@@ -767,7 +748,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30798629/" target="_blank">Kavaliunaite E, Aurora P. Diagnosing and managing bronchiolitis obliterans in children. Expert Rev Respir Med. 2019 May;13(5):481-488</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30523731/" target="_blank">Bondeelle L, Bergeron A. Managing pulmonary complications in allogeneic hematopoietic stem cell transplantation. Expert Rev Respir Med. 2019 Jan;13(1):105-119</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -787,7 +768,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30545968/" target="_blank">Simonneau G, Montani D, Celermajer DS, Denton CP, Gatzoulis MA, Krowka M, et al. Haemodynamic definitions and updated clinical classification of pulmonary hypertension. Eur Respir J. 2019;53(1).</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -810,7 +791,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3826527/" target="_blank">Chen et al.: Complete excision of a giant thyroid goiter in posterior mediastinum. Journal of Cardiothoracic Surgery 2013. 8:207.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -830,7 +811,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17065373/" target="_blank">Morrell NW. Pulmonary hypertension due to BMPR2 mutation: a new paradigm for tissue remodeling? Proceedings of the American Thoracic Society 2006; 3:680-6.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -850,7 +831,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/6375982/" target="_blank">O'Rourke RA, Crawford MH. Mitral valve regurgitation. Curr Probl Cardiol. 1984 May;9(2):1-52</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -874,7 +855,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/12186831/" target="_blank">American Thoracic Society/European Respiratory Society (ATS/ERS). ATS/ERS Statement on respiratory muscle testing. Am J Respir Crit Care Med. 2002;166:518–624.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/28302142/" target="_blank">Benedikt Schoser, Edward Fong, Tarekegn Geberhiwot. Maximum inspiratory pressure as a clinically meaningful trial endpoint for neuromuscular diseases: a comprehensive review of the literature. Orphanet Journal of Rare Diseases volume 12, Article number: 52 (2017) </a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -890,7 +871,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23883377/" target="_blank">Ghofrani HA, D'Armini AM, Grimminger F, et al. Riociguat for the treatment of chronic thromboembolic pulmonary hypertension. The New England journal of medicine 2013;369:319</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5402909/" target="_blank">Lian TY, Jiang X, Jing ZC. Riociguat: a soluble guanylate cyclase stimulator for the treatment of pulmonary hypertension. Drug design, development and therapy 2017;11:1195-207.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -916,7 +897,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31248818/" target="_blank">Luks AM, Auerbach PS, Freer L, et al.Wilderness Medical Society clinical practice guidelines for the prevention andtreatment of acute altitude illness: 2019 update. Wilderness Environ Med 2019;30:Suppl:S3-S18.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/35081281/" target="_blank">Luks AM, Hackett PH. Medical Conditions and High-Altitude Travel.N Engl J Med. 2022 Jan 27;386(4):364-373.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -948,7 +929,7 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2991057/" target="_blank">Ingersoll KS, Wagner CC, Gharib S. Motivational groups for community substance abuse programs. 3rd edition. Rockville, MD: Substance Abuse Mental Health Services Administration; 2006.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21114344/" target="_blank">Hettema JE, Hendricks PS. Motivational interviewing for smoking cessation: a meta-analytic review. J Consult Clin Psychol. 2010 Dec;78(6):868-84.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -972,7 +953,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/2570460/" target="_blank">Kerem B, Rommens JM. et.al. Identification of cystic fibrosis gene: genetic analysis Science. 1989; 245:1073-80</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24622267/" target="_blank">Ode KL, Moran A. New insights into cystic fibrosis-related diabetes in children. The LANCET Diabetes and Endocrinology 2013 June 30-35</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -996,7 +977,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7774322/" target="_blank">Hoffsttein V, et al. Cardiac arrhythmias, snoring and sleep apnea. Chest 1994;106:466-471</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16424443/" target="_blank">Mehra R, et.al. Association of nocturnal arrhythmias with sleep-disordered breathing: The Sleep Heart Health Study. Am J Crit Care Med 2006;173:910-916</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1024,7 +1005,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24080454/" target="_blank">Pan Weihong et al. Leptin: A biomarker for sleep disorders? Sleep Med Rev 2014; 18(3):283 - 290</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/10899061/" target="_blank">Phillips BG, et.al. Increases in leptin levels, sympathetic drive, and weight gain in obstructive sleep apnea. Am J Physiol hear Circ physiol 2000;279:H234-237</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1055,7 +1036,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/27261908/" target="_blank">Zheng M. Classification and Pathology of Lung Cancer. Surg Oncol Clin N Am. 2016 Jul;25(3):447-68</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1080,7 +1061,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25054718/" target="_blank">Rubin L.G. Schaffner W.  Care of the Asplenic patient.  NEJM 2014 371 (4) 349-356.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1107,7 +1088,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997415/" target="_blank">Bajantri B., Venkatrm S, Fuentesa GD, Mycoplasma pneumoniae: A Potentially Severe Infection;J Clin Med Res. 2018 Jul; 10(7): 535–544.</a>`,
       ],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1134,7 +1115,7 @@ async function seed() {
         `,
       explanationImage: [],
       explanationLinks: [],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1154,7 +1135,7 @@ async function seed() {
         `,
       explanationImage: [],
       explanationLinks: [],
-      level: "easy",
+      level: "medium",
       category: "anatomy",
     }),
 
@@ -1188,7 +1169,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet PS. Incentive spirometry to prevent acute pulmonary complications in sickle cell diseases.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">N Engl J Med 1995; 333:699-703</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1209,7 +1190,7 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994020/" target="_blank">Barnett C, Machado R. Sildenafil in the treatment of pulmonary hypertension. VascHealth Risk Manag.
             2006;2(4):411-22.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1249,7 +1230,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/11596589/" target="_blank">Keane J, Gershon S, Wise RP, et al. Tuberculosis associated with infliximab, a tumor necrosis factor alpha-neutralizing agent. N Engl J Med 2001; 345:1098–1104.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/19218645/" target="_blank">Demkow U, Broniarek-Samson B, Filewska M, et al. Prevalence of latent tuberculosis infection in health care workers in Poland assessed by interferon-gamma whole blood and tuberculin skin tests. J Physiol 2008; 59(6):209-17</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1269,7 +1250,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25059587/" target="_blank">Rodríguez Panadero F. Diagnosis and Treatment of Malignant Pleural Mesothelioma. Arch Bronconeumol. 2015;51(4):177–184).</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1295,7 +1276,7 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/books/NBK539908/" target="_blank">Bajaj T, Aboeed A. Chest Wall Tumors. [Updated 2020 Jun 27]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; Jan 2020.</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8776346/" target="_blank">Shikhare S. Primary chest-wall leiomyosarcoma: a rare mimic of a malignant rib lesion. CSO 2016;14(10):431-433.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1323,7 +1304,7 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4958807/" target="_blank">Subotic D, Yablonskiy P, Sulis G et al. Surgery and pleuro-pulmonary tuberculosis: a scientific literature review. J Thorac Dis 2016;8(7):E474-E485.</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5887688/" target="_blank">Keikha M, Esfahani BN. The Relationship between Tuberculosis and Lung Cancer. Adv Biomed Res. 2018 Mar 27;7:58.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1343,7 +1324,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5438732/" target="_blank">Yang L, Zhang Q, Bai L, Li TY, He C, Ma QL, Li LS, Huang XQ, Qian GS. Assessment of the cancer risk factors of solitary pulmonary nodules. Oncotarget. 2017 Apr 25;8(17):29318-29327.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1370,7 +1351,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC471410/" target="_blank">Maguire MF, Berry CB, Gellett L, Berrisford RG. Catastrophic haemoptysis during rigid bronchoscopy: a discussion of treatment options to salvage patients during catastrophic haemoptysis at rigid bronchoscopy. Interact Cardiovasc Thorac Surg. 2004;3(2):222-225.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1402,7 +1383,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/22963024/" target="_blank">Allen RE, Kirby KA. Nocturnal leg cramps Am Fam Physician. 2012 Aug 15;86(4):350-5. Nocturnal Leg Cramps</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1433,7 +1414,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24297124/" target="_blank">Stockley RA. α1-Antitrypsin Deficiency: What Has It Ever Done for Us? Chest. 2013;144(6):1923-1929.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1453,7 +1434,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/10537385/" target="_blank">Wilkin, A.  J. Feinberg.  Pneumocystis carinii Pneumonia: A Clinical Review.  Am Fam Physician. 1999 Oct 15;60(6):1699-1708.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1479,7 +1460,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31476240/" target="_blank">Loebelenz LI. Kerley B lines in the lung apex- a distinct CT sign for pulmonary congestion. Swiss Med Wkly 2019, 149:w20119</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24247614/" target="_blank">Corradi F. Chest ultrasound in acute respiratory distress syndrome. Curr Crit Care 2014; 20(1):98-103</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
 
@@ -1501,13 +1482,51 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2707800/" target="_blank">Montuschi P, Pharmacological treatment of chronic obstructive pulmonary disease; Int J Chron Obstruct Pulmon Dis. 2006 Dec; 1(4): 409–423.</a>`,
       ],
-      level: "easy",
+      level: "difficult",
       category: "anatomy",
     }),
   ]);
 
+  // Creating User_Questions
+  const user_question = await Promise.all([
+    User_Question.create({
+      userId: 1,
+      questionAnswerId: 1,
+      userInput: "Obstructive Lung Disease",
+      answered: "wrong",
+      userExpertise: "Student",
+    }),
+    // User_Question.create({
+    //   userId: 1,
+    //   questionAnswerId: 2,
+    //   favorite: true,
+    //   userInput: `D-Dimer test is positive and indicates immediate treatment of PE.`,
+    //   answered: "wrong",
+    //   showExplanation: true,
+    // }),
+    // User_Question.create({
+    //   userId: 1,
+    //   questionAnswerId: 2,
+    //   favorite: true,
+    //   userInput: "A",
+    //   answered: "right",
+    // }),
+    // User_Question.create({
+    //   userId: 1,
+    //   questionAnswerId: 3,
+    //   favorite: true,
+    //   answered: "none",
+    // }),
+    // User_Question.create({
+    //   userId: 1,
+    //   questionAnswerId: 4,
+    //   favorite: true,
+    //   answered: "none",
+    // }),
+  ]);
+
   console.log(
-    `seeded ${users.length} users, ${user_questions.length} user question input, and ${Question.length} question(s)`
+    `seeded ${users.length} users, and ${Question.length} question(s)`
   );
   console.log(`seeded successfully`);
   return {
