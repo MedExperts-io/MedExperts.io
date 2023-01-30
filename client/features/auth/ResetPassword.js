@@ -10,12 +10,12 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
-  const email = searchParams.get("email");
-  console.log(token, email);
+  const uid = searchParams.get("uid");
+  console.log(token, uid);
   const [validated, setValidated] = useState(false);
 
   useEffect(() => {
-    dispatch(isResetLinkValid({ token, email }));
+    dispatch(isResetLinkValid({ token, uid }));
   }, []);
 
   const handleSubmit = (evt) => {
@@ -24,7 +24,7 @@ const ResetPassword = () => {
     const password2 = evt.target.password2.value;
 
     if (validated) {
-      dispatch(resetPassword({ password1, password2, token, email }));
+      dispatch(resetPassword({ password1, password2, token, uid }));
       // if reset password is successful redirect to navigate("/home") otherwise redirect to error page
     }
     navigate("/home");

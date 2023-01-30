@@ -97,21 +97,21 @@ export const forgotPassword = createAsyncThunk(
 
 export const isResetLinkValid = createAsyncThunk(
   "auth/isResetLinkValid",
-  async ({ token, email }) => {
-    const { data } = await axios.get(`/auth/resetPassword/?token=${token}&email=${email}`);
+  async ({ token, uid }) => {
+    const { data } = await axios.get(`/auth/resetPassword/?token=${token}&uid=${uid}`);
     return data;
   }
 );
 
 export const resetPassword = createAsyncThunk(
   "auth/resetPassword",
-  async ({ password1, password2, token, email }, thunkAPI) => {
+  async ({ password1, password2, token, uid }, thunkAPI) => {
     try {
       const { data } = await axios.post("/auth/resetPassword", {
         password1,
         password2,
         token,
-        email,
+        uid,
       });
 
       return data;

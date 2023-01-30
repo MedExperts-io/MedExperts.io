@@ -106,7 +106,7 @@ router.post("/forgotPassword", async function (req, res, next) {
     },
   });
 
-  // let fpSalt = uuidv4();
+  let userId = uuidv4();
 
   let resetToken = crypto.randomBytes(32).toString("hex");
   const fpSalt = await bcrypt.hash(resetToken, Number(resetToken));
@@ -115,6 +115,7 @@ router.post("/forgotPassword", async function (req, res, next) {
 
   await Password_Reset.create({
     email: email,
+    uid: userId,
     expiration: expireDate,
     token: fpSalt,
     used: 0,
@@ -122,7 +123,10 @@ router.post("/forgotPassword", async function (req, res, next) {
 
   const source = fs.readFileSync(path.join(__dirname, "/template.hbs"), "utf8");
   const compiledTemplate = handlebars.compile(source);
-  const htmlToSend = compiledTemplate({ token: encodeURIComponent(fpSalt), email: email });
+  const htmlToSend = compiledTemplate({
+    token: encodeURIComponent(fpSalt),
+    uid: encodeURIComponent(userId),
+  });
 
   const message = () => {
     return {
@@ -146,9 +150,9 @@ router.post("/forgotPassword", async function (req, res, next) {
 });
 
 // GET route to check if the token is expired or not. if it is valid, display password reset form
-router.get("/resetPassword/:token?:email?", async function (req, res, next) {
+router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
   const token = req.query.token;
-  const email = req.query.email;
+  const uid = req.query.uid;
 
   await Password_Reset.destroy({
     where: {
@@ -158,7 +162,7 @@ router.get("/resetPassword/:token?:email?", async function (req, res, next) {
 
   let record = await Password_Reset.findOne({
     where: {
-      email: email,
+      uid: uid,
       expiration: { [Op.gt]: Date.now() },
       token: token,
       used: 0,
@@ -175,7 +179,7 @@ router.get("/resetPassword/:token?:email?", async function (req, res, next) {
     },
     {
       where: {
-        email: email,
+        uid: uid,
       },
     }
   );
@@ -185,7 +189,7 @@ router.get("/resetPassword/:token?:email?", async function (req, res, next) {
 
 // POST route to actually reset the password
 router.post("/resetPassword", async function (req, res, next) {
-  const { password1, password2, token, email } = req.body;
+  const { password1, password2, token, uid } = req.body;
 
   if (password1 !== password2) {
     return res.status(400).json("Passwords do not match. Please try again");
@@ -193,7 +197,7 @@ router.post("/resetPassword", async function (req, res, next) {
 
   let record = await Password_Reset.findOne({
     where: {
-      email: email,
+      uid: uid,
       expiration: { [Op.gt]: Date.now() },
       token: token,
       used: 1,
@@ -210,7 +214,7 @@ router.post("/resetPassword", async function (req, res, next) {
     },
     {
       where: {
-        email: email,
+        uid: uid,
       },
     }
   );
@@ -223,7 +227,7 @@ router.post("/resetPassword", async function (req, res, next) {
     },
     {
       where: {
-        email: email,
+        email: record.email,
       },
     }
   );
