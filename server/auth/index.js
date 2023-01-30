@@ -142,9 +142,10 @@ router.post("/forgotPassword", async function (req, res, next) {
 });
 
 // GET route to check if the token is expired or not. if it is valid, display password reset form
-router.get("/resetPassword", async function (req, res, next) {
-  const { token, email } = req.body;
-  console.log(req.body);
+router.get("/resetPassword/?token=:token?&email=:email?", async function (req, res, next) {
+  const { token } = req.query.token;
+  const { email } = req.query.email;
+  console.log(req.query, "query");
 
   await Password_Reset.destroy({
     where: {
@@ -161,17 +162,22 @@ router.get("/resetPassword", async function (req, res, next) {
     },
   });
 
-  if (record == null) {
-    return res.render("/passwordExpired", {
-      message: "Token has expired. Please try password reset again.",
-      showForm: false,
-    });
-  }
+  if (!record) {
+    console.log("this link is expired");
+    return res.status(400).json({ error: "Invalid or expired token" });
 
-  res.render("/resetPassword", {
-    showForm: true,
-    record: record,
-  });
+    // return res.render("/resetPassword", {
+    //   message: "Token has expired. Please try password reset again.",
+    //   showForm: false,
+    // });
+  }
+  console.log("this link is valid");
+  return res.json({ message: "valid token" });
+
+  // res.render("/resetPassword", {
+  //   showForm: true,
+  //   record: record,
+  // });
 });
 
 // POST route to actually reset the password
@@ -192,7 +198,7 @@ router.post("/resetPassword", async function (req, res, next) {
   });
 
   if (record == null) {
-    return res.json({
+    return res.status(400).json({
       status: "error",
       message: "Token not found. Please try the reset password process again.",
     });

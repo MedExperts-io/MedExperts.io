@@ -57,7 +57,7 @@ export const authenticate = createAsyncThunk(
 
 export const editProfile = createAsyncThunk(
   "auth/profile",
-  async ({ firstName, lastName, email, expertise }) => {
+  async ({ firstName, lastName, email, expertise }, thunkAPI) => {
     const token = window.localStorage.getItem(TOKEN);
     try {
       if (token) {
@@ -78,31 +78,13 @@ export const editProfile = createAsyncThunk(
   }
 );
 
-export const forgotPassword = createAsyncThunk("auth/forgotPassword", async ({ email }) => {
-  // token?
-  try {
-    const { data } = await axios.post("/auth/forgotPassword", { email });
-
-    return data;
-  } catch (err) {
-    if (err.response.data) {
-      return thunkAPI.rejectWithValue(err.response.data);
-    } else {
-      return "There was an issue with your request.";
-    }
-  }
-});
-
-export const checkLinkValidity = createAsyncThunk(
-  "auth/checkLinkValidity",
-  async ({ token, email }) => {
+export const forgotPassword = createAsyncThunk(
+  "auth/forgotPassword",
+  async ({ email }, thunkAPI) => {
     try {
-      const res = await axios.get("/auth/resetPassword", {
-        token,
-        email,
-      });
+      const { data } = await axios.post("/auth/forgotPassword", { email });
 
-      return res.data;
+      return data;
     } catch (err) {
       if (err.response.data) {
         return thunkAPI.rejectWithValue(err.response.data);
@@ -113,9 +95,17 @@ export const checkLinkValidity = createAsyncThunk(
   }
 );
 
+export const isResetLinkValid = createAsyncThunk(
+  "auth/isResetLinkValid",
+  async ({ token, email }) => {
+    const { data } = await axios.get(`/auth/resetPassword/?token=${token}&email=${email}`);
+    return data;
+  }
+);
+
 export const resetPassword = createAsyncThunk(
   "auth/resetPassword",
-  async ({ password1, password2, token, email }) => {
+  async ({ password1, password2, token, email }, thunkAPI) => {
     try {
       const { data } = await axios.post("/auth/resetPassword", {
         password1,
@@ -173,10 +163,11 @@ export const authSlice = createSlice({
     builder.addCase(forgotPassword.rejected, (state, action) => {
       state.error = action.error;
     });
-    builder.addCase(checkLinkValidity.fulfilled, (state, action) => {
+    builder.addCase(isResetLinkValid.fulfilled, (state, action) => {
+      console.log(action.payload, "isresetlink payload");
       state.me = action.payload;
     });
-    builder.addCase(checkLinkValidity.rejected, (state, action) => {
+    builder.addCase(isResetLinkValid.rejected, (state, action) => {
       state.error = action.error;
     });
     builder.addCase(resetPassword.fulfilled, (state, action) => {
