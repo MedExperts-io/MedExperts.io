@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Container, Row, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { resetPassword, checkLinkValidity } from "./authSlice";
+import { resetPassword, isResetLinkValid } from "./authSlice";
 import { useSearchParams } from "react-router-dom";
 
 const ResetPassword = () => {
@@ -14,9 +14,9 @@ const ResetPassword = () => {
   console.log(token, email);
   const [validated, setValidated] = useState(false);
 
-  // useEffect(() => {
-  //   dispatch(checkLinkValidity({ token, email }));
-  // }, []);
+  useEffect(() => {
+    dispatch(isResetLinkValid({ token, email }));
+  }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -24,9 +24,12 @@ const ResetPassword = () => {
     const password2 = evt.target.password2.value;
 
     if (validated) {
-      dispatch(resetPassword({ password1, password2, token, email }));
+      if (dispatch(resetPassword({ password1, password2, token, email }))) {
+        navigate("/home");
+      }
+      navigate("/resetPassword/error");
+      // if reset password is successful redirect to navigate("/home") otherwise redirect to error page
     }
-    navigate("/home");
   };
 
   return (

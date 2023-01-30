@@ -4,6 +4,10 @@ const morgan = require("morgan");
 const nodemailer = require("nodemailer");
 const app = express();
 require("dotenv").config();
+const ejs = require("ejs");
+
+//register template engine
+app.set("view engine', 'ejs");
 
 // logging middleware
 app.use(morgan("dev"));
@@ -43,6 +47,4 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || "Internal server error.");
 });
 
-
-
-module.exports = app
+module.exports = app;
