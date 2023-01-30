@@ -82,6 +82,7 @@ export const forgotPassword = createAsyncThunk("auth/forgotPassword", async ({ e
   // token?
   try {
     const { data } = await axios.post("/auth/forgotPassword", { email });
+    console.log(data);
 
     return data;
   } catch (err) {
@@ -92,6 +93,28 @@ export const forgotPassword = createAsyncThunk("auth/forgotPassword", async ({ e
     }
   }
 });
+
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async ({ password1, password2, token, email }) => {
+    try {
+      const { data } = await axios.post("/auth/resetPassword", {
+        password1,
+        password2,
+        token,
+        email,
+      });
+
+      return data;
+    } catch (err) {
+      if (err.response.data) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      } else {
+        return "There was an issue with your request.";
+      }
+    }
+  }
+);
 
 /*
   SLICE
@@ -126,9 +149,15 @@ export const authSlice = createSlice({
       state.error = action.error;
     });
     builder.addCase(forgotPassword.fulfilled, (state, action) => {
-      console.log(action.payload);
+      state.me = action.payload;
     });
     builder.addCase(forgotPassword.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(resetPassword.fulfilled, (state, action) => {
+      state.me = action.payload;
+    });
+    builder.addCase(resetPassword.rejected, (state, action) => {
       state.error = action.error;
     });
   },

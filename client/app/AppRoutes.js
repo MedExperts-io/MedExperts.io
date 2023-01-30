@@ -29,9 +29,8 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           <Route path="/*" element={<LoginOrSignup />} />
-          <Route path="/reset" element={<RequestNewPassword />} />
-          //temporary route just to check styling
-          <Route path = "/create" element = {<ResetPassword/>}/>
+          <Route path="/forgotPassword" element={<RequestNewPassword />} />
+          <Route path="/resetPassword/*" element={<ResetPassword />} />
         </Routes>
       )}
     </div>

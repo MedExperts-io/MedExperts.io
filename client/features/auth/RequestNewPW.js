@@ -30,7 +30,7 @@ const RequestNewPassword = () => {
             </p>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control required type="email" placeholder="Enter email" />
             </Form.Group>
 
             <Button onClick={() => setValidated(true)} variant="secondary" type="submit">
