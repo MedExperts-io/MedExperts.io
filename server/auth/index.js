@@ -91,9 +91,9 @@ router.put("/profile", getToken, async (req, res, next) => {
 router.post("/forgotPassword", async function (req, res, next) {
   const { email } = req.body;
 
-  let userEmail = await User.findOne({ where: { email: email } });
+  let user = await User.findOne({ where: { email: email } });
 
-  if (userEmail == null) {
+  if (user == null) {
     return res.json({ status: "ok" });
   }
 

@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const token = window.localStorage.getItem("token");
 
-
 // --------For admin's dashboard analytics (aggregate)--------------
 export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", async () => {
   try {
@@ -33,29 +32,32 @@ export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (
 });
 
 // --------TO FAVORITE, UNFAVORITE, ANSWERED OR NOT--------------
-export const updateUserQuestion = createAsyncThunk("fetchUserQuestions", async ({ userId, questionAnswerId, favorite, userInput, answered, userExpertise }) => {
-  try {
-    const { data } = await axios.put(
-      `/api/user_questions/${userId}`,
-      {
-        questionAnswerId: questionAnswerId,
-        favorite: favorite,
-        userInput: userInput,
-        answered: answered,
-        userExpertise: userExpertise,
-      },
-      {
-        headers: {
-          authorization: token,
+export const updateUserQuestion = createAsyncThunk(
+  "updateUserQuestion",
+  async ({ userId, questionAnswerId, favorite, userInput, answered, userExpertise }) => {
+    try {
+      const { data } = await axios.put(
+        `/api/user_questions/${userId}`,
+        {
+          questionAnswerId: questionAnswerId,
+          favorite: favorite,
+          userInput: userInput,
+          answered: answered,
+          userExpertise: userExpertise,
         },
-      }
-    );
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error);
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
