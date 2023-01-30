@@ -82,7 +82,6 @@ export const forgotPassword = createAsyncThunk("auth/forgotPassword", async ({ e
   // token?
   try {
     const { data } = await axios.post("/auth/forgotPassword", { email });
-    console.log(data);
 
     return data;
   } catch (err) {
@@ -93,6 +92,26 @@ export const forgotPassword = createAsyncThunk("auth/forgotPassword", async ({ e
     }
   }
 });
+
+export const checkLinkValidity = createAsyncThunk(
+  "auth/checkLinkValidity",
+  async ({ token, email }) => {
+    try {
+      const res = await axios.get("/auth/resetPassword", {
+        token,
+        email,
+      });
+
+      return res.data;
+    } catch (err) {
+      if (err.response.data) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      } else {
+        return "There was an issue with your request.";
+      }
+    }
+  }
+);
 
 export const resetPassword = createAsyncThunk(
   "auth/resetPassword",
@@ -152,6 +171,12 @@ export const authSlice = createSlice({
       state.me = action.payload;
     });
     builder.addCase(forgotPassword.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(checkLinkValidity.fulfilled, (state, action) => {
+      state.me = action.payload;
+    });
+    builder.addCase(checkLinkValidity.rejected, (state, action) => {
       state.error = action.error;
     });
     builder.addCase(resetPassword.fulfilled, (state, action) => {
