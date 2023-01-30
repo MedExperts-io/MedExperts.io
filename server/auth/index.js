@@ -97,20 +97,14 @@ router.post("/forgotPassword", async function (req, res, next) {
     return res.json({ status: "ok" });
   }
 
-  await Password_Reset.update(
-    {
-      used: 1,
+  await Password_Reset.destroy({
+    where: {
+      email: email,
     },
-    {
-      where: {
-        email: email,
-      },
-    }
-  );
+  });
 
   let fpSalt = crypto.randomBytes(64).toString("base64");
 
-  //token expires after one hour
   var expireDate = Date.now() + 3600000;
 
   await Password_Reset.create({
@@ -125,7 +119,7 @@ router.post("/forgotPassword", async function (req, res, next) {
     to: email,
     subject: process.env.FORGOT_PASS_SUBJECT_LINE,
     text:
-      "To reset your password, please click the link below:\n\n" +
+      "We have received a password change request for your MedExperts account.\n\nIf you did not ask to change your password, then you can ignore this email and your password will not be changed. The link below will remain active for one hour.\n\n" +
       `http://localhost:8080/resetPassword/?token=${encodeURIComponent(fpSalt)}&email=${email}`,
   };
 
@@ -143,14 +137,12 @@ router.post("/forgotPassword", async function (req, res, next) {
 
 // GET route to check if the token is expired or not. if it is valid, display password reset form
 router.get("/resetPassword", async function (req, res, next) {
-  // clearing expired tokens (look into cronjob for bigger site)
   await Password_Reset.destroy({
     where: {
       expiration: { [Op.lt]: Date.now() },
     },
   });
 
-  // find token in db
   const { email, token } = req.body;
   let record = await Password_Reset.findOne({
     where: {
@@ -162,7 +154,7 @@ router.get("/resetPassword", async function (req, res, next) {
   });
 
   if (record == null) {
-    return res.render("/resetPassword", {
+    return res.render("/passwordExpired", {
       message: "Token has expired. Please try password reset again.",
       showForm: false,
     });

@@ -11,7 +11,6 @@ const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const email = searchParams.get("email");
-  console.log(email, "email", token, "token");
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (evt) => {
@@ -22,6 +21,7 @@ const ResetPassword = () => {
     if (validated) {
       dispatch(resetPassword({ password1, password2, token, email }));
     }
+    navigate("/home");
   };
 
   return (
