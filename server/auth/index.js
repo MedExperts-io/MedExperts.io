@@ -13,6 +13,7 @@ const SALT_ROUNDS = 5;
 require("dotenv").config();
 const path = require("path");
 const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 
 router.post("/login", async (req, res, next) => {
   try {
@@ -105,7 +106,10 @@ router.post("/forgotPassword", async function (req, res, next) {
     },
   });
 
-  let fpSalt = crypto.randomBytes(64).toString("base64");
+  // let fpSalt = uuidv4();
+
+  let resetToken = crypto.randomBytes(32).toString("hex");
+  const fpSalt = await bcrypt.hash(resetToken, Number(resetToken));
 
   var expireDate = Date.now() + 3600000;
 
@@ -142,10 +146,9 @@ router.post("/forgotPassword", async function (req, res, next) {
 });
 
 // GET route to check if the token is expired or not. if it is valid, display password reset form
-router.get("/resetPassword/?token=:token?&email=:email?", async function (req, res, next) {
-  const { token } = req.query.token;
-  const { email } = req.query.email;
-  console.log(req.query, "query");
+router.get("/resetPassword/:token?:email?", async function (req, res, next) {
+  const token = req.query.token;
+  const email = req.query.email;
 
   await Password_Reset.destroy({
     where: {
@@ -164,20 +167,20 @@ router.get("/resetPassword/?token=:token?&email=:email?", async function (req, r
 
   if (!record) {
     console.log("this link is expired");
-    return res.status(400).json({ error: "Invalid or expired token" });
-
-    // return res.render("/resetPassword", {
-    //   message: "Token has expired. Please try password reset again.",
-    //   showForm: false,
-    // });
+    return res.status(400).json("Invalid or expired token");
   }
+  await record.update(
+    {
+      used: 1,
+    },
+    {
+      where: {
+        email: email,
+      },
+    }
+  );
   console.log("this link is valid");
-  return res.json({ message: "valid token" });
-
-  // res.render("/resetPassword", {
-  //   showForm: true,
-  //   record: record,
-  // });
+  return res.status(200).json("valid token");
 });
 
 // POST route to actually reset the password
@@ -185,7 +188,7 @@ router.post("/resetPassword", async function (req, res, next) {
   const { password1, password2, token, email } = req.body;
 
   if (password1 !== password2) {
-    return res.json({ status: "error", message: "Passwords do not match. Please try again" });
+    return res.status(400).json("Passwords do not match. Please try again");
   }
 
   let record = await Password_Reset.findOne({
@@ -197,11 +200,8 @@ router.post("/resetPassword", async function (req, res, next) {
     },
   });
 
-  if (record == null) {
-    return res.status(400).json({
-      status: "error",
-      message: "Token not found. Please try the reset password process again.",
-    });
+  if (!record) {
+    return res.status(400).json("Token not found. Please try the reset password process again.");
   }
 
   await Password_Reset.update(
@@ -228,10 +228,7 @@ router.post("/resetPassword", async function (req, res, next) {
     }
   );
 
-  return res.json({
-    status: "ok",
-    message: "Password reset. Please login with your new password.",
-  });
+  return res.status(200).json("Password reset. Please login with your new password.");
 });
 
 module.exports = router;

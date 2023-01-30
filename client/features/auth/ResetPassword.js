@@ -24,12 +24,10 @@ const ResetPassword = () => {
     const password2 = evt.target.password2.value;
 
     if (validated) {
-      if (dispatch(resetPassword({ password1, password2, token, email }))) {
-        navigate("/home");
-      }
-      navigate("/resetPassword/error");
+      dispatch(resetPassword({ password1, password2, token, email }));
       // if reset password is successful redirect to navigate("/home") otherwise redirect to error page
     }
+    navigate("/home");
   };
 
   return (
