@@ -22,66 +22,74 @@ const SiteNavbar = () => {
         <Navbar.Brand href="/">
           <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
         {isLoggedIn ? (
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Button variant="light" href="/home" style={{ color: "#FF6262" }} className="m-2">
-                Dashboard
-              </Button>
-              <Button
-                variant="light"
-                href="/questions"
-                style={{ color: "#FF6262" }}
-                className="m-2"
-              >
-                Questions
-              </Button>
-              <Button
-                variant="light"
-                href="/favorites"
-                style={{ color: "#FF6262" }}
-                className="m-2"
-              >
-                Favorites
-              </Button>
-            </Nav>
-            <Nav>
-              <Button
-                className="m-2"
-                variant="light"
-                style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
-              >
-                <NavDropdown
-                  className="buttonIcon"
-                  style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
-                  title={
-                    <AccountCircleRoundedIcon
-                      style={{
-                        color: "#FF6262",
-                        height: "30",
-                        width: "30",
-                        paddingRight: "5px",
-                        paddingTop: "0",
-                        paddingBottom: "0",
-                        marginTop: "0",
-                        marginBottom: "0",
-                      }}
-                    />
-                  }
-                  drop={"start"}
-                  id="collapsible-nav-dropdown"
+          <>
+            {" "}
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <Button variant="light" href="/home" style={{ color: "#FF6262" }} className="m-2">
+                  Dashboard
+                </Button>
+                <Button
+                  variant="light"
+                  href="/questions"
+                  style={{ color: "#FF6262" }}
+                  className="m-2"
                 >
-                  <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
-                    Logout
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Button>
-            </Nav>
-          </Navbar.Collapse>
+                  Questions
+                </Button>
+                <Button
+                  variant="light"
+                  href="/favorites"
+                  style={{ color: "#FF6262" }}
+                  className="m-2"
+                >
+                  Favorites
+                </Button>
+              </Nav>
+              <Nav>
+                <Button
+                  className="m-2"
+                  variant="light"
+                  style={{ paddingTop: "0", paddingBottom: "0", marginTop: "0", marginBottom: "0" }}
+                >
+                  <NavDropdown
+                    className="buttonIcon"
+                    style={{
+                      paddingTop: "0",
+                      paddingBottom: "0",
+                      marginTop: "0",
+                      marginBottom: "0",
+                    }}
+                    title={
+                      <AccountCircleRoundedIcon
+                        style={{
+                          color: "#FF6262",
+                          height: "30",
+                          width: "30",
+                          paddingRight: "5px",
+                          paddingTop: "0",
+                          paddingBottom: "0",
+                          marginTop: "0",
+                          marginBottom: "0",
+                        }}
+                      />
+                    }
+                    drop={"start"}
+                    id="collapsible-nav-dropdown"
+                  >
+                    <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </>
         ) : null}
       </Container>
     </Navbar>
