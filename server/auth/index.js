@@ -196,7 +196,7 @@ router.post("/resetPassword", async function (req, res, next) {
       email: email,
       expiration: { [Op.gt]: Date.now() },
       token: token,
-      used: 0,
+      used: 1,
     },
   });
 
@@ -206,7 +206,7 @@ router.post("/resetPassword", async function (req, res, next) {
 
   await Password_Reset.update(
     {
-      used: 1,
+      used: 2,
     },
     {
       where: {
