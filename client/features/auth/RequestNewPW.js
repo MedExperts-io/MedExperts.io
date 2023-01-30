@@ -16,6 +16,8 @@ const RequestNewPassword = () => {
     if (validated) {
       dispatch(forgotPassword({ email }));
     }
+
+    navigate("/forgotPassword/confirmation")
   };
 
   return (
