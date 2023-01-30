@@ -121,7 +121,6 @@ router.post("/:userId", async (req, res, next) => {
   const uId = req.params.userId;
   const qaId = req.body.questionAnswerId;
   const entry = req.body.userInput;
-  const expertise = req.body.userExpertise;
   const answerCheck = req.body.answered;
   try {
     //Right or wrong answer will be calculated on the frontend.
@@ -135,7 +134,6 @@ router.post("/:userId", async (req, res, next) => {
     const [, userInputEntry] = await User_Question.update(
       {
         userInput: entry,
-        userExpertise: expertise,
         answered: answerCheck,
       },
       {
