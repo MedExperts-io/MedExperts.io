@@ -3,6 +3,7 @@
 const db = require("./db");
 
 const User = require("./models/User");
+const Password_Reset = require("./models/Password_Reset")
 const Question_Answer = require("./models/Question_Answer");
 const User_Question = require("./models/User_Question");
 
@@ -18,5 +19,6 @@ module.exports = {
     User,
     Question_Answer,
     User_Question,
+    Password_Reset
   },
 };
