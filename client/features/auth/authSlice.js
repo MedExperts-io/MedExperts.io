@@ -33,10 +33,7 @@ export const me = createAsyncThunk("auth/me", async () => {
 
 export const authenticate = createAsyncThunk(
   "auth/authenticate",
-  async (
-    { firstName, lastName, email, password, expertise, method },
-    thunkAPI
-  ) => {
+  async ({ firstName, lastName, email, password, expertise, school, method }, thunkAPI) => {
     try {
       const res = await axios.post(`/auth/${method}`, {
         firstName,
@@ -44,6 +41,7 @@ export const authenticate = createAsyncThunk(
         email,
         password,
         expertise,
+        school,
       });
       window.localStorage.setItem(TOKEN, res.data.token);
       thunkAPI.dispatch(me());
@@ -59,7 +57,7 @@ export const authenticate = createAsyncThunk(
 
 export const editProfile = createAsyncThunk(
   "auth/profile",
-  async ({ firstName, lastName, email, expertise }) => {
+  async ({ firstName, lastName, email, expertise }, thunkAPI) => {
     const token = window.localStorage.getItem(TOKEN);
     try {
       if (token) {
@@ -70,6 +68,53 @@ export const editProfile = createAsyncThunk(
         );
         return data;
       }
+    } catch (err) {
+      if (err.response.data) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      } else {
+        return "There was an issue with your request.";
+      }
+    }
+  }
+);
+
+export const forgotPassword = createAsyncThunk(
+  "auth/forgotPassword",
+  async ({ email }, thunkAPI) => {
+    try {
+      const { data } = await axios.post("/auth/forgotPassword", { email });
+
+      return data;
+    } catch (err) {
+      if (err.response.data) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      } else {
+        return "There was an issue with your request.";
+      }
+    }
+  }
+);
+
+export const isResetLinkValid = createAsyncThunk(
+  "auth/isResetLinkValid",
+  async ({ token, uid }) => {
+    const { data } = await axios.get(`/auth/resetPassword/?token=${token}&uid=${uid}`);
+    return data;
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async ({ password1, password2, token, uid }, thunkAPI) => {
+    try {
+      const { data } = await axios.post("/auth/resetPassword", {
+        password1,
+        password2,
+        token,
+        uid,
+      });
+
+      return data;
     } catch (err) {
       if (err.response.data) {
         return thunkAPI.rejectWithValue(err.response.data);
@@ -110,6 +155,25 @@ export const authSlice = createSlice({
       state.me = action.payload;
     });
     builder.addCase(editProfile.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(forgotPassword.fulfilled, (state, action) => {
+      state.me = action.payload;
+    });
+    builder.addCase(forgotPassword.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(isResetLinkValid.fulfilled, (state, action) => {
+      console.log(action.payload, "isresetlink payload");
+      state.me = action.payload;
+    });
+    builder.addCase(isResetLinkValid.rejected, (state, action) => {
+      state.error = action.error;
+    });
+    builder.addCase(resetPassword.fulfilled, (state, action) => {
+      state.me = action.payload;
+    });
+    builder.addCase(resetPassword.rejected, (state, action) => {
       state.error = action.error;
     });
   },
