@@ -8,6 +8,10 @@ const Password_Reset = db.define("password_reset", {
       isEmail: true,
     },
   },
+  uid: {
+    type: Sequelize.STRING,
+    unique: true,
+  },
   token: {
     type: Sequelize.STRING,
   },
