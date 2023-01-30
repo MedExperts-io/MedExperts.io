@@ -1,0 +1,155 @@
+const router = require("express").Router();
+const {
+  models: { User, Question_Answer, User_Question },
+} = require("../db");
+module.exports = router;
+
+const { getToken, isAdmin } = require("./userCheckMiddleware");
+
+// -----For admin's dashboard analytics (aggregate)
+router.get("/", async (req, res, next) => {
+  try {
+    const allUserQs = await User_Question.findAll();
+    res.json(allUserQs);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// --- For logged in student user's dashboard analytics
+router.get("/:userId", async (req, res, next) => {
+  try {
+    const userId = req.params.userId;
+    const allUserQs = await User_Question.findAll({
+      where: { userId: userId },
+    });
+    res.json(allUserQs);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// SCENARIO
+// When user clicks "Favorite" button, then make axios.put call
+// When user submits response, then make axios.post call
+
+// PUT -- api/user_questions/:userId
+router.put("/:userId", async (req, res, next) => {
+  const uId = req.params.userId;
+  const qaId = req.body.questionAnswerId;
+
+  try {
+    const [row, isNew] = await User_Question.findOrCreate({
+      where: {
+        userId: uId,
+        questionAnswerId: qaId,
+      },
+    });
+
+    if (isNew) {
+      //ROW NEVER EXISTED BEFORE
+      const [, favorited] = await User_Question.update(
+        {
+          favorite: true,
+        },
+        {
+          where: {
+            userId: uId,
+            questionAnswerId: qaId,
+          },
+          returning: true,
+          plain: true,
+        }
+      );
+      console.log("FAVORITED row", favorited);
+      res.json(favorited);
+    } else {
+      // ROW EXISTED ALREADY
+
+      if (row.favorite === true && row.userInput) {
+        //Can have existed before due to having both user input and favorited
+        const [, removeFavorite] = await User_Question.update(
+          {
+            favorite: false,
+          },
+          {
+            where: {
+              userId: uId,
+              questionAnswerId: qaId,
+            },
+            returning: true,
+            plain: true,
+          }
+        );
+        console.log("Removed Favorited", removeFavorite);
+        res.json(removeFavorite);
+      } else if (row.favorite === false && row.userInput) {
+        //Can have existed before due to having user input and not favorited
+        const [, favorited] = await User_Question.update(
+          {
+            favorite: true,
+          },
+          {
+            where: {
+              userId: uId,
+              questionAnswerId: qaId,
+            },
+            returning: true,
+            plain: true,
+          }
+        );
+        console.log("FAVORITED row", favorited);
+        res.json(favorited);
+      } else if (row.favorite === true && row.userInput === null) {
+        //Can have existed before due to having no user input and favorited
+        const deletedRow = await User_Question.destroy({
+          where: {
+            userId: uId,
+            questionAnswerId: qaId,
+          },
+        });
+        res.json(deletedRow); //only sends num of deletion back
+      }
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST -- api/user_questions/:userId
+router.post("/:userId", async (req, res, next) => {
+  const uId = req.params.userId;
+  const qaId = req.body.questionAnswerId;
+  const entry = req.body.userInput;
+  const expertise = req.body.userExpertise;
+  const answerCheck = req.body.answered;
+  try {
+    //Right or wrong answer will be calculated on the frontend.
+    const [row, isNew] = await User_Question.findOrCreate({
+      where: {
+        userId: uId,
+        questionAnswerId: qaId,
+      },
+    });
+
+    const [, userInputEntry] = await User_Question.update(
+      {
+        userInput: entry,
+        userExpertise: expertise,
+        answered: answerCheck,
+      },
+      {
+        where: {
+          userId: uId,
+          questionAnswerId: qaId,
+        },
+        returning: true,
+        plain: true,
+      }
+    );
+    console.log("USER RESPONSE ROW", userInputEntry);
+    res.json(userInputEntry);
+  } catch (err) {
+    next(err);
+  }
+});
