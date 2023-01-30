@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Container, Row, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { resetPassword } from "./authSlice";
+import { resetPassword, checkLinkValidity } from "./authSlice";
 import { useSearchParams } from "react-router-dom";
 
 const ResetPassword = () => {
@@ -11,7 +11,12 @@ const ResetPassword = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const email = searchParams.get("email");
+  console.log(token, email);
   const [validated, setValidated] = useState(false);
+
+  // useEffect(() => {
+  //   dispatch(checkLinkValidity({ token, email }));
+  // }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

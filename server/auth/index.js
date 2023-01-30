@@ -118,7 +118,7 @@ router.post("/forgotPassword", async function (req, res, next) {
 
   const source = fs.readFileSync(path.join(__dirname, "/template.hbs"), "utf8");
   const compiledTemplate = handlebars.compile(source);
-  const htmlToSend = compiledTemplate({ token: encodeURIComponent(fpSalt) }, { email: email });
+  const htmlToSend = compiledTemplate({ token: encodeURIComponent(fpSalt), email: email });
 
   const message = () => {
     return {
@@ -143,13 +143,15 @@ router.post("/forgotPassword", async function (req, res, next) {
 
 // GET route to check if the token is expired or not. if it is valid, display password reset form
 router.get("/resetPassword", async function (req, res, next) {
+  const { token, email } = req.body;
+  console.log(req.body);
+
   await Password_Reset.destroy({
     where: {
       expiration: { [Op.lt]: Date.now() },
     },
   });
 
-  const { email, token } = req.body;
   let record = await Password_Reset.findOne({
     where: {
       email: email,
@@ -196,7 +198,7 @@ router.post("/resetPassword", async function (req, res, next) {
     });
   }
 
-  let updating = await Password_Reset.update(
+  await Password_Reset.update(
     {
       used: 1,
     },
@@ -206,6 +208,7 @@ router.post("/resetPassword", async function (req, res, next) {
       },
     }
   );
+
   let newPassword = (await bcrypt.hash(password1, SALT_ROUNDS)).toString();
 
   await User.update(
