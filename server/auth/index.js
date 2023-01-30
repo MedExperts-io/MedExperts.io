@@ -111,7 +111,7 @@ router.post("/forgotPassword", async function (req, res, next) {
   let fpSalt = crypto.randomBytes(64).toString("base64");
 
   //token expires after one hour
-  var expireDate = Date.now() + 360000;
+  var expireDate = Date.now() + 3600000;
 
   await Password_Reset.create({
     email: email,
@@ -120,12 +120,9 @@ router.post("/forgotPassword", async function (req, res, next) {
     used: 0,
   });
 
-  //HOLD OFF ON THIS STEP
-  //create email
   const message = {
     from: process.env.SENDER_ADDRESS,
     to: email,
-    // replyTo: process.env.REPLYTO_ADDRESS,
     subject: process.env.FORGOT_PASS_SUBJECT_LINE,
     text:
       "To reset your password, please click the link below:\n\n" +
@@ -179,24 +176,11 @@ router.get("/resetPassword", async function (req, res, next) {
 
 // POST route to actually reset the password
 router.post("/resetPassword", async function (req, res, next) {
-  // compare the 2 password fields
   const { password1, password2, token, email } = req.body;
 
   if (password1 !== password2) {
     return res.json({ status: "error", message: "Passwords do not match. Please try again" });
   }
-
-  /**
-   * Ensure password is valid (isValidPassword
-   * function checks if password is >= 8 chars, alphanumeric,
-   * has special chars, etc)
-   **/
-  // if (!isValidPassword(req.body.password1)) {
-  //   return res.json({
-  //     status: "error",
-  //     message: "Password does not meet minimum requirements. Please try again.",
-  //   });
-  // }
 
   let record = await Password_Reset.findOne({
     where: {
@@ -225,9 +209,6 @@ router.post("/resetPassword", async function (req, res, next) {
     }
   );
   let newPassword = (await bcrypt.hash(password1, SALT_ROUNDS)).toString();
-  // console.log(newPassword);
-  // let newSalt = crypto.randomBytes(64).toString("hex");
-  // let newPassword = crypto.pbkdf2Sync(password1, newSalt, 10000, 64, "sha512").toString("base64");
 
   await User.update(
     {
