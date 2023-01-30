@@ -32,7 +32,7 @@ export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (
 });
 
 // --------TO FAVORITE, UNFAVORITE, ANSWERED OR NOT--------------
-export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async ({ userId, questionAnswerId, favorite, userInput, answered, userExpertise }) => {
+export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async ({ userId, questionAnswerId, favorite, userInput, answered }) => {
   try {
     const { data } = await axios.put(
       `/api/user_questions/${userId}`,
@@ -41,7 +41,6 @@ export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async (
         favorite: favorite,
         userInput: userInput,
         answered: answered,
-        userExpertise: userExpertise,
       },
       {
         headers: {
