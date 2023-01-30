@@ -5,7 +5,11 @@ import QuestionsAnswers from "../features/allQA/AllQA";
 import LoginOrSignup from "../features/auth/LoginOrSignup";
 import Home from "../features/home/Home";
 import Profile from "../features/auth/Profile";
+import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
+import ResetPassword from "../features/auth/ResetPassword";
+import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
+import PasswordExpired from "../features/auth/PasswordExpired";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -27,6 +31,10 @@ const AppRoutes = () => {
       ) : (
         <Routes>
           <Route path="/*" element={<LoginOrSignup />} />
+          <Route path="/forgotPassword" element={<RequestNewPassword />} />
+          <Route path="/forgotPassword/confirmation" element={<PasswordRequestConfirmation />} />
+          <Route path="/resetPassword/*" element={<ResetPassword />} />
+          <Route path="/resetPassword/error" element={<PasswordExpired />} />
         </Routes>
       )}
     </div>
