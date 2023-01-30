@@ -4,24 +4,15 @@ const {
 } = require("../db");
 const { getToken } = require("../api/userCheckMiddleware");
 const crypto = require("crypto");
-require("dotenv").config();
+const handlebars = require("handlebars");
 const nodemailer = require("nodemailer");
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
 const bcrypt = require("bcrypt");
-
 const SALT_ROUNDS = 5;
-
-const transport = nodemailer.createTransport({
-  host: process.env.HOST,
-  service: process.env.SERVICE,
-  port: process.env.PORT,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+require("dotenv").config();
+const path = require("path");
+const fs = require("fs");
 
 router.post("/login", async (req, res, next) => {
   try {
@@ -88,6 +79,17 @@ router.put("/profile", getToken, async (req, res, next) => {
  * 3) generate a new reset token
  * 4) store new token in our db **/
 
+const transport = nodemailer.createTransport({
+  host: process.env.HOST,
+  service: process.env.SERVICE,
+  port: process.env.PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 router.post("/forgotPassword", async function (req, res, next) {
   const { email } = req.body;
 
@@ -114,17 +116,21 @@ router.post("/forgotPassword", async function (req, res, next) {
     used: 0,
   });
 
-  const message = {
-    from: process.env.SENDER_ADDRESS,
-    to: email,
-    subject: process.env.FORGOT_PASS_SUBJECT_LINE,
-    text:
-      "We have received a password change request for your MedExperts account.\n\nIf you did not ask to change your password, then you can ignore this email and your password will not be changed. The link below will remain active for one hour.\n\n" +
-      `http://localhost:8080/resetPassword/?token=${encodeURIComponent(fpSalt)}&email=${email}`,
+  const source = fs.readFileSync(path.join(__dirname, "/template.hbs"), "utf8");
+  const compiledTemplate = handlebars.compile(source);
+  const htmlToSend = compiledTemplate({ token: encodeURIComponent(fpSalt) }, { email: email });
+
+  const message = () => {
+    return {
+      from: process.env.SENDER_ADDRESS,
+      to: email,
+      subject: process.env.FORGOT_PASS_SUBJECT_LINE,
+      html: htmlToSend,
+    };
   };
 
   //send email
-  transport.sendMail(message, function (err, info) {
+  transport.sendMail(message(), function (err, info) {
     if (err) {
       console.log(err);
     } else {
