@@ -2,34 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Dropdown, Row, Col } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import {
-  fetchAllUserQuestions,
-  fetchUserQuestions,
-  updateUserQuestion,
-} from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
 
-  const userQuestions = useSelector(
-    (state) => state.userQuestions.UserQuestions
-  );
+  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
 
-  // CALLING OBJCT FROM STAT - DIDN'T MAKE A DIFFERENCEE
-  // const currentUserQuestion = useSelector(
-  //   (state) => state.userQuestions.currentUserQuestion
-  // );
-  // console.log("USERQUESTIONS", userQuestions, userId);
-
-  const stateQuestions = useSelector(
-    (state) => state.questionsAnswers.questionsAnswers
-  );
+  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -72,9 +56,7 @@ const QuestionsAnswers = () => {
   const favoriteStatus = (questionId) => {
     console.log();
 
-    const question = userQuestions.filter(
-      (question) => question.questionAnswerId == questionId
-    );
+    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
 
     if (question[0] && question[0].favorite) return true;
     return false;
@@ -89,6 +71,21 @@ const QuestionsAnswers = () => {
     <Container>
       <Row>
         <Col style={{ height: "200px" }}>hello, here's some statistics.</Col>
+        <Row>
+          <Col>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Difficulty
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Easy</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Medium</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Difficult</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+        </Row>
       </Row>
 
       <Row>
@@ -99,28 +96,19 @@ const QuestionsAnswers = () => {
           ? allQuestions.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                  <Card.Header
-                    style={{ backgroundColor: `${question.color}` }}
-                  />
+                  <Card.Header style={{ backgroundColor: `${question.color}` }} />
                   <Card.Body>
                     <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
-                      src={
-                        favoriteStatus(question.id)
-                          ? "/heart(red).png"
-                          : "/heart.png"
-                      }
+                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                     />
                     <Card.Title>{question.id}. Some Title</Card.Title>
                     <Card.Text>{truncate(question.question)}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Card.Img
-                      style={{ float: "right", width: "25px" }}
-                      src="/endocrine-system.png"
-                    />
+                    <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
                   </Card.Footer>
                 </Card>
               </Col>
