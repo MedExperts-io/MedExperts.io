@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const RequestNewPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (evt) => {
@@ -17,25 +18,33 @@ const RequestNewPassword = () => {
       dispatch(forgotPassword({ email }));
     }
 
-    navigate("/forgotPassword/confirmation")
+    navigate("/forgotPassword/confirmation");
   };
 
   return (
     <Container>
       <Row className="p-5">
-        <Card border="light" className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
+        <Card
+          border="light"
+          className="p-5 mx-auto"
+          style={{ maxWidth: "800px" }}
+        >
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <h1>Reset Password</h1>
             <p>
-              Please enter your email address. You will receive a link to create a new password via
-              email.
+              Please enter your email address. You will receive a link to create
+              a new password via email.
             </p>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email address</Form.Label>
               <Form.Control required type="email" placeholder="Enter email" />
             </Form.Group>
 
-            <Button onClick={() => setValidated(true)} variant="secondary" type="submit">
+            <Button
+              onClick={() => setValidated(true)}
+              variant="secondary"
+              type="submit"
+            >
               Get New Password
             </Button>
           </Form>

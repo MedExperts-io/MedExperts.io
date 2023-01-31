@@ -11,9 +11,7 @@ import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
 
 const AppRoutes = () => {
-  const isLoggedIn = useSelector(
-    (state) => !!state.auth.me.id
-  );
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,27 +24,18 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route
-            path="/questions"
-            element={<QuestionsAnswers />}
-          />
+          <Route path="/questions" element={<QuestionsAnswers />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       ) : (
         <Routes>
           <Route path="/*" element={<LoginOrSignup />} />
-          <Route
-            path="/forgotPassword"
-            element={<RequestNewPassword />}
-          />
+          <Route path="/forgotPassword" element={<RequestNewPassword />} />
           <Route
             path="/forgotPassword/confirmation"
             element={<PasswordRequestConfirmation />}
           />
-          <Route
-            path="/resetPassword/*"
-            element={<ResetPassword />}
-          />
+          <Route path="/resetPassword/*" element={<ResetPassword />} />
         </Routes>
       )}
     </div>
