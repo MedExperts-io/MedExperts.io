@@ -21,32 +21,45 @@ const Login = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
-    const email = evt.target.email.value;
-    const password = evt.target.password.value;
+    const email = evt.target.loginEmail.value;
+    const password = evt.target.loginPassword.value;
 
     if (validated) {
-      dispatch(authenticate({ email, password, method: formName })).then(() => navigate("/home"));
+      dispatch(authenticate({ email, password, method: formName })).then(() =>
+        navigate("/home")
+      );
     }
   };
   return (
     <div className="mb-3 mt-md-4">
       <div className="mb-3">
-        <Form noValidate validated={validated} onSubmit={handleSubmit} name="login">
-          <Form.Group className="mb-3" controlId="email">
+        <Form
+          noValidate
+          validated={validated}
+          onSubmit={handleSubmit}
+          name="login"
+        >
+          <Form.Group className="mb-3" controlId="loginEmail">
             <Form.Label className="text-center" label="Email Address">
               Email address
             </Form.Label>
-            <Form.Control required type="email" placeholder="Enter email" />
+            <Form.Control
+              required
+              autoComplete="email"
+              type="email"
+              placeholder="Enter email"
+            />
             <Form.Control.Feedback type="invalid">
               Please provide a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="password">
+          <Form.Group className="mb-3" controlId="loginPassword">
             <Form.Label label="Password">Password</Form.Label>
             <InputGroup>
               <Form.Control
                 required
+                autoComplete="current-password"
                 type={passwordShown ? "text" : "password"}
                 placeholder="Enter password"
               />
@@ -65,13 +78,21 @@ const Login = () => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="checkbox">
             <p className="small">
-              <a className="text" style={{ color: "#FF6262" }} href="/forgotPassword">
+              <a
+                className="text"
+                style={{ color: "#FF6262" }}
+                href="/forgotPassword"
+              >
                 Forgot password?
               </a>
             </p>
           </Form.Group>
           <div className="d-grid">
-            <Button onClick={() => setValidated(true)} variant="secondary" type="submit">
+            <Button
+              onClick={() => setValidated(true)}
+              variant="secondary"
+              type="submit"
+            >
               Login
             </Button>
             {error ? <p>{error}</p> : null}
