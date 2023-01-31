@@ -43,7 +43,12 @@ const Login = () => {
             <Form.Label className="text-center" label="Email Address">
               Email address
             </Form.Label>
-            <Form.Control required type="email" placeholder="Enter email" />
+            <Form.Control
+              required
+              autoComplete="email"
+              type="email"
+              placeholder="Enter email"
+            />
             <Form.Control.Feedback type="invalid">
               Please provide a valid email address.
             </Form.Control.Feedback>
@@ -54,6 +59,7 @@ const Login = () => {
             <InputGroup>
               <Form.Control
                 required
+                autoComplete="current-password"
                 type={passwordShown ? "text" : "password"}
                 placeholder="Enter password"
               />

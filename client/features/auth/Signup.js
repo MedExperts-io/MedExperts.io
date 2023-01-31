@@ -134,7 +134,8 @@ const SignUp = () => {
                   <Form.Control
                     style={{ borderRadius: "10px" }}
                     required
-                    type="text"
+                    autoComplete="email"
+                    type="email"
                     placeholder="Enter email"
                   />
                   <Form.Control.Feedback type="invalid">
@@ -152,6 +153,7 @@ const SignUp = () => {
                   <InputGroup>
                     <Form.Control
                       required
+                      autoComplete="new-password"
                       type={passwordShown ? "text" : "password"}
                       placeholder="Enter password"
                     />
