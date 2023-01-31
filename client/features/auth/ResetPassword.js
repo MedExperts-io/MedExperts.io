@@ -26,8 +26,8 @@ const ResetPassword = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const password1 = evt.target.password1.value;
-    const password2 = evt.target.password2.value;
+    const password1 = evt.target.resetPassword.value;
+    const password2 = evt.target.confirmResetPassword.value;
 
     if (validated) {
       dispatch(resetPassword({ password1, password2, token, uid }));
@@ -57,7 +57,7 @@ const ResetPassword = () => {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <h1>Reset Password</h1>
               <p>Enter your new password below:</p>
-              <Form.Group className="mb-3" controlId="password1">
+              <Form.Group className="mb-3" controlId="resetPassword">
                 <Form.Label>New password</Form.Label>
                 <Form.Control
                   onChange={(e) => {
@@ -68,7 +68,7 @@ const ResetPassword = () => {
                   placeholder="Enter password"
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="password2">
+              <Form.Group className="mb-3" controlId="confirmResetPassword">
                 <Form.Label>Confirm new password</Form.Label>
                 <Form.Control
                   onChange={(e) => {
@@ -87,7 +87,9 @@ const ResetPassword = () => {
                 Submit
               </Button>
             </Form>
-            {password1 !== password2 ? <div>Passwords do not match</div> : null}
+            {password1 !== password2 ? (
+              <div style={{ color: "red" }}>Passwords do not match</div>
+            ) : null}
           </Card>
         )}
       </Row>
