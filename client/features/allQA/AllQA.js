@@ -113,7 +113,14 @@ const QuestionsAnswers = () => {
                           : "/heart.png"
                       }
                     />
-                    <Card.Title>{question.id}. Some Title</Card.Title>
+                    <Card.Title>
+                    <Link 
+            to={`/questions/${question.id}`}
+            style={{ textDecoration: `none` }}
+            >
+                      {question.id}. Some Title
+                      </Link>
+                      </Card.Title>
                     <Card.Text>{truncate(question.question)}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
