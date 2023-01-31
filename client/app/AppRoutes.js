@@ -9,10 +9,12 @@ import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
 import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
+import LoadingScreen from "../features/loading/LoadingScreen";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
 
   useEffect(() => {
     dispatch(me());
@@ -20,6 +22,7 @@ const AppRoutes = () => {
 
   return (
     <div>
+      {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,7 +32,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<LoginOrSignup />} />
+          <Route path="/" element={<LoginOrSignup />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
           <Route
             path="/forgotPassword/confirmation"
