@@ -33,7 +33,10 @@ export const me = createAsyncThunk("auth/me", async () => {
 
 export const authenticate = createAsyncThunk(
   "auth/authenticate",
-  async ({ firstName, lastName, email, password, expertise, school, method }, thunkAPI) => {
+  async (
+    { firstName, lastName, email, password, expertise, school, method },
+    thunkAPI
+  ) => {
     try {
       const res = await axios.post(`/auth/${method}`, {
         firstName,
@@ -57,71 +60,50 @@ export const authenticate = createAsyncThunk(
 
 export const editProfile = createAsyncThunk(
   "auth/profile",
-  async ({ firstName, lastName, email, expertise }, thunkAPI) => {
+  async ({ firstName, lastName, email, expertise }) => {
     const token = window.localStorage.getItem(TOKEN);
-    try {
-      if (token) {
-        const { data } = await axios.put(
-          "/auth/profile",
-          { firstName, lastName, email, expertise },
-          { headers: { authorization: token } }
-        );
-        return data;
-      }
-    } catch (err) {
-      if (err.response.data) {
-        return thunkAPI.rejectWithValue(err.response.data);
-      } else {
-        return "There was an issue with your request.";
-      }
+
+    if (token) {
+      const { data } = await axios.put(
+        "/auth/profile",
+        { firstName, lastName, email, expertise },
+        { headers: { authorization: token } }
+      );
+      return data;
     }
   }
 );
 
 export const forgotPassword = createAsyncThunk(
   "auth/forgotPassword",
-  async ({ email }, thunkAPI) => {
-    try {
-      const { data } = await axios.post("/auth/forgotPassword", { email });
+  async ({ email }) => {
+    const { data } = await axios.post("/auth/forgotPassword", { email });
 
-      return data;
-    } catch (err) {
-      if (err.response.data) {
-        return thunkAPI.rejectWithValue(err.response.data);
-      } else {
-        return "There was an issue with your request.";
-      }
-    }
+    return data;
   }
 );
 
 export const isResetLinkValid = createAsyncThunk(
   "auth/isResetLinkValid",
   async ({ token, uid }) => {
-    const { data } = await axios.get(`/auth/resetPassword/?token=${token}&uid=${uid}`);
+    const { data } = await axios.get(
+      `/auth/resetPassword/?token=${token}&uid=${uid}`
+    );
     return data;
   }
 );
 
 export const resetPassword = createAsyncThunk(
   "auth/resetPassword",
-  async ({ password1, password2, token, uid }, thunkAPI) => {
-    try {
-      const { data } = await axios.post("/auth/resetPassword", {
-        password1,
-        password2,
-        token,
-        uid,
-      });
+  async ({ password1, password2, token, uid }) => {
+    const { data } = await axios.post("/auth/resetPassword", {
+      password1,
+      password2,
+      token,
+      uid,
+    });
 
-      return data;
-    } catch (err) {
-      if (err.response.data) {
-        return thunkAPI.rejectWithValue(err.response.data);
-      } else {
-        return "There was an issue with your request.";
-      }
-    }
+    return data;
   }
 );
 
@@ -164,7 +146,6 @@ export const authSlice = createSlice({
       state.error = action.error;
     });
     builder.addCase(isResetLinkValid.fulfilled, (state, action) => {
-      console.log(action.payload, "isresetlink payload");
       state.me = action.payload;
     });
     builder.addCase(isResetLinkValid.rejected, (state, action) => {

@@ -38,6 +38,8 @@ export const fetchUserQuestions = createAsyncThunk(
 );
 
 // --------TO FAVORITE, UNFAVORITE, ANSWERED OR NOT--------------
+
+
 export const updateUserQuestion = createAsyncThunk(
   "updateUserQuestion",
   async ({ userId, questionAnswerId }) => {

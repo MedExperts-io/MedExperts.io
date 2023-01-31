@@ -71,9 +71,11 @@ const QuestionsAnswers = () => {
 
   const favoriteStatus = (questionId) => {
     console.log();
+
     const question = userQuestions.filter(
       (question) => question.questionAnswerId == questionId
     );
+
     if (question[0] && question[0].favorite) return true;
     return false;
   };
