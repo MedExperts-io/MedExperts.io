@@ -26,7 +26,8 @@ router.post("/login", async (req, res, next) => {
 router.post("/signup", async (req, res, next) => {
   try {
     //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-    const { firstName, lastName, email, password, expertise, school } = req.body;
+    const { firstName, lastName, email, password, expertise, school } =
+      req.body;
     const user = await User.create({
       firstName,
       lastName,
@@ -107,11 +108,9 @@ router.post("/forgotPassword", async function (req, res, next) {
   });
 
   let userId = uuidv4();
-
   let resetToken = crypto.randomBytes(32).toString("hex");
-  const fpSalt = await bcrypt.hash(resetToken, Number(resetToken));
-
-  var expireDate = Date.now() + 3600000;
+  let fpSalt = await bcrypt.hash(resetToken, Number(resetToken));
+  let expireDate = Date.now() + 3600000;
 
   await Password_Reset.create({
     email: email,
@@ -121,9 +120,9 @@ router.post("/forgotPassword", async function (req, res, next) {
     used: 0,
   });
 
-  const source = fs.readFileSync(path.join(__dirname, "/template.hbs"), "utf8");
-  const compiledTemplate = handlebars.compile(source);
-  const htmlToSend = compiledTemplate({
+  let source = fs.readFileSync(path.join(__dirname, "/template.hbs"), "utf8");
+  let compiledTemplate = handlebars.compile(source);
+  let htmlToSend = compiledTemplate({
     token: encodeURIComponent(fpSalt),
     uid: encodeURIComponent(userId),
   });
@@ -137,7 +136,6 @@ router.post("/forgotPassword", async function (req, res, next) {
     };
   };
 
-  //send email
   transport.sendMail(message(), function (err, info) {
     if (err) {
       console.log(err);
@@ -149,7 +147,7 @@ router.post("/forgotPassword", async function (req, res, next) {
   return res.json({ status: "ok" });
 });
 
-// GET route to check if the token is expired or not. if it is valid, display password reset form
+// GET route to check if the token is expired or not.
 router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
   const token = req.query.token;
   const uid = req.query.uid;
@@ -170,9 +168,9 @@ router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
   });
 
   if (!record) {
-    console.log("this link is expired");
     return res.status(400).json("Invalid or expired token");
   }
+
   await record.update(
     {
       used: 1,
@@ -183,7 +181,6 @@ router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
       },
     }
   );
-  console.log("this link is valid");
   return res.status(200).json("valid token");
 });
 
@@ -205,7 +202,9 @@ router.post("/resetPassword", async function (req, res, next) {
   });
 
   if (!record) {
-    return res.status(400).json("Token not found. Please try the reset password process again.");
+    return res
+      .status(400)
+      .json("Token not found. Please try the reset password process again.");
   }
 
   await Password_Reset.update(
@@ -232,7 +231,9 @@ router.post("/resetPassword", async function (req, res, next) {
     }
   );
 
-  return res.status(200).json("Password reset. Please login with your new password.");
+  return res
+    .status(200)
+    .json("Password reset. Please login with your new password.");
 });
 
 module.exports = router;
