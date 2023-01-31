@@ -7,15 +7,29 @@ import Col from "react-bootstrap/Col";
 import { Button, Card } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions } from "../stats/user_questionsSlice";
+import {
+  fetchAllUserQuestions,
+  fetchUserQuestions,
+  updateUserQuestion,
+} from "../stats/user_questionsSlice";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
 
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  console.log("USERQUESTIONS", userQuestions, userId);
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+  const userQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+
+  // CALLING OBJCT FROM STAT - DIDN'T MAKE A DIFFERENCEE
+  // const currentUserQuestion = useSelector(
+  //   (state) => state.userQuestions.currentUserQuestion
+  // );
+  // console.log("USERQUESTIONS", userQuestions, userId);
+
+  const stateQuestions = useSelector(
+    (state) => state.questionsAnswers.questionsAnswers
+  );
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -45,27 +59,34 @@ const QuestionsAnswers = () => {
     }
   };
 
-  const favoriteStatus = (questionId) => {
-    console.log();
-    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
-    if (question[0] && question[0].favorite) return true;
-    return false;
-  };
-
   const favorite = (userId, questionId) => {
     //Here we dispatch a put route to change the favorite status of this.
+    dispatch(
+      updateUserQuestion({
+        userId: userId,
+        questionAnswerId: questionId,
+      })
+    );
+  };
+
+  const favoriteStatus = (questionId) => {
+    console.log();
+    const question = userQuestions.filter(
+      (question) => question.questionAnswerId == questionId
+    );
+    if (question[0] && question[0].favorite) return true;
+    return false;
   };
 
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-  }, []);
+  }, []); // Putting userQuestions in here throws a loop
 
   return (
     <Container>
       <Row>
         <Col style={{ height: "200px" }}>hello, here's some statistics.</Col>
-        <Col></Col>
       </Row>
 
       <Row>
@@ -76,14 +97,28 @@ const QuestionsAnswers = () => {
           ? allQuestions.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                  <Card.Header style={{ backgroundColor: `${question.color}` }} />
+                  <Card.Header
+                    style={{ backgroundColor: `${question.color}` }}
+                  />
                   <Card.Body>
-                    <Card.Img style={{ float: "right", width: "25px" }} onClick={favorite} variant="top" src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"} />
+                    <Card.Img
+                      style={{ float: "right", width: "25px" }}
+                      onClick={() => favorite(userId, question.id)}
+                      variant="top"
+                      src={
+                        favoriteStatus(question.id)
+                          ? "/heart(red).png"
+                          : "/heart.png"
+                      }
+                    />
                     <Card.Title>{question.id}. Some Title</Card.Title>
                     <Card.Text>{truncate(question.question)}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
+                    <Card.Img
+                      style={{ float: "right", width: "25px" }}
+                      src="/endocrine-system.png"
+                    />
                   </Card.Footer>
                 </Card>
               </Col>
