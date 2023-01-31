@@ -18,13 +18,11 @@ import RequestNewPassword from "./RequestNewPW";
 const ResetPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { error } = useSelector((state) => state.auth);
+  const [validated, setValidated] = useState(false);
   const [searchParams] = useSearchParams();
-  // const [isLinkValid, setIsLinkValid] = useState(false);
   const token = searchParams.get("token");
   const uid = searchParams.get("uid");
-  console.log(token, uid);
-  const [validated, setValidated] = useState(false);
-  const { error } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(isResetLinkValid({ token, uid }));
@@ -39,7 +37,6 @@ const ResetPassword = () => {
       dispatch(
         resetPassword({ password1, password2, token, uid })
       );
-      // if reset password is successful redirect to navigate("/home") otherwise redirect to error page
     }
     navigate("/home");
   };
@@ -102,7 +99,7 @@ const ResetPassword = () => {
               >
                 Submit
               </Button>
-            </Form>{" "}
+            </Form>
           </Card>
         )}
       </Row>
