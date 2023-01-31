@@ -2,21 +2,25 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const token = window.localStorage.getItem("token");
 
-export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () => {
-  const { data } = await axios.get(`/api/questions`, {
-    headers: {
-      authorization: token,
-    },
-  });
-  // API placeholder until the routes are corrected
-  console.log("THUNK", data);
-  return data;
-});
+export const fetchAllQuestionsAnswers = createAsyncThunk(
+  "fetchQAs",
+  async () => {
+    const { data } = await axios.get(`/api/questions`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    // API placeholder until the routes are corrected
+    console.log("THUNK", data);
+    return data;
+  }
+);
 
 export const allQASlice = createSlice({
   name: "allQA",
   initialState: {
     questionsAnswers: [],
+
     error: null,
   },
   reducers: {},

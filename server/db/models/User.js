@@ -16,6 +16,9 @@ const User = db.define("user", {
   },
   password: {
     type: Sequelize.STRING,
+    validate: {
+      notEmpty: true,
+    },
   },
   isAdmin: {
     type: Sequelize.BOOLEAN,
