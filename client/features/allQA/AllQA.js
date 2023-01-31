@@ -12,6 +12,7 @@ import {
   fetchUserQuestions,
   updateUserQuestion,
 } from "../stats/user_questionsSlice";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,11 @@ const QuestionsAnswers = () => {
   const userQuestions = useSelector(
     (state) => state.userQuestions.UserQuestions
   );
+  const loading = useSelector((state) => state.userQuestions.loading);
+  useEffect(() => {
+    dispatch(fetchAllQuestionsAnswers());
+    dispatch(fetchUserQuestions(userId));
+  }, []); // Putting userQuestions in here throws a loop
 
   // CALLING OBJCT FROM STAT - DIDN'T MAKE A DIFFERENCEE
   // const currentUserQuestion = useSelector(
@@ -80,11 +86,6 @@ const QuestionsAnswers = () => {
     return false;
   };
 
-  useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
-  }, []); // Putting userQuestions in here throws a loop
-
   return (
     <Container>
       <Row>
@@ -92,6 +93,8 @@ const QuestionsAnswers = () => {
       </Row>
 
       <Row>
+        {loading && <LoadingScreen />}
+
         <Row>
           <Col style={{ marginBottom: "20px", fontSize: "200%" }}>Easy</Col>
         </Row>
