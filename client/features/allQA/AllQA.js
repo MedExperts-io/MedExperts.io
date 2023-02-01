@@ -40,7 +40,7 @@ const QuestionsAnswers = () => {
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
-  const loading = useSelector((state) => state.userQuestions.loading);
+  const loading = useSelector((state) => state.questionsAnswers.loading);
 
   let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
 
@@ -148,7 +148,6 @@ const QuestionsAnswers = () => {
 
   return (
     <Container>
-      {loading && <LoadingScreen />}
       <Row>
         <Col style={{ height: "200px" }}>hello, here's some statistics.</Col>
       </Row>
@@ -209,6 +208,7 @@ const QuestionsAnswers = () => {
           </Col> */}
       </Row>
       <Row>
+        {loading && <LoadingScreen />}
         {filteredQuestions && filteredQuestions.length
           ? filteredQuestions.map((question) => (
               <Col key={question.id}>

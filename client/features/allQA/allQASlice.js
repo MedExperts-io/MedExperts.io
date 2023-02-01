@@ -20,7 +20,6 @@ export const allQASlice = createSlice({
   name: "allQA",
   initialState: {
     questionsAnswers: [],
-
     error: null,
     loading: false,
   },
@@ -33,6 +32,7 @@ export const allQASlice = createSlice({
       .addCase(fetchAllQuestionsAnswers.fulfilled, (state, action) => {
         console.log("builder function", action);
         state.questionsAnswers = action.payload;
+        state.loading = false;
       })
       .addCase(fetchAllQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
