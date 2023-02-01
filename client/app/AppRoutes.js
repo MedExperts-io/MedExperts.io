@@ -41,6 +41,7 @@ const AppRoutes = () => {
             element={<PasswordRequestConfirmation />}
           />
           <Route path="/resetPassword/*" element={<ResetPassword />} />
+          <Route path="/*" element={<LoginOrSignup />} />
         </Routes>
       )}
     </div>
