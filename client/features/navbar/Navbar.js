@@ -2,19 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import {
-  Container,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Button,
-} from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
 const SiteNavbar = () => {
-  const isLoggedIn = useSelector(
-    (state) => !!state.auth.me.id
-  );
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,17 +23,12 @@ const SiteNavbar = () => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="/">
-          <img
-            src="/MedExpert.png"
-            height="30"
-            alt="Med Expert Logo"
-          />
+        <Navbar.Brand href="/home">
+          <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
         </Navbar.Brand>
 
-        {isLoggedIn ? (
+        {isLoggedIn && (
           <>
-            {" "}
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
@@ -106,9 +93,7 @@ const SiteNavbar = () => {
                     drop={"start"}
                     id="collapsible-nav-dropdown"
                   >
-                    <NavDropdown.Item href="/profile">
-                      Profile
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item
                       onClick={logoutAndRedirectHome}
@@ -121,7 +106,7 @@ const SiteNavbar = () => {
               </Nav>
             </Navbar.Collapse>
           </>
-        ) : null}
+        )}
       </Container>
     </Navbar>
   );
