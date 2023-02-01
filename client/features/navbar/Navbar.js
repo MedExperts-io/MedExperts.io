@@ -23,12 +23,12 @@ const SiteNavbar = () => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="/home">
-          <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
-        </Navbar.Brand>
-
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <>
+            <Navbar.Brand href="/home">
+              <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+            </Navbar.Brand>
+
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
@@ -106,6 +106,10 @@ const SiteNavbar = () => {
               </Nav>
             </Navbar.Collapse>
           </>
+        ) : (
+          <Navbar.Brand href="/">
+            <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+          </Navbar.Brand>
         )}
       </Container>
     </Navbar>
