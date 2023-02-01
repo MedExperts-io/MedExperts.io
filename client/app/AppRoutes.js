@@ -9,6 +9,7 @@ import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
 import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
+import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -25,6 +26,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
+          <Route path="/questions/:singleQuestionId" element={<SingleQuestion />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       ) : (
