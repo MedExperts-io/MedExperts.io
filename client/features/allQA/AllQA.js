@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import { Button, Card, Dropdown, Row, Col } from "react-bootstrap";
+import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
@@ -11,18 +11,25 @@ const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
 
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
+  const difficultiyLevels = ["All Levels", "Easy", "Medium", "Difficult"];
+  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
+  const categories = ["All Categories", "Pharmacology", "Anatomy", "Radiology", "Oncology", "Pulmonary Function", "Physiology", "Infectious Diseases", "Cardiology"];
+  const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
+  const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
 
+  let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
+
+  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
-    if (question.level === "easy") {
+    if (question.level === "Easy") {
       return {
         ...question,
         color: "lightgreen",
       };
-    } else if (question.level === "medium") {
+    } else if (question.level === "Medium") {
       return {
         ...question,
         color: "#f5ad27",
@@ -35,6 +42,11 @@ const QuestionsAnswers = () => {
     }
   });
 
+  console.log("allQuestionsCheck", allQuestions);
+  const [filteredQuestions, setfilteredQuestions] = useState(null);
+  allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
+  console.log("filteredQuestions", filteredQuestions);
+
   const truncate = (string) => {
     if (string.length > 50) {
       return string.slice(0, 50) + "...";
@@ -44,7 +56,6 @@ const QuestionsAnswers = () => {
   };
 
   const favorite = (userId, questionId) => {
-    //Here we dispatch a put route to change the favorite status of this.
     dispatch(
       updateUserQuestion({
         userId: userId,
@@ -54,12 +65,40 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    console.log();
-
     const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
-
     if (question[0] && question[0].favorite) return true;
     return false;
+  };
+
+  const pickDifficulty = (event) => {
+    setCurrentDifficulty(event);
+    filterCriteria[0] = event;
+    filterFunction();
+    //setCurrentDifficulty(event);
+    //event === "All Levels" ? setfilteredQuestions(allQuestions) : setfilteredQuestions(allQuestions.filter((question) => question.level === event));
+  };
+  const pickCategory1 = (event) => {
+    setCurrentCategory1(event);
+    filterCriteria[1] = event;
+    filterFunction();
+  };
+  const pickCategory2 = (event) => {
+    setCurrentCategory2(event);
+    filterCriteria[2] = event;
+    filterFunction();
+  };
+
+  const filterFunction = () => {
+    let multiFilter = allQuestions;
+    for (let i = 0; i < filterCriteria.length; i++) {
+      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
+        continue;
+      } else {
+        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
+      }
+    }
+    console.log("filterQuestions in filterFunction", multiFilter);
+    setfilteredQuestions(multiFilter);
   };
 
   useEffect(() => {
@@ -71,29 +110,57 @@ const QuestionsAnswers = () => {
     <Container>
       <Row>
         <Col style={{ height: "200px" }}>hello, here's some statistics.</Col>
-        <Row>
-          <Col>
-            <Dropdown>
+      </Row>
+      <Row>
+        <Col style={{ marginBottom: "20px", fontSize: "200%" }}>
+          {currentDifficulty} & {currentCategory1}
+        </Col>
+      </Row>
+      <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
+        <Col>
+          <Dropdown style={{ marginRight: "20px" }} onSelect={(event) => pickDifficulty(event)}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              {currentDifficulty}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              {difficultiyLevels.map((difficulty) => (
+                <Dropdown.Item eventKey={difficulty}>{difficulty}</Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Col>
+        <Col>
+          <Dropdown onSelect={(event) => pickCategory1(event)}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              {currentCategory1}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              {categories.map((category) => (
+                <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Col>
+
+        {/* <Col>
+            <Dropdown onSelect={(event) => pickCategory2(event)}>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
-                Difficulty
+                {currentCategory2}
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Easy</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Medium</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Difficult</Dropdown.Item>
+                {categories.map((category) => (
+                  <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
+                ))}
               </Dropdown.Menu>
             </Dropdown>
-          </Col>
-        </Row>
+          </Col> */}
       </Row>
-
       <Row>
-        <Row>
-          <Col style={{ marginBottom: "20px", fontSize: "200%" }}>Easy</Col>
-        </Row>
-        {allQuestions.length
-          ? allQuestions.map((question) => (
+        {filteredQuestions && filteredQuestions.length
+          ? filteredQuestions.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
                   <Card.Header style={{ backgroundColor: `${question.color}` }} />
@@ -113,7 +180,7 @@ const QuestionsAnswers = () => {
                 </Card>
               </Col>
             ))
-          : null}
+          : "Sorry, we didn't find anything matching that"}
       </Row>
     </Container>
   );
