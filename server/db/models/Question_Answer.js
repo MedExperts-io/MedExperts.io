@@ -26,18 +26,10 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
   level: {
-    type: Sequelize.ENUM("easy", "medium", "difficult"),
+    type: Sequelize.ENUM("Easy", "Medium", "Difficult"),
   },
   category: {
-    type: Sequelize.ENUM(
-      "pharmacology",
-      "anatomy",
-      "radiology",
-      "oncology",
-      "pf7",
-      "physiology",
-      "infectiousDiseases"
-    ),
+    type: Sequelize.ENUM("Pharmacology", "Anatomy", "Radiology", "Oncology", "Pulmonary Function", "Physiology", "Infectious Diseases", "Cardiology"),
   },
 });
 
