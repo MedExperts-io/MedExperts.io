@@ -9,13 +9,11 @@ import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
 import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
-import LoadingScreen from "../features/loading/LoadingScreen";
 import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.auth.loading);
 
   useEffect(() => {
     dispatch(me());
@@ -23,10 +21,8 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route
@@ -34,6 +30,7 @@ const AppRoutes = () => {
             element={<SingleQuestion />}
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       ) : (
         <Routes>
