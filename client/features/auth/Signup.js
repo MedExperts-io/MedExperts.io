@@ -21,6 +21,28 @@ const SignUp = () => {
     "Other",
   ];
 
+  //password checker
+  const atLeastOneUppercase = /[A-Z]/g;
+  const atLeastOneLowercase = /[a-z]/g;
+  const atLeastOneNumber = /[0-9]/g;
+  const atLeastOneSpecialCharacter = /[#?!@$%^&*-]/g;
+  const eightCharactersOrMore = /.{8,}/g;
+  const [showReqs, setShowReqs] = useState(false);
+  const [password, setPassword] = useState("");
+
+  const passwordTracker = {
+    uppercase: password.match(atLeastOneUppercase),
+    lowercase: password.match(atLeastOneLowercase),
+    number: password.match(atLeastOneNumber),
+    specialCharacter: password.match(atLeastOneSpecialCharacter),
+    eightCharactersOrGreater: password.match(eightCharactersOrMore),
+  };
+
+  const passwordStrength = Object.values(passwordTracker).filter(
+    (value) => value
+  ).length;
+  //end password checker
+
   const togglePassword = (evt) => {
     evt.preventDefault();
     setPasswordShown(!passwordShown);
@@ -152,6 +174,9 @@ const SignUp = () => {
                   <InputGroup>
                     <Form.Control
                       required
+                      onFocus={() => setShowReqs(true)}
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
                       autoComplete="new-password"
                       type={passwordShown ? "text" : "password"}
                       placeholder="Enter password"
@@ -176,10 +201,41 @@ const SignUp = () => {
               </Row>
             </Form.Group>
           </Row>
-
+          {showReqs && (
+            <div>
+              <div className="password-strength-meter"></div>
+              <div className="text-muted">
+                <ul>
+                  <small style={{ textDecorationLine: "underline" }}>
+                    {passwordStrength < 5 && "Password Requirements"}
+                  </small>
+                  <small>
+                    {!passwordTracker.uppercase && (
+                      <li>MUST contain at least one uppercase letter</li>
+                    )}
+                    {!passwordTracker.lowercase && (
+                      <li>MUST contain at least one lowercase letter</li>
+                    )}
+                    {!passwordTracker.specialCharacter && (
+                      <li>
+                        MUST contain at least one special character (#?!@$%^&*-)
+                      </li>
+                    )}
+                    {!passwordTracker.number && (
+                      <li>MUST contain at least one number</li>
+                    )}
+                    {!passwordTracker.eightCharactersOrGreater && (
+                      <li>MUST contain at least 8 characters</li>
+                    )}
+                  </small>
+                </ul>
+              </div>
+            </div>
+          )}
           <div className="d-grid">
             <Button
               onClick={() => setValidated(true)}
+              disabled={passwordStrength != 5}
               id="buttons"
               variant="secondary"
               type="submit"

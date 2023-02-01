@@ -53,7 +53,6 @@ const Login = () => {
               Please provide a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="loginPassword">
             <Form.Label label="Password">Password</Form.Label>
             <InputGroup>
@@ -71,11 +70,12 @@ const Login = () => {
               >
                 {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
               </Button>
+
               <Form.Control.Feedback type="invalid">
                 Please provide a password.
               </Form.Control.Feedback>
             </InputGroup>
-          </Form.Group>
+          </Form.Group>{" "}
           <Form.Group className="mb-3" controlId="checkbox">
             <p className="small">
               <a
