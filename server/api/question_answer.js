@@ -36,3 +36,22 @@ router.get("/", getToken, async (req, res, next) => {
 });
 
 
+// GET/api/questions/:singleQuestionId
+router.get("/:singleQuestionId", async (req, res, next) => {
+  try {
+    const singleQuestion = await Question_Answer.findOne({
+      where: {id: req.params.singleQuestionId}      
+    });
+    if (singleQuestion) {
+  
+      res.json(singleQuestion);
+    } 
+    else {
+      res.json({ error: "Product not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+
