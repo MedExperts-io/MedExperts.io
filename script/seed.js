@@ -2165,43 +2165,37 @@ async function seed() {
          
         SPM has also been linked to certain triggering events such as bouts of emesis, retching, cough and physical sporting activities.    Though uncommon, SPM has also been identified in situations such as childbirth, forceful straining during exercise, straining at passing stool, coughing, and sneezing.
         `,
-      explanationImage: [],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/24083220/" target="_blank">Sahni S., Verma S., Talwar A., Spontaneous Pneumomediastinum: Time for Consensus. N Am J Med Sci. 2013 Aug; 5(8):460-464</a>`,
-      ],
-      level: "Easy",
-      category: "Radiology",
-    }),
-
-    //Q100
-    Question_Answer.create({
-      question: `A 42-year-old male is evaluated for a fibro-cavitary lesion in the right upper lobe. He reports fever, low grade and weight loss for the last three months. He has h/o Diabetes, End Stage Renal disease [ESRD] and is on hemodialysis. His tuberculin skin test is negative, but sputum culture does show evidence of acid-fast bacilli. You decide to treat him for pulmonary tuberculosis. Which of the following drugs should the physician be careful while prescribing anti tubercular medications in a patient with renal failure on hemodialysis?`,
-      answerOptions: [`Isoniazid`, `Rifampicin`, `Pyrazinamide`, `Fluoroquinolone`],
-      questionImage: [``],
-      correctAnswer: `Pyrazinamide`,
-      explanation: `The patient has diabetes and renal failure conditions that increase the risk of M. tuberculosis infection. The negative tuberculin test reflects this due to general anergy which is common in patients with renal disease. Isoniazid and Rifampicin are not cleared by hemodialysis therefore standard dosing should be used. Pyrazinamide is cleared by hemodialysis hence it should be administered after hemodialysis. Please note there are case reports of blindness after ethambutol in patients with ESRD. One may consider substituting a fluoroquinolone for Ethambutol.`,
-      explanationImage: [],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/12535299/" target="_blank">Hussein MM. Tuberculosis and chronic renal disease.Semin Dial 2003;16(1):38-442.</a>`,
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/15287205/" target="_blank">Fang JT.Ethambutol-induced optic neuritis in patients with end stage renal disease on hemodialysis: two case reports and literature review.Renal Failure 2004;26(4):189-93</a>`,
-      ],
-      level: "Easy",
-      category: "Radiology",
-    }),
-
-    //Q101
-    Question_Answer.create({
-      question: `In which of the following patients the Vital Capacity is decreased with near normal Total Lung Capacity?`,
-      answerOptions: [`picture 1`, `picture 2`, `picture 3`, `picture 4`],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img1.jpg`,
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img2.jpg`,
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img3.jpg`,
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img4.jpg`,
-      ],
-      correctAnswer: `picture 2`,
-      explanation: `Unilateral diaphragm dysfunction   
+        explanationImage: [],
+        explanationLinks: [
+            `<a href="https://pubmed.ncbi.nlm.nih.gov/24083220/" target="_blank">Sahni S., Verma S., Talwar A., Spontaneous Pneumomediastinum: Time for Consensus. N Am J Med Sci. 2013 Aug; 5(8):460-464</a>`,
+         ],
+        level: "easy",
+        category: "anatomy",
+      }),
     
+           //Q100
+           Question_Answer.create({
+            question: `A 42-year-old male is evaluated for a fibro-cavitary lesion in the right upper lobe. He reports fever, low grade and weight loss for the last three months. He has h/o Diabetes, End Stage Renal disease [ESRD] and is on hemodialysis. His tuberculin skin test is negative, but sputum culture does show evidence of acid-fast bacilli. You decide to treat him for pulmonary tuberculosis. Which of the following drugs should the physician be careful while prescribing anti tubercular medications in a patient with renal failure on hemodialysis?`,
+            answerOptions: [`Isoniazid`,`Rifampicin`,`Pyrazinamide`,`Fluoroquinolone`],
+            questionImage: [``],
+            correctAnswer:`Pyrazinamide`,
+            explanation: `The patient has diabetes and renal failure conditions that increase the risk of M. tuberculosis infection. The negative tuberculin test reflects this due to general anergy which is common in patients with renal disease. Isoniazid and Rifampicin are not cleared by hemodialysis therefore standard dosing should be used. Pyrazinamide is cleared by hemodialysis hence it should be administered after hemodialysis. Please note there are case reports of blindness after ethambutol in patients with ESRD. One may consider substituting a fluoroquinolone for Ethambutol.`,
+            explanationImage: [],
+            explanationLinks: [
+                `<a href="https://pubmed.ncbi.nlm.nih.gov/12535299/" target="_blank">Hussein MM. Tuberculosis and chronic renal disease.Semin Dial 2003;16(1):38-442.</a>`,
+                `<a href="https://pubmed.ncbi.nlm.nih.gov/15287205/" target="_blank">Fang JT.Ethambutol-induced optic neuritis in patients with end stage renal disease on hemodialysis: two case reports and literature review.Renal Failure 2004;26(4):189-93</a>`,
+             ],
+            level: "easy",
+            category: "Radiology",
+          }),
+    
+               //Q101
+      Question_Answer.create({
+        question: `In which of the following patients the Vital Capacity is decreased with near normal Total Lung Capacity?`,
+        answerOptions: [`picture 1`,`picture 2`,`picture 3`,`picture 4`],
+        questionImage: [`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img1.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img2.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img3.png`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img4.png`],
+        correctAnswer:`picture 2`,
+        explanation: `Unilateral diaphragm dysfunction   
         Patient A has emphysema like seen on the left sided bullous disease, her PFT will show an obstructive defect. Patient C has Pleural effusion and patient D has interstitial lung disease. In both Patient A and D, the cases of PFT will show a restrictive defect (↓ FVC, ↓ ↓ TLC), patient B has left diaphragm paralysis. The chest x-ray shows an elevated left diaphragm. Unilateral diaphragm weakness is usually associated with a mild decrease in vital capacity (VC), to approximately 75% of the predicted value [1,2], with a further 10% to 20% decrease in the supine position [2], while functional residual capacity (FRC) and total lung capacity (TLC) are usually preserved [1,2]. In bilateral diaphragm weakness, VC usually reaches mean values of approximately 50% predicted and can further decrease by 30% to 50% when supine [3]. TLC can also be reduced, while residual volume (RV) can be elevated [4].  
         `,
       explanationImage: [``],
