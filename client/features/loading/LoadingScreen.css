@@ -1,80 +1,24 @@
-.loading-page {
-    /* background-image: url("../../../public/transparentSubwayMap.png"); */
-    background-position: center;
-    background-size: cover;
-    /* opacity: 0.9; */
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #skyline {
-    width: 480px;
-    height: auto;
-    text-align: center;
-    fill: none;
-    stroke: #0039a6;
-    stroke-miterlimit: 10;
-    stroke-width: 5px;
-    transform-origin: center center;
-    position: fixed;
-    top: -60%;
-    right: -100%;
-    left: -100%;
-    bottom: -50%;
-    margin: auto;
-    z-index: 0;
-  }
-  .skyline {
-    stroke-dasharray: 4000;
-    stroke-dashoffset: 4000;
-    justify-content: baseline;
-    transform-origin: center center;
-    animation: dash 5s linear forwards infinite;
-  }
-  
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  
-  /* LOADING TEXT */
-  
-  .loading-text {
-    position: fixed;
-    top: -20%;
-    right: -100%;
-    left: -100%;
-    bottom: -40%;
-    margin: auto;
-    text-align: center;
-    width: 100%;
-    color: #0039a6;
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 1rem;
-    letter-spacing: 3px;
-    line-height: 20px;
-    height: 10px;
-    animation: fade 2s ease-in-out 0s infinite;
-  }
-  
-  @keyframes fade {
-    0% {
-      opacity: 0.1;
-    }
-    25% {
-      opacity: 0.33;
-    }
-  
-    50% {
-      opacity: 0.66;
-    }
-  
-    100% {
-      opacity: 1;
-    }
-  }
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  margin: -76px 0 0 -76px;
+  border: 06px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 06px solid #FF6262;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
