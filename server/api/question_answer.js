@@ -6,17 +6,7 @@ module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
-// GET/api/questions ------  Admin only
-// router.get("/admin", getToken, isAdmin, async (req, res, next) => {
-//   try {
-//     const allQAs = await Question_Answer.findAll();
-//     res.json(allQAs);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-
-// ----- GET/api/questions ---- Answer & explanation restricted in case of Postman Insomnia use
+//----- GET/api/questions ---- Answer & explanation restricted in case of Postman Insomnia use
 router.get("/", getToken, async (req, res, next) => {
   try {
     const allQs = await Question_Answer.findAll({
@@ -35,11 +25,34 @@ router.get("/", getToken, async (req, res, next) => {
   }
 });
 
-// GET/api/questions/:singleQuestionId
+//------- GET/api/questions/:singleQuestionId------- HAMZA'S CODE
+// router.get("/:singleQuestionId", async (req, res, next) => {
+//   try {
+//     const singleQuestion = await Question_Answer.findOne({
+//       where: { id: req.params.singleQuestionId },
+//     });
+//     if (singleQuestion) {
+//       res.json(singleQuestion);
+//     } else {
+//       res.json({ error: "Product not found" });
+//     }
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
+
+//-------------------------VERSION CONTROL FOR QUESTIONS-------------------------
+
+
+// OPTION 1 - MOVE TO NEW TABLE
+
+
+//--------GET---------/api/questions/:singleQuestionId
 router.get("/:singleQuestionId", async (req, res, next) => {
   try {
     const singleQuestion = await Question_Answer.findOne({
-      where: { id: req.params.singleQuestionId },
+      where: { id: 1 }, include: {model: User}
     });
     if (singleQuestion) {
       res.json(singleQuestion);
@@ -51,18 +64,19 @@ router.get("/:singleQuestionId", async (req, res, next) => {
   }
 });
 
-// POST/api/questions/:singleQuestionId ----- ROUTE FOR UPDATING QUESTION
-// When admin posts new question
 
+
+//-----------POST----------------/api/questions/:singleQuestionId
 router.post("/:singleQuestionId", async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
   try {
-    // FIND QA instance
+// --------FIND QA instance
     const singleQuestion = await Question_Answer.findOne({
       where: { id: qaId },
       include: { model: User },
     });
     if (singleQuestion) {
+// -------Create instance copy in new table with associations
       const moveOld = await QAHistory.create({
         questionAnswerId: qaId,
         question: singleQuestion.question,
@@ -76,7 +90,31 @@ router.post("/:singleQuestionId", async (req, res, next) => {
         category: singleQuestion.category,
         userQuestions:singleQuestion.users
       })
+//----------Replace old instance with incoming post
       const createNew = await Question_Answer.update(req.body)//WILL THIS REMOVE ASSOCIATIONS?
+
+    res.json(createNew);
+    } else {
+      res.json({ error: "Product not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+
+// OPTION 2 - MOVE TO NEW FIELD
+router.post("/:singleQuestionId", async (req, res, next) => {
+  const qaId = req.params.singleQuestionId;
+  try {
+    // FIND QA instance
+    const singleQuestion = await Question_Answer.findOne({
+      where: { id: qaId },
+      include: { model: User },
+    });
+    if (singleQuestion) {
+      const createNew = await Question_Answer.update()//WILL THIS REMOVE ASSOCIATIONS?
 
     res.json(createNew);
     } else {
