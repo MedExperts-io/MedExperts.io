@@ -26,13 +26,14 @@ const ResetPassword = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const password1 = evt.target.password1.value;
-    const password2 = evt.target.password2.value;
+    const password1 = evt.target.resetPassword.value;
+    const password2 = evt.target.confirmResetPassword.value;
 
     if (validated) {
-      dispatch(resetPassword({ password1, password2, token, uid }));
+      dispatch(resetPassword({ password1, password2, token, uid })).then(() =>
+        navigate("/home")
+      );
     }
-    navigate("/home");
   };
 
   return (
@@ -57,7 +58,7 @@ const ResetPassword = () => {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <h1>Reset Password</h1>
               <p>Enter your new password below:</p>
-              <Form.Group className="mb-3" controlId="password1">
+              <Form.Group className="mb-3" controlId="resetPassword">
                 <Form.Label>New password</Form.Label>
                 <Form.Control
                   onChange={(e) => {
@@ -65,29 +66,40 @@ const ResetPassword = () => {
                   }}
                   required
                   type="password"
+                  autoComplete="new-password"
                   placeholder="Enter password"
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a password.
+                </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="password2">
+              <Form.Group className="mb-3" controlId="confirmResetPassword">
                 <Form.Label>Confirm new password</Form.Label>
                 <Form.Control
                   onChange={(e) => {
                     setPassword2(e.target.value);
                   }}
                   required
+                  autoComplete="re-enter-new-password"
                   type="password"
                   placeholder="Enter password"
                 />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a password.
+                </Form.Control.Feedback>
               </Form.Group>
               <Button
                 onClick={() => setValidated(true)}
                 variant="secondary"
                 type="submit"
+                disabled={password1 !== password2 || password1.length <= 0}
               >
                 Submit
               </Button>
             </Form>
-            {password1 !== password2 ? <div>Passwords do not match</div> : null}
+            {password1 !== password2 ? (
+              <div style={{ color: "red" }}>Passwords do not match</div>
+            ) : null}
           </Card>
         )}
       </Row>

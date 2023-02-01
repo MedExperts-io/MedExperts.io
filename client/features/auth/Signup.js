@@ -33,8 +33,8 @@ const SignUp = () => {
     const lastName = evt.target.lastName.value;
     const expertise = evt.target.expertiseLevel.value;
     const school = evt.target.school.value;
-    const email = evt.target.email.value;
-    const password = evt.target.password.value;
+    const email = evt.target.signupEmail.value;
+    const password = evt.target.signupPassword.value;
 
     dispatch(
       authenticate({
@@ -52,7 +52,12 @@ const SignUp = () => {
   return (
     <div className="mb-3 mt-md-4">
       <div className="mb-3">
-        <Form onSubmit={handleSubmit} noValidate validated={validated} name="signup">
+        <Form
+          onSubmit={handleSubmit}
+          noValidate
+          validated={validated}
+          name="signup"
+        >
           <Row className="mb-3">
             <Form.Group as={Col} controlId="firstName">
               <Form.Label label="First Name">First Name</Form.Label>
@@ -102,7 +107,9 @@ const SignUp = () => {
             </Form.Group>
 
             <Form.Group as={Col} controlId="school">
-              <Form.Label label="School Affiliation">School Affiliation</Form.Label>
+              <Form.Label label="School Affiliation">
+                School Affiliation
+              </Form.Label>
               <Col sm={12}>
                 <InputGroup>
                   <Form.Control
@@ -119,7 +126,7 @@ const SignUp = () => {
           </Row>
 
           <Row>
-            <Form.Group as={Col} controlId="email">
+            <Form.Group as={Col} controlId="signupEmail">
               <Form.Label label="Email Address">Email Address</Form.Label>
 
               <Col sm={12}>
@@ -127,15 +134,18 @@ const SignUp = () => {
                   <Form.Control
                     style={{ borderRadius: "10px" }}
                     required
-                    type="text"
+                    autoComplete="email"
+                    type="email"
                     placeholder="Enter email"
                   />
-                  <Form.Control.Feedback type="invalid">Enter email</Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">
+                    Enter email
+                  </Form.Control.Feedback>
                 </InputGroup>
               </Col>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="password">
+            <Form.Group as={Col} controlId="signupPassword">
               <Form.Label label="Password">Password</Form.Label>
 
               <Row className="mb-3">
@@ -143,6 +153,7 @@ const SignUp = () => {
                   <InputGroup>
                     <Form.Control
                       required
+                      autoComplete="new-password"
                       type={passwordShown ? "text" : "password"}
                       placeholder="Enter password"
                     />
@@ -152,7 +163,11 @@ const SignUp = () => {
                       size="md"
                       style={{ zIndex: 0 }}
                     >
-                      {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+                      {passwordShown ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <RemoveRedEyeIcon />
+                      )}
                     </Button>
                     <Form.Control.Feedback type="invalid">
                       Please provide a password.

@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Row, Col, Container, Card, Button, Modal } from "react-bootstrap";
+import {
+  Form,
+  Row,
+  Col,
+  Container,
+  Card,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import { editProfile } from "./authSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +25,10 @@ const Profile = () => {
   const [userExpertise, setUserExpertise] = useState(expertise);
   // modal details
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setValidated(false);
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
   // end modal details
 
@@ -42,7 +53,11 @@ const Profile = () => {
   return (
     <Container>
       <Row className="p-5">
-        <Card border="light" className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
+        <Card
+          border="light"
+          className="p-5 mx-auto"
+          style={{ maxWidth: "800px" }}
+        >
           <Col>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <h1>Edit My Profile</h1>
@@ -57,7 +72,9 @@ const Profile = () => {
                     onChange={(e) => {
                       setUserFirstName(e.target.value);
                     }}
-                    onFocus={(e) => (e.target.placeholder = "Enter Your First Name")}
+                    onFocus={(e) =>
+                      (e.target.placeholder = "Enter Your First Name")
+                    }
                     onBlur={(e) => (e.target.placeholder = userFirstName)}
                   />
                 </Form.Group>
@@ -72,7 +89,9 @@ const Profile = () => {
                     onChange={(e) => {
                       setUserLastName(e.target.value);
                     }}
-                    onFocus={(e) => (e.target.placeholder = "Enter Your Last Name")}
+                    onFocus={(e) =>
+                      (e.target.placeholder = "Enter Your Last Name")
+                    }
                     onBlur={(e) => (e.target.placeholder = userLastName)}
                   />
                 </Form.Group>
@@ -101,9 +120,13 @@ const Profile = () => {
                     <option value="Student">Student</option>
                     <option value="Resident">Resident</option>
                     <option value="Fellow">Fellow</option>
-                    <option value="Physician Assistant">Physician Assistant</option>
+                    <option value="Physician Assistant">
+                      Physician Assistant
+                    </option>
                     <option value="Nurse">Nurse</option>
-                    <option value="Nurse Practitioner">Nurse Practitioner</option>
+                    <option value="Nurse Practitioner">
+                      Nurse Practitioner
+                    </option>
                     <option value="Pharmacist">Pharmacist</option>
                     <option value="Internal Med">Internal Med</option>
                     <option value="Other">Other</option>
