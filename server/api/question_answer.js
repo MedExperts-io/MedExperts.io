@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { User, Question_Answer, User_Question },
+  models: { User, Question_Answer, User_Question, QAHistory },
 } = require("../db");
 module.exports = router;
 
@@ -35,18 +35,15 @@ router.get("/", getToken, async (req, res, next) => {
   }
 });
 
-
 // GET/api/questions/:singleQuestionId
 router.get("/:singleQuestionId", async (req, res, next) => {
   try {
     const singleQuestion = await Question_Answer.findOne({
-      where: {id: req.params.singleQuestionId}      
+      where: { id: req.params.singleQuestionId },
     });
     if (singleQuestion) {
-  
       res.json(singleQuestion);
-    } 
-    else {
+    } else {
       res.json({ error: "Product not found" });
     }
   } catch (err) {
@@ -54,4 +51,38 @@ router.get("/:singleQuestionId", async (req, res, next) => {
   }
 });
 
+// POST/api/questions/:singleQuestionId ----- ROUTE FOR UPDATING QUESTION
+// When admin posts new question
 
+router.post("/:singleQuestionId", async (req, res, next) => {
+  const qaId = req.params.singleQuestionId;
+  try {
+    // FIND QA instance
+    const singleQuestion = await Question_Answer.findOne({
+      where: { id: qaId },
+      include: { model: User },
+    });
+    if (singleQuestion) {
+      const moveOld = await QAHistory.create({
+        questionAnswerId: qaId,
+        question: singleQuestion.question,
+        questionImage: singleQuestion.questionImage,
+        answerOptions: singleQuestion.answerOptions,
+        correctAnswer: singleQuestion.correctAnswer,
+        explanation: singleQuestion.explanation,
+        explanationImage: singleQuestion.explanationImage,
+        explanationLinks: singleQuestion.explanationLinks,
+        level: singleQuestion.level,
+        category: singleQuestion.category,
+        userQuestions:singleQuestion.users
+      })
+      const createNew = await Question_Answer.update(req.body)//WILL THIS REMOVE ASSOCIATIONS?
+
+    res.json(createNew);
+    } else {
+      res.json({ error: "Product not found" });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
