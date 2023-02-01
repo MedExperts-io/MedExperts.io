@@ -92,7 +92,7 @@ const QuestionsAnswers = () => {
         userId: userId,
         questionAnswerId: questionId,
       })
-    );
+    ).then(() => dispatch(fetchUserQuestions(userId)));
   };
 
   const favoriteStatus = (questionId) => {
