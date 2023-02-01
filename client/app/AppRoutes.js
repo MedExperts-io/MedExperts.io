@@ -23,15 +23,18 @@ const AppRoutes = () => {
     <div>
       {isLoggedIn ? (
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
-          <Route path="/questions/:singleQuestionId" element={<SingleQuestion />} />
+          <Route
+            path="/questions/:singleQuestionId"
+            element={<SingleQuestion />}
+          />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<LoginOrSignup />} />
+          <Route path="/" element={<LoginOrSignup />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
           <Route
             path="/forgotPassword/confirmation"
