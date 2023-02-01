@@ -9,7 +9,6 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
   const [validated, setValidated] = useState(false);
-  const [errors, setErrors] = useState("");
   const expertiseLevel = [
     "Student",
     "Resident",
