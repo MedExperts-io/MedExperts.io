@@ -41,10 +41,6 @@ const QuestionsAnswers = () => {
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
   const loading = useSelector((state) => state.userQuestions.loading);
-  useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
-  }, []); // Putting userQuestions in here throws a loop
 
   let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
 
@@ -145,46 +141,14 @@ const QuestionsAnswers = () => {
     setfilteredQuestions(multiFilter);
   };
 
-  const pickDifficulty = (event) => {
-    setCurrentDifficulty(event);
-    filterCriteria[0] = event;
-    filterFunction();
-    //setCurrentDifficulty(event);
-    //event === "All Levels" ? setfilteredQuestions(allQuestions) : setfilteredQuestions(allQuestions.filter((question) => question.level === event));
-  };
-  const pickCategory1 = (event) => {
-    setCurrentCategory1(event);
-    filterCriteria[1] = event;
-    filterFunction();
-  };
-  const pickCategory2 = (event) => {
-    setCurrentCategory2(event);
-    filterCriteria[2] = event;
-    filterFunction();
-  };
-
-  const filterFunction = () => {
-    let multiFilter = allQuestions;
-    for (let i = 0; i < filterCriteria.length; i++) {
-      if (
-        filterCriteria[i] === "All Levels" ||
-        filterCriteria[i] === "All Categories"
-      ) {
-        continue;
-      } else {
-        multiFilter = multiFilter.filter(
-          (question) =>
-            question.level === filterCriteria[i] ||
-            question.category === filterCriteria[i]
-        );
-      }
-    }
-    console.log("filterQuestions in filterFunction", multiFilter);
-    setfilteredQuestions(multiFilter);
-  };
+  useEffect(() => {
+    dispatch(fetchAllQuestionsAnswers());
+    dispatch(fetchUserQuestions(userId));
+  }, []); // Putting userQuestions in here throws a loop
 
   return (
     <Container>
+      {loading && <LoadingScreen />}
       <Row>
         <Col style={{ height: "200px" }}>hello, here's some statistics.</Col>
       </Row>
@@ -205,7 +169,7 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {difficultiyLevels.map((difficulty) => (
-                <Dropdown.Item eventKey={difficulty}>
+                <Dropdown.Item key={difficulty} eventKey={difficulty}>
                   {difficulty}
                 </Dropdown.Item>
               ))}
@@ -220,7 +184,9 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {categories.map((category) => (
-                <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
+                <Dropdown.Item key={category} eventKey={category}>
+                  {category}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
