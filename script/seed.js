@@ -2432,7 +2432,7 @@ async function seed() {
       Question_Answer.create({
         question: `In which of the following patients the Vital Capacity is decreased with near normal Total Lung Capacity?`,
         answerOptions: [`picture 1`,`picture 2`,`picture 3`,`picture 4`],
-        questionImage: [`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img1.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img2.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img3.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img4.jpg`],
+        questionImage: [`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img1.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img2.jpg`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img3.png`,`https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img4.png`],
         correctAnswer:`picture 2`,
         explanation: `Unilateral diaphragm dysfunction   
     
