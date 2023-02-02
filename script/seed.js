@@ -3147,8 +3147,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3202460/" target="_blank">Laroche CM, Carroll N, Moxham J, Green M, Clinical significance of severe isolated diaphragm weakness. Am Rev Respir Dis. 1988 Oct; 138(4):862-6.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3354995/" target="_blank">Mier-Jedrzejowicz A, Brophy C, Moxham J, Green M, Assessment of diaphragm weakness. Am Rev Respir Dis. 1988 Apr; 137(4):877-83</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Hard",
+      category: "Pulmonary Function Testing",
     }),
 
     //----------------- Fake update to questionId 1 to test VCS (Remove after testing)--------------
