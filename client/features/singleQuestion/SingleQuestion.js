@@ -117,9 +117,29 @@ const singleQuestion = () => {
 
       <Stack gap={3}>
 
-        <Stack>
-      <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div>
-      
+        <Stack gap={3} className="mx-auto" direction="horizontal">
+      {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
+      <Card>
+        <Card.Body>
+          <Card.Title>Correct Answer</Card.Title>
+        <Button variant={"success"}>{correctAnswer}</Button>
+        </Card.Body>
+      </Card>
+      <Card>
+      <Card.Body>
+          <Card.Title>Your Answer</Card.Title>
+        <Button variant={
+                  showAnswer
+                    ? selectedOption === correctAnswer
+                      ? "success"
+                      : "danger"
+                    : selectedOption === selectedOption
+                    ? "success"
+                    : "outline-success"
+                }>{selectedOption}</Button>
+        </Card.Body>
+      </Card>
+
       </Stack>
 
       <Card>
