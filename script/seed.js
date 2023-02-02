@@ -1530,7 +1530,7 @@ async function seed() {
             2006;2(4):411-22.</a>`,
       ],
       level: "Easy",
-      category: "Pharmacology ",
+      category: "Pharmacology",
     }),
 
     //Q49
@@ -2400,7 +2400,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/29052582/" target="_blank">Martinez FJ, Collard HR, Pardo A, Raghu G, Richeldi L, Selman M, Swigris JJ, Taniguchi H, Wells AU. Idiopathic pulmonary fibrosis. Nat Rev Dis Primers. 2017 Oct 20;3:17074.</a>`,
       ],
       level: "Hard",
-      category: "Interstitial Lung Disease",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q78
@@ -2578,7 +2578,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25515792/" target="_blank">Khorashadi L, Wu CC, Betancourt SL, Carter BW. Idiopathic pulmonary haemosiderosis: spectrum of thoracic imaging findings in the adult patient. Clin Radiol 2015; 70:459.</a>`,
       ],
       level: "Easy",
-      category: "Interstitial Lung Disease",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q84
@@ -2901,7 +2901,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17917530/" target="_blank">Mimori T, lmura Y, Nakashima R, Yoshifuji H. Autoantibodies in idiopathic inflammatory myopathy: an update on clinical and pathophysiological significance. Curr Opin Rheumatol 19: 523- 529, 2007.</a>`,
       ],
       level: "Hard",
-      category: "Interstitial Lung Disease",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q93
@@ -2934,7 +2934,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/26310038/" target="_blank">Spagnolo P, Rossi G, Cavazza A, Bonifazi M, Paladini I, Bonella F, Sverzellati N, Costabel U. Hypersensitivity Pneumonitis: A Comprehensive Review. J Investig Allergol Clin Immunol. 2015;25(4):237-50</a>`,
       ],
       level: "Hard",
-      category: "Interstitial Lung Disease",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q94
@@ -2964,7 +2964,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23984314/" target="_blank">D'Ercole C. Celiac Disease and Autoimmune-Associated Conditions. Biomed Rest Int. 2013; 2013:127589</a>`,
       ],
       level: "Easy",
-      category: "Interstitial Lung Disease",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q95
@@ -3186,8 +3186,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
         `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
       ancestorId: 1,
       status: "Inactive",
     }),
@@ -3225,8 +3225,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
         `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
       ancestorId: 1,
       status: "Inactive",
     }),
