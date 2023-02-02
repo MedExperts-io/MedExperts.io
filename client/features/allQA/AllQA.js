@@ -23,20 +23,27 @@ const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
 
-  const difficultiyLevels = ["All Levels", "Easy", "Medium", "Difficult"];
+  const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
   const [currentDifficulty, setCurrentDifficulty] = useState(
     difficultiyLevels[0]
   );
   const categories = [
     "All Categories",
+    "Asthma",
+    "Bronchiectasis",
+    "Chronic Obstructive Pulmonary Disease",
+    "Critical Care",
+    "Infection",
+    "Interstitial Lung Diseases",
+    "Lung Cancer",
+    "Lung Transplant",
+    "Mediastinal Disorders",
+    "Other Pulmonary Diseases",
     "Pharmacology",
-    "Anatomy",
-    "Radiology",
-    "Oncology",
-    "Pulmonary Function",
-    "Physiology",
-    "Infectious Diseases",
-    "Cardiology",
+    "Pleural Diseases",
+    "Pulmonary Function Testing",
+    "Pulmonary Vascular Disease",
+    "Sleep",
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
@@ -58,7 +65,7 @@ const QuestionsAnswers = () => {
         ...question,
         color: "lightgreen",
       };
-    } else if (question.level === "Medium") {
+    } else if (question.level === "Moderate") {
       return {
         ...question,
         color: "#f5ad27",
