@@ -8,10 +8,15 @@ const LoginOrSignup = () => {
   return (
     <Container>
       <Row className="vh-100 d-flex justify-content-center align-items-center">
-        <Col md={8} lg={6} xs={12}>
+        <Col md={8} lg={6} s={10} xs={12}>
           <Card className="shadow">
             <Card.Body>
-              <Tabs defaultActiveKey="login" id="justify-tab-login" className="mb-3" justify>
+              <Tabs
+                defaultActiveKey="login"
+                id="justify-tab-login"
+                className="mb-3"
+                justify
+              >
                 <Tab eventKey="login" title="Login">
                   {<Login />}
                 </Tab>

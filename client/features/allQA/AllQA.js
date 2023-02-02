@@ -71,12 +71,12 @@ const QuestionsAnswers = () => {
     }
   });
 
-  console.log("allQuestionsCheck", allQuestions);
+  // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions
     ? setfilteredQuestions(allQuestions)
     : null;
-  console.log("filteredQuestions", filteredQuestions);
+  // console.log("filteredQuestions", filteredQuestions);
 
   const truncate = (string) => {
     if (string.length > 50) {
