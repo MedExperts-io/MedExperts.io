@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const token = window.localStorage.getItem("token");
+// const token = window.localStorage.getItem("token");
 
 export const fetchAllQuestionsAnswers = createAsyncThunk(
   "fetchQAs",
   async () => {
+    const token = window.localStorage.getItem("token");
     const { data } = await axios.get(`/api/questions`, {
       headers: {
         authorization: token,

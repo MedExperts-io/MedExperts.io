@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from "react-html-parser";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -24,31 +24,37 @@ const SiteNavbar = () => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="/home">
-          <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
-        </Navbar.Brand>
-
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <>
+            <Link to="/home">
+              <Navbar.Brand>
+                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+              </Navbar.Brand>
+            </Link>
+
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Button
-                  variant="light"
-                  href="/home"
                   style={{ color: "#FF6262" }}
+                  as={Link}
+                  to="/home"
+                  variant="light"
                   className="m-2"
                 >
                   Dashboard
                 </Button>
+
                 <Button
                   variant="light"
-                  href="/questions"
-                  style={{ color: "#FF6262" }}
+                  as={Link}
+                  to="/questions"
                   className="m-2"
+                  style={{ color: "#FF6262" }}
                 >
                   Questions
                 </Button>
+
                 <Button
                   variant="light"
                   href="/favorites"
@@ -94,7 +100,9 @@ const SiteNavbar = () => {
                     drop={"start"}
                     id="collapsible-nav-dropdown"
                   >
-                    <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/profile">
+                      Profile
+                    </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item
                       onClick={logoutAndRedirectHome}
@@ -107,6 +115,10 @@ const SiteNavbar = () => {
               </Nav>
             </Navbar.Collapse>
           </>
+        ) : (
+          <Navbar.Brand href="/">
+            <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+          </Navbar.Brand>
         )}
       </Container>
     </Navbar>
