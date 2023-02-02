@@ -116,7 +116,7 @@ async function seed() {
       answerOptions: [
         `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
         `D-Dimer test is positive and indicates immediate treatment of PE.`,
-        `D-Dimer test is positive and indicates immediate treatment of PE.`,
+        `C.	D-Dimer test value is below the age adjusted cut-off thus ruling out PE`,
         `D-Dimer test is positive because of the history of coronary artery disease.`,
       ],
       correctAnswer: `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
@@ -176,7 +176,7 @@ async function seed() {
     //Q4
     Question_Answer.create({
       question: `Which of the following is generally not a cause of acute chest syndrome in a patient with sickle cell disease?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `M. Tuberculosis`,
         `Chlamydia pneumonia`,
@@ -266,7 +266,7 @@ async function seed() {
     //Q7
     Question_Answer.create({
       question: `The concurrent use of PDE5 inhibitors is contraindicated with which of the following agents? `,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [`Ambrisentan`, `Bosentan`, `Macitentan`, `Riociguat`],
       correctAnswer: `Riociguat`,
       explanation: `Pulmonary arterial hypertension (PAH) is a rare but life-threatening disease
@@ -283,7 +283,7 @@ async function seed() {
     //Q8
     Question_Answer.create({
       question: `Which of the following regarding PAH is false?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `The disease affects men much more often than women.`,
         `Some patients with PAH may present with only nonspecific symptoms such as fatigue and edema.`,
@@ -303,7 +303,7 @@ async function seed() {
     //Q9
     Question_Answer.create({
       question: `A 45-year-old African American woman is evaluated for a 6 month history of progressive dyspnea and she is unable to walk more than one block. She had a history of DVT and pulmonary embolism 5 years ago. Her last ER admission was 2 weeks ago and evaluated by a pulmonologist because of oxygen desaturation on ambulation.  She went to ER because of ankle swelling but does not have chest pain, cough, lightheadedness, or other localizing symptoms.  She was discharged with supplemental oxygen during exertion.  Her past medical history is of endometriosis for which she is taking birth control pills.  Her vital signs are temperature is 98.1°F, blood pressure is 120/70 mm Hg, pulse rate is 110/min and regular, and respiration rate is 22/min, PaO2 98% of 2L NC.  Her BMI is 32.  On physical examination, she is sitting comfortably in no acute distress.  The lungs are clear. Cardiac examination reveals sinus tachycardia, an increased pulmonic component of S2, and tricuspid regurgitation murmur.  Echo showed ejection fraction of 60%, tricuspid regurgitation, right ventricle systolic pressure of 65mmHg. Ankle edema is noted bilaterally.  Labs studies are normal CBC, BMP except for a B-type natriuretic peptide level of 900 pg/mL. Arterial blood gas measurement breathing ambient air shows a pH of 7.43, a PCO2 of 37 mm Hg and a PO2 of 65 mmHg. Which of the following will help to confirm the etiology of pulmonary hypertension in this patient?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `CT without contrast`,
         `Right heart catheterization`,
@@ -334,7 +334,7 @@ async function seed() {
     //Q10
     Question_Answer.create({
       question: `A 70-year-old Mexican male was evaluated in the emergency department for a urinary tract infection, hypotension, confusion and lethargy. He was started on antibiotics, was administered in the emergency department and admitted.  His vital signs on admission were temperature 101.0 °F, blood pressure is 80/55 mm Hg, pulse rate is 120/min, and respiration rate is 28/min.  His physical exam was normal, except for dry mouth, dry skin, cool extremities, and impaired mental status.  Urine output is diminished. Electrocardiogram shows normal sinus rhythm with normal T-wave and ST-segment morphology. Laboratory studies are done.  Hb 11.5 g/dl, WBC is 17,000/ µL, Creatinine is 1.0.  Sodium level is 110, Potassium 4.5, serum bicarbonate is 24mEq/L, serum lactate 6.0 mmol/L. He has past medical history of COPD, diabetes mellitus. The most effective initial treatment currently is?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Give IV steroids`,
         `Arrange for blood transfusion`,
@@ -370,7 +370,7 @@ async function seed() {
     //Q11
     Question_Answer.create({
       question: `A 25-year-old woman presents to the Emergency Department (ED) with acute onset of dyspnea, wheezing, and progressive respiratory distress. She has a history of severe persistent asthma with three previous admissions to the intensive care unit, one of which required intubation. Her medications are a high-dose inhaled corticosteroid and long-acting beta agonist (ICS/LABA) only. Vital signs: Temperature 98.6 °F, blood pressure 143/100 mm Hg, pulse rate 115/min, respiration rate is 28/min. On physical examination, she appears anxious and is in marked distress. Lung auscultation reveals very faint wheezing, and the Cardiac exam showed a rapid and regular rhythm with no murmurs. ABG showed; pH 7.10, PCO2 70 mm Hg, and PO2 of 55 mm Hg. The decision was made to intubate, and the patient was intubated in the ED and placed on mechanical ventilation. Ventilator with settings: assist control, respiratory rate 14 bpm, tidal volume 500mL, FiO2 0.5. Chest radiograph shows the endotracheal tube is in good position and the lungs are hyperinflated without any infiltrates. When setting up the ventilator what is the most important feature for this patient?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Increased expiratory time`,
         `Increased inspiratory time`,
@@ -398,7 +398,7 @@ async function seed() {
     //Q12
     Question_Answer.create({
       question: `A 62-year-old patient comes to the ER for altered mental status. He has shortness of breath, cough, and diarrhea from the past 3-4 days. Patient went to Hawaii a week ago for summer vacation. He works as an accountant. He has diabetes mellitus from 15 years and takes metformin. He has smoked 15 packs per day for 25 years. Temperature 102.1 F, pulse 72 beats/min, respiratory rate 18 bpm, blood pressure 128/85. Pulse oximetry 92% at room air. Cardiac examination showed bradycardia. Laboratory findings: Na - 126 mmol/L, K 4.5mmol/L, CL- 105 mmol/L, Fasting glucose - 112 mg/dl, AST- 98, ALT – 95. Urinalysis showed hematuria and proteinuria. Chest x ray showed bilateral diffuse interstitial infiltrates. On further examination sputum analysis revealed many neutrophils but no few microorganisms. Which of the following is responsible for this patient’s condition?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Mycoplasma pneumonia`,
         `Legionella pneumonia`,
@@ -435,7 +435,7 @@ async function seed() {
     //Q13
     Question_Answer.create({
       question: `Which of the following treatments for Eosinophilic Granulomatous Polyangiitis (EGPA) has been shown to demonstrate improvements in remission, oral corticosteroid dose reductions and/or remaining free of EGPA relapse? `,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Azathioprine`,
         `Cyclophosphamide`,
@@ -462,7 +462,7 @@ async function seed() {
     //Q14
     Question_Answer.create({
       question: `Which of the following is most helpful in distinguishing Eosinophilic granulomatosis polyangiitis (EGPA) from chronic eosinophilic pneumonia and hypereosinophilic syndrome?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `History of asthma`,
         `Cardiac involvement`,
@@ -489,7 +489,7 @@ async function seed() {
     //Q15
     Question_Answer.create({
       question: `A 75-year-old man is evaluated during a routine examination. Medical history is significant for hypertension, asthma, COPD, diabetes mellitus and multiple myeloma.  He has a history of smoking but quit 15 years ago. His medications are lisinopril, metformin, aspirin, and an albuterol inhaler that he uses as needed. He has no allergies. Vital signs are normal. The results of the physical examination are normal.  He recently heard a television commercial about getting another pneumococcal  vaccination (PCV20) and would like some more information on it.  Based on the current guidelines regarding use of pneumococcal vaccine, which of the following statements is true?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Based on the guidelines, he can get vaccinated with PPSV 23 alone, and then repeat PCV20 at 6-12 months later.`,
         `Based on the guidelines, he needs another dose of PPSV 23 before he can get vaccinated with PCV15.`,
@@ -515,7 +515,7 @@ async function seed() {
     //Q16
     Question_Answer.create({
       question: `86-year-old man was brought to the emergency department by his son due to behavioral changes over the past two days. The son states that the patient has become increasingly agitated since onset of symptoms. On examination, the patient is unable to recognize his son and is unaware of the date or place. Over the next two hours the patient becomes more agitated and abusive. Which of the following medications is the agent of choice in selected older people with delirium?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [`Olanzapine`, `Risperidone`, `Trazodone`, `Haloperidol`],
       correctAnswer: `Haloperidol`,
       explanation: `Neuroleptics are generally the preferred agents for treatment of acute delirium and agitation. Haloperidol has been the most widely used neuroleptic. The effectiveness of haloperidol has been established by randomized, controlled clinical trials. Some atypical antipsychotics, such as risperidone, olanzapine and quetiapine have been used clinically to treat agitation in patients with delirium, with controlled trials showing efficacy at least comparable to haloperidol. However, no data are available to demonstrate any verifiable advantage of one antipsychotic over another.`,
@@ -535,7 +535,7 @@ async function seed() {
     //Q17
     Question_Answer.create({
       question: `The most important predictor of chronic restrictive lung disease in sickle cell disease is:`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Blood hemoglobin level`,
         `Number of episodes of acute chest syndrome`,
@@ -667,7 +667,7 @@ async function seed() {
     //Q20
     Question_Answer.create({
       question: `A 25 years G1P0 woman sent by her obstetrician to a pulmonary clinic because of multiple cough spells over a period of 6 weeks.  The cough is persistently getting worse with nocturnal paroxysm and feels “suffocated”.  She initially reported occasional wheezing and chest tightness.  Thus, she was treated for asthma exacerbation but her cough didn’t improve with bronchodilator therapy.  On examination she had an oral temperature of 37°C and the oxygen saturation was 96% on room air, blood pressure was 150/78 mmHg, pulse 110 beats/mins.  Physical exam revealed slight pharyngeal hyperemia, and lungs were clear except for intermittent rhonchi.  She denies any travel history overseas or exposure to chemicals.  She is 8 weeks pregnant and unsure about her immunization status as a child.  Based on this information, which of the following lab tests has the highest specificity for a diagnosis of Bordetella pertussis?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `PCR assay`,
         `Nasopharyngeal swab for culture`,
@@ -734,7 +734,7 @@ async function seed() {
     //Q22
     Question_Answer.create({
       question: `The biomarker exhaled nitric oxide (FeNO) is most reduced in response to which of the following biologic therapies for bronchial asthma?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Anti-IL-4 receptor and anti-IL-13`,
         `Anti-IL-5`,
@@ -762,7 +762,7 @@ async function seed() {
     //Q23
     Question_Answer.create({
       question: `A 62-year-old man is brought to the emergency department after losing consciousness at work. He reports difficulty walking over the past couple of days due to an infected wound on his right foot. His other medical problems include diabetes mellitus and hyperlipidemia. His blood pressure is 80/40 mm Hg and pulse is 120/min and regular. His skin is cold and clammy. Right heart catheterization is performed, and the following results are obtained: Right atrial pressure, mean 20 mm Hg (N: 0-8mm Hg), Pulmonary artery pressure 40/20 mm Hg (N: 15-28/5-16mm Hg), Pulmonary capillary wedge pressure 8mm Hg (N: 6-12mm Hg) Which of the following is the most likely diagnosis?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Aortic dissection`,
         `Hypovolemic shock`,
@@ -795,7 +795,7 @@ async function seed() {
     //Q24
     Question_Answer.create({
       question: `What is the most common comorbid condition in COPD?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Lung cancer`,
         `Osteoporosis`,
@@ -823,7 +823,7 @@ async function seed() {
     //Q25
     Question_Answer.create({
       question: `If you called upon to intubate a patient. Which one of the following choices you would consider as the best predictor of a Difficult intubation?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Degree of cervical spine mobility.`,
         `Prominence of the incisors.`,
@@ -849,7 +849,7 @@ async function seed() {
     //Q26
     Question_Answer.create({
       question: `An 18-year-old male patient with cystic fibrosis underwent bilateral lung transplant and is recovering in ICU with mechanical ventilation (MV).  Both intraoperative and early post-operative periods were uneventful therefore, he was weaned off MV. Two months later he developed progressive severe hypoxemia (PO2/FiO2 of 130 mmHg), with normal filling pressures (a central venous pressure of 7 mmHg and a wedge pressure of 12 mmHg). His further clinical course was complicated by grade 3 primary graft rejection and was treated with ECMO resulting in improvement of respiratory failure.  PFTs values at 6 months intervals were FEV1 72 % of predicted, FVC 68 % of predicted, FEV1/FVC 88% of predicted. At 9-month post-transplant interval, he reports of having nonproductive cough and dyspnea on exertion. Which of the following is an early indicator of allograft dysfunction in patients with lung transplant?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Decrease in FEV1`,
         `Sputum production`,
@@ -883,7 +883,7 @@ async function seed() {
     Question_Answer.create({
       question: `27.	A previously healthy 70-year-old woman presented to the emergency department ninety minutes after developing acute onset speech difficulty and right-sided weakness.  On presentation, she patient had a blood pressure of 140/70 mmHg, heart rate of 50 beats per minute, respiratory rate of 20 breaths per minute and temperature of 36.6 degrees Celsius. Physical examination findings were significant for global aphasia, right central type facial palsy and right hemiplegia. The rest of her exam was normal.
         Pt was diagnosed as a case of ischemic stroke and intravenous recombinant tissue plasminogen activator (rtPA) infusion was started. During the infusion, the patient developed severe shortness of breath with pink frothy secretions. Vital signs showed BP 175/100 mmHg, HR 115 bpm, RR 28 bpm, oxygen saturation 77% on room air. Chest auscultation revealed bilateral crackles and rales. The infusion was discontinued, and the patient was intubated for hypoxic respiratory failure and placed on a mechanical ventilator.  Repeat head CT showed evidence of cerebral edema with subarachnoid hemorrhage.  Chest x-ray revealed generalized increased pulmonary infiltration and CT scan of the chest showed interlobular septal thickening with ground glass opacities. Which of the following is the most appropriate ventilation strategy in the management of this patient?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Permissive Hypercapnia and low tidal volume ventilation`,
         `Optimal oxygenation with PEEP`,
@@ -920,7 +920,7 @@ async function seed() {
     //Q28
     Question_Answer.create({
       question: `In what situations are pulmonary fungal infections not typically found?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Patient on Systemic chemotherapy`,
         `Organ transplant patients`,
@@ -949,7 +949,7 @@ async function seed() {
     //Q29
     Question_Answer.create({
       question: `Which one of the following statements is true regarding contraception and pregnancy in patients with pulmonary arterial hypertension?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Patients should be carefully followed during pregnancy; the presence of pulmonary hypertension is not a major factor in management of these patients.`,
         `Bosentan can be used in patients on Progesterone only contraceptive pills.`,
@@ -975,7 +975,7 @@ async function seed() {
     //Q30
     Question_Answer.create({
       question: `30.	What is the most common cause of bronchiolitis obliterans in children? `,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Bacterial Pneumonia`,
         `Trauma`,
@@ -1007,7 +1007,7 @@ async function seed() {
     //Q31
     Question_Answer.create({
       question: `In a patient Pulmonary Artery hypertension (Group 1) is present if Mean Pulmonary Artery pressure [MPAP] is:`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `10 mmHg with PCWP < 15 mmHg`,
         `15 mmHg with PCWP < 15 mmHg`,
@@ -1033,7 +1033,7 @@ async function seed() {
     //Q32
     Question_Answer.create({
       question: `Which is NOT true for mediastinal goiter?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Most of the lesions can be resected via collar incision`,
         `Goiter is seen in only in anterior or middle mediastinum`,
@@ -1056,7 +1056,7 @@ async function seed() {
     //Q33
     Question_Answer.create({
       question: `In Familial Pulmonary Artery Hypertension an abnormality has been described in which of the genes.`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Bone morphogenetic protein receptor II gene`,
         `FOXG1 gene`,
@@ -1082,7 +1082,7 @@ async function seed() {
     //Q34
     Question_Answer.create({
       question: `A 24-year-old female has Pulmonary Artery Hypertension. Her doctor comments that her physical findings are classic for tricuspid insufficiency. Which of the following is associated with tricuspid insufficiency?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Large v wave in the jugular pulse`,
         `Increased pulse pressure`,
@@ -1111,7 +1111,7 @@ async function seed() {
     //Q35
     Question_Answer.create({
       question: `Which of the following is a sensitive measure of respiratory muscle strength in patients with neuromuscular disease (NMD)?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `a reduction in the total lung capacity (TLC).`,
         `a flat flow-volume loop.`,
@@ -1141,7 +1141,7 @@ async function seed() {
     //Q36
     Question_Answer.create({
       question: `What is the drug of choice for chronic thromboembolic Pulmonary Hypertension (CTPH) for patients who cannot undergo surgical intervention for CTPH?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [`Orenitram`, `Revatio`, `Bosentan`, `Riociguat`],
       correctAnswer: `Riociguat`,
       explanation: `The preferred treatment with patients with CTEPH is thromboendarterectomy. For patients who cannot undergo surgery and have persistent CTPH, Riociguat can be used which is a stimulator of soluble guanylate cyclase. It increases sensitivity of guanylate cyclase to endogenous nitric oxide which is a pulmonary vasodilator and also directly stimulates receptors that mimic the action of NO. Patients are started with a dose of 0.5 mg 3 times daily. As this drug can cause hypotension, so for patients in whom systolic pressure remains above 95 mmHg even after drug use, dose can be increased from 0.5 mg to 1.0 mg 3 times daily. This dose is further adjusted in patients with renal and hepatic impairment.`,
@@ -1157,7 +1157,7 @@ async function seed() {
     //Q37
     Question_Answer.create({
       question: `All of the following help in preventing development of high-altitude pulmonary edema in travelers with history of high-altitude pulmonary edema except?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Taking nifedipine one day before ascent`,
         `Phosphodiesterase-5 inhibitors one day before ascent`,
@@ -1183,7 +1183,7 @@ async function seed() {
     //Q38
     Question_Answer.create({
       question: `Which of these counseling techniques do you think   provides the greatest likelihood of achieving successful tobacco cessation?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Group counseling`,
         `Individual counseling`,
@@ -1221,7 +1221,7 @@ async function seed() {
     //Q39
     Question_Answer.create({
       question: `Which of the following is the most common secondary complication of Cystic Fibrosis?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Dementia`,
         `Osteoporosis`,
@@ -1251,7 +1251,7 @@ async function seed() {
     //Q40
     Question_Answer.create({
       question: `Which Cardiac arrhythmia occurs most commonly during sleep in patients with Obstructive Sleep Apnea?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Atrial fibrillation`,
         `Sinus Arrest`,
@@ -1281,7 +1281,7 @@ async function seed() {
     //Q41
     Question_Answer.create({
       question: `Which of the following is true about obstructive Sleep Apnea?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `The prevalence is 2% in males and 4% in females`,
         `OSA is present in more than 50% of patients with BMI higher than 40 kg/m²`,
@@ -1309,7 +1309,7 @@ async function seed() {
     //Q42
     Question_Answer.create({
       question: `A 60-year-old patient presents with a 2.5cm lung nodule located in the peripheral region of the right lower lobe. You suspect lung cancer. Patient is refusing CT guided biopsy. Which of the following is the most located cancer in the periphery of the lung?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Adenocarcinoma`,
         `Squamous cell carcinoma`,
@@ -1349,7 +1349,7 @@ async function seed() {
     //Q43
     Question_Answer.create({
       question: `Asplenia is an in important risk factor for serious infections in infants < 6 months old?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Capnocytophaga canimorsus.`,
         `Capnocytophaga cynodegmi.`,
@@ -1383,7 +1383,7 @@ async function seed() {
     //Q44
     Question_Answer.create({
       question: `A College student is admitted with a history of Fever and Bilateral infiltrates. His laboratory examination reveals Hg of 10 gm/dl. Further work up establishes presence of Autoimmune Hemolytic Anemia caused by cold reacting antibodies. Which of the following organisms is associated with this condition?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Coccidioidomycosis`,
         `Cryptococcosis`,
@@ -1416,7 +1416,7 @@ async function seed() {
     //Q45
     Question_Answer.create({
       question: `Which of the following is most likely to improve hypoxemia in hepatopulmonary syndrome?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Administer supplemental O2`,
         `Administer diltiazem`,
@@ -1449,7 +1449,7 @@ async function seed() {
     //Q46
     Question_Answer.create({
       question: `Which statement about pulmonary oxygen toxicity is true?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `The histopathologic finding are specific for that condition`,
         `Can result in massive Pulmonary Hemorrhage`,
@@ -1469,7 +1469,7 @@ async function seed() {
     //Q47
     Question_Answer.create({
       question: `All the following are effective in preventing or treating the acute chest syndrome, except:`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Incentive spirometry`,
         `Hydration`,
@@ -1509,7 +1509,7 @@ async function seed() {
     //Q48
     Question_Answer.create({
       question: `Which of the following is the mechanism of action of sildenafil used as a medical therapy in pulmonary arterial hypertension?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Phosphodiesterase 5 inhibitor`,
         `Nitric oxide synthase inhibitor`,
@@ -1536,7 +1536,7 @@ async function seed() {
     //Q49
     Question_Answer.create({
       question: `TNF inhibitors have become widely used for their immunosuppressive properties over the last few years. They are used in all fields of medicine from Rheumatology, Gastroenterology, Dermatology and many more.  However, they are not without risks. Which of the following TNF Inhibitors pose the greatest risk of recrudescence of tuberculosis?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Infliximab (Remicade)`,
         `Etanercept (Enbrel)`,
@@ -1582,7 +1582,7 @@ async function seed() {
     //Q50
     Question_Answer.create({
       question: `Which of the following is true about treatment for malignant pleural mesothelioma (MPM)?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Pleurectomy-Decortication plus adjuvant treatment`,
         `Pleurectomy only`,
@@ -1614,7 +1614,7 @@ async function seed() {
         `Radiation is the main cause`,
         `Leiomyosarcoma is the most frequent rib tumor`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Malignant tumors are more frequent than the benign tumors`,
       explanation: `Tumors of the chest wall can arise from any soft tissue or bony structure. Primary chest wall tumors arise from muscle, fat, blood vessel, nerve sheath, cartilage, or bone of the chest wall. Secondary chest wall tumors arise from direct invasion of breast carcinoma or lung carcinoma or metastases from a distant site. Up to 50 to 80% of chest wall tumors are malignant, and 55% of these arise from bone or cartilage and 45% from soft tissue. Primary chest wall leiomyosarcoma is a rare, malignant soft-tissue tumor. It most commonly affects the extremities.
 
@@ -1640,7 +1640,7 @@ async function seed() {
         `Post TB bronchiectasis can be treated with surgery`,
         `Most common antitubercular drug causing hepatitis toxicity is INH`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Most common antitubercular drug causing hepatitis toxicity is INH`,
       explanation: `Lung surgery in TB is indicated to support the diagnosis and treatment of only the most complex cases to improve their therapeutic outcomes. Surgical intervention is required for
         a.	elimination of contagious persisting tubercular cavities despite appropriate chemotherapy
@@ -1674,7 +1674,7 @@ async function seed() {
         "A SUV of less than 2.5 on PET scan",
         "A spiculated border on CT scan",
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `A spiculated border on CT scan`,
       explanation: `Benign solitary pulmonary nodules lesions have regular, smooth edges, while typical malignant nodules usually have lobulated, spiculated or irregular edges. Lobulation is associated with a greater risk for malignant pulmonary nodules than spiculation. The greatest risk factor for malignant SPNs was an edge characterized by lobulation and spiculation.`,
       explanationImage: [],
@@ -1703,7 +1703,7 @@ async function seed() {
         "Platelet transfusion",
         "Bleeding site tamponade done with a balloon-tipped vascular catheter",
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Bleeding site tamponade done with a balloon-tipped vascular catheter`,
       explanation: `Initial salvage treatment of an exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy should involve the following steps:
 
@@ -1736,7 +1736,7 @@ async function seed() {
         "Restless Leg Syndrome",
         "Cardiovascular Accident (Stroke)",
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Cardiovascular Accident (Stroke)`,
       explanation: `The precise mechanism of leg cramps is unknown, but several myopathic, neurologic, and metabolic causes have been suggested. Most cases of leg cramps are idiopathic.
 
@@ -1768,7 +1768,7 @@ async function seed() {
         "The mechanism of lung tissue destruction is due to an imbalance in the proteinase and anti- proteinase",
         "Lymphocytes are the primary cause of destruction of lung tissue in AATD",
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Lymphocytes are the primary cause of destruction of lung tissue in AATD`,
       explanation: `Alpha 1-Antitrypsin (AAT) is a classic proteinase inhibitor, and the relationship of deficiency suggests that the destructive process leading to emphysema was driven by an enzyme(s) normally controlled by AAT. By the mid-1970s, the concept that it was destruction of lung elastin central to the process led to the demonstration that elastase from the neutrophil was the likely culprit. 7 Indeed, AAT has the greatest affinity for this enzyme, rapidly inactivating it, and this led to substantiation of the proteinase/antiproteinase theory of emphysema. Release of elastase by migrating neutrophils was assumed to cause the damage to elastin and the development of emphysema. Since these cells represent a key component of the lung defenses, this concept is consistent with both the age-related changes in “healthy individuals” and the accelerated changes in AATD. The next logical step, therefore, was to enhance the protection of the lung by augmentation of the low levels of AAT toward a normal or “protective” level. In the 1980s, purification of AAT from human plasma was shown to be feasible, and weekly infusions boosted the levels of AAT to those believed to be protective, leading to the belief that the problem/disease was resolved.
 
@@ -1838,7 +1838,7 @@ async function seed() {
         `PCP Pneumonia`,
         `Status Asthmaticus`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Status Asthmaticus`,
       explanation: `Pulmonary edema is defined as abnormal accumulation of extravascular fluid in the lung [1]. The most common cause of pulmonary edema is renal or cardiac insufficiency. On radiograph imaging patients with pulmonary congestion, B lines can be seen which represents interlobular septal thickening.
 
@@ -1864,7 +1864,7 @@ async function seed() {
         `Change his inhaler device`,
         `Add Roflumilast to his current treatment regimen`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Add an inhaled corticosteroid (ICS) to his current treatment plan`,
       explanation: `This patient demonstrates correct inhaler technique; thus, ruling out error with inhaler as a cause of this patient’s worsening COPD symptoms. Adding an oral CS or starting him on a methylxanthine are not recommended due to a number of adverse events and treatment related toxicity. The Global Strategy for the Diagnosis, Management, and Prevention of COPD guidelines suggest adding an inhaled corticosteroid (ICS) to LAMA/LABA treatment if symptoms persist. This triple therapy has shown improvement in COPD symptoms and lung function compared with monotherapy or ICS/LABA therapy.
 
@@ -1886,7 +1886,7 @@ async function seed() {
         `Patients with large, bilateral or life-threatening PSP in whom thoracostomy was required for management`,
         `Patients with a family history of PSP`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Patients with a family history of PSP`,
       explanation: `Contrary to secondary spontaneous pneumothorax (SSP), most patients after a first episode of primary spontaneous pneumothorax (PSP), do not need to undergo a definitive procedure, because the likelihood of a recurrence is considered low and prolonged (persistent) air leaks (PALs) are unusual. Following the initial treatment of a first episode of PSP, a decision to treat with a definitive procedure (eg, pleurodesis with blebectomy) to prevent a recurrence needs to be made. There is general consensus among experts that only a  small population of patients with a first episode of PSP should be subjected to undergo a definitive procedure including:
     ●	Patients with a PAL (see 'Prolonged air leak' above)
@@ -1914,7 +1914,7 @@ async function seed() {
         `Varicella- Zoster virus`,
         `Mycoplasma pneumoniae`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Campylobacter jejuni`,
       explanation: `he Guillain-Barre syndrome, which is characterized by acute areflexic paralysis with albuminocytologic dissociation (i.e, high levels of protein in the cerebrospinal fluid and normal cell counts). Two thirds of cases are preceded by symptoms of upper respiratory tract infection or diarrhea. The most frequently identified infectious agent associated with subsequent development of Guillain-Barre syndrome is Campylobacter jejuni. and is associated with  20% of cases of Miller Fisher syndrome. Other infectious agents with a well-defined relationship to the Guillain-Barre syndrome are Epstein-Barr virus, varicella-zoster virus, and Mycoplasma pneumoniae.
 
@@ -1953,7 +1953,7 @@ async function seed() {
         `first episode of tension pneumothorax`,
         `significant spontaneous hemothorax`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `significant spontaneous hemothorax`,
       explanation: `Observation and supplemental oxygen are generally the approach in clinically stable patients with first episode of primary pneumothorax (PSP) that are small and without severe symptoms. In the first episode of PSP, simple aspiration or pleural drainage are considered first line treatment. For patients with recurrent or persistent PSP, the most effective treatment for prevention is mechanical pleurodesis or pleurectomy performed by thoracotomy. Video-assisted thoracoscopic surgery (VATS) with talc (chemical pleurodesis) reduces relapses compared to mechanical pleurodesis.`,
       explanationImage: [],
@@ -1979,7 +1979,7 @@ async function seed() {
         `Coccidioides immitis`,
         `Blastomyces dermatitidis`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Aspergillus niger`,
       explanation: `Aspergillus niger (A. niger) is regarded as an opportunistic pathogen.  It forms a fungal ball in the lungs that eventually grows.  Tracheobronchial aspergillosis presents in many different forms, invasive, ulcerative, or pseudomembranous.  It predominantly affects the immunocompromised hosts such as solid organ transplant recipients.  Patient on long term therapy with Itraconazole and patients with hypogammaglobulinemia can suffer from A. niger. Flexible bronchoscopy shows black pigments along with white masses of oxalate crystal. This fungal metabolite produced by A. niger can bind to airway calcium.  The drug of choice to treat A. niger is Voriconazole.`,
       explanationImage: [],
@@ -2005,7 +2005,7 @@ async function seed() {
         `Alkaptonuria`,
         `Gaucher’s Disease`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Alkaptonuria`,
       explanation: `(Ochronosis) Alkaptonuria is a rare inborn error of metabolism involving the degradation of the amino acids phenylalanine and tyrosine. It is a genetic disorder with an autosomal-recessive mode of inheritance.  It is caused by a deficiency of the genes encoding for the homogentisate-1, 2-dioxygenase, which is an important liver enzyme that degrades homogentisic acid (HGA), a metabolite in the phenylalanine and tyrosine degradation pathway. The term ochronosis describes the accumulation of homogentisic acid in collagenous tissues of the body, resulting in dark gray pigmentation of the connective tissue and the cartilages, involving multiple organ systems. A history of early-onset degenerative arthritis, multiple joint replacements, and valvular heart disease suggest alkaptonuria along with the dark-colored airways.  The severity of symptoms progressively increases beyond 30 years of age. The physical examination may reveal the darkening of sclera and ear cartilage. The involvement of the respiratory system with ochronosis is most frequently diagnosed during autopsy. However, a premortem case of alkaptonuria has been reported as diagnosed with flexible bronchoscopy (FB).  The bronchoscopic examination reveals hyperpigmentation of the airways, including the epiglottis, larynx, bronchial cartilages, and mucosa. Hyperpigmentation of the bronchial mucosa extends distally from the trachea to the small bronchioles, and the involved bronchial mucosa is typically covered with dry black secretions. The diagnosis of alkaptonuria is based on gas chromatographic-mass spectrophotometric assays that measure urine and plasma HGA levels.  Effective management of alkaptonuria is not clearly described. Neither high-dose vitamin C nor protein restriction has effectively reduced urinary HGA excretion. Nitisinone, a triketone herbicide that reversibly inhibits 4-hydroxyphenylpyruvate-dioxygenase, has been shown to reduce urinary HGA excretion by 80% in a murine model. It can also decrease HGA production in humans; however, long-term efficacy and safety necessitate further evaluation.`,
       explanationImage: [],
@@ -2061,7 +2061,7 @@ async function seed() {
         `measures RV global function and is a string determinant of survival in PAH`,
         `has been validated as an endpoint for measuring response to therapy in PAH`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `measures RV global function and is a string determinant of survival in PAH`,
       explanation: `Pulmonary arterial hypertension (PAH) can lead to right ventricular (RV dysfunction).
         TAPSE is known as annular plane systolic excursion (TAPSE) correlates with RV systolic function. A low TAPSE of 1.8 suggests poor prognosis and predictor of survival of patients with PAH.
@@ -2089,7 +2089,7 @@ async function seed() {
         `Birt-Hogg-Dubé syndrome`,
         `Carney triad`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Klinefelter syndrome [XXY syndrome]`,
       explanation: `Mediastinal germ cell tumors (MGCTs) are unique for their association with Klinefelter
           syndrome [XXY syndrome] and hematologic malignancies. The anterior mediastinum is
@@ -2127,7 +2127,7 @@ async function seed() {
         `The use of sucralfate as stress ulcer prophylaxis`,
         `Age < 60`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: ``,
       explanation: `Risk Factors: Multiple factors have been identified that increase the likelihood of developing VAP. Intubation is the most important risk factor for developing nosocomial pneumonia. Although it is Difficult to differentiate between the risk imposed by the mechanical ventilator and its associated tubing and the presence of a tracheal tube, it is known that the incidence of VAP is less when non-invasive ventilation is used.
 
@@ -2192,7 +2192,7 @@ async function seed() {
     Question_Answer.create({
       question: `Increased levels of β-HCG and/or α-FP are specific for the following mediastinal tumor:`,
       answerOptions: [`neurogenic`, `thymic`, `lymphoma`, `germ cell`],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `germ cell`,
       explanation: `Increased levels of beta-HCG and/or alpha- FP are specific for germ cell tumors. Germ cell tumors can be benign (teratomas dermoid cysts) or malignant (seminomas, nonseminomas).
 
@@ -2219,7 +2219,7 @@ async function seed() {
         `Difficulty in smoking in prohibited locations (church, school, hospital, etc.)`,
         `How soon after awakening you have your first cigarette`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `How soon after awakening you have your first cigarette`,
       explanation: `Time for the first cigarette of the day (TTF). Time to the first cigarette of the day is theoretically important to the prediction of nicotine dependence (Heatherton et al, 1989; Kozlowski, Director & Harford, 1981). Due to the relatively short half-life of nicotine, dependent smokers have depleted plasma levels of nicotine upon arising. These smokers are likely to experience discomfort unless they quickly have their first cigarette. TTF has been found to be an excellent predictor of biochemical measures (cotinine, nicotine and carbon monoxide; Heatherton et al, 1989) and also predictive of successful smoking cessation (Kabat & Wynder, 1987; Kozlowski et al, 1981). Heatherton et al (1989) found that a four-category scoring of TTF (<5, 6-30, 31-60, 61-I-) was superior to the two-category scoring method used in the FTQ (<30 vs >30) for predicting biochemical indices of smoking.
 
@@ -2237,7 +2237,7 @@ async function seed() {
     Question_Answer.create({
       question: `Increased levels of ( neuron specific enolase)  NSE are specific for the following mediastinal tumor:`,
       answerOptions: [`neurogenic`, `thymic`, `neuroendocrine`, `germ cell`],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `neuroendocrine`,
       explanation: `Neuron-specific enolase (NSE) is a highly specific marker for neurons and peripheral neuroendocrine cells. NSE is a reliable tumor marker for prognosis, diagnosing and follow-up of small cell lung cancer (SCLC). Increased levels of β-HCG and/or α-FP are specific for germ cell tumor. Germ cell tumors can be benign (teratomas, dermoid cysts) or malignant (seminomas, nonseminomas). Thymic masses are associated with paraneoplastic syndrome, most commonly in myasthenia gravis. Patients should be evaluated for anti-acetylcholine receptor antibodies. Neurogenic tumors represent 60% of posterior mediastinal masses. Examples include schwannomas, neurofibromas, neuroblastomas and ganglioneuromas.`,
       explanationImage: [],
@@ -2263,7 +2263,7 @@ async function seed() {
         `FDG PET scanning`,
         `presence of regional lymph node metastases (pN1)`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `histologic review of the resected tumor`,
       explanation: `Atypical carcinoid tumor of the lung is rarer than typical carcinoid. Commonly occurs in females and diagnosed at 60 years of age. Chest x-ray and CECT scan of the thorax can show space-occupying lesions. Diagnosis can be confirmed with bronchoscopic biopsy or CT-guided needle biopsy. Accurate histological diagnosis is vital for further management.`,
       explanationImage: [],
@@ -2289,7 +2289,7 @@ async function seed() {
         `Pulmonary vascular disease`,
         `Polycythemia`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Polycythemia`,
       explanation: `Pulmonary function tests are performed to evaluate lung function diffusing capacity of lung for carbon monoxide (DLCO) measures gas transfer from inspired gas to red blood cells in the pulmonary capillaries. DLCO can be used to evaluate severity of obstructive or restrictive lung diseases, pulmonary vascular disease and disease progression in interstitial lung disease.
 
@@ -2318,7 +2318,7 @@ async function seed() {
         `Anaerobes and staphylococcal species  are the major pathogens in surgically treated empyemas.`,
         `Can be empirically  treated with a combination  of β-lactam with β-lactamase inhibitors  and aminoglycosides.`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Anaerobes and staphylococcal species  are the major pathogens in surgically treated empyemas.`,
       explanation: `Empyema is a frankly purulent infection of the pleural space most often occurring secondary to parapneumonic effusion. It often results from an infected parapneumonic effusion. Alternatively, it can be seen following trauma, surgery, esophageal perforation, or secondary to local spread from an adjacent subphrenic abscess or osteomyelitis,
 
@@ -2351,7 +2351,7 @@ async function seed() {
         `Mechanistic target of rapamycin inhibitors`,
         `Mycophenolate mofetil`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Calcineurin inhibitors`,
       explanation: `THE SARS CoV-2 infection involves the initiation of uncontrolled inflammatory response which contributes to development of ARDS, thrombotic complication and eventually pulmonary fibrosis. Calcineurin inhibitors [e.g.tacrolimus, or cyclosporine] have been shown to have in vitro activity against coronaviruses [1].  In case of a SARS CoV-2 infection in a patient with solid organ transplant it is generally recommended to continue Calcineurin inhibitors at a reduced dose [2].
 
@@ -2385,7 +2385,7 @@ async function seed() {
         `Usual Interstitial Pneumonia`,
         `Acute Interstitial Pneumonia`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Usual Interstitial Pneumonia`,
       explanation: `Usual interstitial pneumonia (UIP) is a form of lung disease resulting in progressive scarring of both lungs. Some key histologic features of UIP are dense fibrosis with frequent honeycomb fibrosis, fibroblastic foci typically scattered at the edges of dense scars, patchy lung involvement and frequent subpleural/paraseptal distribution. Reticular opacities are often associated with honeycombing and traction bronchiectasis more predominance in the lower lobes.
 
@@ -2418,7 +2418,7 @@ async function seed() {
         `Emotional Stress`,
         `Angina`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Emotional Stress`,
       explanation: `Takotsubo Cardiomyopathy, also referred to as “broken heart syndrome” was initially reported in Japan as a transient cardiomyopathy precipitated by acute stress.  It is indistinguishable from myocardial infarction.  Patients clinically present with severe chest pain, and shortness of breath along with nausea and vomiting. Emotional and stressful situations such as death in family or financial problems are usually the initial triggering factor for Takotsubo Cardiomyopathy.  Included in a long list of Differential Diagnosis is Myocardial infarction, Unstable Angina and Esophageal spasm.  In the majority of patients, cardiac enzyme panels show elevated Troponins and Ck-MB.  Echocardiogram provides a quick diagnostic evaluation showing apical wall dysfunction.  However, a cardiac catheterization is required to confirm the diagnosis.   Treatment is supportive in nature.  Patients are admitted to intensive care units for observation and started on angiotensin-converting enzymes (ACE) and beta-blockers are used to restore left ventricular function.  Heart function gradually improves over a few days to a week.`,
       explanationImage: [],
@@ -2444,7 +2444,7 @@ async function seed() {
         `Detection of IgM antibody in serum or CSF via (MAC-ELISA)`,
         `Detection of IgG antibody in serum or CSF`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Detection of IgM antibody in serum or CSF via (MAC-ELISA)`,
       explanation: `Detection of IgM antibody in serum or CSF (MAC-ELISA).  IgM antibody in serum or CSF is using IgM antibody-capture enzyme linked immunosorbent assay (MAC-ELISA) is the cornerstone for diagnosing WNV.  IgM doesn’t cross plasma and can be detected in high concentration in CSF.  Nucleic Acid Amplification Test is used as an adjunct to MAC-ELISA.  It is most useful in immunocompromised patients who have no antibodies or blood donors’ screenings for future transfusions. IgG detection is not useful in an acute condition.`,
       explanationImage: [],
@@ -2464,7 +2464,7 @@ async function seed() {
         `Start patient on a LABA or LAMA administered via a metered dose inhaler`,
         `Start patient on nebulized budesonide`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Start patient on a nebulized long-acting bronchodilator`,
       explanation: `This patient's COPD is not adequately treated. Short-acting bronchodilators provide acute relief of COPD symptoms but are recommended for patients who are at low risk for COPD exacerbation. Treatment options for this patient should include long-acting muscarinic antagonists (LAMAs) or long-acting β2-agonists (LABAs), which will not only improve his symptoms and lung function but also help prevent exacerbations. The patient's osteoarthritis is important to consider when deciding on an inhaler device.
 
@@ -2493,7 +2493,7 @@ async function seed() {
         `Lab error in measuring ABG`,
         `Pulse oximetry device is nonfunctional`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Presence of Methemoglobin`,
       explanation: `Methemoglobinemia (MetHb) is a disorder where abnormal levels of methemoglobin are produced in the blood. It is uncommon but can be fatal if not quickly recognized and treated due to rapid oxygen desaturation. This disorder develops when iron in the hemoglobin is oxidized from the ferrous state (Fe+2) to ferric state (Fe+3) and the hemoglobin is unable to carry oxygen.
           Most cases of MetHb are acquired due to ingestion of exogenous agents. Dapsone and topical anesthetic agents such as benzocaine, lidocaine and prilocaine are the most common triggering agents used during bronchoscopy, laryngoscopy or upper gastrointestinal endoscopy. Lidocaine was used in this patient after dental procedure and there was a decline in oxygen saturation due to the result of MetHb.
@@ -2529,7 +2529,7 @@ async function seed() {
         `Obesity`,
         `GE Reflux`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `GE Reflux`,
       explanation: `Inhaled corticosteroids (ICSs) are used extensively in the treatment of asthma and chronic obstructive pulmonary disease (COPD) due to their broad anti-inflammatory effects. They improve lung function, symptoms, and quality of life and reduce exacerbations in both conditions but do not alter the progression of disease. They decrease mortality in asthma but not COPD. Six ICSs are available for use in the United States: Beclomethasone dipropionate [BDP], flunisolide, budesonide (BUD), fluticasone propionate (FP), mometasone furoate, and ciclesonide. Factors associated with a diminished dose response to ICSs include   patients underlying genetic polymorphisms, COPD, smoking, severe asthma, obesity, and vitamin D insufficiency. Patients with asthma who are homozygous for the variant allele rs37973, which maps to the glucocorticoid-induced transcript 1 gene (GLCCI1), show about one third the lung function response of that of those homozygous for the wild-type allele. The variant occurs in about 16% of the population. Smoking, COPD, and severe asthma result in oxidative stress and resultant inflammatory pathways induce relative resistance to steroid actions. Gastroesophageal reflux disease exacerbates Asthma and produces cough but has not been shown to be a factor in steroid resistance.`,
       explanationImage: [],
@@ -2559,7 +2559,7 @@ async function seed() {
         `Pulmonary alveolar proteinosis`,
         `Idiopathic pulmonary hemosiderosis`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Pulmonary alveolar proteinosis`,
       explanation: `Crazy paving refers to the appearance of ground-glass opacities with superimposed interlobular septal thickening and intralobular septal thickening, seen on chest HRCT or standard CT chest. It is a nonspecific finding that can be seen in a number of conditions.  This resembles irregular shaped paving stones [Fig. 1] [1]. Classically it is seen in alveolar proteinosis which presents as bilateral ground glass opacities with smooth septal thickening in a patchy and geographic distribution. Predominantly these findings are seen in the lower lobes of the lungs at the perihilar [2] resembling pulmonary edema. Other common etiologies of crazy paving include Pneumocystis carinii pneumonia, sarcoidosis, nonspecific interstitial pneumonia, organizing pneumonia, exogenous lipoid pneumonia, adult respiratory distress syndrome, and pulmonary hemorrhage syndromes. HRCT finding of silicosis includes centrilobular nodular opacities, focal ground glass opacities and patchy consolidations [3]. Egg shell calcifications are also seen.
 
@@ -2596,7 +2596,7 @@ async function seed() {
         `Ceftriaxone and Azithromycin`,
         `Moxifloxacin and fluconazole`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Ceftriaxone and Azithromycin`,
       explanation: `Community Acquired pneumonia [CAP] guidelines recommend coverage for both typical [streptococcus pneumonia, Haemophilus influenzae] and atypical [Mycoplasma, Chlamydia, Legionella) organisms.  On the other hand, Staphylococcus Aureus, Pneumocystis Carinii, And Pseudomonas are usually not the causative organisms of CAP.  Thus, Vancomycin [which cover Staphylococcus Aureus], Pipracillin/tazobactam [which covers Pseudomonas], or any regimen that covers Bactrim [which covers
           Pneumocystis jiroveci] will not be the correct choice. Pneumocystis jiroveci pneumonia is a fungal infection of the lungs. The disease used to be called Pneumocystis carinii.
@@ -2624,7 +2624,7 @@ async function seed() {
         `Evidence of sensitization to allergens in the air (i.e., positive skin tests or blood tests to allergens such as trees, grasses, weeds, molds, or dust mites)`,
         `Four percent or less blood eosinophilia`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Four percent or less blood eosinophilia`,
       explanation: `The 2007 National Heart, Lung and Blood Institute (NHLBI) Guidelines for the Diagnosis and Management of Asthma describes the Asthma Predictive Index (API), a guide to determining which small children will likely have asthma in later years. 
 
@@ -2667,7 +2667,7 @@ async function seed() {
         `Bronchial asthma`,
         `COPD with acute leukemia`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Cystic fibrosis`,
       explanation: `Lung transplantation is considered for adults who have advanced lung disease and following criteria is:
 
@@ -2719,7 +2719,7 @@ async function seed() {
         `Creola Bodies`,
         `Increased lymphocytes`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Increased lymphocytes`,
       explanation: `Asthma is an airways disorder with inflammation of the airways, bronchial hyper responsiveness and reversible airways obstruction.
 
@@ -2754,7 +2754,7 @@ async function seed() {
         `Pt has paraneoplastic limbic encephalitis`,
         `Possibility of torsion in the lesion`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Pt has paraneoplastic limbic encephalitis`,
       explanation: `The patient has paraneoplastic anti-N-methyl-D-aspartate receptor encephalitis associated with ovarian teratoma.   
 
@@ -2807,7 +2807,7 @@ async function seed() {
         `Shigella Sonnei`,
         `Schistosoma Mansoni`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Schistosoma Mansoni`,
       explanation: `Strongyloides Stercoralis is the parasitic helminth roundworm that can cause diarrhea, erythematous pruritus, eosinophilia and elevated IgE levels. Salmonella Typhi is an enteric bacterium causing typhoid fever. Shigella Sonnei results in bright red bloody diarrhea, fever, abdominal pain and dysentery. The pathogenic mechanism involves shiga toxins [enterotoxin, cytotoxin and neurotoxin], cytokine mediated inflammation of colon and necrosis of colon epithelium. Schistosomiasis is a chronic helminthic disease caused by intravascular parasite schistosoma trematode worms.  Eggs are passed in human excrement, hatch in water into mericidia and are ingested by the snails. The freshwater snails are the intermediate hosts. The cercarial form is released into water from snails and rapidly penetrates the human skin, to localize in various organs. There are two common forms: urinary schistosomiasis (S. haematobium) seen commonly in south East Asia and intestinal schistosomiasis (S. mansoni, S. japonicum) seen commonly in Middle East, Central Central Africa and South America.
 
@@ -2835,7 +2835,7 @@ async function seed() {
         `Respiratory Syncytial Virus [RSV], Coxsackievirus, and echovirus`,
         `Respiratory Syncytial Virus [RSV] AND Parvovirus B-19`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Respiratory Syncytial Virus [RSV] and HRV [Human rhinovirus]`,
       explanation: `Many children have wheezing episodes associated with respiratory infections. For most infants, wheezing episodes with respiratory infections diminish as the child ages, but for some individuals, early-life wheezing episodes may mark the beginning of asthma.   Infections in early life can be “inducers” of wheezing or “protectors” against the development of allergic disease. The “hygiene” hypothesis has proposed that, for some infants, frequent, early life infections may protect against asthma. For at risk infants, i.e. offspring of parents with asthma or allergy, viral respiratory infections can provoke wheezing in early life which may “induce,” or be associated with the later development of asthma.
 
@@ -2857,7 +2857,7 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following diseases is least likely to be associated with digital clubbing?`,
       answerOptions: [`IPF`, `COPD`, `Bronchiectasis`, `Lung cancer`],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `COPD`,
       explanation: `Digital clubbing is deformity of fingers or toes associated with multiple diseases involving heart and lung. It presents as hypertrophic osteoarthropathy, described as increased distal fingertip mass and increased longitudinal and transverse nail plate curvature. Lung Cancer is the most common cause of clubbing associated with high levels of VEGF. Other common causes of clubbing include interstitial lung disease with idiopathic pulmonary fibrosis, bronchiectasis, lung abscess, mesothelioma and fibrous pleural tumors. Digital clubbing is not seen in COPD unless pulmonary hypertension, lung abscess and lung cancer is present.`,
       explanationImage: [],
@@ -2885,7 +2885,7 @@ async function seed() {
         `Anti-SRP and Anti-Mi-2`,
         `Anti-PM SCL and Anti-Ku`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `TIF-1 gamma and NPX-2`,
       explanation: `Dermatomyositis (DM) is an idiopathic inflammatory myopathy characterized by proximal skeletal muscle weakness and characteristic skin rash. Previous reports have shown an association between DM and malignancies, including ovarian, lung, breast, nasopharyngeal, pancreatic, stomach, and colorectal cancer as well as malignant lymphoma (1,2). Serum autoantibodies in DM can indicate a positive or negative risk of malignancy; indeed, antibodies to transcription intermediary factor (TIF)-1 gamma [ Anti-TIF1y (anti-155/140) antibodies] and nuclear matrix protein (NPX)-2 indicate positive risks, while antisynthetase antibodies, anti­Mi-2 antibody, and anti-signal recognition particle (SRP) antibody indicate negative risks (3). Conversely, the presence of myositis-specific (anti-synthetase antibodies, anti-Mi-2, anti-SRP, and anti-MDA5) and myositis-associated antibodies (anti-RNP, anti-PM-Scl, anti-Ku) appears to be associated with a decreased risk of malignancy but an increased risk of interstitial lung disease in DM (4).
         Antisynthetase syndrome (ASS) is characterized by the presence of anti-aminoacyl tRNA synthetase (anti-ARS) autoantibodies and clinical symptoms of myositis (frequency: 78-91%), interstitial lung disease (JLP) (90%), Raynaud's phenomenon (62%), arthritis (64-83%), a fever (20%), and mechanic's hands (17-71%) (5). Aminoacyl-tRNA synthetases are enzymes that catalyze the binding of amino acids to their corresponding tRNAs. Antibodies to eight different tRNA synthetase have been reported: anti-histidyl (Jo-1), threonyl (PL-7), alanyl (PL-12), glycyl (EJ), isoleucyl (OJ), asparaginyl (KS), phenylalanyl(Zo), and tyrosyl (YRS) tRNA synthetase antibodies (6). Anti-ARS antibodies except for anti-Jo-1 antibodies are usually found in <5% of polymyositis and dermatomyositis (PM/DM) patients (7). One possible explanation is related to the presence of autoantibodies against aminoacyl-transfer synthetases, which is a common feature of ILD and appears to be protective against malignancies.
@@ -2919,7 +2919,7 @@ async function seed() {
         `Churg Strauss syndrome`,
         `Hypersensitivity pneumonitis`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Hypersensitivity pneumonitis`,
       explanation: `Hypersensitivity pneumonitis (HP) is allergic granulomatous interstitial lung disease caused by exposure to organic dust antigens, chemicals, animal proteins or microorganisms. Micropolyspora faeni is one of the contributing agents responsible for HP that produces IgG antibodies in the serum. Diagnosis of HP can be recognized with pulmonary function testing, chest radiograph and specific antibodies to organic antigens known to cause the disease.
 
@@ -2952,7 +2952,7 @@ async function seed() {
         `Primary Biliary Cirrhosis`,
         `Celiac Disease`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Celiac Disease`,
       explanation: `Celiac disease is a systemic immune mediated disorder triggered by dietary gluten in genetically susceptible persons. It is more common in women, patients with type 1 diabetes [3-16%], Hashimoto's thyroiditis, Sjogren syndrome, IgA nephropathy [3%] and IgA deficiency [9%]. Patients present with weight loss diarrhea and abdominal distention, have reduced bone mineral density, high aminotransferase levels, short stricture. Patients have a high incidence of dermatitis herpetiformis. Enteropathy associated with T-cell lymphoma and adenocarcinoma of jejunum are rare complications. Measurement of serum IgA anti-tissue transglutaminase antibodies recommended an established diagnosis. Measurement of IgA in the endomysial antibodies is barely 100% specific for active celiac disease.
 
@@ -2982,7 +2982,7 @@ async function seed() {
         `History of Coma`,
         `It is unrelated to severity of illness admission`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `It is unrelated to severity of illness admission`,
       explanation: `A delirium is a syndrome characterized by acute onset of cerebral dysfunction with a change of fluctuation in baseline mental status inattention and either disorganized thinking or an altered level of consciousness. The cardinal features of delirium are [1] distal nerve consciousness with the change in ability to focus [2] either changing cognition [e.g. memory deficit, disorientation, language disturbance] or the development of a perceptual disturbance [hallucinations, delusions]. Other symptoms of hearing delirium include sleep disturbance, abnormal psychomotor activity, emotional disturbances [depression, anxiety]. Hyperactive delirium is more commonly associated with hallucination and delusions, while hyperactive delirium is more often characterized by confusion and is often misdiagnosed in ICU patients. Delirium is related to severity of illness. It is also well known that Coma is independent risk factor for delirium in the ICU. `,
       explanationImage: [],
@@ -2997,7 +2997,7 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following sedating medications has the lowest risk of respiratory depression?`,
       answerOptions: [`Propofol`, `lorazepam`, `Midazolam`, `Dexmedetomidine`],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Dexmedetomidine`,
       explanation: `Benzodiazepines activate, GABA -aminobutyric acid a [GABAA receptors]
 
@@ -3025,7 +3025,7 @@ async function seed() {
         `Progressive multifocal leukoencephalopathy (PML), a rare brain infection, has been reported with use of some of these medications`,
         `There is risk of nonmelanoma skin cancers`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Live virus vaccines can be safely be given to patients receiving these medicines`,
       explanation: `Biologic agents are molecules of biological origins, used therapeutically. Most of these agents are based on antibodies or receptor proteins, which may be biologically modified to attempt to make them less immunogenic to humans. They work through the immune system and thus their actions are specific and targeted. They have been used in Oncology and Autoimmune diseases.
 
@@ -3053,7 +3053,7 @@ async function seed() {
         `LEMS is characterized by decreased action potential amplitude with repeated nerve stimulation`,
         `Proximal weakness is uncommon`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Cranial nerve involvement may be seen in this`,
       explanation: `Lambert-Eaton myasthenic syndrome is most seen with small cell carcinoma The pathology is due to the generation of antibodies against voltage-gated calcium channels (VGCC) on presynaptic nerve terminals leading to a decrease in the neurotransmitter acetylcholine (ACh).
 
@@ -3083,7 +3083,7 @@ async function seed() {
         `Rhinolalia`,
         `Chest Tightness`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Rhinolalia`,
       explanation: `Pneumomediastinum also referred to as mediastinal emphysema is defined as presence of free air in the mediastinal cavity. The discovery of free air in the mediastinal cavity is often thought of as a phenomenon secondary to a more serious complication. 
 
@@ -3114,7 +3114,7 @@ async function seed() {
         `Pyrazinamide`,
         `Fluoroquinolone`,
       ],
-      questionImage: [``],
+      questionImage: [],
       correctAnswer: `Pyrazinamide`,
       explanation: `The patient has diabetes and renal failure conditions that increase the risk of M. tuberculosis infection. The negative tuberculin test reflects this due to general anergy which is common in patients with renal disease. Isoniazid and Rifampicin are not cleared by hemodialysis therefore standard dosing should be used. Pyrazinamide is cleared by hemodialysis hence it should be administered after hemodialysis. Please note there are case reports of blindness after ethambutol in patients with ESRD. One may consider substituting a fluoroquinolone for Ethambutol.`,
       explanationImage: [],
@@ -3140,7 +3140,7 @@ async function seed() {
       explanation: `Unilateral diaphragm dysfunction
         Patient A has emphysema like seen on the left sided bullous disease, her PFT will show an obstructive defect. Patient C has Pleural effusion and patient D has interstitial lung disease. In both Patient A and D, the cases of PFT will show a restrictive defect (↓ FVC, ↓ ↓ TLC), patient B has left diaphragm paralysis. The chest x-ray shows an elevated left diaphragm. Unilateral diaphragm weakness is usually associated with a mild decrease in vital capacity (VC), to approximately 75% of the predicted value [1,2], with a further 10% to 20% decrease in the supine position [2], while functional residual capacity (FRC) and total lung capacity (TLC) are usually preserved [1,2]. In bilateral diaphragm weakness, VC usually reaches mean values of approximately 50% predicted and can further decrease by 30% to 50% when supine [3]. TLC can also be reduced, while residual volume (RV) can be elevated [4].
         `,
-      explanationImage: [``],
+      questionImage: [],
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3752705/" target="_blank">Lisboa C, Paré PD, Pertuzé J, Contreras G, Moreno R, Guillemi S, Cruz E, Inspiratory muscle function in unilateral diaphragmatic paralysis. Am Rev Respir Dis. 1986 Sep; 134(3):488-92</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC461156/" target="_blank">Laroche CM, Mier AK, Moxham J, Green M, Diaphragm strength in patients with recent hemidiaphragm paralysis. Thorax. 1988 Mar; 43(3):170-4.</a>`,
@@ -4083,9 +4083,9 @@ module.exports = seed;
 //   //Qx
 //   Question_Answer.create({
 //     question: ``,
-//     questionImage: [``],
+//     questionImage: [],
 //     answerOptions: [``,``,``,``],
-//     questionImage: [``],
+//     questionImage: [],
 //     correctAnswer:``,
 //     explanation: ``,
 //     explanationImage: [],
