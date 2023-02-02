@@ -115,11 +115,17 @@ const singleQuestion = () => {
 
     {showAnswer &&
 
-      <Stack>
+      <Stack gap={3}>
+
+        <Stack>
       <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div>
+      </Stack>
 
-      <div>{explanation}</div>
+      <Card>
+      <Card.Body className="m-2 text-center" style={{ fontSize: "15px", fontWeight: "bold", textAlign: "center" }}>Explanation: {explanation}</Card.Body>
+      </Card>
 
+      <Stack gap={3} className="mx-auto" direction="horizontal">
       {explanationImage
         ? explanationImage.map((image, index) => (
           <Card gap={3}>
@@ -130,16 +136,18 @@ const singleQuestion = () => {
               height: `12rem`,
             }}
           />
-          <Card.Subtitle className="mb-2 text-center">figure:{index + 1}</Card.Subtitle>
+          <Card.Subtitle className="m-2 text-center" style={{fontSize: '10px'}}>figure:{index + 1}</Card.Subtitle>
           </Card>
           ))
         : null}
+        </Stack>
 
 {/*    alternate to reacthtmlparser:
-      // <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
+      not preferred but this works: 
+      <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
                   
        <Stack gap={3}>
-        <Card gap={3} className='m-2 text-decoration-none '>
+        <Card gap={3} className='mb-2 text-decoration-none '>
           <Card.Header>References</Card.Header>
         {explanationLinks
           ? explanationLinks.map((sourcelink, index) => (
