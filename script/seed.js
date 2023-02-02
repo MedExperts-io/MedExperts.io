@@ -37,7 +37,6 @@ async function seed() {
       email: "233@333.com",
     }),
     User.create({
-      password: "123",
       email: "1233@1233.com",
     }),
     User.create({
@@ -117,7 +116,7 @@ async function seed() {
       answerOptions: [
         `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
         `D-Dimer test is positive and indicates immediate treatment of PE.`,
-        `D-Dimer test value is below the age adjusted cut-off thus ruling out PE.`,
+        `C.	D-Dimer test value is below the age adjusted cut-off thus ruling out PE`,
         `D-Dimer test is positive because of the history of coronary artery disease.`,
       ],
       correctAnswer: `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
@@ -304,7 +303,7 @@ async function seed() {
     //Q9
     Question_Answer.create({
       question: `A 45-year-old African American woman is evaluated for a 6 month history of progressive dyspnea and she is unable to walk more than one block. She had a history of DVT and pulmonary embolism 5 years ago. Her last ER admission was 2 weeks ago and evaluated by a pulmonologist because of oxygen desaturation on ambulation.  She went to ER because of ankle swelling but does not have chest pain, cough, lightheadedness, or other localizing symptoms.  She was discharged with supplemental oxygen during exertion.  Her past medical history is of endometriosis for which she is taking birth control pills.  Her vital signs are temperature is 98.1°F, blood pressure is 120/70 mm Hg, pulse rate is 110/min and regular, and respiration rate is 22/min, PaO2 98% of 2L NC.  Her BMI is 32.  On physical examination, she is sitting comfortably in no acute distress.  The lungs are clear. Cardiac examination reveals sinus tachycardia, an increased pulmonic component of S2, and tricuspid regurgitation murmur.  Echo showed ejection fraction of 60%, tricuspid regurgitation, right ventricle systolic pressure of 65mmHg. Ankle edema is noted bilaterally.  Labs studies are normal CBC, BMP except for a B-type natriuretic peptide level of 900 pg/mL. Arterial blood gas measurement breathing ambient air shows a pH of 7.43, a PCO2 of 37 mm Hg and a PO2 of 65 mmHg. Which of the following will help to confirm the etiology of pulmonary hypertension in this patient?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `CT without contrast`,
         `Right heart catheterization`,
@@ -335,7 +334,7 @@ async function seed() {
     //Q10
     Question_Answer.create({
       question: `A 70-year-old Mexican male was evaluated in the emergency department for a urinary tract infection, hypotension, confusion and lethargy. He was started on antibiotics, was administered in the emergency department and admitted.  His vital signs on admission were temperature 101.0 °F, blood pressure is 80/55 mm Hg, pulse rate is 120/min, and respiration rate is 28/min.  His physical exam was normal, except for dry mouth, dry skin, cool extremities, and impaired mental status.  Urine output is diminished. Electrocardiogram shows normal sinus rhythm with normal T-wave and ST-segment morphology. Laboratory studies are done.  Hb 11.5 g/dl, WBC is 17,000/ µL, Creatinine is 1.0.  Sodium level is 110, Potassium 4.5, serum bicarbonate is 24mEq/L, serum lactate 6.0 mmol/L. He has past medical history of COPD, diabetes mellitus. The most effective initial treatment currently is?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Give IV steroids`,
         `Arrange for blood transfusion`,
@@ -371,7 +370,7 @@ async function seed() {
     //Q11
     Question_Answer.create({
       question: `A 25-year-old woman presents to the Emergency Department (ED) with acute onset of dyspnea, wheezing, and progressive respiratory distress. She has a history of severe persistent asthma with three previous admissions to the intensive care unit, one of which required intubation. Her medications are a high-dose inhaled corticosteroid and long-acting beta agonist (ICS/LABA) only. Vital signs: Temperature 98.6 °F, blood pressure 143/100 mm Hg, pulse rate 115/min, respiration rate is 28/min. On physical examination, she appears anxious and is in marked distress. Lung auscultation reveals very faint wheezing, and the Cardiac exam showed a rapid and regular rhythm with no murmurs. ABG showed; pH 7.10, PCO2 70 mm Hg, and PO2 of 55 mm Hg. The decision was made to intubate, and the patient was intubated in the ED and placed on mechanical ventilation. Ventilator with settings: assist control, respiratory rate 14 bpm, tidal volume 500mL, FiO2 0.5. Chest radiograph shows the endotracheal tube is in good position and the lungs are hyperinflated without any infiltrates. When setting up the ventilator what is the most important feature for this patient?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Increased expiratory time`,
         `Increased inspiratory time`,
@@ -399,7 +398,7 @@ async function seed() {
     //Q12
     Question_Answer.create({
       question: `A 62-year-old patient comes to the ER for altered mental status. He has shortness of breath, cough, and diarrhea from the past 3-4 days. Patient went to Hawaii a week ago for summer vacation. He works as an accountant. He has diabetes mellitus from 15 years and takes metformin. He has smoked 15 packs per day for 25 years. Temperature 102.1 F, pulse 72 beats/min, respiratory rate 18 bpm, blood pressure 128/85. Pulse oximetry 92% at room air. Cardiac examination showed bradycardia. Laboratory findings: Na - 126 mmol/L, K 4.5mmol/L, CL- 105 mmol/L, Fasting glucose - 112 mg/dl, AST- 98, ALT – 95. Urinalysis showed hematuria and proteinuria. Chest x ray showed bilateral diffuse interstitial infiltrates. On further examination sputum analysis revealed many neutrophils but no few microorganisms. Which of the following is responsible for this patient’s condition?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Mycoplasma pneumonia`,
         `Legionella pneumonia`,
@@ -436,7 +435,7 @@ async function seed() {
     //Q13
     Question_Answer.create({
       question: `Which of the following treatments for Eosinophilic Granulomatous Polyangiitis (EGPA) has been shown to demonstrate improvements in remission, oral corticosteroid dose reductions and/or remaining free of EGPA relapse? `,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Azathioprine`,
         `Cyclophosphamide`,
@@ -463,7 +462,7 @@ async function seed() {
     //Q14
     Question_Answer.create({
       question: `Which of the following is most helpful in distinguishing Eosinophilic granulomatosis polyangiitis (EGPA) from chronic eosinophilic pneumonia and hypereosinophilic syndrome?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `History of asthma`,
         `Cardiac involvement`,
@@ -536,7 +535,7 @@ async function seed() {
     //Q17
     Question_Answer.create({
       question: `The most important predictor of chronic restrictive lung disease in sickle cell disease is:`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `Blood hemoglobin level`,
         `Number of episodes of acute chest syndrome`,
@@ -668,7 +667,7 @@ async function seed() {
     //Q20
     Question_Answer.create({
       question: `A 25 years G1P0 woman sent by her obstetrician to a pulmonary clinic because of multiple cough spells over a period of 6 weeks.  The cough is persistently getting worse with nocturnal paroxysm and feels “suffocated”.  She initially reported occasional wheezing and chest tightness.  Thus, she was treated for asthma exacerbation but her cough didn’t improve with bronchodilator therapy.  On examination she had an oral temperature of 37°C and the oxygen saturation was 96% on room air, blood pressure was 150/78 mmHg, pulse 110 beats/mins.  Physical exam revealed slight pharyngeal hyperemia, and lungs were clear except for intermittent rhonchi.  She denies any travel history overseas or exposure to chemicals.  She is 8 weeks pregnant and unsure about her immunization status as a child.  Based on this information, which of the following lab tests has the highest specificity for a diagnosis of Bordetella pertussis?`,
-      questionImage: [``],
+      questionImage: [],
       answerOptions: [
         `PCR assay`,
         `Nasopharyngeal swab for culture`,
@@ -735,7 +734,13 @@ async function seed() {
     //Q22
     Question_Answer.create({
       question: `The biomarker exhaled nitric oxide (FeNO) is most reduced in response to which of the following biologic therapies for bronchial asthma?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Anti-IL-4 receptor and anti-IL-13`,
+        `Anti-IL-5`,
+        `CXCR2 antagonist`,
+        `Anti-IL-17 receptor monoclonal antibody`,
+      ],
       answerOptions: [
         `Anti-IL-4 receptor and anti-IL-13`,
         `Anti-IL-5`,
@@ -757,7 +762,13 @@ async function seed() {
     //Q23
     Question_Answer.create({
       question: `A 62-year-old man is brought to the emergency department after losing consciousness at work. He reports difficulty walking over the past couple of days due to an infected wound on his right foot. His other medical problems include diabetes mellitus and hyperlipidemia. His blood pressure is 80/40 mm Hg and pulse is 120/min and regular. His skin is cold and clammy. Right heart catheterization is performed, and the following results are obtained: Right atrial pressure, mean 20 mm Hg (N: 0-8mm Hg), Pulmonary artery pressure 40/20 mm Hg (N: 15-28/5-16mm Hg), Pulmonary capillary wedge pressure 8mm Hg (N: 6-12mm Hg) Which of the following is the most likely diagnosis?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Aortic dissection`,
+        `Hypovolemic shock`,
+        `Left anterior descending artery occlusion`,
+        `Massive Pulmonary embolism`,
+      ],
       answerOptions: [
         `Aortic dissection`,
         `Hypovolemic shock`,
@@ -784,7 +795,13 @@ async function seed() {
     //Q24
     Question_Answer.create({
       question: `What is the most common comorbid condition in COPD?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Lung cancer`,
+        `Osteoporosis`,
+        `Cardiovascular disease`,
+        `Gastroesophageal reflux`,
+      ],
       answerOptions: [
         `Lung cancer`,
         `Osteoporosis`,
@@ -806,7 +823,13 @@ async function seed() {
     //Q25
     Question_Answer.create({
       question: `If you called upon to intubate a patient. Which one of the following choices you would consider as the best predictor of a Difficult intubation?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Degree of cervical spine mobility.`,
+        `Prominence of the incisors.`,
+        `Short hyomental–thyromental distance.`,
+        `Inability to bite the upper lip with the lower teeth.`,
+      ],
       answerOptions: [
         `Degree of cervical spine mobility.`,
         `Prominence of the incisors.`,
@@ -826,7 +849,13 @@ async function seed() {
     //Q26
     Question_Answer.create({
       question: `An 18-year-old male patient with cystic fibrosis underwent bilateral lung transplant and is recovering in ICU with mechanical ventilation (MV).  Both intraoperative and early post-operative periods were uneventful therefore, he was weaned off MV. Two months later he developed progressive severe hypoxemia (PO2/FiO2 of 130 mmHg), with normal filling pressures (a central venous pressure of 7 mmHg and a wedge pressure of 12 mmHg). His further clinical course was complicated by grade 3 primary graft rejection and was treated with ECMO resulting in improvement of respiratory failure.  PFTs values at 6 months intervals were FEV1 72 % of predicted, FVC 68 % of predicted, FEV1/FVC 88% of predicted. At 9-month post-transplant interval, he reports of having nonproductive cough and dyspnea on exertion. Which of the following is an early indicator of allograft dysfunction in patients with lung transplant?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Decrease in FEV1`,
+        `Sputum production`,
+        `Increase in Neutrophils`,
+        `Chest x ray`,
+      ],
       answerOptions: [
         `Decrease in FEV1`,
         `Sputum production`,
@@ -854,7 +883,13 @@ async function seed() {
     Question_Answer.create({
       question: `27.	A previously healthy 70-year-old woman presented to the emergency department ninety minutes after developing acute onset speech difficulty and right-sided weakness.  On presentation, she patient had a blood pressure of 140/70 mmHg, heart rate of 50 beats per minute, respiratory rate of 20 breaths per minute and temperature of 36.6 degrees Celsius. Physical examination findings were significant for global aphasia, right central type facial palsy and right hemiplegia. The rest of her exam was normal.
         Pt was diagnosed as a case of ischemic stroke and intravenous recombinant tissue plasminogen activator (rtPA) infusion was started. During the infusion, the patient developed severe shortness of breath with pink frothy secretions. Vital signs showed BP 175/100 mmHg, HR 115 bpm, RR 28 bpm, oxygen saturation 77% on room air. Chest auscultation revealed bilateral crackles and rales. The infusion was discontinued, and the patient was intubated for hypoxic respiratory failure and placed on a mechanical ventilator.  Repeat head CT showed evidence of cerebral edema with subarachnoid hemorrhage.  Chest x-ray revealed generalized increased pulmonary infiltration and CT scan of the chest showed interlobular septal thickening with ground glass opacities. Which of the following is the most appropriate ventilation strategy in the management of this patient?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Permissive Hypercapnia and low tidal volume ventilation`,
+        `Optimal oxygenation with PEEP`,
+        `Start low dose steroids`,
+        `Extracorporeal membrane oxygenation`,
+      ],
       answerOptions: [
         `Permissive Hypercapnia and low tidal volume ventilation`,
         `Optimal oxygenation with PEEP`,
@@ -885,7 +920,13 @@ async function seed() {
     //Q28
     Question_Answer.create({
       question: `In what situations are pulmonary fungal infections not typically found?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Patient on Systemic chemotherapy`,
+        `Organ transplant patients`,
+        `HIV positive patient with CD4 counts <200`,
+        `Patients with complications of tuberculosis`,
+      ],
       answerOptions: [
         `Patient on Systemic chemotherapy`,
         `Organ transplant patients`,
@@ -934,7 +975,13 @@ async function seed() {
     //Q30
     Question_Answer.create({
       question: `30.	What is the most common cause of bronchiolitis obliterans in children? `,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Bacterial Pneumonia`,
+        `Trauma`,
+        `Adenovirus infection`,
+        `Hematopoietic Stem Cell Transplantation`,
+      ],
       answerOptions: [
         `Bacterial Pneumonia`,
         `Trauma`,
@@ -960,7 +1007,13 @@ async function seed() {
     //Q31
     Question_Answer.create({
       question: `In a patient Pulmonary Artery hypertension (Group 1) is present if Mean Pulmonary Artery pressure [MPAP] is:`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `10 mmHg with PCWP < 15 mmHg`,
+        `15 mmHg with PCWP < 15 mmHg`,
+        `25 mmHg with PCWP < 15 mmHg`,
+        `30 mmHg with PCWP >15 mmHg`,
+      ],
       answerOptions: [
         `10 mmHg with PCWP < 15 mmHg`,
         `15 mmHg with PCWP < 15 mmHg`,
@@ -1003,7 +1056,13 @@ async function seed() {
     //Q33
     Question_Answer.create({
       question: `In Familial Pulmonary Artery Hypertension an abnormality has been described in which of the genes.`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Bone morphogenetic protein receptor II gene`,
+        `FOXG1 gene`,
+        `Homeobox gene`,
+        `CFTR gene mutation`,
+      ],
       answerOptions: [
         `Bone morphogenetic protein receptor II gene`,
         `FOXG1 gene`,
@@ -1023,7 +1082,13 @@ async function seed() {
     //Q34
     Question_Answer.create({
       question: `A 24-year-old female has Pulmonary Artery Hypertension. Her doctor comments that her physical findings are classic for tricuspid insufficiency. Which of the following is associated with tricuspid insufficiency?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Large v wave in the jugular pulse`,
+        `Increased pulse pressure`,
+        `Diastolic murmur`,
+        `Pansystolic murmur`,
+      ],
       answerOptions: [
         `Large v wave in the jugular pulse`,
         `Increased pulse pressure`,
@@ -1046,7 +1111,13 @@ async function seed() {
     //Q35
     Question_Answer.create({
       question: `Which of the following is a sensitive measure of respiratory muscle strength in patients with neuromuscular disease (NMD)?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `a reduction in the total lung capacity (TLC).`,
+        `a flat flow-volume loop.`,
+        `a reduced forced vital capacity (FVC).`,
+        `a reduced maximum inspiratory pressure (MIP).`,
+      ],
       answerOptions: [
         `a reduction in the total lung capacity (TLC).`,
         `a flat flow-volume loop.`,
@@ -1112,7 +1183,13 @@ async function seed() {
     //Q38
     Question_Answer.create({
       question: `Which of these counseling techniques do you think   provides the greatest likelihood of achieving successful tobacco cessation?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Group counseling`,
+        `Individual counseling`,
+        `Brief physician advice`,
+        `Motivational interviewing`,
+      ],
       answerOptions: [
         `Group counseling`,
         `Individual counseling`,
@@ -1144,7 +1221,13 @@ async function seed() {
     //Q39
     Question_Answer.create({
       question: `Which of the following is the most common secondary complication of Cystic Fibrosis?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Dementia`,
+        `Osteoporosis`,
+        `Depression`,
+        `Cystic Fibrosis related Diabetes`,
+      ],
       answerOptions: [
         `Dementia`,
         `Osteoporosis`,
@@ -1168,7 +1251,13 @@ async function seed() {
     //Q40
     Question_Answer.create({
       question: `Which Cardiac arrhythmia occurs most commonly during sleep in patients with Obstructive Sleep Apnea?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Atrial fibrillation`,
+        `Sinus Arrest`,
+        `Non-Sustained ventricular Tachycardia`,
+        `Atrioventricular conduction block`,
+      ],
       answerOptions: [
         `Atrial fibrillation`,
         `Sinus Arrest`,
@@ -1220,7 +1309,13 @@ async function seed() {
     //Q42
     Question_Answer.create({
       question: `A 60-year-old patient presents with a 2.5cm lung nodule located in the peripheral region of the right lower lobe. You suspect lung cancer. Patient is refusing CT guided biopsy. Which of the following is the most located cancer in the periphery of the lung?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma`,
+        `Squamous cell carcinoma`,
+        `Small cell carcinoma`,
+        `Large cell undifferentiated carcinoma`,
+      ],
       answerOptions: [
         `Adenocarcinoma`,
         `Squamous cell carcinoma`,
@@ -1254,7 +1349,13 @@ async function seed() {
     //Q43
     Question_Answer.create({
       question: `Asplenia is an in important risk factor for serious infections in infants < 6 months old?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Capnocytophaga canimorsus.`,
+        `Capnocytophaga cynodegmi.`,
+        `Babesia.`,
+        `E. coli.`,
+      ],
       answerOptions: [
         `Capnocytophaga canimorsus.`,
         `Capnocytophaga cynodegmi.`,
@@ -1282,7 +1383,13 @@ async function seed() {
     //Q44
     Question_Answer.create({
       question: `A College student is admitted with a history of Fever and Bilateral infiltrates. His laboratory examination reveals Hg of 10 gm/dl. Further work up establishes presence of Autoimmune Hemolytic Anemia caused by cold reacting antibodies. Which of the following organisms is associated with this condition?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Coccidioidomycosis`,
+        `Cryptococcosis`,
+        `Mycoplasma Pneumoniae`,
+        `Streptococcus Pneumoniae`,
+      ],
       answerOptions: [
         `Coccidioidomycosis`,
         `Cryptococcosis`,
@@ -1309,7 +1416,13 @@ async function seed() {
     //Q45
     Question_Answer.create({
       question: `Which of the following is most likely to improve hypoxemia in hepatopulmonary syndrome?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Administer supplemental O2`,
+        `Administer diltiazem`,
+        `Administer ibuprofen`,
+        `Liver transplantation`,
+      ],
       answerOptions: [
         `Administer supplemental O2`,
         `Administer diltiazem`,
@@ -1356,7 +1469,13 @@ async function seed() {
     //Q47
     Question_Answer.create({
       question: `All the following are effective in preventing or treating the acute chest syndrome, except:`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Incentive spirometry`,
+        `Hydration`,
+        `Supplemental oxygen`,
+        `Plasmapheresis`,
+      ],
       answerOptions: [
         `Incentive spirometry`,
         `Hydration`,
@@ -1390,7 +1509,13 @@ async function seed() {
     //Q48
     Question_Answer.create({
       question: `Which of the following is the mechanism of action of sildenafil used as a medical therapy in pulmonary arterial hypertension?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Phosphodiesterase 5 inhibitor`,
+        `Nitric oxide synthase inhibitor`,
+        `Phosphodiesterase 4 inhibitor`,
+        `Guanylate cyclase inhibitor`,
+      ],
       answerOptions: [
         `Phosphodiesterase 5 inhibitor`,
         `Nitric oxide synthase inhibitor`,
@@ -1411,7 +1536,13 @@ async function seed() {
     //Q49
     Question_Answer.create({
       question: `TNF inhibitors have become widely used for their immunosuppressive properties over the last few years. They are used in all fields of medicine from Rheumatology, Gastroenterology, Dermatology and many more.  However, they are not without risks. Which of the following TNF Inhibitors pose the greatest risk of recrudescence of tuberculosis?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Infliximab (Remicade)`,
+        `Etanercept (Enbrel)`,
+        `Adalimumab (Humira)`,
+        `Certolizumab pegol (Cimzia)`,
+      ],
       answerOptions: [
         `Infliximab (Remicade)`,
         `Etanercept (Enbrel)`,
@@ -1451,7 +1582,13 @@ async function seed() {
     //Q50
     Question_Answer.create({
       question: `Which of the following is true about treatment for malignant pleural mesothelioma (MPM)?`,
-      questionImage: [``],
+      questionImage: [],
+      answerOptions: [
+        `Pleurectomy-Decortication plus adjuvant treatment`,
+        `Pleurectomy only`,
+        `CT and or RT`,
+        `There has been no ideal treatment found for MPM`,
+      ],
       answerOptions: [
         `Pleurectomy-Decortication plus adjuvant treatment`,
         `Pleurectomy only`,
@@ -1593,7 +1730,13 @@ async function seed() {
         "Restless Leg Syndrome",
         "Cardiovascular Accident (Stroke)",
       ],
-      questionImage: [``],
+      answerOptions: [
+        "Claudication",
+        "Peripheral neuropathy",
+        "Restless Leg Syndrome",
+        "Cardiovascular Accident (Stroke)",
+      ],
+      questionImage: [],
       correctAnswer: `Cardiovascular Accident (Stroke)`,
       explanation: `The precise mechanism of leg cramps is unknown, but several myopathic, neurologic, and metabolic causes have been suggested. Most cases of leg cramps are idiopathic.
 
@@ -2934,7 +3077,13 @@ async function seed() {
         `Rhinolalia`,
         `Chest Tightness`,
       ],
-      questionImage: [``],
+      answerOptions: [
+        `Wheezing`,
+        `Chest Pain`,
+        `Rhinolalia`,
+        `Chest Tightness`,
+      ],
+      questionImage: [],
       correctAnswer: `Rhinolalia`,
       explanation: `Pneumomediastinum also referred to as mediastinal emphysema is defined as presence of free air in the mediastinal cavity. The discovery of free air in the mediastinal cavity is often thought of as a phenomenon secondary to a more serious complication. 
 
@@ -2991,7 +3140,7 @@ async function seed() {
       explanation: `Unilateral diaphragm dysfunction
         Patient A has emphysema like seen on the left sided bullous disease, her PFT will show an obstructive defect. Patient C has Pleural effusion and patient D has interstitial lung disease. In both Patient A and D, the cases of PFT will show a restrictive defect (↓ FVC, ↓ ↓ TLC), patient B has left diaphragm paralysis. The chest x-ray shows an elevated left diaphragm. Unilateral diaphragm weakness is usually associated with a mild decrease in vital capacity (VC), to approximately 75% of the predicted value [1,2], with a further 10% to 20% decrease in the supine position [2], while functional residual capacity (FRC) and total lung capacity (TLC) are usually preserved [1,2]. In bilateral diaphragm weakness, VC usually reaches mean values of approximately 50% predicted and can further decrease by 30% to 50% when supine [3]. TLC can also be reduced, while residual volume (RV) can be elevated [4].
         `,
-      explanationImage: [],
+      questionImage: [],
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3752705/" target="_blank">Lisboa C, Paré PD, Pertuzé J, Contreras G, Moreno R, Guillemi S, Cruz E, Inspiratory muscle function in unilateral diaphragmatic paralysis. Am Rev Respir Dis. 1986 Sep; 134(3):488-92</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC461156/" target="_blank">Laroche CM, Mier AK, Moxham J, Green M, Diaphragm strength in patients with recent hemidiaphragm paralysis. Thorax. 1988 Mar; 43(3):170-4.</a>`,
