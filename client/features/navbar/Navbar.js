@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from "react-html-parser";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
