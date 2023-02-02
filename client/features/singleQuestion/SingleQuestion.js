@@ -119,6 +119,7 @@ const singleQuestion = () => {
 
         <Stack>
       <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div>
+      
       </Stack>
 
       <Card>
