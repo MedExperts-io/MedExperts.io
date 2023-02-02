@@ -24,11 +24,10 @@ const Login = () => {
     const email = evt.target.loginEmail.value;
     const password = evt.target.loginPassword.value;
 
-    if (validated) {
+    if (validated)
       dispatch(authenticate({ email, password, method: formName })).then(() =>
         navigate("/home")
       );
-    }
   };
   return (
     <div className="mb-3 mt-md-4">
