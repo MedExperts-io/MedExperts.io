@@ -29,7 +29,20 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.ENUM("Easy", "Medium", "Difficult"),
   },
   category: {
-    type: Sequelize.ENUM("Pharmacology", "Anatomy", "Radiology", "Oncology", "Pulmonary Function", "Physiology", "Infectious Diseases", "Cardiology"),
+    type: Sequelize.ENUM(
+      "Pharmacology",
+      "Anatomy",
+      "Radiology",
+      "Oncology",
+      "Pulmonary Function",
+      "Physiology",
+      "Infectious Diseases",
+      "Cardiology"
+    ),
+  },
+  status: {
+    type: Sequelize.ENUM("Active", "Inactive"),
+    defaultValue: "Active",
   },
 });
 
