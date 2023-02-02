@@ -104,7 +104,7 @@ async function seed() {
       answerOptions: [
         `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
         `D-Dimer test is positive and indicates immediate treatment of PE.`,
-        `C.	D-Dimer test value is below the age adjusted cut-off thus ruling out PE.`,
+        `D-Dimer test value is below the age adjusted cut-off thus ruling out PE.`,
         `D-Dimer test is positive because of the history of coronary artery disease.`,
       ],
       correctAnswer: `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
