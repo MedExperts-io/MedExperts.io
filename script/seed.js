@@ -116,7 +116,7 @@ async function seed() {
       answerOptions: [
         `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
         `D-Dimer test is positive and indicates immediate treatment of PE.`,
-        `C.	D-Dimer test value is below the age adjusted cut-off thus ruling out PE`,
+        `D-Dimer test value is below the age adjusted cut-off thus ruling out PE`,
         `D-Dimer test is positive because of the history of coronary artery disease.`,
       ],
       correctAnswer: `D-Dimer test appears positive and indicates a need for further evaluation by CTA.`,
@@ -138,7 +138,7 @@ async function seed() {
 
     //Q3
     Question_Answer.create({
-      question: `3.	A 35-year-old female presents to the pulmonary clinic with frequent episodes of cough and hemoptysis for the past 6 months. She says that her symptoms have gotten worse over the past 2 weeks. She denies any fever or weight loss. She has a history of asthma that was not well controlled. Patient vitals are within normal limits. Lung auscultation reveals wheezing bilaterally. Chest X-ray done on two different occasions showed fleeting pulmonary infiltrates. Her Laboratory results reveal elevated serum IgE level (5,123 IU/mL). This clinical picture is suggestive of which of the following? `,
+      question: `A 35-year-old female presents to the pulmonary clinic with frequent episodes of cough and hemoptysis for the past 6 months. She says that her symptoms have gotten worse over the past 2 weeks. She denies any fever or weight loss. She has a history of asthma that was not well controlled. Patient vitals are within normal limits. Lung auscultation reveals wheezing bilaterally. Chest X-ray done on two different occasions showed fleeting pulmonary infiltrates. Her Laboratory results reveal elevated serum IgE level (5,123 IU/mL). This clinical picture is suggestive of which of the following? `,
       questionImage: [],
       answerOptions: [
         `Allergic Bronchopulmonary Aspergillosis (ABPA)`,
@@ -881,7 +881,7 @@ async function seed() {
 
     //Q27
     Question_Answer.create({
-      question: `27.	A previously healthy 70-year-old woman presented to the emergency department ninety minutes after developing acute onset speech difficulty and right-sided weakness.  On presentation, she patient had a blood pressure of 140/70 mmHg, heart rate of 50 beats per minute, respiratory rate of 20 breaths per minute and temperature of 36.6 degrees Celsius. Physical examination findings were significant for global aphasia, right central type facial palsy and right hemiplegia. The rest of her exam was normal.
+      question: `A previously healthy 70-year-old woman presented to the emergency department ninety minutes after developing acute onset speech difficulty and right-sided weakness.  On presentation, she patient had a blood pressure of 140/70 mmHg, heart rate of 50 beats per minute, respiratory rate of 20 breaths per minute and temperature of 36.6 degrees Celsius. Physical examination findings were significant for global aphasia, right central type facial palsy and right hemiplegia. The rest of her exam was normal.
         Pt was diagnosed as a case of ischemic stroke and intravenous recombinant tissue plasminogen activator (rtPA) infusion was started. During the infusion, the patient developed severe shortness of breath with pink frothy secretions. Vital signs showed BP 175/100 mmHg, HR 115 bpm, RR 28 bpm, oxygen saturation 77% on room air. Chest auscultation revealed bilateral crackles and rales. The infusion was discontinued, and the patient was intubated for hypoxic respiratory failure and placed on a mechanical ventilator.  Repeat head CT showed evidence of cerebral edema with subarachnoid hemorrhage.  Chest x-ray revealed generalized increased pulmonary infiltration and CT scan of the chest showed interlobular septal thickening with ground glass opacities. Which of the following is the most appropriate ventilation strategy in the management of this patient?`,
       questionImage: [],
       answerOptions: [
@@ -974,7 +974,7 @@ async function seed() {
 
     //Q30
     Question_Answer.create({
-      question: `30.	What is the most common cause of bronchiolitis obliterans in children? `,
+      question: `What is the most common cause of bronchiolitis obliterans in children? `,
       questionImage: [],
       answerOptions: [
         `Bacterial Pneumonia`,
@@ -1879,7 +1879,7 @@ async function seed() {
 
     //Q60
     Question_Answer.create({
-      question: `60.	A 21 year old swimmer is admitted with right sided primary spontaneous pneumothorax (PSP). He is 6 foot 4 inches and weighs 154 lbs, and denies any smoking history. He is treated with a small-bore chest tube drainage. Surgical treatment was discussed with the patient's family. All of the following are indications for definitive surgical treatment during the first episode of PSP except:`,
+      question: `A 21 year old swimmer is admitted with right sided primary spontaneous pneumothorax (PSP). He is 6 foot 4 inches and weighs 154 lbs, and denies any smoking history. He is treated with a small-bore chest tube drainage. Surgical treatment was discussed with the patient's family. All of the following are indications for definitive surgical treatment during the first episode of PSP except:`,
       answerOptions: [
         `Patients with a Prolonged Air Leak`,
         `Patients with a high-risk occupation (e.g. pilot, deep sea diver)`,
@@ -1916,7 +1916,7 @@ async function seed() {
       ],
       questionImage: [],
       correctAnswer: `Campylobacter jejuni`,
-      explanation: `he Guillain-Barre syndrome, which is characterized by acute areflexic paralysis with albuminocytologic dissociation (i.e, high levels of protein in the cerebrospinal fluid and normal cell counts). Two thirds of cases are preceded by symptoms of upper respiratory tract infection or diarrhea. The most frequently identified infectious agent associated with subsequent development of Guillain-Barre syndrome is Campylobacter jejuni. and is associated with  20% of cases of Miller Fisher syndrome. Other infectious agents with a well-defined relationship to the Guillain-Barre syndrome are Epstein-Barr virus, varicella-zoster virus, and Mycoplasma pneumoniae.
+      explanation: `The Guillain-Barre syndrome, which is characterized by acute areflexic paralysis with albuminocytologic dissociation (i.e, high levels of protein in the cerebrospinal fluid and normal cell counts). Two thirds of cases are preceded by symptoms of upper respiratory tract infection or diarrhea. The most frequently identified infectious agent associated with subsequent development of Guillain-Barre syndrome is Campylobacter jejuni. and is associated with  20% of cases of Miller Fisher syndrome. Other infectious agents with a well-defined relationship to the Guillain-Barre syndrome are Epstein-Barr virus, varicella-zoster virus, and Mycoplasma pneumoniae.
 
           The Guillain-Barre syndrome generally follows a monophasic course and typically does not recur, but two or more episodes have been reported in 7% of patients. The histologic features of the Guillain-Barre syndrome support a classification that includes demyelinating and axonal subtypes- acute inflammatory demyelinating polyneuropathy and acute motor axonal neuropathy. Infection with cytomegalovirus or Epstein- Barr virus is associated with the demyelinating Guillain- Barre syndrome, whereas C.jejuni infection is associated with the axonal Guillain-Barre syndrome and with Miller Fisher syndrome.
 
@@ -2038,7 +2038,7 @@ async function seed() {
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q65/Q65+img1.png`,
       ],
       correctAnswer: `narcolepsy`,
-      explanation: `65.	A diagnosis of narcolepsy requires 2 or more sleep onset REM [SOREM] periods, this patient has only one SOREM; hence this patient does not have narcolepsy.  Multiple sleep latency test (MSLT) is not used to diagnose obstructive sleep apnea.  The AHI is within limits during the PSG which does not support the diagnosis of obstructive sleep apnea.
+      explanation: `A diagnosis of narcolepsy requires 2 or more sleep onset REM [SOREM] periods, this patient has only one SOREM; hence this patient does not have narcolepsy.  Multiple sleep latency test (MSLT) is not used to diagnose obstructive sleep apnea.  The AHI is within limits during the PSG which does not support the diagnosis of obstructive sleep apnea.
 
           In idiopathic hypersomnia, the mean sleep latency is shortened, generally less than eight minutes, and the number of sleep-onset rapid eye movement sleep periods (SOREMPS) is less than two. Thus, this case had idiopathic hypersomnia.
           MSLT is not used to diagnose periodic limb movement disorder (PLMD ). There was no evidence of PLMD during the PSG as reported in this case.
