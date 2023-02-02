@@ -25,29 +25,35 @@ const SiteNavbar = () => {
       <Container fluid>
         {isLoggedIn ? (
           <>
-            <Navbar.Brand href="/home">
-              <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
-            </Navbar.Brand>
+            <Link to="/home">
+              <Navbar.Brand>
+                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+              </Navbar.Brand>
+            </Link>
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Button
-                  variant="light"
-                  href="/home"
                   style={{ color: "#FF6262" }}
+                  as={Link}
+                  to="/home"
+                  variant="light"
                   className="m-2"
                 >
                   Dashboard
                 </Button>
+
                 <Button
                   variant="light"
-                  href="/questions"
-                  style={{ color: "#FF6262" }}
+                  as={Link}
+                  to="/questions"
                   className="m-2"
+                  style={{ color: "#FF6262" }}
                 >
                   Questions
                 </Button>
+
                 <Button
                   variant="light"
                   href="/favorites"
@@ -93,7 +99,9 @@ const SiteNavbar = () => {
                     drop={"start"}
                     id="collapsible-nav-dropdown"
                   >
-                    <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/profile">
+                      Profile
+                    </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item
                       onClick={logoutAndRedirectHome}

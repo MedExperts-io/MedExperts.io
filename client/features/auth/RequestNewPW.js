@@ -14,10 +14,7 @@ const RequestNewPassword = () => {
     evt.preventDefault();
     const email = evt.target.email.value;
 
-    if (validated) {
-      dispatch(forgotPassword({ email }));
-    }
-
+    dispatch(forgotPassword({ email }));
     navigate("/forgotPassword/confirmation");
   };
 
@@ -37,7 +34,10 @@ const RequestNewPassword = () => {
             </p>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email address</Form.Label>
-              <Form.Control required type="email" placeholder="Enter email" />
+              <Form.Control type="email" placeholder="Enter email" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid email address.
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Button
