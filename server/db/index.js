@@ -3,15 +3,26 @@
 const db = require("./db");
 
 const User = require("./models/User");
-const Password_Reset = require("./models/Password_Reset")
+const Password_Reset = require("./models/Password_Reset");
 const Question_Answer = require("./models/Question_Answer");
 const User_Question = require("./models/User_Question");
 
-//associations could go here!
-User.belongsToMany(Question_Answer, { through: User_Question });
-Question_Answer.belongsToMany(User, { through: User_Question });
-User_Question.belongsTo(Question_Answer);
-User_Question.belongsTo(User);
+//-----------------Super Many-to-Many Associations------------------------------
+User.belongsToMany(Question_Answer, { through: User_Question }); //---onUpdate/onDelete = cascade
+Question_Answer.belongsToMany(User, { through: User_Question }); //---onUpdate/onDelete = cascade
+User_Question.belongsTo(Question_Answer); //--------------------------Foreign Key in User_Question
+User_Question.belongsTo(User); //-------------------------------------Foreign Key in User_Question
+User.hasMany(User_Question);
+Question_Answer.hasMany(User_Question);
+
+Question_Answer.hasMany(Question_Answer, {
+  as: "newVersions",
+  foreignKey: "ancestorId",
+});
+Question_Answer.belongsTo(Question_Answer, {
+  as: "ancestor",
+  foreignKey: "ancestorId",
+});
 
 module.exports = {
   db,
@@ -19,6 +30,6 @@ module.exports = {
     User,
     Question_Answer,
     User_Question,
-    Password_Reset
+    Password_Reset,
   },
 };
