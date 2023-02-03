@@ -3,55 +3,65 @@ import axios from "axios";
 const token = window.localStorage.getItem("token");
 
 // --------For admin's dashboard analytics (aggregate)--------------
-export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", async () => {
-  try {
-    const { data } = await axios.get(`/api/user_questions`, {
-      headers: {
-        authorization: token,
-      },
-    });
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// --------For logged in user's dashboard analytics--------------
-export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (userId) => {
-  try {
-    const { data } = await axios.get(`/api/user_questions/${userId}`, {
-      headers: {
-        authorization: token,
-      },
-    });
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// --------TO FAVORITE, UNFAVORITE, ANSWERED OR NOT--------------
-
-export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async ({ userId, questionAnswerId }) => {
-  try {
-    const { data } = await axios.put(
-      `/api/user_questions/${userId}`,
-      {
-        questionAnswerId: questionAnswerId,
-      },
-      {
+export const fetchAllUserQuestions = createAsyncThunk(
+  "fetchAllUserQuestions",
+  async () => {
+    try {
+      const { data } = await axios.get(`/api/user_questions`, {
         headers: {
           authorization: token,
         },
-      }
-    );
-    console.log("THUNK", data);
-    return data;
-  } catch (error) {
-    console.log(error);
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
+
+// --------For logged in user's dashboard analytics--------------
+export const fetchUserQuestions = createAsyncThunk(
+  "fetchUserQuestions",
+  async (userId) => {
+    try {
+      const { data } = await axios.get(`/api/user_questions/${userId}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+// --------TO FAVORITE, UNFAVORITE, ANSWERED OR NOT--------------
+
+
+export const updateUserQuestion = createAsyncThunk(
+  "updateUserQuestion",
+  async ({ userId, questionAnswerId }) => {
+    try {
+      const { data } = await axios.put(
+        `/api/user_questions/${userId}`,
+        {
+          questionAnswerId: questionAnswerId,
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log("THUNK", data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
@@ -59,7 +69,6 @@ export const allUser_QuestionsSlice = createSlice({
     allUserQuestions: [],
     UserQuestions: [],
     currentUserQuestion: {},
-    didRefresh: "",
     error: null,
   },
   reducers: {},
