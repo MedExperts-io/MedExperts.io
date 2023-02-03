@@ -79,16 +79,6 @@ async function seed() {
         "Nonspecific Pattern",
         "Mixed Ventilatory Defect",
       ],
-      questionImage: [
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1+img1.png",
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1img2.png",
-      ],
-      answerOptions: [
-        "Obstructive Lung Disease",
-        "Restrictive Lung Disease",
-        "Nonspecific Pattern",
-        "Mixed Ventilatory Defect",
-      ],
       correctAnswer: "Nonspecific Pattern",
       explanation: `An obstructive ventilatory defect is a disproportionate reduction in maximal airflow from the lung in relation to the maximal volume (i.e. vital capacity, VC) that can be displaced from the lung [1]. It is defined by a reduced Forced Expiratory Volume in 1 second (FEV1)/FVC ratio below the 5th percentile of the predicted value as per ATS/ERS task force [1] or less than 0.70.   In this patient FEV1/FVC is normal.
 
@@ -107,9 +97,6 @@ async function seed() {
     //Q2
     Question_Answer.create({
       question: `A 70-year-old Caucasian male comes to the clinic with a complaint of progressive shortness of breath. He denies having similar episodes in the past. He is a retired teacher and has a history of colon cancer and coronary artery disease. His current medications include Aspirin, multivitamins, and Lisinopril. Temperature 99.8 F, blood pressure 105/ 68, respiratory rate 20, pulse 115/min. Pulse oximetry is 95% on room air. Cardiac examination reveals tachycardia and normal heart sounds. Chest X-ray results were non-significant. Which of the following is the best interpretation of the results? Laboratory results are given below:`,
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q2/Q2+img1.png`,
-      ],
       questionImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q2/Q2+img1.png`,
       ],
@@ -140,12 +127,6 @@ async function seed() {
     Question_Answer.create({
       question: `A 35-year-old female presents to the pulmonary clinic with frequent episodes of cough and hemoptysis for the past 6 months. She says that her symptoms have gotten worse over the past 2 weeks. She denies any fever or weight loss. She has a history of asthma that was not well controlled. Patient vitals are within normal limits. Lung auscultation reveals wheezing bilaterally. Chest X-ray done on two different occasions showed fleeting pulmonary infiltrates. Her Laboratory results reveal elevated serum IgE level (5,123 IU/mL). This clinical picture is suggestive of which of the following? `,
       questionImage: [],
-      answerOptions: [
-        `Allergic Bronchopulmonary Aspergillosis (ABPA)`,
-        `Acute Eosinophilic Pneumonia`,
-        `Loffler's syndrome`,
-        `Granulomatosis with Polyangiitis (GPA)`,
-      ],
       answerOptions: [
         `Allergic Bronchopulmonary Aspergillosis (ABPA)`,
         `Acute Eosinophilic Pneumonia`,
@@ -183,12 +164,6 @@ async function seed() {
         `RSV infection`,
         `Fat embolism`,
       ],
-      answerOptions: [
-        `M. Tuberculosis`,
-        `Chlamydia pneumonia`,
-        `RSV infection`,
-        `Fat embolism`,
-      ],
       correctAnswer: `M. Tuberculosis`,
       explanation: `Acute chest syndrome [ACS] occurs due to vaso-occlusion within the pulmonary vasculature of patients with sickle cell disease [SCD].  It is the most common cause of death in patients with SCD. Etiologies include infection (bacterial or viral), fat embolism, and pulmonary infarction. Chlamydia pneumonia and mycoplasma are the most identified bacterial pathogens. Viral infections like Viral (respiratory syncytial virus, parvovirus, rhinovirus) may also be a contributing cause. SCD does not seem to be a risk factor for severe TB. Pediatric patients are more likely to have an infectious cause and will therefore present with symptoms such as wheezing, cough, increased work of breathing, and fever. Adult patients with ACS are more likely to present with chest pain, pain in the arms and legs, shortness of breath, or a vaso-occlusive crisis. The risk factor for Low HbF, young age, history of asthma, and history of smoking. Acute management of ACS includes pain control, intravenous (IV) fluids, antibiotics, supplemental oxygen, and blood transfusions. More severe presentations may require treatment with simple or exchange transfusion and/or noninvasive or invasive respiratory support. Performing a red cell exchange can reduce blood viscosity as well as improve oxygenation.`,
       explanationImage: [],
@@ -212,15 +187,6 @@ async function seed() {
         `Neural origin`,
         `Germ cell origin`,
       ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q5/Q5+img1.png`,
-      ],
-      answerOptions: [
-        `Metastatic origin`,
-        `Lymphoid origin`,
-        `Neural origin`,
-        `Germ cell origin`,
-      ],
       correctAnswer: `Neural origin`,
       explanation: `A mediastinal mass is often an incidental finding on radiology images and can present in several ways.  Most mediastinal masses are asymptomatic. Patients usually present with secondary complaints due to local mass effects such as chest pain or weight loss.   In some, patient's systemic symptoms can be present due to tumors or a variety of paraneoplastic syndromes. Mediastinum can be divided into three regions, anterior, middle, and posterior mediastinum. Most common anterior mediastinal masses are thymoma and lymphomas.  In the middle, mediastinal masses are lymph node enlargement and vascular masses.  In the posterior side, masses are of neurogenic tumors and esophageal abnormalities.  A combination of clinical factors and imaging features often narrow the differential diagnosis when a mediastinal mass is detected. The above patient appears to have a neurilemmoma (or schwannoma), a benign neoplasm arising from neural tissue located in the posterior mediastinum.  The treatment is dependent on underlying etiology.  Benign lesions can be observed while malignant tumors should be removed.  In case of lymphomas, chemotherapy is the best treatment.`,
       explanationImage: [],
@@ -234,15 +200,6 @@ async function seed() {
     //Q6
     Question_Answer.create({
       question: `A 70-year-old woman comes to the clinic complaining for shortness of breath, fatigue from past few months. Patient also complain of fluctuating diplopia which gets worse by the end of the day. She has a history of Hypertension for 20 years and Lisinopril. She is a bank manager and drinks a glass of wine daily. Temperature 98.4, blood pressure 132/88, pulse 85 beats /min, respiratory rate 18 beats/ min. Pulse oximetry is 70% at room air. Physical examination is normal. On further examination, the CT scan given below showed a mass in anterior mediastinum. Which of the following test will help to confirm the diagnosis? `,
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q6/Q6+img1.png`,
-      ],
-      answerOptions: [
-        `Anti-Jo antibodies`,
-        `Anti-CCP antibodies`,
-        `Antibodies against Post Acetylcholine receptors`,
-        `Antibodies against Pre-Voltage gated Calcium channel`,
-      ],
       questionImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q6/Q6+img1.png`,
       ],
@@ -310,17 +267,8 @@ async function seed() {
         `6-minute walk test`,
         `Ventilation/Perfusion scan`,
       ],
-      answerOptions: [
-        `CT without contrast`,
-        `Right heart catheterization`,
-        `6-minute walk test`,
-        `Ventilation/Perfusion scan`,
-      ],
       correctAnswer: `Ventilation/Perfusion scan`,
       explanation: `This patient’s presentation is suggestive of chronic thromboembolic pulmonary hypertension (CTEPH) therefore the more appropriate next step in diagnosis is a ventilation/perfusion scan and remains the screening test of choice. Patients have evidence of past DVT and PE now has pulmonary hypertension on ECHO. Given in this picture is the specimen of clots removed through embolectomy.`,
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q9/A9+img1.jpg`,
-      ],
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q9/A9+img1.jpg`,
       ],
@@ -335,12 +283,6 @@ async function seed() {
     Question_Answer.create({
       question: `A 70-year-old Mexican male was evaluated in the emergency department for a urinary tract infection, hypotension, confusion and lethargy. He was started on antibiotics, was administered in the emergency department and admitted.  His vital signs on admission were temperature 101.0 °F, blood pressure is 80/55 mm Hg, pulse rate is 120/min, and respiration rate is 28/min.  His physical exam was normal, except for dry mouth, dry skin, cool extremities, and impaired mental status.  Urine output is diminished. Electrocardiogram shows normal sinus rhythm with normal T-wave and ST-segment morphology. Laboratory studies are done.  Hb 11.5 g/dl, WBC is 17,000/ µL, Creatinine is 1.0.  Sodium level is 110, Potassium 4.5, serum bicarbonate is 24mEq/L, serum lactate 6.0 mmol/L. He has past medical history of COPD, diabetes mellitus. The most effective initial treatment currently is?`,
       questionImage: [],
-      answerOptions: [
-        `Give IV steroids`,
-        `Arrange for blood transfusion`,
-        `Start IV fluids`,
-        `IV sodium bicarbonate`,
-      ],
       answerOptions: [
         `Give IV steroids`,
         `Arrange for blood transfusion`,
@@ -377,12 +319,6 @@ async function seed() {
         `Decreased minute ventilation`,
         `Decrease inspiratory flow`,
       ],
-      answerOptions: [
-        `Increased expiratory time`,
-        `Increased inspiratory time`,
-        `Decreased minute ventilation`,
-        `Decrease inspiratory flow`,
-      ],
       correctAnswer: `Increased expiratory time`,
       explanation: `This patient has status asthmaticus caused by severe airflow limitation.  Severe obstruction in patients may result in breath stacking and end positive end-expiratory pressure (auto-PEEP) because of insufficient time to complete preceding breath. Auto PEEP can result in decreased venous return, hypotension, and barotraumas.  The goal of managing ventilation is to allow adequate time for exhalation which can be achieved by increasing expiratory time, decreasing the tidal volume and respiration rate, increasing inspiratory flow rates, or using sedative.  An increased expiration duration allows time for optimal exhalation and avoiding air trapping.  In asthma patient, there are few criteria for intubation such as, physical exhaustion, altered sensorium, such as lethargy or agitation, pH < 7.2, carbon dioxide pressure increasing by more than 5 mm Hg/h or greater than 55 to 70 mm Hg or respiratory rate of greater than 40 breaths/minute, silent chest despite respiratory effort. Shortening of inspiration with a square wave pattern and an inspiratory flow rate of 60 L/min allows greater time for exhalation in each respiratory cycle and might help control hyperinflation.`,
       explanationImage: [],
@@ -399,12 +335,6 @@ async function seed() {
     Question_Answer.create({
       question: `A 62-year-old patient comes to the ER for altered mental status. He has shortness of breath, cough, and diarrhea from the past 3-4 days. Patient went to Hawaii a week ago for summer vacation. He works as an accountant. He has diabetes mellitus from 15 years and takes metformin. He has smoked 15 packs per day for 25 years. Temperature 102.1 F, pulse 72 beats/min, respiratory rate 18 bpm, blood pressure 128/85. Pulse oximetry 92% at room air. Cardiac examination showed bradycardia. Laboratory findings: Na - 126 mmol/L, K 4.5mmol/L, CL- 105 mmol/L, Fasting glucose - 112 mg/dl, AST- 98, ALT – 95. Urinalysis showed hematuria and proteinuria. Chest x ray showed bilateral diffuse interstitial infiltrates. On further examination sputum analysis revealed many neutrophils but no few microorganisms. Which of the following is responsible for this patient’s condition?`,
       questionImage: [],
-      answerOptions: [
-        `Mycoplasma pneumonia`,
-        `Legionella pneumonia`,
-        `Coccidiomycosis`,
-        `Blastomycosis`,
-      ],
       answerOptions: [
         `Mycoplasma pneumonia`,
         `Legionella pneumonia`,
@@ -436,12 +366,6 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following treatments for Eosinophilic Granulomatous Polyangiitis (EGPA) has been shown to demonstrate improvements in remission, oral corticosteroid dose reductions and/or remaining free of EGPA relapse? `,
       questionImage: [],
-      answerOptions: [
-        `Azathioprine`,
-        `Cyclophosphamide`,
-        `Mepolizumab`,
-        `Methotrexate`,
-      ],
       answerOptions: [
         `Azathioprine`,
         `Cyclophosphamide`,
@@ -498,9 +422,6 @@ async function seed() {
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q15/A15+img1.png`,
       ],
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q15/A15+img1.png`,
-      ],
       explanationLinks: [],
       level: "Easy",
       category: "Infection",
@@ -516,9 +437,6 @@ async function seed() {
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q16/A16+img1.png`,
       ],
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q16/A16+img1.png`,
-      ],
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065676/" target="_blank">Fong T.G et al. Delirium in elderly adults: diagnosis, prevention and treatment. Nat Rev Neurol. 2009 Apr; 5(4): 210–220. </a>`,
       ],
@@ -530,25 +448,6 @@ async function seed() {
     Question_Answer.create({
       question: `The most important predictor of chronic restrictive lung disease in sickle cell disease is:`,
       questionImage: [],
-      answerOptions: [
-        `Blood hemoglobin level`,
-        `Number of episodes of acute chest syndrome`,
-        `History of cigarette smoking`,
-        `Hemoglobin SC genotype`,
-      ],
-      answerOptions: [
-        `Blood hemoglobin level`,
-        `Number of episodes of acute chest syndrome`,
-        `History of cigarette smoking`,
-        `Hemoglobin SC genotype`,
-      ],
-      correctAnswer: `Number of episodes of acute chest syndrome`,
-      answerOptions: [
-        `Blood hemoglobin level`,
-        `Number of episodes of acute chest syndrome`,
-        `History of cigarette smoking`,
-        `Hemoglobin SC genotype`,
-      ],
       answerOptions: [
         `Blood hemoglobin level`,
         `Number of episodes of acute chest syndrome`,
@@ -584,34 +483,8 @@ async function seed() {
         `Refer to speech therapist for breathing exercises`,
         `Discontinue albuterol`,
       ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q18/Q18+img1.png`,
-      ],
-      answerOptions: [
-        `Advise her to quit heavy exercise.`,
-        `Try a short course of oral steroids.`,
-        `Refer to speech therapist for breathing exercises`,
-        `Discontinue albuterol`,
-      ],
-      correctAnswer: `Refer to speech therapist for breathing exercises`,
-      answerOptions: [
-        `Advise her to quit heavy exercise.`,
-        `Try a short course of oral steroids.`,
-        `Refer to speech therapist for breathing exercises`,
-        `Discontinue albuterol`,
-      ],
-      answerOptions: [
-        `Advise her to quit heavy exercise.`,
-        `Try a short course of oral steroids.`,
-        `Refer to speech therapist for breathing exercises`,
-        `Discontinue albuterol`,
-      ],
       correctAnswer: `Refer to speech therapist for breathing exercises`,
       explanation: `Vocal cord dysfunction (VCD) involves inappropriate (paradoxical adduction) of the vocal cord that produces partial airway obstruction, especially during inspiration. It is condition more predominant in females than male and occurring in 20 to 40 years of age.  Symptoms include  wheezing, cough, tightness in the throat, hoarseness and voice change, inspiratory difficulty, choking sensation and stridor.  VCD is often misdiagnosed as asthma exacerbation because of the wheezing and respiratory distress associated with it. Thus, a careful history is needed for a clear diagnosis.   The vocal cords abduction, or opening is controlled by the posterior cricoarytenoid muscle and adduction (closing) is via contraction of the lateral cricoarytenoid muscle. These muscles are innervated by the recurrent laryngeal nerve.  In the normal respiratory cycle, vocal cords partially abduct with inhalation and partially adduct with exhalation.  VCD is believed to be the result of laryngeal hyperresponsiveness that is prompted by irritant and non-irritants triggers that activate sensory receptors in larynx and trachea.  VCD is often diagnosed only after other potential conditions have been excluded and patients had failure to therapy.  Pulmonary function testing with a flow-volume loop reveals flattened inspiratory loop that indicates decreased airflow into the lungs (as seen in the flow loop provided).  The most effective diagnostic strategy is to confirm VCD on direct laryngoscopic visualization during a symptomatic episode.  While the anterior cord appears normal, the posterior cords will show “glottis chink”. [1]   Patients with VCD and in acute distress should be instructed with simple breathing guidance.  They should be instructed to have rapid and shallow breaths.  In other cases, use of a helium and oxygen mixture (heliox) is also effective.  For long term management strategies, treatment for symptom triggers and speech therapy along with patient education are effective parts of the treatment plan.`,
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q18/A18+img1.png`,
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q18/A18+img2.png`,
-      ],
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q18/A18+img1.png`,
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q18/A18+img2.png`,
@@ -637,16 +510,6 @@ async function seed() {
         `Azathioprine`,
         `Methotrexate`,
       ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q19/Q19+img1.png`,
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q19/Q19+img2.png`,
-      ],
-      answerOptions: [
-        `Oral Prednisone`,
-        `Cellcept`,
-        `Azathioprine`,
-        `Methotrexate`,
-      ],
       correctAnswer: `Oral Prednisone`,
       explanation: `The clinical presentation and radiographic finding for above patient indicate a pattern consistent with Interstitial pulmonary fibrosis, particularly with a nonspecific interstitial pneumonia (NSIP).  Many cases occur in the context of an underlying connective tissue disease or drug‐induced interstitial lung disease (flecainide, nitrofurantoin).  Patients present with a dry cough, shortness of breath, clubbing.  Patient’s pulmonary function testing (PFTs) are projected to demonstrate a restrictive ventilatory defect with decrease in gas transfer.  While PFTs are not essential for making the diagnosis, continued monitoring of FVC and DLCO is helpful to assess progression of disease and response to therapy and prognosis.  The most common HRCT abnormality in NSIP is bilateral ground-glass opacity with lower lobe predilection and subpleural sparing that is helping in distinguishing NSIP from UIP.  Another feature distinguishing NSIP from UIP is its responsiveness to steroids.  In more severe disease or inadequate response to steroids, azathioprine, cyclophosphamide, and cyclosporine are used.   However, Methotrexate is avoided due to pulmonary toxicity.  Patients unresponsive to medications should be considered for lung transplant.`,
       explanationImage: [],
@@ -662,12 +525,6 @@ async function seed() {
     Question_Answer.create({
       question: `A 25 years G1P0 woman sent by her obstetrician to a pulmonary clinic because of multiple cough spells over a period of 6 weeks.  The cough is persistently getting worse with nocturnal paroxysm and feels “suffocated”.  She initially reported occasional wheezing and chest tightness.  Thus, she was treated for asthma exacerbation but her cough didn’t improve with bronchodilator therapy.  On examination she had an oral temperature of 37°C and the oxygen saturation was 96% on room air, blood pressure was 150/78 mmHg, pulse 110 beats/mins.  Physical exam revealed slight pharyngeal hyperemia, and lungs were clear except for intermittent rhonchi.  She denies any travel history overseas or exposure to chemicals.  She is 8 weeks pregnant and unsure about her immunization status as a child.  Based on this information, which of the following lab tests has the highest specificity for a diagnosis of Bordetella pertussis?`,
       questionImage: [],
-      answerOptions: [
-        `PCR assay`,
-        `Nasopharyngeal swab for culture`,
-        `ELISA test for IgG antibody`,
-        `Sputum Gram stain`,
-      ],
       answerOptions: [
         `PCR assay`,
         `Nasopharyngeal swab for culture`,
@@ -3125,7 +2982,6 @@ async function seed() {
       question: `In which of the following patients the Vital Capacity is decreased with near normal Total Lung Capacity?`,
       answerOptions: [`picture 1`, `picture 2`, `picture 3`, `picture 4`],
       questionImage: [
-
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img1.jpg`,
 
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img2.jpg`,
@@ -3133,7 +2989,6 @@ async function seed() {
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img3.png`,
 
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q101/Q101+img4.png`,
-
       ],
       correctAnswer: `picture 2`,
       explanation: `Unilateral diaphragm dysfunction
@@ -3955,8 +3810,8 @@ async function seed() {
       questionAnswerId: 9,
       userInput: "6-minute walk test",
       answered: "wrong",
-      userExpertise: "Student",level: "Moderate",
-
+      userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
