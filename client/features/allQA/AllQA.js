@@ -60,6 +60,7 @@ const QuestionsAnswers = () => {
       };
     }
   });
+  const listOfFavorites = userQuestions.filter((question) => question.favorite === true);
   const allAnswered = userQuestions.length / allQuestions.length;
 
   // console.log("allQuestionsCheck", allQuestions);
@@ -111,6 +112,8 @@ const QuestionsAnswers = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
+    const favoriteNumbers = listOfFavorites.map((question) => question.questionAnswerId);
+
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
@@ -144,7 +147,7 @@ const QuestionsAnswers = () => {
         <Col></Col>
         <Col>
           <div style={{ background: progressCircleBackground(0.3, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}>
-            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "200%" }}>33%</div>
           </div>
         </Col>
         <Col>
@@ -158,7 +161,7 @@ const QuestionsAnswers = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "200%" }}>33%</div>
           </div>
         </Col>
         <Col>
@@ -172,12 +175,12 @@ const QuestionsAnswers = () => {
             }}
           >
             {" "}
-            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "200%" }}>33%</div>
           </div>
         </Col>
         <Col>
           <div style={{ background: progressCircleBackground(0.3, "#bf5eff"), borderRadius: "50%", width: "150px", height: "150px", marginTop: "-20px", position: "relative" }}>
-            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "250%" }}>33%</div>
           </div>
         </Col>
         <Col></Col>
