@@ -12,38 +12,16 @@ import {
 } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
-import ReactPaginate from "react-paginate";
+import {
+  fetchAllUserQuestions,
+  fetchUserQuestions,
+  updateUserQuestion,
+} from "../stats/user_questionsSlice";
 import LoadingScreen from "../loading/LoadingScreen";
-
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
-  const itemsPerPage = 12;
-  const [itemOffset, setItemOffset] = useState(0);
-  const [currentItems, setCurrentItems] = useState(null);
-  const [pageCount, setPageCount] = useState(0);
-
-  useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
-
-    // const endOffset = itemOffset + itemsPerPage;
-    // filteredQuestions ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
-    // filteredQuestions ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
-    //dispatch(fetchAllQuestionsAnswers());
-  }, []); // Putting userQuestions in here throws a loop
-
-  const handlePageClick = (event) => {
-    const newOffset = event.selected * itemsPerPage;
-    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
-    setItemOffset(newOffset);
-    const endOffset = newOffset + itemsPerPage;
-    setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage));
-    setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
-    console.log("itemOffset", newOffset, endOffset, event.selected);
-  };
 
   const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
   const [currentDifficulty, setCurrentDifficulty] = useState(
@@ -100,21 +78,12 @@ const QuestionsAnswers = () => {
     }
   });
 
-
+  // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
-  allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
-
-  console.log("currentitems", currentItems);
-
-  const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
-  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
-  //console.log(itemOffset, endOffset);
-
-  console.log("allQuestionsCheck", allQuestions);
-
-  console.log("filteredQuestions", filteredQuestions);
-
+  allQuestions.length && !filteredQuestions
+    ? setfilteredQuestions(allQuestions)
+    : null;
+  // console.log("filteredQuestions", filteredQuestions);
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -177,9 +146,12 @@ const QuestionsAnswers = () => {
     }
     console.log("filterQuestions in filterFunction", multiFilter);
     setfilteredQuestions(multiFilter);
-    setPageCount(Math.ceil(multiFilter.length / itemsPerPage));
-    setCurrentItems(multiFilter.slice(itemOffset, endOffset));
   };
+
+  useEffect(() => {
+    dispatch(fetchAllQuestionsAnswers());
+    dispatch(fetchUserQuestions(userId));
+  }, []); // Putting userQuestions in here throws a loop
 
   return (
     <Container>
@@ -243,10 +215,9 @@ const QuestionsAnswers = () => {
           </Col> */}
       </Row>
       <Row>
-
-{loading && <LoadingScreen />}
-        {currentItems && currentItems.length
-          ? currentItems.map((question) => (
+        {loading && <LoadingScreen />}
+        {filteredQuestions && filteredQuestions.length
+          ? filteredQuestions.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
                   <Card.Header
@@ -284,26 +255,6 @@ const QuestionsAnswers = () => {
             ))
           : "Sorry, we didn't find anything matching that"}
       </Row>
-      <ReactPaginate
-        className="pagination"
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-      />
     </Container>
   );
 };
