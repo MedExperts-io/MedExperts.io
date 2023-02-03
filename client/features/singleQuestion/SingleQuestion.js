@@ -46,6 +46,9 @@ const singleQuestion = () => {
     dispatch(fetchUserQuestions(userId))
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
   const {
     id,
@@ -62,8 +65,6 @@ const singleQuestion = () => {
   const AllUserQuestion = useSelector((state) => state.userQuestions.UserQuestions);
   const CurrentQuestionArray = AllUserQuestion.filter(object => object.questionAnswerId === id);
  
-  console.log(CurrentQuestionArray.length);
-  console.log(CurrentQuestionArray[0]);
   const CurrentQuestion = CurrentQuestionArray[0]
  
 
@@ -412,7 +413,6 @@ const singleQuestion = () => {
             {/*    alternate to react-html-parser:
       not preferred but this works: 
       <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
-
             <Stack gap={3}>
               <Card gap={3} className="mb-2 text-decoration-none ">
                 <Card.Header>References</Card.Header>
