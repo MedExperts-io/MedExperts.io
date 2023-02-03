@@ -26,18 +26,25 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
   level: {
-    type: Sequelize.ENUM("Easy", "Medium", "Difficult"),
+    type: Sequelize.ENUM("Easy", "Moderate", "Hard"),
   },
   category: {
     type: Sequelize.ENUM(
       "Pharmacology",
-      "Anatomy",
-      "Radiology",
-      "Oncology",
-      "Pulmonary Function",
-      "Physiology",
-      "Infectious Diseases",
-      "Cardiology"
+      "Pleural Diseases",
+      "Critical Care",
+      "Sleep",
+      "Asthma",
+      "Pulmonary Function Testing",
+      "Pulmonary Vascular Disease",
+      "Bronchiectasis",
+      "Interstitial Lung Diseases",
+      "Chronic Obstructive Pulmonary Disease",
+      "Mediastinal Disorders",
+      "Infection",
+      "Lung Transplant",
+      "Lung Cancer",
+      "Other Pulmonary Diseases"
     ),
   },
   status: {
