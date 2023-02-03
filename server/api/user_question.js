@@ -119,27 +119,30 @@ router.put("/:userId", async (req, res, next) => {
 // POST -- api/user_questions/:userId
 router.post("/:userId", async (req, res, next) => {
   const uId = req.params.userId;
-  const qaId = req.body.questionAnswerId;
-  const entry = req.body.userInput;
-  const answerCheck = req.body.answered;
+  // const qaId = req.body.questionAnswerId;
+  // const entry = req.body.userInput;
+  // const answerCheck = req.body.answered;
+  const { questionAnswerId, userInput, answered } = req.body;
+  console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered);
+
   try {
-    //Right or wrong answer will be calculated on the frontend.
+    //If right or wrong answer will be calculated on the frontend
     const [row, isNew] = await User_Question.findOrCreate({
       where: {
         userId: uId,
-        questionAnswerId: qaId,
+        questionAnswerId: questionAnswerId,
       },
     });
 
     const [, userInputEntry] = await User_Question.update(
       {
-        userInput: entry,
-        answered: answerCheck,
+        userInput: userInput,
+        answered: answered,
       },
       {
         where: {
           userId: uId,
-          questionAnswerId: qaId,
+          questionAnswerId: questionAnswerId,
         },
         returning: true,
         plain: true,
