@@ -469,12 +469,6 @@ async function seed() {
         `c-ANCA`,
         `Pulmonary infiltrates`,
       ],
-      answerOptions: [
-        `History of asthma`,
-        `Cardiac involvement`,
-        `c-ANCA`,
-        `Pulmonary infiltrates`,
-      ],
       correctAnswer: `c-ANCA`,
       explanation: `C-ANCA: These antibodies are against neutrophil cytoplasmic antigens and are associated with EGPA. Studies have shown that these antibodies are found in more than 50% of EGPA patients and this percentage is more in patients with active or undetected disease [1]. Also, the clinical symptoms vary according to presence and absence of these antibodies [2]. For example, ANCA positive patients are more likely to have glomerulonephritis, alveolar hemorrhage and neurological disease as compared to ANCA negative patients [2].`,
       explanationImage: [],

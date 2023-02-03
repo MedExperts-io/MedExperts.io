@@ -5,7 +5,11 @@ const token = window.localStorage.getItem("token");
 export const fetchSingleQuestion = createAsyncThunk(
   "fetchSingleQuestion",
   async (singleQuestionId) => {
-    const { data } = await axios.get(`/api/questions/${singleQuestionId}`);
+    const { data } = await axios.get(`/api/questions/${singleQuestionId}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     console.log('single Q inside Thunk');
     return data;
   }
