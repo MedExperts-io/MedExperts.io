@@ -9,10 +9,6 @@ import RequestNewPassword from "./RequestNewPW";
 const ResetPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const [password1, setPassword1] = useState("");
-  const [password2, setPassword2] = useState("");
-
   const { error } = useSelector((state) => state.auth);
   const [validated, setValidated] = useState(false);
 
@@ -24,6 +20,30 @@ const ResetPassword = () => {
     dispatch(isResetLinkValid({ token, uid }));
   }, []);
 
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
+
+  //password checker start
+  const atLeastOneUppercase = /[A-Z]/g;
+  const atLeastOneLowercase = /[a-z]/g;
+  const atLeastOneNumber = /[0-9]/g;
+  const atLeastOneSpecialCharacter = /[#?!@$%^&*-]/g;
+  const eightCharactersOrMore = /.{8,}/g;
+  const [showReqs, setShowReqs] = useState(false);
+
+  const passwordTracker = {
+    uppercase: password1.match(atLeastOneUppercase),
+    lowercase: password1.match(atLeastOneLowercase),
+    number: password1.match(atLeastOneNumber),
+    specialCharacter: password1.match(atLeastOneSpecialCharacter),
+    eightCharactersOrGreater: password1.match(eightCharactersOrMore),
+  };
+
+  const passwordStrength = Object.values(passwordTracker).filter(
+    (value) => value
+  ).length;
+  //password checker end
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const password1 = evt.target.resetPassword.value;
@@ -31,7 +51,7 @@ const ResetPassword = () => {
 
     if (validated) {
       dispatch(resetPassword({ password1, password2, token, uid })).then(() =>
-        navigate("/home")
+        navigate("/")
       );
     }
   };
@@ -61,9 +81,11 @@ const ResetPassword = () => {
               <Form.Group className="mb-3" controlId="resetPassword">
                 <Form.Label>New password</Form.Label>
                 <Form.Control
+                  onFocus={() => setShowReqs(true)}
                   onChange={(e) => {
                     setPassword1(e.target.value);
                   }}
+                  value={password1}
                   required
                   type="password"
                   autoComplete="new-password"
@@ -88,18 +110,50 @@ const ResetPassword = () => {
                   Please provide a password.
                 </Form.Control.Feedback>
               </Form.Group>
+              {password1 !== password2 && (
+                <div style={{ color: "red" }}>Passwords do not match</div>
+              )}
+              {showReqs && (
+                <div>
+                  <div className="password-strength-meter"></div>
+                  <div className="text-muted">
+                    <ul>
+                      <small style={{ textDecorationLine: "underline" }}>
+                        {passwordStrength < 5 && "Password Requirements"}
+                      </small>
+                      <small>
+                        {!passwordTracker.uppercase && (
+                          <li>MUST contain at least one uppercase letter</li>
+                        )}
+                        {!passwordTracker.lowercase && (
+                          <li>MUST contain at least one lowercase letter</li>
+                        )}
+                        {!passwordTracker.specialCharacter && (
+                          <li>
+                            MUST contain at least one special character
+                            (#?!@$%^&*-)
+                          </li>
+                        )}
+                        {!passwordTracker.number && (
+                          <li>MUST contain at least one number</li>
+                        )}
+                        {!passwordTracker.eightCharactersOrGreater && (
+                          <li>MUST contain at least 8 characters</li>
+                        )}
+                      </small>
+                    </ul>
+                  </div>
+                </div>
+              )}
               <Button
                 onClick={() => setValidated(true)}
                 variant="secondary"
                 type="submit"
-                disabled={password1 !== password2 || password1.length <= 0}
+                disabled={password1 !== password2 || passwordStrength != 5}
               >
                 Submit
               </Button>
             </Form>
-            {password1 !== password2 ? (
-              <div style={{ color: "red" }}>Passwords do not match</div>
-            ) : null}
           </Card>
         )}
       </Row>

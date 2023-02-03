@@ -6,41 +6,35 @@ import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstra
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
-import ReactPaginate from "react-paginate";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
-  const itemsPerPage = 12;
-  const [itemOffset, setItemOffset] = useState(0);
-  const [currentItems, setCurrentItems] = useState(null);
-  const [pageCount, setPageCount] = useState(0);
 
-  useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
-
-    // const endOffset = itemOffset + itemsPerPage;
-    // filteredQuestions ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
-    // filteredQuestions ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
-    //dispatch(fetchAllQuestionsAnswers());
-  }, []); // Putting userQuestions in here throws a loop
-
-  const handlePageClick = (event) => {
-    const newOffset = event.selected * itemsPerPage;
-    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
-    setItemOffset(newOffset);
-    const endOffset = newOffset + itemsPerPage;
-    setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage));
-    setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
-    console.log("itemOffset", newOffset, endOffset, event.selected);
-  };
-
-  const difficultiyLevels = ["All Levels", "Easy", "Medium", "Difficult"];
+  const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
   const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
-  const categories = ["All Categories", "Pharmacology", "Anatomy", "Radiology", "Oncology", "Pulmonary Function", "Physiology", "Infectious Diseases", "Cardiology"];
+  const categories = [
+    "All Categories",
+    "Asthma",
+    "Bronchiectasis",
+    "Chronic Obstructive Pulmonary Disease",
+    "Critical Care",
+    "Infection",
+    "Interstitial Lung Diseases",
+    "Lung Cancer",
+    "Lung Transplant",
+    "Mediastinal Disorders",
+    "Other Pulmonary Diseases",
+    "Pharmacology",
+    "Pleural Diseases",
+    "Pulmonary Function Testing",
+    "Pulmonary Vascular Disease",
+    "Sleep",
+  ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
+  const loading = useSelector((state) => state.questionsAnswers.loading);
 
   let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
 
@@ -54,7 +48,7 @@ const QuestionsAnswers = () => {
         ...question,
         color: "lightgreen",
       };
-    } else if (question.level === "Medium") {
+    } else if (question.level === "Moderate") {
       return {
         ...question,
         color: "#f5ad27",
@@ -68,19 +62,10 @@ const QuestionsAnswers = () => {
   });
   const allAnswered = userQuestions.length / allQuestions.length;
 
+  // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
-
-  console.log("currentitems", currentItems);
-
-  const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
-  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
-  //console.log(itemOffset, endOffset);
-
-  console.log("allQuestionsCheck", allQuestions);
-
-  console.log("filteredQuestions", filteredQuestions);
+  // console.log("filteredQuestions", filteredQuestions);
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -148,6 +133,11 @@ const QuestionsAnswers = () => {
     conic-gradient(${color} 360deg, ${color})`;
   };
 
+  useEffect(() => {
+    dispatch(fetchAllQuestionsAnswers());
+    dispatch(fetchUserQuestions(userId));
+  }, []); // Putting userQuestions in here throws a loop
+
   return (
     <Container>
       <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
@@ -206,7 +196,9 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {difficultiyLevels.map((difficulty) => (
-                <Dropdown.Item eventKey={difficulty}>{difficulty}</Dropdown.Item>
+                <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                  {difficulty}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -219,7 +211,9 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {categories.map((category) => (
-                <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
+                <Dropdown.Item key={category} eventKey={category}>
+                  {category}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -232,6 +226,8 @@ const QuestionsAnswers = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
+        {loading && <LoadingScreen />}
+
                 {categories.map((category) => (
                   <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
                 ))}
@@ -240,8 +236,9 @@ const QuestionsAnswers = () => {
           </Col> */}
       </Row>
       <Row>
-        {currentItems && currentItems.length
-          ? currentItems.map((question) => (
+        {loading && <LoadingScreen />}
+        {filteredQuestions && filteredQuestions.length
+          ? filteredQuestions.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
                   <Card.Header style={{ backgroundColor: `${question.color}` }} />
@@ -267,26 +264,6 @@ const QuestionsAnswers = () => {
             ))
           : "Sorry, we didn't find anything matching that"}
       </Row>
-      <ReactPaginate
-        className="pagination"
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-      />
     </Container>
   );
 };
