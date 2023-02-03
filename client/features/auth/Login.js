@@ -9,7 +9,6 @@ import { authenticate } from "../../app/store";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [validated, setValidated] = useState(false);
   const { error } = useSelector((state) => state.auth);
   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -24,21 +23,15 @@ const Login = () => {
     const email = evt.target.loginEmail.value;
     const password = evt.target.loginPassword.value;
 
-    if (validated) {
-      dispatch(authenticate({ email, password, method: formName })).then(() =>
-        navigate("/home")
-      );
-    }
+    dispatch(authenticate({ email, password, method: formName })).then(() =>
+      navigate("/home")
+    );
   };
+
   return (
     <div className="mb-3 mt-md-4">
       <div className="mb-3">
-        <Form
-          noValidate
-          validated={validated}
-          onSubmit={handleSubmit}
-          name="login"
-        >
+        <Form onSubmit={handleSubmit} name="login">
           <Form.Group className="mb-3" controlId="loginEmail">
             <Form.Label className="text-center" label="Email Address">
               Email address
@@ -53,7 +46,6 @@ const Login = () => {
               Please provide a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="loginPassword">
             <Form.Label label="Password">Password</Form.Label>
             <InputGroup>
@@ -71,11 +63,12 @@ const Login = () => {
               >
                 {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
               </Button>
+
               <Form.Control.Feedback type="invalid">
                 Please provide a password.
               </Form.Control.Feedback>
             </InputGroup>
-          </Form.Group>
+          </Form.Group>{" "}
           <Form.Group className="mb-3" controlId="checkbox">
             <p className="small">
               <a
@@ -88,11 +81,7 @@ const Login = () => {
             </p>
           </Form.Group>
           <div className="d-grid">
-            <Button
-              onClick={() => setValidated(true)}
-              variant="secondary"
-              type="submit"
-            >
+            <Button variant="secondary" type="submit">
               Login
             </Button>
             {error ? <p>{error}</p> : null}

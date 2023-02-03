@@ -2,11 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Dropdown,
+  Row,
+  Col,
+  DropdownButton,
+} from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
+import LoadingScreen from "../loading/LoadingScreen";
+
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
@@ -36,16 +45,40 @@ const QuestionsAnswers = () => {
     console.log("itemOffset", newOffset, endOffset, event.selected);
   };
 
-  const difficultiyLevels = ["All Levels", "Easy", "Medium", "Difficult"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
-  const categories = ["All Categories", "Pharmacology", "Anatomy", "Radiology", "Oncology", "Pulmonary Function", "Physiology", "Infectious Diseases", "Cardiology"];
+  const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
+  const [currentDifficulty, setCurrentDifficulty] = useState(
+    difficultiyLevels[0]
+  );
+  const categories = [
+    "All Categories",
+    "Asthma",
+    "Bronchiectasis",
+    "Chronic Obstructive Pulmonary Disease",
+    "Critical Care",
+    "Infection",
+    "Interstitial Lung Diseases",
+    "Lung Cancer",
+    "Lung Transplant",
+    "Mediastinal Disorders",
+    "Other Pulmonary Diseases",
+    "Pharmacology",
+    "Pleural Diseases",
+    "Pulmonary Function Testing",
+    "Pulmonary Vascular Disease",
+    "Sleep",
+  ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
+  const loading = useSelector((state) => state.questionsAnswers.loading);
 
   let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
 
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+  const userQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const stateQuestions = useSelector(
+    (state) => state.questionsAnswers.questionsAnswers
+  );
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -54,7 +87,7 @@ const QuestionsAnswers = () => {
         ...question,
         color: "lightgreen",
       };
-    } else if (question.level === "Medium") {
+    } else if (question.level === "Moderate") {
       return {
         ...question,
         color: "#f5ad27",
@@ -66,6 +99,7 @@ const QuestionsAnswers = () => {
       };
     }
   });
+
 
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
@@ -80,6 +114,7 @@ const QuestionsAnswers = () => {
   console.log("allQuestionsCheck", allQuestions);
 
   console.log("filteredQuestions", filteredQuestions);
+
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -99,7 +134,9 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    const question = userQuestions.filter(
+      (question) => question.questionAnswerId == questionId
+    );
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -125,10 +162,17 @@ const QuestionsAnswers = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
     for (let i = 0; i < filterCriteria.length; i++) {
-      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
+      if (
+        filterCriteria[i] === "All Levels" ||
+        filterCriteria[i] === "All Categories"
+      ) {
         continue;
       } else {
-        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
+        multiFilter = multiFilter.filter(
+          (question) =>
+            question.level === filterCriteria[i] ||
+            question.category === filterCriteria[i]
+        );
       }
     }
     console.log("filterQuestions in filterFunction", multiFilter);
@@ -149,14 +193,19 @@ const QuestionsAnswers = () => {
       </Row>
       <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
         <Col>
-          <Dropdown style={{ marginRight: "20px" }} onSelect={(event) => pickDifficulty(event)}>
+          <Dropdown
+            style={{ marginRight: "20px" }}
+            onSelect={(event) => pickDifficulty(event)}
+          >
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               {currentDifficulty}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
               {difficultiyLevels.map((difficulty) => (
-                <Dropdown.Item eventKey={difficulty}>{difficulty}</Dropdown.Item>
+                <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                  {difficulty}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -169,7 +218,9 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {categories.map((category) => (
-                <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
+                <Dropdown.Item key={category} eventKey={category}>
+                  {category}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -182,6 +233,8 @@ const QuestionsAnswers = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
+        {loading && <LoadingScreen />}
+
                 {categories.map((category) => (
                   <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
                 ))}
@@ -190,27 +243,41 @@ const QuestionsAnswers = () => {
           </Col> */}
       </Row>
       <Row>
+
+{loading && <LoadingScreen />}
         {currentItems && currentItems.length
           ? currentItems.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                  <Card.Header style={{ backgroundColor: `${question.color}` }} />
+                  <Card.Header
+                    style={{ backgroundColor: `${question.color}` }}
+                  />
                   <Card.Body>
                     <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
-                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                      src={
+                        favoriteStatus(question.id)
+                          ? "/heart(red).png"
+                          : "/heart.png"
+                      }
                     />
                     <Card.Title>
-                      <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
+                      <Link
+                        to={`/questions/${question.id}`}
+                        style={{ textDecoration: `none` }}
+                      >
                         {question.id}. Some Title
                       </Link>
                     </Card.Title>
                     <Card.Text>{truncate(question.question)}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
+                    <Card.Img
+                      style={{ float: "right", width: "25px" }}
+                      src="/endocrine-system.png"
+                    />
                   </Card.Footer>
                 </Card>
               </Col>

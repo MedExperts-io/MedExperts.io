@@ -6,7 +6,9 @@ const Password_Reset = db.define("password_reset", {
     type: Sequelize.STRING,
     validate: {
       isEmail: true,
+      notEmpty: true,
     },
+    allowNull: false,
   },
   uid: {
     type: Sequelize.STRING,
