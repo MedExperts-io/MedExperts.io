@@ -53,16 +53,6 @@ export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async (
   }
 });
 
-// --------For Pagination--------------
-export const pagination = createAsyncThunk("pagination", async () => {
-  try {
-    const data = "refresh";
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-});
-
 export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
   initialState: {
@@ -88,9 +78,6 @@ export const allUser_QuestionsSlice = createSlice({
         //state.UserQuestions = action.payload;
 
         state.currentUserQuestion = action.payload;
-      })
-      .addCase(pagination.fulfilled, (state, action) => {
-        state.didRefresh = action.payload;
       });
   },
 });
