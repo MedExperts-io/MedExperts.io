@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, pagination } from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 
 const QuestionsAnswers = () => {
