@@ -126,7 +126,7 @@ const SiteNavbar = () => {
                         color: "#FF6262",
                         height: "30",
                         width: "30",
-                        paddingRight: "5px",
+                        paddingRight: "5spx",
                         paddingTop: "0",
                         paddingBottom: "0",
                         marginTop: "0",
