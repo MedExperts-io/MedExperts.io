@@ -37,7 +37,7 @@
     "pg": "^8.8.0",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-icons": "^1.10.2",
-    "react-paginate": "^8.1.4",
+    "react-html-parser": "^2.0.2",
     "run": "^1.4.0",
     "seed": "^0.4.4",
     "sequelize": "^6.25.3",

@@ -19,6 +19,12 @@ const User_Question = db.define("user_question", {
   userExpertise: {
     type: Sequelize.STRING,
   },
+  category: {
+    type: Sequelize.STRING,
+  },
+  level: {
+    type: Sequelize.STRING,
+  },
 });
 
 module.exports = User_Question;
