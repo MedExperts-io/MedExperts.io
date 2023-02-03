@@ -11,11 +11,18 @@ import {
   updateUserQuestion,
   updateUserQuestionInput,
 } from "../stats/user_questionsSlice";
+import { ProgressBar } from "react-bootstrap";
 
 const singleQuestion = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
-  
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
   
 
   const handleOptionSelection = (option) => {
@@ -262,6 +269,11 @@ const singleQuestion = () => {
 }else{
   return (
     <div>
+      {loading ? 
+     (
+      <ProgressBar animated now={100} />
+    )
+      :
       <Stack gap={3} className="p-3">
         <Stack gap={3}>
           <Stack gap={3}>
@@ -441,6 +453,7 @@ const singleQuestion = () => {
           </Stack>
         )}
       </Stack>
+      }
     </div>
   );
 }
