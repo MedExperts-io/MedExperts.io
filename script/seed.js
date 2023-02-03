@@ -560,15 +560,6 @@ async function seed() {
         `Sniff test`,
         `Cardiopulmonary exercise test`,
       ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q21/Q21+img1.png`,
-      ],
-      answerOptions: [
-        `Echocardiogram study`,
-        `Arterial blood gas`,
-        `Sniff test`,
-        `Cardiopulmonary exercise test`,
-      ],
       correctAnswer: `Sniff test`,
       explanation: `The above patient has a motor vehicle accident and his physical findings are significant for dullness to percussion and absent breath sounds over the lower base of right lung, which is suggestive for right-sided diaphragmatic paralysis/weakness. Compression or destruction of the phrenic nerve by surgery, trauma, or enlargement of lymph nodes or aneurysmal vessels may also cause the condition. Bilateral diaphragmatic paralysis can result from several causes, including cervical and thoracic surgery, cold cardioplegia for cardiac surgery, trauma, multiple sclerosis, and neuralgic amyotrophy. Unilateral diaphragmatic paralysis is most often detected as an asymptomatic radiographic finding. In the absence of associated pleuropulmonary disease, most adult patients with unilateral diaphragmatic paralysis but without a coexisting pulmonary disease remain asymptomatic. Sniff test (chest fluoroscopy) is an exam that checks how the diaphragm moves when you breathe normally and when you inhale quickly. The diaphragm normally moves down when you inhale, and up when you exhale. Both the right and left sides of the diaphragm should move in the same direction at the same time. This will exaggerate the difference in a paralyzed or abnormal hemi-diaphragm, which will move paradoxically in the wrong direction. Maximal expiratory pressure (MIP), sniff nasal inspiratory pressure (SNIP), and maximal expiratory pressure (MEP) measurements can localize respiratory muscle weakness. A low MIP and SNIP but a normal MEP suggests isolated inspiratory muscle weakness (usually diaphragmatic), while a low MIP, SNIP, and MEP suggests generalized skeletal muscle weakness. Isolated expiratory muscle weakness (normal MIP and SNIP and low MEP) is rare. Pulmonary function tests may also be helpful. A decrease in vital capacity of 30 to 50% when the patient is supine supports the diagnosis of bilateral diaphragmatic paralysis, whereas a decrease in vital capacity of 10 to 30% may be seen with mild diaphragmatic weakness or unilateral diaphragmatic paralysis. Ultrasonography can also distinguish a functioning from a non functioning diaphragm; it can be used to diagnose both unilateral and bilateral diaphragmatic paralysis and to monitor recovery of the paralyzed diaphragm.  Chest MRI is useful to evaluate tumors, but it will not be helpful to diagnose diaphragmatic paralysis.`,
       explanationImage: [],
@@ -586,12 +577,6 @@ async function seed() {
     Question_Answer.create({
       question: `The biomarker exhaled nitric oxide (FeNO) is most reduced in response to which of the following biologic therapies for bronchial asthma?`,
       questionImage: [],
-      answerOptions: [
-        `Anti-IL-4 receptor and anti-IL-13`,
-        `Anti-IL-5`,
-        `CXCR2 antagonist`,
-        `Anti-IL-17 receptor monoclonal antibody`,
-      ],
       answerOptions: [
         `Anti-IL-4 receptor and anti-IL-13`,
         `Anti-IL-5`,
@@ -620,19 +605,10 @@ async function seed() {
         `Left anterior descending artery occlusion`,
         `Massive Pulmonary embolism`,
       ],
-      answerOptions: [
-        `Aortic dissection`,
-        `Hypovolemic shock`,
-        `Left anterior descending artery occlusion`,
-        `Massive Pulmonary embolism`,
-      ],
       correctAnswer: `Massive Pulmonary embolism`,
       explanation: `This patient is hemodynamically unstable (hypotension, tachycardia, cold and clammy skin, evidence of shock) due to infection of the foot presenting with massive pulmonary embolism (PE). Consequences of massive PE can lead to right ventricular dysfunction. Pulmonary artery pressure will rise leading to right ventricular function impairment and dilatation of the RV. This can lead to RV ischemia eventually leading to LV filling impairment with compromised cardiac output and hypoperfusion. The capillary wedge pressure is normal in these patients.
       Patients with aortic dissection present with severe substernal chest pain that radiates to the back and elevated blood pressure. On physical examination diastolic decrescendo murmur can be present if the aortic valve is involved. Left Anterior descending artery occlusion results in ST segment elevation leading to myocardial infarction or cardiogenic shock. The different types of shock are shown in the chart below.
       `,
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q23/A23+img1.png`,
-      ],
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q23/A23+img1.png`,
       ],
@@ -647,12 +623,6 @@ async function seed() {
     Question_Answer.create({
       question: `What is the most common comorbid condition in COPD?`,
       questionImage: [],
-      answerOptions: [
-        `Lung cancer`,
-        `Osteoporosis`,
-        `Cardiovascular disease`,
-        `Gastroesophageal reflux`,
-      ],
       answerOptions: [
         `Lung cancer`,
         `Osteoporosis`,
@@ -681,12 +651,6 @@ async function seed() {
         `Short hyomental–thyromental distance.`,
         `Inability to bite the upper lip with the lower teeth.`,
       ],
-      answerOptions: [
-        `Degree of cervical spine mobility.`,
-        `Prominence of the incisors.`,
-        `Short hyomental–thyromental distance.`,
-        `Inability to bite the upper lip with the lower teeth.`,
-      ],
       correctAnswer: `Inability to bite the upper lip with the lower teeth.`,
       explanation: `One of the most important advances in airway management has been the development of physical examination grading scales to help predict a Difficult airway. Some scales rely only on the visibility of the vocal cords on laryngoscopy, whereas others use pre-laryngoscopic factors. The factors used in assessment include increased weight, decreased cervical spine mobility, decreased jaw mobility, retrognathia, and prominent incisors, all of which are associated with increased difficulty in intubation. Other aspects of physical examination that can be used to assess the likelihood of a Difficult intubation include the hyomental–thyromental distance, with shorter distances indicating greater difficulty, and the Mallampati score, which is used to assess the visibility of oropharyngeal structures with the mouth opened maximally. Findings from a recent systematic review suggest that the best predictor is the inability to bite the upper lip with the lower teeth. However, no finding on physical examination and no specific risk factor consistently rule out a potentially Difficult intubation. In short, one should always be prepared to manage a Difficult airway.`,
       explanationImage: [],
@@ -707,18 +671,9 @@ async function seed() {
         `Increase in Neutrophils`,
         `Chest x ray`,
       ],
-      answerOptions: [
-        `Decrease in FEV1`,
-        `Sputum production`,
-        `Increase in Neutrophils`,
-        `Chest x ray`,
-      ],
       correctAnswer: `Decrease in FEV1`,
       explanation: `Chronic allograft rejection has remained a major source of morbidity and mortality following lung transplantation.  A major obstacle limiting survival is Bronchiolitis Obliterans Syndrome (BOS).  BOS occurs via a fibrotic process causing progressive narrowing of lumen and airflow obstruction as a pathological manifestation.  Some of the risk factors are listed below. The clinical symptoms are non-special with dyspnea on exertion and nonspecific cough and a normal physical exam.  The key clinical indicator for BOS is a reduction of forced expiratory volume in 1 second (FEV1) that is unresponsive to bronchodilators.  The diagnosis of BOS is usually made by clinical, physiological, and radiographic parameters.  No labs test is available to diagnosis BOS.  Chest imaging studies have a low sensitivity for identification of BO and are not used for screening; however, HRCT (with inspiratory/expiratory view) can show areas of hyperinflation and possibly bronchiectasis.  Treatment includes long-term azithromycin, immunosuppressive medication.  Statins, Captopril and Extracorporeal Photopheresis
         have also indicated some efficacy in treating BOS.`,
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q26/A26+img+1.png`,
-      ],
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q26/A26+img+1.png`,
       ],
@@ -735,12 +690,6 @@ async function seed() {
       question: `A previously healthy 70-year-old woman presented to the emergency department ninety minutes after developing acute onset speech difficulty and right-sided weakness.  On presentation, she patient had a blood pressure of 140/70 mmHg, heart rate of 50 beats per minute, respiratory rate of 20 breaths per minute and temperature of 36.6 degrees Celsius. Physical examination findings were significant for global aphasia, right central type facial palsy and right hemiplegia. The rest of her exam was normal.
         Pt was diagnosed as a case of ischemic stroke and intravenous recombinant tissue plasminogen activator (rtPA) infusion was started. During the infusion, the patient developed severe shortness of breath with pink frothy secretions. Vital signs showed BP 175/100 mmHg, HR 115 bpm, RR 28 bpm, oxygen saturation 77% on room air. Chest auscultation revealed bilateral crackles and rales. The infusion was discontinued, and the patient was intubated for hypoxic respiratory failure and placed on a mechanical ventilator.  Repeat head CT showed evidence of cerebral edema with subarachnoid hemorrhage.  Chest x-ray revealed generalized increased pulmonary infiltration and CT scan of the chest showed interlobular septal thickening with ground glass opacities. Which of the following is the most appropriate ventilation strategy in the management of this patient?`,
       questionImage: [],
-      answerOptions: [
-        `Permissive Hypercapnia and low tidal volume ventilation`,
-        `Optimal oxygenation with PEEP`,
-        `Start low dose steroids`,
-        `Extracorporeal membrane oxygenation`,
-      ],
       answerOptions: [
         `Permissive Hypercapnia and low tidal volume ventilation`,
         `Optimal oxygenation with PEEP`,
@@ -778,18 +727,9 @@ async function seed() {
         `HIV positive patient with CD4 counts <200`,
         `Patients with complications of tuberculosis`,
       ],
-      answerOptions: [
-        `Patient on Systemic chemotherapy`,
-        `Organ transplant patients`,
-        `HIV positive patient with CD4 counts <200`,
-        `Patients with complications of tuberculosis`,
-      ],
       correctAnswer: `Patients with complications of tuberculosis`,
       explanation: `Opportunistic fungi like Aspergillus, Cryptococcus, Pneumocystis and endemic fungi are the most common causes of fungal lung infections in immunocompromised patients. These include patients suffering from immunodeficiency disorders like HIV/AIDS, cancer patients on chemotherapy or patients of bone marrow/stem cell transplantation on immunosuppressive therapy. The macrophages, dendritic cells and recruited neutrophils are the first line of defense against fungal infection. NK cells, inflammatory cytokines, interferon gamma and IL-17 are involved in host’s defense against pulmonary fungal infection.  Tuberculosis infection is not a neutrophilic phenomenon and not associated with invasive fungal infection.`,
       explanationImage: [],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/31333658/" target="_blank">Li Z, Lu G, Meng G. Pathogenic Fungal Infection in the Lung 2019. Front. Immunol. 10:1524</a>`,
-      ],
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31333658/" target="_blank">Li Z, Lu G, Meng G. Pathogenic Fungal Infection in the Lung 2019. Front. Immunol. 10:1524</a>`,
       ],
@@ -833,12 +773,6 @@ async function seed() {
         `Adenovirus infection`,
         `Hematopoietic Stem Cell Transplantation`,
       ],
-      answerOptions: [
-        `Bacterial Pneumonia`,
-        `Trauma`,
-        `Adenovirus infection`,
-        `Hematopoietic Stem Cell Transplantation`,
-      ],
       correctAnswer: `Adenovirus infection`,
       explanation: `Bronchiolitis Obliterans (BO) is an infrequent chronic and obstructive lung disease secondary to an insult to the terminal airway and its surroundings. In children, the most common presentation is the post-infectious variant [most commonly due to adenovirus infection], closely related to a severe viral infection in the first three years of life. When it occurs after lung transplantation of hematopoietic stem cell transplantation (HSCT) it is called bronchiolitis obliterans syndrome. It is one of the most common noninfectious complications after lung transplant and hematopoietic stem cell transplantation.
 
@@ -859,12 +793,6 @@ async function seed() {
     Question_Answer.create({
       question: `In a patient Pulmonary Artery hypertension (Group 1) is present if Mean Pulmonary Artery pressure [MPAP] is:`,
       questionImage: [],
-      answerOptions: [
-        `10 mmHg with PCWP < 15 mmHg`,
-        `15 mmHg with PCWP < 15 mmHg`,
-        `25 mmHg with PCWP < 15 mmHg`,
-        `30 mmHg with PCWP >15 mmHg`,
-      ],
       answerOptions: [
         `10 mmHg with PCWP < 15 mmHg`,
         `15 mmHg with PCWP < 15 mmHg`,
@@ -914,12 +842,6 @@ async function seed() {
         `Homeobox gene`,
         `CFTR gene mutation`,
       ],
-      answerOptions: [
-        `Bone morphogenetic protein receptor II gene`,
-        `FOXG1 gene`,
-        `Homeobox gene`,
-        `CFTR gene mutation`,
-      ],
       correctAnswer: `Bone morphogenetic protein receptor II gene`,
       explanation: `Genetic mutation is one of the causes of familial pulmonary artery hypertension (PAH). The most common gene associated with familial PAH is bone morphogenetic protein receptor II gene (BMPR II) which is associated with 75% of familial PAH cases and 25% of sporadic PAH cases. BMPR II gene normally inhibits vascular smooth muscle proliferation. Due to inactivating mutation of this gene, it results in excess endothelial cell proliferation and results in pulmonary artery hypertension.`,
       explanationImage: [],
@@ -940,18 +862,9 @@ async function seed() {
         `Diastolic murmur`,
         `Pansystolic murmur`,
       ],
-      answerOptions: [
-        `Large v wave in the jugular pulse`,
-        `Increased pulse pressure`,
-        `Diastolic murmur`,
-        `Pansystolic murmur`,
-      ],
       correctAnswer: `Pansystolic murmur`,
       explanation: `Pulmonary hypertension is defined as mean pulmonary artery pressure more than 25 mmHg at rest. These patients present with dyspnea, fatigue, exertional angina or syncope. On examination, patients have jugular venous distension, loud P2, palpable left parasternal lift and   a pansystolic murmur at the lower left sternal border (tricuspid regurgitation) and hepatomegaly. In later stages of the disease these patients can have ascites. The murmur of tricuspid regurgitation is a high pitched, pansystolic murmur and is best heard at the left lower sternal border and it radiates to the right lower sternal border.  The intensity significantly increases with inspiration due to increased venous return helping to distinguish it from mitral regurgitation. This inspiratory enhancement of the tricuspid regurgitation murmur is called "Carvallo's sign".`,
       explanationImage: [],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/6375982/" target="_blank">O'Rourke RA, Crawford MH. Mitral valve regurgitation. Curr Probl Cardiol. 1984 May;9(2):1-52</a>`,
-      ],
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/6375982/" target="_blank">O'Rourke RA, Crawford MH. Mitral valve regurgitation. Curr Probl Cardiol. 1984 May;9(2):1-52</a>`,
       ],
@@ -963,12 +876,6 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following is a sensitive measure of respiratory muscle strength in patients with neuromuscular disease (NMD)?`,
       questionImage: [],
-      answerOptions: [
-        `a reduction in the total lung capacity (TLC).`,
-        `a flat flow-volume loop.`,
-        `a reduced forced vital capacity (FVC).`,
-        `a reduced maximum inspiratory pressure (MIP).`,
-      ],
       answerOptions: [
         `a reduction in the total lung capacity (TLC).`,
         `a flat flow-volume loop.`,
@@ -1041,12 +948,6 @@ async function seed() {
         `Brief physician advice`,
         `Motivational interviewing`,
       ],
-      answerOptions: [
-        `Group counseling`,
-        `Individual counseling`,
-        `Brief physician advice`,
-        `Motivational interviewing`,
-      ],
       correctAnswer: `Motivational interviewing`,
       explanation: `Healthcare professionals frequently advise people to improve their health by stopping smoking. Such advice may be brief, or part of more intensive interventions.
 
@@ -1079,12 +980,6 @@ async function seed() {
         `Depression`,
         `Cystic Fibrosis related Diabetes`,
       ],
-      answerOptions: [
-        `Dementia`,
-        `Osteoporosis`,
-        `Depression`,
-        `Cystic Fibrosis related Diabetes`,
-      ],
       correctAnswer: `Cystic Fibrosis related Diabetes`,
       explanation: `Cystic Fibrosis is the most common fatal recessive genetic disorder in white population.  It is caused by abnormalities in cystic fibrosis Transmembrane conductance regulator [CFTRE]-a chloride channel involved in electrolyte and water across the cell membrane.  The most common mutation of CFTR is ∆ F508 in which a phenylalanine is lost at position 508 [1].
 
@@ -1103,12 +998,6 @@ async function seed() {
     Question_Answer.create({
       question: `Which Cardiac arrhythmia occurs most commonly during sleep in patients with Obstructive Sleep Apnea?`,
       questionImage: [],
-      answerOptions: [
-        `Atrial fibrillation`,
-        `Sinus Arrest`,
-        `Non-Sustained ventricular Tachycardia`,
-        `Atrioventricular conduction block`,
-      ],
       answerOptions: [
         `Atrial fibrillation`,
         `Sinus Arrest`,
@@ -1167,12 +1056,6 @@ async function seed() {
         `Small cell carcinoma`,
         `Large cell undifferentiated carcinoma`,
       ],
-      answerOptions: [
-        `Adenocarcinoma`,
-        `Squamous cell carcinoma`,
-        `Small cell carcinoma`,
-        `Large cell undifferentiated carcinoma`,
-      ],
       correctAnswer: `Adenocarcinoma`,
       explanation: `Adenocarcinoma is commonly peripheral and represents about 30% of the total number of lung cancer cases. Its incidence is rising especially in females.
 
@@ -1190,9 +1073,6 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/27261908/" target="_blank">Zheng M. Classification and Pathology of Lung Cancer. Surg Oncol Clin N Am. 2016 Jul;25(3):447-68</a>`,
       ],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/27261908/" target="_blank">Zheng M. Classification and Pathology of Lung Cancer. Surg Oncol Clin N Am. 2016 Jul;25(3):447-68</a>`,
-      ],
       level: "Easy",
       category: "Lung Cancer",
     }),
@@ -1201,12 +1081,6 @@ async function seed() {
     Question_Answer.create({
       question: `Asplenia is an in important risk factor for serious infections in infants < 6 months old?`,
       questionImage: [],
-      answerOptions: [
-        `Capnocytophaga canimorsus.`,
-        `Capnocytophaga cynodegmi.`,
-        `Babesia.`,
-        `E. coli.`,
-      ],
       answerOptions: [
         `Capnocytophaga canimorsus.`,
         `Capnocytophaga cynodegmi.`,
@@ -1224,9 +1098,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25054718/" target="_blank">Rubin L.G. Schaffner W.  Care of the Asplenic patient.  NEJM 2014 371 (4) 349-356.</a>`,
       ],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/25054718/" target="_blank">Rubin L.G. Schaffner W.  Care of the Asplenic patient.  NEJM 2014 371 (4) 349-356.</a>`,
-      ],
+
       level: "Moderate",
       category: "Infection",
     }),
@@ -1235,12 +1107,6 @@ async function seed() {
     Question_Answer.create({
       question: `A College student is admitted with a history of Fever and Bilateral infiltrates. His laboratory examination reveals Hg of 10 gm/dl. Further work up establishes presence of Autoimmune Hemolytic Anemia caused by cold reacting antibodies. Which of the following organisms is associated with this condition?`,
       questionImage: [],
-      answerOptions: [
-        `Coccidioidomycosis`,
-        `Cryptococcosis`,
-        `Mycoplasma Pneumoniae`,
-        `Streptococcus Pneumoniae`,
-      ],
       answerOptions: [
         `Coccidioidomycosis`,
         `Cryptococcosis`,
@@ -1268,12 +1134,6 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following is most likely to improve hypoxemia in hepatopulmonary syndrome?`,
       questionImage: [],
-      answerOptions: [
-        `Administer supplemental O2`,
-        `Administer diltiazem`,
-        `Administer ibuprofen`,
-        `Liver transplantation`,
-      ],
       answerOptions: [
         `Administer supplemental O2`,
         `Administer diltiazem`,
@@ -1327,12 +1187,6 @@ async function seed() {
         `Supplemental oxygen`,
         `Plasmapheresis`,
       ],
-      answerOptions: [
-        `Incentive spirometry`,
-        `Hydration`,
-        `Supplemental oxygen`,
-        `Plasmapheresis`,
-      ],
       correctAnswer: `Plasmapheresis`,
       explanation: `Appropriate therapy for acute chest syndrome (ACS) is needed to prevent rapid decline and multiorgan failure. Pain is controlled with parenteral opioids.
 
@@ -1367,12 +1221,6 @@ async function seed() {
         `Phosphodiesterase 4 inhibitor`,
         `Guanylate cyclase inhibitor`,
       ],
-      answerOptions: [
-        `Phosphodiesterase 5 inhibitor`,
-        `Nitric oxide synthase inhibitor`,
-        `Phosphodiesterase 4 inhibitor`,
-        `Guanylate cyclase inhibitor`,
-      ],
       correctAnswer: `Phosphodiesterase 5 inhibitor`,
       explanation: `The ability of sildenafil in PAH relies upon the inhibition of PDE-V.  This reduces cyclic guanosine monophosphate degradation with resultant reductions in pulmonary smooth muscle cytoplasmic calcium levels causing vasodilation.  This relieves the elevated arterial pressures of PAH and reduces the progression of PAH associated pathology.  Sildenafil is a selective and potent inhibitor of PDE type 5 which specifically degrades cyclic guanosine monophosphate and is found in high concentrations in pulmonary arteries and the corpora cavernosum.  Normally, endothelium-derived NO stimulates intracellular soluble guanylate cyclase resulting in increased levels of cGMP, which then acts to mediate smooth muscle relaxation (Figure 1). Sildenafil inhibits the degradation of cGMP by PDE 5 and prolongs the actions of cGMP.  Metabolism of sildenafil occurs primarily by hepatic cytochrome P450 enzymes yielding one active metabolite with a potency of approximately 50% of the parent drug.  Patients with age greater than 65, with creatinine clearance less than 30, and with hepatic cirrhosis have reduced clearance of sildenafil `,
       explanationImage: [],
@@ -1388,12 +1236,6 @@ async function seed() {
     Question_Answer.create({
       question: `TNF inhibitors have become widely used for their immunosuppressive properties over the last few years. They are used in all fields of medicine from Rheumatology, Gastroenterology, Dermatology and many more.  However, they are not without risks. Which of the following TNF Inhibitors pose the greatest risk of recrudescence of tuberculosis?`,
       questionImage: [],
-      answerOptions: [
-        `Infliximab (Remicade)`,
-        `Etanercept (Enbrel)`,
-        `Adalimumab (Humira)`,
-        `Certolizumab pegol (Cimzia)`,
-      ],
       answerOptions: [
         `Infliximab (Remicade)`,
         `Etanercept (Enbrel)`,
@@ -1434,12 +1276,6 @@ async function seed() {
     Question_Answer.create({
       question: `Which of the following is true about treatment for malignant pleural mesothelioma (MPM)?`,
       questionImage: [],
-      answerOptions: [
-        `Pleurectomy-Decortication plus adjuvant treatment`,
-        `Pleurectomy only`,
-        `CT and or RT`,
-        `There has been no ideal treatment found for MPM`,
-      ],
       answerOptions: [
         `Pleurectomy-Decortication plus adjuvant treatment`,
         `Pleurectomy only`,
