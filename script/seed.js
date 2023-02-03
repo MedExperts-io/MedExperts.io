@@ -100,8 +100,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
         `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
     }),
 
     //Q2
@@ -132,8 +132,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16461960/" target="_blank">Le Gal G, Righini M, Roy P-M, et al. Prediction of pulmonary embolism in the emergency department: the revised Geneva score. Ann Intern Med. 2006;144(3):165-171. </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23750684/" target="_blank">Andro M, Righini M, Le Gal G. Adapting the D-dimer cutoff for thrombosis detection in elderly outpatients. Expert Rev Cardiovasc Ther. 2013;11(6):751-759. </a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q3
@@ -169,8 +169,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/19025712/" target="_blank">Agarwal R, Srinivas R, Agarwal AN, Saxena AK. Pulmonary masses in allergic bronchopulmonary aspergillosis: mechanistic explanations. Respiratory care 2008; 53:1744-8.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/848802/" target="_blank">Rosenberg M, Patterson R, Mintzer R, Cooper BJ, Roberts M, Harris KE. Clinical and immunologic criteria for the diagnosis of allergic bronchopulmonary aspergillosis. Annals of internal medicine 1977; 86:405-14</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Bronchiectasis",
     }),
 
     //Q4
@@ -197,7 +197,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/28401342/" target="_blank">Droz N, et al.Tuberculosis in children with sickle cell anaemia: a retrospective study in French tertiary care centres. Eur J Pediatr. 2017 Jun;176(6):723-729.</a>`,
       ],
       level: "Easy",
-      category: "Infectious Diseases",
+      category: "Infection",
     }),
 
     //Q5
@@ -227,8 +227,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24701488/" target="_blank">AR Aroor, RS Prakasha, A Study of Clinical Characteristics of Mediastinal Mass. J Clin Diagn Res. 2014; (8)2: 77-80  </a>`,
       ],
-      level: "Easy",
-      category: "Oncology",
+      level: "Hard",
+      category: "Mediastinal Disorders",
     }),
 
     //Q6
@@ -259,8 +259,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/books/NBK559331/" target="_blank">Beloor Suresh A, Asuncion RMD. Myasthenia Gravis. [Updated 2020 Aug 10]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan.</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Mediastinal Disorders",
     }),
 
     //Q7
@@ -276,8 +276,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/26219978/" target="_blank">Humbert M., Ghofrani H.A. The molecular targets of approved treatments for pulmonary arterial hypertension. Thorax. 2016;71(1):73–83 </a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Moderate",
+      category: "Pharmacology",
     }),
 
     //Q8
@@ -296,8 +296,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4096686/" target="_blank">Lai YC, Potoka KC, Champion HC, Pulmonary Arterial Hypertension: The Clinical Syndrome; Circ Res. 2014 Jun 20; 115(1): 115–130.</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q9
@@ -327,8 +327,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21330453/" target="_blank">Fedullo P, Kerr KM, Kim NH, Auger WR. Chronic thromboembolic pulmonary hypertension. Am J Respir Crit Care Med. 2011;183:1605-1613. </a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q10
@@ -363,8 +363,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/34599691/" target="_blank">Evans, Laura et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021. Crit Care Med. 2021 </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24635773/" target="_blank">ProCESS Investigators. A randomized trial of protocol-based care for early septic shock. NEJM. 201</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Critical Care",
     }),
 
     //Q11
@@ -391,8 +391,8 @@ async function seed() {
         `<a href=https://pubmed.ncbi.nlm.nih.gov/32222313/" target="_blank">Hall JB, Wood LDH. Management of the critically ill asthmatic patient. Med Clin North Am 1990; 74:779-796 </a>`,
         `<a href="https://www.thoracic.org/statements/resources/allergy-asthma/asthma.pdf" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol 1999; 13:419–428. </a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Hard",
+      category: "Critical Care",
     }),
 
     //Q12
@@ -428,8 +428,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17980914/" target="_blank">Diederen BM, Legionella spp and Legionnaires’ disease. J Infect 2008; 56:1-12 </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/28696077/" target="_blank">Sivagnanam S. Legionnaires’ disease in transplant recipients: A 15-year retrospective study in a tertiary referral center. Transpl Infect Dis, 2017; 19(5) </a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Moderate",
+      category: "Infection",
     }),
 
     //Q13
@@ -455,8 +455,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25199060/" target="_blank">Bel EH, Wenzel SE, Thompson PJ, Oral glucocorticoid-sparing effect of mepolizumab in eosinophilic asthma. N Engl J Med 2014; 371(13):1189-97 </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25199059/" target="_blank">HG Ortega, Mepolizumab treatment in patients with severe eosinophilic asthma. N Engl J Med 2014, 371:1198-1207 </a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q14
@@ -482,8 +482,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/12967693/" target="_blank">Keogh KA, Churg-Strauss syndrome: clinical presentation, antineutrophil cytoplasmic antibodies, and leukotriene receptor antagonists. Am J Med 2003, 115(4): 284-90 </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16142760/" target="_blank">Sinico RA. Prevalence and clinical significance of antineurophil cytoplasmic antibodies in Churg-Strauss syndrome. Arthritis Rheum 2005; 52(9): 2926-35</a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q15
@@ -509,7 +509,7 @@ async function seed() {
       ],
       explanationLinks: [],
       level: "Easy",
-      category: "Pharmacology",
+      category: "Infection",
     }),
 
     //Q16
@@ -528,8 +528,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065676/" target="_blank">Fong T.G et al. Delirium in elderly adults: diagnosis, prevention and treatment. Nat Rev Neurol. 2009 Apr; 5(4): 210–220. </a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Hard",
+      category: "Critical Care",
     }),
 
     //Q17
@@ -574,8 +574,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet P. Incentive Spirometry to Prevent Acute Pulmonary Complications in Sickle cell disease. NEJM 1995; 333:11, 669- 703</a>`,
       ],
 
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q18
@@ -627,7 +627,7 @@ async function seed() {
       ],
 
       level: "Easy",
-      category: "Anatomy",
+      category: "Pulmonary Function Testing",
     }),
 
     //Q19
@@ -660,8 +660,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24032382/" target="_blank">Travis WD, Costabel U, Hansell DM, et al. An official American Thoracic Society/European Respiratory Society statement: Update of the international multidisciplinary classification of the idiopathic interstitial pneumonias. American journal of respiratory and critical care medicine 2013;188:733-48.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/9769293/" target="_blank">Cottin V, Donsbeck AV, Revel D, Loire R, Cordier JF. Nonspecific interstitial pneumonia. Individualization of a clinicopathologic entity in a series of 12 patients. American journal of respiratory and critical care medicine 1998;158:1286-93. </a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Moderate",
+      category: "Pharmacology",
     }),
 
     //Q20
@@ -693,8 +693,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25693017/" target="_blank">Wessels MR, Brigham KS, DeMaria A, Jr. Case records of the Massachusetts General Hospital. Case 6-2015. A 16-year-old boy with coughing spells. The New England journal of medicine 2015;372:765-73.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23425962/" target="_blank">Centers for Disease C, Prevention. Updated recommendations for use of tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine (Tdap) in pregnant women--Advisory Committee on Immunization Practices (ACIP), 2012. MMWR Morbidity and mortality weekly report 2013;62:131-5.</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Infection",
     }),
 
     //Q21
@@ -727,8 +727,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3202460/" target="_blank">Laroche CM, Carroll N, Moxham J, Green M. Clinical significance of severe isolated diaphragm weakness. Am Rev Respir Dis. 1988 Oct; 138(4):862-6. </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3354995/" target="_blank">Mier-Jedrzejowicz A, Brophy C, Moxham J, Green M. Assessment of diaphragm weakness. Am Rev Respir Dis. 1988 Apr; 137(4):877-83 </a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Pulmonary Function Testing",
     }),
 
     //Q22
@@ -755,8 +755,8 @@ async function seed() {
           of Difficult Asthma. Curr Top Med Chem. 2016 Apr; 16(14): 1561–1573.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/26836891/" target="_blank">Srinivas R. Mummadi R, Peter Y. Hahn   Update on Exhaled Nitric Oxide in Clinical Practice Asthma is characterized by chronic airway inflammation. CHEST 2016; 149(5):1340-1344</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Asthma",
     }),
 
     //Q23
@@ -788,8 +788,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23319967/" target="_blank">Sekhri V, Mehta N, Rawat N, Management of massive and nonmassive pulmonary embolism. Arch Med Sci. 2012 Dec 20; 8(6): 957–969.</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Critical Care",
     }),
 
     //Q24
@@ -817,7 +817,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/29966745/" target="_blank">Vespasiani-Gentilucci U .The pharmacological treatment of chronic comorbidities in COPD: mind the gap! Pulm Pharmacol Ther. 2018 Aug;51:48-58</a>`,
       ],
       level: "Easy",
-      category: "Anatomy",
+      category: "Chronic Obstructive Pulmonary Disease",
     }),
 
     //Q25
@@ -842,8 +842,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30721300/" target="_blank">Detsky ME, Jivraj N, Adhikari NK Will This Patient Be Difficult to Intubate? The Rational Clinical Examination Systematic Review. JAMA 2019; 321(5): 493-503</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Critical Care",
     }),
 
     //Q26
@@ -875,8 +875,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21813529/" target="_blank">Bronchiolitis Obliterans Syndrome The Final Frontier for Lung Transplantation Jamie L. Todd, MD; and Scott M. Palmer, MD, MHS, FCCP CHEST 2011; 140(2): 502 – 508</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/11897517/" target="_blank">Estenne M, Maurer JR, Bohler A, et al. Bronchiolitis obliterans syndrome 2001: An update of the diagnostic criteria. J Heart Lung Transplant 2002; 21:297</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Lung Transplant",
     }),
 
     //Q27
@@ -913,8 +913,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/26066018/" target="_blank">Busl, KM et al.  Neurogenic pulmonary edema.  Crit Care Med 2015;43:17105.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/22429697/" target="_blank">Davison DL, et al.  Neurogenic pulmonary edema. Crit Care. 2012;16(2):212</a>`,
       ],
-      level: "Easy",
-      category: "Radiology",
+      level: "Hard",
+      category: "Critical Care",
     }),
 
     //Q28
@@ -943,7 +943,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31333658/" target="_blank">Li Z, Lu G, Meng G. Pathogenic Fungal Infection in the Lung 2019. Front. Immunol. 10:1524</a>`,
       ],
       level: "Easy",
-      category: "Radiology",
+      category: "Infection",
     }),
 
     //Q29
@@ -968,8 +968,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/26320113/" target="_blank">Galiè N, Humbert M, Vachiery JL, et al. 2015 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension.  Eur Heart J 2016; 37: 67–119</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4556496/" target="_blank">Hemnes AR, Kiely DG, Cockrill BA, et al. Statement on pregnancy in pulmonary hypertension from the Pulmonary Vascular Research Institute. Pulm Circ 2015; 5: 435–465</a>`,
       ],
-      level: "Easy",
-      category: "Radiology",
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q30
@@ -1000,8 +1000,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30798629/" target="_blank">Kavaliunaite E, Aurora P. Diagnosing and managing bronchiolitis obliterans in children. Expert Rev Respir Med. 2019 May;13(5):481-488</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30523731/" target="_blank">Bondeelle L, Bergeron A. Managing pulmonary complications in allogeneic hematopoietic stem cell transplantation. Expert Rev Respir Med. 2019 Jan;13(1):105-119</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Moderate",
+      category: "Infection",
     }),
 
     //Q31
@@ -1026,8 +1026,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30545968/" target="_blank">Simonneau G, Montani D, Celermajer DS, Denton CP, Gatzoulis MA, Krowka M, et al. Haemodynamic definitions and updated clinical classification of pulmonary hypertension. Eur Respir J. 2019;53(1).</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Easy",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q32
@@ -1049,8 +1049,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3826527/" target="_blank">Chen et al.: Complete excision of a giant thyroid goiter in posterior mediastinum. Journal of Cardiothoracic Surgery 2013. 8:207.</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q33
@@ -1075,8 +1075,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17065373/" target="_blank">Morrell NW. Pulmonary hypertension due to BMPR2 mutation: a new paradigm for tissue remodeling? Proceedings of the American Thoracic Society 2006; 3:680-6.</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q34
@@ -1104,8 +1104,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/6375982/" target="_blank">O'Rourke RA, Crawford MH. Mitral valve regurgitation. Curr Probl Cardiol. 1984 May;9(2):1-52</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Easy",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q35
@@ -1134,8 +1134,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/12186831/" target="_blank">American Thoracic Society/European Respiratory Society (ATS/ERS). ATS/ERS Statement on respiratory muscle testing. Am J Respir Crit Care Med. 2002;166:518–624.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/28302142/" target="_blank">Benedikt Schoser, Edward Fong, Tarekegn Geberhiwot. Maximum inspiratory pressure as a clinically meaningful trial endpoint for neuromuscular diseases: a comprehensive review of the literature. Orphanet Journal of Rare Diseases volume 12, Article number: 52 (2017) </a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Easy",
+      category: "Pulmonary Function Testing",
     }),
 
     //Q36
@@ -1150,8 +1150,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23883377/" target="_blank">Ghofrani HA, D'Armini AM, Grimminger F, et al. Riociguat for the treatment of chronic thromboembolic pulmonary hypertension. The New England journal of medicine 2013;369:319</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5402909/" target="_blank">Lian TY, Jiang X, Jing ZC. Riociguat: a soluble guanylate cyclase stimulator for the treatment of pulmonary hypertension. Drug design, development and therapy 2017;11:1195-207.</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Easy",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q37
@@ -1176,8 +1176,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31248818/" target="_blank">Luks AM, Auerbach PS, Freer L, et al.Wilderness Medical Society clinical practice guidelines for the prevention andtreatment of acute altitude illness: 2019 update. Wilderness Environ Med 2019;30:Suppl:S3-S18.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/35081281/" target="_blank">Luks AM, Hackett PH. Medical Conditions and High-Altitude Travel.N Engl J Med. 2022 Jan 27;386(4):364-373.</a>`,
       ],
-      level: "Medium",
-      category: "Radiology",
+      level: "Moderate",
+      category: "Pharmacology",
     }),
 
     //Q38
@@ -1214,8 +1214,8 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2991057/" target="_blank">Ingersoll KS, Wagner CC, Gharib S. Motivational groups for community substance abuse programs. 3rd edition. Rockville, MD: Substance Abuse Mental Health Services Administration; 2006.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21114344/" target="_blank">Hettema JE, Hendricks PS. Motivational interviewing for smoking cessation: a meta-analytic review. J Consult Clin Psychol. 2010 Dec;78(6):868-84.</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q39
@@ -1244,8 +1244,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/2570460/" target="_blank">Kerem B, Rommens JM. et.al. Identification of cystic fibrosis gene: genetic analysis Science. 1989; 245:1073-80</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24622267/" target="_blank">Ode KL, Moran A. New insights into cystic fibrosis-related diabetes in children. The LANCET Diabetes and Endocrinology 2013 June 30-35</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Easy",
+      category: "Bronchiectasis",
     }),
 
     //Q40
@@ -1274,8 +1274,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7774322/" target="_blank">Hoffsttein V, et al. Cardiac arrhythmias, snoring and sleep apnea. Chest 1994;106:466-471</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16424443/" target="_blank">Mehra R, et.al. Association of nocturnal arrhythmias with sleep-disordered breathing: The Sleep Heart Health Study. Am J Crit Care Med 2006;173:910-916</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Easy",
+      category: "Sleep",
     }),
 
     //Q41
@@ -1302,8 +1302,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24080454/" target="_blank">Pan Weihong et al. Leptin: A biomarker for sleep disorders? Sleep Med Rev 2014; 18(3):283 - 290</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/10899061/" target="_blank">Phillips BG, et.al. Increases in leptin levels, sympathetic drive, and weight gain in obstructive sleep apnea. Am J Physiol hear Circ physiol 2000;279:H234-237</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Easy",
+      category: "Sleep",
     }),
 
     //Q42
@@ -1342,8 +1342,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/27261908/" target="_blank">Zheng M. Classification and Pathology of Lung Cancer. Surg Oncol Clin N Am. 2016 Jul;25(3):447-68</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Easy",
+      category: "Lung Cancer",
     }),
 
     //Q43
@@ -1376,8 +1376,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25054718/" target="_blank">Rubin L.G. Schaffner W.  Care of the Asplenic patient.  NEJM 2014 371 (4) 349-356.</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Moderate",
+      category: "Infection",
     }),
 
     //Q44
@@ -1409,8 +1409,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5997415/" target="_blank">Bajantri B., Venkatrm S, Fuentesa GD, Mycoplasma pneumoniae: A Potentially Severe Infection;J Clin Med Res. 2018 Jul; 10(7): 535–544.</a>`,
       ],
-      level: "Medium",
-      category: "Oncology",
+      level: "Moderate",
+      category: "Infection",
     }),
 
     //Q45
@@ -1442,8 +1442,8 @@ async function seed() {
         `,
       explanationImage: [],
       explanationLinks: [],
-      level: "Medium",
-      category: "Oncology",
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q46
@@ -1462,8 +1462,8 @@ async function seed() {
         `,
       explanationImage: [],
       explanationLinks: [],
-      level: "Medium",
-      category: "Oncology",
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q47
@@ -1502,8 +1502,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">Bellet PS. Incentive spirometry to prevent acute pulmonary complications in sickle cell diseases.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/7637747/" target="_blank">N Engl J Med 1995; 333:699-703</a>`,
       ],
-      level: "Difficult",
-      category: "Oncology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q48
@@ -1529,8 +1529,8 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994020/" target="_blank">Barnett C, Machado R. Sildenafil in the treatment of pulmonary hypertension. VascHealth Risk Manag.
             2006;2(4):411-22.</a>`,
       ],
-      level: "Difficult",
-      category: "Oncology",
+      level: "Easy",
+      category: "Pharmacology",
     }),
 
     //Q49
@@ -1575,8 +1575,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/11596589/" target="_blank">Keane J, Gershon S, Wise RP, et al. Tuberculosis associated with infliximab, a tumor necrosis factor alpha-neutralizing agent. N Engl J Med 2001; 345:1098–1104.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/19218645/" target="_blank">Demkow U, Broniarek-Samson B, Filewska M, et al. Prevalence of latent tuberculosis infection in health care workers in Poland assessed by interferon-gamma whole blood and tuberculin skin tests. J Physiol 2008; 59(6):209-17</a>`,
       ],
-      level: "Difficult",
-      category: "Oncology",
+      level: "Moderate",
+      category: "Pharmacology",
     }),
 
     //Q50
@@ -1601,8 +1601,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25059587/" target="_blank">Rodríguez Panadero F. Diagnosis and Treatment of Malignant Pleural Mesothelioma. Arch Bronconeumol. 2015;51(4):177–184).</a>`,
       ],
-      level: "Difficult",
-      category: "Oncology",
+      level: "Moderate",
+      category: "Pleural Diseases",
     }),
 
     //Q51
@@ -1627,8 +1627,8 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/books/NBK539908/" target="_blank">Bajaj T, Aboeed A. Chest Wall Tumors. [Updated 2020 Jun 27]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; Jan 2020.</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8776346/" target="_blank">Shikhare S. Primary chest-wall leiomyosarcoma: a rare mimic of a malignant rib lesion. CSO 2016;14(10):431-433.</a>`,
       ],
-      level: "Difficult",
-      category: "Oncology",
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q52
@@ -1655,8 +1655,8 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4958807/" target="_blank">Subotic D, Yablonskiy P, Sulis G et al. Surgery and pleuro-pulmonary tuberculosis: a scientific literature review. J Thorac Dis 2016;8(7):E474-E485.</a>`,
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5887688/" target="_blank">Keikha M, Esfahani BN. The Relationship between Tuberculosis and Lung Cancer. Adv Biomed Res. 2018 Mar 27;7:58.</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Easy",
+      category: "Infection",
     }),
 
     //Q53
@@ -1681,8 +1681,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5438732/" target="_blank">Yang L, Zhang Q, Bai L, Li TY, He C, Ma QL, Li LS, Huang XQ, Qian GS. Assessment of the cancer risk factors of solitary pulmonary nodules. Oncotarget. 2017 Apr 25;8(17):29318-29327.</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Easy",
+      category: "Lung Cancer",
     }),
 
     //Q54
@@ -1716,8 +1716,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC471410/" target="_blank">Maguire MF, Berry CB, Gellett L, Berrisford RG. Catastrophic haemoptysis during rigid bronchoscopy: a discussion of treatment options to salvage patients during catastrophic haemoptysis at rigid bronchoscopy. Interact Cardiovasc Thorac Surg. 2004;3(2):222-225.</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q55
@@ -1754,8 +1754,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/22963024/" target="_blank">Allen RE, Kirby KA. Nocturnal leg cramps Am Fam Physician. 2012 Aug 15;86(4):350-5. Nocturnal Leg Cramps</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Hard",
+      category: "Sleep",
     }),
 
     //Q56
@@ -1788,8 +1788,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24297124/" target="_blank">Stockley RA. α1-Antitrypsin Deficiency: What Has It Ever Done for Us? Chest. 2013;144(6):1923-1929.</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Hard",
+      category: "Chronic Obstructive Pulmonary Disease",
     }),
 
     //Q57
@@ -1819,8 +1819,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/10537385/" target="_blank">Wilkin, A.  J. Feinberg.  Pneumocystis carinii Pneumonia: A Clinical Review.  Am Fam Physician. 1999 Oct 15;60(6):1699-1708.</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Hard",
+      category: "Infection",
     }),
 
     //Q58
@@ -1851,8 +1851,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31476240/" target="_blank">Loebelenz LI. Kerley B lines in the lung apex- a distinct CT sign for pulmonary congestion. Swiss Med Wkly 2019, 149:w20119</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24247614/" target="_blank">Corradi F. Chest ultrasound in acute respiratory distress syndrome. Curr Crit Care 2014; 20(1):98-103</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q59
@@ -1873,8 +1873,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2707800/" target="_blank">Montuschi P, Pharmacological treatment of chronic obstructive pulmonary disease; Int J Chron Obstruct Pulmon Dis. 2006 Dec; 1(4): 409–423.</a>`,
       ],
-      level: "Difficult",
-      category: "Physiology",
+      level: "Moderate",
+      category: "Chronic Obstructive Pulmonary Disease",
     }),
 
     //Q60
@@ -1895,8 +1895,8 @@ async function seed() {
     `,
       explanationImage: [],
       explanationLinks: [`<a href="" target="_blank">placeholder/no-ref</a>`],
-      level: "Easy",
-      category: "Physiology",
+      level: "Moderate",
+      category: "Pleural Diseases",
     }),
 
     //Q61
@@ -1935,7 +1935,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/9665983/" target="_blank">Nachamkin I, Allos BM, Ho T, Campylobacter Species and Guillain-Barré Syndrome; Clin Microbiol Rev. 1998 Jul; 11(3): 555–567.</a>`,
       ],
       level: "Easy",
-      category: "Physiology",
+      category: "Infection",
     }),
 
     //Q62
@@ -1961,7 +1961,7 @@ async function seed() {
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2950234/" target="_blank">Luh S. Diagnosis and treatment of primary spontaneous pneumothorax; J Zhejiang Univ Sci B. 2010 Oct; 11(10): 735–744.</a>`,
       ],
       level: "Easy",
-      category: "Physiology",
+      category: "Pleural Diseases",
     }),
 
     //Q63
@@ -1986,8 +1986,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24189863/" target="_blank">Tunsupon P, Panchabhai TS, Khemasuwan D, Mehta AC. Black bronchoscopy.  Chest. 2013 Nov 1;144(5):1696-706.</a>`,
       ],
-      level: "Easy",
-      category: "Physiology",
+      level: "Hard",
+      category: "Infection",
     }),
 
     //Q64
@@ -2012,8 +2012,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24189863/" target="_blank">Tunsupon P, Panchabhai TS, Khemasuwan D, Mehta AC. Black bronchoscopy. Chest. 2013 Nov 1;144(5):1696-706.</a>`,
       ],
-      level: "Easy",
-      category: "Physiology",
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q65
@@ -2048,8 +2048,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17969461/" target="_blank">Anderson KN, Pilsworth S, Sharples LD, Smith IE, Shneerson JM. Idiopathic hypersomnia: a study of 77 cases. Sleep. 2007 Oct;30(10):1274-81.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/32901432/" target="_blank">Trotti LM, Arnulf I. Idiopathic Hypersomnia and Other Hypersomnia Syndromes. Neurotherapeutics. 2021 Jan;18(1):20-31</a>`,
       ],
-      level: "Easy",
-      category: "Physiology",
+      level: "Moderate",
+      category: "Sleep",
     }),
 
     //Q66
@@ -2071,7 +2071,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16888289/" target="_blank">Forfia PR et al, Tricuspid annular displacement predicts survival in pulmonary hypertension. Am J Respir Crit Care Med. 2006 Nov 1;174(9):1034-41.</a>`,
       ],
       level: "Easy",
-      category: "Cardiology",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q67
@@ -2108,8 +2108,8 @@ async function seed() {
           `,
       explanationImage: [],
       explanationLinks: [`<a href="" target="_blank"></a>`],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q68
@@ -2149,8 +2149,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16517798/" target="_blank">Hunter JD. Ventilator associated pneumonia Postgrad Med J 2006; 82:172-178</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Moderate",
+      category: "Critical Care",
     }),
 
     //Q69
@@ -2185,7 +2185,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/9279284/" target="_blank">American Thoracic Society. (1997). Diagnosis and treatment of disease caused by non tuberculous mycobactera. Am J respair care med 156: S1-25</a>`,
       ],
       level: "Easy",
-      category: "Cardiology",
+      category: "Bronchiectasis",
     }),
 
     //Q70
@@ -2206,8 +2206,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/books/NBK431099/" target="_blank">Sundararajan S, Carter YM. Mediastinal Nonseminoma. [Updated 2020 Jun 25]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan-</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q71
@@ -2229,8 +2229,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/1932883/" target="_blank">Heatherton TF, Kozlowski LT, Frecker RC, Fagerström KO. The Fagerström Test for Nicotine Dependence: a revision of the Fagerström Tolerance Questionnaire. Br J Addict. 1991 Sep;86(9):1119-27.</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q72
@@ -2244,8 +2244,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/books/NBK513231/" target="_blank">Jilani TN, Siddiqui AH. Mediastinal Cancer. [Updated 2020 Aug 11]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan-</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q73
@@ -2271,7 +2271,7 @@ async function seed() {
         `<a href="https://www.researchgate.net/publication/7722893_Atypical_carcinoid_tumour" target="_blank">Vigg A, Mantri S, Swarnalata G, Mulay K. Atypical carcinoid tumour. Indian J Chest Dis Allied Sci. 2005 Jul-Sep;47(3):213-5.</a>`,
       ],
       level: "Easy",
-      category: "Cardiology",
+      category: "Lung Cancer",
     }),
 
     //Q74
@@ -2306,7 +2306,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/32310609/" target="_blank">Modi P, Cascella M. Diffusing Capacity Of The Lungs For Carbon Monoxide. 2020 Apr 15. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan.</a>`,
       ],
       level: "Easy",
-      category: "Cardiology",
+      category: "Pulmonary Function Testing",
     }),
 
     //Q75
@@ -2333,7 +2333,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/29712613/" target="_blank">Pinnola A, Kuo YH, Sciarretta JD, McIntyre A, Messier R, Davis JM. Bacteriology and Comorbidities in Patients Requiring Surgical Management of Empyema. Am Surg. 2018 Apr 01;84(4):599-603.</a>`,
       ],
       level: "Easy",
-      category: "Cardiology",
+      category: "Pleural Diseases",
     }),
 
     //Q76
@@ -2366,8 +2366,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25542975/" target="_blank">Cheng KW, Cheng SC, Chen WY, et al. Thiopurine analogs and mycophenolic acid synergistically inhibit the papain-like protease of Middle East respiratory syndrome coronavirus. Antiviral Res. 2015;115:9-16.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/30543830/" target="_blank">Tan L, Sato N, Shiraki A, et al. Everolimus delayed and suppressed cytomegalovirus DNA synthesis, spread of the infection, and alleviated cytomegalovirus infection. Antiviral Res. 2019;162:30-38.</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Hard",
+      category: "Infection",
     }),
 
     //Q77
@@ -2399,8 +2399,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/29052582/" target="_blank">Martinez FJ, Collard HR, Pardo A, Raghu G, Richeldi L, Selman M, Swigris JJ, Taniguchi H, Wells AU. Idiopathic pulmonary fibrosis. Nat Rev Dis Primers. 2017 Oct 20;3:17074.</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Hard",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q78
@@ -2425,8 +2425,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/22042929/" target="_blank">Sharkey SW, Lesser JR, Maron BJ. Takotsubo (Stress) Cardiomyopathy. Circulation.  2011;124: e460-e462</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Hard",
+      category: "Critical Care",
     }),
 
     //Q79
@@ -2451,8 +2451,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4563989/" target="_blank">Petersen LR, Brault AC, Nasci RS. West Nile virus: review of the literature. JAMA. 2013 Jul 17;310(3):308-15</a>`,
       ],
-      level: "Easy",
-      category: "Cardiology",
+      level: "Hard",
+      category: "Infection",
     }),
 
     //Q80
@@ -2474,8 +2474,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/29884254/" target="_blank">Criner GJ, Dreher M, D'Ambrosio CM, Zuwallack R, Geiseler J, Pépin JL. COPD Advanced Patient Management. Chest. 2018 Jun;153(6):1497-1498.</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Moderate",
+      category: "Chronic Obstructive Pulmonary Disease",
     }),
 
     //Q81
@@ -2510,8 +2510,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/18215265/" target="_blank">Kwok S, Benzocaine and lidocaine induced methemoglobinemia after bronchoscopy: a case report. Journal of Medical Case Reports 2008, 2:16</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Hard",
+      category: "Pulmonary Function Testing",
     }),
 
     //Q82
@@ -2541,7 +2541,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23370915/" target="_blank">Raissey HH. Inhaled Corticosteroids in Lung Disease Am J Resp Crit Care Med 2013 ;187:798-803</a>`,
       ],
       level: "Easy",
-      category: "Anatomy",
+      category: "Asthma",
     }),
 
     //Q83
@@ -2578,7 +2578,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/25515792/" target="_blank">Khorashadi L, Wu CC, Betancourt SL, Carter BW. Idiopathic pulmonary haemosiderosis: spectrum of thoracic imaging findings in the adult patient. Clin Radiol 2015; 70:459.</a>`,
       ],
       level: "Easy",
-      category: "Anatomy",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q84
@@ -2612,7 +2612,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17278083/" target="_blank">Mandell LA.  Infectious Disease society of America/ American thoracic society consensus guidelines on the management of community acquired pneumonia in adults. Clin Infect Dis 2007;44:S27-72</a>`,
       ],
       level: "Easy",
-      category: "Anatomy",
+      category: "Infection",
     }),
 
     //Q85
@@ -2648,8 +2648,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/11029352/" target="_blank">Castro-Rodriguez JA, et al. A clinical index to define risk of asthma in young children with recurrent wheezing. Am J Respir Crit Care Med 2000; 162: 1403-1406.</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Moderate",
+      category: "Asthma",
     }),
 
     //Q86
@@ -2701,7 +2701,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31588850/" target="_blank">Mitchell AB, Glanville AR. Lung transplantation: a review of the optimal strategies for referral and patient selection. Ther Adv Respir Dis. 2019</a>`,
       ],
       level: "Easy",
-      category: "Anatomy",
+      category: "Lung Transplant",
     }),
 
     //Q87
@@ -2735,8 +2735,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1758588/" target="_blank">Hargreave FE. The investigation of airway inflammation in asthma: sputum examination. Clin Exp Allergy. 1997 May;27 Suppl 1:36-40.</a>`,
       ],
-      level: "Easy",
-      category: "Infectious Diseases",
+      level: "Moderate",
+      category: "Asthma",
     }),
 
     //Q88
@@ -2788,8 +2788,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/22412264/" target="_blank">Kannoth  S. Paraneoplastic neurologic syndrome: A practical approach.  Ann Indian Acad Neurol. 2012 Jan-Mar; 15(1): 6–12.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21711262/" target="_blank">Raspotnig M. Onconeural antibodies in patients with neurological symptoms: detection and clinical significance. Acta Neurol Scand Suppl. 2011;(191): 83-8</a>`,
       ],
-      level: "Easy",
-      category: "Infectious Diseases",
+      level: "Hard",
+      category: "Mediastinal Disorders",
     }),
 
     //Q89
@@ -2823,7 +2823,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21586478/" target="_blank">Gray DJ. Diagnosis and Management of Schistosomiasis. BMJ   2011;342: d2651</a>`,
       ],
       level: "Easy",
-      category: "Infectious Diseases",
+      category: "Pulmonary Vascular Disease",
     }),
 
     //Q90
@@ -2850,7 +2850,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/20847017/" target="_blank">Bisgaard H. Effects of glucosamine, chondroitin, or placebo in patients with osteoarthritis of hip or knee: network meta-analysis. BMJ 2010;341:C 1498</a>`,
       ],
       level: "Easy",
-      category: "Infectious Diseases",
+      category: "Asthma",
     }),
 
     //Q91
@@ -2867,7 +2867,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17502537/" target="_blank">Gulmez SE, Holm A, Frederiksen H, et al. Use of proton pump inhibitors and the risk of community-acquired pneumonia: a population-based case-control study. Arch Intern Med. 2007;167:950-955</a>`,
       ],
       level: "Easy",
-      category: "Infectious Diseases",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q92
@@ -2900,8 +2900,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21455765/" target="_blank">Katzap E, Barilla-LaBarca M-L, Marder G. Antisynthetase syndrome. Curr Rheumatol Rep 13: 175-181, 2011.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/17917530/" target="_blank">Mimori T, lmura Y, Nakashima R, Yoshifuji H. Autoantibodies in idiopathic inflammatory myopathy: an update on clinical and pathophysiological significance. Curr Opin Rheumatol 19: 523- 529, 2007.</a>`,
       ],
-      level: "Easy",
-      category: "Infectious Diseases",
+      level: "Hard",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q93
@@ -2933,8 +2933,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/26310038/" target="_blank">Spagnolo P, Rossi G, Cavazza A, Bonifazi M, Paladini I, Bonella F, Sverzellati N, Costabel U. Hypersensitivity Pneumonitis: A Comprehensive Review. J Investig Allergol Clin Immunol. 2015;25(4):237-50</a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Hard",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q94
@@ -2964,7 +2964,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23984314/" target="_blank">D'Ercole C. Celiac Disease and Autoimmune-Associated Conditions. Biomed Rest Int. 2013; 2013:127589</a>`,
       ],
       level: "Easy",
-      category: "Pharmacology",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q95
@@ -2989,8 +2989,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/23269131/" target="_blank">Barr J, Fraser GL, Puntillo K, Ely EW. Clinical practice guidelines for the management of pain, agitation, and delirium in adult patients in the intensive care unit.Critical Care Medicine, 2013; 419(1): 263-306</a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Moderate",
+      category: "Critical Care",
     }),
 
     //Q96
@@ -3012,7 +3012,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/12665397/" target="_blank">McKeage K. Propofol: a review of its use in intensive care sedation of adults. CNS Drugs 2003(4);17:235-72</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/11762264/" target="_blank">Young CC. Benzodiazepines in the intensive care unit. Crit Care Clin  2001;17(4):843-62</a>`,
       ],
-      level: "Easy",
+      level: "Moderate",
       category: "Pharmacology",
     }),
 
@@ -3040,7 +3040,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21624184/" target="_blank">Tak PP. Advances in rheumatology: new targeted therapeutics. Arthritis Res Ther 2011, 13: S5.</a>`,
       ],
-      level: "Easy",
+      level: "Hard",
       category: "Pharmacology",
     }),
 
@@ -3063,8 +3063,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://www.ncbi.nlm.nih.gov/books/NBK507891/" target="_blank">Jayarangaiah A, Theetha Kariyanna P. Lambert Eaton Myasthenic Syndrome. [Updated 2020 Jul 15]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan-.</a>`,
       ],
-      level: "Easy",
-      category: "Pharmacology",
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
     }),
 
     //Q99
@@ -3101,8 +3101,8 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24083220/" target="_blank">Sahni S., Verma S., Talwar A., Spontaneous Pneumomediastinum: Time for Consensus. N Am J Med Sci. 2013 Aug; 5(8):460-464</a>`,
       ],
-      level: "Easy",
-      category: "Anatomy",
+      level: "Moderate",
+      category: "Pleural Diseases",
     }),
 
     //Q100
@@ -3122,8 +3122,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/12535299/" target="_blank">Hussein MM. Tuberculosis and chronic renal disease.Semin Dial 2003;16(1):38-442.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/15287205/" target="_blank">Fang JT.Ethambutol-induced optic neuritis in patients with end stage renal disease on hemodialysis: two case reports and literature review.Renal Failure 2004;26(4):189-93</a>`,
       ],
-      level: "Easy",
-      category: "Radiology",
+      level: "Hard",
+      category: "Infection",
     }),
 
     //Q101
@@ -3147,8 +3147,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3202460/" target="_blank">Laroche CM, Carroll N, Moxham J, Green M, Clinical significance of severe isolated diaphragm weakness. Am Rev Respir Dis. 1988 Oct; 138(4):862-6.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/3354995/" target="_blank">Mier-Jedrzejowicz A, Brophy C, Moxham J, Green M, Assessment of diaphragm weakness. Am Rev Respir Dis. 1988 Apr; 137(4):877-83</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Hard",
+      category: "Pulmonary Function Testing",
     }),
 
     //----------------- Fake update to questionId 1 to test VCS (Remove after testing)--------------
@@ -3186,8 +3186,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
         `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
       ancestorId: 1,
       status: "Inactive",
     }),
@@ -3225,8 +3225,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
         `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
       ancestorId: 1,
       status: "Inactive",
     }),
