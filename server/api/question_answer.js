@@ -68,7 +68,6 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             answerOptions,
             level,
             category,
-            correctAnswer,
             ancestorId,
           } = singleQuestion;
           res.json({
@@ -78,7 +77,6 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             answerOptions,
             level,
             category,
-            correctAnswer,
             ancestorId,
           });
         }
