@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import {
-  Container,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Button,
-} from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import ReactHtmlParser from "react-html-parser";
 
 const SiteNavbar = () => {
-  const isLoggedIn = useSelector(
-    (state) => !!state.auth.me.id
-  );
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -31,36 +24,37 @@ const SiteNavbar = () => {
       variant="dark"
     >
       <Container fluid>
-        <Navbar.Brand href="/">
-          <img
-            src="/MedExpert.png"
-            height="30"
-            alt="Med Expert Logo"
-          />
-        </Navbar.Brand>
-
         {isLoggedIn ? (
           <>
-            {" "}
+            <Link to="/home">
+              <Navbar.Brand>
+                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+              </Navbar.Brand>
+            </Link>
+
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Button
-                  variant="light"
-                  href="/home"
                   style={{ color: "#FF6262" }}
+                  as={Link}
+                  to="/home"
+                  variant="light"
                   className="m-2"
                 >
                   Dashboard
                 </Button>
+
                 <Button
                   variant="light"
-                  href="/questions"
-                  style={{ color: "#FF6262" }}
+                  as={Link}
+                  to="/questions"
                   className="m-2"
+                  style={{ color: "#FF6262" }}
                 >
                   Questions
                 </Button>
+
                 <Button
                   variant="light"
                   href="/favorites"
@@ -106,7 +100,7 @@ const SiteNavbar = () => {
                     drop={"start"}
                     id="collapsible-nav-dropdown"
                   >
-                    <NavDropdown.Item href="/profile">
+                    <NavDropdown.Item as={Link} to="/profile">
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
@@ -121,7 +115,11 @@ const SiteNavbar = () => {
               </Nav>
             </Navbar.Collapse>
           </>
-        ) : null}
+        ) : (
+          <Navbar.Brand href="/">
+            <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+          </Navbar.Brand>
+        )}
       </Container>
     </Navbar>
   );

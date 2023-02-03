@@ -6,21 +6,46 @@ import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstra
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import LoadingScreen from "../loading/LoadingScreen";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
-  const categories = ["All", "Anatomy", "Cardiac", "Neurology", "Lympatic", "Immunology"];
-  const difficultiyLevels = ["All", "Easy", "Medium", "Difficult"];
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
 
-  // CALLING OBJCT FROM STAT - DIDN'T MAKE A DIFFERENCEE
-  // const currentUserQuestion = useSelector(
-  //   (state) => state.userQuestions.currentUserQuestion
-  // );
-  // console.log("USERQUESTIONS", userQuestions, userId);
+  const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
+  const [currentDifficulty, setCurrentDifficulty] = useState(
+    difficultiyLevels[0]
+  );
+  const categories = [
+    "All Categories",
+    "Asthma",
+    "Bronchiectasis",
+    "Chronic Obstructive Pulmonary Disease",
+    "Critical Care",
+    "Infection",
+    "Interstitial Lung Diseases",
+    "Lung Cancer",
+    "Lung Transplant",
+    "Mediastinal Disorders",
+    "Other Pulmonary Diseases",
+    "Pharmacology",
+    "Pleural Diseases",
+    "Pulmonary Function Testing",
+    "Pulmonary Vascular Disease",
+    "Sleep",
+  ];
+  const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
+  const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
+  const loading = useSelector((state) => state.questionsAnswers.loading);
 
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+  let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
+
+  const userQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const stateQuestions = useSelector(
+    (state) => state.questionsAnswers.questionsAnswers
+  );
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -29,7 +54,7 @@ const QuestionsAnswers = () => {
         ...question,
         color: "lightgreen",
       };
-    } else if (question.level === "Medium") {
+    } else if (question.level === "Moderate") {
       return {
         ...question,
         color: "#f5ad27",
@@ -42,10 +67,10 @@ const QuestionsAnswers = () => {
     }
   });
 
-  console.log("allQuestionsCheck", allQuestions);
+  // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
-  console.log("filteredQuestions", filteredQuestions);
+  // console.log("filteredQuestions", filteredQuestions);
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -61,12 +86,13 @@ const QuestionsAnswers = () => {
         userId: userId,
         questionAnswerId: questionId,
       })
-    );
+    ).then(() => dispatch(fetchUserQuestions(userId)));
   };
 
   const favoriteStatus = (questionId) => {
-    console.log();
-    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    const question = userQuestions.filter(
+      (question) => question.questionAnswerId == questionId
+    );
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -126,7 +152,9 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {difficultiyLevels.map((difficulty) => (
-                <Dropdown.Item eventKey={difficulty}>{difficulty}</Dropdown.Item>
+                <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                  {difficulty}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -139,7 +167,9 @@ const QuestionsAnswers = () => {
 
             <Dropdown.Menu>
               {categories.map((category) => (
-                <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
+                <Dropdown.Item key={category} eventKey={category}>
+                  {category}
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
@@ -152,6 +182,8 @@ const QuestionsAnswers = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
+        {loading && <LoadingScreen />}
+
                 {categories.map((category) => (
                   <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
                 ))}
@@ -160,6 +192,7 @@ const QuestionsAnswers = () => {
           </Col> */}
       </Row>
       <Row>
+        {loading && <LoadingScreen />}
         {filteredQuestions && filteredQuestions.length
           ? filteredQuestions.map((question) => (
               <Col key={question.id}>
@@ -174,6 +207,11 @@ const QuestionsAnswers = () => {
                     />
                     <Card.Title>
                       <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
+                        {question.id}. Some Title
+                      <Link
+                        to={`/questions/${question.id}`}
+                        style={{ textDecoration: `none` }}
+                      >
                         {question.id}. Some Title
                       </Link>
                     </Card.Title>
