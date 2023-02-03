@@ -42,12 +42,40 @@ export const fetchUserQuestions = createAsyncThunk(
 
 export const updateUserQuestion = createAsyncThunk(
   "updateUserQuestion",
-  async ({ userId, questionAnswerId }) => {
+  async ({userId, questionAnswerId }) => {
     try {
       const { data } = await axios.put(
         `/api/user_questions/${userId}`,
         {
           questionAnswerId: questionAnswerId,
+          
+        },
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      console.log("THUNK", data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+
+// --------TO STORE USER INPUT--------------
+export const updateUserQuestionInput = createAsyncThunk(
+  "updateUserQuestionInput",
+  async ({ userId, questionAnswerId, userInput, answered }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/user_questions/${userId}`,
+        {
+          questionAnswerId: questionAnswerId,
+          userInput: userInput,
+          answered: answered
         },
         {
           headers: {
@@ -86,6 +114,9 @@ export const allUser_QuestionsSlice = createSlice({
         console.log("FAVORITED ACTION PAYLOAD", action.payload);
         //state.UserQuestions = action.payload;
 
+        state.currentUserQuestion = action.payload;
+      })
+      .addCase(updateUserQuestionInput.fulfilled, (state, action) => {
         state.currentUserQuestion = action.payload;
       });
   },
