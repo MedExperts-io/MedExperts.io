@@ -88,7 +88,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   }
 });
 
-// api/questions/:singleQuestionId
+//POST---api/questions/:singleQuestionId
 // Admin submits form - Make sure form is populated with current QA data
 // Thru req.body, if ancestorId = null (q has no older versions), then attach req.params.id to ancestorId in frontend.
 router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
@@ -108,6 +108,24 @@ router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
     res.json(newQA); // Send new instance if redirecting on frontend with new QAID
     //OR
     //res.redirect(`/${}`)// Redirect with new QAID
+  } catch (err) {
+    next(err);
+  }
+});
+
+//DELETE---api/questions/:singleQuestionId
+// Thru req.body, if ancestorId = null (q has no older versions), then attach req.params.id to ancestorId in frontend.
+router.delete("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
+  const qaId = req.params.singleQuestionId;
+  try {
+    const deleteInstance = await Question_Answer.destroy(
+      {
+        where: {
+          questionAnswerId: qaId,
+        },
+      }
+    );
+    res.json(deleteInstance); //only sends num of deletion back
   } catch (err) {
     next(err);
   }
