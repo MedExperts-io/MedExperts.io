@@ -66,6 +66,7 @@ const QuestionsAnswers = () => {
       };
     }
   });
+  const allAnswered = userQuestions.length / allQuestions.length;
 
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
@@ -108,6 +109,7 @@ const QuestionsAnswers = () => {
     setCurrentDifficulty(event);
     filterCriteria[0] = event;
     filterFunction();
+
     //setCurrentDifficulty(event);
     //event === "All Levels" ? setfilteredQuestions(allQuestions) : setfilteredQuestions(allQuestions.filter((question) => question.level === event));
   };
@@ -133,14 +135,62 @@ const QuestionsAnswers = () => {
     }
     console.log("filterQuestions in filterFunction", multiFilter);
     setfilteredQuestions(multiFilter);
-    setPageCount(Math.ceil(multiFilter.length / itemsPerPage));
-    setCurrentItems(multiFilter.slice(itemOffset, endOffset));
+    //multiFilter.length ? setCurrentItems(multiFilter.slice(itemOffset, endOffset)) : null;
+    //multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : null;
+    return multiFilter;
+  };
+
+  const progressCircleBackground = (progress, color) => {
+    const angle = 360 * progress;
+
+    return `radial-gradient(white 50%, transparent 51%),
+    conic-gradient(transparent 0deg ${angle}deg, gainsboro ${angle}deg 360deg),
+    conic-gradient(${color} 360deg, ${color})`;
   };
 
   return (
     <Container>
-      <Row>
-        <Col style={{ height: "200px" }}>hello, here's some statistics.</Col>
+      <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
+        <Col></Col>
+        <Col>
+          <div style={{ background: progressCircleBackground(0.3, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}>
+            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+          </div>
+        </Col>
+        <Col>
+          <div
+            style={{
+              background: progressCircleBackground(0.5, "#f5ad27"),
+              borderRadius: "50%",
+              width: "120px",
+              height: "120px",
+              textAlign: "right",
+              position: "relative",
+            }}
+          >
+            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+          </div>
+        </Col>
+        <Col>
+          <div
+            style={{
+              background: progressCircleBackground(0.7, "#f55b49"),
+              borderRadius: "50%",
+              width: "120px",
+              height: "120px",
+              position: "relative",
+            }}
+          >
+            {" "}
+            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+          </div>
+        </Col>
+        <Col>
+          <div style={{ background: progressCircleBackground(0.3, "#bf5eff"), borderRadius: "50%", width: "150px", height: "150px", marginTop: "-20px", position: "relative" }}>
+            <div style={{ position: "absolute", bottom: "40%", width: "100%", textAlign: "center" }}>33%</div>
+          </div>
+        </Col>
+        <Col></Col>
       </Row>
       <Row>
         <Col style={{ marginBottom: "20px", fontSize: "200%" }}>
@@ -195,7 +245,7 @@ const QuestionsAnswers = () => {
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
                   <Card.Header style={{ backgroundColor: `${question.color}` }} />
-                  <Card.Body>
+                  <Card.Body style={{}}>
                     <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
