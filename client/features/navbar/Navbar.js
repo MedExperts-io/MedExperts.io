@@ -26,7 +26,7 @@ const SiteNavbar = () => {
       <Container fluid>
         {isLoggedIn ? (
           <>
-            <Link to="/home">
+            <Link to="/">
               <Navbar.Brand>
                 <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
               </Navbar.Brand>
@@ -36,16 +36,6 @@ const SiteNavbar = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Button
-                  style={{ color: "#FF6262" }}
-                  as={Link}
-                  to="/home"
-                  variant="light"
-                  className="m-2"
-                >
-                  Dashboard
-                </Button>
-
-                <Button
                   variant="light"
                   as={Link}
                   to="/questions"
@@ -53,15 +43,6 @@ const SiteNavbar = () => {
                   style={{ color: "#FF6262" }}
                 >
                   Questions
-                </Button>
-
-                <Button
-                  variant="light"
-                  href="/favorites"
-                  style={{ color: "#FF6262" }}
-                  className="m-2"
-                >
-                  Favorites
                 </Button>
               </Nav>
               <Nav>
@@ -116,9 +97,53 @@ const SiteNavbar = () => {
             </Navbar.Collapse>
           </>
         ) : (
-          <Navbar.Brand href="/">
-            <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
-          </Navbar.Brand>
+          <>
+            <Navbar.Brand href="/">
+              <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+            </Navbar.Brand>
+            <Nav>
+              <Button
+                className="m-2"
+                variant="light"
+                style={{
+                  paddingTop: "0",
+                  paddingBottom: "0",
+                  marginTop: "0",
+                  marginBottom: "0",
+                }}
+              >
+                <NavDropdown
+                  className="buttonIcon"
+                  style={{
+                    paddingTop: "0",
+                    paddingBottom: "0",
+                    marginTop: "0",
+                    marginBottom: "0",
+                  }}
+                  title={
+                    <AccountCircleRoundedIcon
+                      style={{
+                        color: "#FF6262",
+                        height: "30",
+                        width: "30",
+                        paddingRight: "5spx",
+                        paddingTop: "0",
+                        paddingBottom: "0",
+                        marginTop: "0",
+                        marginBottom: "0",
+                      }}
+                    />
+                  }
+                  drop={"start"}
+                  id="collapsible-nav-dropdown"
+                >
+                  <NavDropdown.Item as={Link} to="/login">
+                    Login
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Button>
+            </Nav>
+          </>
         )}
       </Container>
     </Navbar>
