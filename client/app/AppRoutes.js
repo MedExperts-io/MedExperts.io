@@ -3,7 +3,7 @@ import { useDispatch, useSelector, Navigate } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import QuestionsAnswers from "../features/allQA/AllQA";
 import LoginOrSignup from "../features/auth/LoginOrSignup";
-import Home from "../features/home/Home";
+// import Home from "../features/home/Home";
 import Profile from "../features/auth/Profile";
 import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
@@ -11,7 +11,7 @@ import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
 import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 import LoadingScreen from "../features/loading/LoadingScreen";
-import LandingPage from "../features/home/LandingPage";
+import LandingPage from "../features/landingPage/LandingPage";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -26,8 +26,8 @@ const AppRoutes = () => {
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
+          <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route
             path="/questions/:singleQuestionId"
