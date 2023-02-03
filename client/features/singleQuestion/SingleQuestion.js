@@ -85,6 +85,11 @@ const singleQuestion = () => {
   if (CurrentQuestionArray.length>0){
   return (
     <div>
+      {loading ? 
+     (
+      <ProgressBar animated now={100} />
+    )
+      :
       <Stack gap={3} className="p-3">
         <Stack gap={3}>
           <Stack gap={3}>
@@ -264,6 +269,7 @@ const singleQuestion = () => {
           </Stack>
         )}
       </Stack>
+  }
     </div>
   );
 }else{
