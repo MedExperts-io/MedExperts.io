@@ -24,7 +24,7 @@ const Login = () => {
     const password = evt.target.loginPassword.value;
 
     dispatch(authenticate({ email, password, method: formName })).then(() =>
-      navigate("/home")
+      navigate("/")
     );
   };
 

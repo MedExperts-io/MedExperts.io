@@ -11,6 +11,7 @@ import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
 import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 import LoadingScreen from "../features/loading/LoadingScreen";
+import LandingPage from "../features/home/LandingPage";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -26,18 +27,18 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route
             path="/questions/:singleQuestionId"
             element={<SingleQuestion />}
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/" element={<Home />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<LoginOrSignup />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginOrSignup />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
           <Route
             path="/forgotPassword/confirmation"
