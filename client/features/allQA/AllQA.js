@@ -95,12 +95,11 @@ const QuestionsAnswers = () => {
         userId: userId,
         questionAnswerId: questionId,
       })
-    );
+    ).then(() => dispatch(fetchUserQuestions(userId)));
   };
 
   const favoriteStatus = (questionId) => {
     const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
-    dispatch(pagination());
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -109,7 +108,6 @@ const QuestionsAnswers = () => {
     setCurrentDifficulty(event);
     filterCriteria[0] = event;
     filterFunction();
-    dispatch(pagination());
     //setCurrentDifficulty(event);
     //event === "All Levels" ? setfilteredQuestions(allQuestions) : setfilteredQuestions(allQuestions.filter((question) => question.level === event));
   };
@@ -117,7 +115,6 @@ const QuestionsAnswers = () => {
     setCurrentCategory1(event);
     filterCriteria[1] = event;
     filterFunction();
-    dispatch(pagination());
   };
   const pickCategory2 = (event) => {
     setCurrentCategory2(event);
@@ -136,6 +133,7 @@ const QuestionsAnswers = () => {
     }
     console.log("filterQuestions in filterFunction", multiFilter);
     setfilteredQuestions(multiFilter);
+    setCurrentItems(multiFilter.slice(itemOffset, endOffset));
   };
 
   return (
