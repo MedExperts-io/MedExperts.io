@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, pagination } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 
 const QuestionsAnswers = () => {
@@ -14,23 +14,26 @@ const QuestionsAnswers = () => {
   const itemsPerPage = 12;
   const [itemOffset, setItemOffset] = useState(0);
   const [currentItems, setCurrentItems] = useState(null);
-  const [pageCount, setPageCount] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-    filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
 
     // const endOffset = itemOffset + itemsPerPage;
     // filteredQuestions ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
     // filteredQuestions ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
     //dispatch(fetchAllQuestionsAnswers());
-  }, [pageCount, itemOffset]); // Putting userQuestions in here throws a loop
+  }, []); // Putting userQuestions in here throws a loop
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % filteredQuestions.length;
+    const newOffset = event.selected * itemsPerPage;
     console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     setItemOffset(newOffset);
+    const endOffset = newOffset + itemsPerPage;
+    setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage));
+    setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
+    console.log("itemOffset", newOffset, endOffset, event.selected);
   };
 
   const difficultiyLevels = ["All Levels", "Easy", "Medium", "Difficult"];
@@ -64,14 +67,19 @@ const QuestionsAnswers = () => {
     }
   });
 
-  console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
+
+  console.log("currentitems", currentItems);
+
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
+  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
+  //console.log(itemOffset, endOffset);
+
+  console.log("allQuestionsCheck", allQuestions);
 
   console.log("filteredQuestions", filteredQuestions);
-  console.log("currentitems", currentItems);
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -92,6 +100,7 @@ const QuestionsAnswers = () => {
 
   const favoriteStatus = (questionId) => {
     const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    dispatch(pagination());
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -100,6 +109,7 @@ const QuestionsAnswers = () => {
     setCurrentDifficulty(event);
     filterCriteria[0] = event;
     filterFunction();
+    dispatch(pagination());
     //setCurrentDifficulty(event);
     //event === "All Levels" ? setfilteredQuestions(allQuestions) : setfilteredQuestions(allQuestions.filter((question) => question.level === event));
   };
@@ -107,6 +117,7 @@ const QuestionsAnswers = () => {
     setCurrentCategory1(event);
     filterCriteria[1] = event;
     filterFunction();
+    dispatch(pagination());
   };
   const pickCategory2 = (event) => {
     setCurrentCategory2(event);
