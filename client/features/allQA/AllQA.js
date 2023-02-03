@@ -133,6 +133,7 @@ const QuestionsAnswers = () => {
     }
     console.log("filterQuestions in filterFunction", multiFilter);
     setfilteredQuestions(multiFilter);
+    setPageCount(Math.ceil(multiFilter.length / itemsPerPage));
     setCurrentItems(multiFilter.slice(itemOffset, endOffset));
   };
 
