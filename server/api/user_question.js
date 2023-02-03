@@ -122,8 +122,8 @@ router.post("/:userId", async (req, res, next) => {
   // const qaId = req.body.questionAnswerId;
   // const entry = req.body.userInput;
   // const answerCheck = req.body.answered;
-  const { questionAnswerId, userInput, answered } = req.body;
-  console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered);
+  const { questionAnswerId, userInput, answered, category,level } = req.body;
+  console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered, category,level);
 
   try {
     //If right or wrong answer will be calculated on the frontend
@@ -138,6 +138,8 @@ router.post("/:userId", async (req, res, next) => {
       {
         userInput: userInput,
         answered: answered,
+        category: category,
+        level: level
       },
       {
         where: {
