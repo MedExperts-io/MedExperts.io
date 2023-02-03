@@ -1925,12 +1925,6 @@ async function seed() {
         `Mechanistic target of rapamycin inhibitors`,
         `Mycophenolate mofetil`,
       ],
-      answerOptions: [
-        `Azathioprine`,
-        `Calcineurin inhibitors`,
-        `Mechanistic target of rapamycin inhibitors`,
-        `Mycophenolate mofetil`,
-      ],
       questionImage: [],
       correctAnswer: `Calcineurin inhibitors`,
       explanation: `THE SARS CoV-2 infection involves the initiation of uncontrolled inflammatory response which contributes to development of ARDS, thrombotic complication and eventually pulmonary fibrosis. Calcineurin inhibitors [e.g.tacrolimus, or cyclosporine] have been shown to have in vitro activity against coronaviruses [1].  In case of a SARS CoV-2 infection in a patient with solid organ transplant it is generally recommended to continue Calcineurin inhibitors at a reduced dose [2].
@@ -1953,12 +1947,6 @@ async function seed() {
     //Q77
     Question_Answer.create({
       question: `A 45-year-old female presented with h/o progressive dyspnea and cough for seven months. She was put on ATT (4 drugs) without any improvement. On examination she was found to have cyanosis, clubbing and bilateral fine end inspiratory crepitation at the lung bases. HRCT revealed bilateral reticulonodular shadows, which are predominately subpleural and basal with extensive honeycombing. Spirometry showed moderately severe restrictive defects. The possible clinical diagnosis is:`,
-      answerOptions: [
-        `Multiple Drug Resistance Tuberculosis`,
-        `Nonspecific Interstitial Pneumonia`,
-        `Usual Interstitial Pneumonia`,
-        `Acute Interstitial Pneumonia`,
-      ],
       answerOptions: [
         `Multiple Drug Resistance Tuberculosis`,
         `Nonspecific Interstitial Pneumonia`,
@@ -1992,12 +1980,6 @@ async function seed() {
         `Emotional Stress`,
         `Angina`,
       ],
-      answerOptions: [
-        `Hypertension`,
-        `Dyslipidemia`,
-        `Emotional Stress`,
-        `Angina`,
-      ],
       questionImage: [],
       correctAnswer: `Emotional Stress`,
       explanation: `Takotsubo Cardiomyopathy, also referred to as “broken heart syndrome” was initially reported in Japan as a transient cardiomyopathy precipitated by acute stress.  It is indistinguishable from myocardial infarction.  Patients clinically present with severe chest pain, and shortness of breath along with nausea and vomiting. Emotional and stressful situations such as death in family or financial problems are usually the initial triggering factor for Takotsubo Cardiomyopathy.  Included in a long list of Differential Diagnosis is Myocardial infarction, Unstable Angina and Esophageal spasm.  In the majority of patients, cardiac enzyme panels show elevated Troponins and Ck-MB.  Echocardiogram provides a quick diagnostic evaluation showing apical wall dysfunction.  However, a cardiac catheterization is required to confirm the diagnosis.   Treatment is supportive in nature.  Patients are admitted to intensive care units for observation and started on angiotensin-converting enzymes (ACE) and beta-blockers are used to restore left ventricular function.  Heart function gradually improves over a few days to a week.`,
@@ -2012,12 +1994,6 @@ async function seed() {
     //Q79
     Question_Answer.create({
       question: `Which of the following Diagnostic tests is used for definitive diagnosis of West Nile Virus?`,
-      answerOptions: [
-        `Elevated Protein in CSF`,
-        `Nucleic Acid Amplification Test`,
-        `Detection of IgM antibody in serum or CSF via (MAC-ELISA)`,
-        `Detection of IgG antibody in serum or CSF`,
-      ],
       answerOptions: [
         `Elevated Protein in CSF`,
         `Nucleic Acid Amplification Test`,
@@ -2067,12 +2043,6 @@ async function seed() {
         `Lab error in measuring ABG`,
         `Pulse oximetry device is nonfunctional`,
       ],
-      answerOptions: [
-        `Presence of Methemoglobin`,
-        `Presence of Carboxyhemoglobin`,
-        `Lab error in measuring ABG`,
-        `Pulse oximetry device is nonfunctional`,
-      ],
       questionImage: [],
       correctAnswer: `Presence of Methemoglobin`,
       explanation: `Methemoglobinemia (MetHb) is a disorder where abnormal levels of methemoglobin are produced in the blood. It is uncommon but can be fatal if not quickly recognized and treated due to rapid oxygen desaturation. This disorder develops when iron in the hemoglobin is oxidized from the ferrous state (Fe+2) to ferric state (Fe+3) and the hemoglobin is unable to carry oxygen.
@@ -2081,9 +2051,6 @@ async function seed() {
           In Methb, methemoglobin levels usually resolve spontaneously over 15-20 hours when the offending agent is removed, and oxygen is administered. If cyanosis is present and persistent, methylene blue should be administered.
           Acute carbon monoxide (CO) poisonings are suspected in the history of fire-related smokes or poorly functioning heating systems. Moderately to mild CO-intoxicated patients often present with headaches most common, malaise, nausea and dizziness. Carboxyhemoglobin absorbs approximately the same amount of 660 nm light as oxyhemoglobin. CO pulse oximetry can falsely represent normal reading. Arterial oxygen tension (PaO2) is usually normal because PaO2 represents 02 dissolved in blood not affected by CO. In contrast, hemoglobin bound O2 is reduced in the presence of carboxyhemoglobin. When CO poisoning is expected, co-oximetry is recommended for measuring carboxyhemoglobin levels.
           `,
-      explanationImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q81/A81+img1.png`,
-      ],
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q81/A81+img1.png`,
       ],
@@ -2097,12 +2064,6 @@ async function seed() {
     //Q82
     Question_Answer.create({
       question: `Corticosteroids are widely used in treatment of Bronchial asthma. All of the following factors predict diminished dose response to Corticosteroids in patients with persistent asthma except:`,
-      answerOptions: [
-        `Genetic Polymorphism`,
-        `H/O Smoking`,
-        `Obesity`,
-        `GE Reflux`,
-      ],
       answerOptions: [
         `Genetic Polymorphism`,
         `H/O Smoking`,
@@ -2127,12 +2088,6 @@ async function seed() {
     //Q83
     Question_Answer.create({
       question: `On HRCT of the Chest ‘Crazy paving’ appearance is generally seen in patient with:`,
-      answerOptions: [
-        `Silicosis`,
-        `Hypersensitivity pneumonitis`,
-        `Pulmonary alveolar proteinosis`,
-        `Idiopathic pulmonary hemosiderosis`,
-      ],
       answerOptions: [
         `Silicosis`,
         `Hypersensitivity pneumonitis`,
@@ -2164,12 +2119,6 @@ async function seed() {
     //Q84
     Question_Answer.create({
       question: `A 61-year-old male is admitted to the hospital with a three days history of fever chills rigors. He is producing copious yellowish sputum, which at times is dark colored. He was seen in an outpatient clinic, was diagnosed with viral bronchitis and was advised fluids and analgesics. On admission his BP is 90/60 mmHg, his blood sugar was 182 mg/dl.  He receives two liters of normal saline in the emergency room and now his blood   pressure is 120/80 mmHg. Over the next 12 hours he experiences further dyspnea and respiratory support. Post intubation a tracheal catheter suction aspirate was sent which was reported as white blood cells, sporadic gram-positive cocci in pairs, and few yeast cells. Would be the most appropriate therapy for this patient:`,
-      answerOptions: [
-        `Vancomycin and Piperacillin/tazobactam`,
-        `Ceftriaxone and Bactrim`,
-        `Ceftriaxone and Azithromycin`,
-        `Moxifloxacin and fluconazole`,
-      ],
       answerOptions: [
         `Vancomycin and Piperacillin/tazobactam`,
         `Ceftriaxone and Bactrim`,
@@ -2241,12 +2190,6 @@ async function seed() {
         `Bronchial asthma`,
         `COPD with acute leukemia`,
       ],
-      answerOptions: [
-        `Stage I bronchogenic carcinoma`,
-        `Cystic fibrosis`,
-        `Bronchial asthma`,
-        `COPD with acute leukemia`,
-      ],
       questionImage: [],
       correctAnswer: `Cystic fibrosis`,
       explanation: `Lung transplantation is considered for adults who have advanced lung disease and following criteria is:
@@ -2293,12 +2236,6 @@ async function seed() {
         `Creola Bodies`,
         `Increased lymphocytes`,
       ],
-      answerOptions: [
-        `Charcot Leyden Crystals`,
-        `Curshmann’s spirals`,
-        `Creola Bodies`,
-        `Increased lymphocytes`,
-      ],
       questionImage: [],
       correctAnswer: `Increased lymphocytes`,
       explanation: `Asthma is an airways disorder with inflammation of the airways, bronchial hyper responsiveness and reversible airways obstruction.
@@ -2322,12 +2259,6 @@ async function seed() {
     //Q88
     Question_Answer.create({
       question: `32-year-old women presents with history of partial complex seizure for last one year.  She also has h/o headaches and h/o paranoid behavior noticed in last six months. Her CSF examination reveals examination reveals elevated proteins and lymphocytosis.  Her rest of the work up is negative except she has a lesion in the right ovary suggestive of a benign teratoma. You would recommend resection of teratoma even if it is benign for the following the following reason:`,
-      answerOptions: [
-        `Possibility that this teratoma may turn out to be malignant`,
-        `Prophylactic surgery`,
-        `Pt has paraneoplastic limbic encephalitis`,
-        `Possibility of torsion in the lesion`,
-      ],
       answerOptions: [
         `Possibility that this teratoma may turn out to be malignant`,
         `Prophylactic surgery`,
@@ -2375,12 +2306,6 @@ async function seed() {
     //Q89
     Question_Answer.create({
       question: `Which of the following infections can cause Pulmonary Arterial Hypertension?`,
-      answerOptions: [
-        `Strongyloides Stercoralis`,
-        `Salmonella Typhi`,
-        `Shigella Sonnei`,
-        `Schistosoma Mansoni`,
-      ],
       answerOptions: [
         `Strongyloides Stercoralis`,
         `Salmonella Typhi`,
@@ -2459,12 +2384,6 @@ async function seed() {
         `Anti-SRP and Anti-Mi-2`,
         `Anti-PM SCL and Anti-Ku`,
       ],
-      answerOptions: [
-        `TIF-1 gamma and NPX-2`,
-        `Anti Jo-1 and Anti RNP`,
-        `Anti-SRP and Anti-Mi-2`,
-        `Anti-PM SCL and Anti-Ku`,
-      ],
       questionImage: [],
       correctAnswer: `TIF-1 gamma and NPX-2`,
       explanation: `Dermatomyositis (DM) is an idiopathic inflammatory myopathy characterized by proximal skeletal muscle weakness and characteristic skin rash. Previous reports have shown an association between DM and malignancies, including ovarian, lung, breast, nasopharyngeal, pancreatic, stomach, and colorectal cancer as well as malignant lymphoma (1,2). Serum autoantibodies in DM can indicate a positive or negative risk of malignancy; indeed, antibodies to transcription intermediary factor (TIF)-1 gamma [ Anti-TIF1y (anti-155/140) antibodies] and nuclear matrix protein (NPX)-2 indicate positive risks, while antisynthetase antibodies, anti­Mi-2 antibody, and anti-signal recognition particle (SRP) antibody indicate negative risks (3). Conversely, the presence of myositis-specific (anti-synthetase antibodies, anti-Mi-2, anti-SRP, and anti-MDA5) and myositis-associated antibodies (anti-RNP, anti-PM-Scl, anti-Ku) appears to be associated with a decreased risk of malignancy but an increased risk of interstitial lung disease in DM (4).
@@ -2487,12 +2406,6 @@ async function seed() {
     //Q93
     Question_Answer.create({
       question: `A 65-year-old farmer has breathlessness. During investigation he was found to have raised precipitins to micropolyspora faeni. What is the most likely diagnosis?`,
-      answerOptions: [
-        `Tuberculosis`,
-        `Wegner’s granulomatosis`,
-        `Churg Strauss syndrome`,
-        `Hypersensitivity pneumonitis`,
-      ],
       answerOptions: [
         `Tuberculosis`,
         `Wegner’s granulomatosis`,
@@ -2526,12 +2439,6 @@ async function seed() {
         `Primary Biliary Cirrhosis`,
         `Celiac Disease`,
       ],
-      answerOptions: [
-        `Active hepatitis disease (HBV or HCV)`,
-        `Kawasaki's disease`,
-        `Primary Biliary Cirrhosis`,
-        `Celiac Disease`,
-      ],
       questionImage: [],
       correctAnswer: `Celiac Disease`,
       explanation: `Celiac disease is a systemic immune mediated disorder triggered by dietary gluten in genetically susceptible persons. It is more common in women, patients with type 1 diabetes [3-16%], Hashimoto's thyroiditis, Sjogren syndrome, IgA nephropathy [3%] and IgA deficiency [9%]. Patients present with weight loss diarrhea and abdominal distention, have reduced bone mineral density, high aminotransferase levels, short stricture. Patients have a high incidence of dermatitis herpetiformis. Enteropathy associated with T-cell lymphoma and adenocarcinoma of jejunum are rare complications. Measurement of serum IgA anti-tissue transglutaminase antibodies recommended an established diagnosis. Measurement of IgA in the endomysial antibodies is barely 100% specific for active celiac disease.
@@ -2550,12 +2457,6 @@ async function seed() {
     //Q95
     Question_Answer.create({
       question: `All of the following factors are associated with development of delirium in the medical intensive care unit except:`,
-      answerOptions: [
-        `Pre-existing dementia`,
-        `History of systemic hypertension and or history of Alcoholism`,
-        `History of Coma`,
-        `It is unrelated to severity of illness admission`,
-      ],
       answerOptions: [
         `Pre-existing dementia`,
         `History of systemic hypertension and or history of Alcoholism`,
@@ -2617,9 +2518,6 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21624184/" target="_blank">Tak PP. Advances in rheumatology: new targeted therapeutics. Arthritis Res Ther 2011, 13: S5.</a>`,
       ],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/21624184/" target="_blank">Tak PP. Advances in rheumatology: new targeted therapeutics. Arthritis Res Ther 2011, 13: S5.</a>`,
-      ],
       level: "Hard",
       category: "Pharmacology",
     }),
@@ -2651,12 +2549,6 @@ async function seed() {
     Question_Answer.create({
       question: `A 19-year-old male presents to the emergency room complaining of dyspnea, cough, chest pain, wheezing, chest tightness and rhinorrhea.  He has a past medical history of asthma, chronic sinusitis and allergic rhinitis.  On physical examination he found to be a tall, thin male who is found to have tachycardia and tachypnea.  On palpation you feel a crunching over the sternal bridge. You suspect the possibility of spontaneous pneumomediastinum
         which is confirmed by X-ray. Which one of the following symptoms is MOST specific for pneumomediastinum?`,
-      answerOptions: [
-        `Wheezing`,
-        `Chest Pain`,
-        `Rhinolalia`,
-        `Chest Tightness`,
-      ],
       answerOptions: [
         `Wheezing`,
         `Chest Pain`,
@@ -2747,16 +2639,6 @@ async function seed() {
         "Nonspecific Pattern",
         "Mixed Ventilatory Defect",
       ],
-      questionImage: [
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1+img1.png",
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1img2.png",
-      ],
-      answerOptions: [
-        "Obstructive Lung Disease",
-        "Restrictive Lung Disease",
-        "Nonspecific Pattern",
-        "Mixed Ventilatory Defect",
-      ],
       correctAnswer: "Nonspecific Pattern",
       explanation: `An obstructive ventilatory defect is a disproportionate reduction in maximal airflow from the lung in relation to the maximal volume (i.e. vital capacity, VC) that can be displaced from the lung [1]. It is defined by a reduced Forced Expiratory Volume in 1 second (FEV1)/FVC ratio below the 5th percentile of the predicted value as per ATS/ERS task force [1] or less than 0.70.   In this patient FEV1/FVC is normal.
 
@@ -2776,16 +2658,6 @@ async function seed() {
     Question_Answer.create({
       question:
         "A 35-year-old male comes to the clinic for evaluation for progressive shortness of breath. PFT of the patient suggests which of the following? Pulmonary function tests are provided below: ",
-      questionImage: [
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1+img1.png",
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1img2.png",
-      ],
-      answerOptions: [
-        "Obstructive Lung Disease",
-        "Restrictive Lung Disease",
-        "Nonspecific Pattern",
-        "Mixed Ventilatory Defect",
-      ],
       questionImage: [
         "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1+img1.png",
         "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1img2.png",
