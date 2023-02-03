@@ -39,7 +39,9 @@ const singleQuestion = () => {
         userId: userId,
         questionAnswerId: id,
         userInput: selectedOption,
-        answered: selectedOption === correctAnswer ? 'right' : 'wrong' 
+        answered: selectedOption === correctAnswer ? 'right' : 'wrong',
+        category: category,
+        level: level
       })).then(() => dispatch(fetchSingleQuestion(singleQuestionId)))
   };
 
@@ -66,6 +68,8 @@ const singleQuestion = () => {
     explanationImage,
     questionImage,
     explanationLinks,
+    category,
+    level,
   } = singleQ;
 
 
