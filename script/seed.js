@@ -1295,13 +1295,13 @@ async function seed() {
     //Q51
     Question_Answer.create({
       question: `Which is true regarding the chest wall tumors?`,
+      questionImage: [],
       answerOptions: [
         `Malignant tumors are more frequent than the benign tumors`,
         `Female and male are affected equally`,
         `Radiation is the main cause`,
         `Leiomyosarcoma is the most frequent rib tumor`,
       ],
-      questionImage: [],
       correctAnswer: `Malignant tumors are more frequent than the benign tumors`,
       explanation: `Tumors of the chest wall can arise from any soft tissue or bony structure. Primary chest wall tumors arise from muscle, fat, blood vessel, nerve sheath, cartilage, or bone of the chest wall. Secondary chest wall tumors arise from direct invasion of breast carcinoma or lung carcinoma or metastases from a distant site. Up to 50 to 80% of chest wall tumors are malignant, and 55% of these arise from bone or cartilage and 45% from soft tissue. Primary chest wall leiomyosarcoma is a rare, malignant soft-tissue tumor. It most commonly affects the extremities.
 
@@ -1321,13 +1321,13 @@ async function seed() {
     //Q52
     Question_Answer.create({
       question: `Which statement is correct regarding tuberculosis?`,
+      questionImage: [],
       answerOptions: [
         `Lung surgery is frequently indicated for active tuberculosis`,
         `There is a correlation between lung cancer and previous tuberculosis`,
         `Post TB bronchiectasis can be treated with surgery`,
         `Most common antitubercular drug causing hepatitis toxicity is INH`,
       ],
-      questionImage: [],
       correctAnswer: `Most common antitubercular drug causing hepatitis toxicity is INH`,
       explanation: `Lung surgery in TB is indicated to support the diagnosis and treatment of only the most complex cases to improve their therapeutic outcomes. Surgical intervention is required for
         a.	elimination of contagious persisting tubercular cavities despite appropriate chemotherapy
@@ -1355,12 +1355,6 @@ async function seed() {
         "A SUV of less than 2.5 on PET scan",
         "A spiculated border on CT scan",
       ],
-      answerOptions: [
-        "Presence of calcium deposits in the lesion",
-        "Calculated doubling time of less than 30 days",
-        "A SUV of less than 2.5 on PET scan",
-        "A spiculated border on CT scan",
-      ],
       questionImage: [],
       correctAnswer: `A spiculated border on CT scan`,
       explanation: `Benign solitary pulmonary nodules lesions have regular, smooth edges, while typical malignant nodules usually have lobulated, spiculated or irregular edges. Lobulation is associated with a greater risk for malignant pulmonary nodules than spiculation. The greatest risk factor for malignant SPNs was an edge characterized by lobulation and spiculation.`,
@@ -1374,14 +1368,6 @@ async function seed() {
 
     //Q54
     Question_Answer.create({
-      question:
-        "In the event of exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy, the most efficient way of stopping the hemorrhage is:",
-      answerOptions: [
-        "Cryotherapy",
-        "Arrange for emergency",
-        "Platelet transfusion",
-        "Bleeding site tamponade done with a balloon-tipped vascular catheter",
-      ],
       question:
         "In the event of exsanguinating hemorrhage from an airway lesion during rigid bronchoscopy, the most efficient way of stopping the hemorrhage is:",
       answerOptions: [
@@ -1411,12 +1397,6 @@ async function seed() {
     Question_Answer.create({
       question:
         "Nocturnal leg cramps are a common phenomenon and are often considered to be idiopathic. The precise mechanism of leg cramps is still unknown, but several theories have been suggested. Which of the following is not considered part of the differential diagnosis in nocturnal leg cramping?",
-      answerOptions: [
-        "Claudication",
-        "Peripheral neuropathy",
-        "Restless Leg Syndrome",
-        "Cardiovascular Accident (Stroke)",
-      ],
       answerOptions: [
         "Claudication",
         "Peripheral neuropathy",
@@ -1472,9 +1452,6 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/24297124/" target="_blank">Stockley RA. α1-Antitrypsin Deficiency: What Has It Ever Done for Us? Chest. 2013;144(6):1923-1929.</a>`,
       ],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/24297124/" target="_blank">Stockley RA. α1-Antitrypsin Deficiency: What Has It Ever Done for Us? Chest. 2013;144(6):1923-1929.</a>`,
-      ],
       level: "Hard",
       category: "Chronic Obstructive Pulmonary Disease",
     }),
@@ -1482,12 +1459,6 @@ async function seed() {
     //Q57
     Question_Answer.create({
       question: `A 40-year HIV positive male is admitted to hospital for fever, chills, cough, shortness of breath and weight loss for the past two days.   The cough and shortness of breath started two weeks ago and has gotten worse in the past few days.  On physical examination, the patient was tachypneic, tachycardic with mild crackles.  Patient is on HAART since he was diagnosed 2 years ago.  CD 4 count is <200 and CT scan done in the ER showed diffuse  opacities.  Patients have an A-a gradient >45mmHg.  Which of the following is the treatment of choice for this patient if he is allergic to Sulfa drugs?`,
-      answerOptions: [
-        `Trimethoprim-sulfamethoxazole (TMP-SMX)`,
-        `Pentamidine`,
-        `Rifampin`,
-        `Amphotericin.`,
-      ],
       questionImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q57/Q57+img1.png`,
       ],
@@ -1496,9 +1467,6 @@ async function seed() {
         `Pentamidine`,
         `Rifampin`,
         `Amphotericin.`,
-      ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q57/Q57+img1.png`,
       ],
       correctAnswer: `Pentamidine`,
       explanation: `Pneumocystis carinii pneumonia (PCP) is an opportunistic infection common in immunocompromised patients such as HIV patients.  Defective T-Cell immunity, with CD4 count < 200 per mm2 is primary risk factor for PCP.    Patients present with classic triad of fever, exertional dyspnea and nonproductive cough.  Physical exam reveals fine dry rales.   Diagnosis can be confirmed by chest x-ray which shows diffuse interstitial pulmonary infiltrates along with a blood gas analysis that shows hypoxemia.  [A-a] gradient of more than 45 indicates severe prognosis.  PCP is diagnosed routinely with sputum induction and bronchoalveolar lavage with methenamine silver stain. Hospitalized patients receive IV therapy and switched to oral treatment; however mild cases can be treated with oral therapy from the outset.  The primary drug of choice for treatment and prophylaxis is trimethoprim-sulfamethoxazole (TMP-SMX), but alternatives may be needed because of adverse effects, poor response or allergy to Sulfa containing drugs.  Pentamidine is used in patients who are allergic to TMP-SMX or can’t tolerate it.  It is less effective compared to TMP-SMX.  Serious adverse effects include nephrotoxicity, hyperglycemia or hypoglycemia, pancreatitis and torsade de pointes.  Therefore, it is important to monitor glucose levels, QT prolongation and creatinine.  Other drugs available include Clindamycin plus primaquine, Atovaquone and Dapsone.  Adjunctive corticosteroid therapy within the first 72 hours improves survival in moderate to severe cases.`,
@@ -1513,12 +1481,6 @@ async function seed() {
     //Q58
     Question_Answer.create({
       question: `When B lines are seen in all lung fields, this suggests the possibility of all the following except:`,
-      answerOptions: [
-        `ARDS`,
-        `Cardiogenic Pulmonary Edema`,
-        `PCP Pneumonia`,
-        `Status Asthmaticus`,
-      ],
       answerOptions: [
         `ARDS`,
         `Cardiogenic Pulmonary Edema`,
@@ -1595,12 +1557,6 @@ async function seed() {
         `Varicella- Zoster virus`,
         `Mycoplasma pneumoniae`,
       ],
-      answerOptions: [
-        `Campylobacter jejuni`,
-        `Epstein-Barr virus`,
-        `Varicella- Zoster virus`,
-        `Mycoplasma pneumoniae`,
-      ],
       questionImage: [],
       correctAnswer: `Campylobacter jejuni`,
       explanation: `The Guillain-Barre syndrome, which is characterized by acute areflexic paralysis with albuminocytologic dissociation (i.e, high levels of protein in the cerebrospinal fluid and normal cell counts). Two thirds of cases are preceded by symptoms of upper respiratory tract infection or diarrhea. The most frequently identified infectious agent associated with subsequent development of Guillain-Barre syndrome is Campylobacter jejuni. and is associated with  20% of cases of Miller Fisher syndrome. Other infectious agents with a well-defined relationship to the Guillain-Barre syndrome are Epstein-Barr virus, varicella-zoster virus, and Mycoplasma pneumoniae.
@@ -1634,12 +1590,6 @@ async function seed() {
         `first episode of tension pneumothorax`,
         `significant spontaneous hemothorax`,
       ],
-      answerOptions: [
-        `a second ipsilateral pneumothorax`,
-        `first contralateral or simultaneous bilateral pneumothorax`,
-        `first episode of tension pneumothorax`,
-        `significant spontaneous hemothorax`,
-      ],
       questionImage: [],
       correctAnswer: `significant spontaneous hemothorax`,
       explanation: `Observation and supplemental oxygen are generally the approach in clinically stable patients with first episode of primary pneumothorax (PSP) that are small and without severe symptoms. In the first episode of PSP, simple aspiration or pleural drainage are considered first line treatment. For patients with recurrent or persistent PSP, the most effective treatment for prevention is mechanical pleurodesis or pleurectomy performed by thoracotomy. Video-assisted thoracoscopic surgery (VATS) with talc (chemical pleurodesis) reduces relapses compared to mechanical pleurodesis.`,
@@ -1654,12 +1604,6 @@ async function seed() {
     //Q63
     Question_Answer.create({
       question: `Which of the following fungal infections produces oxalate crystals?`,
-      answerOptions: [
-        `Histoplasma capsulatum`,
-        `Aspergillus niger`,
-        `Coccidioides immitis`,
-        `Blastomyces dermatitidis`,
-      ],
       answerOptions: [
         `Histoplasma capsulatum`,
         `Aspergillus niger`,
@@ -1686,12 +1630,6 @@ async function seed() {
         `Alkaptonuria`,
         `Gaucher’s Disease`,
       ],
-      answerOptions: [
-        `Phenylketonuria`,
-        `Lesch-Nyhan Syndrome`,
-        `Alkaptonuria`,
-        `Gaucher’s Disease`,
-      ],
       questionImage: [],
       correctAnswer: `Alkaptonuria`,
       explanation: `(Ochronosis) Alkaptonuria is a rare inborn error of metabolism involving the degradation of the amino acids phenylalanine and tyrosine. It is a genetic disorder with an autosomal-recessive mode of inheritance.  It is caused by a deficiency of the genes encoding for the homogentisate-1, 2-dioxygenase, which is an important liver enzyme that degrades homogentisic acid (HGA), a metabolite in the phenylalanine and tyrosine degradation pathway. The term ochronosis describes the accumulation of homogentisic acid in collagenous tissues of the body, resulting in dark gray pigmentation of the connective tissue and the cartilages, involving multiple organ systems. A history of early-onset degenerative arthritis, multiple joint replacements, and valvular heart disease suggest alkaptonuria along with the dark-colored airways.  The severity of symptoms progressively increases beyond 30 years of age. The physical examination may reveal the darkening of sclera and ear cartilage. The involvement of the respiratory system with ochronosis is most frequently diagnosed during autopsy. However, a premortem case of alkaptonuria has been reported as diagnosed with flexible bronchoscopy (FB).  The bronchoscopic examination reveals hyperpigmentation of the airways, including the epiglottis, larynx, bronchial cartilages, and mucosa. Hyperpigmentation of the bronchial mucosa extends distally from the trachea to the small bronchioles, and the involved bronchial mucosa is typically covered with dry black secretions. The diagnosis of alkaptonuria is based on gas chromatographic-mass spectrophotometric assays that measure urine and plasma HGA levels.  Effective management of alkaptonuria is not clearly described. Neither high-dose vitamin C nor protein restriction has effectively reduced urinary HGA excretion. Nitisinone, a triketone herbicide that reversibly inhibits 4-hydroxyphenylpyruvate-dioxygenase, has been shown to reduce urinary HGA excretion by 80% in a murine model. It can also decrease HGA production in humans; however, long-term efficacy and safety necessitate further evaluation.`,
@@ -1706,15 +1644,6 @@ async function seed() {
     //Q65
     Question_Answer.create({
       question: `An overnight Polysomnography study [PSG] reveals a sleep onset of 2.30 minutes and a rem onset of 19 minutes. The apnea hypopnea index  [AHI]  was 2.1 per hour  with an oxygen nadir of 93%. an multiple sleep latency test  [MSLT]  was performed the next day with the following results, These finding are consistent with:`,
-      answerOptions: [
-        `narcolepsy`,
-        `obstructive sleep apnea`,
-        `idiopathic hypersomnolence`,
-        `periodic limb movement disorder`,
-      ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q65/Q65+img1.png`,
-      ],
       answerOptions: [
         `narcolepsy`,
         `obstructive sleep apnea`,
@@ -1770,12 +1699,6 @@ async function seed() {
         `Birt-Hogg-Dubé syndrome`,
         `Carney triad`,
       ],
-      answerOptions: [
-        `Klinefelter syndrome [XXY syndrome]`,
-        `Young syndrome`,
-        `Birt-Hogg-Dubé syndrome`,
-        `Carney triad`,
-      ],
       questionImage: [],
       correctAnswer: `Klinefelter syndrome [XXY syndrome]`,
       explanation: `Mediastinal germ cell tumors (MGCTs) are unique for their association with Klinefelter
@@ -1808,12 +1731,6 @@ async function seed() {
         `The use of sucralfate as stress ulcer prophylaxis`,
         `Age < 60`,
       ],
-      answerOptions: [
-        `Nursing the patient in a supine position`,
-        `Enteral nutrition`,
-        `The use of sucralfate as stress ulcer prophylaxis`,
-        `Age < 60`,
-      ],
       questionImage: [],
       correctAnswer: `Age < 60`,
       explanation: `Risk Factors: Multiple factors have been identified that increase the likelihood of developing VAP. Intubation is the most important risk factor for developing nosocomial pneumonia. Although it is Difficult to differentiate between the risk imposed by the mechanical ventilator and its associated tubing and the presence of a tracheal tube, it is known that the incidence of VAP is less when non-invasive ventilation is used.
@@ -1833,9 +1750,6 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/16517798/" target="_blank">Hunter JD. Ventilator associated pneumonia Postgrad Med J 2006; 82:172-178</a>`,
       ],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/16517798/" target="_blank">Hunter JD. Ventilator associated pneumonia Postgrad Med J 2006; 82:172-178</a>`,
-      ],
       level: "Moderate",
       category: "Critical Care",
     }),
@@ -1843,15 +1757,6 @@ async function seed() {
     //Q69
     Question_Answer.create({
       question: `A 65-year-old female with past medical history of HTN, COPD presented to ED due to fever, dyspnea and copious amounts of yellowish sputum production. She denies any recent travel, IV drug use, and sick contacts. On physical examination, temperature is 101 F, blood pressure is 105/60 mm Hg, pulse rate is 110/min, and respiration rate is 18/min. She is a very thin cachectic female, not in any type of distress. Lung examination reveals wheezing and rhonchi bilaterally. On abdominal examination, she has diffused minimal abdominal pain without rigidity or guarding. Blood results show WBC 1500, mildly elevated alkaline phosphatase, all other tests are negative including HIV test. Her medications include Spiriva, Albuterol inhaler, and Amlodipine. She still smokes 1 Pack per day. Blood and sputum cultures are collected. The Chest X-ray shows multiple nodules and COPD changes. Her CT chest image has shown below, What is the most likely diagnosis in the above patient?`,
-      answerOptions: [
-        `Bacterial Pneumonia`,
-        `Pneumocystis jiroveci pneumonia (PJP)`,
-        `Mycobacterium avium complex infection (MAC)`,
-        `Influenza infection`,
-      ],
-      questionImage: [
-        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q69/Q69+img1.jpg`,
-      ],
       answerOptions: [
         `Bacterial Pneumonia`,
         `Pneumocystis jiroveci pneumonia (PJP)`,
@@ -1944,12 +1849,6 @@ async function seed() {
         `FDG PET scanning`,
         `presence of regional lymph node metastases (pN1)`,
       ],
-      answerOptions: [
-        `histologic review of the resected tumor`,
-        `history and physical`,
-        `FDG PET scanning`,
-        `presence of regional lymph node metastases (pN1)`,
-      ],
       questionImage: [],
       correctAnswer: `histologic review of the resected tumor`,
       explanation: `Atypical carcinoid tumor of the lung is rarer than typical carcinoid. Commonly occurs in females and diagnosed at 60 years of age. Chest x-ray and CECT scan of the thorax can show space-occupying lesions. Diagnosis can be confirmed with bronchoscopic biopsy or CT-guided needle biopsy. Accurate histological diagnosis is vital for further management.`,
@@ -1964,12 +1863,6 @@ async function seed() {
     //Q74
     Question_Answer.create({
       question: `Which of the following is not associated with a decrease in the measured diffusing capacity compared to predicted values?`,
-      answerOptions: [
-        `Smoker without emphysema`,
-        `Ex-smoker without emphysema`,
-        `Pulmonary vascular disease`,
-        `Polycythemia`,
-      ],
       answerOptions: [
         `Smoker without emphysema`,
         `Ex-smoker without emphysema`,
