@@ -2122,7 +2122,7 @@ async function seed() {
         `Age < 60`,
       ],
       questionImage: [],
-      correctAnswer: ``,
+      correctAnswer: `Age < 60`,
       explanation: `Risk Factors: Multiple factors have been identified that increase the likelihood of developing VAP. Intubation is the most important risk factor for developing nosocomial pneumonia. Although it is Difficult to differentiate between the risk imposed by the mechanical ventilator and its associated tubing and the presence of a tracheal tube, it is known that the incidence of VAP is less when non-invasive ventilation is used.
 
         Stress ulcer prophylaxis is routinely used in the critically ill. H2 blockers or the gastroprotective agent sucralfate form the mainstay of treatment. The use of H2 blockers is associated with a change in the acidity of the gastric juices that favors bacterial colonization with Gram negative bacteria. However, the role of gastric pH in the pathogenesis of VAP is controversial. A large, multicenter, randomized, blinded placebo-controlled trial involving 1200 mechanically ventilated patients in which sucralfate was compared with the H2 receptor antagonist ranitidine for the prevention of upper gastrointestinal bleeding failed to show any difference in the incidence of VAP. However, a number of other studies suggest that lower rates of VAP are seen in patients given a gastroprotective agent rather than agents that block gastric acid secretions. Despite these discordant results, H2 Receptor antagonists are widely used and most clinicians believe that the use of these agents to prevent stress ulcer bleeding outweighs any additional risk of VAP.
@@ -3239,6 +3239,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
@@ -3246,6 +3247,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
@@ -3253,6 +3255,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3260,6 +3263,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3267,6 +3271,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3274,6 +3279,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3281,6 +3287,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3288,6 +3295,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3295,6 +3303,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -3302,6 +3311,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     //Question#2
@@ -3314,6 +3324,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
@@ -3324,6 +3335,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
@@ -3334,6 +3346,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3344,6 +3357,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3354,6 +3368,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3364,6 +3379,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3374,6 +3390,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3384,6 +3401,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3394,6 +3412,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -3404,6 +3423,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     //Question#3
@@ -3414,6 +3434,7 @@ async function seed() {
       userInput: "Loffler's syndrome",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
@@ -3421,6 +3442,7 @@ async function seed() {
       userInput: "Loffler's syndrome",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
@@ -3428,6 +3450,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3435,6 +3458,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3442,6 +3466,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3449,6 +3474,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3456,6 +3482,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3463,6 +3490,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3470,6 +3498,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -3477,6 +3506,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     //Question#4
@@ -3486,6 +3516,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 2,
@@ -3493,6 +3524,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 3,
@@ -3500,6 +3532,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 4,
@@ -3507,6 +3540,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 5,
@@ -3514,6 +3548,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 6,
@@ -3521,6 +3556,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 7,
@@ -3528,6 +3564,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 8,
@@ -3535,6 +3572,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 9,
@@ -3542,6 +3580,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
     User_Question.create({
       userId: 10,
@@ -3549,6 +3588,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      level: "Easy",
     }),
 
     //Question#5
@@ -3559,6 +3599,7 @@ async function seed() {
       userInput: "Germ cell origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 2,
@@ -3566,6 +3607,7 @@ async function seed() {
       userInput: "Germ cell origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 3,
@@ -3573,6 +3615,7 @@ async function seed() {
       userInput: "Germ cell origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 4,
@@ -3580,6 +3623,7 @@ async function seed() {
       userInput: "Lymphoid origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 5,
@@ -3587,6 +3631,7 @@ async function seed() {
       userInput: "Lymphoid origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 6,
@@ -3594,6 +3639,7 @@ async function seed() {
       userInput: "Lymphoid origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 7,
@@ -3601,6 +3647,7 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 8,
@@ -3608,6 +3655,7 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 9,
@@ -3615,6 +3663,7 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 10,
@@ -3622,6 +3671,7 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
 
     //Quesion#6
@@ -3631,6 +3681,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 2,
@@ -3638,6 +3689,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 3,
@@ -3645,6 +3697,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 4,
@@ -3652,6 +3705,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 5,
@@ -3659,6 +3713,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 6,
@@ -3666,6 +3721,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 7,
@@ -3673,6 +3729,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 8,
@@ -3680,6 +3737,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 9,
@@ -3687,6 +3745,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      level: "Hard",
     }),
     User_Question.create({
       userId: 10,
@@ -3694,6 +3753,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      level: "Hard",
     }),
 
     //Question#7
@@ -3703,6 +3763,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
@@ -3710,6 +3771,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
@@ -3717,6 +3779,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3724,6 +3787,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3731,6 +3795,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3738,6 +3803,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3745,6 +3811,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3752,6 +3819,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3759,6 +3827,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -3766,6 +3835,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     //Question#8
@@ -3775,6 +3845,7 @@ async function seed() {
       userInput: "The disease affects men much more often than women.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
@@ -3782,6 +3853,7 @@ async function seed() {
       userInput: "The disease affects men much more often than women.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
@@ -3789,6 +3861,7 @@ async function seed() {
       userInput: "The disease affects men much more often than women.",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3799,6 +3872,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3809,6 +3883,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3819,6 +3894,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3829,6 +3905,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3839,6 +3916,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3849,6 +3927,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -3859,6 +3938,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     //Question#9
@@ -3868,13 +3948,15 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
       questionAnswerId: 9,
       userInput: "6-minute walk test",
       answered: "wrong",
-      userExpertise: "Student",
+      userExpertise: "Student",level: "Moderate",
+
     }),
     User_Question.create({
       userId: 3,
@@ -3882,6 +3964,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3889,6 +3972,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3896,6 +3980,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3903,6 +3988,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3910,6 +3996,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3917,6 +4004,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3924,6 +4012,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -3931,6 +4020,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     //Question#10
@@ -3941,6 +4031,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 2,
@@ -3948,6 +4039,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 3,
@@ -3955,6 +4047,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 4,
@@ -3962,6 +4055,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 5,
@@ -3969,6 +4063,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 6,
@@ -3976,6 +4071,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 7,
@@ -3983,6 +4079,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 8,
@@ -3990,6 +4087,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 9,
@@ -3997,6 +4095,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
     User_Question.create({
       userId: 10,
@@ -4004,6 +4103,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      level: "Moderate",
     }),
 
     // User_Question.create({
