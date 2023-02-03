@@ -42,7 +42,9 @@ const singleQuestion = () => {
         answered: selectedOption === correctAnswer ? 'right' : 'wrong',
         category: category,
         level: level
-      })).then(() => dispatch(fetchSingleQuestion(singleQuestionId)))
+      }))
+      .then(() => dispatch(fetchSingleQuestion(singleQuestionId)))
+      .then(() => dispatch(fetchUserQuestions(userId)))
   };
 
 
