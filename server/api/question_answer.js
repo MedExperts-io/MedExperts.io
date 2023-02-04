@@ -56,13 +56,13 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         res.json(allVersions);
       } else {
         //Condition 2B - IF STUDENT
-
         if (singleQuestion.user_questions.length) {
           //Condition 3A - If student has responded to question
           res.json(singleQuestion);
         } else {
           //Condition 3B - If student has not yet responded
           const {
+            id,
             question,
             questionImage,
             answerOptions,
@@ -71,6 +71,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             ancestorId,
           } = singleQuestion;
           res.json({
+            id,
             question,
             questionImage,
             answerOptions,
