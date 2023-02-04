@@ -2711,7 +2711,7 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/2556234/" target="_blank">Lieberman J. Enzymes in sarcoidosis. Angiotensin-converting-enzyme (ACE). Clin Lab Med. 1989 Dec;9(4):745-55. PMID: 2556234</a>`,
       ],
       level: "Easy",
-      category: "Interstitial Lung Disease",
+      category: "Interstitial Lung Diseases",
     }),
 
     //Q106
@@ -2819,8 +2819,8 @@ async function seed() {
         `<a href="https://pubmed.ncbi.nlm.nih.gov/21333967/" target="_blank">Rasmussen SA, Kissin DM, Yeung LF, et al. Preparing for influenza after 2009 H1N1: special considerations for pregnant women and newborns. American journal of obstetrics and gynecology 2011; 204:S13-20. </a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/31192211/" target="_blank">Principi N, Camilloni B, Alunno A, Polinori I, Argentiero A, and Esposito S. Drugs for Influenza Treatment: Is There Significant News? Frontiers in medicine 2019; 6:109. </a>`,
       ],
-      level: "Easy",
-      category: "Pulmonary Function",
+      level: "Moderate",
+      category: "Infection",
     }),
 
     //Q111
@@ -2849,6 +2849,71 @@ async function seed() {
       level: "Hard",
       category: "Pulmonary Function Testing",
     }),
+
+    //Q112
+    Question_Answer.create({
+      question: `A 60-year-old woman comes to the clinic with complaints of shortness of breath. For the past few months, the patient had difficulty combing her hair. She also felt more fatigued than usual. The patient takes losartan for hypertension and sertraline for depression. Last month, she started taking a statin for hypercholesterolemia. She drinks a glass of wine daily. On physical examination, there is scaling and hyperkeratosis on the palmar surfaces of the patient’s hands and fingers. Chest X-rays show mild interstitial infiltrates. Patient lab results show increased ESR and CK. Which of the following should be suspected in this patient?`,
+      questionImage: [],
+      answerOptions: [
+        `Polymyalgia rheumatica`,
+        `Antisynthetase syndrome`,
+        `Statin induced myopathy`,
+        `Hypothyroid myopathy`,
+      ],
+      correctAnswer: `Antisynthetase syndrome`,
+      explanation: `Antisynthetase syndrome: The scaling and hyperkeratosis on the hands described in the patient case above, also known as mechanic’s hands, are pathognomonic for antisynthetase syndrome. Anti-synthetase syndrome is an autoimmune condition characterized by the presence of autoantibodies against tRNA synthetases. Other major antibodies possibly seen in this syndrome include Jo 1 Antisynthetase antibodies and anti-Jo 1 antisynthetase antibodies [1]. Usually, patients with Jo 1 Antisynthetase antibodies present differently as compared to those with Jo1 antisynthetase antibodies. For example, myositis and patient survival is more commonly seen in patients with Jo-1 antisynthetase antibodies. This difference in survival is seen due to delayed diagnosis in the patients with anti-Jo-1antisynthetase antibodies. These antibodies don’t disappear even after treatment with immunosuppressive drugs therefore these diagnostic tests are useful even after the patient is being treated [2]. In addition to the mechanic's hands, these patients can also present with unexplained fever, myositis, ILD, Raynaud phenomenon non non-erosive arthritis [1, 3]. Additionally, these patients commonly have elevated CK and ESR, as seen above; however, these biomarkers are non-specific [1]. Patients with this syndrome have higher incidence of involvement of lungs causing interstitial lung disease as compared to myositis such as dermatomyositis and polymyositis. These patients may have ground glass opacity and reticular infiltration on HRCT. ILD seen in these patients is more severe and progresses rapidly. It also carries an increased risk of developing pulmonary hypertension, causing increased morbidity and mortality in this population. Also, there is an increased risk of malignancy in patients with dermatomyositis. For treating these patients, corticosteroids were used but after a certain period of time it was noticed that patients having monotherapy with steroids have recurrence of lung disease with tapering of immunosuppressive medications [1,3]. Statin induced myopathy: Statin induced myopathy can cause proximal muscle. But these patients take Statin for a few years unlike this patient. These patients have normal ESR and increase in CK. However, CK levels can be elevated even in the absence of myopathy, therefore it is not a specific marker for statin induced myopathy [4]. It has been reported that LDH is also a sensitive marker of statin related membrane damage, but its clinical utility is still not validated [5]. 
+      Polymyalgia rheumatica is seen in patients above 50.Patients have mild muscle tenderness with decreased range of motion at shoulder, neck, and hip. These patients have more muscle stiffness than muscle pain. Patients with PMR have an increase in ESR but normal CK. These patients respond rapidly to glucocorticoid [6]. Polymyalgia rheumatica is most commonly seen in association with giant cell arteritis. Hypothyroid patients can have proximal muscle pain. These patients have normal ESR and increase in CK. This increased creatinine can be due to myofiber degeneration and decrease clearance of creatinine. Relaxation in hypothyroid myopathy can be due to shift of muscle fiber type from fast twitch to slow twitch fiber [7]. For treating these patients, levothyroxine is used which results in complete resolution of myopathy in a few months [7].`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27594777/" target="_blank">Witt LJ, Curran JJ, Strek ME. The Diagnosis and Treatment of Antisynthetase Syndrome. Clinical pulmonary medicine 2016;23:218-26.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23422076/" target="_blank">Aggarwal R, Cassidy E, FertigN, et al. Patients with non-Jo-1 anti-tRNA-synthetase autoantibodies have worse survival than Jo-1 positive patients. Ann Rheum Dis;73:227-32.3.Katzap E, Barilla-LaBarca ML, Marder G. Antisynthetase syndrome. Current rheumatology reports 2011;13:175-81.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/22001973/" target="_blank">Tomaszewski M, Stepien KM, Tomaszewska J, Czuczwar SJ. Statin-induced myopathies. Pharmacological reports : PR 2011;63:859-66.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27634340/" target="_blank">Muntean DM, Thompson PD, Catapano AL, et al. Statin-associated myopathy and the quest for biomarkers: can we effectively predict statin-associated muscle symptoms? Drug discovery today2017;22:85-96.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30297332/" target="_blank">Partington RJ, Muller S, Helliwell T, Mallen CD, Abdul Sultan A. Incidence, prevalence and treatment burden of polymyalgia rheumatica in the UK over two decades: a population-based study.Annals of rheumatic diseases 2018;77:1750-6.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31352397/" target="_blank">Jervis W, Shah N, Mongolu SK, Sathyapalan T. Severe proximal myopathy secondary to Hashimoto's thyroiditis. BMJ case reports 2019;12</a>`,
+      ],
+      level: "Hard",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    // //Q113
+    // Question_Answer.create({
+    //   question: ``,
+    //   questionImage: [],
+    //   answerOptions: [``, ``, ``, ``],
+    //   correctAnswer: ``,
+    //   explanation: ``,
+    //   explanationImage: [],
+    //   explanationLinks: [`<a href="" target="_blank"></a>`],
+    //   level: "Moderate",
+    //   category: "Critical Care",
+    // }),
+
+    // //Q114
+    // Question_Answer.create({
+    //   question: ``,
+    //   questionImage: [],
+    //   answerOptions: [``, ``, ``, ``],
+    //   correctAnswer: ``,
+    //   explanation: ``,
+    //   explanationImage: [],
+    //   explanationLinks: [`<a href="" target="_blank"></a>`],
+    //   level: "Moderate",
+    //   category: "Infection",
+    // }),
+
+    // //Q115
+    // Question_Answer.create({
+    //   question: ``,
+    //   questionImage: [],
+    //   answerOptions: [``, ``, ``, ``],
+    //   correctAnswer: ``,
+    //   explanation: ``,
+    //   explanationImage: [],
+    //   explanationLinks: [`<a href="" target="_blank"></a>`],
+    //   level: "Easy",
+    //   category: "Mediastinal Disorders",
+    // }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
