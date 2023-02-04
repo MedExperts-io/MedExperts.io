@@ -2625,6 +2625,246 @@ async function seed() {
       category: "Pulmonary Function Testing",
     }),
 
+    //Q102
+    Question_Answer.create({
+      question: `You note that in Contrast to men, the predominant risk factor for sleep apnea in women is`,
+      questionImage: [],
+      answerOptions: [
+        `Family history`,
+        `Body mass index (BMI)`,
+        `Postmenopausal State`,
+        `Nasal obstruction`,
+      ],
+      correctAnswer: `Postmenopausal State`,
+      explanation: `Obstructive sleep apnea is a disorder caused by repetitive sleep-induced collapse of the pharyngeal airway. One of the predominant risk factors for sleep apnea in women is postmenopausal state due to progesterone levels. Progesterone is a powerful respiratory stimulant that prevents sleep disturbances and can help stabilize nocturnal breathing. Also, when progesterone increases respiratory drive, airways are protected due to enhancement of upper airway dilator muscle activity. In reverse, when progesterone increases ventilatory drive there is a risk of upper air collapse.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/9480969/" target="_blank">Popovic RM, White DP. Upper airway muscle activity in normal women: influence of hormonal status. J Appl Physiol 1998; 84: 1055–1062.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21289261/" target="_blank">Caufriez A, Leproult R, L'Hermite-Balériaux M, et al. Progesterone prevents sleep disturbances and modulates GH, TSH, and melatonin secretion in postmenopausal women. J Clin Endocrinol Metab 2011; 96: E614–E623.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/9480969/" target="_blank">Popovic RM, White DP. Upper airway muscle activity in normal women: influence of hormonal status. J Appl Physiol 1998; 84: 1055–1062</a>`,
+      ],
+      level: "Moderate",
+      category: "Sleep",
+    }),
+
+    //Q103
+    Question_Answer.create({
+      question: `Tranexamic acid is used to  control  active hemorrhage .  Which of the following is false regarding the use of tranexamic acid  when used to control active hemorrhagic processes?`,
+      questionImage: [],
+      answerOptions: [
+        `It can decrease mortality in surgical trauma patients with bleeding`,
+        `It inhibits the interaction of plasminogen with fibrin`,
+        `Nebulized tranexamic when used to treat hemoptysis does not decrease the need for Interventional pulmonary or Interventional Radiology procedure`,
+        `It is a derivative of the AA lysine `,
+      ],
+      correctAnswer: `Nebulized tranexamic when used to treat hemoptysis does not decrease the need for Interventional pulmonary or Interventional Radiology procedure`,
+      explanation: `Tranexamic acid is an antifibrinolytic drug that has become progressively more commonly used in the surgical field. It works by blocking the lysine binding site in plasminogen and prevents its binding to fibrin. It has substantial benefit in decreasing the risk of death in both surgical trauma patients as well as decreasing the risk of hemorrhage related death in postpartum patients [1]. It has shown  efficacy in a range of bleeding complications if given early in the course. The risk of thromboembolic disease does not appear to be increased with treatment. 
+      Management of active Hemoptysis  typically  requires  reversing any coagulopathy in addition to  maintaining oxygenation of the patient. However persistent or significant bleeding will usually require invasive measures to both localize and treat the source of bleeding (including cold saline, topical epinephrine, balloon tamponade and argon plasma coagulation) .Nebulized Tranexamic acid has also been used to treat active hemoptysis.  
+      Wand et.al. studied  nebulized tranexamic acid in patients without massive hemoptysis or respiratory insufficiency[2]  . Resolution of hemoptysis at 5 days was substantially higher compared to placebo. There was also decreased need for bronchoscopy or angiographic embolization. This appears to be a useful option in stable patients with hemoptysis.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/25797505/" target="_blank">Ng W, Jerath A, Wąsowicz M. Tranexamic acid: a clinical review. Anaesthesiol Intensive Ther. 2015;47(4):339-50</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30321510/" target="_blank">Wand O, Guber E, Guber A, et.al. Inhaled Tranexamic Acid for Hemoptysis Treatment: A Randomized Controlled Trial. Chest. 2018 Dec;154(6):1379-1384</a>`,
+      ],
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //Q104
+    Question_Answer.create({
+      question: `An 85 -year-old man underwent right hip replacement one week ago and now has been transferred back from the rehabilitation nursing home with swelling of right leg to the emergency room. No h/o nausea, vomiting. He does complain of pain in the right calf region. His nursing home records reveal temp of 39 degree centigrade, pulse 107/min, regular, blood pressure 120/70, and oxygen saturation 94% at room air.   He has no past history of deep vein thrombosis.  You suspect the patient has pulmonary embolism [PE]. Which of the following is the most appropriate test at this time?`,
+      questionImage: [],
+      answerOptions: [
+        `Transesophageal echocardiography`,
+        `CT angiography of the chest`,
+        `Chest X ray`,
+        `D-dimer assay`,
+      ],
+      correctAnswer: `CT angiography of the chest`,
+      explanation: `Of all the given choices multidetector CT angiography seems most appropriate. Its clinical validity for diagnosing pulmonary embolism is the same as that of pulmonary angiography or ventilation perfusion scanning.  CT angiogram also helps detect alternative diagnoses (pneumonia, pleural effusion etc.)  The chests X-ray   is negative in patients with PE. D-dimer is a fibrin degradation product, a small protein fragment detectable in blood after blood clot is degraded   by fibrinolysis. It is more useful for ruling out venous thromboembolism and positive results are not that helpful. D-dimers can also be positive in patients with impaired renal function, post-operative period, atrial fibrillation etc. Hence, D-dimers will not be useful in the present scenario. Transesophageal echocardiography may reveal right ventricle dysfunction but is not helping in diagnosing pulmonary embolism.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16738268/" target="_blank">Stein PD. Multidetector Computed Tomography for Acute Pulmonary Embolism.N Engl J Med 2006; 354:2317-2327</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15096330/" target="_blank">Stein PD. D-dimer for the exclusion of acute venous thrombosis and pulmonary embolism: a systematic review. Ann Intern Med.2004;140(8):589-602</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/2332918/" target="_blank">The PIOPED Investigators.  Value of the ventilation/perfusion scan in acute pulmonary embolism. Results of the prospective investigation of pulmonary embolism diagnosis (PIOPED).</a>`,
+      ],
+      level: "Easy",
+      category: "Pulmonary Vascular Disease",
+    }),
+
+    //Q105
+    Question_Answer.create({
+      question: `Serum ACE level is not increased in which of the following:`,
+      questionImage: [],
+      answerOptions: [
+        `Berylliosis`,
+        `Silicosis`,
+        `Sarcoidosis`,
+        `Bronchogenic Carcinoma`,
+      ],
+      correctAnswer: `Bronchogenic Carcinoma`,
+      explanation: `Angiotensin converting enzyme (ACE) is an enzyme that converts angiotensin I to angiotensin II. ACE indirectly causes higher blood pressure as it produces a substance that narrows your blood vessels leading to constriction. Higher levels of ACE can be used in diagnosing sarcoidosis but is not a specific finding. Other diseases associated with higher ACE levels include, alcoholic cirrhosis, primary biliary cirrhosis, inflammatory bowel disease, coccidioidomycosis, berylliosis, histoplasmosis, silicosis, asbestosis, hyperthyroidism and miliary tuberculosis. 
+ 
+      Low levels of ACE have been seen with bronchogenic carcinoma.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/2556234/" target="_blank">Lieberman J. Enzymes in sarcoidosis. Angiotensin-converting-enzyme (ACE). Clin Lab Med. 1989 Dec;9(4):745-55. PMID: 2556234</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Disease",
+    }),
+
+    //Q106
+    Question_Answer.create({
+      question: `Which of the following relationships between Obesity [BMI > 30] and atrial fibrillation are true?`,
+      questionImage: [],
+      answerOptions: [
+        `Left Atrial size has no relation to BMI`,
+        `Left ventricular diastolic dysfunction is not more common in obese patients`,
+        `Obesity predicts progression of paroxysmal AF to permanent AF`,
+        `There is no relationship between AF recurrence after electro cardioversion and obesity`,
+      ],
+      correctAnswer: `Obesity predicts progression of paroxysmal AF to permanent AF`,
+      explanation: `Obesity is strongly correlated to left atrial size. LA enlargement predicts the development of atrial fibrillation.  Obesity also predicts development of left ventricular diastolic dysfunction which is also correlated with AF.  Obesity increases the risk of AF recurrence after electro cardioversion and also seems to increase the risk of progression of paroxysmal AF to permanent AF. Of all the components of metabolic syndrome [obesity type 2 diabetes mellitus dyslipidemia hypertension] obesity seems to be most strongly related to development of AF.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/19460605/" target="_blank">Lavie CJ. Obesity and cardiovascular disease: risk factor, paradox, and impact of weight loss. J Am Coll Cardiol 2009; 53(21):1295-32</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23541013/" target="_blank">Menzes AR. Atrial fibrillation in the 21st century: a current understanding of risk factors and primary prevention strategies. Mayo Clin Proc; 2013 Apr;88(4):394-409</a>`,
+      ],
+      level: "Easy",
+      category: "Sleep",
+    }),
+
+    //Q107
+    Question_Answer.create({
+      question: `A 32-year-old woman presents with chest pain and exertional dyspnea of 8 days duration. Her medical history is significant for a normal spontaneous vaginal delivery two months ago, after which she has had frequent episodes of dark bloody vaginal discharge. The most recent bleeding episode was 2days ago. The patient denies fever, chills, hemoptysis, dyspnea, or leg pain. She was a smoker in her teenage years but quit 10 years ago. She is a social drinker but denies use of any illicit drugs. Her temperature is 37.5°C, pulse is 88/min, blood pressure is 110/72 mm Hg and respirations are 18/min. Examination shows clear lungs. Pelvic examination shows an enlarged uterus. Complete blood count and serum electrolytes are within normal limits. CT chest identifies 5 pulmonary nodules in the lung fields the largest is 3.5 cm in size. In addition, there are two liver nodules that are 1.0 cm in size. Which of the following investigations will be most helpful in establishing diagnosis?`,
+      questionImage: [],
+      answerOptions: [
+        `CT guided of the liver nodule`,
+        `Stress Echocardiogram`,
+        `Quantitative beta HCG`,
+        `Pulmonary function tests`,
+        `CT guided biopsy of the largest lung nodules`,
+      ],
+      correctAnswer: `Quantitative beta HCG`,
+      explanation: `Gestational trophoblastic disease (GTD) is a heterogeneous group of diseases arising from an abnormal proliferation of trophoblastic tissue and includes hydatidiform mole, choriocarcinoma, placental site trophoblastic tumor (PSTT) and epithelioid trophoblastic tumor (ETT). Abnormal uterine bleeding (AUB) may be part of the clinical presentation after pregnancy. The lung is the most common site of metastases. Patients with GTD, particularly invasive mole or choriocarcinoma, may have high hCG levels.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15196847/" target="_blank">Soper JT, Mutch DG, Schink JC; American College of Obstetricians and Gynecologists. Diagnosis and treatment of gestational trophoblastic disease: ACOG Practice Bulletin No. 53. Gynecol Oncol. 2004 Jun;93(3):575-85.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30306586/" target="_blank">Ngan HYS, Seckl MJ, Berkowitz RS, Xiang Y, Golfier F, Sekharan PK, Lurain JR, Massuger L. Update on the diagnosis and management of gestational trophoblastic disease. Int J Gynaecol Obstet. 2018 Oct;143 Suppl 2:79-85</a>`,
+      ],
+      level: "Hard",
+      category: "Lung Cancer",
+    }),
+
+    //Q108
+    Question_Answer.create({
+      question: `A 33-year-old man comes to the clinic with complaints of shortness of breath associated with coughing for the past month. Patient drinks two cans of beer every day and smokes half a pack for the past 12 years. On physical examination, patient is afebrile, blood pressure 125/85mmH g, respiratory rate-18 breaths/min, pulse is 86 beats/min and regular and pulse oximetry 92% on room air. Cardiovascular examination shows normal S1, S2 and no murmurs. On auscultation of the lungs, crackles are heard on the left base. Chest x-ray and the representative CT Scan films  are provided.  Broncho alveolar lavage reveals 55% lipid laden macrophages and 40% lymphocytes. Based on these findings, what is possible diagnosis?`,
+      questionImage: [
+        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q108/Q108+img1.png",
+        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q108/Q108+img2.png",
+      ],
+      answerOptions: [
+        `Eosinophilic pneumonia`,
+        `Bacterial pneumonia`,
+        `Hypersensitivity pneumonitis`,
+        `Acute lipoid pneumonia`,
+      ],
+      correctAnswer: `Acute lipoid pneumonia`,
+      explanation: `Lipoid pneumonia is most commonly reported after aspiration of ingested mineral oil. Patients presenting with this condition typically have a history of e-cigarette usage containing nicotine, and marijuana oil or concentrate. CT scan finding of lipoid pneumonia will show ground-glass opacities, crazy paving pattern, interlobular thickening and nodular consolidation. Flexible bronchoscopy with bronchoalveolar lavage (BAL) can be helpful in diagnosing acute lipoid pneumonia, which can show lipid laden macrophages present in this patient. Corticosteroid therapy has been proven to benefit patients. Acute eosinophilic pneumonia (AEP) typically presents with patients with progressive dyspnea less than one month and chest imaging of diffuse parenchymal opacities. Diagnosis established with BAL typically show eosinophilia (>25%  eosinophils). Management of AEP includes supportive care with oxygen, empiric antibiotics until available culture results and systemic glucocorticoid therapy. The Chest X ray in  Bacterial Pneumonia will show  lobar consolidation.. Treatment in these cases should be aimed at managing the underlying infection. Hypersensitivity pneumonitis is an immune-mediated reaction in response to the inhalation of various antigens containing organic dust and chemicals. In acute cases, chest CT may reveal ground-glass opacities with mosaic pattern. In chronic cases, chest CT is more likely to show a reticular pattern of fibrosis, air trapping and bronchiectasis. BAL may show lymphocytosis. 
+      Patients with subacute Hypersensitivity pneumonitis will benefit from corticosteroids. Patients with chronic Hypersensitivity pneumonitis  may require immunosuppression treatment.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31583455/" target="_blank">Dicpinigaitis PV, Trachuk P, Fakier F, Teka M, Suhrland MJ. Vaping-Associated Acute Respiratory FailureDue to Acute Lipoid Pneumonia. Lung 2019.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16434894/" target="_blank">Churg A, Muller NL, Flint J, Wright JL. Chronic hypersensitivity pneumonitis. The American journal of surgical pathology 2006;30:201-8.4.</a>`,
+      ],
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //Q109
+    Question_Answer.create({
+      question: `A 63-year-old mechanic comes to the emergency room accompanied by his wife complaining of high fever, malaise, and nausea since morning. He became weak and could not get out of bed by himself. He has a history of type 2 Diabetes Mellitus. He drinks 2 glasses of wine daily. Temperature 101.1F, blood pressure 135/85, and pulse 110/min. Pulse oximetry is 94% on room air. Cardiac examination was normal except tachycardia /Chest X-ray shows interstitial infiltrates, Laboratory results were normal. Patient had a positive rapid flu test and was diagnosed with influenza and was started with a drug and viral titer were sent. Which of the following drugs show maximum reduction in viral titers in less than 24 hours?`,
+      questionImage: [],
+      answerOptions: [`Favipiravir`, `Baloxavir`, `Pimodivir`, `Oseltamivir`],
+      correctAnswer: `Baloxavir`,
+      explanation: `Influenza is a highly contagious virus. The major viral glycoproteins that help the virus to enter the target cell are hemagglutinin and neuraminidase. There are several drugs being used to target these virulence factors. Oseltamivir is the drug of choice to treat influenza. Oseltamivir is a neuraminidase inhibitor that prevents the release of viral particles from the infected cell. Typically, 75 mg BID for 5 days is sufficient to reduce the duration of symptoms, however the exact dosage may vary depending upon comorbid conditions [1,2]. It has peak efficacy if given within 48 hours of symptom onset, though studies have shown its efficacy even when given beyond this window [3]. Oseltamivir takes 5 days to reduce the viral load [1]. As symptoms of influenza can range from mild to severe, trials have been conducted to find a drug that decreases viral load in fewer days.  Studies show that baloxavir decreases viral load within 24 hours with a single dose of 40mg for weight <80 kg and 80 mg for weight >80 kg patients [ 4]. Patients who take baloxavir within 24 hours of symptom onset have greater benefit from the drug compared to those who start later [4],[5]. Baloxavir inhibits cap-dependent endonuclease activity of influenza polymerase, blocking the ability of viruses to make copies of itself within an infected cell. It is indicated for treatment of acute uncomplicated Influenza in patients above the age of 12 who have symptoms for no more than 48 hours [4]. Favipiravir is efficacious within the first 96 hours of symptom onset; however, it is less effective within the first 24 hours when compared to baloxavir [5]. Favipravir inhibits viral replication through selective inhibition of viral RNA polymerase. When compared to a standard regimen of treatment TID, favipiravir was shown to be more efficacious using 1800mg BID on day 1 and 800 mg BID on days 2-5[4]. Pimodivir is still in phase 3 testing [4]. Pimodivir works by inhibiting the polymerase basic protein 2 (PB2) cap-binding subunit of influenza A [4]. A dose of 600 mg BID for 5 days has been shown to decrease viral load in adult patients with acute, uncomplicated seasonal influenza A [4].`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24268590/" target="_blank">Fry AM, Goswami D, Nahar K, et al. Efficacy of oseltamivir treatment started within 5 days of symptom onset to reduce influenza illness duration and virus shedding in an urban setting in Bangladesh: a randomised placebo-controlled trial. The Lancet Infectious diseases 2014; 14:109-18.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/20215131/" target="_blank">Dutkowski R. Oseltamivir in seasonal influenza: cumulative experience in low- and high-risk patients. The Journal of antimicrobial chemotherapy 2010;65 Suppl 2:ii11-ii24.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31192211/" target="_blank"> Principi N, Camilloni B, Alunno A, Polinori I, Argentiero A, and Esposito S. Drugs for Influenza Treatment: Is There Significant News? Frontiers in medicine 2019;6:109.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30724789/" target="_blank">Hayden FG, Shindo N. Influenza virus polymerase inhibitors in clinical development. Current opinion in infectious diseases 2019; 32:176-86.  </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30675086/" target="_blank">Ng KE. Xofluza (Baloxavir Marboxil) for the Treatment of Acute Uncomplicated Influenza. P & T: a peer-reviewed journal for formulary management 2019; 44:9-11.  </a>`,
+      ],
+      level: "Hard",
+      category: "Infection",
+    }),
+
+    //Q110
+    Question_Answer.create({
+      question: `35-year-old pregnant female was brought to the clinic with her friend complaining of high fever, vomiting and malaise. The patient had a cough for 3 days. The patient is working at a kindergarten. The patient had a normal pregnancy till date. Patients used to drink a can of beer a day for 10 years but stopped after conceiving. Temperature 101.2 F, blood pressure 125/82, and pulse 105/min. Pulse oximetry is 97% at room air. Cardiac examination was normal except for tachycardia. Chest X-ray shows mild interstitial filtrates. Laboratory results were normal. Patient was diagnosed with Influenza after a positive rapid flu test.   
+      Which of the following is drug of choice in this patient?`,
+      questionImage: [],
+      answerOptions: [`Favipiravir`, `Zanamivir`, `Peramivir`, `Oseltamivir`],
+      correctAnswer: `Oseltamivir`,
+      explanation: `Pregnant and postpartum women with influenza are more likely to develop severe illness than the general population. It is thought to be due to physiological changes such as increase in heart rate and oxygen consumption, decrease in lung capacity and changes in cell mediated immunity. Some studies have shown that influenza virus can cross the placenta via inducing apoptosis in chorion cells [1]. There is a minor role of Trans placental transmission of autoantibodies, though adverse effects are noticed even in absence of this transmission [2]. Due to this severity, inactivated influenza vaccine is given regardless of the trimester of pregnancy [3]. In addition to this empiric treatment is started. Due to low risk of resistance and better systemic absorption, oseltamivir is the drug of choice in pregnancy [4]. Oseltamivir is a neuraminidase inhibitor that prevents the release of viral particles from the infected cell. Besides pregnant women, it can also be given to high-risk patients such as children below the age of 12, to elders above the age of 65 patients with complications, up to 2 weeks of postpartum within 48 hours [5].  Though side effects such as nausea, vomiting and unusual behavior, and confusion can be seen [5]. Another drug that can be used for treatment in pregnancy is zanamivir [ 4].  Zanamivir binds to neuraminidase protein and decrease the ability of virus to leave host cell and infect other cells. Due to the respiratory complications that are associated with zanamivir, it is contraindicated in asthma and COPD patients [6]. The drug which is an absolute contraindication in females of childbearing age is favipiravir. It inhibits viral replication through selective inhibition of viral RNA polymerase as it is detected in breast milk. Therefore, females should avoid pregnancy for 7 days following the drug use to eliminate the drug from plasma [7]. Peramivir is also a neuraminidase inhibitor that prevents release of viral particle from infected cell. Data regarding Permamvir use in pregnancy is still and testing.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24899469/" target="_blank">Raj RS, Bonney EA, Phillippe M. Influenza, immune system, and pregnancy. Reproductive sciences 2014; 21:1434-51.  </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/11028582/" target="_blank">Irving WL, James DK, Stephenson T, et al. Influenza virus infection in the second and third trimesters of pregnancy: a clinical and seroepidemiological study. BJOG: an international journal of obstetrics and gynaecology 2000; 107:1282-9.  </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30141464/" target="_blank">Grohskopf LA, Sokolow LZ, Broder KR, Walter EB, Fry AM, Jernigan DB. Prevention and Control of Seasonal Influenza with Vaccines: Recommendations of the Advisory Committee on Immunization Practices-United States, 2018-19 Influenza Season. MMWR Recommendations and reports: Morbidity and mortality weekly report Recommendations and reports 2018; 67:1-20.  </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21248682/" target="_blank">Fiore AE, Fry A, Shay D, et al. Antiviral agents for the treatment and chemoprophylaxis of influenza --- recommendations of the Advisory Committee on Immunization Practices (ACIP). MMWR Recommendations and reports: Morbidity and mortality weekly report Recommendations and reports 2011; 60:1-24.  </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/20215131/" target="_blank">Dutkowski R. Oseltamivir in seasonal influenza: cumulative experience in low- and high-risk patients. The Journal of antimicrobial chemotherapy 2010; 65 Suppl 2:ii11-ii24.  </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21333967/" target="_blank">Rasmussen SA, Kissin DM, Yeung LF, et al. Preparing for influenza after 2009 H1N1: special considerations for pregnant women and newborns. American journal of obstetrics and gynecology 2011; 204:S13-20. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31192211/" target="_blank">Principi N, Camilloni B, Alunno A, Polinori I, Argentiero A, and Esposito S. Drugs for Influenza Treatment: Is There Significant News? Frontiers in medicine 2019; 6:109. </a>`,
+      ],
+      level: "Easy",
+      category: "Pulmonary Function",
+    }),
+
+    //Q111
+    Question_Answer.create({
+      question: `A 56-year-old female presents for evaluation of worsening dyspnea on exertion and associated non-productive cough. She endorses a nonproductive cough on deep inspiration. Her past medical history is significant for diabetes mellitus and obstructive sleep apnea. Additionally, she endorses a 30-pack year history of tobacco usage. On physical exam, S1 and S2 are heard with no murmurs, rubs or gallops. She exhibits no signs of respiratory distress. Her lungs are clear to auscultation bilaterally. Her BMI is 47.37. Her pulmonary function testing results are shown below. A CT scan is obtained.What percentage of patients with the radiographically evident emphysema, as shown above, have normal spirometry findings? `,
+      questionImage: [
+        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q111/Q111+img1.png",
+        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q111/Q111+img2.png",
+      ],
+      answerOptions: [`5%`, `10%`, `20%`, `25%`],
+      correctAnswer: `10%`,
+      explanation: `This patient’s CT scan shows evidence of emphysema, a condition that falls under the umbrella of chronic obstructive pulmonary disease (COPD). In emphysema, damage to the airways ultimately causes irreversible limitations to airflow. A formal diagnosis of COPD is typically reached on the basis of clinical symptoms such as dyspnea and chronic productive or non-productive cough, as well as objective measures in the form of pulmonary function testing. The GOLD (Global Initiative for Chronic Obstructive Lung Disease) criteria is used to classify severity of COPD on the basis of the FEV1/FVC ratio. An FEV1/FVC ratio of <LLN indicates the presence of airflow limitation [1]. 
+ 
+      In some cases, a diagnosis of COPD cannot be reached solely on the basis of spirometry. As such, further investigation is warranted. Radiographic evidence of COPD can be seen using computed tomography as an objective means of assessing the lung parenchyma. Some individuals with COPD symptoms and evidence of emphysematous changes on chest CT, as seen in this patient, can have normal spirometry results on pulmonary function testing. Spirometry has been shown to be normal in approximately 10% of patients with clinically evident COPD on chest CT [2]. These patients are generally considered to have a milder form of the disease. 
+       
+      Obesity is another factor that may complicate the use of spirometry alone to elucidate causes of airflow limitation such as in COPD. A recent study shows that in those with radiographically evident COPD, obese patients, such as the one described above with a BMI of 47, had a more normal FEV1/FVC ratio on average when compared to non-obese patients. Regarding outcomes, studies have shown an “obesity paradox” in which patients with higher BMI had lower mortality in COPD [3]. Additionally, low BMI was shown to have a higher correlation with emphysema diagnosed on the basis of spirometry [4][5][6]. A clinician should be cognizant of this relationship between BMI and COPD outcomes when managing suspected COPD. These patients may warrant further investigation in the presence of seemingly normal pulmonary function testing results.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://goldcopd.org/" target="_blank">ACOS Guidelines 2017, https://goldcopd.org/ </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/25539080/" target="_blank">Lutchmedial SM, Creed WG, Moore AJ, et al. How common is airflow limitation in patients with emphysema on CT scan of the chest? Chest. 2015. Doi: 10.1378/chest.14-1556 </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24791257/" target="_blank">Galesanu RG, Bernard S, Marquis K, et al. Obesity and chronic obstructive pulmonary disease: Is fatter really better? Can Respir J 2014; 21 (5): 297-301.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21310838/" target="_blank">O’Donnell DE, Deesomchok A, Lam YM, et al. Effects of BMI on static lung vol- umes in patients with airway obstruction. Chest. 2011; 140(2):461-468</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/18852156/" target="_blank">Ogawa E, Nakano Y, Ohara T, et al. Body mass index in male patients with COPD: correlation with low attenuation areas on CT. Thorax. 2009; 64(1):20-25. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17573447/" target="_blank">Makita H, Nasuhara Y, Nagai K, et al; Hokkaido COPD Cohort Study Group. Characterisation of phenotypes based on severity of emphysema in chronic obstructive pulmonary disease. Thorax. 2007; 62(11):932-937. </a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+    // <--------------------Sample Layout------------------->
+    //   //Qx (sample layout)
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
     //----------------- Fake update to questionId 1 to test VCS (Remove after testing)--------------
     Question_Answer.create({
       question:
