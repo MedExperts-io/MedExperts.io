@@ -2,15 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import { Button, Card, Dropdown, Row, Col, DropdownButton } from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
+  const itemsPerPage = 12;
+  const [itemOffset, setItemOffset] = useState(0);
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
 
   const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
   const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
@@ -34,12 +39,25 @@ const QuestionsAnswers = () => {
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
+  const [seeFavorites, setSeeFavorites] = useState(true);
+
+  const onFavoriteSwitch = () => {
+    filterFunction();
+    setSeeFavorites(!seeFavorites);
+  };
   const loading = useSelector((state) => state.questionsAnswers.loading);
 
-  let filterCriteria = [currentDifficulty, currentCategory1, currentCategory2];
+  let filterCriteria = [currentDifficulty, currentCategory1];
 
   const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+  const easyQuestions = stateQuestions.filter((question) => question.level === "Easy");
+  const moderateQuestions = stateQuestions.filter((question) => question.level === "Moderate");
+  const hardQuestions = stateQuestions.filter((question) => question.level === "Hard");
+  const userEasyQuestions = userQuestions.filter((question) => question.level === "Easy" && question.userInput);
+  const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
+  const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
+
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -60,13 +78,23 @@ const QuestionsAnswers = () => {
       };
     }
   });
-  const listOfFavorites = userQuestions.filter((question) => question.favorite === true);
-  const allAnswered = userQuestions.length / allQuestions.length;
+  //const listOfFavorites = userQuestions.filter((question) => question.favorite === true);
+  //const allAnswered = userQuestions.length / allQuestions.length;
 
   // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
-  // console.log("filteredQuestions", filteredQuestions);
+
+  console.log("currentitems", currentItems);
+
+  const endOffset = itemOffset + itemsPerPage;
+  filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
+  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
+  //console.log(itemOffset, endOffset);
+
+  console.log("allQuestionsCheck", allQuestions);
+
+  console.log("filteredQuestions", filteredQuestions);
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -104,15 +132,22 @@ const QuestionsAnswers = () => {
     filterCriteria[1] = event;
     filterFunction();
   };
-  const pickCategory2 = (event) => {
-    setCurrentCategory2(event);
-    filterCriteria[2] = event;
-    filterFunction();
+
+  const handlePageClick = (event) => {
+    const newOffset = event.selected * itemsPerPage;
+    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+    setItemOffset(newOffset);
+    const endOffset = newOffset + itemsPerPage;
+    setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage));
+    setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
+    console.log("itemOffset", newOffset, endOffset, event.selected);
   };
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    const favoriteNumbers = listOfFavorites.map((question) => question.questionAnswerId);
+    let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
+    seeFavorites ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
+    multiFilter.length ? setCurrentItems(multiFilter.slice(itemOffset, endOffset)) : setCurrentItems("nada");
 
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
@@ -122,9 +157,9 @@ const QuestionsAnswers = () => {
       }
     }
     console.log("filterQuestions in filterFunction", multiFilter);
-    setfilteredQuestions(multiFilter);
-    //multiFilter.length ? setCurrentItems(multiFilter.slice(itemOffset, endOffset)) : null;
-    //multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : null;
+    multiFilter.length ? setfilteredQuestions(multiFilter) : null;
+    multiFilter.length ? setCurrentItems(multiFilter.slice(itemOffset, endOffset)) : setCurrentItems("nada");
+    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     return multiFilter;
   };
 
@@ -143,17 +178,19 @@ const QuestionsAnswers = () => {
 
   return (
     <Container>
-      <Row style={{ marginTop: "30px", marginBottom: "30px" }}>
+      <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
         <Col></Col>
         <Col>
-          <div style={{ background: progressCircleBackground(0.3, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}>
-            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "200%" }}>33%</div>
+          <div
+            style={{ background: progressCircleBackground(userEasyQuestions.length / easyQuestions.length, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}
+          >
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userEasyQuestions.length / easyQuestions.length) * 100)}%</div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(0.5, "#f5ad27"),
+              background: progressCircleBackground(userModerateQuestions.length / moderateQuestions.length, "#f5ad27"),
               borderRadius: "50%",
               width: "120px",
               height: "120px",
@@ -161,13 +198,15 @@ const QuestionsAnswers = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "200%" }}>33%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
+              {Math.round((userModerateQuestions.length / moderateQuestions.length) * 100)}%
+            </div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(0.7, "#f55b49"),
+              background: progressCircleBackground(userHardQuestions.length / hardQuestions.length, "#f55b49"),
               borderRadius: "50%",
               width: "120px",
               height: "120px",
@@ -175,24 +214,33 @@ const QuestionsAnswers = () => {
             }}
           >
             {" "}
-            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "200%" }}>33%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userHardQuestions.length / hardQuestions.length) * 100)}%</div>
           </div>
         </Col>
         <Col>
-          <div style={{ background: progressCircleBackground(0.3, "#bf5eff"), borderRadius: "50%", width: "150px", height: "150px", marginTop: "-20px", position: "relative" }}>
-            <div style={{ position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "250%" }}>33%</div>
+          <div
+            style={{
+              background: progressCircleBackground(userQuestions.length / allQuestions.length, "#bf5eff"),
+              borderRadius: "50%",
+              width: "150px",
+              height: "150px",
+              marginTop: "-20px",
+              position: "relative",
+            }}
+          >
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round((userQuestions.length / allQuestions.length) * 100)}%</div>
           </div>
         </Col>
         <Col></Col>
       </Row>
-      <Row>
-        <Col style={{ marginBottom: "20px", fontSize: "200%" }}>
+      <Row style={{ marginBottom: "20px", fontSize: "200%" }}>
+        <Col>
           {currentDifficulty} & {currentCategory1}
         </Col>
       </Row>
       <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
-        <Col>
-          <Dropdown style={{ marginRight: "20px" }} onSelect={(event) => pickDifficulty(event)}>
+        <Col md="auto">
+          <Dropdown onSelect={(event) => pickDifficulty(event)}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               {currentDifficulty}
             </Dropdown.Toggle>
@@ -206,7 +254,7 @@ const QuestionsAnswers = () => {
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-        <Col>
+        <Col md="auto">
           <Dropdown onSelect={(event) => pickCategory1(event)}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               {currentCategory1}
@@ -222,26 +270,23 @@ const QuestionsAnswers = () => {
           </Dropdown>
         </Col>
 
-        {/* <Col>
-            <Dropdown onSelect={(event) => pickCategory2(event)}>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                {currentCategory2}
-              </Dropdown.Toggle>
+        <Col md="auto">
+          <Form>
+            <Form.Switch
+              onChange={() => onFavoriteSwitch()}
+              id="custom-switch"
+              label="Favorites Only"
+              checked={!seeFavorites}
 
-              <Dropdown.Menu>
-        {loading && <LoadingScreen />}
-
-                {categories.map((category) => (
-                  <Dropdown.Item eventKey={category}>{category}</Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col> */}
+              //disabled // apply if you want the switch disabled
+            />
+          </Form>
+        </Col>
       </Row>
       <Row>
         {loading && <LoadingScreen />}
-        {filteredQuestions && filteredQuestions.length
-          ? filteredQuestions.map((question) => (
+        {currentItems && currentItems.length && currentItems !== "nada"
+          ? currentItems.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
                   <Card.Header style={{ backgroundColor: `${question.color}` }} />
@@ -267,6 +312,26 @@ const QuestionsAnswers = () => {
             ))
           : "Sorry, we didn't find anything matching that"}
       </Row>
+      <ReactPaginate
+        className="pagination"
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        previousLinkClassName="page-link"
+        nextClassName="page-item"
+        nextLinkClassName="page-link"
+        breakLabel="..."
+        breakClassName="page-item"
+        breakLinkClassName="page-link"
+        containerClassName="pagination"
+        activeClassName="active"
+      />
     </Container>
   );
 };
