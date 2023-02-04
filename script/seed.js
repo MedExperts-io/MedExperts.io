@@ -3083,6 +3083,246 @@ async function seed() {
       level: "Easy",
       category: "Chronic Obstructive Pulmonary Disease",
     }),
+
+    //Q122
+    Question_Answer.create({
+      question: `A 55-year-old female presents to the emergency department due to coughing up blood in the morning with shortness of breath. Her symptoms include fever, arthralgias of the wrist and knees and unintentional weight loss over the course of 4 months. On physical exam there was nasal crusting, bloody nasal discharge, with decreased air entry at the bases. There is tenderness to palpation of the wrist and knees.  On labs ESR: 78mm/hr, RF: 255 IU/ml, TSH: 2.67 ulU/mL, Cr: 2.34 mg/dL, BUN: 85 mg/dL, Proteinase 3: 97.7 Units, Myeloperoxidase: 5.0 Units, SCL 70: 0.2, C-ANCA titer 1:80, P-ANCA titer negative. CT scan was done and shown below. Which of the following is the diagnosis?`,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q122/Q122+img1.png`,
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q122/Q122+img2.png`,
+      ],
+      answerOptions: [
+        `Giant Cell Arteritis`,
+        `Polyarteritis Nodosa`,
+        `Granulomatosis with polyangiitis`,
+        `Microscopic Polyangiitis`,
+        `Churg Strauss Syndrome`,
+      ],
+      correctAnswer: `Granulomatosis with polyangiitis`,
+      explanation: `Granulomatosis with polyangiitis (GPA) is a systemic disorder that is characterized by necrotizing vasculitis of the small arteries and veins. The triad of clinical symptoms include necrotizing granulomas of the upper and lower respiratory system, systemic vasculitis and necrotizing glomerulonephritis. Patients with GPA usually present with nonspecific symptoms of fever, malaise, weight loss, arthralgia and myalgia which this patient has.  The earliest complaint for medical attention is related to respiratory system (cough, hemoptysis or dyspnea). This patient has shortness of breath and hemoptysis due to inflammation of the trachea. She also has nasal crusting and bloody nasal discharge due to inflammation of the nose or sinus. Some individuals can develop a tear in the septum dividing the nostrils that can cause a collapse at the bridge of the nose otherwise known as “saddle nose”. 
+
+      Diagnosis of GPA is often delayed until clinical presentations. It is made upon clinical evaluation including labs, patient history and biopsy.  In this patient CT scan shows multiple bilateral lung masses as well as a large cavitary of consolidation involving most of the left lobe. There is also bilateral hilar adenopathy larger on the left side. In labs there is evidence of kidney failure due to labs (high BUN and CR). ESR is elevated due to inflammation. A positive test for rheumatoid factor occurs in half of patients who have GPA and is useful to correlate disease status and therapeutic effect. 
+      
+      Typical histopathology or positive cytoplasmic ANCA (c-ANCA) is the test for diagnosis for GPA. ANCA is both sensitive and specific for GPA. About 80-95% of cases are associated with c-ANCA with antibodies directed against proteinase 3 antibodies (PR3), the remainder are p-ANCA against myeloperoxidase antibodies (MPO) which this patient exhibits. He has positive C-ANCA titers (1:40) with positive PR3. 
+      
+      The average life expectancy for patients with GPA without treatment is only 5 months. Rituximab has shown to be successful in conjunction with glucocorticoids.  Steroids help suppress the immune system and reduce the inflammation of the blood vessels. Once the disease is stabilized, patients stay on long term immunosuppressants to prevent relapse (methotrexate, azathioprine and mycophenolate) Plasmapheresis can help those with severe GPA and can help the kidney recover [1].
+      
+      Giant Cell Arteritis also called temporal arteritis involves inflammation of large arteries including the temporal arteries which is along the side of the head near the temples. Symptoms associated with GCA include headache, scalp tenderness, jaw pain and blurred vision. In severe cases, if left untreated blindness can occur which is irreversible.  This type of vasculitis affects individuals who are >50 years of age.  Women are commonly more affected. There is also an association with polymyalgia rheumatica. In labs ESR will be greater or equal to 50 mm/h. Diagnosis is done with biopsy which shows mononuclear cell infiltration or granulomatous inflammation. Timing is very critical to prevent patients with vision loss therefore steroids should be started immediately [2].
+      
+      Polyarteritis Nodosa affects medium blood and is linked to be associated with Hepatitis B or C infections.  Any organ can be affected but for reasons unknown PAN does not affect the lungs. Diagnosis is made by determining the extent of severity of organ system involvement, testing for Hepatitis B, and confirmation of diagnosis by tissue biopsy or angiography [3].
+      
+      Microscopic Polyangiitis is a small vessel necrotizing vasculitis. Renal manifestation is the most common and individuals have some form of glomerulonephritis most common form as rapidly progressive glomerulonephritis. Symptoms vary from asymptomatic hematuria to overt renal failure. Patients can also have pulmonary manifestations in the form of alveolar hemorrhage. To distinguish from GPA, labs will be positive for MPO-ANCA which are antibodies against myeloperoxidase detected by ELISA. Treatment is generally with the use of glucocorticoids and cytotoxic agents [4].
+      
+      Churg Strauss Syndrome also known as eosinophilic granulomatosis with polyangiitis is characterized by necrotizing vasculitis of small and medium size blood vessels. The diagnostic criteria for Churg Strauss Syndrome according to American College of Rheumatology are (4 out of 6): asthma, migratory infiltrates in lungs, paranasal sinus abnormalities, mono or polyneuropathy, peripheral blood eosinophilia (greater than 10% total leucocyte count) and eosinophilic tissue infiltrates in the biopsy. The prevalence of ANCA positivity in Churg Strauss Syndrome is approximately 40% more specific for myeloperoxidase (MPO). Usually on CT scan there is asymmetric diffuse bilateral peripheral ground glass infiltrates along the bronchial wall thickening. Bilateral bronchocentric nodular infiltrates can also occur but they do not cavitate unlike in GPA. Corticosteroids help in reduction of eosinophils in the blood and tissues. With detection and treatment patients have a favorable prognosis with 5-year survival for 90% of patients [5].
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27195187/" target="_blank">Kabaisi B, Abu Samra K, Foster CS. Granulomatosis with polyangiitis (Wegener’s disease): An updated review of ocular disease manifestations. Intractable Rare Dis Res; 5:61-9 </a>`,
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK459376/" target="_blank">Gossman W, Peterfy RJ, Khazaeni B. Temporal (Giant Cell) Arteritis. [Updated 2019 Jul 11]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2019 Jan-.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26884100/" target="_blank">De Virgillo. Polyarteritis nodosa: A contemporary overview. Autoimmun Rev 2016 Jun; 15 (6): 564-70</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/20688249/" target="_blank">Chung S, Seo P. Microscopic Polyangiitis. Rheum Dis Clin North Am. 2010 Aug; 36(3):545-558</a>`,
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK537099/" target="_blank">Chakraborty RK, Aeddula NR. Churg Strauss Syndrome (Allergic Granulomatosis) [Updated 2019 Nov 21]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2019 Jan-.</a>`,
+      ],
+      level: "Moderate",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //Q123
+    Question_Answer.create({
+      question: `The most common chest radiographic finding(s) in RA is/are:`,
+      questionImage: [],
+      answerOptions: [
+        `Necrobiotic nodules`,
+        `Pleural effusions`,
+        `Elevated diaphragms`,
+        `Evidence of pulmonary fibrosis`,
+        `Focal consolidation`,
+      ],
+      correctAnswer: `Pleural effusions`,
+      explanation: `The most common radiographic finding of RA is pleural effusion. They are usually unilateral, small and asymptomatic, but may cause pleural thickening. Necrobiotic nodules are common well defined round masses ranging up to several centimeters in diameter and typically asymptomatic. They are more often seen in men with advanced joint disease. Pulmonary fibrosis will be found in about 5% of patients.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31396835/" target="_blank">Goggins MR, Conway R, Durcan LJ, Johnston C, Cunnane G. High prevalence of abnormalities on chest radiography in rheumatoid arthritis. Clin Rheumatol. 2019 Dec;38(12):3375-3380.</a>`,
+      ],
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //Q124
+    Question_Answer.create({
+      question: `In which of the following situations is the initiation of therapy in sarcoidosis not indicated:`,
+      questionImage: [],
+      answerOptions: [
+        `Cardiac involvement`,
+        `Presence of iritis`,
+        `Bilateral lymphadenopathy with clinically significant symptoms`,
+        `Asymptomatic bilateral lymphadenopathy`,
+      ],
+      correctAnswer: `Asymptomatic bilateral lymphadenopathy`,
+      explanation: `Treatment is not indicated for patients with asymptomatic pulmonary  sarcoidosis as spontaneous resolution can occur. Glucocorticoids are  the primary treatment for   patients with significant symptomatic or progressive pulmonary  (pulmonary infiltrates with or without bilateral hilar lymphadenopathy) or serious extrapulmonary disease (cardiac, nervous system, severe ocular).  Commonly used glucocorticoid sparing agents  for second line treatment include methotrexate[ most often used ], azathioprine, leflunomide and mycophenolate. Hydroxychloroquine is effective in cutaneous disease and in patients with hypercalcemia. In refractory cases Infliximab and Adalimumab both TNF -alpha  inhibitors are effective options.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/34496176/" target="_blank">Drent M, Crouser ED, Grunewald J. Challenges of Sarcoidosis and Its Management. N Engl J Med. 2021 Sep 9;385(11):1018-1032</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //Q125
+    Question_Answer.create({
+      question: `Which simple piece of information is most suggestive of diagnosis of hypersensitivity pneumonitis?`,
+      questionImage: [],
+      answerOptions: [
+        `Surgical biopsy evidence of bronchiolocentric lymphocytic interstitial pneumonia accompanied by granuloma and patchy organizing pneumonia`,
+        `Ownership of a cockatoo`,
+        `Positive serum precipitation`,
+        `Diffuse ground glass opacity on HRCT`,
+      ],
+      correctAnswer: `Surgical biopsy evidence of bronchiolocentric lymphocytic interstitial pneumonia accompanied by granuloma and patchy organizing pneumonias`,
+      explanation: `Making the diagnosis of HP requires combining all of the clinical, radiographic and pathologic information. The importance of history cannot be overestimated. Each of the above findings is consistent with HP, but seen alone, a surgical lung biopsy pattern of a bronchiolocentric disease with lymphocytic cellular infiltrate, granulomas and organizing pneumonia is most suggestive of diagnosis. Ownership of birds is only a risk factor. Precipitations confirm exposure. BAL lymphocytosis is suggestive but not diagnostic. Diffuse ground glass opacity on HRCT is a non-specific finding that requires additional investigation.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23158795/" target="_blank">Fang F, Xu XM, Zhang W, Pang JX, Liu DG, Wang C. [Clinicopathological diagnosis of hypersensitivity pneumonitis]. Zhonghua Yi Xue Za Zhi. 2012 Sep 25;92(36):2546-9. Chinese.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/22679012/" target="_blank">Selman M, Pardo A, King TE Jr. Hypersensitivity pneumonitis: insights in diagnosis and pathobiology. Am J Respir Crit Care Med. 2012 Aug 15;186(4):314-24.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    // Q126
+    Question_Answer.create({
+      question: `A 78 year old male with a history of COPD and former smoker is admitted for PNA and adjacent complex pleural effusion. He has a diagnostic and therapeutic thoracentesis performed which is consistent with parapneumonic effusion. The subsequent day he is noted to have worsening dyspnea and rapid recurrence of effusion seen on bedside ultrasound with a corresponding drop in Hb. A repeat thoracentesis reveals frank blood with 1000cc removed. The patient is now tachypneic to 28 and BP 90/45 and HR 110. What would be the next step?`,
+      questionImage: [],
+      answerOptions: [
+        `Finish draining fluid, remove catheter and observe`,
+        `Place 14F chest tube`,
+        `Thoracic Surgery consult and plan for thoracotomy`,
+        `Place 32 F chest tube`,
+      ],
+      correctAnswer: `Thoracic Surgery consult and plan for thoracotomy`,
+      explanation: `The rapid recurrence of effusion along with a drop raises strong suspicions of a hemothorax secondary to the prior thoracentesis. The repeat thoracentesis is consistent with hemothorax. Typically, it is considered a hemothorax if the ratio of pleural Hct to serum Hct is >50%. Small (<200-300cc) may be managed expectantly. A chest tube should be placed to evacuate the blood which may be adequate for control. In the past large surgical chest tubes (>28F) were placed for hemothorax but more recent studies suggest that percutaneous small-bore catheters 14F are similarly effective in clinical outcome and are less painful. 
+      The continued rate of drainage, if present, can help determine if surgery is necessary along with clinical status. A rate >200-300cc/hr would suggest surgical therapy. However, this patient has a large amount of blood, 1L, and is clinically deteriorating rapidly for which surgical treatment will be necessary. In unstable thoracic bleeding a thoracotomy may be preferred by the surgeon whereas VATS would be preferred in stable settings.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/33843831/" target="_blank">N. Kulvatunyou et al. The small percutaneous catheter vs open large bore chest tube for traumatic hemothorax. A RCT. J of Trauma and Acute Care Surg. 2021</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/33437141/" target="_blank">J. Zeiler et al. Hemothorax: A review of the Literature. Clin Pulm. 2020</a>`,
+      ],
+      level: "Hard",
+      category: "Pleural Diseases",
+    }),
+
+    // Q127
+    Question_Answer.create({
+      question: `Which of the following is not associated with chronic cannabis smoking?`,
+      questionImage: [],
+      answerOptions: [
+        `A decrease in FEV1/FVC ratio`,
+        `Evidence of hyperinflation`,
+        `Bilateral lower lobe bullous disease `,
+        `FVC and FEV1 have a non-linear association with lifetime cannabis exposure`,
+      ],
+      correctAnswer: `Bilateral lower lobe bullous disease`,
+      explanation: `Chronic cannabis smoking results in airway inflammation. This can lead to symptoms of cough, sputum production, chest tightness and wheezing. Bilateral bullous lobe emphysema does occur in these patients. Lung function studies for chronic cannabis smoking shows:
+      decrease FEV1, maximal mid-expiratory flow rate, diffusing capacity 
+      mild airway obstruction 
+      abnormally low <70% FEV/FVC due to increased FVC, however the lower FEV/FVC ratio appears mostly because of a reduction on FVC, rather than FEV1.
+      FVC and FEV1 have non-linear association with lifetime cannabis exposure`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/35073503/" target="_blank">Hancox RJ, et. al.. Differential Effects of Cannabis and Tobacco on Lung Function in Mid-Adult Life. Am J Respir Crit Care Med. 2022 May 15;205(10):1179-1185. doi: 10.1164/rccm.202109-2058OC. PMID: 35073503.</a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+
+    // Q128
+    Question_Answer.create({
+      question: `Sarcoidosis meets all the characteristics of the following except one:`,
+      questionImage: [],
+      answerOptions: [
+        `Spontaneous remission is frequent`,
+        `Cardiac sarcoidosis is the most common cause of death`,
+        `Bilateral hilar lymphadenopathy`,
+        `Most common in middle aged persons`,
+      ],
+      correctAnswer: `Most common in middle aged persons`,
+      explanation: `Sarcoidosis is a rare inflammatory disease described by granulomas that build up in organs and tissues. In most patients the disease resolves  spontaneously. Chronic disease develops in  one third of patients .While lungs are the most common organ of involvement this disease can involve other organs like skin, heart, liver , bone or nervous system. Pulmonary involvement  can lead to bilateral hilar lymphadenopathy  with  parenchymal or interstitial involvement.  Advanced  lung involvement is the most common cause of death. Sarcoidosis can affect  people of all ages but mostly develops in young or middle aged adults [30 to 50 years in men; 50 to 60 years in women.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    // Q129
+    Question_Answer.create({
+      question: `A 55-year-old man who has two episodes of hemorrhagic shock due to intestinal hemorrhage and post-operative secondary hemorrhage, was admitted to intensive care unit. During the following weeks this was followed by bronchopneumonia with symptoms of sepsis persisting over several weeks. Chest x-ray showed progressive changes in the interstitial tissues and he became more significantly hypoxic. Pulmonary capillary wedge pressure was 7 mm HG. What is the diagnosis?`,
+      questionImage: [],
+      answerOptions: [
+        `Congestive cardiac failure`,
+        `Nonischemic Dilated Cardiomyopathy`,
+        `Amyloid Heart Disease`,
+        `Adult respiratory distress syndrome`,
+      ],
+      correctAnswer: `Adult respiratory distress syndrome`,
+      explanation: `Acute respiratory distress syndrome (ARDS) is an acute inflammatory form of lung injury. Patients present with dyspnea, need for oxygen therapy, and alveolar infiltrates on imaging within 72 hours of provoking event. Common etiologies of ARDS include:(see image)
+      This patient is experiencing shock leading into sepsis with CXR of interstitial changes with ARDS as the likely diagnosis. The patient also has normal pulmonary wedge pressure (4 to 12 mm Hg). All the other choices have elevated PCWP (CHF, cardiomyopathy, End stage amyloid heart disease) indicate severe left ventricular failure.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q129/A129+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28040987/" target="_blank">Yadav H, Thompson BT, Gajic O. Fifty Years of Research in ARDS. Is Acute Respiratory Distress Syndrome a Preventable Disease? Am J Respir Crit Care Med. 2017 Mar 15;195(6):725-736.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31824644/" target="_blank">Peck TJ, Hibbert KA. Recent advances in the understanding and management of ARDS. F1000Res. 2019 Nov 22;8:F1000 Faculty Rev-1959. doi: 10.12688/f1000research.20411.1.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29595185/" target="_blank">Pan C, Liu L, Xie JF, Qiu HB. Acute Respiratory Distress Syndrome: Challenge for Diagnosis and Therapy. Chin Med J (Engl). 2018 May 20;131(10):1220-1224.</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
+    }),
+
+    //Q130
+    Question_Answer.create({
+      question: `A 75-year-old man was brought to the emergency department by his son due to behavioral changes over the past two days. The son reports that the patient has had memory loss and tremors in his hands for the past 7 months for which he was also started on some medication. He cannot recall the name of the medication. The use of which of the following medication classes has the highest risk of inducing delirium?`,
+      questionImage: [],
+      answerOptions: [
+        `Dopamine agonists`,
+        `Anticonvulsants`,
+        `Ant dizziness agents`,
+        `Tricyclic antidepressants`,
+      ],
+      correctAnswer: `Dopamine agonists`,
+      explanation: `Elevation in dopamine levels can cause delirium to develop in the elderly. Dopamine is associated with many metabolic pathways and calcium channels that lead to significant increases in dopamine under impaired oxidative conditions. The influx of calcium into cells leads to an increase in dopamine production and uncouples oxidative phosphorylation in brain mitochondria. This leads to an increased production of toxic metabolites of dopamine and a decrease in production of ATP that inhibits the activity of catechol-O-methyltransferase (COMT), which is essential for synthesis and breakdown of dopamine. The increase in the level of dopamine may cause symptoms of the hyperactive type of delirium, including hallucinations and delusions [Ali, 2011]. Side effects of dopamine agonist include constipation, nausea, and headaches. More severe side effects include hallucinations (both visual, tactile, and auditory), somnolence, peripheral edema, valvular heart disease, fibrosis, and heart failure. Patients may also develop excessive daytime sleepiness (EDS) and sleep disordered breathing [Borovac, 2016].`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27505015/" target="_blank">Borovac J. A. Side effects of a dopamine agonist therapy for Parkinson’s disease: a mini-review of clinical pharmacology. Yale J Biol Med. 2016 Mar; 89(1): 37–47. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/22132368/" target="_blank">Ali, S. et. al. Insight into Delirium. Innov Clin Neurosci. 2100 Oct; 8(10): 25-34.</a>`,
+      ],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
+
+    // Q131
+    Question_Answer.create({
+      question: `A 70 year old male history of obesity, DM and HTN admitted with COVID-19 PNA. The patient deteriorated on HFNC and progressed to ARDS for which he was intubated. His P/F ratio was 105 and the patient was prone and paralyzed. Which of the following vent setting  parameters would be associated with the best outcome?`,
+      questionImage: [],
+      answerOptions: [
+        `Peak pressure 40, Plateau 38 and PEEP 8`,
+        `Peak pressure 34, Plateau 26 and PEEP 8`,
+        `Perform a recruitment maneuver`,
+        `Peak pressure 34, Plateau 26 and PEEP 12`,
+      ],
+      correctAnswer: `Peak pressure 34, Plateau 26 and PEEP 12`,
+      explanation: `In Acute respiratory distress syndrome (ARDS) it has been established that low tidal volume based on ideal body weight improves mortality. However beyond tidal volume the Driving Pressure has been found to be a significant variable associated with mortality. Driving pressure (DP) is the ratio of tidal volume to (static) respiratory system compliance ; i.e. DP = VT/CRS. [VT =Tidal volumes and  CSR static respiratory system compliance] 
+      Driving pressure (DP) can also be calculated at the bedside as plateau pressure minus positive end-expiratory pressure (Pplat – PEEP). This represents the Vt normalized to the individual functional lung available and is a way to assess the amount of cyclic lung strain. The Goal is to keep DP  less than <14. This is based primarily on retrospective analyses of multiple RCTs of ARDS patients and shows an association between lower Driving Pressure and  lower mortality.  PEEP has variable effects on oxygenation and outcomes due to the degree of recruitment available and overdistension already present in an individual.  
+      While Recruitment maneuvers have been used for decades with benefit in lung recruitment and oxygenation there is some evidence that risks may not be worth the potential benefit. The significant increase in intrathoracic pressure may not be well tolerated in certain ARDS patients –most likely those whose RV function is tenuous.  The risk of Pneumothorax remains a concern as well. One of the few RCT addressing the issue showed a higher mortality and higher pneumothorax rate and hypotension rate. For now these maneuvers should be done cautiously until further evidence is available.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26387728/" target="_blank">Borges JB, Hedenstierna G, Larsson A, Suarez-Sipmann F. Altering the mechanical scenario to decrease the driving pressure. Crit Care. 2015 Sep 21;19(1):342.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/25693019/" target="_blank">Loring SH, Malhotra A. Driving pressure and respiratory mechanics in ARDS. N Engl J Med. 2015 Feb 19;372(8):776-</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27545828/" target="_blank">Chiumello D, Carlesso E, Brioni M, Cressoni M. Airway driving pressure and lung stress in ARDS patients. Crit Care. 2016 Aug 22;20:276</a>`,
+      ],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
+
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
