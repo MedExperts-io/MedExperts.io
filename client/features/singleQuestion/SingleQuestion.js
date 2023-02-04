@@ -88,7 +88,7 @@ const singleQuestion = () => {
 
   
 
-  if (CurrentQuestionArray.length>0){
+  if (CurrentQuestionArray.length>0 && CurrentQuestion.answered){
   return (
     <div>
       {loading ? 
