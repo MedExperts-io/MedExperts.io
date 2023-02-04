@@ -3323,6 +3323,383 @@ async function seed() {
       category: "Critical Care",
     }),
 
+    //Q132
+    Question_Answer.create({
+      question: `Which statement is true about blunt diaphragmatic injury;`,
+      questionImage: [],
+      answerOptions: [
+        `Right sided rupture is more common`,
+        `The colon and stomach is the most common herniated viscus`,
+        `Pulmonary artery rupture is frequently associating`,
+        `Rib fractures are often seen`,
+      ],
+      correctAnswer: `The colon and stomach is the most common herniated viscus`,
+      explanation: `Left sided injuries are more common because the majority of assailants are right-handed and due to protective shielding by the liver. The most common side of rupture is between the lumbar and intercostal muscle slips. The most common herniated viscus are the stomach and the colon. Pulmonary arteries hardly occur. Rib fracture may occur in severe trauma.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24412818/" target="_blank">Panda A, Kumar A, Gamanagatti S, Patil A, Kumar S, Gupta A. Traumatic diaphragmatic injury: a review of CT signs and the difference between blunt and penetrating injury. Diagn Interv Radiol. 2014 Mar-Apr;20(2):121-8</a>`,
+      ],
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //Q133
+    Question_Answer.create({
+      question: `A 69-year-old male who is a smoker (2PPD for 40 years) came to the emergency department in November with complaints of dyspnea and fever for the past 3 days. Patient was recently diagnosed with squamous cell carcinoma of the lung. He has not started any therapeutic interventions for his recent diagnosis. On a physical exam, the patient is coughing, cachectic, ill appearing, has decreased breath sounds in all lung fields, crackles and dullness to percussion in his left lower lobe. A CXR and thoracentesis are obtained based on the clinical and physical findings. Results of thoracentesis are as follows: 
+      Pleural lactate dehydrogenase: 55 U/L
+      Serum lactate dehydrogenase: 89 U/L
+      Proteins, serum (total): 7.2 g/dL
+      Proteins, pleural fluid: 3.9 g/dL
+      Apart from confirmatory imaging and laboratory results, which one of the following clinical findings is most sensitive and specific in diagnosing pleural effusion in this patient?
+      `,
+      questionImage: [],
+      answerOptions: [
+        `Diminished breath sounds`,
+        `Reduced vocal fremitus`,
+        `Dullness to percussion`,
+        `Crackles`,
+      ],
+      correctAnswer: `Dullness to percussion`,
+      explanation: `In a high-risk patient, such as the patient mentioned above, pleural effusion is likely given his history. Although dullness to percussion and tactile fremitus are both useful findings, dullness to percussion increases the probability of pleural effusion. A study performed by Wong et al. [1] physical exam maneuvers were studied to assess the probability of pleural effusion. It was noted that dullness to percussion was most accurate for the diagnosis of pleural effusion with a positive likelihood ratio of 8.7 and 95% confidence interval, 2.2-33.8 [1]. The study also concluded that the absence of reduced tactile vocal fremitus made pleural effusion less likely with negative likelihood ratio of 0.21 and 95% confidence interval, 0.12-0.37, making choice B incorrect answer [1]/ A chest radiograph can be used to confirm diagnosis and thoracentesis can be performed for cytology as well therapeutically once diagnosis is confirmed. Choices A and D are non-specific findings as they can be present with many other conditions such as pneumothorax, CHF, fluid overload amongst many others.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/19155458/" target="_blank">Wong CL, Holroyd-Leduc J, Straus SE. Does this patient have a pleural effusion? Jama 2009;301:309-17.</a>`,
+      ],
+      level: "Moderate",
+      category: "Pleural Diseases",
+    }),
+
+    //Q134
+    Question_Answer.create({
+      question: `A 68-year-old female came into the ER after slipping and falling on black ice. She has a past medical history of vitamin D deficiency, H. Pylori, GERD, hypertension and dyslipidemia. The patient routinely takes Omeprazole, Vitamin D, Hydrochlorothiazide and Simvastatin. X-ray showed a right hip fracture. Long term use of which of the following medications can predispose this patient to osteoporosis and fractures?`,
+      questionImage: [],
+      answerOptions: [
+        `Vitamin D`,
+        `Omeprazole`,
+        `Hydrochlorothiazide`,
+        `Simvastatin`,
+      ],
+      correctAnswer: `Omeprazole`,
+      explanation: `According to a study conducted by Targownick et al. detected an association between long term use of proton pump inhibitors and osteoporosis related fractures. It was found that more than 5-year exposure to PPIs lead to hip fractures. Additionally, the study concluded that there was no such association between PPI use and risk of fractures with short term use. Choice D, Simvastatin is incorrect [1]. According to review article by Golomb et al. most common side effects of statins include rhabdomyolysis, cognitive loss, neuropathy, pancreatic and hepatic dysfunction, and sexual dysfunction [2] Osteoporosis is not an adverse effect of Simvastatin. Choice A is incorrect because it is used for bone loss prevention [3].`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/18695179/" target="_blank">Targownik LE, Lix LM, Metge CJ, Prior HJ, Leung S, Leslie WD. Use of proton pump inhibitors and risk of osteoporosis-related fractures. CMAJ : Canadian Medical Association journal = journal de l'Association medicale canadienne 2008;179:319-26.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/19159124/" target="_blank">Golomb BA, Evans MA. Statin adverse effects : a review of the literature and evidence for a mitochondrial mechanism. American journal of cardiovascular drugs : drugs, devices, and other interventions 2008;8:373-418.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/10796394/" target="_blank">Homik J, Suarez-Almazor ME, Shea B, Cranney A, Wells G, Tugwell P. Calcium and vitamin D for corticosteroid-induced osteoporosis. The Cochrane database of systematic reviews 2000:CD000952.</a>`,
+      ],
+      level: "Moderate",
+      category: "Pharmacology",
+    }),
+
+    //Q135
+    Question_Answer.create({
+      question: `Which of the following therapies do not improve survival in patients with COPD?`,
+      questionImage: [],
+      answerOptions: [
+        `Lung volume reduction surgery in patients with upper lobe emphysema and poor exercise capacity`,
+        `Oxygen therapy for patients with hypoxemia`,
+        `Smoking cessation`,
+        `Aggressive and early pharmacotherapy treatment of COPD`,
+      ],
+      correctAnswer: `Aggressive and early pharmacotherapy treatment of COPD`,
+      explanation: `The most important treatment for COPD is smoking cessation as it helps slow the progression of the disease, no matter how long a person has smoked for. Patients with hypoxemia can use oxygen therapy to improve survival and quality of life in severe or advanced COPD. Lung volume reduction surgery is helpful in reducing symptoms in some patients with advanced emphysema. Patients should get their recommended vaccinations to prevent COPD exacerbations (Pneumococcal vaccine, flu vaccine, Pertussis vaccine). Continuous antibiotics use is not recommended as most respiratory infections are caused by viruses and not bacteria.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.uptodate.com/contents/chronic-obstructive-pulmonary-disease-copd-beyond-the-basics" target="_blank">Han MK. Patient education: chronic obstructive pulmonary disease (COPD) treatments (Beyond the Basics). Available at: http://www.uptodate.com/ contents/chronic-obstructive-pulmonary-disease- copd-treatments-beyond-the-basics. Accessed October 30, 2017. </a>`,
+      ],
+      level: "Moderate",
+      category: "Chronic Obstructive Pulmonary Disease",
+    }),
+
+    //Q136
+    Question_Answer.create({
+      question: `A 67-year-old obese female came to the office with complaints of polydipsia, polyuria, polyphagia. After conducting a random glucose test, the patient is diagnosed with Type II Diabetes Mellitus. Before beginning pharmacotherapy, you recommend weight loss as the initial course of treatment. Which of the following constitutes the five A’s that can be incorporated into a provider-directed smoking cessation therapy?`,
+      questionImage: [],
+      answerOptions: [
+        `Ask, Advise, Amend, Alter, and Arrange`,
+        `Ask, Advise, Assess, Assist, and Arrange`,
+        `Ask, Advise, Adjust, Alter, and Arrange`,
+        `Associate, Advise, Adjust, Alter, and Arrange`,
+      ],
+      correctAnswer: `Ask, Advise, Assess, Assist, and Arrange`,
+      explanation: `Ask, Advise, Assess, Assist and Arrange. According to a study conducted by Alexander Et. al, the Five A’s seemed to motivate patients to change their lifestyle. Results of the study showed that the patients whose physicians assisted or arranged showed improvements in dietary fat intake scores. One A that was linked to actual weight loss was arranged. Patient’s whose physicians Arranged to follow up with them were seen to be more likely to have lost weight over a 3-month period. Table below summarizes the Five A’s.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q136/A136+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21380950/" target="_blank">Alexander S. C. et al. Do the Five A’s Work When Physicians Counsel About Weight Loss? Fam Med. 2011 Mar; 43(3): 179–184.</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //Q137
+    Question_Answer.create({
+      question: `A 50-year-old male working as a car mechanic came into a pulmonary clinic for increasing shortness of breath and dry cough for 2 years but worsened for 5 months. He has a family history of ILD and early onset of gray hair. He denies any fever, chest pain, weight loss. He consulted cardiologists previously for SOB and 2D- ECHO, ECG, Stress test was within normal limits. He was then referred to a pulmonologist at a different city where HRCT was done, he was placed on a medication which he eventually stopped because of frequent watery diarrhea and nausea. He smokes an occasional cigarette once a week while having beer. His past medical history was significant for GERD, hypothyroidism which are now under control 
+      On physical examination, he was moderate built, alert  
+      Vitals BP: 130/90, PR: 86, temperature: 97.5 F, Oxygen saturation 88 on room air,
+      Lungs: B/L crackles (L>R) all over the lungs. 
+      Heart: Normal heart sounds
+      PFT:  FVC 53, FEV1 54, FEV1/FVC 74. 
+      HRCT: minor reticular opacity within both lungs 
+      Family history was positive for the similar condition in his father and maternal uncle. Which of the following mutations in genes can lead to the above patient’s condition?
+      `,
+      questionImage: [],
+      answerOptions: [`MUCIN -5B`, `TERT and TR`, `BMPR-2`, `FOX-G1`, `ADAM33`],
+      correctAnswer: `TERT and TR`,
+      explanation: `Cause of pulmonary fibrosis is poorly understood. Large number of patients have a family history. Abnormally short telomeres are familial causes of pulmonary fibrosis. Mutations In the genes that code for the telomerase enzyme TERT and TR are the most common cause of familial pulmonary fibrosis. Other genes which may cause pulmonary fibrosis are DKC1, TINF2, RTEL1, PARN, and NAF1. Patients with telomere mediated lung disease show extra pulmonary features like liver diseases and bone marrow failure. Genetic anticipation is also seen in some people depending on the type of mutation.
+
+      MUCIN-5B gene: Polymorphism of MUCIN-5b has been shown to be associated with familial and sporadic IPF. 
+      
+      BMPR-2 and ALK-1 mutation could lead to pulmonary hypertension.
+      
+      FOX-G1 gene mutation is a rare mutation that affects the development of brain development and function. Symptoms include microcephaly, sleep disturbances, slow muscle tone. It is most commonly associated with autism spectrum disorders.
+      
+      ADAM33 has been linked to asthma, Airway hyperreactivity (AHR), and higher IgE levels.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27903687/" target="_blank">Merck SJ, Armanios M. Shall we call them "telomere mediated"? Renaming the idiopathic after the cause is found. Eur Respir J. 2016 Dec;48(6):1556-1558</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23321605/" target="_blank">Stock CJ, et al. Mucin 5B promoter polymorphism is associated with idiopathic pulmonary fibrosis but not with development of lung fibrosis in systemic sclerosis or sarcoidosis; Thorax. 2013 May;68(5):436-41.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/12110844/" target="_blank">Van Eerdewegh P, et al. Association of the ADAM33 gene with asthma and bronchial hyperresponsiveness. Nature. 2002; 418:426–430. [PubMed: 12110844]</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21441262/" target="_blank">Kortüm F, Das S, et al .The core FOXG1 syndrome phenotype consists of postnatal microcephaly, severe mental retardation, absent language, dyskinesia, and corpus callosum hypogenesis. J Med Genet. 2011 Jun;48(6):396-406. doi: 10.1136/jmg.2010.087528.</a>`,
+      ],
+      level: "Hard",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //Q138
+    Question_Answer.create({
+      question: `A 75-year-old lady presents with non-productive cough for 2 months. Repeat sputum samples grow MAI. You discuss with the patient about the treatment and she agrees for treatment with antibiotics. Drug susceptibility testing is recommended for new, previously untreated MAC isolates against which antibiotic?`,
+      questionImage: [],
+      answerOptions: [`Clarithromycin`, `Rifampicin`, `Ethambutol`, `Amikacin`],
+      correctAnswer: `Clarithromycin`,
+      explanation: `Nontuberculous mycobacteria (NTM) are increasingly recognized as causative agents of opportunistic infections in humans. For most NTM infections the therapy of choice is drug treatment, but treatment regimens differ by species, in particular between slow (e.g. Mycobacterium avium complex, Mycobacterium kansasii) and rapid growers (e.g. Mycobacterium abscessus, Mycobacterium fortuitum). In general, drug treatment is long, costly, and often associated with drug-related toxicities; outcome of drug treatment is poor and is likely related to the high levels of natural antibiotic resistance in NTM.  
+
+      For MAC particularly the ideal regimen consists of a macrolide [Azithromycin or clarithromycin], rifampicin and ethambutol. The optimal duration is undefined but may be for up to 12 months until clinical resolution or 12 months of negative sputum cultures.  Overall in vitro susceptibilities of M avium complex to antimicrobial agents such as isoniazid, rifamycin drugs, including rifabutin or rifampicin, and ethambutol. Are of no utility in guiding therapy because of poor correlation with clinical response. Therefore, it is recommended that susceptibility testing for M.avium complex be limited to macrolides. [1][2]. Interestingly ATS guidelines for management of M. kansasii Recommend that for treatment of previously untreated M. kansasii strains should be tested in vitro only to rifampin [1]`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17277290/" target="_blank">David E. Griffith, Timothy Aksamit, Barbara A. Brown-Elliott, et al. An Official ATS/IDSA Statement: Diagnosis, Treatment, and Prevention of Nontuberculous Mycobacterial Diseases Am J Respir Crit Care Med Vol 175. pp 367–416, 2007 </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26225805/" target="_blank">Mc Shane PJ. Glassrothj. Pulmonary Disease Due to Nontuberculous Mycobacteria: Current State and New Insights.  chest 2015;148;1517-1527</a>`,
+      ],
+      level: "Moderate",
+      category: "Bronchiectasis",
+    }),
+
+    //Q139
+    Question_Answer.create({
+      question: `Which one of the following clinical characteristics constitutes a common endotype of late-onset non-eosinophilic severe asthma?`,
+      questionImage: [],
+      answerOptions: [
+        `Food allergy`,
+        `Allergic rhinitis`,
+        `Eczema`,
+        `Gastroesophageal reflux disease`,
+      ],
+      correctAnswer: `Gastroesophageal reflux disease`,
+      explanation: `Patients with late-onset non-eosinophilic severe asthma do not have peripheral blood or sputum eosinophilia or exhale nitric oxide; however, common clinical characteristics associated with non-eosinophilic severe asthma typically include chronic or recurrent lower respiratory-tract infections and gastroesophageal reflux disease. Early onset severe asthma most often affects patients with a history of food allergy (commonly egg or milk), as well as the tendency to develop allergic rhinitis and/or conjunctivitis before finally developing asthma. Late onset of severe eosinophilic asthma usually follows a severe bronchial infection, followed by recurring sinus infections and frequently chronic rhinosinusitis with nasal polyps. Late onset alone tends to result in more severe airway obstruction.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28378957/" target="_blank">Solidoro P, Patrucco F, Fagoonee S, Pellicano R. Asthma and gastroesophageal reflux disease: a multidisciplinary point of view. Minerva Med. 2017 Aug;108(4):350-356</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26067887/" target="_blank">Naik RD, Vaezi MF. Extra-esophageal gastroesophageal reflux disease and asthma: understanding this interplay. Expert Rev Gastroenterol Hepatol. 2015 Jul;9(7):969-82.</a>`,
+      ],
+      level: "Moderate",
+      category: "Asthma",
+    }),
+
+    //Q140
+    Question_Answer.create({
+      question: `While treating P. aeruginosa infection which of the following is true regarding anti-pseudomonas treatment `,
+      questionImage: [],
+      answerOptions: [
+        `Initial antibiotic therapy should include two agents from different classes with in vitro activity against P. aeruginosa for all serious infections known or suspected to because by P. aeruginosa.`,
+        `Nebulized colistin is a bacteriostatic antipseudomonal agent`,
+        `There is strong evidence for dual agent intravenous antipseudomonal therapy (eg aminoglycoside plus carbapenem) being more effective in adult bronchiectasis than single agent therapy (eg carbapenem alone)`,
+        `Pseudomonas aeruginosa has similar risk factors, prognosis and therapy than other non-fermentative gram-negative bacilli`,
+      ],
+      correctAnswer: `Initial antibiotic therapy should include two agents from different classes with in vitro activity against P. aeruginosa for all serious infections known or suspected to because by P. aeruginosa.`,
+      explanation: `Empirical antibiotic therapy should include two agents from different classes within vitro activity against P. aeruginosa for all serious infections known or suspected to be caused by P. aeruginosa. The rationale of the so-called ‘double coverage effect’ is to increase the likelihood that antibiotic treatment will be active against P. aeruginosa, especially in the setting of a high-risk of antimicrobial resistance. Once results of susceptibility are available, definitive therapy should be tailored accordingly, using a single in vitro active agent with the highest antimicrobial activity and the lowest propensity to select resistance. Indeed, at the time of the present review, no convincing data exist demonstrating a mortality benefit to combination therapy.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23580739/" target="_blank">Peña C, Suarez C, Ocampo-Sosa A, Murillas J, et al. Effect of adequate single-drug vs combination antimicrobial therapy on mortality in Pseudomonas aeruginosa bloodstream infections: a post Hoc analysis of a prospective cohort. Clin Infect Dis. 2013 Jul; 57(2):208-16</a>`,
+      ],
+      level: "Moderate",
+      category: "Infection",
+    }),
+
+    // Q141
+    Question_Answer.create({
+      question: `In asthmatics the biomarker Exhaled nitric oxide (FeNO) seem to correlate most with  which of the following`,
+      questionImage: [],
+      answerOptions: [
+        `IL4 and IL 13`,
+        `IL -15`,
+        `Blood eosinophils`,
+        `Total Serum IgE levels`,
+      ],
+      correctAnswer: `IL4 and IL 13`,
+      explanation: `Nitric oxide is a gas present in the airways and detectable as fractional nitric oxide (FeNO) in the exhaled air. High FeNO levels are found in a sub-group of asthmatic patients with T2 inflammation. Inducible nitric oxide synthases (iNOS) are the enzymes responsible for the increase of NO in the airways due to inflammation. [Pignatti P, Visca D, Loukides S et. al. A. A snapshot of exhaled nitric oxide and asthma characteristics: experience from high to low income countries. Pulmonology. 2022 Jan-Feb;28(1):44-58]
+      FeNO levels correlate with asthma exacerbations in severe asthmatic patients.
+      Most of FeNO in the airways is produced by iNOS stimulated by IL-4/IL-13 signaling during inflammatory processes. T2 inflammation in asthma is characterized by an increase of different cytokines reflecting the activation of specific immunologic pathways; FeNO levels seem to correlate better with IL-4 and IL-13 while eosinophils with IL-5. IL-13 is one of the main drivers of iNOS activation and consequent FeNO production.
+      FeNO and blood eosinophils can be used independently to predict airway inflammation; but  they did not correlate with each other in an asthmatic is not that strong in uncontrolled Asthma.[ Gao J, Wu F. Association between fractional exhaled nitric oxide, sputum induction and peripheral blood eosinophil in uncontrolled asthma. Allergy Asthma Clin Immunol. 2018 May 23;14:21.]
+      FeNO and total serum IgE are elevated in asthmatic patients, particularly in the atopic ones and they weakly correlate.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29068321/" target="_blank">Shrestha SK, Drews A, Sharma L et. al. Relationship between total serum immunoglobulin E levels, fractional exhaled breath nitric oxide levels and absolute blood eosinophil counts in atopic and non-atopic asthma: a controlled comparative study. J Breath Res. 2018 Feb 20;12(2):026009.</a>`,
+      ],
+      level: "Moderate",
+      category: "Asthma",
+    }),
+
+    //Q142
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q143
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q144
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q145
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q146
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q147
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q148
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q149
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q150
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
+
+    //Q151
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function",
+    //   }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
