@@ -44,8 +44,8 @@ const QuestionsAnswers = () => {
 
   const onFavoriteSwitch = () => {
     seeFavorites ? (isFavorited = true) : null;
-    filterFunction();
     setSeeFavorites(!seeFavorites);
+    filterFunction();
   };
   const loading = useSelector((state) => state.questionsAnswers.loading);
 
@@ -118,11 +118,13 @@ const QuestionsAnswers = () => {
 
   const pickDifficulty = (event) => {
     setCurrentDifficulty(event);
+    !seeFavorites ? (isFavorited = true) : null;
     filterCriteria[0] = event;
     filterFunction();
   };
   const pickCategory1 = (event) => {
     setCurrentCategory1(event);
+    !seeFavorites ? (isFavorited = true) : null;
     filterCriteria[1] = event;
     filterFunction();
   };
@@ -140,6 +142,7 @@ const QuestionsAnswers = () => {
     console.log("isFavorited?", isFavorited, multiFilter);
     let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
+    //seeFavorites ?
     console.log("isFavorited?", isFavorited, multiFilter);
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
