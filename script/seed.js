@@ -2877,43 +2877,212 @@ async function seed() {
     }),
 
     // //Q113
-    // Question_Answer.create({
-    //   question: ``,
-    //   questionImage: [],
-    //   answerOptions: [``, ``, ``, ``],
-    //   correctAnswer: ``,
-    //   explanation: ``,
-    //   explanationImage: [],
-    //   explanationLinks: [`<a href="" target="_blank"></a>`],
-    //   level: "Moderate",
-    //   category: "Critical Care",
-    // }),
+    Question_Answer.create({
+      question: `A 65-year Indian woman is intubated because of severe respiratory distress due to obstructive lung disease. She is sedated and the ventilator is set to assist/control mode at rate20/min, tidal volume 600 mL, PEEP 5 cm, and FIO2 0.4. The inspiratory-to-expiratory (I:E) ratio is 1:2. Over the course of 15 minutes, progressive tachycardia and hypotension develop. Heart rate is 120 beats/min, blood pressure is 90/50 mm Hg. A chest radiograph shows hyperinflation, clear lung fields, and no pneumothorax. Arterial blood gas shows PaO2 90 mm Hg, PaCO2 50 mmHg, and pH 7.38. Which one of the following is the most appropriate intervention?`,
+      questionImage: [],
+      answerOptions: [
+        `Begin dopamine`,
+        `Decrease the respiratory rate`,
+        `Increase tidal volume`,
+        `Decrease PEEP`,
+        `Decrease sedation`,
+      ],
+      correctAnswer: `Decrease the respiratory rate`,
+      explanation: `In the presence of airflow obstruction typically seen in chronic obstructive pulmonary disease (COPD) or asthma, a potentially serious complication of mechanical ventilation is “air-trapping,” also termed dynamic hyperinflation, or intrinsic PEEP. This occurs when there is inadequate time for exhalation of a breath before the next inspired breath is delivered, leading to over inflation, increased intrathoracic pressure, and hypotension. The goal of managing ventilation is to allow adequate time for exhalation which can be achieved by increasing expiratory time, decreasing the tidal volume and respiration rate, increasing inspiratory flow rates, and using sedatives. A longer inspiration/expiration (I/E) ratio allows time for optimal exhalation and avoiding air trapping. Increased sedation may be necessary. There is no need to try to increase ventilation by increasing tidal volume. Dopamine might increase the blood pressure transiently, but the patient is already tachycardia and likely has a high cardiac output.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/19675347/" target="_blank">Barry Brenner, Thomas Corbridge, and Antoine Kazzi "Intubation and Mechanical Ventilation of the Asthmatic Patient in Respiratory Failure", Proceedings of the American Thoracic Society,Vol.6, No.4(2009), pp. 371-379.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/2186243/" target="_blank">Hall JB, Wood LDH. Management of the critically ill asthmatic patient. Med Clin North Am1990;74:779-796</a>`,
+        //missing links `<a href="" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol1999; 13:419–428</a>`,
+      ],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
 
-    // //Q114
-    // Question_Answer.create({
-    //   question: ``,
-    //   questionImage: [],
-    //   answerOptions: [``, ``, ``, ``],
-    //   correctAnswer: ``,
-    //   explanation: ``,
-    //   explanationImage: [],
-    //   explanationLinks: [`<a href="" target="_blank"></a>`],
-    //   level: "Moderate",
-    //   category: "Infection",
-    // }),
+    //Q114
+    Question_Answer.create({
+      question: `Which of the following statements is true regarding tuberculosis pleural effusion?`,
+      questionImage: [],
+      answerOptions: [
+        `Pleural fluid is mostly showing neutrophilic predominance with elevated adenosine deaminase (ADA) levels.`,
+        `Pleural fluid is mostly showing lymphocytic predominance with elevated adenosine deaminase (ADA) levels.`,
+        `Pleural fluid is mostly showing neutrophilic predominance with low adenosine deaminase (ADA) levels.`,
+        `Pleural fluid is mostly showing lymphocytic predominance with low adenosine deaminase (ADA) levels.`,
+      ],
+      correctAnswer: `Pleural fluid is mostly showing lymphocytic predominance with elevated adenosine deaminase (ADA) levels.`,
+      explanation: `Tuberculous pleurisy is the first or second most common form of extrapulmonary tuberculosis. Rupture of a subpleural caseous focus in the lung into the pleural space is thought to be the initial event in the pathogenesis of primary tuberculous pleurisy. Tuberculous (TB)pleurisy remains a diagnostic challenge. Pleural fluid staining for acid fast bacilli (AFB) and culture of M. tuberculosis has a poor yield and sputum or bronchial sampling via bronchoscopy can diagnose only a minority of cases with additional open lung tuberculosis. Closed needle pleural biopsy has a yield of 60–80% for TB pleurisy. Adenosine deaminase (ADA) is raised in TB pleural effusions and has gained popularity in high incidence areas for TB. For patients with a typical clinical presentation for tuberculous pleurisy, combined pleural fluid adenosine deaminase level and lymphocyte/neutrophil ratio is an accurate first step. If this test is negative despite a high clinical suspicion of tuberculous pleurisy, if antibiotic resistance is of concern or if other possible diagnoses are considered, medical thoracoscopy is the method of choice. If the fluid ADA is above 70 U/L, the diagnosis of tuberculous pleurisy is virtually established and antituberculosis chemotherapy can be initiated. If the pleural fluid ADA is between 40 and 70 U/L, one can make a presumptive diagnosis of tuberculous pleurisy. In this situation, if the patient's clinical picture is not typical for tuberculous pleurisy, further diagnostic procedures such as a needle biopsy or thoracoscopy should be considered. If the patient's pleural fluid ADA level is below 40 U/L, the diagnosis of tuberculosis is unlikely and further diagnostic procedures for tuberculosis would not be necessary.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/14582908/" target="_blank">A.H. Diacon*, B.W. Van de Wal*, C. Wyser*, J.P. Smedema*, J. Bezuidenhout# , C.T. Bolliger*,G. Walzl et al. Diagnostic tools in tuberculous pleurisy: a direct comparative study. Eur Respir J2003; 22: 589–5912. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24851127/" target="_blank">Doosoo Jeonet al. Tuberculous Pleurisy: An UpdateTuberc Respir Dis 2014;76:153-159</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/9778201/" target="_blank">Valdes L, Alvarez D, San Jose E,etal.Tuberculous pleurisy: A study of 254 patients.ArchInternMed1998;158:2017–2021.4.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/3974296/" target="_blank">Prakash UB, Reiman HM. Comparison of needle biopsy withcytologic analysis for the evaluation of pleural effusion: analysis of 414 cases.MayoClinProc1985;60:158–164.5. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/8620715/" target="_blank">Burgess LJ, Maritz FJ, Le Roux I, TaljaardJJ. Combined use of pleural adenosine deaminasewith lymphocyte/neutrophil ratio. Increased specificity for the diagnosis of tuberculous pleuritis. Chest1996;109:414–419.6. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/10424510/" target="_blank">Riantawan P, Chaowalit P, Wongsangiem M, RojanaraweewongP. Diagnostic value of pleuralfluid adenosine deaminase in tuberculous pleuritis with reference to HIV coinfection and aBayesian analysis.Chest1999;116:97–103</a>`,
+      ],
+      level: "Moderate",
+      category: "Infection",
+    }),
 
-    // //Q115
-    // Question_Answer.create({
-    //   question: ``,
-    //   questionImage: [],
-    //   answerOptions: [``, ``, ``, ``],
-    //   correctAnswer: ``,
-    //   explanation: ``,
-    //   explanationImage: [],
-    //   explanationLinks: [`<a href="" target="_blank"></a>`],
-    //   level: "Easy",
-    //   category: "Mediastinal Disorders",
-    // }),
+    //Q115
+    Question_Answer.create({
+      question: `A 41-year-old woman came into the clinic with shortness of breath for 1 year but worsened for 2 months. She now has shortness of breath even when doing her daily activities like household chores and walking around the house. Also tells us that dyspnea is worse with lying down and mild worsening of dyspnea with raising her arms. She denies H/O fever, cough, difficulty swallowing or hoarseness of voice. She is Obese with BMI of >58 and has been gaining weight. Her past medical history is significant for Severe scoliosis, OSA (not on CPAP), and multinodular goiter. On examination, she was alert and comfortable. Trace to +1 pitting edema. Facial swelling and vascular engorgement of the cervical veins is seen when lifting arms over the head for about a min.
+      Vitals: PR: 75, BP: 135/ 90, O2 sat – 91% on RA supine, improved to 96-97% on RA with deep inspiration on room air. 
+      Lungs: clear, No crackles.
+      Heart: Normal S1 S2, no murmurs 
+      PFTs: FEV1/FVC: 83, FEV1: 1.38 L 59%, FVC: 1.67 L 60%, TLC: 2.76 L 69%, DLCO 44 
+      Labs: Normal CBC, TSH.
+      ABG: 7.37/60/78
+      CT: 
+      What could be the most likely cause of her symptoms?  `,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q115/Q115+img1.png`,
+      ],
+      answerOptions: [
+        `Pemberton’s sign`,
+        `Ewart’s sign`,
+        `Lerman scratch`,
+        `Caput Medusae`,
+      ],
+      correctAnswer: `Pemberton’s sign`,
+      explanation: `This patient has enlarged thyroid which is compressing the trachea as shown in the CT scan. Patients have a positive Pemberton’s sign. In this maneuver, the patient is asked to elevate both arms until they touch sides of the face. If there is presence of facial congestion and cyanosis and respiratory distress after a minute as seen in this patient. This maneuver is performed during thyroid examination. This maneuver is also useful in patients with adenopathy, tumor or fibrosis in mediastinum.
+
+      Ewart’s sign: This sign is positive in patients with large pericardial effusion.  In this patient's large effusion compresses the left lower lobe of the lung that results in dullness to percussion and bronchial breath sounds which can be heard at an inferior angle of the left scapula.
+      
+      Lerman scratch: It is a murmur that results from rubbing of the pericardium against the pleura. It occurs due to hyperdynamic circulation and tachycardia. This murmur is a mid-systolic scratching sound which is best heard over the upper part of the sternum or second intercostal space at end of the expiration in patients with hyperthyroidism.
+      
+      Caput Medusae: It’s a network of painless, swollen superficial epigastric veins radiating from umbilicus across the abdomen. It is common in patients with liver disease. `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Mediastinal Disorders",
+    }),
+
+    //Q116
+    Question_Answer.create({
+      question: `Which of the following is NOT a pulmonary complication of CF?`,
+      questionImage: [],
+      answerOptions: [
+        `Massive hemoptysis and pneumothorax`,
+        `Atelectasis and acute respiratory failure`,
+        `Allergic bronchopulmonary aspergillosis and hypertrophic pulmonary osteoarthropathy`,
+        `Lymphangiomyomatosis and chylothorax`,
+      ],
+      correctAnswer: `Lymphangiomyomatosis and chylothorax`,
+      explanation: `There is no correlation between lymphangiomyomatosis and CF. Lymphangiomyomatosis is a rare disease leading to proliferation of smooth muscles and lymphatic channels. It leads to progressive cystic destruction of the lungs, abnormalities in lymphatics, and tumors in the abdomen. It is associated with tuberous sclerosis complex which is autosomal dominant. Involvement of the lymphatics can cause obstruction associated with chylous pleural effusion [1]. Common complications of CF are hemoptysis and spontaneous pneumothorax which can be scanty or profuse [2]. Mucous airway plugging can lead to atelectasis. Pseudomonas and Staphylococcus bacteria can cause pulmonary infection resulting in acute or chronic respiratory failures. Allergic bronchopulmonary aspergillosis (ABPA) results from hypersensitivity to Aspergillus fumigatus and can affect patients with CF. Hypertrophic pulmonary osteoarthropathy is a triad of clubbing, arthritis, and periostitis and is associated with pulmonary compromise in CF patients.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/10901911/" target="_blank">Teo MS, Tan LK, Lim Tk, Lymphangiomyomatosis: radiological and measured lung function deterioration after contrast-enhanced computed tomography. Australas Radiol. 1999 May;43(2):249-52. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24361142/" target="_blank">MY. Ng, Pulmonary complications of cystic fibrosis, Clinical Radiology 69 (2014) e153-e162 </a>`,
+      ],
+      level: "Easy",
+      category: "Bronchiectasis",
+    }),
+
+    //Q117
+    Question_Answer.create({
+      question: `Which of following statements regarding the mechanism of action of recombinant human deoxyribonuclease (rhDNase) in CF is correct?`,
+      questionImage: [],
+      answerOptions: [
+        `rhDNase cleaves the extracellular DNA from the neutrophils in sputum to make it less viscous`,
+        `rhDNase’s potent antibacterial action prevents the growth of pseudomonas and staphylococci`,
+        `rhDNase has antibacterial, bronchodilator, and mucolytic actions`,
+        `rhDNase corrects the defect in the CF gene on chromosome 7`,
+      ],
+      correctAnswer: `rhDNase cleaves the extracellular DNA from the neutrophils in sputum to make it less viscous`,
+      explanation: `Recombinant human DNase (rhDNAse) is an enzyme the breaks down DNA strands in airway secretions and helps reduce the viscosity in the lungs to promote secretion clearance [1]. It is given in an aerosol form as 2.5 mg once or twice daily. RhDNase can prevent the growth of infections with parental antibiotics in the hospital but does not have any antibacterial, bronchodilator mucolytic actions. Patients with CF can use mucolytic to clear thick secretions.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/19707442/" target="_blank">Pressler Tacjana, Review of recombinant human deoxyribonase (rhDNAase) in the management of patient with cystic fibrosis, Biologic: Target &Therapy 2008:2(4) 611-617 </a>`,
+      ],
+      level: "Moderate",
+      category: "Bronchiectasis",
+    }),
+
+    //Q118
+    Question_Answer.create({
+      question: `A 53-year-old male smoker presents to the emergency department with exertional dyspnea that has progressed to dyspnea at rest and a cough for 1 month. Two weeks ago, he started having headaches and noticed swelling of his face. Physical examination reveals prominent neck veins and edema of the upper limbs. A chest radiograph demonstrates a suspicious nodule in the right hilar region. Which of the following types of lung cancer is most commonly associated with the signs and symptoms this patient is experiencing?`,
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma of the lung`,
+        `Carcinoid tumor of the lung`,
+        `Large cell lung cancer`,
+        `Small cell lung cancer (SCLC)`,
+        `Squamous cell lung cancer`,
+      ],
+      correctAnswer: `Small cell lung cancer (SCLC)`,
+      explanation: `The patient presents with superior vena cava syndrome (SVCS) with symptoms of headaches, upper limbs and facial swelling. This syndrome is diagnosed by total or complete obstruction of superior vena due to tumors, external compression, or thrombus formation. Other associated signs of SVCS include chest pain, cough, and venous distention of the neck [1][2]. Most cases are due to bronchogenic carcinoma due to SCLC associated with smoking [3] in 90%of cases and located in hilar regions on imaging.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/8462332/" target="_blank">Abner A. Approach to the patient who presents with superior vena cava obstruction. Chest1993;103(4 Suppl):394S–7S. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17476012/" target="_blank">Wilson LD, Detterbeck FC, Yahalom J. Clinical practice. Superior vena cava syndrome with malignant causes. N Engl J Med 2007;356:1862–9.</a>`,
+        `<a href="https://www.semanticscholar.org/paper/Superior-Vena-Cava-Syndrome-in-Small-Cell-Carcinoma-Neary-Lai/ac50a49940a679f0c0f505673866e0f520b51c00" target="_blank">Neary J, Lai J. Superior vena cava syndrome in small-cell carcinoma of the lung: case report and literature review. U Toronto Med J 2004;81:222–9</a>`,
+      ],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //Q119
+    Question_Answer.create({
+      question: `Paraneoplastic syndromes are clinical disorders associated with malignant diseases but not directly related to the physical effects of primary or metastatic tumors.  Several paraneoplastic syndromes are more closely associated with a particular subtype of bronchogenic carcinoma. Which of the following paraneoplastic syndrome is appropriately matched with its most commonly associated histologic type of lung cancer?`,
+      questionImage: [],
+      answerOptions: [
+        `Ectopic Cushing’s syndrome/bronchial carcinoid tumor`,
+        `Hypercalcemia/adenocarcinoma`,
+        `Hypertrophic pulmonary osteoarthropathy and digital clubbing/SCLC`,
+        `Lambert-Eaton myasthenic syndrome (LEMS)/squamous cell carcinoma`,
+        `Syndrome of inappropriate antidiuretic hormone (SIADH)/SCLC`,
+      ],
+      correctAnswer: `Syndrome of inappropriate antidiuretic hormone (SIADH)/SCLC`,
+      explanation: `SIADH is correlated with SCLC where most patients are asymptomatic. Hypercalcemia is associated with squamous cell carcinoma due to bone metastasis [1]. Ectopic Cushing syndrome occurs due to continuously secreted adrenocorticotropic hormone (ACTH) most commonly associated with SCLC. LEMS is a disorder of low levels of acetylcholine (ACh) released from the presynaptic terminal, which occurs as a paraneoplastic syndrome in SCLC. Autoantibodies to P/Q voltage-gated calcium channels expressed by the ectopic lung tumor can trigger neurological dysfunction and can cross-react with channels at the neuromuscular junction [2]. The mechanism of Hypertrophic pulmonary osteoarthropathy is unknown but is associated with non-small cell cancer (NSCLC).`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/12527569/" target="_blank">Beckles MA, Spiro SG, Colice GL, Rudd RM. Initial evaluation of the patient with lung cancer: symptoms, signs, laboratory tests, and paraneoplastic syndromes. Chest 2003;123(1 Suppl):97S–104S</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27471686/" target="_blank">Briggs S, Gozzard P, The association between Lambert–Eaton myasthenic syndrome and small cell lung carcinoma, Immunotargets Ther. 2013; 2: 31–37</a>`,
+      ],
+      level: "Moderate",
+      category: "Lung Cancer",
+    }),
+
+    //Q120
+    Question_Answer.create({
+      question: `Which of the following exocrine glandular ducts are NOT obstructed in cystic fibrosis (CF)?`,
+      questionImage: [],
+      answerOptions: [
+        `Pancreas`,
+        `Lungs`,
+        `Sweat Glands`,
+        `Glands of the uterine cervix`,
+      ],
+      correctAnswer: `Sweat Glands`,
+      explanation: `Patients with CF can have obstructed ducts of mucus-secreting glands causing granular dilation and destruction because of increased viscosity. Most CF patients are susceptible to infections and chronic bacterial colonization. Serous glands such as sweat glands are least affected in CF patients because there is an abnormal concentration of inorganic ions that produces thin mucus compared to glandular obstruction where there is thicker mucus. Measurement of sweat chloride is done using quantitative pilocarpine iontophoresis for diagnosing CF. The lungs are affected leading to bronchiectasis and atelectasis whereas obstruction of the pancreatic ducts causes pancreatitis and malabsorption. Obstructive jaundice can occur due to plugging of the bile ducts.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24685676/" target="_blank">Ehre C, Cystic Fibrosis: An Inherited Disease Affecting Mucin-Producing Organs, Int J BiochemCell Biol, 2014 Jul; 52: 136-145</a>`,
+      ],
+      level: "Easy",
+      category: "Bronchiectasis",
+    }),
+
+    //Q121
+    Question_Answer.create({
+      question: `Which of the following treatments for COPD has the largest impact on Health Status?`,
+      questionImage: [],
+      answerOptions: [
+        `Ultra-long-acting beta-2 agonists (24 hours duration`,
+        `Pulmonary Rehabilitation including exercise`,
+        `Long-Acting Muscarinic Antagonists`,
+        `Non-invasive ventilation`,
+      ],
+      correctAnswer: `Pulmonary Rehabilitation including exercise`,
+      explanation: `Chronic obstructive pulmonary disease (COPD) is becoming more prevalent as it is the 3rd most common cause of morbidity and mortality worldwide. According to the Global Initiative for Chronic Obtrusive Lung Disease (GOLD), the most effective therapeutic intervention for improving quality of life, physical performance and reducing dyspnea is pulmonary rehabilitation. It is also the most cost-effective treatment in COPD.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29526182/" target="_blank">Gloeckl R. Pulmonary Rehabilitation and Exercise Training in Chronic Obstructive Pulmonary Disease. Dtsch Arztebl Int. 2018 Feb; 115(8): 117–123.</a>`,
+      ],
+      level: "Easy",
+      category: "Chronic Obstructive Pulmonary Disease",
+    }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
