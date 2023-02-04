@@ -88,15 +88,15 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   }
 });
 
-//POST---api/questions/:singleQuestionId
+//EDIT QA ROUTE --- api/questions/:singleQuestionId
 // Admin submits form - Make sure form is populated with current QA data
-// Thru req.body, if ancestorId = null (q has no older versions), then attach req.params.id to ancestorId in frontend.
+// Thru req.body, if ancestorId = null (q has no older versions), then attach id or req.params.id to ancestorId in frontend.
 router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
   //NEED TO ADD CODE FOR IMAGE UPLOAD
   try {
     const newQA = await Question_Answer.create(req.body);
-    console.log("NEW QA CREATED", newQA);
+    console.log("Edited NEW QA CREATED", newQA);
     const updateOld = await Question_Answer.update(
       { status: "Inactive" },
       {
@@ -113,20 +113,66 @@ router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-//DELETE---api/questions/:singleQuestionId
-// Thru req.body, if ancestorId = null (q has no older versions), then attach req.params.id to ancestorId in frontend.
-router.delete("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
-  const qaId = req.params.singleQuestionId;
+//CREATE NEW QA ROUTE --- api/questions
+// Admin submits form on all qa page
+router.post("/", getToken, isAdmin, async (req, res, next) => {
+  //NEED TO ADD CODE FOR IMAGE UPLOAD
   try {
-    const deleteInstance = await Question_Answer.destroy(
-      {
-        where: {
-          questionAnswerId: qaId,
-        },
-      }
-    );
-    res.json(deleteInstance); //only sends num of deletion back
+    const newQA = await Question_Answer.create(req.body);
+    console.log("Completely NEW QA CREATED", newQA);
+    res.json(newQA);
   } catch (err) {
     next(err);
   }
 });
+
+//DELETE---api/questions/:singleQuestionId (Feature should be in single QA page)
+// Send ancestorId via "data" option.
+router.delete(
+  "/:singleQuestionId",
+  getToken,
+  isAdmin,
+  async (req, res, next) => {
+    const qaId = req.params.singleQuestionId;
+    console.log("DELETE REQ", req);
+    try {
+      res.json(1);
+      // const deleteInstance = await Question_Answer.destroy(
+      //   {
+      //     where: {
+      //       questionAnswerId: qaId,
+      //     },
+      //   }
+      // );
+      // res.json(deleteInstance); //only sends num of deletion back
+      //---------If can't send ancestorId from frontend through "data" option
+      //
+      // const allVersions = await Question_Answer.findAll({
+      //   order: [["createdAt", "ASC"]],
+      //   where: {
+      //     [Op.or]: [
+      //       { id: singleQuestion.ancestorId },
+      //       { ancestorId: singleQuestion.ancestorId },
+      //     ],
+      //   },
+      //   include: User_Question,
+      // });
+      // if (allVersions[0].id === qaId) {
+      //   //If deleting root ancestor
+      //   for (let i = 0; i < allVersions.length; i++) {
+      //     const updateChildren = await allVersions[i].update({
+      //       ancestorId: allVersions[1].id,
+      //     });
+      //   }
+      // }
+      // const deleteInstance = await Question_Answer.destroy({
+      //   where: {
+      //     questionAnswerId: qaId,
+      //   },
+      // });
+      // res.json(deleteInstance); //only sends num of deletion back
+    } catch (err) {
+      next(err);
+    }
+  }
+);
