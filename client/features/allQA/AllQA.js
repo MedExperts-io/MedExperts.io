@@ -40,8 +40,10 @@ const QuestionsAnswers = () => {
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
   const [seeFavorites, setSeeFavorites] = useState(true);
+  let isFavorited = false;
 
   const onFavoriteSwitch = () => {
+    seeFavorites ? (isFavorited = true) : null;
     filterFunction();
     setSeeFavorites(!seeFavorites);
   };
@@ -90,11 +92,6 @@ const QuestionsAnswers = () => {
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
   filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
-  //console.log(itemOffset, endOffset);
-
-  console.log("allQuestionsCheck", allQuestions);
-
-  console.log("filteredQuestions", filteredQuestions);
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -123,9 +120,6 @@ const QuestionsAnswers = () => {
     setCurrentDifficulty(event);
     filterCriteria[0] = event;
     filterFunction();
-
-    //setCurrentDifficulty(event);
-    //event === "All Levels" ? setfilteredQuestions(allQuestions) : setfilteredQuestions(allQuestions.filter((question) => question.level === event));
   };
   const pickCategory1 = (event) => {
     setCurrentCategory1(event);
@@ -135,20 +129,18 @@ const QuestionsAnswers = () => {
 
   const handlePageClick = (event) => {
     const newOffset = event.selected * itemsPerPage;
-    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
     setItemOffset(newOffset);
     const endOffset = newOffset + itemsPerPage;
     setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage));
     setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
-    console.log("itemOffset", newOffset, endOffset, event.selected);
   };
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
+    console.log("isFavorited?", isFavorited, multiFilter);
     let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
-    seeFavorites ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
-    multiFilter.length ? setCurrentItems(multiFilter.slice(itemOffset, endOffset)) : setCurrentItems("nada");
-
+    isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
+    console.log("isFavorited?", isFavorited, multiFilter);
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
@@ -158,8 +150,9 @@ const QuestionsAnswers = () => {
     }
     console.log("filterQuestions in filterFunction", multiFilter);
     multiFilter.length ? setfilteredQuestions(multiFilter) : null;
-    multiFilter.length ? setCurrentItems(multiFilter.slice(itemOffset, endOffset)) : setCurrentItems("nada");
+    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
     multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
+    setItemOffset(0);
     return multiFilter;
   };
 
