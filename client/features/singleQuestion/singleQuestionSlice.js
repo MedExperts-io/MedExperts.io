@@ -10,7 +10,7 @@ export const fetchSingleQuestion = createAsyncThunk(
         authorization: token,
       },
     });
-    console.log("single Q inside Thunk");
+    console.log('single Q inside Thunk');
     return data;
   }
 );
