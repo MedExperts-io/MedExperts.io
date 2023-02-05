@@ -2,15 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import { Card, Dropdown, Row, Col, Form } from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form, Button } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import AllQAadmin from "./AllQAadmin";
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
-const QuestionsAnswers = () => {
+const AllQAadmin = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
   const itemsPerPage = 12;
@@ -53,6 +54,7 @@ const QuestionsAnswers = () => {
   let filterCriteria = [currentDifficulty, currentCategory1];
 
   const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
+  const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
   const easyQuestions = stateQuestions.filter((question) => question.level === "Easy");
   const moderateQuestions = stateQuestions.filter((question) => question.level === "Moderate");
@@ -60,7 +62,7 @@ const QuestionsAnswers = () => {
   const userEasyQuestions = userQuestions.filter((question) => question.level === "Easy" && question.userInput);
   const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
   const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
-  const admin = useSelector((state) => state.auth.me.isAdmin);
+
 
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
@@ -96,12 +98,35 @@ const QuestionsAnswers = () => {
   filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
 
   const truncate = (string) => {
-    if (string.length > 50) {
+    if (string.length > 20) {
       return string.slice(0, 50) + "...";
     } else {
       return string;
     }
   };
+
+  const data = (id) => {
+    const filterDataById = AllUserQuestions.filter(x => x.questionAnswerId === id)
+    const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
+
+    const percentageCorrect = (filterDataByCorrect.length/filterDataById.length)*100
+    if(percentageCorrect || percentageCorrect===0){
+    return percentageCorrect
+    }else{
+        return null
+    }
+  }
+  const filterDataById = (id) => {
+    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
+    // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
+    return filterData.length 
+  }
+  const filterDataByCorrect = (id) => {
+    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
+    const filterDataByRight = filterData.filter(x => x.answered === 'right')
+    return filterDataByRight.length 
+  }
+
 
   const favorite = (userId, questionId) => {
     dispatch(
@@ -172,13 +197,9 @@ const QuestionsAnswers = () => {
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
+    dispatch(fetchAllUserQuestions())
   }, []); // Putting userQuestions in here throws a loop
 
-  if(admin){
-    return(
-  <AllQAadmin/>
-    )
-  }else{
   return (
     <Container>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
@@ -294,21 +315,36 @@ const QuestionsAnswers = () => {
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
                   <Card.Header style={{ backgroundColor: `${question.color}` }} />
                   <Card.Body style={{}}>
+                    {/* <Card.Img
+                      style={{ float: "right", width: "25px" }}
+                      onClick={() => favorite(userId, question.id)}
+                      variant="top"
+                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                    /> */}
+                    <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
+                      <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
+                        Question Number{" "}{question.id}
+                      </Link>
+                    </Card.Title>
+                    <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
+                    
+                    <Stack spacing = {.5}>
+                    <Chip label = {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`} color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined"/>
+                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" /> 
+                    {/* <Chip label ={`Correct respone(s): ${filterDataByCorrect(question.id)}`} size="small" color="primary" /> */}
+                    </Stack>
+                  </Card.Body>
+                  <Card.Footer>
+                
+                    {/* <Chip label={question.category} color="success" variant="outlined" /> */}
+                    <Chip label={question.category} color="info" />
+                    {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
                     <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
                       src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                     />
-                    <Card.Title>
-                      <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
-                        {question.id}. Some Title
-                      </Link>
-                    </Card.Title>
-                    <Card.Text>{truncate(question.question)}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
                   </Card.Footer>
                 </Card>
               </Col>
@@ -337,7 +373,6 @@ const QuestionsAnswers = () => {
       />
     </Container>
   );
-  }
 };
 
-export default QuestionsAnswers;
+export default AllQAadmin;
