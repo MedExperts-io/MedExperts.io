@@ -15,7 +15,7 @@ User_Question.belongsTo(User); //-------------------------------------Foreign Ke
 User.hasMany(User_Question);
 Question_Answer.hasMany(User_Question);
 
-Question_Answer.hasMany(Question_Answer, {
+Question_Answer.hasMany(Question_Answer, {// onDelete = SET NULL
   as: "newVersions",
   foreignKey: "ancestorId",
 });
