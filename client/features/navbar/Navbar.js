@@ -70,7 +70,7 @@ const SiteNavbar = () => {
                           color: "#FF6262",
                           height: "30",
                           width: "30",
-                          paddingRight: "5px",
+                          paddingRight: "7px",
                           paddingTop: "0",
                           paddingBottom: "0",
                           marginTop: "0",
@@ -98,51 +98,56 @@ const SiteNavbar = () => {
           </>
         ) : (
           <>
-            <Navbar.Brand href="/">
-              <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
-            </Navbar.Brand>
-            <Nav>
-              <Button
-                className="m-2"
-                variant="light"
-                style={{
-                  paddingTop: "0",
-                  paddingBottom: "0",
-                  marginTop: "0",
-                  marginBottom: "0",
-                }}
-              >
-                <NavDropdown
-                  className="buttonIcon"
+            <Link to="/">
+              <Navbar.Brand>
+                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+              </Navbar.Brand>
+            </Link>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav>
+                <Button
+                  className="m-2"
+                  variant="light"
                   style={{
                     paddingTop: "0",
                     paddingBottom: "0",
                     marginTop: "0",
                     marginBottom: "0",
                   }}
-                  title={
-                    <AccountCircleRoundedIcon
-                      style={{
-                        color: "#FF6262",
-                        height: "30",
-                        width: "30",
-                        paddingRight: "5spx",
-                        paddingTop: "0",
-                        paddingBottom: "0",
-                        marginTop: "0",
-                        marginBottom: "0",
-                      }}
-                    />
-                  }
-                  drop={"start"}
-                  id="collapsible-nav-dropdown"
                 >
-                  <NavDropdown.Item as={Link} to="/login">
-                    Login
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Button>
-            </Nav>
+                  <NavDropdown
+                    className="buttonIcon"
+                    style={{
+                      paddingTop: "0",
+                      paddingBottom: "0",
+                      marginTop: "0",
+                      marginBottom: "0",
+                    }}
+                    title={
+                      <AccountCircleRoundedIcon
+                        style={{
+                          color: "#FF6262",
+                          height: "30",
+                          width: "30",
+                          paddingRight: "5px",
+                          paddingTop: "0",
+                          paddingBottom: "0",
+                          marginTop: "0",
+                          marginBottom: "0",
+                        }}
+                      />
+                    }
+                    drop={"start"}
+                    id="collapsible-nav-dropdown"
+                  >
+                    <NavDropdown.Item as={Link} to="/login">
+                      Login
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
           </>
         )}
       </Container>
