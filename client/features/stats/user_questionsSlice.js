@@ -68,7 +68,7 @@ export const updateUserQuestion = createAsyncThunk(
 // --------TO STORE USER INPUT--------------
 export const updateUserQuestionInput = createAsyncThunk(
   "updateUserQuestionInput",
-  async ({ userId, questionAnswerId, userInput, answered, category,level }) => {
+  async ({ userId, questionAnswerId, userInput, answered, category,level,userExpertise }) => {
     try {
       const { data } = await axios.post(
         `/api/user_questions/${userId}`,
@@ -78,6 +78,7 @@ export const updateUserQuestionInput = createAsyncThunk(
           answered: answered,
           category: category,
           level:level,
+          userExpertise:userExpertise
         },
         {
           headers: {
