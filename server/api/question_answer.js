@@ -31,6 +31,7 @@ router.get("/", getToken, async (req, res, next) => {
 //GET/api/questions/:singleQuestionId
 router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
+
   try {
     let singleQuestion = await Question_Answer.findOne({
       where: { id: qaId },
@@ -38,10 +39,10 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         model: User_Question,
       },
     });
+    //Condition 1 - If instance exists
     if (singleQuestion) {
-      //Condition 1 - If instance exists
+      //Condition 2A - IF ADMIN
       if (req.user.isAdmin) {
-        //Condition 2A - IF ADMIN
         const allVersions = await Question_Answer.findAll({
           order: [["createdAt", "DESC"]],
           where: {
@@ -54,13 +55,13 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         });
 
         res.json(allVersions);
-      } else {
-        //Condition 2B - IF STUDENT
+      } //Condition 2B - IF STUDENT
+      else {
+        //Condition 3A - If student has responded to question
         if (singleQuestion.user_questions.length) {
-          //Condition 3A - If student has responded to question
           res.json(singleQuestion);
-        } else {
-          //Condition 3B - If student has not yet responded
+        } //Condition 3B - If student has not yet responded
+        else {
           const {
             id,
             question,
@@ -128,50 +129,43 @@ router.post("/", getToken, isAdmin, async (req, res, next) => {
 });
 
 //DELETE---api/questions/:singleQuestionId (Feature should be in single QA page)
-// Send ancestorId via "data" option.
 router.delete(
   "/:singleQuestionId",
   getToken,
   isAdmin,
   async (req, res, next) => {
     const qaId = req.params.singleQuestionId;
-    console.log("DELETE REQ", req);
+
     try {
-      res.json(1);
-      // const deleteInstance = await Question_Answer.destroy(
-      //   {
-      //     where: {
-      //       questionAnswerId: qaId,
-      //     },
-      //   }
-      // );
-      // res.json(deleteInstance); //only sends num of deletion back
-      //---------If can't send ancestorId from frontend through "data" option
-      //
-      // const allVersions = await Question_Answer.findAll({
-      //   order: [["createdAt", "ASC"]],
-      //   where: {
-      //     [Op.or]: [
-      //       { id: singleQuestion.ancestorId },
-      //       { ancestorId: singleQuestion.ancestorId },
-      //     ],
-      //   },
-      //   include: User_Question,
-      // });
-      // if (allVersions[0].id === qaId) {
-      //   //If deleting root ancestor
-      //   for (let i = 0; i < allVersions.length; i++) {
-      //     const updateChildren = await allVersions[i].update({
-      //       ancestorId: allVersions[1].id,
-      //     });
-      //   }
+      const allVersions = await Question_Answer.findAll({
+        order: [["createdAt", "ASC"]],
+        where: {
+          [Op.or]: [{ id: qaId }, { ancestorId: qaId }],
+        },
+        include: User_Question,
+      });
+      console.log("INITIAL ALL VERSIONS", allVersions);
+
+      //If deleting root ancestor and it has children
+      if (allVersions[0].id === qaId && allVersions.length > 1) {
+        for (let i = 0; i < allVersions.length; i++) {
+          const updateChildren = await allVersions[i].update({
+            ancestorId: allVersions[1].id,
+          });
+        }
+        console.log("UPDATED ALL VERSIONS", allVersions);
+      }
+      const deleteInstance = await Question_Answer.destroy({
+        where: {
+          questionAnswerId: qaId,
+        },
+      });
+
+      // if (allVersions.length === 1) {
+      res.json(deleteInstance); //only sends num of deletion back
+      // } else {
+      //   res.json(allVersions[allVersions.length - 1]);
       // }
-      // const deleteInstance = await Question_Answer.destroy({
-      //   where: {
-      //     questionAnswerId: qaId,
-      //   },
-      // });
-      // res.json(deleteInstance); //only sends num of deletion back
     } catch (err) {
       next(err);
     }
