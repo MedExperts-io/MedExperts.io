@@ -12,6 +12,7 @@ import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirm
 import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 import LoadingScreen from "../features/loading/LoadingScreen";
 import LandingPage from "../features/landingPage/LandingPage";
+import AllQAadmin from "../features/allQA/AllQAadmin";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -29,6 +30,7 @@ const AppRoutes = () => {
           <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
+          {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
           <Route
             path="/questions/:singleQuestionId"
             element={<SingleQuestion />}
