@@ -31,27 +31,15 @@ const singleQuestion = () => {
     }
     setSelectedOption(option);
   };
-  const handleSubmit = () => {
-    setShowAnswer(true);
-    
-    dispatch(
-      updateUserQuestionInput({
-        userId: userId,
-        questionAnswerId: id,
-        userInput: selectedOption,
-        answered: selectedOption === correctAnswer ? 'right' : 'wrong',
-        category: category,
-        level: level
-      }))
-      .then(() => dispatch(fetchSingleQuestion(singleQuestionId)))
-      .then(() => dispatch(fetchUserQuestions(userId)))
-  };
+  
+ 
 
 
   const { singleQuestionId } = useParams();
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.auth.me.id);
+  const userExpertise = useSelector((state) => state.auth.me.expertise);
   useEffect(() => {
     dispatch(fetchSingleQuestion(singleQuestionId));
     dispatch(fetchUserQuestions(userId))
@@ -75,10 +63,30 @@ const singleQuestion = () => {
   } = singleQ;
 
 
+
   const AllUserQuestion = useSelector((state) => state.userQuestions.UserQuestions);
   const CurrentQuestionArray = AllUserQuestion.filter(object => object.questionAnswerId === id);
  
   const CurrentQuestion = CurrentQuestionArray[0]
+
+  const handleSubmit = () => {
+    const rightorwrong = selectedOption === correctAnswer ? 'right' : 'wrong';
+    setShowAnswer(true);
+    console.log(selectedOption, correctAnswer)
+    dispatch(
+      updateUserQuestionInput({
+        userId: userId,
+        questionAnswerId: id,
+        userInput: selectedOption,
+        answered:rightorwrong,
+        category: category,
+        level: level,
+        userExpertise:userExpertise
+      }))
+      .then(() => dispatch(fetchSingleQuestion(singleQuestionId)))
+      // .then(() => dispatch(updateUserQuestionInput({answered:rightorwrong})))
+      .then(() => dispatch(fetchUserQuestions(userId)))
+  };
  
 
 // if (CurrentQuestion){
