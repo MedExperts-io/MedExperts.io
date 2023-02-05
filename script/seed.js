@@ -3800,6 +3800,438 @@ async function seed() {
       category: "Pulmonary Vascular Disease",
     }),
 
+    //   Q152
+    Question_Answer.create({
+      question: `Approximately what percent of people with allergic asthma have allergic rhinitis (AR)?`,
+      questionImage: [],
+      answerOptions: [`10%`, `20%`, `50%`, `90%`],
+      correctAnswer: `50%`,
+      explanation: `Allergic rhinitis (AR) is often associated with allergic asthma (AA): approximately 25% of people with AR also have asthma and approximately 50% of people with asthma have AR.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31827545/" target="_blank">Ramano MR, James S, Farrington E, Perry R, Elliott L. The impact of perennial allergic rhinitis with/without allergic asthma on sleep, work and activity level. Allergy Asthma Clin Immunol. 2019 Dec 6;15:81.</a>`,
+      ],
+      level: "Easy",
+      category: "Asthma",
+    }),
+
+    //   Q153
+    Question_Answer.create({
+      question: `What is the characteristic phenotype of the most common genetic mutation found inAlpha-1 Antitrypsin deficiency patients with chronic liver disease?`,
+      questionImage: [],
+      answerOptions: [`PI*Null`, `PI*MM`, `PI*FZ`, `PI*ZZ`, `PI*MZ`],
+      correctAnswer: `PI*ZZ`,
+      explanation: `Alpha-1 Antitrypsin Deficiency is an autosomal codominant condition that predisposes to COPD and liver diseases. It can affect lungs, liver and rarely skin. AAT normally inhibits elastase and in absence of AAT, elastase becomes overactive and destroys elastic tissue (Emphysema). Deficiency can cause cirrhosis due to accumulating in the endoplasmic reticulum of the liver. Severity of the disease is highly variable depending on the type of allele present and the risk factors to which the patient is exposed like Cigarette smoking, occupational and environmental exposure to dust, smoke, etc. In severe deficiency neonatal hepatitis can be seen. Patients with ATT deficiency have symptoms similar to COPD like dyspnea, cough with or without sputum, wheezing, Bronchodilator response is commonly seen. Distinctive features are age of onset which is <45 years and basilar pattern of emphysema, Emphysema in nonsmoker, Family history. Extrapulmonary features seen are Hepatomegaly with elevated aminotransferases levels, ascitis, cirrhosis, hepatocellular carcinoma can also occur. Rarely necrotizing panniculitis can be seen as a manifestation of AAT deficiency. Diagnosis can be made with Blood tests (decreased AAT levels), Spirometry, Imaging, Biopsy, and genetic testing. Obstructive pattern is seen on Spirometry (Decreased FEV1 and FEV1/FVC; Increased TLC). Basilar predominant emphysematous bullae are commonly seen on HRCT. PAS positive granules and globules in hepatocytes can be seen on biopsy. Genetic testing confirms the diagnosis Management is through prevention, medical treatment, and surgery Medical: Augmentation therapy-the intravenous infusion of purified, pooled human plasma AAT-is recommended for individuals with AATD and emphysema. Gene therapy with an adeno-associated virus vector given by whole limb perfusion or intrapleurally. Surgical: Liver transplantation Prevention by avoiding risk factors like smoking.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="" target="_blank">Significant Progress in Understanding, Recognizing and treating Alpha-1 Antitrypsin Deficiency; Cleveland Clinic’s Alpha-1 Antitrypsin Center plays key role in guideline update;James K. Stoller, MD, MS</a>`,
+      ],
+      level: "Easy",
+      category: "Chronic Obstructive Pulmonary Disease",
+    }),
+
+    //   Q154
+    Question_Answer.create({
+      question: `Which of the following occurs after radiation to the chest?`,
+      questionImage: [],
+      answerOptions: [
+        `Thymic Cyst`,
+        `Bronchogenic cysts`,
+        `Esophageal duplication cysts`,
+        `Pericardial cysts`,
+        `Cysts of the chest wall`,
+      ],
+      correctAnswer: `Thymic Cyst`,
+      explanation: `Thymic cysts may arise in patients who have undergone irradiation for Hodgkin disease or breast cancer. These cysts are thought to occur either secondarily to treatment of Hodgkin disease of the thymus or exclusively as a result of radiation effects on the thymus (,31). They manifest as a stable or progressively enlarging cyst. The CT and MR imaging appearance is the same as that of a benign cyst. Irregular or thick-walled cysts should be regarded with suspicion and may necessitate biopsy.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/7302209/" target="_blank">Baron RL, Sagel SS, Baglan RJ.Thymic cysts following radiation therapy for Hodgkin's Disease.Radiology 1981; 141:593-597</a>`,
+      ],
+      level: "Easy",
+      category: "Mediastinal Disorders",
+    }),
+
+    //   Q155
+    Question_Answer.create({
+      question: `Which of the following statements is true of chronic mediastinitis?`,
+      questionImage: [],
+      answerOptions: [
+        `It can present with superior vena cava obstruction`,
+        `It can be treated effectively with intravenous steroids`,
+        `It can be caused by esophageal rupture`,
+        `It can be treated with immunosuppression`,
+        `It can improve with cessation of the drug causing it`,
+      ],
+      correctAnswer: `It can present with superior vena cava obstruction`,
+      explanation: `Chronic fibrosing mediastinitis results from long‐standing inflammation secondary to infection, drugs, sarcoidosis, or autoimmune disease. When advanced, the fibrosis can cause compression of organs, including SVC obstruction. There is no effective treatment for this.`,
+      explanationImage: [],
+      explanationLinks: [`<a href="" target="_blank"></a>`],
+      level: "Moderate",
+      category: "Mediastinal Disorders",
+    }),
+
+    //   Q156
+    Question_Answer.create({
+      question: `The only treatment advised for immunocompromised patients with non-invasive aspergillomas if the patient had no hemoptysis is:`,
+      questionImage: [],
+      answerOptions: [
+        `Surgical debridement`,
+        `Oral steroids`,
+        `Itraconazole therapy`,
+        `Observation`,
+      ],
+      correctAnswer: `Observation`,
+      explanation: `Pulmonary aspergilloma is an infection caused by fungus and usually grows in lung cavities. If aspergilloma is single, the cavity can be stable for months and the patient may experience no symptoms. Aspergillus nodules can occur in immunocompetent hosts and can have single, or multiple cavitation between them.
+      Asymptomatic patients who have stable radiographic findings over many months, require no therapy. Progression to chronic cavitary pulmonary aspergillosis is common however, therefore continued observation is required. Spontaneous resolution can occur in about 10% of patients.  
+      The mainstay of therapy for chronic pulmonary aspergillosis is the azoles particularly itraconazole and voriconazole. However, it is important to be aware of significant adverse effects and drug interactions associated with azoles so monitoring of serum concentration is necessary. In immunocompromised patients, oral steroids will not have a role and will be the patient at risk for further management. 
+      
+      Surgical resection is performed to prevent or treat life-threatening hemoptysis with patients with Aspergilloma. Other indications for resection include, recurrent infection, inability to take azole therapy, azole resistance, and concurrent infection or tumor. Surgery should be avoided with patients with complicated disease of chronic cavitary pulmonary aspergillosis. 
+      In patients with moderate or severe hemoptysis who are too ill for surgery, embolization may be appropriate. The most common cause of hemoptysis is abnormal vascular connections within the pulmonary vessels. Embolization procedures are successful approximately 50-90% of the time. However, rebleeding can occur in 30-50% after three years. Long term antifungal therapy can minimize the relapse of rebleeding.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26699723/" target="_blank">Denning DW, et al. Chronic pulmonary aspergillosis: rational and clinical guidelines for diagnosis and management. Eur Respir J 2016; 47:45</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/1554270/" target="_blank">Jewkes J, Kay PH, Paneth M, Citron KM. Pulmonary aspergilloma: analysis of cavitating invasive pulmonary aspergillosis in immunocompromised patients. Ann Thorac Surg 1983; 53:621.</a>`,
+      ],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //   Q157
+    Question_Answer.create({
+      question: `Which of the following diseases show halo sign in radiology?`,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q157/Q157+img1.png`,
+      ],
+      answerOptions: [
+        `Pulmonary zygomycosis`,
+        `Chronic Aspergillosis (Colonizing aspergillosis)`,
+        `Invasive pulmonary Aspergillosis`,
+        `Rhinocerebral zygomycosis`,
+      ],
+      correctAnswer: `Invasive pulmonary Aspergillosis`,
+      explanation: `The halo sign has been described in patients with invasive aspergillosis and acute leukemia. Invasive pulmonary aspergillosis represents one end of the spectrum of conditions caused by Aspergillus organisms. In a severely immunocompromised patient with a fever that does not respond to antibiotics, pulmonary or systemic fungal infection must be considered in the differential diagnosis. Early recognition of this complication is critical because this disease is associated with a high mortality rate that ranges from 50% to 90%.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/11452056/" target="_blank">Franquet T, Muller NL, Gimenez A, Guembe P, de La TJ, Bague S.Spectrum of pulmonary aspergillosis: histologic, clinical, and radiologic findings. RadioGraphics 2001; 21:825-837</a>`,
+      ],
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q158
+    Question_Answer.create({
+      question: `Which statement is true of pneumomediastinum?`,
+      questionImage: [],
+      answerOptions: [
+        `The most common collagen vascular disorder associated with this condition is Dermatomyositis`,
+        `It always due to thoracic trauma`,
+        `It should always be managed with a small chest drain`,
+        `It will improve with supplemental oxygen`,
+        `It always requires thoracic surgery`,
+      ],
+      correctAnswer: `The most common collagen vascular disorder associated with this condition is Dermatomyositis`,
+      explanation: `A pneumomediastinum can occur from trauma or alveolar over‐distension and usually has a reasonable prognosis, resolves on it’s on. This does, however, depend on the underlying cause. Chest drain, surgery or hyperbaric oxygen are not indicated commonest collagen vascular disorder associated with this condition is Dermatomyositis.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK557440/" target="_blank">Iteen AJ, Bianchi W, Sharman T. Pneumomediastinum. 2020 May 19. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan–</a>`,
+      ],
+      level: "Moderate",
+      category: "Pleural Diseases",
+    }),
+
+    //   Q159
+    Question_Answer.create({
+      question: `In case of symptomatic anastomotic dehiscence following lung transplantation the best therapeutic option would be:`,
+      questionImage: [],
+      answerOptions: [
+        `Immediate surgical repair`,
+        `Emergent re-transplantation`,
+        `Discontinuation of Prednisone and administering Sirolimus`,
+        `Placement of an uncovered metallic stent`,
+      ],
+      correctAnswer: `Placement of an uncovered metallic stent`,
+      explanation: `Airway complications after lung transplantation are associated with significant mortality and morbidity. Anastomotic dehiscence occurs due to separation of surgical anastomosis because of extreme necrosis. Diagnosis can be confirmed by bronchoscopy and to assess the severity of the defect. Treatment depends on symptoms and severity. Partial dehiscence is often managed conservatively with surveillance and antibiotics. Severe dehiscence is managed with temporary placement of uncovered metallic stent where it forms granulation formation and remodeling of the airways. If these options are not effective, surgery would be the last resort. Common surgical interventions include re-transplantation, re-anastomosis, or flap bronchoplasty.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28274791/" target="_blank">Mahajan AK. Folche E, Khanhar SJ, et al. Airway Complications Following Lung Transplantation: A Comprehensive Review. Chest 2017;152:627-38 </a>`,
+      ],
+      level: "Easy",
+      category: "Lung Transplant",
+    }),
+
+    //   Q160
+    Question_Answer.create({
+      question: `A 64-year-old man with diabetes and hypertension presented with a 2-day history of sudden onset of acute pain and cyanosis on the sole of his right foot 4 days after undergoing cardiac catheterization and coronary angiography. The physical examination revealed macular, Violaceous, connecting rings in a net-like pattern that blanch with pressure and disappeared when the foot was elevated, a presentation compatible with livedo reticularis. Laboratory testing (complete blood cell count, biochemistry panel, coagulation test, and C-reactive protein test) was notable only for eosinophilia. A few days later, the patient returned with abdominal pain, diarrhea, and acute renal injury with urinary eosinophils (7% of the white blood cells in the urine) and proteinuria. Which is the most likely diagnosis?`,
+      questionImage: [],
+      answerOptions: [
+        `Infective endocarditis`,
+        `Pernio (chilblain)`,
+        `Cholesterol crystal embolism`,
+        `Cutaneous small—vessel vasculitis`,
+      ],
+      correctAnswer: `Cholesterol crystal embolism`,
+      explanation: `This patient has cholesterol crystal embolism. There are various risk factors that are associated with it such as age, smoking, obesity, hypertension, diabetes mellitus type 2, and hypercholesterolemia. Also, any vascular procedure or cardiac catheterization also increases the risk as seen in this patient. Patients with cholesterol crystal embolism can present ulcers, gangrene, kidney injury, stroke, intestinal ischemia, blue toe syndrome (cyanotic toe with intact pulse), and livedo reticularis (net like pattern that blanches with pressure application). Their clinical presentation depends on the location of the embolic source. On further laboratory testing, patients have elevated serum creatinine, eosinophilia, and hypocomplementemia. Eosinophiluria can be seen on urinalysis. The definitive diagnosis can be made by skin and renal biopsy which demonstrates biconvex, needle shaped clefts with vessels and perivascular inflammation with eosinophils. Along with supportive treatment, these patients are started on station therapy to further decrease risk of embolization in these patients.
+      Pernio is an inflammatory skin condition that occurs after exposure to cold. Patients present with pruritic, erythematous to violaceous acral lesions. This skin lesion appears within 12 to 24 hours of cold exposure and resolves within one to three weeks.
+      Cutaneous small—vessel vasculitis presents with palpable purpura, non-blanching petechiae, which is not the presentation in this patient.
+      Infective endocarditis: Patient presents with symptoms such as fever, chills, anorexia, new onset murmur, myalgia, non-tender erythematous macules on palm and soles, tender subcutaneous violaceous nodules on pads of fingers and toes. Echocardiograms can help to identify the vegetations.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28538699/" target="_blank">Cholesterol Crystal Embolism and Chronic Kidney Disease. Xuezhu Li, George Bayliss and Shougang Zhuang. Int. J. Mol. Sci. 2017, 18, 1120; doi: 10.3390/ijms18061120</a>`,
+      ],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
+
+    //   Q161
+    Question_Answer.create({
+      question: `All of the following are accepted indications for surgical in a patient with pneumothorax except:`,
+      questionImage: [],
+      answerOptions: [
+        `Second ipsilateral pneumothorax`,
+        `First contralateral pneumothorax`,
+        `Synchronous bilateral spontaneous pneumothorax`,
+        `Persistent air leak (despite 5–7 days of chest tube drainage) or failure of lung re-expansion`,
+        `A patient who is in her first trimester of Pregnancy`,
+      ],
+      correctAnswer: `A patient who is in her first trimester of Pregnancy`,
+      explanation: `Pneumothorax recurrence is more common in pregnancy, poses risks to the mother and fetus, and requires close cooperation between chest physicians, obstetricians and thoracic surgeons. The modern and less invasive strategies of simple observation and aspiration are usually effective during pregnancy, with elective assisted delivery and regional anesthesia at or near term. A corrective surgical procedure (VATS) should be considered after delivery.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28679967/" target="_blank">Sano A, Yotsumoto T. Thoracoscopic Surgery for Pneumothorax Following Outpatient Drainage Therapy. Ann Thorac Cardiovasc Surg. 2017 Oct 20;23(5):223-226.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17873199/" target="_blank">Lal A, Anderson G, Cowen M, Lindow S, Arnold AG. Pneumothorax and pregnancy. Chest. 2007 Sep;132(3):1044-8.</a>`,
+      ],
+      level: "Moderate",
+      category: "Pleural Diseases",
+    }),
+
+    //   Q162
+    Question_Answer.create({
+      question: `An 83-year-old woman was admitted to the hospital for a COPD exacerbation [GOLD Group C]. Her most recent forced expiratory volume in 1 second is 47% of predicted, and her peak inspiratory flow is 26 L/min. She states that she has been adherent to her medication and quit smoking last year. Which of the following devices is most suitable for this patient on discharge?`,
+      questionImage: [],
+      answerOptions: [
+        `Dry powder inhaler`,
+        `Soft mist inhaler`,
+        `Pressurized metered dose inhaler`,
+        `Nebulizer`,
+      ],
+      correctAnswer: `Nebulizer`,
+      explanation: `It is important for clinicians to choose an appropriate and suitable inhaler device for their patients. This requires consideration of a patient's medical history, preferences, and lifestyle.  
+  
+      Dry powder bronchodilator devices have an internal resistance. Effective use depends on the patient generating an adequate inspiratory flow to break up the powder packets into particles less than 5-μm in diameter that can be inhaled into the lower respiratory tract. This disaggregation takes place inside the device before the dose leaves the inhaler; this process is increased if the acceleration is fast at the start of inhalation.  
+      
+      A peak inspiratory flow rate [PIFR] of at least 60 L/min through the dry powder device is considered optimal for the patient to break up the powder and inhale the fine particles into the lungs, whereas a PIFR less than 30 L/min is insufficient.  
+       
+      Peak inspiratory flow depends on an individual’s effort along with the strength of the respiratory muscles, which may be compromised in those with chronic obstructive pulmonary disease as a result of lung hyperinflation, hypoxemia, and muscle wasting. As dry powder inhalers are driven by inspiratory flow and require a certain level of peak inspiratory flow, making this device unsuitable for this patient, who has a low peak inspiratory flow. 
+       
+      Soft mist inhalers create a slow-moving, fine mist, needing less synchronization between device actuation and inhalation. Soft mist inhalers do require strength and dexterity for inhaler preparation.  
+      
+      Pressurized metered dose inhalers require multiple steps for proper use and may be overwhelming for a patient to learn in the hospital. Nebulizers are not dependent on peak inspiratory flow and are easy to use, with no hand-breath coordination required.  
+      
+      These devices do need frequent cleaning and maintenance. A nebulizer may be appropriate for transitional care as in this patient and use of another device may be taught to the patient at a follow-up office visit.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28481631/" target="_blank">Mahler DA. Peak Inspiratory Flow Rate as a Criterion for Dry Powder Inhaler Use in Chronic Obstructive Pulmonary Disease. Ann Am Thorac Soc 2017 Vol 14, No 7, pp 1103–1107</a>`,
+      ],
+      level: "Moderate",
+      category: "Chronic Obstructive Pulmonary Disease",
+    }),
+
+    //   Q163
+    Question_Answer.create({
+      question: `Compared to CPAP treatment for Obstructive Sleep Apnea, oral appliance therapy results in similar improvements in which one of the following?`,
+      questionImage: [],
+      answerOptions: [
+        `Apnea Hypopnea Index`,
+        `Quality of Life`,
+        `Hypoxemia`,
+        `Periodic limb movements`,
+      ],
+      correctAnswer: `Quality of Life`,
+      explanation: `The overall grade for the body of evidence on the impact of oral appliances (OAs) to treat obstructive sleep apnea (OSA) varies between low and moderate depending on the physiologic sleep outcome measures. A systematic review of the evidence has shown that OAs reduce AHI, arousal index, and oxygen desaturation index, and increase oxygen saturation. However, OAs have shown no significant effect on sleep architecture and sleep efficiency. 
+
+      The overall improvement in physiologic sleep parameters with the use of OAs in adult patients with OSA results in an improvement in daily function and quality of life. Although OAs have been shown to improve physiologic sleep parameters, continuous positive airway pressure (CPAP), in the meta-analyses Ramar etal. was found to be superior to OAs in reducing the AHI, arousal index, and oxygen desaturation index and improving oxygen saturation, and therefore, should still generally be the first-line option for treating OSA. The improvement in QOL produced by custom, titratable OAs is not inferior to that reported with CPAP therapy. The custom, titratable OAs improve QOL, but as with CPAP, reduced QOL may persist despite otherwise adequate therapy.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26094920/" target="_blank">Ramar K, Dort LC,Katz SG ,et.al. Clinical Practice Guideline for the Treatment of Obstructive Sleep Apnea and Snoring with Oral Appliance Therapy: An Update for 2015 An American Academy of Sleep Medicine and American Academy of Dental Sleep Medicine Clinical Practice Guideline. J Clin Sleep Med. 2015 Jul 15; 11(7): 773–827.</a>`,
+      ],
+      level: "Easy",
+      category: "Sleep",
+    }),
+
+    //   Q164
+    Question_Answer.create({
+      question: `A 39-year-old female complains of cough, hemoptysis and shortness of breath. There is profound general weakness; however, there is no fever. On examination there is pallor and chest examination revealed bilateral scattered crepitation, on investigation. Hb= 6.7 gm/dl, TLC= 6,200/cu mm, DLC=N70%, L24%, E2%, M4%. X-ray chest shows bilateral diffuse parenchymal infiltrates. Pulmonary function was done and showed FVC of 92% predicted, FEV1/FVC of 84%, DLCO 120 predicted. The most likely diagnosis is:`,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q164/Q164+img1.png`,
+      ],
+      answerOptions: [
+        `Pulmonary tuberculosis`,
+        `Diffuse pulmonary alveolar hemorrhage`,
+        `Bilateral bronchiectasis`,
+        `Lymphangioleiomyomatosis`,
+      ],
+      correctAnswer: `Diffuse pulmonary alveolar hemorrhage`,
+      explanation: `Diffuse pulmonary alveolar hemorrhage (DAH) is a life-threatening condition resulting in bleeding into the alveolar spaces of the lungs. The disorder is caused by injury or inflammation of the arterioles, venules, or alveolar septal. It is usually associated with cough, fever, dyspnea and hemoptysis initially. Some patients can have acute respiratory failure requiring immediate ventilatory support. On chest x-ray, diffuse opacities can be seen. Characteristic CT scan finding include ground glass pattern or bilateral opacities. Lab findings in DAH are nonspecific. Common findings include low or decreasing hemoglobin or hematocrit and elevated white blood cell count. ESR is usually increased especially those with systemic diseases. 
+
+      Most patients cannot undergo pulmonary function testing but those who are stable enough will show an increase in DLCO usually above 100 percent of predicted. Monitoring DLCO is useful for those patients with DAH. Occasionally, obstructive airway disease may be seen on PFTs in patients with recurrent DAH. 
+      
+      Steroids and immunosuppressive agents remain the treatment of choice for DAH patients. Recombinant activated human factor VII is a new promising therapy but needs further evaluation. 
+      
+      Patients with pulmonary TB usually present with symptoms of weight loss, nausea and vomiting, fever, chills, and night sweats. Risk factors include those individuals living in crowded unclean living conditions, poor nutrition. (choice A) 
+      
+      Bilateral bronchiectasis leads to abnormal dilation and distortion of the bronchial tree resulting in chronic obstructive lung disease. Most common symptoms are coughing up yellow or green mucus, shortness of breath and hemoptysis. Most common cause of bronchiectasis is cystic fibrosis. ON HRCT, findings include airway dilation, bronchial wall thickening, and air trapping. PFTS can show obstructive impairment. (Choice C) 
+      
+      Lymphangioleiomyomatosis (LAM) is a rare multisystem disease that predominantly affects young women. Symptoms depend on the origin of the disease. Common pulmonary symptoms are fatigue, progressive dyspnea, spontaneous pneumothorax and pleural effusion. (Choice D)
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23678356/" target="_blank">Moo Suk Park, Diffuse ALveloar Hemorrhage. Tuberc Respir Dis (Seoul). 2013 Apr; 74(4): 151–162.</a>`,
+      ],
+      level: "Hard",
+      category: "Critical Care",
+    }),
+
+    //   Q165
+    Question_Answer.create({
+      question: `82-year-old female who presented to the clinic for a follow up visit after a diagnosis of pulmonary embolism. Pt is status post lumbar spine surgery. Following the surgery, she was started on Xarelto and had intermediate probability VQ scan. Repeat VQ scan showed resolution of a mismatched defect. Pt’s PMH is significant for aortic stenosis. She denies a history of smoking. Pt admits to wheezing but denies fever, chills, rigors, chest pain or hemoptysis. Denies history of liver dysfunction or collagen vascular disorder. Patient’s vitals are RR 18, Temp 98.7F, BP 140/90. Physical exam is significant for crescendo, decrescendo murmur on cardiac exam and wheezing on respiratory exam. Based on the pulmonary function test results given below, which of the following is the correct diagnosis?`,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q165/Q165+img1.png`,
+      ],
+      answerOptions: [
+        `COPD`,
+        `Small airway disorder`,
+        `Interstitial lung disease`,
+        `Extra thoracic chest wall dysfunction`,
+      ],
+      correctAnswer: `Small airway disorder`,
+      explanation: `Spirometry suggestive of obstructive pattern based on the decrease in FEV1/SVC. The FEV1/FVC ratio is relatively normal however, the patient's FEV1/SVC is decreased compared to the LLN which suggests obstructive lung disease. Additionally, in this case the FEF25-75% improved by 33% on bronchodilator response which is suggestive of small airway disorder. An improvement of greater than 30% in FEF25-75% on bronchodilator is suggestive of small airway disorder. Additionally, the difference between slow inspiratory vital capacity (SVC) and FVC and the FVC to SVC ratio may act as markers of the collapsibility of small airways. There are several ways to assess and monitor small airway disease. Techniques that can be used to assess the small airways are shown in the table below. DLCO is decreased which reflects underlying gas exchange abnormality.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q165/A165+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17890480/" target="_blank">Cohen J. et al. FVC slow inspiratory vital capacity ratio: a potential marker for small airways obstruction. Chest. 2007; 132(4):1198-203</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28649293/" target="_blank">Carr T. et al. small airways disease and severe asthma. World allergy Organization Journal (2017) 10:20 </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26557240/" target="_blank">McNulty W. et al. techniques of assessing small airways dysfunction. European Clinical Respiratory Journal 2014</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
+
+    // Q166
+    Question_Answer.create({
+      question: `Which of the following is a correct about superior vena cava syndrome?`,
+      questionImage: [],
+      answerOptions: [
+        `It generally results in hoarseness of voice`,
+        `The superior vena cava (SVC) is formed by the union of right and left brachiocephalic veins and the azygos vein`,
+        `SVC obstruction is an absolute contraindication for bronchoscopy`,
+        `Hodgkin's lymphoma is the most common cause in children`,
+        `The most common cause for SVC obstruction is bronchogenic carcinoma`,
+      ],
+      correctAnswer: `The most common cause for SVC obstruction is bronchogenic carcinoma`,
+      explanation: `Superior vena cava (SVC) is formed by the union of right and left brachiocephalic veins. The azygos vein drains to the SVC just before the SVC drains to the right atrium. Malignancy is the most common cause of SVC syndrome accounting for 65% of the cases. The most common malignant cause is lung cancer [72%] followed by lymphoma [12%] and metastatic disease [10%]. Non-Hodgkin’s lymphoma is the most common intrathoracic tumor in young males. Although infection previously accounted for the majority of benign cases, currently the most common cause is thrombosis secondary to intravascular procedures. SVC obstruction increases the complications associated with bronchoscopy. However, SVC obstruction is not an absolute contraindication for bronchoscopy.  In some cases due to laryngeal oedema SVC obstruction may lead to hoarseness of voice. Due to decreased venous return severe SVC obstruction may lead to cerebral oedema.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17476012/" target="_blank">Wilson LD, Detterbeck FC, Yahalom J. Clinical practice: superior vena cava syndrome with malignant causes. N Engl J Med 2007; 356:1862–1869.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27026923/" target="_blank">Straka C, Ying J, Kong FM, Willey CD, Kaminski J, Kim DW. Review of evolving etiologies, implications and treatment strategies for the superior vena cava syndrome. Springerplus 2016;5:229.</a>`,
+      ],
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q167
+    Question_Answer.create({
+      question: `Patients with which of the following disease states are not at increased risk of Pseudomonas aeruginosa infection?`,
+      questionImage: [],
+      answerOptions: [
+        `Adult bronchiectasis`,
+        `Idiopathic pulmonary fibrosis`,
+        `Cystic fibrosis`,
+        `Patients on ventilator`,
+      ],
+      correctAnswer: `Idiopathic pulmonary fibrosis`,
+      explanation: `Patients with idiopathic pulmonary fibrosis are at less risk of developing a Pseudomonas infection relative to the other groups listed. In the case of patients with bronchiectasis or cystic fibrosis, there is some component of structural lung damage which predisposes these patients to Pseudomonas infection. Similarly, patients on ventilator are at risk of developing ventilator-associated pneumonia, in which case Pseudomonas is often implicated as the causative pathogen.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28365056/" target="_blank">Richeldi L, Collard HR, Jones MG. Idiopathic pulmonary fibrosis. Lancet. 2017 May 13;389(10082):1941-1952.</a>`,
+      ],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //   Q168
+    Question_Answer.create({
+      question: `In a posteroanterior radiograph of thorax, the following structure forms the left margin of the heart shadow:`,
+      questionImage: [],
+      answerOptions: [
+        `Right auricle.`,
+        `Pulmonary trunk.`,
+        `Aortic orifice.`,
+        `Right ventricle.`,
+        `Left common carotid artery`,
+      ],
+      correctAnswer: `Pulmonary trunk.`,
+      explanation: ``,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q168/A168+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23168059/" target="_blank">Murillo H, Cutalo MJ, Jones RP, Lane MJ, Fleischmann D, Restrepo CS. Pulmonary circulation imaging: embryology and normal anatomy. Semin Ultrasound CT MR. 2012 Dec;33(6):473-84</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    // Q169
+    Question_Answer.create({
+      question: `Which of the following structures is transmitted through the aortic opening of the diaphragm?`,
+      questionImage: [],
+      answerOptions: [
+        `Azygous veins.`,
+        `Right and left vagus nerves.`,
+        `Left gastric vessels.`,
+        `Right phrenic nerve.`,
+        `Inferior vena cava`,
+      ],
+      correctAnswer: `Azygous veins.`,
+      explanation: `The aorta is transmitted through the diaphragm at the T12 level. Of the structures listed, the azygos vein is the only structure that is also transmitted through the diaphragm at this level.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31033627/" target="_blank">Rivaud Y, Maldjian PD. The Azygos Vein From A to Z. J Thorac Imaging. 2019 Sep;34(5):W100-W108.</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q170
+    Question_Answer.create({
+      question: `Diuretic abuse is commonly associated with`,
+      questionImage: [],
+      answerOptions: [
+        `Respiratory acidosis`,
+        `Metabolic acidosis`,
+        `Respiratory alkalosis`,
+        `Metabolic alkalosis`,
+      ],
+      correctAnswer: `Metabolic alkalosis`,
+      explanation: `Metabolic alkalosis is a disorder that is caused by increased serum bicarbonate levels and arterial pH, associated with hypokalemia. Serum bicarbonate levels are elevated due to excessive hydrogen loss in the urine or gastrointestinal tract. Patients usually develop respiratory compensation by hypoventilation and elevation in arterial PCO2. Some common causes are vomiting, nasogastric suction, loop or thiazide diuretic.  
+ 
+      Surreptitious diuretic use is very common with finding of hyperaldosteronism due to volume depletion, renal chloride loss or contraction alkalosis. Diuretic abuse can also develop chloride unresponsiveness due to profound potassium depletion. (Choice D)  
+       
+      Metabolic acidosis is when there is an increase in hydrogen ions or loss of bicarbonate in the serum. (↓pH, ↓PCO2, ↓ HCO3). Common causes are of metabolic acidosis with high anion gap: MUDPILES: Methanol, uremia, diabetic ketoacidosis, propylene glycol, paraldehyde, isoniazid, lactic acidosis, ethylene glycol and salicylates. (Choice B)  
+       
+      Respiratory acidosis is caused by alveolar hypoventilation resulting in CO2 retention. Common causes include COPD exacerbation and bronchial asthma. (↓pH, ↑PCo2, ↑HCO3). (Choice A) 
+       
+      Respiratory alkalosis happens when there is increased respiratory rate or tidal volume leading to alveolar hyperventilation and Co2 washout. (↑pH, ↓PCO2, ↓HCO3). Causes include pregnancy, high altitude, and drug toxicity from salicylates. (Choice C) `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28233622/" target="_blank">Bartoli E, Rossi L, Sola D, Castello L, Sainaghi PP, Smirne C. Use, misuse and abuse of diuretics. Eur J Intern Med. 2017 Apr;39:9-17</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
