@@ -110,9 +110,9 @@ const singleQuestion = () => {
           <Stack gap={3} className="p-3">
             <Stack gap={3}>
               <Stack gap={3}>
-                <div style={{ fontSize: "20px", textAlign: "center" }}>
+                {/* <div style={{ fontSize: "20px", textAlign: "center" }}>
                   singleQuestion
-                </div>
+                </div> */}
                 <Card>
                   <Card.Body style={{ fontSize: "20px", textAlign: "center" }}>
                     Question Number: {id}
