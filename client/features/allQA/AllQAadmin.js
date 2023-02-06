@@ -8,8 +8,8 @@ import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -63,7 +63,6 @@ const AllQAadmin = () => {
   const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
   const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
 
-
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -106,27 +105,26 @@ const AllQAadmin = () => {
   };
 
   const data = (id) => {
-    const filterDataById = AllUserQuestions.filter(x => x.questionAnswerId === id)
-    const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
+    const filterDataById = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByCorrect = filterDataById.filter((x) => x.answered === "right");
 
-    const percentageCorrect = (filterDataByCorrect.length/filterDataById.length)*100
-    if(percentageCorrect || percentageCorrect===0){
-    return percentageCorrect
-    }else{
-        return null
+    const percentageCorrect = (filterDataByCorrect.length / filterDataById.length) * 100;
+    if (percentageCorrect || percentageCorrect === 0) {
+      return percentageCorrect;
+    } else {
+      return null;
     }
-  }
+  };
   const filterDataById = (id) => {
-    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
-    return filterData.length 
-  }
+    return filterData.length;
+  };
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
-    const filterDataByRight = filterData.filter(x => x.answered === 'right')
-    return filterDataByRight.length 
-  }
-
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByRight = filterData.filter((x) => x.answered === "right");
+    return filterDataByRight.length;
+  };
 
   const favorite = (userId, questionId) => {
     dispatch(
@@ -197,7 +195,7 @@ const AllQAadmin = () => {
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-    dispatch(fetchAllUserQuestions())
+    dispatch(fetchAllUserQuestions());
   }, []); // Putting userQuestions in here throws a loop
 
   return (
@@ -312,33 +310,33 @@ const AllQAadmin = () => {
         {currentItems && currentItems.length && currentItems !== "nada"
           ? currentItems.map((question) => (
               <Col key={question.id}>
-                <Card style={{ width: "18rem", marginBottom: "20px" }}>
+                <Card style={{ width: "18rem", marginBottom: "20px", color: "black", textDecoration: "none" }}>
                   <Card.Header style={{ backgroundColor: `${question.color}` }} />
-                  <Card.Body style={{}}>
-                    {/* <Card.Img
+                  <Link to={`/questions/${question.id}`} style={{ color: "black", textDecoration: "none" }}>
+                    <Card.Body style={{ textDecoration: `none` }}>
+                      {/* <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
                       src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                     /> */}
-                    <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
-                      <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
-                        Question Number{" "}{question.id}
-                      </Link>
-                    </Card.Title>
-                    <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
-                    
-                    <Stack spacing = {.5}>
-                    <Chip label = {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`} color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined"/>
-                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" /> 
-                    {/* <Chip label ={`Correct respone(s): ${filterDataByCorrect(question.id)}`} size="small" color="primary" /> */}
-                    </Stack>
-                  </Card.Body>
+                      <Card.Title style={{ fontSize: "20px", textAlign: "center", textDecoration: `none` }}>Question Number {question.id}</Card.Title>
+
+                      <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
+
+                      <Stack spacing={0.5}>
+                        <Chip
+                          label={`Correct Response: ${data(question.id) || data(question.id) === 0 ? data(question.id) : 0}%`}
+                          color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                          variant="outlined"
+                        />
+                        <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
+                        {/* <Chip label ={`Correct respone(s): ${filterDataByCorrect(question.id)}`} size="small" color="primary" /> */}
+                      </Stack>
+                    </Card.Body>
+                  </Link>
                   <Card.Footer>
-                
-                    {/* <Chip label={question.category} color="success" variant="outlined" /> */}
-                    <Chip label={question.category} color="info" />
-                    {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
+                    <Chip label={question.category} color="info" onClick={() => pickCategory1(question.category)} />
                     <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}

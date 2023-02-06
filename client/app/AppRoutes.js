@@ -13,6 +13,7 @@ import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 import LoadingScreen from "../features/loading/LoadingScreen";
 import LandingPage from "../features/landingPage/LandingPage";
 import AllQAadmin from "../features/allQA/AllQAadmin";
+import CreateAQuestion from "../features/allQA/CreateAQuestion";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -30,11 +31,9 @@ const AppRoutes = () => {
           <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
+          <Route path="/questioncreate" element={<CreateAQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
-          <Route
-            path="/questions/:singleQuestionId"
-            element={<SingleQuestion />}
-          />
+          <Route path="/questions/:singleQuestionId" element={<SingleQuestion />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       ) : (
@@ -42,10 +41,7 @@ const AppRoutes = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginOrSignup />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
-          <Route
-            path="/forgotPassword/confirmation"
-            element={<PasswordRequestConfirmation />}
-          />
+          <Route path="/forgotPassword/confirmation" element={<PasswordRequestConfirmation />} />
           <Route path="/resetPassword/*" element={<ResetPassword />} />
           {/* <Route path="/*" element={<LoginOrSignup />} /> */}
         </Routes>
