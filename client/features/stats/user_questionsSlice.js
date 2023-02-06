@@ -63,33 +63,22 @@ export const updateUserQuestion = createAsyncThunk(
 );
 
 // --------TO STORE USER INPUT--------------
-export const updateUserQuestionInput = createAsyncThunk(
-  "updateUserQuestionInput",
-  async ({
-    userId,
-    questionAnswerId,
-    userInput,
-    answered,
-    category,
-    level,
-    userExpertise,
-  }) => {
-    try {
-      const { data } = await axios.post(`/api/user_questions/${userId}`, {
-        questionAnswerId: questionAnswerId,
-        userInput: userInput,
-        answered: answered,
-        category: category,
-        level: level,
-        userExpertise: userExpertise,
-      });
-      console.log("THUNK", data);
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const updateUserQuestionInput = createAsyncThunk("updateUserQuestionInput", async ({ userId, questionAnswerId, userInput, answered, category, level, userExpertise }) => {
+  try {
+    const { data } = await axios.post(`/api/user_questions/${userId}`, {
+      questionAnswerId: questionAnswerId,
+      userInput: userInput,
+      answered: answered,
+      category: category,
+      level: level,
+      userExpertise: userExpertise,
+    });
+    console.log("THUNK", data);
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
