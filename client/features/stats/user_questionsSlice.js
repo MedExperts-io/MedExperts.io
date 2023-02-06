@@ -54,20 +54,19 @@ export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async (
 });
 
 // --------TO STORE USER INPUT--------------
-export const updateUserQuestionInput = createAsyncThunk("updateUserQuestionInput", async ({ userId, questionAnswerId, userInput, answered, category, level }) => {
-  try {
-    const { data } = await axios.post(
-      `/api/user_questions/${userId}`,
-      {
-        questionAnswerId: questionAnswerId,
-        userInput: userInput,
-        answered: answered,
-        category: category,
-        level: level,
-      },
-      {
-        headers: {
-          authorization: token,
+export const updateUserQuestionInput = createAsyncThunk(
+  "updateUserQuestionInput",
+  async ({ userId, questionAnswerId, userInput, answered, category,level,userExpertise }) => {
+    try {
+      const { data } = await axios.post(
+        `/api/user_questions/${userId}`,
+        {
+          questionAnswerId: questionAnswerId,
+          userInput: userInput,
+          answered: answered,
+          category: category,
+          level:level,
+          userExpertise:userExpertise
         },
       }
     );
