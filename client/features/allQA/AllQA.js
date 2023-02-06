@@ -17,8 +17,8 @@ const QuestionsAnswers = () => {
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
 
-  const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
+  const difficultyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
+  const [currentDifficulty, setCurrentDifficulty] = useState(difficultyLevels[0]);
   const categories = [
     "All Categories",
     "Asthma",
@@ -51,44 +51,22 @@ const QuestionsAnswers = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
-  const easyQuestions = stateQuestions.filter((question) => question.level === "Easy");
-  const moderateQuestions = stateQuestions.filter((question) => question.level === "Moderate");
-  const hardQuestions = stateQuestions.filter((question) => question.level === "Hard");
-  const userEasyQuestions = userQuestions.filter((question) => question.level === "Easy" && question.userInput);
-  const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
-  const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
+  const { UserQuestions, userEasy, userModerate, userHard } = useSelector((state) => state.userQuestions);
+  const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
+  const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
+  const moderatePercentage = Math.round((userModerate?.length / moderate?.length) * 100);
+  const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
+  const allPercentage = Math.round((UserQuestions?.length / questionsAnswers?.length) * 100);
+  let rightOrWrong = {};
+  UserQuestions ? (rightOrWrong = userRightOrWrong(UserQuestions)) : null;
 
-  let allQuestions = [...stateQuestions];
+  let allQuestions = [...questionsAnswers];
   allQuestions.sort((a, b) => a.id - b.id);
-  allQuestions = allQuestions.map((question) => {
-    if (question.level === "Easy") {
-      return {
-        ...question,
-        color: "lightgreen",
-      };
-    } else if (question.level === "Moderate") {
-      return {
-        ...question,
-        color: "#f5ad27",
-      };
-    } else {
-      return {
-        ...question,
-        color: "#f55b49",
-      };
-    }
-  });
-  //const listOfFavorites = userQuestions.filter((question) => question.favorite === true);
-  //const allAnswered = userQuestions.length / allQuestions.length;
-
-  // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
 
   console.log("currentitems", currentItems);
-
+  console.log("rightOrWrong", rightOrWrong);
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
   filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
@@ -101,6 +79,17 @@ const QuestionsAnswers = () => {
     }
   };
 
+  function userRightOrWrong(array) {
+    let map = {};
+    for (let i = 0; i < array.length; i++) {
+      if (!map[array[i]["questionAnswerId"]]) {
+        map[array[i]["questionAnswerId"]] = array[i]["answered"];
+      }
+    }
+    console.log("map", map);
+    return map;
+  }
+
   const favorite = (userId, questionId) => {
     dispatch(
       updateUserQuestion({
@@ -111,8 +100,8 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
-    if (question[0] && question[0].favorite) return true;
+    const question = UserQuestions?.filter((question) => question.questionAnswerId == questionId);
+    if (question && question[0] && question[0].favorite) return true;
     return false;
   };
 
@@ -139,11 +128,9 @@ const QuestionsAnswers = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    console.log("isFavorited?", isFavorited, multiFilter);
-    let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
+    let favNumbers = UserQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
-    //seeFavorites ?
-    console.log("isFavorited?", isFavorited, multiFilter);
+
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
@@ -151,20 +138,36 @@ const QuestionsAnswers = () => {
         multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
-    console.log("filterQuestions in filterFunction", multiFilter);
+
     multiFilter.length ? setfilteredQuestions(multiFilter) : null;
     multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
     multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
-    return multiFilter;
   };
 
   const progressCircleBackground = (progress, color) => {
     const angle = 360 * progress;
-
     return `radial-gradient(white 50%, transparent 51%),
     conic-gradient(transparent 0deg ${angle}deg, gainsboro ${angle}deg 360deg),
     conic-gradient(${color} 360deg, ${color})`;
+  };
+
+  const cardHeaderColor = (level) => {
+    if (level === "Easy") {
+      return "lightgreen";
+    } else if (level === "Moderate") {
+      return "#f5ad27";
+    } else {
+      return "#f55b49";
+    }
+  };
+
+  const cardBodyColor = (id) => {
+    if (rightOrWrong && rightOrWrong[id] === "right") {
+      return "rgb(144, 238, 144, .25)";
+    } else if (rightOrWrong && rightOrWrong[id] === "wrong") {
+      return "rgb(245, 91, 73, .25)";
+    }
   };
 
   useEffect(() => {
@@ -177,16 +180,14 @@ const QuestionsAnswers = () => {
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
         <Col></Col>
         <Col>
-          <div
-            style={{ background: progressCircleBackground(userEasyQuestions.length / easyQuestions.length, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}
-          >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userEasyQuestions.length / easyQuestions.length) * 100)}%</div>
+          <div style={{ background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{easyPercentage}%</div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(userModerateQuestions.length / moderateQuestions.length, "#f5ad27"),
+              background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"),
               borderRadius: "50%",
               width: "120px",
               height: "120px",
@@ -194,15 +195,13 @@ const QuestionsAnswers = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
-              {Math.round((userModerateQuestions.length / moderateQuestions.length) * 100)}%
-            </div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{moderatePercentage}%</div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(userHardQuestions.length / hardQuestions.length, "#f55b49"),
+              background: progressCircleBackground(hardPercentage / 100, "#f55b49"),
               borderRadius: "50%",
               width: "120px",
               height: "120px",
@@ -210,13 +209,13 @@ const QuestionsAnswers = () => {
             }}
           >
             {" "}
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userHardQuestions.length / hardQuestions.length) * 100)}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{hardPercentage}%</div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(userQuestions.length / allQuestions.length, "#bf5eff"),
+              background: progressCircleBackground(allPercentage / 100, "#bf5eff"),
               borderRadius: "50%",
               width: "150px",
               height: "150px",
@@ -224,7 +223,7 @@ const QuestionsAnswers = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round((userQuestions.length / allQuestions.length) * 100)}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{allPercentage}%</div>
           </div>
         </Col>
         <Col></Col>
@@ -242,7 +241,7 @@ const QuestionsAnswers = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {difficultiyLevels.map((difficulty) => (
+              {difficultyLevels.map((difficulty) => (
                 <Dropdown.Item key={difficulty} eventKey={difficulty}>
                   {difficulty}
                 </Dropdown.Item>
@@ -268,14 +267,7 @@ const QuestionsAnswers = () => {
 
         <Col md="auto">
           <Form>
-            <Form.Switch
-              onChange={() => onFavoriteSwitch()}
-              id="custom-switch"
-              label="Favorites Only"
-              checked={!seeFavorites}
-
-              //disabled // apply if you want the switch disabled
-            />
+            <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
           </Form>
         </Col>
       </Row>
@@ -285,20 +277,18 @@ const QuestionsAnswers = () => {
           ? currentItems.map((question) => (
               <Col key={question.id}>
                 <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                  <Card.Header style={{ backgroundColor: `${question.color}` }} />
-                  <Card.Body style={{}}>
+                  <Card.Header style={{ backgroundColor: cardHeaderColor(question.level) }} />
+                  <Card.Body style={{ backgroundColor: cardBodyColor(question.id) }}>
                     <Card.Img
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
                       src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                     />
-                    <Card.Title>
-                      <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
-                        {question.id}. Some Title
-                      </Link>
-                    </Card.Title>
-                    <Card.Text>{truncate(question.question)}</Card.Text>
+                    <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
+                      <Card.Title style={{ color: "black" }}>Question Number {question.id}</Card.Title>
+                      <Card.Text style={{ color: "black" }}>{truncate(question.question)}</Card.Text>
+                    </Link>
                   </Card.Body>
                   <Card.Footer>
                     <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
