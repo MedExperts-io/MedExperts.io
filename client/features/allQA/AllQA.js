@@ -224,7 +224,9 @@ const QuestionsAnswers = () => {
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
           <Card id="no-border" className="mx-auto">
             <Card.Body>
-              <Card.Title style={{ fontSize: `200%` }}>My Progress</Card.Title>
+              <Card.Header style={{ fontSize: `200%` }}>
+                My Progress
+              </Card.Header>
               <Card.Text>
                 <Row>
                   <Col>
@@ -579,127 +581,132 @@ const QuestionsAnswers = () => {
           </Col> */}
           {/* <Col></Col> */}
         </Row>
-        <Row style={{ marginBottom: "20px", fontSize: "200%" }}>
-          <Col className="mx-auto">
-            {currentDifficulty} & {currentCategory1}
-          </Col>
-        </Row>
-        <Row
-          xs={2}
-          md={4}
-          lg={6}
-          style={{ marginBottom: "20px" }}
-          className="mx-auto"
-        >
-          <Col md="auto">
-            <Dropdown onSelect={(event) => pickDifficulty(event)}>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                {currentDifficulty}
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                {difficultyLevels.map((difficulty) => (
-                  <Dropdown.Item key={difficulty} eventKey={difficulty}>
-                    {difficulty}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col>
-          <Col md="auto">
-            <Dropdown onSelect={(event) => pickCategory1(event)}>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                {currentCategory1}
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                {categories.map((category) => (
-                  <Dropdown.Item key={category} eventKey={category}>
-                    {category}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col>
-
-          <Col md="auto">
-            <Form>
-              <Form.Switch
-                onChange={() => onFavoriteSwitch()}
-                id="custom-switch"
-                label="Favorites Only"
-                checked={!seeFavorites}
-              />
-            </Form>
-          </Col>
-        </Row>
         <Row>
-          {loading && <LoadingScreen />}
-          {currentItems && currentItems.length && currentItems !== "nada"
-            ? currentItems.map((question) => (
-                <Col key={question.id}>
-                  <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                    <Card.Header
-                      style={{
-                        backgroundColor: cardHeaderColor(question.level),
-                      }}
-                    />
-                    <Card.Body
-                      style={{ backgroundColor: cardBodyColor(question.id) }}
-                    >
-                      <Card.Img
-                        style={{ float: "right", width: "25px" }}
-                        onClick={() => favorite(userId, question.id)}
-                        variant="top"
-                        src={
-                          favoriteStatus(question.id)
-                            ? "/heart(red).png"
-                            : "/heart.png"
-                        }
-                      />
-                      <Link
-                        style={{ textDecoration: "none" }}
-                        to={`/questions/${question.id}`}
-                      >
-                        <Card.Title style={{ color: "black" }}>
-                          Question Number {question.id}
-                        </Card.Title>
-                        <Card.Text style={{ color: "black" }}>
-                          {truncate(question.question)}
-                        </Card.Text>
-                      </Link>
-                    </Card.Body>
-                    <Card.Footer>
-                      <Card.Img
-                        style={{ float: "right", width: "25px" }}
-                        src="/endocrine-system.png"
-                      />
-                    </Card.Footer>
-                  </Card>
+          <Card className="mx-auto" id="no-border">
+            <Card.Header style={{ marginBottom: "20px", fontSize: "200%" }}>
+              <Col className="mx-auto">
+                {currentDifficulty} & {currentCategory1}
+              </Col>
+            </Card.Header>
+            <Card.Body>
+              <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
+                <Col md="auto">
+                  <Dropdown onSelect={(event) => pickDifficulty(event)}>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {currentDifficulty}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {difficultyLevels.map((difficulty) => (
+                        <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                          {difficulty}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </Col>
-              ))
-            : "Sorry, we didn't find anything matching that"}
+                <Col md="auto">
+                  <Dropdown onSelect={(event) => pickCategory1(event)}>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {currentCategory1}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {categories.map((category) => (
+                        <Dropdown.Item key={category} eventKey={category}>
+                          {category}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+
+                <Col md="auto">
+                  <Form>
+                    <Form.Switch
+                      onChange={() => onFavoriteSwitch()}
+                      id="custom-switch"
+                      label="Favorites Only"
+                      checked={!seeFavorites}
+                    />
+                  </Form>
+                </Col>
+              </Row>
+              <Row>
+                {loading && <LoadingScreen />}
+                {currentItems && currentItems.length && currentItems !== "nada"
+                  ? currentItems.map((question) => (
+                      <Col key={question.id} className="mx-auto">
+                        <Card
+                          style={{ width: "18rem", marginBottom: "20px" }}
+                          className="mx-auto"
+                        >
+                          <Card.Header
+                            style={{
+                              backgroundColor: cardHeaderColor(question.level),
+                            }}
+                          />
+                          <Card.Body
+                            style={{
+                              backgroundColor: cardBodyColor(question.id),
+                            }}
+                          >
+                            <Card.Img
+                              style={{ float: "right", width: "25px" }}
+                              onClick={() => favorite(userId, question.id)}
+                              variant="top"
+                              src={
+                                favoriteStatus(question.id)
+                                  ? "/heart(red).png"
+                                  : "/heart.png"
+                              }
+                            />
+                            <Link
+                              style={{ textDecoration: "none" }}
+                              to={`/questions/${question.id}`}
+                            >
+                              <Card.Title style={{ color: "black" }}>
+                                Question Number {question.id}
+                              </Card.Title>
+                              <Card.Text style={{ color: "black" }}>
+                                {truncate(question.question)}
+                              </Card.Text>
+                            </Link>
+                          </Card.Body>
+                          <Card.Footer>
+                            <Card.Img
+                              style={{ float: "right", width: "25px" }}
+                              src="/endocrine-system.png"
+                            />
+                          </Card.Footer>
+                        </Card>
+                      </Col>
+                    ))
+                  : "Sorry, we didn't find anything matching that"}
+              </Row>
+              <ReactPaginate
+                className="pagination"
+                nextLabel="next >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={2}
+                pageCount={pageCount}
+                previousLabel="< previous"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakLabel="..."
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination"
+                activeClassName="active"
+              />
+            </Card.Body>
+          </Card>
         </Row>
-        <ReactPaginate
-          className="pagination"
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          marginPagesDisplayed={2}
-          pageCount={pageCount}
-          previousLabel="< previous"
-          pageClassName="page-item"
-          pageLinkClassName="page-link"
-          previousClassName="page-item"
-          previousLinkClassName="page-link"
-          nextClassName="page-item"
-          nextLinkClassName="page-link"
-          breakLabel="..."
-          breakClassName="page-item"
-          breakLinkClassName="page-link"
-          containerClassName="pagination"
-          activeClassName="active"
-        />
       </Container>
     );
   }
