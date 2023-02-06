@@ -2894,7 +2894,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/19675347/" target="_blank">Barry Brenner, Thomas Corbridge, and Antoine Kazzi "Intubation and Mechanical Ventilation of the Asthmatic Patient in Respiratory Failure", Proceedings of the American Thoracic Society,Vol.6, No.4(2009), pp. 371-379.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/2186243/" target="_blank">Hall JB, Wood LDH. Management of the critically ill asthmatic patient. Med Clin North Am1990;74:779-796</a>`,
-        `<a href="" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol1999; 13:419–428</a>`,
+        `<a href="https://www.thoracic.org/statements/resources/allergy-asthma/asthma.pdf" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol1999; 13:419–428</a>`,
       ],
       level: "Moderate",
       category: "Critical Care",
@@ -3825,7 +3825,7 @@ async function seed() {
       explanation: `Alpha-1 Antitrypsin Deficiency is an autosomal codominant condition that predisposes to COPD and liver diseases. It can affect lungs, liver and rarely skin. AAT normally inhibits elastase and in absence of AAT, elastase becomes overactive and destroys elastic tissue (Emphysema). Deficiency can cause cirrhosis due to accumulating in the endoplasmic reticulum of the liver. Severity of the disease is highly variable depending on the type of allele present and the risk factors to which the patient is exposed like Cigarette smoking, occupational and environmental exposure to dust, smoke, etc. In severe deficiency neonatal hepatitis can be seen. Patients with ATT deficiency have symptoms similar to COPD like dyspnea, cough with or without sputum, wheezing, Bronchodilator response is commonly seen. Distinctive features are age of onset which is <45 years and basilar pattern of emphysema, Emphysema in nonsmoker, Family history. Extrapulmonary features seen are Hepatomegaly with elevated aminotransferases levels, ascitis, cirrhosis, hepatocellular carcinoma can also occur. Rarely necrotizing panniculitis can be seen as a manifestation of AAT deficiency. Diagnosis can be made with Blood tests (decreased AAT levels), Spirometry, Imaging, Biopsy, and genetic testing. Obstructive pattern is seen on Spirometry (Decreased FEV1 and FEV1/FVC; Increased TLC). Basilar predominant emphysematous bullae are commonly seen on HRCT. PAS positive granules and globules in hepatocytes can be seen on biopsy. Genetic testing confirms the diagnosis Management is through prevention, medical treatment, and surgery Medical: Augmentation therapy-the intravenous infusion of purified, pooled human plasma AAT-is recommended for individuals with AATD and emphysema. Gene therapy with an adeno-associated virus vector given by whole limb perfusion or intrapleurally. Surgical: Liver transplantation Prevention by avoiding risk factors like smoking.`,
       explanationImage: [],
       explanationLinks: [
-        `<a href="" target="_blank">Significant Progress in Understanding, Recognizing and treating Alpha-1 Antitrypsin Deficiency; Cleveland Clinic’s Alpha-1 Antitrypsin Center plays key role in guideline update;James K. Stoller, MD, MS</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15978931/" target="_blank">Significant Progress in Understanding, Recognizing and treating Alpha-1 Antitrypsin Deficiency; Cleveland Clinic’s Alpha-1 Antitrypsin Center plays key role in guideline update;James K. Stoller, MD, MS</a>`,
       ],
       level: "Easy",
       category: "Chronic Obstructive Pulmonary Disease",
@@ -4232,6 +4232,248 @@ async function seed() {
       ],
       level: "Easy",
       category: "Critical Care",
+    }),
+
+    //   Q171
+    Question_Answer.create({
+      question: `Which of the following statements about Pleura is not correct?`,
+      questionImage: [],
+      answerOptions: [
+        `Visceral and parietal are in continuation.`,
+        `Both pleurae join at hilum.`,
+        `Blood supply comes from systemic circulation.`,
+        `Visceral pleura has no pain receptors.`,
+        `Divides the left lung into three lobes.`,
+      ],
+      correctAnswer: `Divides the left lung into three lobes.`,
+      explanation: `The pleura does not divide the left lung into three lobes. The left lobe has two lobes, the upper and lower, in addition to the lingula. The right lung has three lobes, upper, middle and lower.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21477765/" target="_blank">Bertin F, Deslauriers J. Anatomy of the pleura: reflection lines and recesses. Thorac Surg Clin. 2011 May;21(2):165-71, vii</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/9646978/" target="_blank">Wang NS. Anatomy of the pleura. Clin Chest Med. 1998 Jun;19(2):229-40.</a>`,
+      ],
+      level: "Easy",
+      category: "Pleural Diseases",
+    }),
+
+    //   Q172
+    Question_Answer.create({
+      question: `A 55 year old male with a history of COPD, DM, p/w acute hypoxemic respiratory failure from Pneumonia. The pt progresses to severe Acute Respiratory Distress Syndrome  and the patient is placed in a prone position. Which is NOT true about proning?`,
+      questionImage: [],
+      answerOptions: [
+        `It will decrease cardiac compression of the Left lung`,
+        `Proning will  improve oxygenation but not mortality`,
+        `There will be better V/Q matching`,
+        `A majority of patients will have an improvement in hypercapnia`,
+      ],
+      correctAnswer: `Proning will  improve oxygenation but not mortality`,
+      explanation: `Prone positioning has become a standard therapeutic maneuver in patients with severe ARDS. The most significant of the RCTs showed a mortality benefit in ARDS patients with P/F ratio <150 and who were prone for at least 16 hours continuously. The few absolute contraindications are facial fractures or unstable spinal fractures. The main complications usually involve pressure injury or endotracheal tube occlusion or dislodgement.
+
+      Not all patients who are prone have an improvement with oxygenation but the majority will have benefit (approximately 70%). There is also a similar benefit in CO2 clearance. There may be a neutral to beneficial hemodynamic response. There are multiple mechanisms to the benefit in oxygenation including the heart no longer compressing the Left lung, improved net lung recruitment (secondary to increased dorsal lung mass opening) during pronation and improved V/Q matching. This is partly due to more homogenous inflation in proning. Importantly the mortality benefit seen with proning is not solely related to improved hypoxemia but also from the decrease in ventilator induced lung injury associated with the above changes.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/33169218/" target="_blank">C Guerin et al. Prone position in ARDS patients: why, when, how and for whom. Intensive Care Medicine. 2020</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q173
+    Question_Answer.create({
+      question: `Situations in which surgical intervention usually is necessary in patients with parapneumonic effusion includes all of the following except:`,
+      questionImage: [],
+      answerOptions: [
+        `Lack of clinical and radiologic response to initial medical management (eg, antibiotics, chest tube drainage, and fibrinolytic therapy for three to four days)`,
+        `Persistent sepsis in association with persistent pleural collection, despite chest tube drainage and antibiotics`,
+        `Complex empyema with significant lung pathology (eg, development of a thick fibrous pleural rind, sometimes termed a "peel," which may "trap" the lung and prevent lung re-expansion`,
+        `Bronchopleural fistula with pyopneumothorax`,
+        `Presence of multiple loculations on CT scan`,
+      ],
+      correctAnswer: `Presence of multiple loculations on CT scan`,
+      explanation: `Patients with parapneumonic effusions may show evidence of multiple loculations on CT Scan Chest. Using fibrinolytic drugs to lyse the fibrinous strands in loculated parapneumonic effusions has been described in adults and children. If that fails, then these patients can be considered for surgical management.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30955515/" target="_blank">Aboudara M, Maldonado F. Update in the Management of Pleural Effusions. Med Clin North Am. 2019 May;103(3):475-485</a>`,
+      ],
+      level: "Moderate",
+      category: "Pleural Diseases",
+    }),
+
+    //   Q174
+    Question_Answer.create({
+      question: `Miliary shadows on HRCT chest is seen in all of the following conditions EXCEPT: `,
+      questionImage: [],
+      answerOptions: [
+        `Histoplasmosis`,
+        `Silicosis`,
+        `Idiopathic pulmonary fibrosis`,
+        `Sarcoidosis`,
+      ],
+      correctAnswer: `Idiopathic pulmonary fibrosis`,
+      explanation: `Miliary shadows in the lung are not uncommon and are seen in wide variety of diseases. The term miliary nodules is described as random and peripheral distribution and 1-2 mm in size, Random micronodules can result from hematogenous spread of infections or neoplasms. Differential diagnosis of miliary radiological patterns are miliary tuberculosis, primary or secondary pulmonary malignancy, sarcoidosis, pneumoconiosis or histoplasmosis.  
+ 
+      Histoplasmosis is rare clinical diagnosis acquired by inhalation of yeast. Clinical presentations can mimic tuberculosis with upper lobe cavitation, nodular shadows and miliary nodules. Random distribution is also seen in tuberculosis and silicosis.  
+       
+      The characteristic HRCT features of IPF include peripheral, basilar predominant reticular opacities associated with honeycombing and traction bronchiectasis-bronchiolectasis. 
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q174/A174+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26628775/" target="_blank">Sharma BB, Miliary nodules on chest radiographs: A diagnostic dilemma. Lung India. 2015 Sep-Oct; 32(5): 518–520. 
+      </a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q175
+    Question_Answer.create({
+      question: `All the following are clinical features of nicotine withdrawal EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Insomnia`,
+        `Decreased appetite and weight loss`,
+        `Depression`,
+        `Difficulty in concentrating`,
+      ],
+      correctAnswer: `Decreased appetite and weight loss`,
+      explanation: `Nicotine is a potent psychoactive drug that causes physical dependence and tolerance. A smoker can develop symptoms of withdrawal in the absence of nicotine and craving for cigarettes. Symptoms can peak in the first three days over the next three to four weeks. Some common nicotine withdrawal symptoms include: 
+ 
+      Increased appetite or weight gain 
+      Dysphoria, depressed mood, or anhedonia 
+      Insomnia 
+      Irritability, frustration, or anger 
+      Anxiety 
+      Difficulty concentrating 
+      Restlessness 
+       
+      Weight gain can commonly occur after smoking cessation. The mechanism of weight gain is decreased metabolic rate, increased activity of lipoprotein lipase, and increased caloric intake. Average total weight gain is from 4 to 5 kg but can be more in females. Behavioral counseling such as dietary and physical activity intervention have been successful for patients who have gained weight. Phrenological interventions such as bupropion can be also be helpful temporarily.  
+       
+      Patients with a history of psychotic illnesses are susceptible to symptoms of depression. Patients who have documented depression, smoking cessation have been reported to trigger depressive episodes that need behavioral counseling, medications or both. Despite these triggered depressive episodes, benefits of smoking cessation outweigh the risk in patients with psychotic illness.  
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/11844853/" target="_blank">Rigotti NA, Clinical practice: Treatment of tobacco use and dependence, N Engl J Med. 2002 Feb 14;346(7):506-12. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15086863/" target="_blank">Filozof C, Smoking cessation and weight gain, Obes Rev. 2004 May;5(2):95-103. </a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q176
+    Question_Answer.create({
+      question: `Pulsus paradoxus may occur in all the following conditions EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Acute severe asthma`,
+        `Cardiac tamponade`,
+        `Acute exacerbation of chronic obstructive airways disease`,
+        `Complete heart block`,
+      ],
+      correctAnswer: `Complete heart block`,
+      explanation: `Pulsus paradoxus is an exaggerated fall in an individual’s blood pressure during inspiration by greater than 10 mm Hg.  
+ 
+      A patient with acute severe asthma presents with tightness of lung airway. The lungs will overinflate, putting extra pressure on the veins carrying oxygenated blood from the heart to the lungs. This causes blood to be backed up in the right ventricle and extra pressure to build up on the right side of the heart, pressing against the left side. This all results in pulsus paradoxus. Similar mechanism is seen in exacerbation of COPD. (Choice A & C)  
+       
+      When fluid accumulates in the pericardial space in cardiac tamponade, the intrapericardial pressures increases and the right heart is compressed resulting in increased the right heart pressures. This results in the right heart relying more heavily on the decreased intrathoracic pressures during inspiration to fill, exaggerating the pressure change causing pulsus paradoxus. (Choice B).`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29873194/" target="_blank">Sarkar M, Bhardwaj R, Madabhavi I, Gowda S, Dogra K. Pulsus paradoxus. Clin Respir J. 2018 Aug;12(8):2321-2331</a>`,
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK482292/" target="_blank">Van Dam MN, Fitzgerald BM. Pulsus Paradoxus. 2020 Jul 21. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q177
+    Question_Answer.create({
+      question: `Reduced total lung capacity (TLC) is seen in all of the following conditions EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Interstitial lung disease`,
+        `Pulmonary fibrosis`,
+        `Pneumothorax`,
+        `Emphysema`,
+      ],
+      correctAnswer: `Emphysema`,
+      explanation: `Patients with restrictive lung diseases cannot fully fill their lungs with air. It is characterized by reduced lung volume due to parenchymal, pleural or extrapulmonary respiratory diseases. Unlike obstructive diseases such as asthma, COPD and emphysema (Choice D), which shows normal or increased total lung capacity (TLC), restrictive diseases are associated with decreased TLC. Both forced expiratory volume in one second (FEV1) and forced vital capacity (FVC) are reduced. FEV1/FVC ratio should be normal. Common examples of restrictive lung diseases are interstitial lung disease, pulmonary fibrosis and pneumothorax. (Choice A, B, C)  
+ 
+      Obstructive lung disease is when there is increased resistance to air flow caused by narrowing of the airways. Spirometry findings include decreased FEV1, decreased FEV1/FVC ratio, Decreased Vital Capacity (VC), increased RV with normal TLC.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27555617/" target="_blank">McCartney CT, Weis MN, Ruppel GL, Nayak RP. Residual Volume and Total Lung Capacity to Assess Reversibility in Obstructive Lung Disease. Respir Care. 2016 Nov;61(11):1505-1512.</a>`,
+      ],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q178
+    Question_Answer.create({
+      question: `
+      A 65-year-old male, a chronic smoker is presented with cough, recurrent hemoptysis for the last 2 weeks. There is no history of fever or weight loss. There is no past history of having been treated for tuberculosis. On clinical examination there are signs of collapse of the right lung. On bronchoscopy there was a mass completely obstructing the right main bronchus. A forceps biopsy was taken and malignancy was confirmed. The most likely histopathological diagnosis is:`,
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma`,
+        `Squamous cell carcinoma`,
+        `Small cell carcinoma`,
+        `Bronchial carcinoid`,
+      ],
+      correctAnswer: `Squamous cell carcinoma`,
+      explanation: `Lung cancer is the most common cancer worldwide and has more than doubled according to the World Health Organization. The information about lung malignancies is shown below: 
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q178/A178+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/18125024/" target="_blank"> Davenport LF, Wyman SM, et al. Squamous-cell carcinoma of lung. N Engl J Med. 1949 Apr 14;240(15):611-4.</a>`,
+      ],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //   Q179
+    Question_Answer.create({
+      question: `Smoking can have an adverse effect on the following endocrine disorders EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Goiter`,
+        `Diabetes mellitus`,
+        `Adrenal Hyperplasia`,
+        `Grave’s disease`,
+      ],
+      correctAnswer: `Adrenal Hyperplasia`,
+      explanation: `Goiter can occur in puberty and pregnancy, but other causes include iodine deficiency and autoimmune origin. The prevalence of non-toxic goiter is higher in smokers compared to non-smokers due to thiocyanate (inhibitor of iodide transport). In patients with Graves’ disease, smoking worsens thyroid-associated ophthalmopathy which is result of inflammation, excess production of glycosaminoglycans and adipogenesis. This leads to increase fatty connective tissue and extraocular muscle bodies.  
+ 
+      Cigarette smoking changes insulin secretion of β cells of the pancreas and insulin resistance leading to impaired glucose homeostasis. Endothelial dysfunction is the key mediator for development of vascular complications of diabetes mellitus.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/22561025/" target="_blank">Tweed JO, The endocrine effects of nicotine and cigarette smoking. Trends Endocrinol Metab. 2012 Jul; 23(7):334-342  </a>`,
+      ],
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q180
+    Question_Answer.create({
+      question: `A medical student witnesses a helium-dilution test as part of her pulmonary rotation. What is the endpoint when performing this test?`,
+      questionImage: [],
+      answerOptions: [
+        `The helium concentration in the lung is at its lowest.`,
+        `The helium concentration in the spirometer is at its highest.`,
+        `The helium within the spirometer-patient system is eliminated.`,
+        `The helium concentration equilibrates throughout the spirometer-patient system.`,
+      ],
+      correctAnswer: `The helium concentration equilibrates throughout the spirometer-patient system.`,
+      explanation: `When performing the helium dilution test to determine static lung volumes, the test is conducted until the helium concentration has equilibrated throughout the spirometer-patient system. The changes in concentration and volume can then be applied to Boyle’s Law in order to calculate the FRC and derive the RV and TLC. It is important to understand that the setup for this test is a closed system, and so the helium will not be eliminated. `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16135736/" target="_blank">Wanger J, Clausen JL, Coates A, et al. Standardisation of the measurement of lung volumes. Eur Respir J 2005; 26: 511-522. </a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
     }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
