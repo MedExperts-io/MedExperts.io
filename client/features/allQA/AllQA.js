@@ -224,7 +224,7 @@ const QuestionsAnswers = () => {
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
           <Card id="no-border" className="mx-auto">
             <Card.Body>
-              <Card.Header style={{ fontSize: `200%` }}>
+              <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
                 My Progress
               </Card.Header>
               <Card.Text>
@@ -273,7 +273,7 @@ const QuestionsAnswers = () => {
                         className="mx-auto"
                         style={{ color: "lightgreen" }}
                       >
-                        Easy Questions
+                        Easy Level
                       </Card.Title>
                     </Card>
                   </Col>
@@ -323,7 +323,7 @@ const QuestionsAnswers = () => {
                         className="mx-auto"
                         style={{ color: "#f5ad27" }}
                       >
-                        Moderate Questions
+                        Moderate Level
                       </Card.Title>
                     </Card>
                   </Col>
@@ -371,7 +371,7 @@ const QuestionsAnswers = () => {
                         className="mx-auto"
                         style={{ color: "#f55b49" }}
                       >
-                        Hard Questions
+                        Hard Level
                       </Card.Title>
                     </Card>
                   </Col>
@@ -589,7 +589,8 @@ const QuestionsAnswers = () => {
               </Col>
             </Card.Header>
             <Card.Body>
-              <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
+              {/* <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}> */}
+              <Row style={{ marginBottom: "20px" }}>
                 <Col md="auto">
                   <Dropdown onSelect={(event) => pickDifficulty(event)}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
