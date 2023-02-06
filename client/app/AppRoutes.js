@@ -13,6 +13,7 @@ import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 import LoadingScreen from "../features/loading/LoadingScreen";
 import LandingPage from "../features/landingPage/LandingPage";
 import AllQAadmin from "../features/allQA/AllQAadmin";
+import EditQA from "../features/singleQuestion/EditQA";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -34,6 +35,10 @@ const AppRoutes = () => {
           <Route
             path="/questions/:singleQuestionId"
             element={<SingleQuestion />}
+          />
+          <Route
+            path="/questions/:singleQuestionId/edit"
+            element={<EditQA />}
           />
           <Route path="/profile" element={<Profile />} />
         </Routes>

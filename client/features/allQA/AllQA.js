@@ -5,7 +5,11 @@ import Container from "react-bootstrap/Container";
 import { Card, Dropdown, Row, Col, Form } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import {
+  fetchAllUserQuestions,
+  fetchUserQuestions,
+  updateUserQuestion,
+} from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import AllQAadmin from "./AllQAadmin";
@@ -19,7 +23,9 @@ const QuestionsAnswers = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
+  const [currentDifficulty, setCurrentDifficulty] = useState(
+    difficultiyLevels[0]
+  );
   const categories = [
     "All Categories",
     "Asthma",
@@ -52,14 +58,30 @@ const QuestionsAnswers = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
-  const easyQuestions = stateQuestions.filter((question) => question.level === "Easy");
-  const moderateQuestions = stateQuestions.filter((question) => question.level === "Moderate");
-  const hardQuestions = stateQuestions.filter((question) => question.level === "Hard");
-  const userEasyQuestions = userQuestions.filter((question) => question.level === "Easy" && question.userInput);
-  const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
-  const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
+  const userQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const stateQuestions = useSelector(
+    (state) => state.questionsAnswers.questionsAnswers
+  );
+  const easyQuestions = stateQuestions.filter(
+    (question) => question.level === "Easy"
+  );
+  const moderateQuestions = stateQuestions.filter(
+    (question) => question.level === "Moderate"
+  );
+  const hardQuestions = stateQuestions.filter(
+    (question) => question.level === "Hard"
+  );
+  const userEasyQuestions = userQuestions.filter(
+    (question) => question.level === "Easy" && question.userInput
+  );
+  const userModerateQuestions = userQuestions.filter(
+    (question) => question.level === "Moderate" && question.userInput
+  );
+  const userHardQuestions = userQuestions.filter(
+    (question) => question.level === "Hard" && question.userInput
+  );
   const admin = useSelector((state) => state.auth.me.isAdmin);
 
   let allQuestions = [...stateQuestions];
@@ -87,13 +109,19 @@ const QuestionsAnswers = () => {
 
   // console.log("allQuestionsCheck", allQuestions);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
-  allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
+  allQuestions.length && !filteredQuestions
+    ? setfilteredQuestions(allQuestions)
+    : null;
 
-  console.log("currentitems", currentItems);
+  // console.log("currentitems", currentItems);
 
   const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
-  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
+  filteredQuestions && !pageCount
+    ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage))
+    : null;
+  filteredQuestions && !currentItems
+    ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset))
+    : null;
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -113,7 +141,9 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    const question = userQuestions.filter(
+      (question) => question.questionAnswerId == questionId
+    );
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -142,21 +172,38 @@ const QuestionsAnswers = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
     console.log("isFavorited?", isFavorited, multiFilter);
-    let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
-    isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
+    let favNumbers = userQuestions
+      .filter((question) => question.favorite === true)
+      .map((question) => question.questionAnswerId);
+    isFavorited
+      ? (multiFilter = multiFilter.filter((question) =>
+          favNumbers.includes(question.id)
+        ))
+      : null;
     //seeFavorites ?
     console.log("isFavorited?", isFavorited, multiFilter);
     for (let i = 0; i < filterCriteria.length; i++) {
-      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
+      if (
+        filterCriteria[i] === "All Levels" ||
+        filterCriteria[i] === "All Categories"
+      ) {
         continue;
       } else {
-        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
+        multiFilter = multiFilter.filter(
+          (question) =>
+            question.level === filterCriteria[i] ||
+            question.category === filterCriteria[i]
+        );
       }
     }
     console.log("filterQuestions in filterFunction", multiFilter);
     multiFilter.length ? setfilteredQuestions(multiFilter) : null;
-    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
-    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
+    multiFilter.length
+      ? setCurrentItems(multiFilter.slice(0, 12))
+      : setCurrentItems("nada");
+    multiFilter.length
+      ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
+      : setPageCount(0);
     setItemOffset(0);
     return multiFilter;
   };
@@ -174,169 +221,246 @@ const QuestionsAnswers = () => {
     dispatch(fetchUserQuestions(userId));
   }, []); // Putting userQuestions in here throws a loop
 
-  if(admin){
-    return(
-  <AllQAadmin/>
-    )
-  }else{
-  return (
-    <Container>
-      <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-        <Col></Col>
-        <Col>
-          <div
-            style={{ background: progressCircleBackground(userEasyQuestions.length / easyQuestions.length, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}
-          >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userEasyQuestions.length / easyQuestions.length) * 100)}%</div>
-          </div>
-        </Col>
-        <Col>
-          <div
-            style={{
-              background: progressCircleBackground(userModerateQuestions.length / moderateQuestions.length, "#f5ad27"),
-              borderRadius: "50%",
-              width: "120px",
-              height: "120px",
-              textAlign: "right",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
-              {Math.round((userModerateQuestions.length / moderateQuestions.length) * 100)}%
+  if (admin) {
+    return <AllQAadmin />;
+  } else {
+    return (
+      <Container>
+        <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
+          <Col></Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(
+                  userEasyQuestions.length / easyQuestions.length,
+                  "lightgreen"
+                ),
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "35%",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: "150%",
+                }}
+              >
+                {Math.round(
+                  (userEasyQuestions.length / easyQuestions.length) * 100
+                )}
+                %
+              </div>
             </div>
-          </div>
-        </Col>
-        <Col>
-          <div
-            style={{
-              background: progressCircleBackground(userHardQuestions.length / hardQuestions.length, "#f55b49"),
-              borderRadius: "50%",
-              width: "120px",
-              height: "120px",
-              position: "relative",
-            }}
-          >
-            {" "}
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userHardQuestions.length / hardQuestions.length) * 100)}%</div>
-          </div>
-        </Col>
-        <Col>
-          <div
-            style={{
-              background: progressCircleBackground(userQuestions.length / allQuestions.length, "#bf5eff"),
-              borderRadius: "50%",
-              width: "150px",
-              height: "150px",
-              marginTop: "-20px",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round((userQuestions.length / allQuestions.length) * 100)}%</div>
-          </div>
-        </Col>
-        <Col></Col>
-      </Row>
-      <Row style={{ marginBottom: "20px", fontSize: "200%" }}>
-        <Col>
-          {currentDifficulty} & {currentCategory1}
-        </Col>
-      </Row>
-      <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
-        <Col md="auto">
-          <Dropdown onSelect={(event) => pickDifficulty(event)}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {currentDifficulty}
-            </Dropdown.Toggle>
+          </Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(
+                  userModerateQuestions.length / moderateQuestions.length,
+                  "#f5ad27"
+                ),
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                textAlign: "right",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "35%",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: "150%",
+                }}
+              >
+                {Math.round(
+                  (userModerateQuestions.length / moderateQuestions.length) *
+                    100
+                )}
+                %
+              </div>
+            </div>
+          </Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(
+                  userHardQuestions.length / hardQuestions.length,
+                  "#f55b49"
+                ),
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                position: "relative",
+              }}
+            >
+              {" "}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "35%",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: "150%",
+                }}
+              >
+                {Math.round(
+                  (userHardQuestions.length / hardQuestions.length) * 100
+                )}
+                %
+              </div>
+            </div>
+          </Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(
+                  userQuestions.length / allQuestions.length,
+                  "#bf5eff"
+                ),
+                borderRadius: "50%",
+                width: "150px",
+                height: "150px",
+                marginTop: "-20px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "35%",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: "200%",
+                }}
+              >
+                {Math.round((userQuestions.length / allQuestions.length) * 100)}
+                %
+              </div>
+            </div>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row style={{ marginBottom: "20px", fontSize: "200%" }}>
+          <Col>
+            {currentDifficulty} & {currentCategory1}
+          </Col>
+        </Row>
+        <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
+          <Col md="auto">
+            <Dropdown onSelect={(event) => pickDifficulty(event)}>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {currentDifficulty}
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              {difficultiyLevels.map((difficulty) => (
-                <Dropdown.Item key={difficulty} eventKey={difficulty}>
-                  {difficulty}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-        <Col md="auto">
-          <Dropdown onSelect={(event) => pickCategory1(event)}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {currentCategory1}
-            </Dropdown.Toggle>
+              <Dropdown.Menu>
+                {difficultiyLevels.map((difficulty) => (
+                  <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                    {difficulty}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+          <Col md="auto">
+            <Dropdown onSelect={(event) => pickCategory1(event)}>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {currentCategory1}
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              {categories.map((category) => (
-                <Dropdown.Item key={category} eventKey={category}>
-                  {category}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
+              <Dropdown.Menu>
+                {categories.map((category) => (
+                  <Dropdown.Item key={category} eventKey={category}>
+                    {category}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
 
-        <Col md="auto">
-          <Form>
-            <Form.Switch
-              onChange={() => onFavoriteSwitch()}
-              id="custom-switch"
-              label="Favorites Only"
-              checked={!seeFavorites}
+          <Col md="auto">
+            <Form>
+              <Form.Switch
+                onChange={() => onFavoriteSwitch()}
+                id="custom-switch"
+                label="Favorites Only"
+                checked={!seeFavorites}
 
-              //disabled // apply if you want the switch disabled
-            />
-          </Form>
-        </Col>
-      </Row>
-      <Row>
-        {loading && <LoadingScreen />}
-        {currentItems && currentItems.length && currentItems !== "nada"
-          ? currentItems.map((question) => (
-              <Col key={question.id}>
-                <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                  <Card.Header style={{ backgroundColor: `${question.color}` }} />
-                  <Card.Body style={{}}>
-                    <Card.Img
-                      style={{ float: "right", width: "25px" }}
-                      onClick={() => favorite(userId, question.id)}
-                      variant="top"
-                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                //disabled // apply if you want the switch disabled
+              />
+            </Form>
+          </Col>
+        </Row>
+        <Row>
+          {loading && <LoadingScreen />}
+          {currentItems && currentItems.length && currentItems !== "nada"
+            ? currentItems.map((question) => (
+                <Col key={question.id}>
+                  <Card style={{ width: "18rem", marginBottom: "20px" }}>
+                    <Card.Header
+                      style={{ backgroundColor: `${question.color}` }}
                     />
-                    <Card.Title>
-                      <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
-                        {question.id}. Some Title
-                      </Link>
-                    </Card.Title>
-                    <Card.Text>{truncate(question.question)}</Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
-                  </Card.Footer>
-                </Card>
-              </Col>
-            ))
-          : "Sorry, we didn't find anything matching that"}
-      </Row>
-      <ReactPaginate
-        className="pagination"
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-      />
-    </Container>
-  );
+                    <Card.Body style={{}}>
+                      <Card.Img
+                        style={{ float: "right", width: "25px" }}
+                        onClick={() => favorite(userId, question.id)}
+                        variant="top"
+                        src={
+                          favoriteStatus(question.id)
+                            ? "/heart(red).png"
+                            : "/heart.png"
+                        }
+                      />
+                      <Card.Title>
+                        <Link
+                          to={`/questions/${question.id}`}
+                          style={{ textDecoration: `none` }}
+                        >
+                          {question.id}. Some Title
+                        </Link>
+                      </Card.Title>
+                      <Card.Text>{truncate(question.question)}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Card.Img
+                        style={{ float: "right", width: "25px" }}
+                        src="/endocrine-system.png"
+                      />
+                    </Card.Footer>
+                  </Card>
+                </Col>
+              ))
+            : "Sorry, we didn't find anything matching that"}
+        </Row>
+        <ReactPaginate
+          className="pagination"
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+        />
+      </Container>
+    );
   }
 };
 
