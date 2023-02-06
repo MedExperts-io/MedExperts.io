@@ -43,18 +43,34 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
     if (singleQuestion) {
       //Condition 2A - IF ADMIN
       if (req.user.isAdmin) {
-        const allVersions = await Question_Answer.findAll({
-          order: [["createdAt", "DESC"]],
-          where: {
-            [Op.or]: [
-              { id: singleQuestion.ancestorId },
-              { ancestorId: singleQuestion.ancestorId },
-            ],
-          },
-          include: User_Question,
-        });
-
-        res.json(allVersions);
+        if (singleQuestion.ancestorId !== null) {
+          // If child
+          const allVersions = await Question_Answer.findAll({
+            order: [["createdAt", "DESC"]],
+            where: {
+              [Op.or]: [
+                { id: singleQuestion.ancestorId }, //ancestor
+                { ancestorId: singleQuestion.ancestorId }, //siblings
+              ],
+            },
+            include: User_Question,
+          });
+          res.json(allVersions);
+        } else {
+          //If an ancestor
+          //May Delete this extra query if URL system is established
+          const allVersions = await Question_Answer.findAll({
+            order: [["createdAt", "DESC"]],
+            where: {
+              [Op.or]: [
+                { id: singleQuestion.id },// self
+                { ancestorId: singleQuestion.id },//children
+              ],
+            },
+            include: User_Question,
+          });
+          res.json(allVersions);
+        }
       } //Condition 2B - IF STUDENT
       else {
         //Condition 3A - If student has responded to question

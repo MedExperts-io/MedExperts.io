@@ -9,10 +9,10 @@ import {
   Button,
   Modal,
 } from "react-bootstrap";
-import { editProfile } from "./authSlice";
+
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const EditQA = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
@@ -172,4 +172,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default EditQA;

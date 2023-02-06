@@ -11,8 +11,7 @@ export const fetchAllQuestionsAnswers = createAsyncThunk(
         authorization: token,
       },
     });
-    // API placeholder until the routes are corrected
-    console.log("THUNK", data);
+    // console.log("THUNK", data);
     return data;
   }
 );
