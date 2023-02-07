@@ -14,6 +14,13 @@ export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () =>
   return data;
 });
 
+export const createAQuestion = createAsyncThunk("createAQuestion", async ({ question, correctAnswer, image }) => {
+  const token = window.localStorage.getItem("token");
+  const { data } = await axios.post(`/api/questions`, { question: question, correctAnswer: correctAnswer, questionImage: image });
+  console.log("submitted question data", data);
+  return data;
+});
+
 export const allQASlice = createSlice({
   name: "allQA",
   initialState: {
@@ -37,6 +44,9 @@ export const allQASlice = createSlice({
         state.moderate = action.payload.filter((question) => question.level === "Moderate");
         state.hard = action.payload.filter((question) => question.level === "Hard");
         state.loading = false;
+      })
+      .addCase(createAQuestion.fulfilled, (state, action) => {
+        console.log("create a question ACTTION.PAYLOAD", action.payload);
       })
       .addCase(fetchAllQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
