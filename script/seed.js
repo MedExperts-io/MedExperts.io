@@ -4475,6 +4475,180 @@ async function seed() {
       level: "Hard",
       category: "Pulmonary Function Testing",
     }),
+
+    //   Q181
+    Question_Answer.create({
+      question: `A patient undergoes pulmonary function testing. He is found to have a DLCO that is higher than predicted. Which of the following pre-test conditions is likely to have influenced his test result?`,
+      questionImage: [],
+      answerOptions: [
+        `Polycythemia`,
+        `COPD`,
+        `Congestive heart failure`,
+        `Asbestosis`,
+      ],
+      correctAnswer: `Polycythemia`,
+      explanation: `Polycythemia is defined by an increase in the number of red blood cells. This increase is quantified using the hemoglobin. At a hemoglobin above 16.5 g/dL in men or 16 g/dL in women, a patient is said to have polycythemia. In such a state, there is an increase in the amount of CO that can be carried by the red blood cells, which is reflected by an increase in the DLCO.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/663416/" target="_blank">Riepl G: Effects of Abnormal Hemoglobin Concentration in Human Blood on Membrane Diffusing Capacity of the Lung and on Pulmonary Capillary Blood Volume. Respiration 1978;36:10-18. </a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q182
+    Question_Answer.create({
+      question: `Which is true regarding outcomes in cardiac arrest?`,
+      questionImage: [],
+      answerOptions: [
+        `Optimizing Coronary perfusion pressure to goal (CPP) <15`,
+        `There is poor association between Coronary perfusion pressure and outcomes`,
+        `Optimizing Coronary perfusion pressure to goal CPP>20`,
+        `CPP is useful only in primarily VT/VF associated cardiac arrest`,
+      ],
+      correctAnswer: `Optimizing Coronary perfusion pressure to goal CPP>20`,
+      explanation: `CPP optimization is the primary physiologic goal in cardiac arrest treatment as myocardial blood flow is a primary determinant for success. CPP can be calculated by subtracting the Right Atrial Pressure from the Diastolic Blood Pressure. As coronary blood flow occurs in diastole the relaxation phase of CPR becomes important in allowing passive flow into the coronary arteries. Success is related to when CPP>20mmHg and when diastolic blood pressure >25mmHg. Although it is not routinely measured during inpatient cardiac arrest but is measurable if arterial line and central line present.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23801105/" target="_blank">PA Meaner et al. Cardiopulmonary Resuscitation Quality: Improving Cardiac Resuscitation Outcomes Both Inside and Outside the Hospital. A Consensus Statement. Circulation. 20113</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q183
+    Question_Answer.create({
+      question: `A 55-year-old male is diagnosed by having sputum positive pulmonary tuberculosis. He was put on Category-1 anti tuberculosis regimen. After three weeks of starting treatment, he complained of severe loss of appetite, vomiting and pain in the abdomen.  On investigation he had the following results of liver function test. Bilirubin 1.5 mg/dl, SGOT 357 U/L, SGPT 445 U/L. All of the following steps for his management are correct EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Stop Isoniazid`,
+        `Stop pyrazinamide`,
+        `Stop Rifampicin`,
+        `Stop Ethambutol`,
+      ],
+      correctAnswer: `Stop Rifampicin`,
+      explanation: `Out of all the answer choices, liver injury from rifampin is uncommon compared to other drugs. Rifampicin causes minor transient elevations in serum aminotransferase levels and bilirubin levels. INH is more commonly associated with hepatotoxicity in the first eight weeks of therapy. INH-induced hepatotoxicity causes AST elevation three times the upper limit in patients with symptoms of nausea, vomiting, abdominal pain and jaundice. All other side effects are stated in the chart below.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q183/A183+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31643176/" target="_blank">LiverTox: Clinical and Research Information on Drug-Induced Liver Injury [Internet]. Bethesda (MD): National Institute of Diabetes and Digestive and Kidney Diseases; 2012. Rifampin. [Updated 2018 Jun 10].</a>`,
+      ],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //   Q184
+    Question_Answer.create({
+      question: `Following bacteria are most commonly cultured during acute exacerbation of COPD except:`,
+      questionImage: [],
+      answerOptions: [
+        `Moraxella catarrhalis`,
+        `Haemophilus influenzae`,
+        `Pseudomonas cepacia`,
+        `Streptococcus pneumonia`,
+      ],
+      correctAnswer: `Pseudomonas cepacia`,
+      explanation: `The most common bacterial species isolated from acute exacerbation of COPD are 
+      nontypeable Haemophilus influenzae, Moraxella catarrhalis, and Streptococcus pneumoniae. These bacteria species are also predominant in other respiratory infections like otitis media and sinusitis. Less isolated bacterial species are Haemophilus 
+      parainfluenzae, Staphylococcus aureus, Pseudomonas aeruginosa, and gram-negative Enterobacteriaceae. H. parainfluenzae and S. aureus `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16113422/" target="_blank">Sethi S. Bacteria in Exacerbations of Chronic Obstructive Pulmonary Disease. Proc Am Thorac Soc. 2004;1(2):109-14.</a>`,
+      ],
+      level: "Easy",
+      category: "Chronic Obstructive Pulmonary Disease",
+    }),
+
+    //   Q185
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Lung Cancer",
+    //   }),
+
+    //   Q186
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Critical Care",
+    //   }),
+
+    //   Q187
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Moderate",
+    //     category: "Critical Care",
+    //   }),
+
+    //   Q188
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Moderate",
+    //     category: "Pulmonary Function Testing",
+    //   }),
+
+    //   Q189
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Moderate",
+    //     category: "Pulmonary Function Testing",
+    //   }),
+
+    //   Q190
+    //   Question_Answer.create({
+    //     question: ``,
+    //     questionImage: [],
+    //     answerOptions: [``,``,``,``],
+    //     correctAnswer:``,
+    //     explanation: ``,
+    //     explanationImage: [],
+    //     explanationLinks: [
+    //         `<a href="" target="_blank"></a>`,
+    //      ],
+    //     level: "Easy",
+    //     category: "Pulmonary Function Testing",
+    //   }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
