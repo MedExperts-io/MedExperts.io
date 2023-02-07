@@ -4561,94 +4561,143 @@ async function seed() {
     }),
 
     //   Q185
-    //   Question_Answer.create({
-    //     question: ``,
-    //     questionImage: [],
-    //     answerOptions: [``,``,``,``],
-    //     correctAnswer:``,
-    //     explanation: ``,
-    //     explanationImage: [],
-    //     explanationLinks: [
-    //         `<a href="" target="_blank"></a>`,
-    //      ],
-    //     level: "Easy",
-    //     category: "Lung Cancer",
-    //   }),
+    Question_Answer.create({
+      question: `A 56-year-old female nonsmoker presents with cough and expectoration, shortness of breath on excretion and hemoptysis. She is diagnosed with be having endobronchial lesion on CT scan. On examination she has moon facies and buffalo hump. The blood pressure is 184/106 mm Hg. She also has proximal muscle weakness and radiological investigation reveals severe osteoporosis. The most probable histopathology in this patient is:`,
+      questionImage: [],
+      answerOptions: [
+        `Squamous cell carcinoma`,
+        `Adenocarcinoma`,
+        `Small cell carcinoma`,
+        `Bronchial carcinoid`,
+      ],
+      correctAnswer: `Bronchial carcinoid`,
+      explanation: `Bronchopulmonary carcinoid tumors arise from neuroendocrine cells and have association with Cushing’s syndrome resulting in ectopic secretion of adrenocorticotropic hormone (ACTH). Carcinoid tumors are well-defined, round, or oval enhancing mass located within the central airway. Majority are located in the main, lobar or segmental bronchi. Common symptoms due to increased cortical levels are central obesity, purple striae on the abdomen, round facies, metabolic syndrome, early appearance of psychological disorder and hypertension. Some patients can also present with recurrent pneumonia, cough, hemoptysis and chest pain.  Surgical resection is the preferred treatment of these tumors.  
+ 
+      Central tumors give rise to squamous cell carcinoma and small cell carcinoma. 
+      Adenocarcinoma is located peripherally. All of these cancers are associated with lung cancer.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26923475/" target="_blank">Pedicelli I, Cushing like syndrome in typical bronchial carcinoid case report and review of the literature. Int J Surg Case Rep. 2016; 20(Suppl):1-4 </a>`,
+      ],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
 
     //   Q186
-    //   Question_Answer.create({
-    //     question: ``,
-    //     questionImage: [],
-    //     answerOptions: [``,``,``,``],
-    //     correctAnswer:``,
-    //     explanation: ``,
-    //     explanationImage: [],
-    //     explanationLinks: [
-    //         `<a href="" target="_blank"></a>`,
-    //      ],
-    //     level: "Easy",
-    //     category: "Critical Care",
-    //   }),
+    Question_Answer.create({
+      question: `Which of the following is not a consequence of hypoxemia in chronic respiratory failure?`,
+      questionImage: [],
+      answerOptions: [
+        `Right heart failure.`,
+        `Pulmonary vasodilatation.`,
+        `Increased erythropoiesis.`,
+        `Peripheral cyanosis.`,
+        `Central cyanosis.`,
+      ],
+      correctAnswer: `Pulmonary vasodilatation.`,
+      explanation: `In the pulmonary vasculature, hypoxia causes vasoconstriction rather than vasodilation. Systemically, hypoxemia triggers vasodilation in order to increase perfusion to the tissues. In the pulmonary vasculature, however, hypoxia is a trigger for vasoconstriction in order to shunt blood towards alveoli that are being adequately ventilated.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/14621112/" target="_blank">Roussos C, Koutsoukou A. Respiratory failure. Eur Respir J Suppl. 2003 Nov;47:3s-14s</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
 
     //   Q187
-    //   Question_Answer.create({
-    //     question: ``,
-    //     questionImage: [],
-    //     answerOptions: [``,``,``,``],
-    //     correctAnswer:``,
-    //     explanation: ``,
-    //     explanationImage: [],
-    //     explanationLinks: [
-    //         `<a href="" target="_blank"></a>`,
-    //      ],
-    //     level: "Moderate",
-    //     category: "Critical Care",
-    //   }),
+    Question_Answer.create({
+      question: `A 55 yo M hx alcohol abuse, cirrhosis, asthma is admitted to the hospital with alcohol withdrawal. His course is complicated by worsening mental status and hypotension and he is intubated and transferred to ICU. The ventilator is set AC 80% peep 5 Vt 500 RR 20 with peak pressures of 42 and Plateau 38. The pt is hemodynamically stable after vasopressor initiation and the patient is now anuric. He has b/l air entry without wheeze or crackles, normal heart sounds and tense, distended abdomen. POCUS is significant for normal cardiac function, b/l basal consolidations and simple ascites. ABG significant for pH 7.34 and Pao2 198. Which would be the best next step?`,
+      questionImage: [],
+      answerOptions: [
+        `Paralyze and prepare for proning`,
+        `Perform large volume paracentesis`,
+        `Start albumin and octreotide`,
+        `IR evaluation for Transjugular intrahepatic portosystemic shunt (TIPS)`,
+      ],
+      correctAnswer: `Perform large volume paracentesis`,
+      explanation: `The patient’s presentation is concerned for Abdominal Compartment Syndrome (ACS) and a large volume paracentesis would be helpful in decreasing the intra abdominal pressure and improving organ function.
+      ACS is typically defined by an increased intraabdominal pressure (IAP) >20mmHg as well as presence of organ dysfunction. ACS is associated with increased mortality and significant organ dysfunction and recognized and treated early. If the IAP is >12 this is considered Intra Abdominal Hypertension (IAH) but there can still be significant organ dysfunction present at this range in some individuals -These could include kidney injury, cardiac dysfunction, bowel ischemia. The increased ascites will also cause elevation of the diaphragm, decreased pulmonary compliance and in mechanically ventilated patients a high peak inspiratory pressure and plateau pressure.
+      The etiology in this patient is likely massive ascites but ACS is also frequently seen in surgical patients (especially patients with trauma, post bowel surgery and liver transplant). Large volume drainage of ascites will likely relieve the elevated pressure and improve organ function in this patient. In surgical conditions decompressing the abdomen and leaving the abdomen open with temporary closure is used.
+      Medical paralysis in this patient may improve ventilator synchrony and decrease abdominal muscle activity but this nor proning would treat the underlying etiology. Intravascular volume with albumin may improve abdominal perfusion pressure but it also would not treat the underlying cause. TIPS may be useful in controlling refractory ascites in the future but would not be the first treatment in this patient who needs an intervention to improve his condition immediately.
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
 
     //   Q188
-    //   Question_Answer.create({
-    //     question: ``,
-    //     questionImage: [],
-    //     answerOptions: [``,``,``,``],
-    //     correctAnswer:``,
-    //     explanation: ``,
-    //     explanationImage: [],
-    //     explanationLinks: [
-    //         `<a href="" target="_blank"></a>`,
-    //      ],
-    //     level: "Moderate",
-    //     category: "Pulmonary Function Testing",
-    //   }),
+    Question_Answer.create({
+      question: `About Vital Capacity all are correct except:`,
+      questionImage: [],
+      answerOptions: [
+        `Reduced with advanced age.`,
+        `Greater in men than women of the same age.`,
+        `Related to lean body mass.`,
+        `Equal to sum of inspiratory and expiratory reserve volume.`,
+        `It is the same as FVC in normal subjects.`,
+      ],
+      correctAnswer: `Equal to sum of inspiratory and expiratory reserve volume.`,
+      explanation: `Vital capacity (VC) refers to the maximal volume of air that can be expired following maximum inspiration. It is the total of tidal volume, inspiratory reserve volume, and expiratory reserve volume (VC = V + IRV + ERV). It decreased with age and was greater in men than females in the same age group. Also, it is decreased with body mass. Generally VC is measured as forced vital capacity on spirometry. 
+      Vital capacity may be measured as inspiratory vital capacity (IVC), slow vital capacity (SVC), or forced vital capacity (FVC). The FVC is similar to VC, but it is measured as the patient exhales with maximum speed and effort.
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
 
     //   Q189
-    //   Question_Answer.create({
-    //     question: ``,
-    //     questionImage: [],
-    //     answerOptions: [``,``,``,``],
-    //     correctAnswer:``,
-    //     explanation: ``,
-    //     explanationImage: [],
-    //     explanationLinks: [
-    //         `<a href="" target="_blank"></a>`,
-    //      ],
-    //     level: "Moderate",
-    //     category: "Pulmonary Function Testing",
-    //   }),
+    Question_Answer.create({
+      question: `Which statement is correct about Residual Volume?`,
+      questionImage: [],
+      answerOptions: [
+        `The amount of air left in lungs after maximal expiration.`,
+        `More in men than women.`,
+        `About 0.5 L in an adult.`,
+        `Measured by spirometry.`,
+        `Smaller in older age.`,
+      ],
+      correctAnswer: `The amount of air left in lungs after maximal expiration.`,
+      explanation: `Residual volume (RV) is the volume of air remaining in the lungs after maximum forceful expiration. It increases with age, and it can vary from 1.5-1.6 L in adults. It is more in men than women of the same age. It cannot be measured by spirometry.
+      Residual volume is determined by competing factors: the strength of the expiratory muscles and the inwards pull of the lungs tending to decrease residual volume, and the outward pull of the chest wall tending to increase residual volume.
+      Residual volume is the only lung volume that is not decreased with respiratory muscle weakness.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q189/A189+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/32156791/" target="_blank">Haynes JM, Kaminsky DA, Stanojevic S, Ruppel GL. Pulmonary Function Reference Equations: A Brief History to Explain All the Confusion. Respir Care. 2020 Jul;65(7):1030-1038</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
 
     //   Q190
-    //   Question_Answer.create({
-    //     question: ``,
-    //     questionImage: [],
-    //     answerOptions: [``,``,``,``],
-    //     correctAnswer:``,
-    //     explanation: ``,
-    //     explanationImage: [],
-    //     explanationLinks: [
-    //         `<a href="" target="_blank"></a>`,
-    //      ],
-    //     level: "Easy",
-    //     category: "Pulmonary Function Testing",
-    //   }),
+    Question_Answer.create({
+      question: `All about Pulmonary Dead Space are correct except:`,
+      questionImage: [],
+      answerOptions: [
+        `It decreased during general anesthesia.`,
+        `It decreased during deep inspiration.`,
+        `It decreases with anticholinergic medications.`,
+        `Anatomic dead space decreases during sleep.`,
+        `Saturates air with water vapors.`,
+      ],
+      correctAnswer: `It decreases with anticholinergic medications.`,
+      explanation: `Dead space is the volume of a breath that does not participate in gas exchange. It is ventilation without perfusion.
+      Physiologic or total dead space is the sum of anatomic dead space and alveolar dead space.
+      Anatomic dead space is the volume of gas within the conducting zone (as opposed to the transitional and respiratory zones) and includes the trachea, bronchus, bronchioles, and terminal bronchioles; it is approximately 2 mL/kg in the upright position. Alveolar dead space is the volume of gas within unperfused alveoli (and thus not participating in gas exchange either); it is usually negligible in the healthy, awake patient. The ratio of physiologic dead space to tidal volume is usually about 1/3.
+       
+      Factors that increase dead space: are General anesthesia – [ due to loss of skeletal muscle tone and bronchoconstrictor tone],
+      Neck extension and jaw protrusion (can increase it twofold), Positive pressure ventilation (i.e. increased airway pressure),
+      Upright posture as opposed to supine (because of decreased perfusion to the uppermost alveoli),
+      Pulmonary embolus, PA thrombosis, hemorrhage, hypotension, surgical manipulation of pulmonary artery tree – anything that decreases perfusion to well-ventilated alveoli, Emphysema, increasing age, Anticholinergic drugs[ Anticholinergics relax the bronchial smooth musculature, which reduces airway resistance and increases anatomic dead space. Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep.  
+      Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
