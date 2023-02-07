@@ -56,6 +56,7 @@ const AllQAadmin = () => {
   const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+
   const easyQuestions = stateQuestions.filter((question) => question.level === "Easy");
   const moderateQuestions = stateQuestions.filter((question) => question.level === "Moderate");
   const hardQuestions = stateQuestions.filter((question) => question.level === "Hard");
@@ -63,7 +64,21 @@ const AllQAadmin = () => {
   const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
   const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
 
+  const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
+  const ModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate");
+  const HardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard");
 
+  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered==='right');
+  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered==='right');
+  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered==='right');
+  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered==='right');
+
+  const easyQuestionsAnsweredPercentage = ((UsereasyQuestionsTotal.length/EasyQuestionsTotal.length))*100
+  const moderateQuestionsAnsweredPercentage = ((UserModerateQuestionsTotal.length/ModerateQuestionsTotal.length))*100
+  const hardQuestionsAnsweredPercentage = ((UserHardQuestionsTotal.length/HardQuestionsTotal.length))*100
+  const allQuestionAnsweredPercentage = ((UserAllQuestionsTotal.length/AllUserQuestions.length)*100)
+
+  console.log(EasyQuestionsTotal, UsereasyQuestionsTotal);
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -206,15 +221,16 @@ const AllQAadmin = () => {
         <Col></Col>
         <Col>
           <div
-            style={{ background: progressCircleBackground(userEasyQuestions.length / easyQuestions.length, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}
+            style={{ background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userEasyQuestions.length / easyQuestions.length) * 100)}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
+                {Math.round(easyQuestionsAnsweredPercentage)}%</div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(userModerateQuestions.length / moderateQuestions.length, "#f5ad27"),
+              background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length, "#f5ad27"),
               borderRadius: "50%",
               width: "120px",
               height: "120px",
@@ -223,14 +239,14 @@ const AllQAadmin = () => {
             }}
           >
             <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
-              {Math.round((userModerateQuestions.length / moderateQuestions.length) * 100)}%
+              {Math.round(moderateQuestionsAnsweredPercentage)}%
             </div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(userHardQuestions.length / hardQuestions.length, "#f55b49"),
+              background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length, "#f55b49"),
               borderRadius: "50%",
               width: "120px",
               height: "120px",
@@ -238,13 +254,13 @@ const AllQAadmin = () => {
             }}
           >
             {" "}
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round((userHardQuestions.length / hardQuestions.length) * 100)}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round(hardQuestionsAnsweredPercentage)}%</div>
           </div>
         </Col>
         <Col>
           <div
             style={{
-              background: progressCircleBackground(userQuestions.length / allQuestions.length, "#bf5eff"),
+              background: progressCircleBackground(UserAllQuestionsTotal.length/AllUserQuestions.length, "#bf5eff"),
               borderRadius: "50%",
               width: "150px",
               height: "150px",
@@ -252,7 +268,7 @@ const AllQAadmin = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round((userQuestions.length / allQuestions.length) * 100)}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round((allQuestionAnsweredPercentage))}%</div>
           </div>
         </Col>
         <Col></Col>
