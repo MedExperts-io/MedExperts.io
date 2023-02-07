@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import { Card, Dropdown, Row, Col, Form, Button } from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form, Button, ProgressBar } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
@@ -10,6 +10,7 @@ import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -345,11 +346,18 @@ const AllQAadmin = () => {
                     <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
                     
                     <Stack spacing = {.5}>
-                    <Chip label = {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`} color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined"/>
+                    <Chip label = {
+                    <Stack spacing={2}>
+                    {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`} 
+                    </Stack>
+                    }
+                    
+                    color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined" />
+                   
                     <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" /> 
-                    {/* <Chip label ={`Correct respone(s): ${filterDataByCorrect(question.id)}`} size="small" color="primary" /> */}
                     </Stack>
                   </Card.Body>
+                  <LinearProgress sx={{ width: '100%', height: 8, pb: 0,mb: 0,}} variant="determinate" value={data(question.id)} color={`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} />
                   <Card.Footer>
                 
                     {/* <Chip label={question.category} color="success" variant="outlined" /> */}
