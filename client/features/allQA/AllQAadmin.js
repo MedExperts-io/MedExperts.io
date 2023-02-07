@@ -8,9 +8,9 @@ import { token } from "morgan";
 import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-import LinearProgress from '@mui/material/LinearProgress';
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -58,26 +58,19 @@ const AllQAadmin = () => {
   const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
 
-  const easyQuestions = stateQuestions.filter((question) => question.level === "Easy");
-  const moderateQuestions = stateQuestions.filter((question) => question.level === "Moderate");
-  const hardQuestions = stateQuestions.filter((question) => question.level === "Hard");
-  const userEasyQuestions = userQuestions.filter((question) => question.level === "Easy" && question.userInput);
-  const userModerateQuestions = userQuestions.filter((question) => question.level === "Moderate" && question.userInput);
-  const userHardQuestions = userQuestions.filter((question) => question.level === "Hard" && question.userInput);
-
   const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
   const ModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate");
   const HardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard");
 
-  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered==='right');
-  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered==='right');
-  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered==='right');
-  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered==='right');
+  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered === "right");
+  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered === "right");
+  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
+  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
 
-  const easyQuestionsAnsweredPercentage = ((UsereasyQuestionsTotal.length/EasyQuestionsTotal.length))*100
-  const moderateQuestionsAnsweredPercentage = ((UserModerateQuestionsTotal.length/ModerateQuestionsTotal.length))*100
-  const hardQuestionsAnsweredPercentage = ((UserHardQuestionsTotal.length/HardQuestionsTotal.length))*100
-  const allQuestionAnsweredPercentage = ((UserAllQuestionsTotal.length/AllUserQuestions.length)*100)
+  const easyQuestionsAnsweredPercentage = (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100;
+  const moderateQuestionsAnsweredPercentage = (UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100;
+  const hardQuestionsAnsweredPercentage = (UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100;
+  const allQuestionAnsweredPercentage = (UserAllQuestionsTotal.length / AllUserQuestions.length) * 100;
 
   console.log(EasyQuestionsTotal, UsereasyQuestionsTotal);
   let allQuestions = [...stateQuestions];
@@ -122,27 +115,26 @@ const AllQAadmin = () => {
   };
 
   const data = (id) => {
-    const filterDataById = AllUserQuestions.filter(x => x.questionAnswerId === id)
-    const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
+    const filterDataById = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByCorrect = filterDataById.filter((x) => x.answered === "right");
 
-    const percentageCorrect = (filterDataByCorrect.length/filterDataById.length)*100
-    if(percentageCorrect || percentageCorrect===0){
-    return percentageCorrect
-    }else{
-        return null
+    const percentageCorrect = (filterDataByCorrect.length / filterDataById.length) * 100;
+    if (percentageCorrect || percentageCorrect === 0) {
+      return percentageCorrect;
+    } else {
+      return null;
     }
-  }
+  };
   const filterDataById = (id) => {
-    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
-    return filterData.length 
-  }
+    return filterData.length;
+  };
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
-    const filterDataByRight = filterData.filter(x => x.answered === 'right')
-    return filterDataByRight.length 
-  }
-
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByRight = filterData.filter((x) => x.answered === "right");
+    return filterDataByRight.length;
+  };
 
   const favorite = (userId, questionId) => {
     dispatch(
@@ -213,7 +205,7 @@ const AllQAadmin = () => {
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-    dispatch(fetchAllUserQuestions())
+    dispatch(fetchAllUserQuestions());
   }, []); // Putting userQuestions in here throws a loop
 
   return (
@@ -222,10 +214,15 @@ const AllQAadmin = () => {
         <Col></Col>
         <Col>
           <div
-            style={{ background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}
+            style={{
+              background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"),
+              borderRadius: "50%",
+              width: "120px",
+              height: "120px",
+              position: "relative",
+            }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
-                {Math.round(easyQuestionsAnsweredPercentage)}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round(easyQuestionsAnsweredPercentage)}%</div>
           </div>
         </Col>
         <Col>
@@ -239,9 +236,7 @@ const AllQAadmin = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>
-              {Math.round(moderateQuestionsAnsweredPercentage)}%
-            </div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{Math.round(moderateQuestionsAnsweredPercentage)}%</div>
           </div>
         </Col>
         <Col>
@@ -261,7 +256,7 @@ const AllQAadmin = () => {
         <Col>
           <div
             style={{
-              background: progressCircleBackground(UserAllQuestionsTotal.length/AllUserQuestions.length, "#bf5eff"),
+              background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length, "#bf5eff"),
               borderRadius: "50%",
               width: "150px",
               height: "150px",
@@ -269,7 +264,7 @@ const AllQAadmin = () => {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round((allQuestionAnsweredPercentage))}%</div>
+            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{Math.round(allQuestionAnsweredPercentage)}%</div>
           </div>
         </Col>
         <Col></Col>
@@ -340,26 +335,28 @@ const AllQAadmin = () => {
                     /> */}
                     <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
                       <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
-                        Question Number{" "}{question.id}
+                        Question Number {question.id}
                       </Link>
                     </Card.Title>
                     <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
-                    
-                    <Stack spacing = {.5}>
-                    <Chip label = {
-                    <Stack spacing={2}>
-                    {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`} 
-                    </Stack>
-                    }
-                    
-                    color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined" />
-                   
-                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" /> 
+
+                    <Stack spacing={0.5}>
+                      <Chip
+                        label={<Stack spacing={2}>{`Correct Response: ${data(question.id) || data(question.id) === 0 ? data(question.id) : 0}%`}</Stack>}
+                        color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                        variant="outlined"
+                      />
+
+                      <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
                     </Stack>
                   </Card.Body>
-                  <LinearProgress sx={{ width: '100%', height: 8, pb: 0,mb: 0,}} variant="determinate" value={data(question.id)} color={`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} />
+                  <LinearProgress
+                    sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
+                    variant="determinate"
+                    value={data(question.id)}
+                    color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                  />
                   <Card.Footer>
-                
                     {/* <Chip label={question.category} color="success" variant="outlined" /> */}
                     <Chip label={question.category} color="info" />
                     {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
