@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Form,
@@ -9,20 +9,43 @@ import {
   Button,
   Modal,
 } from "react-bootstrap";
-
 import { useNavigate } from "react-router-dom";
+import { fetchQAVersions, editQuestion } from "./singleQuestionSlice";
 
 const EditQA = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [validated, setValidated] = useState(false);
-  const { id, firstName, lastName, email, expertise, school } = useSelector(
-    (state) => state.auth.me
-  );
-  const [userFirstName, setUserFirstName] = useState(firstName);
-  const [userLastName, setUserLastName] = useState(lastName);
-  const [userEmail, setUserEmail] = useState(email);
-  const [userExpertise, setUserExpertise] = useState(expertise);
+  const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
+  console.log("qaVersions", qaVersions);
+  const {
+    id,
+    question,
+    questionImage,
+    answerOptions,
+    correctAnswer,
+    explanation,
+    explanationImage,
+    explanationLinks,
+    category,
+    level,
+    ancestorId,
+  } = qaVersions[0];
+
+  const [newQuestion, setNewQuestion] = useState(question);
+  const [newQuestionImage, setNewQuestionImage] = useState(questionImage);
+  const [newSingleOption, setNewSingleOption] = useState("");
+  const [newAnswerOptions, setNewAnswerOptions] = useState(answerOptions);
+  const [newCorrectAnswer, setNewCorrectAnswer] = useState(correctAnswer);
+  const [newExplanation, setNewExplanation] = useState(explanation);
+  const [newExplanationImage, setNewExplanationImage] =
+    useState(explanationImage);
+  const [newExplanationLinks, setNewExplanationLinks] =
+    useState(explanationLinks);
+  const [newCategory, setNewCategory] = useState(category);
+  const [newLevel, setNewLevel] = useState(level);
+
   // modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -32,21 +55,26 @@ const EditQA = () => {
   const handleShow = () => setShow(true);
   // end modal details
 
-  const clearText = (evt) => {
-    evt.target.value = "";
-  };
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log("ID BEFORE DISPATCH", id);
+
     dispatch(
-      editProfile({
-        id,
-        firstName: userFirstName,
-        lastName: userLastName,
-        email: userEmail,
-        expertise: userExpertise,
+      editQuestion({
+        question: newQuestion,
+        questionImage: newQuestionImage,
+        answerOptions: newAnswerOptions,
+        correctAnswer: newCorrectAnswer,
+        explanation: newExplanation,
+        explanationImage: newExplanationImage,
+        explanationLinks: newExplanationLinks,
+        category: newCategory,
+        level: newLevel,
+        ancestorId,
       })
     );
+    console.log("ID AFTER DISPATCH", id);
+    // .then(()=> dispatch(fetchQAVersions(id)))
     setValidated(true);
   };
 
@@ -60,93 +88,175 @@ const EditQA = () => {
         >
           <Col>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
-              <h1>Edit My Profile</h1>
+              <h1>Edit Question</h1>
+
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="firstName">
-                  <Form.Label>First Name</Form.Label>
+                <Form.Group as={Col} controlId="question">
+                  <Form.Label>Question</Form.Label>
                   <Form.Control
-                    onClick={clearText}
                     type="text"
-                    defaultValue={userFirstName}
+                    defaultValue={newQuestion}
                     onChange={(e) => {
-                      setUserFirstName(e.target.value);
+                      setNewQuestion(e.target.value);
                     }}
-                    onFocus={(e) =>
-                      (e.target.placeholder = "Enter Your First Name")
-                    }
-                    onBlur={(e) => (e.target.placeholder = userFirstName)}
+                    // onFocus={(e) =>
+                    //   (e.target.placeholder = "Enter Your First Name")
+                    // }
+                    // onBlur={(e) => (e.target.placeholder = userFirstName)}
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="lastName">
-                  <Form.Label>Last Name</Form.Label>
+                {/* <Form.Group as={Col} controlId="questionImage">
+                  <Form.Label>Question Figures</Form.Label>
                   <Form.Control
                     onClick={clearText}
                     type="text"
-                    defaultValue={userLastName}
+                    defaultValue={newQuestionImage}
                     onChange={(e) => {
-                      setUserLastName(e.target.value);
+                      setNewQuestionImage(e.target.value);
                     }}
                     onFocus={(e) =>
                       (e.target.placeholder = "Enter Your Last Name")
                     }
                     onBlur={(e) => (e.target.placeholder = userLastName)}
                   />
-                </Form.Group>
+                </Form.Group> */}
               </Row>
+
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="school">
-                  <Form.Label>School Affiliation</Form.Label>
+                <Form.Group as={Col} controlId="answerOptions">
+                  <Form.Label>Options</Form.Label>
+
                   <Form.Control
                     type="text"
-                    placeholder={school}
-                    aria-label="Disabled input for school affiliation"
-                    disabled
-                    readOnly
-                  />
-                </Form.Group>
-
-                <Form.Group as={Col} controlId="expertiseLevel">
-                  <Form.Label>Expertise Level</Form.Label>
-                  <Form.Select
-                    aria-label="default select example"
+                    defaultValue={newSingleOption}
                     onChange={(e) => {
-                      setUserExpertise(e.target.value);
+                      setNewSingleOption(e.target.value);
                     }}
-                  >
-                    <option defaultValue> {expertise}</option>
-                    <option value="Student">Student</option>
-                    <option value="Resident">Resident</option>
-                    <option value="Fellow">Fellow</option>
-                    <option value="Physician Assistant">
-                      Physician Assistant
-                    </option>
-                    <option value="Nurse">Nurse</option>
-                    <option value="Nurse Practitioner">
-                      Nurse Practitioner
-                    </option>
-                    <option value="Pharmacist">Pharmacist</option>
-                    <option value="Internal Med">Internal Med</option>
-                    <option value="Other">Other</option>
-                  </Form.Select>
+                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
+                    // onBlur={(e) => (e.target.placeholder = userEmail)}
+                  ></Form.Control>
+
+                  
                 </Form.Group>
               </Row>
+
               <Row className="mb-3">
-                <Form.Group as={Col} controlId="email">
-                  <Form.Label>Email Address</Form.Label>
+                <Form.Group as={Col} controlId="correctAnswer">
+                  <Form.Label>Answer</Form.Label>
                   <Form.Control
-                    type="email"
-                    aria-describedby="emailBlock"
-                    onClick={clearText}
-                    defaultValue={userEmail}
+                    type="text"
+                    defaultValue={newCorrectAnswer}
                     onChange={(e) => {
-                      setUserEmail(e.target.value);
+                      setNewCorrectAnswer(e.target.value);
                     }}
-                    onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
-                    onBlur={(e) => (e.target.placeholder = userEmail)}
+                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
+                    // onBlur={(e) => (e.target.placeholder = userEmail)}
                   ></Form.Control>
                 </Form.Group>
               </Row>
+
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="explanation">
+                  <Form.Label>Explanation</Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={newExplanation}
+                    onChange={(e) => {
+                      setNewExplanation(e.target.value);
+                    }}
+                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
+                    // onBlur={(e) => (e.target.placeholder = userEmail)}
+                  ></Form.Control>
+                </Form.Group>
+              </Row>
+
+              {/* <Row className="mb-3">
+                <Form.Group as={Col} controlId="explanationImage">
+                  <Form.Label>Explanation Figures</Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={newExplanationImage}
+                    onChange={(e) => {
+                      setNewExplanationImage(e.target.value);
+                    }}
+                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
+                    // onBlur={(e) => (e.target.placeholder = userEmail)}
+                  ></Form.Control>
+                </Form.Group>
+              </Row> */}
+
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="explanationLinks">
+                  <Form.Label>Explanation Links</Form.Label>
+                  <Form.Control
+                    type="text"
+                    defaultValue={newExplanationLinks}
+                    onChange={(e) => {
+                      setNewExplanationLinks(e.target.value);
+                    }}
+                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
+                    // onBlur={(e) => (e.target.placeholder = userEmail)}
+                  ></Form.Control>
+                </Form.Group>
+              </Row>
+
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="category">
+                  <Form.Label>Category</Form.Label>
+                  <Form.Select
+                    aria-label="default select example"
+                    onChange={(e) => {
+                      setNewCategory(e.target.value);
+                    }}
+                  >
+                    <option defaultValue> {category}</option>
+                    <option value="Asthma">Asthma</option>
+                    <option value="Bronchiectasis">Bronchiectasis</option>
+                    <option value="Chronic Obstructive Pulmonary Disease">
+                      Chronic Obstructive Pulmonary Disease
+                    </option>
+                    <option value="Critical Care">Critical Care</option>
+                    <option value="Infection">Infection</option>
+                    <option value="Interstitial Lung Diseases">
+                      Interstitial Lung Diseases
+                    </option>
+                    <option value="Lung Transplant">Lung Transplant</option>
+                    <option value="Lung Cancer">Lung Cancer</option>
+                    <option value="Mediastinal Disorders">
+                      Mediastinal Disorders
+                    </option>
+                    <option value="Other Pulmonary Diseases">
+                      Other Pulmonary Diseases
+                    </option>
+                    <option value="Pharmacology">Pharmacology</option>
+                    <option value="Pleural Diseases">Pleural Diseases</option>
+                    <option value="Pulmonary Function Testing">
+                      Pulmonary Function Testing
+                    </option>
+                    <option value="Pulmonary Vascular Disease">
+                      Pulmonary Vascular Disease
+                    </option>
+                    <option value="Sleep">Sleep</option>
+                  </Form.Select>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="level">
+                  <Form.Label>Level</Form.Label>
+                  <Form.Select
+                    aria-label="default select example"
+                    onChange={(e) => {
+                      setNewLevel(e.target.value);
+                    }}
+                  >
+                    <option defaultValue> {level}</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Hard">Hard</option>
+                  </Form.Select>
+                </Form.Group>
+              </Row>
+
               <center>
                 <Button type="submit" variant="secondary" onClick={handleShow}>
                   Update
@@ -159,8 +269,8 @@ const EditQA = () => {
                   <Button variant="secondary" onClick={handleClose}>
                     Keep Editing
                   </Button>
-                  <Button variant="secondary" onClick={() => navigate("/home")}>
-                    Dashboard
+                  <Button variant="secondary" onClick={() => navigate(`/home`)}>
+                    View Question
                   </Button>
                 </Modal.Footer>
               </Modal>

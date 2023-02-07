@@ -91,7 +91,7 @@ const AllQAadmin = () => {
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
 
-  console.log("currentitems", currentItems);
+  // console.log("currentitems", currentItems);
 
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
@@ -119,12 +119,12 @@ const AllQAadmin = () => {
   const filterDataById = (id) => {
     const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
-    return filterData.length 
+    return filterData.length
   }
   const filterDataByCorrect = (id) => {
     const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
     const filterDataByRight = filterData.filter(x => x.answered === 'right')
-    return filterDataByRight.length 
+    return filterDataByRight.length
   }
 
 
@@ -166,11 +166,11 @@ const AllQAadmin = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    console.log("isFavorited?", isFavorited, multiFilter);
+    // console.log("isFavorited?", isFavorited, multiFilter);
     let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
     //seeFavorites ?
-    console.log("isFavorited?", isFavorited, multiFilter);
+    // console.log("isFavorited?", isFavorited, multiFilter);
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
@@ -178,7 +178,7 @@ const AllQAadmin = () => {
         multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
-    console.log("filterQuestions in filterFunction", multiFilter);
+    // console.log("filterQuestions in filterFunction", multiFilter);
     multiFilter.length ? setfilteredQuestions(multiFilter) : null;
     multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
     multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
@@ -327,15 +327,15 @@ const AllQAadmin = () => {
                       </Link>
                     </Card.Title>
                     <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
-                    
+
                     <Stack spacing = {.5}>
                     <Chip label = {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`} color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined"/>
-                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" /> 
+                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
                     {/* <Chip label ={`Correct respone(s): ${filterDataByCorrect(question.id)}`} size="small" color="primary" /> */}
                     </Stack>
                   </Card.Body>
                   <Card.Footer>
-                
+
                     {/* <Chip label={question.category} color="success" variant="outlined" /> */}
                     <Chip label={question.category} color="info" />
                     {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
