@@ -76,7 +76,7 @@ const SingleQuestion = () => {
   const handleSubmit = () => {
     const rightorwrong = selectedOption === correctAnswer ? "right" : "wrong";
     setShowAnswer(true);
-    console.log(selectedOption, correctAnswer);
+    // console.log(selectedOption, correctAnswer);
     dispatch(
       updateUserQuestionInput({
         userId: userId,

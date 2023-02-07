@@ -10,7 +10,6 @@ export const fetchSingleQuestion = createAsyncThunk(
         authorization: token,
       },
     });
-    console.log("single Q inside Thunk", data);
     return data;
   }
 );
@@ -23,7 +22,18 @@ export const fetchQAVersions = createAsyncThunk(
         authorization: token,
       },
     });
-    console.log("Q all versions inside Thunk", data);
+    return data;
+  }
+);
+
+export const editQuestion = createAsyncThunk(
+  "editQuestion",
+  async (singleQuestionId) => {
+    const { data } = await axios.post(`/api/questions/${singleQuestionId}`, {
+      headers: {
+        authorization: token,
+      },
+    });
     return data;
   }
 );
@@ -59,6 +69,9 @@ const singleQuestionSlice = createSlice({
       })
       .addCase(fetchQAVersions.fulfilled, (state, action) => {
         state.qaAllVersions = action.payload;
+      })
+      .addCase(editQuestion.fulfilled, (state, action) => {
+        state.qaAllVersions.unshift(action.payload);
       })
       .addCase(deleteSingleQuestion.fulfilled, (state, action) => {
         state.Question = action.payload;
