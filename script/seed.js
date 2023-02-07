@@ -4698,6 +4698,218 @@ async function seed() {
       level: "Easy",
       category: "Pulmonary Function Testing",
     }),
+
+    //   Q191
+    Question_Answer.create({
+      question: `Spirometry tests are used to demonstrate all of the following in obstructive airway disease 
+      except:`,
+      questionImage: [],
+      answerOptions: [
+        `Airflow limitation.`,
+        `Functional respiratory reserve.`,
+        `Reversibility of airflow limitation over time.`,
+        `Hyper responsiveness by using challenge tests.`,
+        `Reversibility of airflow limitation with inhalation of a bronchodilator`,
+      ],
+      correctAnswer: `Functional respiratory reserve.`,
+      explanation: `Spirometry helps diagnosing obstructive lung disease by evaluating FeV1/FVC. If FeV/FVC  is less than the lower limit of normal  then  airflow limitation is present. During spirometry air responsiveness can be evaluated using beta agonist challenge. That test also evaluates reversibility of airflow limitation. Serial spirometry overtime can help evaluate reversibility of airflow limitation.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q192
+    Question_Answer.create({
+      question: `Which of the following gas is used to decrease pulmonary artery pressure in adults:`,
+      questionImage: [],
+      answerOptions: [
+        `Nitrous Oxide.`,
+        `Helium.`,
+        `Nitric Oxide.`,
+        `Nitrogen.`,
+        `Carbon dioxide`,
+      ],
+      correctAnswer: `Nitric Oxide.`,
+      explanation: `Nitric oxide is a pulmonary artery vasodilator. It is a phosphodiesterase inhibitor (PDE-5).`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/20498805/" target="_blank">Sim JY. Nitric oxide and pulmonary hypertension. Korean J Anesthesiol. 2010 Jan;58(1):4-14.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q193
+    Question_Answer.create({
+      question: `Organophosphates cause bronchospasm by stimulating which of the following receptor types?`,
+      questionImage: [],
+      answerOptions: [`M1.`, `M2.`, `M3.`, `M4.`, `M5.`],
+      correctAnswer: `M3.`,
+      explanation: `Organophosphates are capable of irreversibly inhibiting acetylcholinesterase. As a result, acetylcholine builds up within the neuronal synapse and is capable of continuing signal propagation. The built-up acetylcholine can stimulate M3 receptors, which ultimately cause bronchoconstriction. This explains why there is bronchoconstriction during organophosphate poisoning.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23179755/" target="_blank">Soukup O, Jun D, Tobin G, Kuca K. The summary on non-reactivation cholinergic properties of oxime reactivators: the interaction with muscarinic and nicotinic receptors. Arch Toxicol. 2013 Apr;87(4):711-9.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q194
+    Question_Answer.create({
+      question: `The primary role of alpha1-antitrypsin (AAT) is inhibition of which one of the following choices?`,
+      questionImage: [],
+      answerOptions: [
+        `Caspase 8`,
+        `Glucose-6-phosphate dehydrogenase`,
+        `Leukocyte esterase`,
+        `Neutrophil elastase`,
+      ],
+      correctAnswer: `Neutrophil elastase`,
+      explanation: `AAT is synthesized in the liver and secreted into circulation, where its primary role is to protect the lung tissue against attack by the enzyme neutrophil elastase. Most persons carry two copies of the wild type M allele of SERPINA1, which encodes AAT and have a normal circulating level of the protein. Ninety five percent of severe cases of AAT deficiency result from the homozygous substitution of a single amino acid, Glu342lys [the Z allele]. AAT deficiency predisposes homozygotes with severe deficiency to early onset panacinar emphysema.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21367592/" target="_blank">Janciauskiene SM, Bals R, Koczulla R, Vogelmeier C, Köhnlein T, Welte T. The discovery of α1-antitrypsin and its role in health and disease. Respir Med. 2011 Aug;105(8):1129-39.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24507836/" target="_blank">Stockley RA. Alpha1-antitrypsin review. Clin Chest Med. 2014 Mar;35(1):39-50.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q195
+    Question_Answer.create({
+      question: `Which of the following mechanisms reflects the way in which B-agonists produce bronchodilation?`,
+      questionImage: [],
+      answerOptions: [
+        `Decreasing adenosine.`,
+        `Increasing cyclic AMP.`,
+        `Decreasing cyclic AMP.`,
+        `Phosphodiesterase inhibition.`,
+        `Blocking muscarinic receptors.`,
+      ],
+      correctAnswer: `Increasing cyclic AMP.`,
+      explanation: `Beta-agonists, such as albuterol, can be used to produce bronchodilation. These drugs typically accomplish this by stimulating beta-2 receptors which operate through Gs G-protein signaling. The downstream effect of Gs protein activation is an increase in cyclic AMP which causes bronchodilation.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27878470/" target="_blank">Billington CK, Penn RB, Hall IP. β2 Agonists. Handb Exp Pharmacol. 2017;237:23-40.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q196
+    Question_Answer.create({
+      question: `Which of the following statements about the angle of Louis is incorrect?`,
+      questionImage: [],
+      answerOptions: [
+        `Helps in rib counting.`,
+        `Lies at T2.`,
+        `Carotid bifurcation occurs at this level.`,
+        `It is prominent in thin subjects.`,
+        `Bronchial breathing may be heard over it.`,
+      ],
+      correctAnswer: `Carotid bifurcation occurs at this level.`,
+      explanation: `The carotid bifurcation refers to the split of the common carotid artery into the external and internal carotid arteries. This split occurs at approximately the C3/C4 level. The angle of Louis refers to the point at which the manubrium and the sternum are joined, which lies at the T2 level. This point can be easily palpated in thin patients and is especially useful in identifying ribs as the second rib can be felt alongside it on either side of the sternum.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK459336/" target="_blank">Ball M, Falkson SR, Adigun OO. Anatomy, Angle of Louis. 2020 Jul 31. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q197
+    Question_Answer.create({
+      question: `A patient came to the hospital with a fracture of the manubrium sterni. Which structure is likely to be injured in such a case?`,
+      questionImage: [],
+      answerOptions: [
+        `Ascending aorta.`,
+        `Descending thoracic aorta.`,
+        `Right brachiocephalic vein.`,
+        `Inferior vena cava.`,
+        `Brachiocephalic artery.`,
+      ],
+      correctAnswer: `Brachiocephalic artery.`,
+      explanation: `Brachiocephalic artery is also called an innominate artery. It arises from the aortic arch at the level of second costal cartilage. It is the first and largest branch of the aortic arch that supplies the head, neck and the right arm. It divides into the right common carotid artery and right subclavian artery at the border of the right sternoclavicular joint.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29707289/" target="_blank">Schulz-Drost S, Krinner S, Oppel P, Grupp S, Schulz-Drost M, Hennig FF, Langenbach A. Fractures of the manubrium sterni: treatment options and a possible classification of different types of fractures. J Thorac Dis. 2018 Mar;10(3):1394-1405</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q198
+    Question_Answer.create({
+      question: `A 49-year-old miner develops smear-positive mycobacterium tuberculosis. Which of the following dusts is most likely to have increased the risk of this infection in this patient?`,
+      questionImage: [],
+      answerOptions: [
+        `Coal dust.`,
+        `Asbestos.`,
+        `Cadmium.`,
+        `Silica.`,
+        `Beryllium.`,
+      ],
+      correctAnswer: `Silica.`,
+      explanation: `Silica exposure can increase risk of TB. Silicosis is a common progressive occupational disease. It occurs after 10-20 years of exposure to silica. Patients present with exertional dyspnea, productive cough. On chest x-ray, small round opacities can be seen on upper zones of the lung. Silicosis is associated with TB but recent studies have shown that silica is associated with TB even in the absence of silicosis.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17439668/" target="_blank">Rees D, Murray J. Silica, silicosis and tuberculosis. Int J Tuberc Lung Dis. 2007 May;11(5):474-84.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //   Q199
+    Question_Answer.create({
+      question: `Which type of non-small cell lung cancer (NSCLC) can develop in patients who have never smoked?`,
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma`,
+        `Large cell carcinoma`,
+        `Squamous cell carcinoma`,
+        `Atypical carcinoids`,
+      ],
+      correctAnswer: `Adenocarcinoma`,
+      explanation: `According to the National Cancer Institute's PDQ Information Summary for Health Professionals on NSCLC treatment, adenocarcinoma, large cell carcinoma, and squamous cell carcinoma are the three most common types of NSCLC. Whereas NSCLCs, especially squamous cell carcinomas, are associated with smoking, adenocarcinomas may be found in patients who have never smoked.
+      PDQ Adult Treatment Editorial Board. Non-Small Cell Lung Cancer Treatment (PDQ) – Health Professional Version. Bethesda, MD: National Cancer Institute. Updated January 20, 2022.  
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //   Q200
+    Question_Answer.create({
+      question: `Which of the following is not a characteristic of occupational lung diseases?`,
+      questionImage: [],
+      answerOptions: [
+        `Atopic individuals are at an increased risk.`,
+        `Wheezing and coughing in a cotton worker may be byssinosis.`,
+        `Isocyanates may cause pulmonary edema.`,
+        `Berylliosis is steroid responsive.`,
+      ],
+      correctAnswer: `Isocyanates may cause pulmonary edema.`,
+      explanation: `Occupational lung diseases can lead to airway disease like asthma or commonly interstitial lung disease. These are caused by inhalation of dust, chemicals or proteins.  
+ 
+      Occupational asthma (OA) is a form of work-related asthma characterized by airflow obstruction, airway hyperresponsiveness and airway inflammation. The risk factors associated with OA include sex, geographic location, prevalence of atopy, smoking and type of workplace exposure. Atopy is consistently associated with sensitization to high molecular weight agents (HMW). These agents include protein and polysaccharides of animal or plant based. Atopic individuals who are in high-risk workplace should receive regular medical follow-up.  
+       
+      Chronic exposure to isocyanates can also occupational asthma and hypersensitivity pneumonitis (HP). CT findings of HP are mid-to upper zone predominance of centrilobular ground glass or nodular opacities with mosaic attenuation. Isocyanate does not cause pulmonary edema.  
+       
+      Byssinosis (cotton dust disease) is an occupational lung disease caused by exposure to cotton dust in inadequately ventilated working environment. Common symptoms are frequent coughing, chest tightness, dyspnea and wheezing within a few hours of exposure in the workplace. Symptoms in the beginning of the work week are termed as Monday fever. Those individuals who remove themselves from the workplace environment and exposure may have resolution of symptoms.  
+       
+      Berylliosis is a disease caused by exposure to beryllium in industries including metal machine shops, electronics, and defense industries. Most clinical manifestations are nonspecific. The drugs of choice are corticosteroids at high doses and slowly tapered off.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/3024527/" target="_blank">Banks DE, Butcher BT, Salvaggio JE. Isocyanate-induced respiratory disease. Ann Allergy. 1986 Dec;57(6):389-96.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23516692/" target="_blank">Reid PA, Reid PT. Occupational lung disease. J R Coll Physicians Edinb. 2013;43(1):44-8.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
@@ -4713,7 +4925,6 @@ async function seed() {
     //     level: "Easy",
     //     category: "Pulmonary Function",
     //   }),
-
     //----------------- Fake update to questionId 1 to test VCS (Remove after testing)--------------
     Question_Answer.create({
       question:
