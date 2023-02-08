@@ -6,6 +6,18 @@ const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 5;
 
 const User = db.define("user", {
+  tempId: {
+    type: Sequelize.STRING,
+    unique: true,
+  },
+  verificationToken: {
+    type: Sequelize.STRING,
+    unique: true,
+  },
+  status: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
   email: {
     type: Sequelize.STRING,
     validate: {
