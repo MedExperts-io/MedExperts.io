@@ -28,12 +28,39 @@ export const fetchQAVersions = createAsyncThunk(
 
 export const editQuestion = createAsyncThunk(
   "editQuestion",
-  async (singleQuestionId) => {
-    const { data } = await axios.post(`/api/questions/${singleQuestionId}`, {
-      headers: {
-        authorization: token,
+  async ({
+    id,
+    question,
+    questionImage,
+    answerOptions,
+    correctAnswer,
+    explanation,
+    explanationImage,
+    explanationLinks,
+    category,
+    level,
+    ancestorId,
+  }) => {
+    const { data } = await axios.post(
+      `/api/questions/${id}`,
+      {
+        question,
+        questionImage,
+        answerOptions,
+        correctAnswer,
+        explanation,
+        explanationImage,
+        explanationLinks,
+        category,
+        level,
+        ancestorId,
       },
-    });
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
     return data;
   }
 );

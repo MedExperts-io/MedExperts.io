@@ -496,3 +496,51 @@ const SingleQuestion = () => {
 };
 
 export default SingleQuestion;
+
+
+
+
+// const App = () => {
+//   const [answers, setAnswers] = useState([
+//     { id: 1, text: 'Option 1' },
+//     { id: 2, text: 'Option 2' },
+//     { id: 3, text: 'Option 3' },
+//   ]);
+//   const [editMode, setEditMode] = useState({});
+
+//   const handleEdit = (id) => {
+//     setEditMode({ ...editMode, [id]: true });
+//   };
+
+//   const handleSave = (id, text) => {
+//     const newAnswers = answers.map((answer) => {
+//       if (answer.id === id) {
+//         return { id, text };
+//       }
+//       return answer;
+//     });
+//     setAnswers(newAnswers);
+//     setEditMode({ ...editMode, [id]: false });
+//   };
+
+//   return (
+//     <div>
+//       {answers.map((answer) => {
+//         return editMode[answer.id] ? (
+//           <div key={answer.id}>
+//             <input
+//               type="text"
+//               value={answer.text}
+//               onChange={(e) => handleSave(answer.id, e.target.value)}
+//             />
+//           </div>
+//         ) : (
+//           <div key={answer.id} onClick={() => handleEdit(answer.id)}>
+//             {answer.text}
+//           </div>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+

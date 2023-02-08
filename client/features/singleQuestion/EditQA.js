@@ -8,17 +8,34 @@ import {
   Card,
   Button,
   Modal,
+  InputGroup,
+  Toast,
+  ToastContainer,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { fetchQAVersions, editQuestion } from "./singleQuestionSlice";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+  fetchSingleQuestion,
+  fetchQAVersions,
+  editQuestion,
+} from "./singleQuestionSlice";
+import { v4 as uuidv4 } from "uuid";
 
 const EditQA = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // const { singleQuestionId } = useParams();
+  // useEffect(() => {
+  // dispatch(fetchSingleQuestion(singleQuestionId));
+  // }, []);
+
   const [validated, setValidated] = useState(false);
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
-  console.log("qaVersions", qaVersions);
+
+  // console.log("qaVersions", qaVersions);
+  // const qa = qaVersions[0];
+  // console.log("qa Object", qa);
+
   const {
     id,
     question,
@@ -34,9 +51,12 @@ const EditQA = () => {
   } = qaVersions[0];
 
   const [newQuestion, setNewQuestion] = useState(question);
+  // console.log("NEW QUESTION STATE", newQuestion, qa.question);
   const [newQuestionImage, setNewQuestionImage] = useState(questionImage);
+
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState(answerOptions);
+
   const [newCorrectAnswer, setNewCorrectAnswer] = useState(correctAnswer);
   const [newExplanation, setNewExplanation] = useState(explanation);
   const [newExplanationImage, setNewExplanationImage] =
@@ -45,6 +65,8 @@ const EditQA = () => {
     useState(explanationLinks);
   const [newCategory, setNewCategory] = useState(category);
   const [newLevel, setNewLevel] = useState(level);
+  const [showToast, setShowToast] = useState(false);
+  const [showUpdate, setShowUpdate] = useState("");
 
   // modal details
   const [show, setShow] = useState(false);
@@ -57,10 +79,9 @@ const EditQA = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log("ID BEFORE DISPATCH", id);
-
     dispatch(
       editQuestion({
+        id,
         question: newQuestion,
         questionImage: newQuestionImage,
         answerOptions: newAnswerOptions,
@@ -70,14 +91,20 @@ const EditQA = () => {
         explanationLinks: newExplanationLinks,
         category: newCategory,
         level: newLevel,
-        ancestorId,
+        ancestorId: ancestorId || id, //NEED TO ADD CONDITION FOR SENDING ANCESTORID IF NOT NULL
       })
     );
-    console.log("ID AFTER DISPATCH", id);
-    // .then(()=> dispatch(fetchQAVersions(id)))
-    setValidated(true);
+    setValidated(true); //??????
   };
 
+  const clearText = (evt, text) => {
+    console.log("EVT TEXT", `${text}`);
+    evt.target.value = text;
+  };
+
+  const toggleShowToast = () => setShowToast(!showToast);
+
+  // if (qa) {
   return (
     <Container>
       <Row className="p-5">
@@ -94,65 +121,144 @@ const EditQA = () => {
                 <Form.Group as={Col} controlId="question">
                   <Form.Label>Question</Form.Label>
                   <Form.Control
-                    type="text"
+                    as="textarea"
                     defaultValue={newQuestion}
                     onChange={(e) => {
                       setNewQuestion(e.target.value);
                     }}
-                    // onFocus={(e) =>
-                    //   (e.target.placeholder = "Enter Your First Name")
-                    // }
-                    // onBlur={(e) => (e.target.placeholder = userFirstName)}
                   />
                 </Form.Group>
 
                 {/* <Form.Group as={Col} controlId="questionImage">
-                  <Form.Label>Question Figures</Form.Label>
-                  <Form.Control
-                    onClick={clearText}
-                    type="text"
-                    defaultValue={newQuestionImage}
-                    onChange={(e) => {
-                      setNewQuestionImage(e.target.value);
-                    }}
-                    onFocus={(e) =>
-                      (e.target.placeholder = "Enter Your Last Name")
-                    }
-                    onBlur={(e) => (e.target.placeholder = userLastName)}
-                  />
-                </Form.Group> */}
+ <Form.Label>Question Figures</Form.Label>
+ <Form.Control
+ onClick={clearText}
+ type="text"
+ defaultValue={newQuestionImage}
+ onChange={(e) => {
+ setNewQuestionImage(e.target.value);
+ }}
+ onFocus={(e) =>
+ (e.target.placeholder = "Enter Your Last Name")
+ }
+ onBlur={(e) => (e.target.placeholder = userLastName)}
+ />
+ </Form.Group> */}
               </Row>
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="answerOptions">
                   <Form.Label>Options</Form.Label>
 
-                  <Form.Control
-                    type="text"
-                    defaultValue={newSingleOption}
-                    onChange={(e) => {
-                      setNewSingleOption(e.target.value);
-                    }}
-                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
-                    // onBlur={(e) => (e.target.placeholder = userEmail)}
-                  ></Form.Control>
+                  <InputGroup className="mb-3">
+                    <Form.Control
+                      type="text"
+                      defaultValue={newSingleOption}
+                      onChange={(e) => {
+                        setNewSingleOption(e.target.value);
+                        console.log("NEW ENTRY", newSingleOption);
+                      }}
+                    />
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => {
+                        if (newSingleOption.trim() !== "") {
+                          setNewAnswerOptions([
+                            ...newAnswerOptions,
+                            newSingleOption,
+                          ]);
+                          setShowUpdate(newSingleOption);
+                          setNewSingleOption("");
+                          toggleShowToast();
+                        }
+                      }}
+                    >
+                      Add
+                    </Button>
+                  </InputGroup>
 
-                  
+                  {newAnswerOptions?.map((option, optionIdx) => (
+                    <InputGroup className="mb-3" key={uuidv4()}>
+                      <Form.Control
+                        type="text"
+                        onClick={(evt) => clearText(evt, option)}
+                        defaultValue={option} //option
+                        onChange={(e) => {
+                          option = e.target.value;
+                        }}
+                        onFocus={(e) =>
+                          (e.target.placeholder = "Answer Option")
+                        }
+                      />
+                      <Button
+                        variant="outline-secondary"
+                        onClick={() => {
+                          setNewAnswerOptions(
+                            newAnswerOptions.map((currentOption, idx) => {
+                              if (idx === optionIdx) {
+                                if (option.trim() !== "") {
+                                  currentOption = option;
+                                }
+                              }
+                              return currentOption;
+                            })
+                          );
+                          if (option.trim() !== "") {
+                            setShowUpdate(option);
+                            toggleShowToast();
+                          }
+                        }}
+                      >
+                        Save
+                      </Button>
+                      <Button
+                        variant="outline-secondary"
+                        onClick={() => {
+                          setNewAnswerOptions(
+                            newAnswerOptions.filter((currentOption, idx) => {
+                              return idx !== optionIdx;
+                            })
+                          );
+                        }}
+                      >
+                        Remove
+                      </Button>
+                    </InputGroup>
+                  ))}
                 </Form.Group>
               </Row>
+              <ToastContainer className="p-3" position="middle-end">
+                <Toast
+                  bg="success"
+                  show={showToast}
+                  onClose={toggleShowToast}
+                  delay={3000}
+                  autohide
+                  animation={true}
+                >
+                  <Toast.Header>
+                    <strong className="me-auto">Saved!</strong>
+                  </Toast.Header>
+                  <Toast.Body>{showUpdate}</Toast.Body>
+                </Toast>
+              </ToastContainer>
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="correctAnswer">
                   <Form.Label>Answer</Form.Label>
-                  <Form.Control
-                    type="text"
-                    defaultValue={newCorrectAnswer}
+                  <Form.Select
+                    aria-label="Default select example"
                     onChange={(e) => {
                       setNewCorrectAnswer(e.target.value);
                     }}
-                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
-                    // onBlur={(e) => (e.target.placeholder = userEmail)}
-                  ></Form.Control>
+                  >
+                    <option defaultValue> {newCorrectAnswer}</option>
+                    {newAnswerOptions.map((option) => (
+                      <option value={option} key={uuidv4()}>
+                        {option}
+                      </option>
+                    ))}
+                  </Form.Select>
                 </Form.Group>
               </Row>
 
@@ -160,31 +266,30 @@ const EditQA = () => {
                 <Form.Group as={Col} controlId="explanation">
                   <Form.Label>Explanation</Form.Label>
                   <Form.Control
-                    type="text"
+                    as="textarea"
+                    // type="text"
                     defaultValue={newExplanation}
                     onChange={(e) => {
                       setNewExplanation(e.target.value);
                     }}
-                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
-                    // onBlur={(e) => (e.target.placeholder = userEmail)}
                   ></Form.Control>
                 </Form.Group>
               </Row>
 
               {/* <Row className="mb-3">
-                <Form.Group as={Col} controlId="explanationImage">
-                  <Form.Label>Explanation Figures</Form.Label>
-                  <Form.Control
-                    type="text"
-                    defaultValue={newExplanationImage}
-                    onChange={(e) => {
-                      setNewExplanationImage(e.target.value);
-                    }}
-                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
-                    // onBlur={(e) => (e.target.placeholder = userEmail)}
-                  ></Form.Control>
-                </Form.Group>
-              </Row> */}
+ <Form.Group as={Col} controlId="explanationImage">
+ <Form.Label>Explanation Figures</Form.Label>
+ <Form.Control
+ type="text"
+ defaultValue={newExplanationImage}
+ onChange={(e) => {
+ setNewExplanationImage(e.target.value);
+ }}
+ // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
+ // onBlur={(e) => (e.target.placeholder = userEmail)}
+ ></Form.Control>
+ </Form.Group>
+ </Row> */}
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="explanationLinks">
@@ -195,8 +300,6 @@ const EditQA = () => {
                     onChange={(e) => {
                       setNewExplanationLinks(e.target.value);
                     }}
-                    // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
-                    // onBlur={(e) => (e.target.placeholder = userEmail)}
                   ></Form.Control>
                 </Form.Group>
               </Row>
@@ -269,7 +372,13 @@ const EditQA = () => {
                   <Button variant="secondary" onClick={handleClose}>
                     Keep Editing
                   </Button>
-                  <Button variant="secondary" onClick={() => navigate(`/home`)}>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      console.log("CURRENT ID", qaVersions[0].id);
+                      navigate(`/questions/${qaVersions[0].id}`);
+                    }}
+                  >
                     View Question
                   </Button>
                 </Modal.Footer>
@@ -280,6 +389,9 @@ const EditQA = () => {
       </Row>
     </Container>
   );
+  // } else {
+  // return <div></div>;
+  // }
 };
 
 export default EditQA;
