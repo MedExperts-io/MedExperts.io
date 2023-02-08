@@ -80,7 +80,7 @@ User.prototype.generateToken = function () {
 User.authenticate = async function ({ email, password }) {
   const user = await User.findOne({ where: { email, status: true } });
   if (!user) {
-    const error = Error("This email is not yet verified");
+    const error = Error("Please verify your email before logging in");
     error.status = 401;
     throw error;
   } else if (user && !(await user.correctPassword(password))) {

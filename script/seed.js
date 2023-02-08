@@ -18,6 +18,7 @@ async function seed() {
     User.create({
       password: "123",
       email: "cody@lol.com",
+      status: true,
       isAdmin: false,
       firstName: "cody",
       lastName: "pug",
@@ -26,37 +27,46 @@ async function seed() {
     }),
     User.create({
       email: "123@123.com",
+      status: true,
       password: "123",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "124@143.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "233@333.com",
     }),
     User.create({
+      status: true,
       email: "1233@1233.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "1223@1213.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "121233@121233.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "11223@12332.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "11223wq@12332wq.com",
     }),
     User.create({
       password: "456",
+      status: true,
       email: "admin@lol.com",
       isAdmin: true,
       firstName: "jane",

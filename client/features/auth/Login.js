@@ -103,7 +103,7 @@ const Login = () => {
                       <Button variant="secondary" type="submit">
                         Login
                       </Button>
-                      {error ? <p>{error}</p> : null}
+                      {error ? <p style={{ color: "red" }}>{error}</p> : null}
                     </div>
                   </Form>
                 </div>
