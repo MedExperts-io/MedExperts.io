@@ -147,7 +147,7 @@ router.get("/verifyEmail/:token?:tempId?", async function (req, res, next) {
       },
     }
   );
-  //currently setting off an infinite loop
+
   return res.status(200).json("email verified");
 });
 
