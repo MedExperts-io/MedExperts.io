@@ -39,14 +39,15 @@ const singleQuestion = () => {
 
   const userId = useSelector((state) => state.auth.me.id);
   const userExpertise = useSelector((state) => state.auth.me.expertise);
-  dispatch(
-    updateUserQuestionInput({
-      userId: userId,
-      questionAnswerId: singleQuestionId,
-    })
-  );
+
   useEffect(() => {
-    dispatch(fetchSingleQuestion(singleQuestionId));
+    dispatch(
+      updateUserQuestionInput({
+        userId: userId,
+        questionAnswerId: singleQuestionId,
+      })
+    ).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
+
     dispatch(fetchUserQuestions(userId));
   }, []);
 
