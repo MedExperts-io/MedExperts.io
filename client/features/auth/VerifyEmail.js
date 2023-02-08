@@ -1,8 +1,7 @@
 import React, { useEffect, useEffectß } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Row, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { verifyNewUserEmail } from "./authSlice";
 
@@ -21,15 +20,32 @@ const VerifyEmail = () => {
 
   return (
     <Container>
-      {error ? (
-        <p>Sorry, there was an error with your request. </p>
-      ) : (
-        <div>
-          Thank you for verifying your email! Please login using your
-          credentials.
-          <Button onClick={() => navigate("/login")}>Login</Button>
-        </div>
-      )}
+      <Row className="p-5">
+        <Card
+          id="no-border"
+          className="p-5 mx-auto"
+          style={{ maxWidth: "800px" }}
+        >
+          {error ? (
+            <>
+              <h3>Uh oh, there was an error with your request! </h3>
+              <p>
+                Please create an account following the link below and be sure to
+                check your inbox for an email from MedExperts with next steps.
+              </p>
+              <Button onClick={() => navigate("/signup")}>
+                Create Account
+              </Button>
+            </>
+          ) : (
+            <>
+              <h3>Thank you for verifying your email! </h3>
+              <p>Please login using your credentials.</p>
+              <Button onClick={() => navigate("/login")}>Login</Button>
+            </>
+          )}
+        </Card>
+      </Row>
     </Container>
   );
 };
