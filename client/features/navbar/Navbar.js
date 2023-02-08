@@ -147,6 +147,7 @@ const SiteNavbar = () => {
                     <NavDropdown.Item as={Link} to="/login">
                       Login
                     </NavDropdown.Item>
+                    <NavDropdown.Divider />
                     <NavDropdown.Item as={Link} to="/signup">
                       Create Account
                     </NavDropdown.Item>
