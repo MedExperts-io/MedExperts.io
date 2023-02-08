@@ -78,13 +78,16 @@ User.prototype.generateToken = function () {
  * classMethods
  */
 User.authenticate = async function ({ email, password }) {
-  const user = await this.findOne({ where: { email } });
-  if (!user || !(await user.correctPassword(password))) {
-    const error = Error("Incorrect email/password");
+  const user = await User.findOne({ where: { email, status: true } });
+  if (!user) {
+    const error = Error("This email is not yet verified");
     error.status = 401;
     throw error;
-  }
-  return user.generateToken();
+  } else if (user && !(await user.correctPassword(password))) {
+    const error = Error("Incorrect password");
+    error.status = 401;
+    throw error;
+  } else return user.generateToken();
 };
 
 User.findByToken = async function (token) {

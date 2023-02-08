@@ -18,6 +18,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { error } = useSelector((state) => state.auth);
+  console.log(error, "ERR");
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePassword = (evt) => {
@@ -31,9 +32,9 @@ const Login = () => {
     const email = evt.target.loginEmail.value;
     const password = evt.target.loginPassword.value;
 
-    dispatch(authenticate({ email, password, method: formName })).then(() =>
-      navigate("/")
-    );
+    dispatch(authenticate({ email, password, method: formName }));
+
+    if (!{ error }) navigate("/");
   };
 
   return (
