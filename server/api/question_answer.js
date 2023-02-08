@@ -63,8 +63,8 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             order: [["createdAt", "DESC"]],
             where: {
               [Op.or]: [
-                { id: singleQuestion.id },// self
-                { ancestorId: singleQuestion.id },//children
+                { id: singleQuestion.id }, // self
+                { ancestorId: singleQuestion.id }, //children
               ],
             },
             include: User_Question,
@@ -107,25 +107,23 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
 });
 
 //EDIT QA ROUTE --- api/questions/:singleQuestionId
-// Admin submits form - Make sure form is populated with current QA data
 // Thru req.body, if ancestorId = null (q has no older versions), then attach id or req.params.id to ancestorId in frontend.
 router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
   //NEED TO ADD CODE FOR IMAGE UPLOAD
+  console.log("REQ BODY", req.body);
   try {
     const newQA = await Question_Answer.create(req.body);
     console.log("Edited NEW QA CREATED", newQA);
-    const updateOld = await Question_Answer.update(
+    await Question_Answer.update(
       { status: "Inactive" },
       {
         where: {
-          questionAnswerId: qaId,
+          id: qaId,
         },
       }
     );
-    res.json(newQA); // Send new instance if redirecting on frontend with new QAID
-    //OR
-    //res.redirect(`/${}`)// Redirect with new QAID
+    res.json(newQA);
   } catch (err) {
     next(err);
   }
