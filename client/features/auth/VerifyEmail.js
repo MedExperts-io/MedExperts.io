@@ -1,7 +1,7 @@
 import React, { useEffect, useEffectß } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import { Button, Container, Row, Card } from "react-bootstrap";
+import { Button, Container, Row, Card, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { verifyNewUserEmail } from "./authSlice";
 
@@ -30,12 +30,23 @@ const VerifyEmail = () => {
             <>
               <h3>Uh oh, there was an error with your request! </h3>
               <p>
-                Please create an account following the link below and be sure to
-                check your inbox for an email from MedExperts with next steps.
+                If you haven't already, please create an account following the
+                link below and be sure to check your inbox for an email from
+                MedExperts with next steps.
               </p>
-              <Button onClick={() => navigate("/signup")}>
-                Create Account
-              </Button>
+              <br />
+              <p>
+                If you already verified your account and believe you received
+                this message in error, you may <a href="/login">login</a> using
+                your credentials.
+              </p>
+              <Row>
+                <Col>
+                  <Button onClick={() => navigate("/signup")}>
+                    Create Account
+                  </Button>
+                </Col>
+              </Row>
             </>
           ) : (
             <>
