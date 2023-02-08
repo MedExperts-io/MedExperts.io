@@ -104,7 +104,10 @@ const SiteNavbar = () => {
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Collapse
+              id="responsive-navbar-nav"
+              className="justify-content-end"
+            >
               <Nav>
                 <Button
                   className="m-2"
@@ -143,6 +146,10 @@ const SiteNavbar = () => {
                   >
                     <NavDropdown.Item as={Link} to="/login">
                       Login
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item as={Link} to="/signup">
+                      Create Account
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Button>

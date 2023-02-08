@@ -18,6 +18,7 @@ async function seed() {
     User.create({
       password: "123",
       email: "cody@lol.com",
+      status: true,
       isAdmin: false,
       firstName: "cody",
       lastName: "pug",
@@ -26,37 +27,46 @@ async function seed() {
     }),
     User.create({
       email: "123@123.com",
+      status: true,
       password: "123",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "124@143.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "233@333.com",
     }),
     User.create({
+      status: true,
       email: "1233@1233.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "1223@1213.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "121233@121233.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "11223@12332.com",
     }),
     User.create({
       password: "123",
+      status: true,
       email: "11223wq@12332wq.com",
     }),
     User.create({
       password: "456",
+      status: true,
       email: "admin@lol.com",
       isAdmin: true,
       firstName: "jane",
@@ -2894,7 +2904,7 @@ async function seed() {
       explanationLinks: [
         `<a href="https://pubmed.ncbi.nlm.nih.gov/19675347/" target="_blank">Barry Brenner, Thomas Corbridge, and Antoine Kazzi "Intubation and Mechanical Ventilation of the Asthmatic Patient in Respiratory Failure", Proceedings of the American Thoracic Society,Vol.6, No.4(2009), pp. 371-379.</a>`,
         `<a href="https://pubmed.ncbi.nlm.nih.gov/2186243/" target="_blank">Hall JB, Wood LDH. Management of the critically ill asthmatic patient. Med Clin North Am1990;74:779-796</a>`,
-        `<a href="" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol1999; 13:419–428</a>`,
+        `<a href="https://www.thoracic.org/statements/resources/allergy-asthma/asthma.pdf" target="_blank">Kohn MS. Intubation of the asthma patient. Clin Allergy Immunol1999; 13:419–428</a>`,
       ],
       level: "Moderate",
       category: "Critical Care",
@@ -3825,7 +3835,7 @@ async function seed() {
       explanation: `Alpha-1 Antitrypsin Deficiency is an autosomal codominant condition that predisposes to COPD and liver diseases. It can affect lungs, liver and rarely skin. AAT normally inhibits elastase and in absence of AAT, elastase becomes overactive and destroys elastic tissue (Emphysema). Deficiency can cause cirrhosis due to accumulating in the endoplasmic reticulum of the liver. Severity of the disease is highly variable depending on the type of allele present and the risk factors to which the patient is exposed like Cigarette smoking, occupational and environmental exposure to dust, smoke, etc. In severe deficiency neonatal hepatitis can be seen. Patients with ATT deficiency have symptoms similar to COPD like dyspnea, cough with or without sputum, wheezing, Bronchodilator response is commonly seen. Distinctive features are age of onset which is <45 years and basilar pattern of emphysema, Emphysema in nonsmoker, Family history. Extrapulmonary features seen are Hepatomegaly with elevated aminotransferases levels, ascitis, cirrhosis, hepatocellular carcinoma can also occur. Rarely necrotizing panniculitis can be seen as a manifestation of AAT deficiency. Diagnosis can be made with Blood tests (decreased AAT levels), Spirometry, Imaging, Biopsy, and genetic testing. Obstructive pattern is seen on Spirometry (Decreased FEV1 and FEV1/FVC; Increased TLC). Basilar predominant emphysematous bullae are commonly seen on HRCT. PAS positive granules and globules in hepatocytes can be seen on biopsy. Genetic testing confirms the diagnosis Management is through prevention, medical treatment, and surgery Medical: Augmentation therapy-the intravenous infusion of purified, pooled human plasma AAT-is recommended for individuals with AATD and emphysema. Gene therapy with an adeno-associated virus vector given by whole limb perfusion or intrapleurally. Surgical: Liver transplantation Prevention by avoiding risk factors like smoking.`,
       explanationImage: [],
       explanationLinks: [
-        `<a href="" target="_blank">Significant Progress in Understanding, Recognizing and treating Alpha-1 Antitrypsin Deficiency; Cleveland Clinic’s Alpha-1 Antitrypsin Center plays key role in guideline update;James K. Stoller, MD, MS</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15978931/" target="_blank">Significant Progress in Understanding, Recognizing and treating Alpha-1 Antitrypsin Deficiency; Cleveland Clinic’s Alpha-1 Antitrypsin Center plays key role in guideline update;James K. Stoller, MD, MS</a>`,
       ],
       level: "Easy",
       category: "Chronic Obstructive Pulmonary Disease",
@@ -4233,6 +4243,683 @@ async function seed() {
       level: "Easy",
       category: "Critical Care",
     }),
+
+    //   Q171
+    Question_Answer.create({
+      question: `Which of the following statements about Pleura is not correct?`,
+      questionImage: [],
+      answerOptions: [
+        `Visceral and parietal are in continuation.`,
+        `Both pleurae join at hilum.`,
+        `Blood supply comes from systemic circulation.`,
+        `Visceral pleura has no pain receptors.`,
+        `Divides the left lung into three lobes.`,
+      ],
+      correctAnswer: `Divides the left lung into three lobes.`,
+      explanation: `The pleura does not divide the left lung into three lobes. The left lobe has two lobes, the upper and lower, in addition to the lingula. The right lung has three lobes, upper, middle and lower.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21477765/" target="_blank">Bertin F, Deslauriers J. Anatomy of the pleura: reflection lines and recesses. Thorac Surg Clin. 2011 May;21(2):165-71, vii</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/9646978/" target="_blank">Wang NS. Anatomy of the pleura. Clin Chest Med. 1998 Jun;19(2):229-40.</a>`,
+      ],
+      level: "Easy",
+      category: "Pleural Diseases",
+    }),
+
+    //   Q172
+    Question_Answer.create({
+      question: `A 55 year old male with a history of COPD, DM, p/w acute hypoxemic respiratory failure from Pneumonia. The pt progresses to severe Acute Respiratory Distress Syndrome  and the patient is placed in a prone position. Which is NOT true about proning?`,
+      questionImage: [],
+      answerOptions: [
+        `It will decrease cardiac compression of the Left lung`,
+        `Proning will  improve oxygenation but not mortality`,
+        `There will be better V/Q matching`,
+        `A majority of patients will have an improvement in hypercapnia`,
+      ],
+      correctAnswer: `Proning will  improve oxygenation but not mortality`,
+      explanation: `Prone positioning has become a standard therapeutic maneuver in patients with severe ARDS. The most significant of the RCTs showed a mortality benefit in ARDS patients with P/F ratio <150 and who were prone for at least 16 hours continuously. The few absolute contraindications are facial fractures or unstable spinal fractures. The main complications usually involve pressure injury or endotracheal tube occlusion or dislodgement.
+
+      Not all patients who are prone have an improvement with oxygenation but the majority will have benefit (approximately 70%). There is also a similar benefit in CO2 clearance. There may be a neutral to beneficial hemodynamic response. There are multiple mechanisms to the benefit in oxygenation including the heart no longer compressing the Left lung, improved net lung recruitment (secondary to increased dorsal lung mass opening) during pronation and improved V/Q matching. This is partly due to more homogenous inflation in proning. Importantly the mortality benefit seen with proning is not solely related to improved hypoxemia but also from the decrease in ventilator induced lung injury associated with the above changes.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/33169218/" target="_blank">C Guerin et al. Prone position in ARDS patients: why, when, how and for whom. Intensive Care Medicine. 2020</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q173
+    Question_Answer.create({
+      question: `Situations in which surgical intervention usually is necessary in patients with parapneumonic effusion includes all of the following except:`,
+      questionImage: [],
+      answerOptions: [
+        `Lack of clinical and radiologic response to initial medical management (eg, antibiotics, chest tube drainage, and fibrinolytic therapy for three to four days)`,
+        `Persistent sepsis in association with persistent pleural collection, despite chest tube drainage and antibiotics`,
+        `Complex empyema with significant lung pathology (eg, development of a thick fibrous pleural rind, sometimes termed a "peel," which may "trap" the lung and prevent lung re-expansion`,
+        `Bronchopleural fistula with pyopneumothorax`,
+        `Presence of multiple loculations on CT scan`,
+      ],
+      correctAnswer: `Presence of multiple loculations on CT scan`,
+      explanation: `Patients with parapneumonic effusions may show evidence of multiple loculations on CT Scan Chest. Using fibrinolytic drugs to lyse the fibrinous strands in loculated parapneumonic effusions has been described in adults and children. If that fails, then these patients can be considered for surgical management.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30955515/" target="_blank">Aboudara M, Maldonado F. Update in the Management of Pleural Effusions. Med Clin North Am. 2019 May;103(3):475-485</a>`,
+      ],
+      level: "Moderate",
+      category: "Pleural Diseases",
+    }),
+
+    //   Q174
+    Question_Answer.create({
+      question: `Miliary shadows on HRCT chest is seen in all of the following conditions EXCEPT: `,
+      questionImage: [],
+      answerOptions: [
+        `Histoplasmosis`,
+        `Silicosis`,
+        `Idiopathic pulmonary fibrosis`,
+        `Sarcoidosis`,
+      ],
+      correctAnswer: `Idiopathic pulmonary fibrosis`,
+      explanation: `Miliary shadows in the lung are not uncommon and are seen in wide variety of diseases. The term miliary nodules is described as random and peripheral distribution and 1-2 mm in size, Random micronodules can result from hematogenous spread of infections or neoplasms. Differential diagnosis of miliary radiological patterns are miliary tuberculosis, primary or secondary pulmonary malignancy, sarcoidosis, pneumoconiosis or histoplasmosis.  
+ 
+      Histoplasmosis is rare clinical diagnosis acquired by inhalation of yeast. Clinical presentations can mimic tuberculosis with upper lobe cavitation, nodular shadows and miliary nodules. Random distribution is also seen in tuberculosis and silicosis.  
+       
+      The characteristic HRCT features of IPF include peripheral, basilar predominant reticular opacities associated with honeycombing and traction bronchiectasis-bronchiolectasis. 
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q174/A174+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26628775/" target="_blank">Sharma BB, Miliary nodules on chest radiographs: A diagnostic dilemma. Lung India. 2015 Sep-Oct; 32(5): 518–520. 
+      </a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q175
+    Question_Answer.create({
+      question: `All the following are clinical features of nicotine withdrawal EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Insomnia`,
+        `Decreased appetite and weight loss`,
+        `Depression`,
+        `Difficulty in concentrating`,
+      ],
+      correctAnswer: `Decreased appetite and weight loss`,
+      explanation: `Nicotine is a potent psychoactive drug that causes physical dependence and tolerance. A smoker can develop symptoms of withdrawal in the absence of nicotine and craving for cigarettes. Symptoms can peak in the first three days over the next three to four weeks. Some common nicotine withdrawal symptoms include: 
+ 
+      Increased appetite or weight gain 
+      Dysphoria, depressed mood, or anhedonia 
+      Insomnia 
+      Irritability, frustration, or anger 
+      Anxiety 
+      Difficulty concentrating 
+      Restlessness 
+       
+      Weight gain can commonly occur after smoking cessation. The mechanism of weight gain is decreased metabolic rate, increased activity of lipoprotein lipase, and increased caloric intake. Average total weight gain is from 4 to 5 kg but can be more in females. Behavioral counseling such as dietary and physical activity intervention have been successful for patients who have gained weight. Phrenological interventions such as bupropion can be also be helpful temporarily.  
+       
+      Patients with a history of psychotic illnesses are susceptible to symptoms of depression. Patients who have documented depression, smoking cessation have been reported to trigger depressive episodes that need behavioral counseling, medications or both. Despite these triggered depressive episodes, benefits of smoking cessation outweigh the risk in patients with psychotic illness.  
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/11844853/" target="_blank">Rigotti NA, Clinical practice: Treatment of tobacco use and dependence, N Engl J Med. 2002 Feb 14;346(7):506-12. </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15086863/" target="_blank">Filozof C, Smoking cessation and weight gain, Obes Rev. 2004 May;5(2):95-103. </a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q176
+    Question_Answer.create({
+      question: `Pulsus paradoxus may occur in all the following conditions EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Acute severe asthma`,
+        `Cardiac tamponade`,
+        `Acute exacerbation of chronic obstructive airways disease`,
+        `Complete heart block`,
+      ],
+      correctAnswer: `Complete heart block`,
+      explanation: `Pulsus paradoxus is an exaggerated fall in an individual’s blood pressure during inspiration by greater than 10 mm Hg.  
+ 
+      A patient with acute severe asthma presents with tightness of lung airway. The lungs will overinflate, putting extra pressure on the veins carrying oxygenated blood from the heart to the lungs. This causes blood to be backed up in the right ventricle and extra pressure to build up on the right side of the heart, pressing against the left side. This all results in pulsus paradoxus. Similar mechanism is seen in exacerbation of COPD. (Choice A & C)  
+       
+      When fluid accumulates in the pericardial space in cardiac tamponade, the intrapericardial pressures increases and the right heart is compressed resulting in increased the right heart pressures. This results in the right heart relying more heavily on the decreased intrathoracic pressures during inspiration to fill, exaggerating the pressure change causing pulsus paradoxus. (Choice B).`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29873194/" target="_blank">Sarkar M, Bhardwaj R, Madabhavi I, Gowda S, Dogra K. Pulsus paradoxus. Clin Respir J. 2018 Aug;12(8):2321-2331</a>`,
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK482292/" target="_blank">Van Dam MN, Fitzgerald BM. Pulsus Paradoxus. 2020 Jul 21. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q177
+    Question_Answer.create({
+      question: `Reduced total lung capacity (TLC) is seen in all of the following conditions EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Interstitial lung disease`,
+        `Pulmonary fibrosis`,
+        `Pneumothorax`,
+        `Emphysema`,
+      ],
+      correctAnswer: `Emphysema`,
+      explanation: `Patients with restrictive lung diseases cannot fully fill their lungs with air. It is characterized by reduced lung volume due to parenchymal, pleural or extrapulmonary respiratory diseases. Unlike obstructive diseases such as asthma, COPD and emphysema (Choice D), which shows normal or increased total lung capacity (TLC), restrictive diseases are associated with decreased TLC. Both forced expiratory volume in one second (FEV1) and forced vital capacity (FVC) are reduced. FEV1/FVC ratio should be normal. Common examples of restrictive lung diseases are interstitial lung disease, pulmonary fibrosis and pneumothorax. (Choice A, B, C)  
+ 
+      Obstructive lung disease is when there is increased resistance to air flow caused by narrowing of the airways. Spirometry findings include decreased FEV1, decreased FEV1/FVC ratio, Decreased Vital Capacity (VC), increased RV with normal TLC.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27555617/" target="_blank">McCartney CT, Weis MN, Ruppel GL, Nayak RP. Residual Volume and Total Lung Capacity to Assess Reversibility in Obstructive Lung Disease. Respir Care. 2016 Nov;61(11):1505-1512.</a>`,
+      ],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q178
+    Question_Answer.create({
+      question: `
+      A 65-year-old male, a chronic smoker is presented with cough, recurrent hemoptysis for the last 2 weeks. There is no history of fever or weight loss. There is no past history of having been treated for tuberculosis. On clinical examination there are signs of collapse of the right lung. On bronchoscopy there was a mass completely obstructing the right main bronchus. A forceps biopsy was taken and malignancy was confirmed. The most likely histopathological diagnosis is:`,
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma`,
+        `Squamous cell carcinoma`,
+        `Small cell carcinoma`,
+        `Bronchial carcinoid`,
+      ],
+      correctAnswer: `Squamous cell carcinoma`,
+      explanation: `Lung cancer is the most common cancer worldwide and has more than doubled according to the World Health Organization. The information about lung malignancies is shown below: 
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q178/A178+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/18125024/" target="_blank"> Davenport LF, Wyman SM, et al. Squamous-cell carcinoma of lung. N Engl J Med. 1949 Apr 14;240(15):611-4.</a>`,
+      ],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //   Q179
+    Question_Answer.create({
+      question: `Smoking can have an adverse effect on the following endocrine disorders EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Goiter`,
+        `Diabetes mellitus`,
+        `Adrenal Hyperplasia`,
+        `Grave’s disease`,
+      ],
+      correctAnswer: `Adrenal Hyperplasia`,
+      explanation: `Goiter can occur in puberty and pregnancy, but other causes include iodine deficiency and autoimmune origin. The prevalence of non-toxic goiter is higher in smokers compared to non-smokers due to thiocyanate (inhibitor of iodide transport). In patients with Graves’ disease, smoking worsens thyroid-associated ophthalmopathy which is result of inflammation, excess production of glycosaminoglycans and adipogenesis. This leads to increase fatty connective tissue and extraocular muscle bodies.  
+ 
+      Cigarette smoking changes insulin secretion of β cells of the pancreas and insulin resistance leading to impaired glucose homeostasis. Endothelial dysfunction is the key mediator for development of vascular complications of diabetes mellitus.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/22561025/" target="_blank">Tweed JO, The endocrine effects of nicotine and cigarette smoking. Trends Endocrinol Metab. 2012 Jul; 23(7):334-342  </a>`,
+      ],
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q180
+    Question_Answer.create({
+      question: `A medical student witnesses a helium-dilution test as part of her pulmonary rotation. What is the endpoint when performing this test?`,
+      questionImage: [],
+      answerOptions: [
+        `The helium concentration in the lung is at its lowest.`,
+        `The helium concentration in the spirometer is at its highest.`,
+        `The helium within the spirometer-patient system is eliminated.`,
+        `The helium concentration equilibrates throughout the spirometer-patient system.`,
+      ],
+      correctAnswer: `The helium concentration equilibrates throughout the spirometer-patient system.`,
+      explanation: `When performing the helium dilution test to determine static lung volumes, the test is conducted until the helium concentration has equilibrated throughout the spirometer-patient system. The changes in concentration and volume can then be applied to Boyle’s Law in order to calculate the FRC and derive the RV and TLC. It is important to understand that the setup for this test is a closed system, and so the helium will not be eliminated. `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16135736/" target="_blank">Wanger J, Clausen JL, Coates A, et al. Standardisation of the measurement of lung volumes. Eur Respir J 2005; 26: 511-522. </a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q181
+    Question_Answer.create({
+      question: `A patient undergoes pulmonary function testing. He is found to have a DLCO that is higher than predicted. Which of the following pre-test conditions is likely to have influenced his test result?`,
+      questionImage: [],
+      answerOptions: [
+        `Polycythemia`,
+        `COPD`,
+        `Congestive heart failure`,
+        `Asbestosis`,
+      ],
+      correctAnswer: `Polycythemia`,
+      explanation: `Polycythemia is defined by an increase in the number of red blood cells. This increase is quantified using the hemoglobin. At a hemoglobin above 16.5 g/dL in men or 16 g/dL in women, a patient is said to have polycythemia. In such a state, there is an increase in the amount of CO that can be carried by the red blood cells, which is reflected by an increase in the DLCO.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/663416/" target="_blank">Riepl G: Effects of Abnormal Hemoglobin Concentration in Human Blood on Membrane Diffusing Capacity of the Lung and on Pulmonary Capillary Blood Volume. Respiration 1978;36:10-18. </a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q182
+    Question_Answer.create({
+      question: `Which is true regarding outcomes in cardiac arrest?`,
+      questionImage: [],
+      answerOptions: [
+        `Optimizing Coronary perfusion pressure to goal (CPP) <15`,
+        `There is poor association between Coronary perfusion pressure and outcomes`,
+        `Optimizing Coronary perfusion pressure to goal CPP>20`,
+        `CPP is useful only in primarily VT/VF associated cardiac arrest`,
+      ],
+      correctAnswer: `Optimizing Coronary perfusion pressure to goal CPP>20`,
+      explanation: `CPP optimization is the primary physiologic goal in cardiac arrest treatment as myocardial blood flow is a primary determinant for success. CPP can be calculated by subtracting the Right Atrial Pressure from the Diastolic Blood Pressure. As coronary blood flow occurs in diastole the relaxation phase of CPR becomes important in allowing passive flow into the coronary arteries. Success is related to when CPP>20mmHg and when diastolic blood pressure >25mmHg. Although it is not routinely measured during inpatient cardiac arrest but is measurable if arterial line and central line present.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23801105/" target="_blank">PA Meaner et al. Cardiopulmonary Resuscitation Quality: Improving Cardiac Resuscitation Outcomes Both Inside and Outside the Hospital. A Consensus Statement. Circulation. 20113</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q183
+    Question_Answer.create({
+      question: `A 55-year-old male is diagnosed by having sputum positive pulmonary tuberculosis. He was put on Category-1 anti tuberculosis regimen. After three weeks of starting treatment, he complained of severe loss of appetite, vomiting and pain in the abdomen.  On investigation he had the following results of liver function test. Bilirubin 1.5 mg/dl, SGOT 357 U/L, SGPT 445 U/L. All of the following steps for his management are correct EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Stop Isoniazid`,
+        `Stop pyrazinamide`,
+        `Stop Rifampicin`,
+        `Stop Ethambutol`,
+      ],
+      correctAnswer: `Stop Rifampicin`,
+      explanation: `Out of all the answer choices, liver injury from rifampin is uncommon compared to other drugs. Rifampicin causes minor transient elevations in serum aminotransferase levels and bilirubin levels. INH is more commonly associated with hepatotoxicity in the first eight weeks of therapy. INH-induced hepatotoxicity causes AST elevation three times the upper limit in patients with symptoms of nausea, vomiting, abdominal pain and jaundice. All other side effects are stated in the chart below.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q183/A183+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/31643176/" target="_blank">LiverTox: Clinical and Research Information on Drug-Induced Liver Injury [Internet]. Bethesda (MD): National Institute of Diabetes and Digestive and Kidney Diseases; 2012. Rifampin. [Updated 2018 Jun 10].</a>`,
+      ],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //   Q184
+    Question_Answer.create({
+      question: `Following bacteria are most commonly cultured during acute exacerbation of COPD except:`,
+      questionImage: [],
+      answerOptions: [
+        `Moraxella catarrhalis`,
+        `Haemophilus influenzae`,
+        `Pseudomonas cepacia`,
+        `Streptococcus pneumonia`,
+      ],
+      correctAnswer: `Pseudomonas cepacia`,
+      explanation: `The most common bacterial species isolated from acute exacerbation of COPD are 
+      nontypeable Haemophilus influenzae, Moraxella catarrhalis, and Streptococcus pneumoniae. These bacteria species are also predominant in other respiratory infections like otitis media and sinusitis. Less isolated bacterial species are Haemophilus 
+      parainfluenzae, Staphylococcus aureus, Pseudomonas aeruginosa, and gram-negative Enterobacteriaceae. H. parainfluenzae and S. aureus `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16113422/" target="_blank">Sethi S. Bacteria in Exacerbations of Chronic Obstructive Pulmonary Disease. Proc Am Thorac Soc. 2004;1(2):109-14.</a>`,
+      ],
+      level: "Easy",
+      category: "Chronic Obstructive Pulmonary Disease",
+    }),
+
+    //   Q185
+    Question_Answer.create({
+      question: `A 56-year-old female nonsmoker presents with cough and expectoration, shortness of breath on excretion and hemoptysis. She is diagnosed with be having endobronchial lesion on CT scan. On examination she has moon facies and buffalo hump. The blood pressure is 184/106 mm Hg. She also has proximal muscle weakness and radiological investigation reveals severe osteoporosis. The most probable histopathology in this patient is:`,
+      questionImage: [],
+      answerOptions: [
+        `Squamous cell carcinoma`,
+        `Adenocarcinoma`,
+        `Small cell carcinoma`,
+        `Bronchial carcinoid`,
+      ],
+      correctAnswer: `Bronchial carcinoid`,
+      explanation: `Bronchopulmonary carcinoid tumors arise from neuroendocrine cells and have association with Cushing’s syndrome resulting in ectopic secretion of adrenocorticotropic hormone (ACTH). Carcinoid tumors are well-defined, round, or oval enhancing mass located within the central airway. Majority are located in the main, lobar or segmental bronchi. Common symptoms due to increased cortical levels are central obesity, purple striae on the abdomen, round facies, metabolic syndrome, early appearance of psychological disorder and hypertension. Some patients can also present with recurrent pneumonia, cough, hemoptysis and chest pain.  Surgical resection is the preferred treatment of these tumors.  
+ 
+      Central tumors give rise to squamous cell carcinoma and small cell carcinoma. 
+      Adenocarcinoma is located peripherally. All of these cancers are associated with lung cancer.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26923475/" target="_blank">Pedicelli I, Cushing like syndrome in typical bronchial carcinoid case report and review of the literature. Int J Surg Case Rep. 2016; 20(Suppl):1-4 </a>`,
+      ],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //   Q186
+    Question_Answer.create({
+      question: `Which of the following is not a consequence of hypoxemia in chronic respiratory failure?`,
+      questionImage: [],
+      answerOptions: [
+        `Right heart failure.`,
+        `Pulmonary vasodilatation.`,
+        `Increased erythropoiesis.`,
+        `Peripheral cyanosis.`,
+        `Central cyanosis.`,
+      ],
+      correctAnswer: `Pulmonary vasodilatation.`,
+      explanation: `In the pulmonary vasculature, hypoxia causes vasoconstriction rather than vasodilation. Systemically, hypoxemia triggers vasodilation in order to increase perfusion to the tissues. In the pulmonary vasculature, however, hypoxia is a trigger for vasoconstriction in order to shunt blood towards alveoli that are being adequately ventilated.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/14621112/" target="_blank">Roussos C, Koutsoukou A. Respiratory failure. Eur Respir J Suppl. 2003 Nov;47:3s-14s</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q187
+    Question_Answer.create({
+      question: `A 55 yo M hx alcohol abuse, cirrhosis, asthma is admitted to the hospital with alcohol withdrawal. His course is complicated by worsening mental status and hypotension and he is intubated and transferred to ICU. The ventilator is set AC 80% peep 5 Vt 500 RR 20 with peak pressures of 42 and Plateau 38. The pt is hemodynamically stable after vasopressor initiation and the patient is now anuric. He has b/l air entry without wheeze or crackles, normal heart sounds and tense, distended abdomen. POCUS is significant for normal cardiac function, b/l basal consolidations and simple ascites. ABG significant for pH 7.34 and Pao2 198. Which would be the best next step?`,
+      questionImage: [],
+      answerOptions: [
+        `Paralyze and prepare for proning`,
+        `Perform large volume paracentesis`,
+        `Start albumin and octreotide`,
+        `IR evaluation for Transjugular intrahepatic portosystemic shunt (TIPS)`,
+      ],
+      correctAnswer: `Perform large volume paracentesis`,
+      explanation: `The patient’s presentation is concerned for Abdominal Compartment Syndrome (ACS) and a large volume paracentesis would be helpful in decreasing the intra abdominal pressure and improving organ function.
+      ACS is typically defined by an increased intraabdominal pressure (IAP) >20mmHg as well as presence of organ dysfunction. ACS is associated with increased mortality and significant organ dysfunction and recognized and treated early. If the IAP is >12 this is considered Intra Abdominal Hypertension (IAH) but there can still be significant organ dysfunction present at this range in some individuals -These could include kidney injury, cardiac dysfunction, bowel ischemia. The increased ascites will also cause elevation of the diaphragm, decreased pulmonary compliance and in mechanically ventilated patients a high peak inspiratory pressure and plateau pressure.
+      The etiology in this patient is likely massive ascites but ACS is also frequently seen in surgical patients (especially patients with trauma, post bowel surgery and liver transplant). Large volume drainage of ascites will likely relieve the elevated pressure and improve organ function in this patient. In surgical conditions decompressing the abdomen and leaving the abdomen open with temporary closure is used.
+      Medical paralysis in this patient may improve ventilator synchrony and decrease abdominal muscle activity but this nor proning would treat the underlying etiology. Intravascular volume with albumin may improve abdominal perfusion pressure but it also would not treat the underlying cause. TIPS may be useful in controlling refractory ascites in the future but would not be the first treatment in this patient who needs an intervention to improve his condition immediately.
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
+
+    //   Q188
+    Question_Answer.create({
+      question: `About Vital Capacity all are correct except:`,
+      questionImage: [],
+      answerOptions: [
+        `Reduced with advanced age.`,
+        `Greater in men than women of the same age.`,
+        `Related to lean body mass.`,
+        `Equal to sum of inspiratory and expiratory reserve volume.`,
+        `It is the same as FVC in normal subjects.`,
+      ],
+      correctAnswer: `Equal to sum of inspiratory and expiratory reserve volume.`,
+      explanation: `Vital capacity (VC) refers to the maximal volume of air that can be expired following maximum inspiration. It is the total of tidal volume, inspiratory reserve volume, and expiratory reserve volume (VC = V + IRV + ERV). It decreased with age and was greater in men than females in the same age group. Also, it is decreased with body mass. Generally VC is measured as forced vital capacity on spirometry. 
+      Vital capacity may be measured as inspiratory vital capacity (IVC), slow vital capacity (SVC), or forced vital capacity (FVC). The FVC is similar to VC, but it is measured as the patient exhales with maximum speed and effort.
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q189
+    Question_Answer.create({
+      question: `Which statement is correct about Residual Volume?`,
+      questionImage: [],
+      answerOptions: [
+        `The amount of air left in lungs after maximal expiration.`,
+        `More in men than women.`,
+        `About 0.5 L in an adult.`,
+        `Measured by spirometry.`,
+        `Smaller in older age.`,
+      ],
+      correctAnswer: `The amount of air left in lungs after maximal expiration.`,
+      explanation: `Residual volume (RV) is the volume of air remaining in the lungs after maximum forceful expiration. It increases with age, and it can vary from 1.5-1.6 L in adults. It is more in men than women of the same age. It cannot be measured by spirometry.
+      Residual volume is determined by competing factors: the strength of the expiratory muscles and the inwards pull of the lungs tending to decrease residual volume, and the outward pull of the chest wall tending to increase residual volume.
+      Residual volume is the only lung volume that is not decreased with respiratory muscle weakness.`,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q189/A189+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/32156791/" target="_blank">Haynes JM, Kaminsky DA, Stanojevic S, Ruppel GL. Pulmonary Function Reference Equations: A Brief History to Explain All the Confusion. Respir Care. 2020 Jul;65(7):1030-1038</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q190
+    Question_Answer.create({
+      question: `All about Pulmonary Dead Space are correct except:`,
+      questionImage: [],
+      answerOptions: [
+        `It decreased during general anesthesia.`,
+        `It decreased during deep inspiration.`,
+        `It decreases with anticholinergic medications.`,
+        `Anatomic dead space decreases during sleep.`,
+        `Saturates air with water vapors.`,
+      ],
+      correctAnswer: `It decreases with anticholinergic medications.`,
+      explanation: `Dead space is the volume of a breath that does not participate in gas exchange. It is ventilation without perfusion.
+      Physiologic or total dead space is the sum of anatomic dead space and alveolar dead space.
+      Anatomic dead space is the volume of gas within the conducting zone (as opposed to the transitional and respiratory zones) and includes the trachea, bronchus, bronchioles, and terminal bronchioles; it is approximately 2 mL/kg in the upright position. Alveolar dead space is the volume of gas within unperfused alveoli (and thus not participating in gas exchange either); it is usually negligible in the healthy, awake patient. The ratio of physiologic dead space to tidal volume is usually about 1/3.
+       
+      Factors that increase dead space: are General anesthesia – [ due to loss of skeletal muscle tone and bronchoconstrictor tone],
+      Neck extension and jaw protrusion (can increase it twofold), Positive pressure ventilation (i.e. increased airway pressure),
+      Upright posture as opposed to supine (because of decreased perfusion to the uppermost alveoli),
+      Pulmonary embolus, PA thrombosis, hemorrhage, hypotension, surgical manipulation of pulmonary artery tree – anything that decreases perfusion to well-ventilated alveoli, Emphysema, increasing age, Anticholinergic drugs[ Anticholinergics relax the bronchial smooth musculature, which reduces airway resistance and increases anatomic dead space. Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep.  
+      Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q191
+    Question_Answer.create({
+      question: `Spirometry tests are used to demonstrate all of the following in obstructive airway disease 
+      except:`,
+      questionImage: [],
+      answerOptions: [
+        `Airflow limitation.`,
+        `Functional respiratory reserve.`,
+        `Reversibility of airflow limitation over time.`,
+        `Hyper responsiveness by using challenge tests.`,
+        `Reversibility of airflow limitation with inhalation of a bronchodilator`,
+      ],
+      correctAnswer: `Functional respiratory reserve.`,
+      explanation: `Spirometry helps diagnosing obstructive lung disease by evaluating FeV1/FVC. If FeV/FVC  is less than the lower limit of normal  then  airflow limitation is present. During spirometry air responsiveness can be evaluated using beta agonist challenge. That test also evaluates reversibility of airflow limitation. Serial spirometry overtime can help evaluate reversibility of airflow limitation.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q192
+    Question_Answer.create({
+      question: `Which of the following gas is used to decrease pulmonary artery pressure in adults:`,
+      questionImage: [],
+      answerOptions: [
+        `Nitrous Oxide.`,
+        `Helium.`,
+        `Nitric Oxide.`,
+        `Nitrogen.`,
+        `Carbon dioxide`,
+      ],
+      correctAnswer: `Nitric Oxide.`,
+      explanation: `Nitric oxide is a pulmonary artery vasodilator. It is a phosphodiesterase inhibitor (PDE-5).`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/20498805/" target="_blank">Sim JY. Nitric oxide and pulmonary hypertension. Korean J Anesthesiol. 2010 Jan;58(1):4-14.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q193
+    Question_Answer.create({
+      question: `Organophosphates cause bronchospasm by stimulating which of the following receptor types?`,
+      questionImage: [],
+      answerOptions: [`M1.`, `M2.`, `M3.`, `M4.`, `M5.`],
+      correctAnswer: `M3.`,
+      explanation: `Organophosphates are capable of irreversibly inhibiting acetylcholinesterase. As a result, acetylcholine builds up within the neuronal synapse and is capable of continuing signal propagation. The built-up acetylcholine can stimulate M3 receptors, which ultimately cause bronchoconstriction. This explains why there is bronchoconstriction during organophosphate poisoning.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23179755/" target="_blank">Soukup O, Jun D, Tobin G, Kuca K. The summary on non-reactivation cholinergic properties of oxime reactivators: the interaction with muscarinic and nicotinic receptors. Arch Toxicol. 2013 Apr;87(4):711-9.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q194
+    Question_Answer.create({
+      question: `The primary role of alpha1-antitrypsin (AAT) is inhibition of which one of the following choices?`,
+      questionImage: [],
+      answerOptions: [
+        `Caspase 8`,
+        `Glucose-6-phosphate dehydrogenase`,
+        `Leukocyte esterase`,
+        `Neutrophil elastase`,
+      ],
+      correctAnswer: `Neutrophil elastase`,
+      explanation: `AAT is synthesized in the liver and secreted into circulation, where its primary role is to protect the lung tissue against attack by the enzyme neutrophil elastase. Most persons carry two copies of the wild type M allele of SERPINA1, which encodes AAT and have a normal circulating level of the protein. Ninety five percent of severe cases of AAT deficiency result from the homozygous substitution of a single amino acid, Glu342lys [the Z allele]. AAT deficiency predisposes homozygotes with severe deficiency to early onset panacinar emphysema.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21367592/" target="_blank">Janciauskiene SM, Bals R, Koczulla R, Vogelmeier C, Köhnlein T, Welte T. The discovery of α1-antitrypsin and its role in health and disease. Respir Med. 2011 Aug;105(8):1129-39.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24507836/" target="_blank">Stockley RA. Alpha1-antitrypsin review. Clin Chest Med. 2014 Mar;35(1):39-50.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q195
+    Question_Answer.create({
+      question: `Which of the following mechanisms reflects the way in which B-agonists produce bronchodilation?`,
+      questionImage: [],
+      answerOptions: [
+        `Decreasing adenosine.`,
+        `Increasing cyclic AMP.`,
+        `Decreasing cyclic AMP.`,
+        `Phosphodiesterase inhibition.`,
+        `Blocking muscarinic receptors.`,
+      ],
+      correctAnswer: `Increasing cyclic AMP.`,
+      explanation: `Beta-agonists, such as albuterol, can be used to produce bronchodilation. These drugs typically accomplish this by stimulating beta-2 receptors which operate through Gs G-protein signaling. The downstream effect of Gs protein activation is an increase in cyclic AMP which causes bronchodilation.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27878470/" target="_blank">Billington CK, Penn RB, Hall IP. β2 Agonists. Handb Exp Pharmacol. 2017;237:23-40.</a>`,
+      ],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q196
+    Question_Answer.create({
+      question: `Which of the following statements about the angle of Louis is incorrect?`,
+      questionImage: [],
+      answerOptions: [
+        `Helps in rib counting.`,
+        `Lies at T2.`,
+        `Carotid bifurcation occurs at this level.`,
+        `It is prominent in thin subjects.`,
+        `Bronchial breathing may be heard over it.`,
+      ],
+      correctAnswer: `Carotid bifurcation occurs at this level.`,
+      explanation: `The carotid bifurcation refers to the split of the common carotid artery into the external and internal carotid arteries. This split occurs at approximately the C3/C4 level. The angle of Louis refers to the point at which the manubrium and the sternum are joined, which lies at the T2 level. This point can be easily palpated in thin patients and is especially useful in identifying ribs as the second rib can be felt alongside it on either side of the sternum.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK459336/" target="_blank">Ball M, Falkson SR, Adigun OO. Anatomy, Angle of Louis. 2020 Jul 31. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q197
+    Question_Answer.create({
+      question: `A patient came to the hospital with a fracture of the manubrium sterni. Which structure is likely to be injured in such a case?`,
+      questionImage: [],
+      answerOptions: [
+        `Ascending aorta.`,
+        `Descending thoracic aorta.`,
+        `Right brachiocephalic vein.`,
+        `Inferior vena cava.`,
+        `Brachiocephalic artery.`,
+      ],
+      correctAnswer: `Brachiocephalic artery.`,
+      explanation: `Brachiocephalic artery is also called an innominate artery. It arises from the aortic arch at the level of second costal cartilage. It is the first and largest branch of the aortic arch that supplies the head, neck and the right arm. It divides into the right common carotid artery and right subclavian artery at the border of the right sternoclavicular joint.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29707289/" target="_blank">Schulz-Drost S, Krinner S, Oppel P, Grupp S, Schulz-Drost M, Hennig FF, Langenbach A. Fractures of the manubrium sterni: treatment options and a possible classification of different types of fractures. J Thorac Dis. 2018 Mar;10(3):1394-1405</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q198
+    Question_Answer.create({
+      question: `A 49-year-old miner develops smear-positive mycobacterium tuberculosis. Which of the following dusts is most likely to have increased the risk of this infection in this patient?`,
+      questionImage: [],
+      answerOptions: [
+        `Coal dust.`,
+        `Asbestos.`,
+        `Cadmium.`,
+        `Silica.`,
+        `Beryllium.`,
+      ],
+      correctAnswer: `Silica.`,
+      explanation: `Silica exposure can increase risk of TB. Silicosis is a common progressive occupational disease. It occurs after 10-20 years of exposure to silica. Patients present with exertional dyspnea, productive cough. On chest x-ray, small round opacities can be seen on upper zones of the lung. Silicosis is associated with TB but recent studies have shown that silica is associated with TB even in the absence of silicosis.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17439668/" target="_blank">Rees D, Murray J. Silica, silicosis and tuberculosis. Int J Tuberc Lung Dis. 2007 May;11(5):474-84.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //   Q199
+    Question_Answer.create({
+      question: `Which type of non-small cell lung cancer (NSCLC) can develop in patients who have never smoked?`,
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma`,
+        `Large cell carcinoma`,
+        `Squamous cell carcinoma`,
+        `Atypical carcinoids`,
+      ],
+      correctAnswer: `Adenocarcinoma`,
+      explanation: `According to the National Cancer Institute's PDQ Information Summary for Health Professionals on NSCLC treatment, adenocarcinoma, large cell carcinoma, and squamous cell carcinoma are the three most common types of NSCLC. Whereas NSCLCs, especially squamous cell carcinomas, are associated with smoking, adenocarcinomas may be found in patients who have never smoked.
+      PDQ Adult Treatment Editorial Board. Non-Small Cell Lung Cancer Treatment (PDQ) – Health Professional Version. Bethesda, MD: National Cancer Institute. Updated January 20, 2022.  
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //   Q200
+    Question_Answer.create({
+      question: `Which of the following is not a characteristic of occupational lung diseases?`,
+      questionImage: [],
+      answerOptions: [
+        `Atopic individuals are at an increased risk.`,
+        `Wheezing and coughing in a cotton worker may be byssinosis.`,
+        `Isocyanates may cause pulmonary edema.`,
+        `Berylliosis is steroid responsive.`,
+      ],
+      correctAnswer: `Isocyanates may cause pulmonary edema.`,
+      explanation: `Occupational lung diseases can lead to airway disease like asthma or commonly interstitial lung disease. These are caused by inhalation of dust, chemicals or proteins.  
+ 
+      Occupational asthma (OA) is a form of work-related asthma characterized by airflow obstruction, airway hyperresponsiveness and airway inflammation. The risk factors associated with OA include sex, geographic location, prevalence of atopy, smoking and type of workplace exposure. Atopy is consistently associated with sensitization to high molecular weight agents (HMW). These agents include protein and polysaccharides of animal or plant based. Atopic individuals who are in high-risk workplace should receive regular medical follow-up.  
+       
+      Chronic exposure to isocyanates can also occupational asthma and hypersensitivity pneumonitis (HP). CT findings of HP are mid-to upper zone predominance of centrilobular ground glass or nodular opacities with mosaic attenuation. Isocyanate does not cause pulmonary edema.  
+       
+      Byssinosis (cotton dust disease) is an occupational lung disease caused by exposure to cotton dust in inadequately ventilated working environment. Common symptoms are frequent coughing, chest tightness, dyspnea and wheezing within a few hours of exposure in the workplace. Symptoms in the beginning of the work week are termed as Monday fever. Those individuals who remove themselves from the workplace environment and exposure may have resolution of symptoms.  
+       
+      Berylliosis is a disease caused by exposure to beryllium in industries including metal machine shops, electronics, and defense industries. Most clinical manifestations are nonspecific. The drugs of choice are corticosteroids at high doses and slowly tapered off.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/3024527/" target="_blank">Banks DE, Butcher BT, Salvaggio JE. Isocyanate-induced respiratory disease. Ann Allergy. 1986 Dec;57(6):389-96.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23516692/" target="_blank">Reid PA, Reid PT. Occupational lung disease. J R Coll Physicians Edinb. 2013;43(1):44-8.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
@@ -4248,7 +4935,6 @@ async function seed() {
     //     level: "Easy",
     //     category: "Pulmonary Function",
     //   }),
-
     //----------------- Fake update to questionId 1 to test VCS (Remove after testing)--------------
     Question_Answer.create({
       question:
