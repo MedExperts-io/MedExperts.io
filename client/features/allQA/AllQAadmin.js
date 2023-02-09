@@ -423,7 +423,7 @@ const AllQAadmin = () => {
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
-                      src={favoriteStatus(question.id) ? "/heart (red).png" : "/heart.png"}
+                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                     />
                   </Card.Footer>
                 </Card>
