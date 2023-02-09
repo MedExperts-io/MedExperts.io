@@ -29,7 +29,7 @@ router.get("/", getToken, async (req, res, next) => {
 });
 
 //GET/api/questions/:singleQuestionId
-router.get("/:singleQuestionId/", getToken, async (req, res, next) => {
+router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
 
   try {

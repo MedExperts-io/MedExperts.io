@@ -16,6 +16,7 @@ import {
 } from "../stats/user_questionsSlice";
 import { ProgressBar } from "react-bootstrap";
 import SingleQAadmin from "./SingleQAadmin";
+import { v4 as uuidv4 } from "uuid";
 
 const SingleQuestion = () => {
   const admin = useSelector((state) => state.auth.me.isAdmin);
@@ -147,9 +148,8 @@ const SingleQuestion = () => {
                 <Stack gap={3} className="mx-auto" direction="horizontal">
                   {questionImage
                     ? questionImage.map((image, index) => (
-                        <Card gap={3}>
+                        <Card gap={3} key={uuidv4()}>
                           <img
-                            key={index}
                             src={image}
                             style={{
                               height: `12rem`,
@@ -172,7 +172,7 @@ const SingleQuestion = () => {
                   {answerOptions
                     ? answerOptions.map((ans, index) => (
                         <Button
-                          key={index}
+                          key={uuidv4()}
                           // variant={selectedOption === ans ? "success" : "outline-success"}
                           variant={
                             CurrentQuestion.userInput
@@ -246,9 +246,8 @@ const SingleQuestion = () => {
                   <Stack gap={3} className="mx-auto" direction="horizontal">
                     {explanationImage
                       ? explanationImage.map((image, index) => (
-                          <Card gap={3}>
+                          <Card gap={3} key={uuidv4()}>
                             <img
-                              key={index}
                               src={image}
                               style={{
                                 height: `12rem`,
@@ -275,7 +274,7 @@ const SingleQuestion = () => {
                       {explanationLinks
                         ? explanationLinks.map((sourcelink, index) => (
                             <Card
-                              key={index}
+                              key={uuidv4()}
                               className="m-2 text-decoration-none "
                             >
                               <Card.Body>
@@ -340,9 +339,8 @@ const SingleQuestion = () => {
                 <Stack gap={3} className="mx-auto" direction="horizontal">
                   {questionImage
                     ? questionImage.map((image, index) => (
-                        <Card gap={3}>
+                        <Card gap={3} key={uuidv4()}>
                           <img
-                            key={index}
                             src={image}
                             style={{
                               height: `12rem`,
@@ -365,7 +363,7 @@ const SingleQuestion = () => {
                   {answerOptions
                     ? answerOptions.map((ans, index) => (
                         <Button
-                          key={index}
+                          key={uuidv4()}
                           // variant={selectedOption === ans ? "success" : "outline-success"}
                           variant={
                             showAnswer
@@ -440,9 +438,8 @@ const SingleQuestion = () => {
                   <Stack gap={3} className="mx-auto" direction="horizontal">
                     {explanationImage
                       ? explanationImage.map((image, index) => (
-                          <Card gap={3}>
+                          <Card gap={3} key={uuidv4()}>
                             <img
-                              key={index}
                               src={image}
                               style={{
                                 height: `12rem`,
@@ -468,7 +465,7 @@ const SingleQuestion = () => {
                       {explanationLinks
                         ? explanationLinks.map((sourcelink, index) => (
                             <Card
-                              key={index}
+                              key={uuidv4()}
                               className="m-2 text-decoration-none "
                             >
                               <Card.Body>

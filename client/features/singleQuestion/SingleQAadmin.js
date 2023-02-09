@@ -19,7 +19,7 @@ import { ProgressBar } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 
 const SingleQAadmin = () => {
-  console.log("HLLO HEELLO HEELLO")
+  console.log("HLLO HEELLO HEELLO");
   const { singleQuestionId } = useParams();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
