@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../app/store";
-import { Button, Col, Container, Form, Row, InputGroup } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Card,
+  Container,
+  Form,
+  Row,
+  InputGroup,
+  Modal,
+} from "react-bootstrap";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
   const [validated, setValidated] = useState(false);
   const expertiseLevel = [
@@ -48,6 +59,15 @@ const SignUp = () => {
     setPasswordShown(!passwordShown);
   };
 
+  // start modal details
+  const [show, setShow] = useState(false);
+  const handleClose = () => {
+    setValidated(false);
+    setShow(false);
+  };
+  const handleShow = () => setShow(true);
+  // end modal details
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const firstName = evt.target.firstName.value;
@@ -68,185 +88,231 @@ const SignUp = () => {
         method: "signup",
       })
     );
+    console.log("please check your email to complete the signup process");
   };
 
   return (
-    <div className="mb-3 mt-md-4">
-      <div className="mb-3">
-        <Form
-          onSubmit={handleSubmit}
-          noValidate
-          validated={validated}
-          name="signup"
-        >
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="firstName">
-              <Form.Label label="First Name">First Name</Form.Label>
-              <Col sm={12}>
-                <InputGroup>
-                  <Form.Control
-                    style={{ borderRadius: "10px" }}
-                    required
-                    type="text"
-                    placeholder="Enter first name"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide your first name.
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </Col>
-            </Form.Group>
+    <Container>
+      <Row className="vh-100 d-flex justify-content-center align-items-center">
+        <Col md={8} lg={10} s={10} xs={12}>
+          <Card className="shadow">
+            <Card.Header>Create Account</Card.Header>
+            <Card.Body>
+              <div className="mb-3 mt-md-4">
+                <div className="mb-3">
+                  <Form
+                    onSubmit={handleSubmit}
+                    noValidate
+                    validated={validated}
+                    name="signup"
+                  >
+                    <Row className="mb-3">
+                      <Form.Group as={Col} controlId="firstName">
+                        <Form.Label label="First Name">First Name</Form.Label>
+                        <Col sm={12}>
+                          <InputGroup>
+                            <Form.Control
+                              style={{ borderRadius: "10px" }}
+                              required
+                              type="text"
+                              placeholder="Enter first name"
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              Please provide your first name.
+                            </Form.Control.Feedback>
+                          </InputGroup>
+                        </Col>
+                      </Form.Group>
 
-            <Form.Group as={Col} controlId="lastName">
-              <Form.Label label="Last Name">Last Name</Form.Label>
-              <Col sm={12}>
-                <InputGroup>
-                  <Form.Control
-                    style={{ borderRadius: "10px" }}
-                    required
-                    type="text"
-                    placeholder="Enter last name"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide your last name.
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </Col>
-            </Form.Group>
-          </Row>
+                      <Form.Group as={Col} controlId="lastName">
+                        <Form.Label label="Last Name">Last Name</Form.Label>
+                        <Col sm={12}>
+                          <InputGroup>
+                            <Form.Control
+                              style={{ borderRadius: "10px" }}
+                              required
+                              type="text"
+                              placeholder="Enter last name"
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              Please provide your last name.
+                            </Form.Control.Feedback>
+                          </InputGroup>
+                        </Col>
+                      </Form.Group>
+                    </Row>
 
-          <Row>
-            <Form.Group className="mb-3" as={Col} controlId="expertiseLevel">
-              <Form.Label label="Expertise Level">Expertise Level</Form.Label>
-              <Form.Select aria-label="Default select example">
-                {expertiseLevel.map((level) => (
-                  <option key={level} value={level}>
-                    {level}
-                  </option>
-                ))}
-              </Form.Select>
-            </Form.Group>
+                    <Row>
+                      <Form.Group
+                        className="mb-3"
+                        as={Col}
+                        controlId="expertiseLevel"
+                      >
+                        <Form.Label label="Expertise Level">
+                          Expertise Level
+                        </Form.Label>
+                        <Form.Select aria-label="Default select example">
+                          {expertiseLevel.map((level) => (
+                            <option key={level} value={level}>
+                              {level}
+                            </option>
+                          ))}
+                        </Form.Select>
+                      </Form.Group>
 
-            <Form.Group as={Col} controlId="school">
-              <Form.Label label="School Affiliation">
-                School Affiliation
-              </Form.Label>
-              <Col sm={12}>
-                <InputGroup>
-                  <Form.Control
-                    style={{ borderRadius: "10px" }}
-                    type="text"
-                    placeholder="Enter school name"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide your school affiliation.
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </Col>
-            </Form.Group>
-          </Row>
+                      <Form.Group as={Col} controlId="school">
+                        <Form.Label label="School Affiliation">
+                          School Affiliation
+                        </Form.Label>
+                        <Col sm={12}>
+                          <InputGroup>
+                            <Form.Control
+                              style={{ borderRadius: "10px" }}
+                              type="text"
+                              placeholder="Enter school name"
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              Please provide your school affiliation.
+                            </Form.Control.Feedback>
+                          </InputGroup>
+                        </Col>
+                      </Form.Group>
+                    </Row>
 
-          <Row>
-            <Form.Group as={Col} controlId="signupEmail">
-              <Form.Label label="Email Address">Email Address</Form.Label>
+                    <Row>
+                      <Form.Group as={Col} controlId="signupEmail">
+                        <Form.Label label="Email Address">
+                          Email Address
+                        </Form.Label>
 
-              <Col sm={12}>
-                <InputGroup>
-                  <Form.Control
-                    style={{ borderRadius: "10px" }}
-                    required
-                    autoComplete="email"
-                    type="email"
-                    placeholder="Enter email"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Enter email
-                  </Form.Control.Feedback>
-                </InputGroup>
-              </Col>
-            </Form.Group>
+                        <Col sm={12}>
+                          <InputGroup>
+                            <Form.Control
+                              style={{ borderRadius: "10px" }}
+                              required
+                              autoComplete="email"
+                              type="email"
+                              placeholder="Enter email"
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              Enter email
+                            </Form.Control.Feedback>
+                          </InputGroup>
+                        </Col>
+                      </Form.Group>
 
-            <Form.Group as={Col} controlId="signupPassword">
-              <Form.Label label="Password">Password</Form.Label>
+                      <Form.Group as={Col} controlId="signupPassword">
+                        <Form.Label label="Password">Password</Form.Label>
 
-              <Row className="mb-3">
-                <Col sm={12}>
-                  <InputGroup>
-                    <Form.Control
-                      required
-                      onFocus={() => setShowReqs(true)}
-                      onChange={(e) => setPassword(e.target.value)}
-                      value={password}
-                      autoComplete="new-password"
-                      type={passwordShown ? "text" : "password"}
-                      placeholder="Enter password"
-                    />
-                    <Button
-                      variant="outline-secondary"
-                      onClick={togglePassword}
-                      size="md"
-                      style={{ zIndex: 0 }}
-                    >
-                      {passwordShown ? (
-                        <VisibilityOffIcon />
-                      ) : (
-                        <RemoveRedEyeIcon />
-                      )}
-                    </Button>
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a password.
-                    </Form.Control.Feedback>
-                  </InputGroup>
-                </Col>
-              </Row>
-            </Form.Group>
-          </Row>
-          {showReqs && (
-            <div>
-              <div className="password-strength-meter"></div>
-              <div className="text-muted">
-                <ul>
-                  <small style={{ textDecorationLine: "underline" }}>
-                    {passwordStrength < 5 && "Password Requirements"}
-                  </small>
-                  <small>
-                    {!passwordTracker.uppercase && (
-                      <li>MUST contain at least one uppercase letter</li>
+                        <Row className="mb-3">
+                          <Col sm={12}>
+                            <InputGroup>
+                              <Form.Control
+                                required
+                                onFocus={() => setShowReqs(true)}
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                                autoComplete="new-password"
+                                type={passwordShown ? "text" : "password"}
+                                placeholder="Enter password"
+                              />
+                              <Button
+                                variant="outline-secondary"
+                                onClick={togglePassword}
+                                size="md"
+                                style={{ zIndex: 0 }}
+                              >
+                                {passwordShown ? (
+                                  <VisibilityOffIcon />
+                                ) : (
+                                  <RemoveRedEyeIcon />
+                                )}
+                              </Button>
+                              <Form.Control.Feedback type="invalid">
+                                Please provide a password.
+                              </Form.Control.Feedback>
+                            </InputGroup>
+                          </Col>
+                        </Row>
+                      </Form.Group>
+                    </Row>
+                    {showReqs && (
+                      <div>
+                        <div className="password-strength-meter"></div>
+                        <div className="text-muted">
+                          <ul>
+                            <small style={{ textDecorationLine: "underline" }}>
+                              {passwordStrength < 5 && "Password Requirements"}
+                            </small>
+                            <small>
+                              {!passwordTracker.uppercase && (
+                                <li>
+                                  MUST contain at least one uppercase letter
+                                </li>
+                              )}
+                              {!passwordTracker.lowercase && (
+                                <li>
+                                  MUST contain at least one lowercase letter
+                                </li>
+                              )}
+                              {!passwordTracker.specialCharacter && (
+                                <li>
+                                  MUST contain at least one special character
+                                  (#?!@$%^&*-)
+                                </li>
+                              )}
+                              {!passwordTracker.number && (
+                                <li>MUST contain at least one number</li>
+                              )}
+                              {!passwordTracker.eightCharactersOrGreater && (
+                                <li>MUST contain at least 8 characters</li>
+                              )}
+                            </small>
+                          </ul>
+                        </div>
+                      </div>
                     )}
-                    {!passwordTracker.lowercase && (
-                      <li>MUST contain at least one lowercase letter</li>
-                    )}
-                    {!passwordTracker.specialCharacter && (
-                      <li>
-                        MUST contain at least one special character (#?!@$%^&*-)
-                      </li>
-                    )}
-                    {!passwordTracker.number && (
-                      <li>MUST contain at least one number</li>
-                    )}
-                    {!passwordTracker.eightCharactersOrGreater && (
-                      <li>MUST contain at least 8 characters</li>
-                    )}
-                  </small>
-                </ul>
+                    <div className="d-grid">
+                      <Button
+                        // onClick={() => setValidated(true)}
+                        onClick={handleShow}
+                        disabled={passwordStrength != 5}
+                        id="buttons"
+                        variant="secondary"
+                        type="submit"
+                        size="md"
+                      >
+                        Sign Up
+                      </Button>
+                      <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                          <Modal.Title>
+                            Thank you for creating a MedExperts account!
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          We sent an email to the address you signed up with.
+                          Please follow the link in the email to verify your
+                          account before signing in.
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button
+                            variant="secondary"
+                            onClick={() => navigate("/home")}
+                          >
+                            Close
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
+                    </div>
+                  </Form>
+                </div>
               </div>
-            </div>
-          )}
-          <div className="d-grid">
-            <Button
-              onClick={() => setValidated(true)}
-              disabled={passwordStrength != 5}
-              id="buttons"
-              variant="secondary"
-              type="submit"
-              size="md"
-            >
-              Sign Up
-            </Button>
-          </div>
-        </Form>
-      </div>
-    </div>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
