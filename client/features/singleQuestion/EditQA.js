@@ -24,11 +24,11 @@ import { v4 as uuidv4 } from "uuid";
 const EditQA = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
-  // const { singleQuestionId } = useParams();
-  // useEffect(() => {
-  // dispatch(fetchSingleQuestion(singleQuestionId));
-  // }, []);
+
+  const { singleQuestionId } = useParams();
+  useEffect(() => {
+    dispatch(fetchQAVersions(singleQuestionId));
+  }, []);
 
   const [validated, setValidated] = useState(false);
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
