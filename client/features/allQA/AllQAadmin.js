@@ -114,8 +114,6 @@ const AllQAadmin = () => {
   //expertiseQuestions.length > 0 ? () => filterFunction : null;
   //expertiseQuestions.length > 0 && ? () => userExpertiseSelection : null;
 
-  //("currentitems", currentItemconsole.logs);
-
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions.current && !pageCount ? setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage)) : null;
   filteredQuestions.current && !currentItems ? setCurrentItems(filteredQuestions.current.slice(itemOffset, endOffset)) : null;
@@ -142,13 +140,13 @@ const AllQAadmin = () => {
   const filterDataById = (id) => {
     const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
-    return filterData.length;
-  };
+    return filterData.length
+  }
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
-    const filterDataByRight = filterData.filter((x) => x.answered === "right");
-    return filterDataByRight.length;
-  };
+    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
+    const filterDataByRight = filterData.filter(x => x.answered === 'right')
+    return filterDataByRight.length
+  }
 
   const favorite = (userId, questionId) => {
     dispatch(
@@ -188,7 +186,6 @@ const AllQAadmin = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-
     console.log("in filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current);
     expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
 
@@ -196,6 +193,7 @@ const AllQAadmin = () => {
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
 
     //("isFavorited?", isFavorited, multiFilter);
+
     for (let i = 0; i < filterCriteria.length; i++) {
       if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
@@ -203,6 +201,7 @@ const AllQAadmin = () => {
         multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
+
     console.log("filterQuestions in filterFunction", multiFilter);
     multiFilter = multiFilter.map((question) => {
       if (question.level === "Easy") {
@@ -399,15 +398,17 @@ const AllQAadmin = () => {
                       </Link>
                     </Card.Title>
                     <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
+                    <Stack spacing = {.5}>
+                    <Chip label = {
+                    <Stack spacing={2}>
+                    {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`}
+                    </Stack>
+                    }
 
-                    <Stack spacing={0.5}>
-                      <Chip
-                        label={<Stack spacing={2}>{`Correct Response: ${data(question.id) || data(question.id) === 0 ? data(question.id) : 0}%`}</Stack>}
-                        color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
-                        variant="outlined"
-                      />
+                    color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined" />
 
-                      <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
+                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
+
                     </Stack>
                   </Card.Body>
                   <LinearProgress
@@ -417,6 +418,7 @@ const AllQAadmin = () => {
                     color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
                   />
                   <Card.Footer>
+
                     {/* <Chip label={question.category} color="success" variant="outlined" /> */}
                     <Chip label={question.category} color="info" />
                     {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
