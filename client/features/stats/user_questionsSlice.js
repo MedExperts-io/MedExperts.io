@@ -73,7 +73,7 @@ export const updateUserQuestionInput = createAsyncThunk("updateUserQuestionInput
       level: level,
       userExpertise: userExpertise,
     });
-    console.log("THUNK", data);
+    // console.log("THUNK", data);
     return data;
   } catch (error) {
     console.log(error);
@@ -95,11 +95,11 @@ export const allUser_QuestionsSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchAllUserQuestions.fulfilled, (state, action) => {
-        console.log("builder function", action);
+        // console.log("builder function", action);
         state.allUserQuestions = action.payload;
       })
       .addCase(fetchUserQuestions.fulfilled, (state, action) => {
-        console.log("User_Questions", action.payload);
+        // console.log("User_Questions", action.payload);
         state.UserQuestions = action.payload;
         state.userEasy = action.payload.filter(
           (question) => question.level === "Easy" && question.userInput
@@ -112,7 +112,7 @@ export const allUser_QuestionsSlice = createSlice({
         );
       })
       .addCase(updateUserQuestion.fulfilled, (state, action) => {
-        console.log("FAVORITED ACTION PAYLOAD", action.payload);
+        // console.log("FAVORITED ACTION PAYLOAD", action.payload);
         state.currentUserQuestion = action.payload;
       })
       .addCase(updateUserQuestionInput.fulfilled, (state, action) => {
