@@ -140,13 +140,13 @@ const AllQAadmin = () => {
   const filterDataById = (id) => {
     const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
-    return filterData.length
-  }
+    return filterData.length;
+  };
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter(x => x.questionAnswerId === id)
-    const filterDataByRight = filterData.filter(x => x.answered === 'right')
-    return filterDataByRight.length
-  }
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByRight = filterData.filter((x) => x.answered === "right");
+    return filterDataByRight.length;
+  };
 
   const favorite = (userId, questionId) => {
     dispatch(
@@ -159,6 +159,7 @@ const AllQAadmin = () => {
 
   const favoriteStatus = (questionId) => {
     const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    console.log("question", question);
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -398,17 +399,14 @@ const AllQAadmin = () => {
                       </Link>
                     </Card.Title>
                     <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
-                    <Stack spacing = {.5}>
-                    <Chip label = {
-                    <Stack spacing={2}>
-                    {`Correct Response: ${ data(question.id) || data(question.id) === 0 ? data(question.id): 0}%`}
-                    </Stack>
-                    }
+                    <Stack spacing={0.5}>
+                      <Chip
+                        label={<Stack spacing={2}>{`Correct Response: ${data(question.id) || data(question.id) === 0 ? data(question.id) : 0}%`}</Stack>}
+                        color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                        variant="outlined"
+                      />
 
-                    color= {`${ data(question.id) && data(question.id) >= 50 ? 'success': 'error'}`} variant="outlined" />
-
-                    <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
-
+                      <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
                     </Stack>
                   </Card.Body>
                   <LinearProgress
@@ -418,7 +416,6 @@ const AllQAadmin = () => {
                     color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
                   />
                   <Card.Footer>
-
                     {/* <Chip label={question.category} color="success" variant="outlined" /> */}
                     <Chip label={question.category} color="info" />
                     {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
@@ -426,7 +423,7 @@ const AllQAadmin = () => {
                       style={{ float: "right", width: "25px" }}
                       onClick={() => favorite(userId, question.id)}
                       variant="top"
-                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                      src={favoriteStatus(question.id) ? "/heart (red).png" : "/heart.png"}
                     />
                   </Card.Footer>
                 </Card>
