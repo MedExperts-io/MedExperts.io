@@ -11,6 +11,7 @@ import {
   InputGroup,
   Toast,
   ToastContainer,
+  Table,
 } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import {
@@ -23,7 +24,7 @@ import { v4 as uuidv4 } from "uuid";
 const EditQA = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+ 
   // const { singleQuestionId } = useParams();
   // useEffect(() => {
   // dispatch(fetchSingleQuestion(singleQuestionId));
@@ -51,7 +52,8 @@ const EditQA = () => {
   } = qaVersions[0];
 
   const [newQuestion, setNewQuestion] = useState(question);
-  // console.log("NEW QUESTION STATE", newQuestion, qa.question);
+
+  const [newSingleQuestionImage, setNewSingleQuestionImage] = useState("");
   const [newQuestionImage, setNewQuestionImage] = useState(questionImage);
 
   const [newSingleOption, setNewSingleOption] = useState("");
@@ -59,10 +61,16 @@ const EditQA = () => {
 
   const [newCorrectAnswer, setNewCorrectAnswer] = useState(correctAnswer);
   const [newExplanation, setNewExplanation] = useState(explanation);
+
+  const [newSingleExpImage, setNewSingleExpImage] = useState("");
   const [newExplanationImage, setNewExplanationImage] =
     useState(explanationImage);
+
+  const [newSingleLink, setNewSingleLink] = useState("");
+  const [newSource, setNewSource] = useState("");
   const [newExplanationLinks, setNewExplanationLinks] =
     useState(explanationLinks);
+
   const [newCategory, setNewCategory] = useState(category);
   const [newLevel, setNewLevel] = useState(level);
   const [showToast, setShowToast] = useState(false);
@@ -82,16 +90,16 @@ const EditQA = () => {
     dispatch(
       editQuestion({
         id,
-        question: newQuestion,
+        question: newQuestion.trim(),
         questionImage: newQuestionImage,
         answerOptions: newAnswerOptions,
         correctAnswer: newCorrectAnswer,
-        explanation: newExplanation,
+        explanation: newExplanation.trim(),
         explanationImage: newExplanationImage,
         explanationLinks: newExplanationLinks,
         category: newCategory,
         level: newLevel,
-        ancestorId: ancestorId || id, //NEED TO ADD CONDITION FOR SENDING ANCESTORID IF NOT NULL
+        ancestorId: ancestorId || id,
       })
     );
     setValidated(true); //??????
@@ -108,6 +116,21 @@ const EditQA = () => {
   return (
     <Container>
       <Row className="p-5">
+        <ToastContainer className="p-3" position="middle-end">
+          <Toast
+            bg="success"
+            show={showToast}
+            onClose={toggleShowToast}
+            delay={3000}
+            autohide
+            animation={true}
+          >
+            <Toast.Header>
+              <strong className="me-auto">Saved!</strong>
+            </Toast.Header>
+            <Toast.Body>{showUpdate}</Toast.Body>
+          </Toast>
+        </ToastContainer>
         <Card
           border="light"
           className="p-5 mx-auto"
@@ -119,7 +142,9 @@ const EditQA = () => {
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="question">
-                  <Form.Label>Question</Form.Label>
+                  <Form.Label>
+                    <strong className="me-auto">Question</strong>
+                  </Form.Label>
                   <Form.Control
                     as="textarea"
                     defaultValue={newQuestion}
@@ -128,27 +153,86 @@ const EditQA = () => {
                     }}
                   />
                 </Form.Group>
-
-                {/* <Form.Group as={Col} controlId="questionImage">
- <Form.Label>Question Figures</Form.Label>
- <Form.Control
- onClick={clearText}
- type="text"
- defaultValue={newQuestionImage}
- onChange={(e) => {
- setNewQuestionImage(e.target.value);
- }}
- onFocus={(e) =>
- (e.target.placeholder = "Enter Your Last Name")
- }
- onBlur={(e) => (e.target.placeholder = userLastName)}
- />
- </Form.Group> */}
               </Row>
+
+              {/* <Row className="mb-3">
+                <Form.Group as={Col} controlId="questionImage">
+                  <Form.Label>
+                    <strong className="me-auto">Question Images</strong>
+                  </Form.Label>
+
+                  <InputGroup className="mb-3">
+                    <Form.Control
+                      type="file"
+                      // onClick={clearText}
+                      // defaultValue={newSingleQuestionImage}
+                      // onChange={(e) => {
+                      //   setNewSingleQuestionImage(e.target.value);
+                      // }}
+                    />
+
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => {
+                        if (newSingleQuestionImage.trim() !== "") {
+                          setNewQuestionImage([
+                            ...newQuestionImage,
+                            newSingleQuestionImage.trim(),
+                          ]);
+                          setNewSingleQuestionImage(""); // Doesn't clear field for some reason
+                          setShowUpdate("Image");
+                          toggleShowToast();
+                        } else {
+                          console.log(
+                            "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                          );
+                        }
+                      }}
+                    >
+                      Upload
+                    </Button>
+                  </InputGroup>
+
+                  <Table hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>Figure</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {newQuestionImage?.map((link, linkIdx) => (
+                        <tr key={uuidv4()}>
+                          <td> {link}</td>
+                          <td>
+                            {" "}
+                            <Button
+                              variant="outline-secondary"
+                              onClick={() => {
+                                setNewExplanationLinks(
+                                  newExplanationLinks.filter(
+                                    (currentLink, idx) => {
+                                      return idx !== linkIdx;
+                                    }
+                                  )
+                                );
+                              }}
+                            >
+                              Remove
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Form.Group>
+              </Row> */}
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="answerOptions">
-                  <Form.Label>Options</Form.Label>
+                  <Form.Label>
+                    <strong className="me-auto">Options</strong>
+                  </Form.Label>
 
                   <InputGroup className="mb-3">
                     <Form.Control
@@ -165,11 +249,15 @@ const EditQA = () => {
                         if (newSingleOption.trim() !== "") {
                           setNewAnswerOptions([
                             ...newAnswerOptions,
-                            newSingleOption,
+                            newSingleOption.trim(),
                           ]);
-                          setShowUpdate(newSingleOption);
-                          setNewSingleOption("");
+                          setNewSingleOption(""); // Doesn't clear field for some reason
+                          setShowUpdate(newSingleOption.trim());
                           toggleShowToast();
+                        } else {
+                          console.log(
+                            "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                          );
                         }
                       }}
                     >
@@ -193,19 +281,22 @@ const EditQA = () => {
                       <Button
                         variant="outline-secondary"
                         onClick={() => {
-                          setNewAnswerOptions(
-                            newAnswerOptions.map((currentOption, idx) => {
-                              if (idx === optionIdx) {
-                                if (option.trim() !== "") {
-                                  currentOption = option;
-                                }
-                              }
-                              return currentOption;
-                            })
-                          );
                           if (option.trim() !== "") {
-                            setShowUpdate(option);
+                            setNewAnswerOptions(
+                              newAnswerOptions.map((currentOption, idx) => {
+                                if (idx === optionIdx) {
+                                  currentOption = option.trim();
+                                }
+                                return currentOption;
+                              })
+                            );
+
+                            setShowUpdate(option.trim());
                             toggleShowToast();
+                          } else {
+                            console.log(
+                              "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                            );
                           }
                         }}
                       >
@@ -227,25 +318,12 @@ const EditQA = () => {
                   ))}
                 </Form.Group>
               </Row>
-              <ToastContainer className="p-3" position="middle-end">
-                <Toast
-                  bg="success"
-                  show={showToast}
-                  onClose={toggleShowToast}
-                  delay={3000}
-                  autohide
-                  animation={true}
-                >
-                  <Toast.Header>
-                    <strong className="me-auto">Saved!</strong>
-                  </Toast.Header>
-                  <Toast.Body>{showUpdate}</Toast.Body>
-                </Toast>
-              </ToastContainer>
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="correctAnswer">
-                  <Form.Label>Answer</Form.Label>
+                  <Form.Label>
+                    <strong className="me-auto">Answer</strong>
+                  </Form.Label>
                   <Form.Select
                     aria-label="Default select example"
                     onChange={(e) => {
@@ -264,10 +342,11 @@ const EditQA = () => {
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="explanation">
-                  <Form.Label>Explanation</Form.Label>
+                  <Form.Label>
+                    <strong className="me-auto">Explanation</strong>
+                  </Form.Label>
                   <Form.Control
                     as="textarea"
-                    // type="text"
                     defaultValue={newExplanation}
                     onChange={(e) => {
                       setNewExplanation(e.target.value);
@@ -277,36 +356,189 @@ const EditQA = () => {
               </Row>
 
               {/* <Row className="mb-3">
- <Form.Group as={Col} controlId="explanationImage">
- <Form.Label>Explanation Figures</Form.Label>
- <Form.Control
- type="text"
- defaultValue={newExplanationImage}
- onChange={(e) => {
- setNewExplanationImage(e.target.value);
- }}
- // onFocus={(e) => (e.target.placeholder = "Enter Your Email")}
- // onBlur={(e) => (e.target.placeholder = userEmail)}
- ></Form.Control>
- </Form.Group>
- </Row> */}
+                <Form.Group as={Col} controlId="explanationImage">
+                  <Form.Label>
+                    <strong className="me-auto">Explanation Images</strong>
+                  </Form.Label>
+
+                  <InputGroup className="mb-3">
+                    <Form.Control
+                      type="file"
+                      //                      onClick={clearText}
+                      //                      defaultValue={newSingleExpImage}
+                      // onChange={(e) => {
+                      //   setNewSingleExpImage(e.target.value);
+                      // }}
+                    />
+
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => {
+                        if (newSingleExpImage.trim() !== "") {
+                          setNewExplanationImage([
+                            ...newQuestionImage,
+                            newExplanationImage.trim(),
+                          ]);
+                          setNewExplanationImage(""); // Doesn't clear field for some reason
+                          setShowUpdate("Image");
+                          toggleShowToast();
+                        } else {
+                          console.log(
+                            "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                          );
+                        }
+                      }}
+                    >
+                      Upload
+                    </Button>
+                  </InputGroup>
+
+                  <Table hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>Figure</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {newQuestionImage?.map((link, linkIdx) => (
+                        <tr key={uuidv4()}>
+                          <td> {link}</td>
+                          <td>
+                            {" "}
+                            <Button
+                              variant="outline-secondary"
+                              onClick={() => {
+                                setNewExplanationLinks(
+                                  newExplanationLinks.filter(
+                                    (currentLink, idx) => {
+                                      return idx !== linkIdx;
+                                    }
+                                  )
+                                );
+                              }}
+                            >
+                              Remove
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Form.Group>
+              </Row> */}
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="explanationLinks">
-                  <Form.Label>Explanation Links</Form.Label>
-                  <Form.Control
-                    type="text"
-                    defaultValue={newExplanationLinks}
-                    onChange={(e) => {
-                      setNewExplanationLinks(e.target.value);
-                    }}
-                  ></Form.Control>
+                  <Form.Label>
+                    <strong className="me-auto">Explanation Sources</strong>
+                  </Form.Label>
+                  <InputGroup className="mb-3">
+                    <InputGroup.Text>Link and Citation</InputGroup.Text>
+                    <Form.Control
+                      aria-label="Link"
+                      type="text"
+                      defaultValue={newSingleLink}
+                      onChange={(e) => {
+                        setNewSingleLink(e.target.value);
+                        console.log("ON CHANGE LINK", newSingleLink);
+                      }}
+                    />
+
+                    <Form.Control
+                      aria-label="Citation"
+                      type="text"
+                      defaultValue={newSource}
+                      onChange={(e) => {
+                        setNewSource(e.target.value);
+                        console.log("ON CHANGE SOURCE", newSource);
+                      }}
+                    />
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => {
+                        if (
+                          newSingleLink.trim() !== "" &&
+                          newSource.trim() !== ""
+                        ) {
+                          // setNewSingleLink(newSingleLink);
+                          // setNewSource(newSource);
+                          setNewExplanationLinks([
+                            ...newExplanationLinks,
+                            `<a href="` +
+                              newSingleLink.trim() +
+                              `" target="_blank">` +
+                              newSource.trim() +
+                              `</a`,
+                          ]);
+                          setShowUpdate(
+                            `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
+                          );
+                          setNewSingleLink(""); //Doesn't clear field for some reason
+                          setNewSource(""); //Doesn't clear field for some reason
+                          toggleShowToast();
+                          // console.log(
+                          //   "newExplanationLinks",
+                          //   newExplanationLinks
+                          // );
+                        } else {
+                          console.log(
+                            "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                          );
+                        }
+                      }}
+                    >
+                      Add
+                    </Button>
+                  </InputGroup>
+
+                  <Table hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>Link</th>
+                        <th>Citation</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {newExplanationLinks?.map((link, linkIdx) => (
+                        <tr key={uuidv4()}>
+                          <td> {link.slice(9, link.indexOf(">") - 17)}</td>
+                          <td>
+                            {link.slice(
+                              link.indexOf(">") + 1,
+                              link.lastIndexOf("<")
+                            )}
+                          </td>
+                          <td>
+                            {" "}
+                            <Button
+                              variant="outline-secondary"
+                              onClick={() => {
+                                setNewExplanationLinks(
+                                  newExplanationLinks.filter(
+                                    (currentLink, idx) => {
+                                      return idx !== linkIdx;
+                                    }
+                                  )
+                                );
+                              }}
+                            >
+                              Remove
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
                 </Form.Group>
               </Row>
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="category">
-                  <Form.Label>Category</Form.Label>
+                  <Form.Label>
+                    <strong className="me-auto">Category</strong>
+                  </Form.Label>
                   <Form.Select
                     aria-label="default select example"
                     onChange={(e) => {
@@ -345,7 +577,9 @@ const EditQA = () => {
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="level">
-                  <Form.Label>Level</Form.Label>
+                  <Form.Label>
+                    <strong className="me-auto">Level</strong>
+                  </Form.Label>
                   <Form.Select
                     aria-label="default select example"
                     onChange={(e) => {
