@@ -15,6 +15,17 @@ const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
+const transport = nodemailer.createTransport({
+  host: process.env.HOST,
+  service: process.env.SERVICE,
+  port: process.env.PORT,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 router.post("/login", async (req, res, next) => {
   try {
     res.send({ token: await User.authenticate(req.body) });
@@ -23,11 +34,47 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
+//<-------------original post route-------------->
+// router.post("/signup", async (req, res, next) => {
+//   try {
+//     //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
+//     const { firstName, lastName, email, password, expertise, school } =
+//       req.body;
+//     const user = await User.create({
+//       firstName,
+//       lastName,
+//       email,
+//       password,
+//       expertise,
+//       school,
+//     });
+//     res.send({ token: await user.generateToken() });
+//   } catch (err) {
+//     if (err.name === "SequelizeUniqueConstraintError") {
+//       res.status(401).send("User already exists");
+//     } else {
+//       next(err);
+//     }
+//   }
+// });
+
 router.post("/signup", async (req, res, next) => {
   try {
-    //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-    const { firstName, lastName, email, password, expertise, school } = req.body;
+    const { firstName, lastName, email, password, expertise, school } =
+      req.body;
+
+    let tempId = uuidv4();
+    let verificationToken = crypto.randomBytes(32).toString("hex");
+    let fpSalt = await bcrypt.hash(
+      verificationToken,
+      Number(verificationToken)
+    );
+    // let expireDate = Date.now() + 86400000; // link will expire after 24 hrs
+
     const user = await User.create({
+      tempId: tempId,
+      verificationToken: fpSalt,
+      // expiration: expireDate,
       firstName,
       lastName,
       email,
@@ -35,7 +82,36 @@ router.post("/signup", async (req, res, next) => {
       expertise,
       school,
     });
-    res.send({ token: await user.generateToken() });
+
+    //message compilation
+    let source = fs.readFileSync(
+      path.join(__dirname, "/verifyAcctTemplate.hbs"),
+      "utf8"
+    );
+    let compiledTemplate = handlebars.compile(source);
+    let htmlToSend = compiledTemplate({
+      token: encodeURIComponent(fpSalt),
+      uid: encodeURIComponent(tempId),
+    });
+
+    const message = () => {
+      return {
+        from: process.env.SENDER_ADDRESS,
+        to: email,
+        subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
+        html: htmlToSend,
+      };
+    };
+    transport.sendMail(message(), function (err, info) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(info);
+      }
+    });
+
+    // return res.json({ status: "ok" });
+    return res.send({ token: await user.generateToken() });
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
       res.status(401).send("User already exists");
@@ -43,6 +119,36 @@ router.post("/signup", async (req, res, next) => {
       next(err);
     }
   }
+});
+
+router.get("/verifyEmail/:token?:tempId?", async function (req, res, next) {
+  const token = req.query.token;
+  const tempId = req.query.tempId;
+
+  let user = await User.findOne({
+    where: {
+      tempId: tempId,
+      verificationToken: token,
+      status: false,
+    },
+  });
+
+  if (!user) {
+    return res.status(400).json("something's gone wrong");
+  }
+
+  await user.update(
+    {
+      status: true,
+    },
+    {
+      where: {
+        tempId: tempId,
+      },
+    }
+  );
+
+  return res.status(200).json("email verified");
 });
 
 router.get("/me", async (req, res, next) => {
@@ -58,7 +164,7 @@ router.put("/profile", getToken, async (req, res, next) => {
     const userId = req.user.id;
     const user = await User.findByPk(userId);
 
-    //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
+    //Security2: Protecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
     const { firstName, lastName, email, expertise } = req.body;
     const editUserDetails = await user.update({
       firstName,
@@ -76,20 +182,9 @@ router.put("/profile", getToken, async (req, res, next) => {
 /** POST route to request password reset
  * when a user requests a new password from the 'forgot password' link we:
  * 1) check if the email exists in our db
- * 2) if another reset token was generated, we make it invalid/expired
+ * 2) if another reset token was generated, we delete it
  * 3) generate a new reset token
  * 4) store new token in our db **/
-
-const transport = nodemailer.createTransport({
-  host: process.env.HOST,
-  service: process.env.SERVICE,
-  port: process.env.PORT,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
 
 router.post("/forgotPassword", async function (req, res, next) {
   const { email } = req.body;

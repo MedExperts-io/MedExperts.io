@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import authReducer from "../features/auth/authSlice";
 import allQASliceReducer from "../features/allQA/allQASlice";
-import allQuestionsSliceReducer from "../features/allQA/allQuestionsSlice";
 import allUser_QuestionsSliceReducer from "../features/stats/user_questionsSlice";
 import SingleQuestionSliceReducer from "../features/singleQuestion/singleQuestionSlice";
 
@@ -11,7 +10,6 @@ const store = configureStore({
     auth: authReducer,
     questionsAnswers: allQASliceReducer,
     SingleQuestion: SingleQuestionSliceReducer,
-    questions: allQuestionsSliceReducer,
     userQuestions: allUser_QuestionsSliceReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
