@@ -178,9 +178,9 @@ const QuestionsAnswers = () => {
 
   const styles = {
     progressBarEasy: { background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
-    progressBarModerate: { background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
-    progressBarHard: { background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
-    progressBarAll: { background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarModerate: { background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarHard: { background: progressCircleBackground(hardPercentage / 100, "#f55b49"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarAll: { background: progressCircleBackground(allPercentage / 100, "#bf5eff"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
     progressBarBackground: { position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "60%" },
     progressBarMiddle: { position: "absolute", bottom: "40%", width: "100%", textAlign: "center", fontSize: "150%" },
   };
