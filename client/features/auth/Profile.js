@@ -65,7 +65,6 @@ const Profile = () => {
                 <Form.Group as={Col} controlId="firstName">
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
-                    required
                     onClick={clearText}
                     type="text"
                     defaultValue={userFirstName}
@@ -82,7 +81,6 @@ const Profile = () => {
                 <Form.Group as={Col} controlId="lastName">
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control
-                    required
                     onClick={clearText}
                     type="text"
                     defaultValue={userLastName}
@@ -139,7 +137,6 @@ const Profile = () => {
                   <Form.Control
                     type="email"
                     aria-describedby="emailBlock"
-                    required
                     onClick={clearText}
                     defaultValue={userEmail}
                     onChange={(e) => {
