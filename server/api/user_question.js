@@ -2,6 +2,7 @@ const router = require("express").Router();
 const {
   models: { User, Question_Answer, User_Question },
 } = require("../db");
+const { Op } = require("sequelize");
 module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
@@ -24,6 +25,30 @@ router.get("/:userId", async (req, res, next) => {
       where: { userId: userId },
     });
     res.json(allUserQs);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// --- For logged in Admin's dashboard analytics.
+// Finds all questions answered by users of a specific expertise.
+router.get("/expertise/:userExpertise", async (req, res, next) => {
+  try {
+    const expertise = req.params.userExpertise;
+    const allUserQs = await User_Question.findAll({
+      where: { userExpertise: expertise },
+    });
+    const unique = [...new Map(allUserQs.map((m) => [m.questionAnswerId, m])).values()];
+    const uniqueQuestionIds = unique.map((question) => question.questionAnswerId);
+    const questionsByExpertise = await Question_Answer.findAll({
+      where: {
+        id: {
+          [Op.in]: uniqueQuestionIds,
+        },
+      },
+    });
+
+    res.json(questionsByExpertise);
   } catch (err) {
     next(err);
   }
@@ -140,7 +165,7 @@ router.post("/:userId", async (req, res, next) => {
         answered: answered,
         category: category,
         level: level,
-        userExpertise:userExpertise,
+        userExpertise: userExpertise,
       },
       {
         where: {

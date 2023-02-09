@@ -26,8 +26,7 @@ router.post("/login", async (req, res, next) => {
 router.post("/signup", async (req, res, next) => {
   try {
     //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-    const { firstName, lastName, email, password, expertise, school } =
-      req.body;
+    const { firstName, lastName, email, password, expertise, school } = req.body;
     const user = await User.create({
       firstName,
       lastName,
@@ -202,9 +201,7 @@ router.post("/resetPassword", async function (req, res, next) {
   });
 
   if (!record) {
-    return res
-      .status(400)
-      .json("Token not found. Please try the reset password process again.");
+    return res.status(400).json("Token not found. Please try the reset password process again.");
   }
 
   await Password_Reset.update(
@@ -231,9 +228,7 @@ router.post("/resetPassword", async function (req, res, next) {
     }
   );
 
-  return res
-    .status(200)
-    .json("Password reset. Please login with your new password.");
+  return res.status(200).json("Password reset. Please login with your new password.");
 });
 
 module.exports = router;
