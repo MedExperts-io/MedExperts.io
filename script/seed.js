@@ -5131,6 +5131,251 @@ async function seed() {
       level: "Easy",
       category: "Infection",
     }),
+
+    //   Q211
+    Question_Answer.create({
+      question: `Which of the following direct oral anticoagulants (DOACs)  is  a factor IIa inhibitor? :`,
+      questionImage: [],
+      answerOptions: [`Dabigatran`, `Rivaroxaban`, `Apixaban`, `Edoxaban`],
+      correctAnswer: `Dabigatran`,
+      explanation: `The direct oral anticoagulants (DOACs) focus on molecules able to block individual and specific steps of the coagulation cascade, particularly thrombin (factor IIa) or the Stuart factor (Xa), that are involved in the final common pathway of the coagulation cascade.
+      The direct inhibitors of thrombin (dabigatran) act by modulating the transformation of fibrinogen into fibrin and inhibiting the thrombin-mediated activation of factors V, VII, XI, and XII with an anticoagulant effect. In addition, the thrombin blockage also inhibits some effects mediated by receptor-binding such as platelet aggregation. Factor Xa inhibitors (rivaroxaban, apixaban, edoxaban, and betrixaban) act by reducing thrombin formation upstream but do not block the circulating thrombin .
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q211/A211+img1.png`,
+      ],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q212
+    Question_Answer.create({
+      question: `Which of the following is not recommended as standard management in NSCLC[ Non small cell lung cancer] ?`,
+      questionImage: [],
+      answerOptions: [
+        `Surgical resection in patients with stage I and II NSCLC`,
+        `Chemoradiotherapy and possible surgical resection in selected cases  in patients with stage III A NSCLC`,
+        `Surgical resection in patients with stage IIIB NSCLC`,
+        `Cisplatin-based chemotherapy in patients with stage IV NSCLC who have good performance status and weight loss < 10% of body weight`,
+      ],
+      correctAnswer: `Surgical resection in patients with stage IIIB NSCLC`,
+      explanation: `The following treatment recommendations are indicated in the management of NSCLC:
+ 
+      Stage I: surgical resection
+       
+      Stage II: surgical resection
+       
+      Stage IIIA: chemoradiotherapy, surgical resection (in selected patients)
+       
+      Stage IIIB: chemoradiotherapy
+       
+      Stage IV: cisplatin-based chemotherapy (only in patients with good performance status 
+      and weight loss < 10% of body weight), surgical resection of solitary metastatic lesion with resectable primary tumor
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Lung Cancer",
+    }),
+
+    //   Q213
+    Question_Answer.create({
+      question: `The following are true for Mycoplasma pneumoniae infection of the lung except:`,
+      questionImage: [],
+      answerOptions: [
+        `Occurs in younger population`,
+        `Sensitive to Beta lactam group of antibiotics.`,
+        `Sensitive to Macrolides`,
+        `Erythema multiforme is a known skin manifestation`,
+        `Sensitive to Quinolones.`,
+      ],
+      correctAnswer: `Sensitive to Beta lactam group of antibiotics.`,
+      explanation: `Mycoplasma Pneumoniae is a common cause of upper respiratory tract infection, community acquired pneumonia and acute bronchitis seen in young children. It is usually transmitted from person to person through respiratory droplets. Patients can have a wide range of symptoms from asymptomatic to respiratory symptoms. Cough is the most dominant symptom of URI.
+
+
+      Hemolysis can accompany M. Pneumonia due to antigens of erythrocytes membrane. This can cause IgM autoantibodies directed against antigen and lead to cold agglutinin disease. Hemolytic anemia secondary to Mycoplasma pneumonia often occurs during 2 - 3 weeks of illness. Hemolysis is related to the high titer of cold agglutinin. Endovascular thrombosis can occur in some cases, and the majority of patients have a good prognosis.  Skin rashes can also be seen  such as erythema multiforme.  
+      
+      
+      First line treatment for M. Pneumonia includes Macrolides, Tetracycline and Fluoroquinolones. For most patients, Macrolide resistance is low and typically use azithromycin as treatment. If there is resistance, it is recommended to use doxycycline. Beta lactams are ineffective on Mycoplasma species as it does not target cell wall synthesis
+      
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //   Q214
+    Question_Answer.create({
+      question: `A young man with TB presents with massive recurrent hemoptysis. For angiographic treatment which vascular structure should be evaluated first? `,
+      questionImage: [],
+      answerOptions: [
+        `Pulmonary artery.`,
+        `Bronchial artery`,
+        `Pulmonary vein.`,
+        `Sup. vena cava`,
+        `Azygos vein`,
+      ],
+      correctAnswer: `Bronchial artery`,
+      explanation: `Blood supply to the lungs is either from bronchial or pulmonary arteries. Pulmonary artery circulation is usually low-pressure and episodes of hemoptysis are usually non-life threatening. In comparison, bronchial artery circulation is usually a high-pressure system and supplies most of the endobronchial tree and more life-threatening hemoptysis.  
+
+
+      Life threatening hemoptysis can occur due to active or prior TB. The main cause of bleeding occurs due to bronchial artery vessel ulceration. The least likely cause would be due to sudden rupture of Rasmussen aneurysm of the pulmonary artery. 
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q215
+    Question_Answer.create({
+      question: `Which of the following is true regarding  closing volume and closing capacity`,
+      questionImage: [],
+      answerOptions: [
+        `Closing Volume is the lung volume at the end of expiration below which alveolar collapse begins to occur, resulting in physiological shunting. Closing capacity is combination of closing volume and residual volume`,
+        `Closing capacity Decreases with age`,
+        `Closing capacity Decreases with supine position`,
+        `Closing capacity is the same as Functional residual capacity [FRC]`,
+      ],
+      correctAnswer: `Closing Volume is the lung volume at the end of expiration below which alveolar collapse begins to occur, resulting in physiological shunting. Closing capacity is combination of closing volume and residual volume`,
+      explanation: `Closing volume (CV) is the lung volume at which airway closure begins to occur and closing capacity (CC) is CV + RV. Usually, the CC is smaller than FRC [Functional residual capacity] , so airways do not close with normal tidal breathing. However, age, supine positioning, pregnancy, and obesity, among other conditions, all increase CC. Airway closure at a larger CC increases the likelihood of hypoxemia closing capacity is approximately half the FRC when upright and approximately two thirds of the FRC when supine. Most common method to determine CC/CV is a single breath nitrogen washout, also called Fowler's method. With this technique one can make a diagram where it shows when small airways begin to close.
+      Nitrogen washout technique -
+      In the single-breath nitrogen washout technique, the person makes a full exhalation (all the way to RV). The air present in the lungs at this point will be mostly in the upper part. The lower (dependent) part of the lungs will be closed and contain little nitrogen. The subject then inhales 100% oxygen to TLC. Now the lungs are maximally filled with gas. 
+      (see images)During the following slow exhalation all the expired gas is collected and analyzed. The concentration of nitrogen is plotted on a curve against the expired total volume of gas , The exhalation is now separated into 4 phases: phase I – IV
+      ·         Phase I: Gas from anatomic dead space, which will not contain any nitrogen
+      ·         Phase II: Gas is a mixture of dead space and alveolar gas
+      ·         Phase III: Gas is mixed alveolar gas from the upper and lower regions of the lungs, also called the alveolar plateau phase
+      ·         Phase IV: This phase represents airway closures
+      Airway closures will begin in the dependent part of the lungs. In this part of the lungs the alveoli have less elastic recoil and therefore will close first. Since this part of the lungs were mostly closed when the test person started the initial inhalation there will be very little nitrogen (low concentration) in these dependent alveoli. Thus, as airway closure begins, the expired nitrogen concentration rises abruptly because more and more of the expired gas is coming from the alveoli in the upper parts of the lungs. These upper alveoli have the highest nitrogen concentration. Phase IV represents this airway closure. The curve as shown above  shows the sharp rise in nitrogen concentration when airway closures begin. The part following CV on the curve represents RV, which does not have a tracing, since this air will stay in the lungs at all time.
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q215/A215+img1.png`,
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q215/A215+img2.png`,
+      ],
+      explanationLinks: [],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q216
+    Question_Answer.create({
+      question: `Contraceptive may become less effective when prescribed with:`,
+      questionImage: [],
+      answerOptions: [
+        `Rifampicin.`,
+        `Isoniazid.`,
+        `Ethambutol.`,
+        `Streptomycin.`,
+        `PZA.`,
+      ],
+      correctAnswer: `Rifampicin.`,
+      explanation: `Contraceptives are less effective when prescribed with rifampin as rifampin is a cytochrome P450 inducer. It metabolizes the drug at a faster rate therefore a higher dose of contraception is needed to be effective.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Pharmacology",
+    }),
+
+    //   Q217
+    Question_Answer.create({
+      question: `All of the following are the risk factors for non-conversion of sputum smear at the end of the intensive phase of treatment for Tuberculosis except:`,
+      questionImage: [],
+      answerOptions: [
+        `Poor patient adherence`,
+        `Heavy retreatment bacillary load on sputum smears`,
+        `Older age`,
+        `Previous TB treatment history`,
+        `Female sex`,
+      ],
+      correctAnswer: `Heavy retreatment bacillary load on sputum smears`,
+      explanation: `Smear positive TB carries high morbidity and mortality. The TB treatment aims at sputum conversion by two months of antituberculous. Patients who delay sputum conversion remain potentially infectious,with risk of treatment failure, drug resistance, and mortality. The factors which could independently increase the risk of delayed sputum conversion include male gender, non compliance to treatment  , older age than 50 years, heavy sputum AFB density and previous TB treatment history.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/25884844/" target="_blank">Djouma FN, Noubom M, Ateudjieu J,et.al. Delay in sputum smear conversion and outcomes of smear-positive tuberculosis patients: a  retrospective cohort study in Bafoussam, Cameroon. BMC Infect Dis. 2015 Mar 21;15:139</a>`,
+      ],
+      level: "Moderate",
+      category: "Infection",
+    }),
+
+    //   Q218
+    Question_Answer.create({
+      question: `Life threatening hemoptysis in a patient with operable squamous cell lung cancer is best treated with:`,
+      questionImage: [],
+      answerOptions: [
+        `Bronchial Artery embolization`,
+        `Tranexamic acid`,
+        `Rigid Bronchoscopy and cryotherapy`,
+        `Radiation Therapy`,
+        `Surgical Treatment`,
+      ],
+      correctAnswer: `Bronchial Artery embolization`,
+      explanation: `The first step is to secure airway, breathing and circulation in these patients. Bronchoscopy is a procedure done in case of massive hemoptysis which helps to see bleeding site direction and also help in performing different interventions such as balloon tamponade, electrocautery. If bleeding is not controlled, pulmonary arteriography can be done which gives better visualization and can be used for therapeutic embolization.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/23921291/" target="_blank">Fujita T, Tanabe M, Moritani K, Matsunaga N, Matsumoto T. Immediate and late outcomes of bronchial and systemic artery embolization for palliative treatment of patients with nonsmall-cell lung cancer having hemoptysis. Am J Hosp Palliat Care. 2014 Sep;31(6):602-7.</a>`,
+      ],
+      level: "Moderate",
+      category: "Lung Cancer",
+    }),
+
+    //   Q219
+    Question_Answer.create({
+      question: `Which of the following best describes the findings of a patient with asbestosis?`,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q219/Q219+img1.png`,
+      ],
+      answerOptions: [
+        `Pleural Effusions that are transudative in nature`,
+        `Pneumothorax and pneumomediastinum is common`,
+        `Upper lobe predominant interstitial lung disease`,
+        `Bilateral hilar eggshell calcification and development of mesothelioma`,
+        `Clubbing, predominant lower zone fibrosis, pleural plaques and diaphragmatic calcification.`,
+      ],
+      correctAnswer: `Clubbing, predominant lower zone fibrosis, pleural plaques and diaphragmatic calcification.`,
+      explanation: `Asbestosis is a chronic lung disease that results from inhalation of asbestosis particles that result in scarring of the lung tissue. These patients present with exertional dyspnea, clubbing, pleural plaques, diaphragmatic calcification. Most commonly it affects the lower zone of the lungs.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21281828/" target="_blank">Lazarus AA, Philip A. Asbestosis. Dis Mon. 2011 Jan;57(1):14-26</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //   Q220
+    Question_Answer.create({
+      question: `A 73-year-old male with a history of Atrial Fibrillation, COPD, DM and primary biliary cholangitis came into the office with complaints of worsening shortness of breath for the past 6 weeks. Pt was admitted to the hospital 7 weeks ago for treatment of a complicated UTI. During the course of his stay, he also developed Atrial Fibrillation at which time he was given a new medication. He states that he has been taking all his pills regularly including the amiodarone started after his hospital stay. Pt cannot recall the names of his medications. On physical exam, his Temp is 97.9 o F, RR is 15, HR is 93 BPM and SaO2 is 92%.   You suspect this patient has Amiodarone toxicity. All the following are correct about Amiodarone toxicity except?`,
+      questionImage: [],
+      answerOptions: [
+        `Amiodarone induced pulmonary toxicity is diagnosed by presence of foamy macrophages in Bronchoalveolar Lavage Fluid`,
+        `Corneal microdeposits are seen`,
+        `Amiodarone can induce hyperthyroidism`,
+        `High-resolution computed tomography (HRCT) in patients with amiodarone-induced interstitial pneumonitis may show areas of high attenuation in the lungs, as well as the liver and spleen`,
+      ],
+      correctAnswer: `High-resolution computed tomography (HRCT) in patients with amiodarone-induced interstitial pneumonitis may show areas of high attenuation in the lungs, as well as the liver and spleen`,
+      explanation: `Amiodarone is a commonly used class III antiarrhythmic drug. The prevalence of adverse effects from amiodarone therapy is as high as 15% within the first year of use and 50% for long-term use. The most common side effect is corneal microdeposits, which occur in at least 90% of patients taking amiodarone. However, only about 10% of these patients will develop actual visual symptoms. 
+ 
+      Amiodarone therapy may result in hypo- or hyperthyroidism, with hypothyroidism being almost twice as common. Amiodarone has a high iodine content. It can produce hypothyroidism in patients from iodine sufficient areas and hyperthyroidism in those from iodine deficient areas. Patients with a pre-existing hyperthyroid disease can develop thyrotoxicosis because amiodarone contains iodine. Adding to this complexity is amiodarone’s beta-blocking effects, which can mask classic symptoms of thyrotoxicosis. It reduces 5-deiodinase activity and thereby decreases the conversion of T4 to T3. There is decreased generation of T3 and reduced clearance of rT3 (reverse T3), leading to accumulation of rT3. Destructive thyroiditis is the result of direct toxic effect of amiodarone and its metabolite on thyroid follicular cells. Amiodarone is a cytochrome p450 inhibitor, it can reduce warfarin clearance. 
+      
+      Pulmonary toxicity is among the most serious adverse effects of amiodarone. 
+      
+      
+      Pulmonary toxicity typically presents in the first year of use and most commonly resembles interstitial lung disease. However, pulmonary toxicity also can present as organizing pneumonia, pleural effusion, acute respiratory distress syndrome, or as diffuse alveolar hemorrhage. 
+      
+      High-resolution computed tomography (HRCT) in patients with amiodarone-induced interstitial pneumonitis may show areas of high attenuation in the lungs, as well as the liver and spleen, due to the accumulation of iodinated amiodarone in tissue macrophages. Bronchoalveolar lavage in these patients may show evidence of   foamy macrophages (although not diagnostic, their absence makes the diagnosis unlikely).
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q220/A220+img+1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/2399310/" target="_blank">Kuhlman JE, Teigen C, Ren H, et.al. Amiodarone pulmonary toxicity: CT findings in symptomatic patients. Radiology. 1990;177(1):121.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/19399307/" target="_blank">Wolkove N, Baltzan M. Amiodarone pulmonary toxicity. Can Respir J 2009;16:43–8.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
