@@ -4920,6 +4920,217 @@ async function seed() {
       category: "Interstitial Lung Diseases",
     }),
 
+    //  Q201
+    Question_Answer.create({
+      question: `A man is diagnosed with small cell lung cancer. Despite a normal brain MRI, he develops
+      Progressive truncal ataxia, appendicular ataxia, truncal ataxia.. The most helpful investigation is:`,
+      questionImage: [],
+      answerOptions: [
+        `Anti-Hu antibodies.`,
+        `Lumbar puncture.`,
+        `Serum sodium.`,
+        `Serum calcium.`,
+        `Anti-Yo antibodies`,
+      ],
+      correctAnswer: `Serum sodium.`,
+      explanation: `Paraneoplastic syndromes (PNS) represent a clinical spectrum of manifestations of the indirect and remote effects produced by tumor metabolites and exclude metastasis or any other normal events associated with tumor progression. 
+      This patient has Paraneoplastic cerebellar degeneration (PCD)  which is  characterized by subacute cerebellar ataxia, specific tumor types and associated antineuronal antibodies. 
+      The most commonly associated tumors are  gynecological and breast cancer (anti-Yo and anti-Ri), lung cancer (anti-Hu) and Hodgkin's lymphoma (anti-Tr and anti-mGluR1).
+      Lumbar puncture  can be helpful in infections like meningitis but will not be the investigation of choice in suspected Paraneoplastic neurologic syndromes .
+      Small cell lung cancers  are also associated with  paraneoplastic associations such as Syndrome of inappropriate antidiuretic hormone secretion (SIADH) . Patients with SIADH have over activity of Antidiuretic hormone that results in hyponatremia. Patients with SIADH present with non-specific symptoms confusion, nausea, vomiting, seizures.  
+      Hypercalcemia in patients with lung cancer may arise from tumor secretion of parathyroid hormone-related protein,  or less commonly from extensive bony metastases or primary hyperparathyroidism.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/9278623/" target="_blank">Mason WP, Graus F, Lang B,et.al. Small-cell lung cancer, paraneoplastic cerebellar degeneration and the Lambert-Eaton myasthenic syndrome. Brain. 1997 Aug;120 ( Pt 8):1279-300. doi</a>`,
+      ],
+      level: "Moderate",
+      category: "Lung Cancer",
+    }),
+
+    //  Q202
+    Question_Answer.create({
+      question: `Bronchopulmonary Aspergillosis is characterized by all except:`,
+      questionImage: [],
+      answerOptions: [
+        `Antifungal treatment is helpful.`,
+        `May present with bronchiectasis.`,
+        `Presents as fleeting infiltrates`,
+        `Elevations of total serum immunoglobulin G.`,
+      ],
+      correctAnswer: `Elevations of total serum immunoglobulin G.`,
+      explanation: `Allergic bronchopulmonary aspergillosis (ABPA) is an inflammatory disease caused by immunologic reactions initiated against Aspergillus fumigatus colonizing the airways of patients with asthma and cystic fibrosis. The common manifestations include treatment-resistant asthma, transient and fleeting pulmonary opacities and bronchiectasis, tenacious mucus plugs that harbor hyphae of Aspergillus fumigatus, elevations of total serum immunoglobulin E concentration and peripheral blood and sputum eosinophilia. The key to early diagnosis is to consider ABPA in anyone with asthma or cystic fibrosis and with a positive skin test result for Aspergillus, and/or recurrent infiltrates on radiographs. The treatment of ABPA comprises two tenets: (i) the use of glucocorticoids as anti-inflammatory agents to suppress the immune hyper-reactivity, and (ii) the use of antifungal agents to reduce the fungal burden in the airways.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/32719226/" target="_blank">Agarwal R, Sehgal IS, Dhooria S, et.al. Allergic bronchopulmonary aspergillosis. Indian J Med Res. 2020 Jun;151(6):529-549</a>`,
+      ],
+      level: "Easy",
+      category: "Bronchiectasis",
+    }),
+
+    //  Q203
+    Question_Answer.create({
+      question: `In case of an Exudative lymphocytic effusion, elevated levels of adenosine deaminase is not a feature of:`,
+      questionImage: [],
+      answerOptions: [
+        `Bacterial Empyema`,
+        `Hepatic Hydrothorax.`,
+        `Tuberculous pleuritis.`,
+        `Mesothelioma`,
+      ],
+      correctAnswer: `Hepatic Hydrothorax.`,
+      explanation: `Pleural fluid Adenosine deaminase  [ADA ] has long been used as a marker for tuberculous pleurisy. Levels of ADA in pleural fluid >40 IU·L−1 can indicate pleural tuberculosis with sensitivity (81–100%) and specificity (83–100%) The false-positive cases in the literature are mainly due to empyemas, lymphomas, malignant diseases and other aetiologies, such as parapneumonic or collagen vascular disease. It has been shown that ADA levels in nontuberculous lymphocytic pleural effusions seldom exceed the cut-off set for tuberculous effusions .Hepatic hydrothorax is transudative pleural fluid not associated with any elevation in pleural fluid ADA.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/12608433/" target="_blank">Jiménez Castro D, Díaz Nuevo G, Pérez-Rodríguez E, Light RW. Diagnostic value of adenosine deaminase in nontuberculous lymphocytic pleural effusions. Eur Respir J. 2003 Feb;21(2):220-4.</a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/11502629/" target="_blank">Lee YC, Rogers JT, Rodriguez RM, Miller KD, Light RW. Adenosine deaminase levels in nontuberculous lymphocytic pleural effusions. Chest 2001;120:356–361</a>`,
+      ],
+      level: "Easy",
+      category: "Pleural Diseases",
+    }),
+
+    //  Q204
+    Question_Answer.create({
+      question: `The following are the commonest masses of the anterior-superior mediastinum, except:`,
+      questionImage: [],
+      answerOptions: [
+        `Germ cell tumor.`,
+        `Thymoma.`,
+        `Schwannoma.`,
+        `Lymphoma.`,
+        `Retrosternal thyroid.`,
+      ],
+      correctAnswer: `Schwannoma.`,
+      explanation: `Schwannoma is also known as acoustic neuroma. This mass is present in posterior mediastinum.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/16236967/" target="_blank">Duwe BV, Sterman DH, Musani AI. Tumors of the mediastinum. Chest. 2005 Oct;128(4):2893-909</a>`,
+      ],
+      level: "Easy",
+      category: "Mediastinal Disorders",
+    }),
+
+    //  Q205
+    Question_Answer.create({
+      question: `The most common indication for pectus carinatum repair is: `,
+      questionImage: [],
+      answerOptions: [
+        `Pulmonary hypertension.`,
+        `Lung collapse.`,
+        `Cosmetic reasons.`,
+        `Coarctation of aorta.`,
+        `Cor pulmonale.`,
+      ],
+      correctAnswer: `Cosmetic reasons.`,
+      explanation: `Pectus carinatum is a cosmetic deformity of the sternum. Underlying lung remains normal. Hence the indication for surgery in this condition is cosmetic.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //  Q206
+    Question_Answer.create({
+      question: `Which statement is accurate regarding management of Non-small Cell lung cancer( NSCLC)?`,
+      questionImage: [],
+      answerOptions: [
+        `NSCLC is more responsive to chemotherapy than is Small cell lung cancer (SCLC)`,
+        `NSCLC is more responsive to radiation therapy than is SCLC`,
+        `Surgery combined with chemotherapy can cure resectable NSCLC`,
+        `All the above`,
+      ],
+      correctAnswer: `Surgery combined with chemotherapy can cure resectable NSCLC`,
+      explanation: `NSCLCs are usually less sensitive to chemotherapy and radiation therapy compared with SCLC. However, patients with resectable disease may be cured by surgery or surgery followed by chemotherapy.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //  Q207
+    Question_Answer.create({
+      question: `Which of the following is not associated with increased risk of developing TB?`,
+      questionImage: [],
+      answerOptions: [
+        `Diabetes mellitus.`,
+        `Silicosis.`,
+        `Gastrectomy.`,
+        `CXR findings suggestive of previous TB.`,
+        `Patient with a history of Splenectomy.`,
+      ],
+      correctAnswer: `Patient with a history of Splenectomy.`,
+      explanation: `The risk of developing Tuberculosis can be increased with patients who have diabetes and can also experience worse outcomes with treatment. The mechanism is unknown but can be related to cytokine expression. The risk of Tuberculosis can be increased with miners exposed to silicosis. The mechanism is still not understood but can be related to pulmonary macrophage impairment due to silica crystals.   
+      Gastric surgery is a risk factor for Tuberculosis as it is related to loss of gastric acidity. In addition  celiac disease is malabsorption disorder with increased risk of TB.  A patient who has been treated for pulmonary tuberculosis is  always at risk for reactivation tuberculosis. Splenectomized individuals are  at increased risk for infection, in particular, overwhelming post-splenectomy infection (OPSI). 
+      OPSI is a syndrome of fulminant sepsis occurring in splenectomized (asplenic) individuals that is associated with high mortality and morbidity. Poorly opsonized bacteria such as  encapsulated bacteria, in particular, Streptococcus pneumoniae, are often implicated in sepsis. The risk of pulmonary tuberculosis associated with splenectomy is not clear. In general Splenectomy is not considered  to be associated with high risk for Pulmonary tuberculosis.
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //  Q208
+    Question_Answer.create({
+      question: `The Fungitell Assay can detect all of the following fungal infections except:`,
+      questionImage: [],
+      answerOptions: [
+        `Aspergillus Fumigatus`,
+        `Fusarium solani`,
+        `Candida Albicans`,
+        `Cryptococcus neoformans`,
+      ],
+      correctAnswer: `Cryptococcus neoformans`,
+      explanation: `The Fungitell assay  is an in vitro diagnostic test for the qualitative detection of (1–3)‑beta‑D‑Glucan (BDG) in serum. BDG is a major cell-wall component of most pathogenic fungi and tiny quantities are released into circulation during infection. Detection of elevated levels of BDG is designed to help the presumptive diagnosis of invasive fungal diseases and could help guide antifungal treatment in at‑risk patients, such as people with stem cell transplants or intra-abdominal candidiasis, and people having steroids or other immune-suppressing treatment. Fungitell can detect the presence of many pathogenic fungal infections including candidiasis, aspergillosis and fusariosis, but cannot differentiate these by type. Fungitell cannot identify fungal infections caused by certain fungal species such as Cryptococcus, the yeast phase of Blastomyces dermatitidis or Mucorales such as Absidia, Mucor and Rhizopus.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/27763261/" target="_blank">Pai M, Behr M. Latent Mycobacterium tuberculosis Infection and Interferon-Gamma Release Assays. Microbiol Spectr. 2016 Oct;4(5).</a>`,
+      ],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //  Q209
+    Question_Answer.create({
+      question: `Which of the following first line anti TB drugs can cause Sideroblastic anemia?`,
+      questionImage: [],
+      answerOptions: [
+        `Streptomycin.`,
+        `Isoniazid`,
+        `Pyrazinamide.`,
+        `Rifampicin.`,
+        `Ethambutol.`,
+      ],
+      correctAnswer: `Isoniazid`,
+      explanation: `Sideroblastic anemia (SA), characterized by deficient haem synthesis and an increase of ring sideroblasts in bone marrow, can  be caused by  Isoniazid.
+      The mechanism of Isoniazid induced SA is an inhibition of the δ-aminolevulinate synthase-2 resulting in a depletion of haem synthesis.
+      Pyridoxine acts as a cofactor in synthesis of δ-aminolevulinate, and is inhibited by Isoniazid.  Substitution of pyridoxine is recommended during treatment with Isoniazid.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/21085830/" target="_blank">Arbex MA, Varella Mde C, Siqueira HR, Mello FA. Antituberculosis drugs: drug interactions, adverse effects, and use in special situations. Part 1: first-line drugs. J Bras Pneumol. 2010 Sep-Oct;36(5):626-40</a>`,
+      ],
+      level: "Easy",
+      category: "Infection",
+    }),
+
+    //  Q210
+    Question_Answer.create({
+      question: `Permanent staining of contact lenses of a TB patient can occur due to: `,
+      questionImage: [],
+      answerOptions: [
+        `Streptomycin.`,
+        `Kanamycin.`,
+        `Pyrazinamide.`,
+        `Rifampicin.`,
+        `Ofloxacin.`,
+      ],
+      correctAnswer: `Rifampicin.`,
+      explanation: `Rifampicin, also known as rifampin, is an ansamycin antibiotic used to treat several types of bacterial infections, including tuberculosis (TB), Mycobacterium avium complex, leprosy, and Legionnaires' disease. Rifampin is generally a well-tolerated drug but can  lead to  orange discoloration of body fluids like; tears (which can stain the patient's contact lenses), sweat, saliva, urine, and feces due to its excretion in these fluids.`,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Easy",
+      category: "Infection",
+    }),
     // <--------------------Sample Layout------------------->
     //   //Qx (sample layout)
     //   Question_Answer.create({
