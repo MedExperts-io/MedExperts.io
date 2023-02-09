@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import { Card, Dropdown, Row, Col, Form } from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import {
@@ -220,11 +219,11 @@ const QuestionsAnswers = () => {
     return <AllQAadmin />;
   } else {
     return (
-      <Container>
+      <Container fluid>
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
           <Card id="no-border" className="mx-auto">
             <Card.Body>
-              <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
+              <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
                 My Progress
               </Card.Header>
               <Row>
@@ -430,9 +429,8 @@ const QuestionsAnswers = () => {
               </Col>
             </Card.Header>
             <Card.Body>
-              {/* <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}> */}
-              <Row style={{ marginBottom: "20px" }} xs={1} sm={3}>
-                <Col md="auto">
+              <Row style={{ marginBottom: "20px" }} xs="auto">
+                <Col>
                   <Dropdown
                     onSelect={(event) => pickDifficulty(event)}
                     style={{ marginBottom: "10px" }}
@@ -450,7 +448,7 @@ const QuestionsAnswers = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-                <Col md="auto">
+                <Col>
                   <Dropdown
                     onSelect={(event) => pickCategory1(event)}
                     style={{ marginBottom: "10px" }}
@@ -468,8 +466,9 @@ const QuestionsAnswers = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-
-                <Col md="auto">
+                <Col>
+                  {/* <Col md="auto">
+                   */}
                   <Form>
                     <Form.Switch
                       onChange={() => onFavoriteSwitch()}
@@ -484,10 +483,10 @@ const QuestionsAnswers = () => {
                 {loading && <LoadingScreen />}
                 {currentItems && currentItems.length && currentItems !== "nada"
                   ? currentItems.map((question) => (
-                      <Col key={question.id} className="mx-auto">
+                      <Col key={question.id}>
                         <Card
                           style={{ width: "18rem", marginBottom: "20px" }}
-                          className="mx-auto"
+                          // className="mx-auto"
                         >
                           <Card.Header
                             style={{
