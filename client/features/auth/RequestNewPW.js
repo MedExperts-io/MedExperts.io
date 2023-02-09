@@ -20,7 +20,7 @@ const RequestNewPassword = () => {
     <Container>
       <Row className="p-5">
         <Card
-          border="light"
+          id="no-border"
           className="p-5 mx-auto"
           style={{ maxWidth: "800px" }}
         >
@@ -31,7 +31,6 @@ const RequestNewPassword = () => {
               a new password via email.
             </p>
             <Form.Group className="mb-3" controlId="email">
-              {/* <Form.Label>Email address</Form.Label> */}
               <Form.Control type="email" placeholder="Email Address" required />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid email address.
