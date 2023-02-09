@@ -83,8 +83,8 @@ const QuestionsAnswers = () => {
     ? setfilteredQuestions(allQuestions)
     : null;
 
-  console.log("currentitems", currentItems);
-  console.log("rightOrWrong", rightOrWrong);
+  // console.log("currentitems", currentItems);
+  // console.log("rightOrWrong", rightOrWrong);
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount
     ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage))
@@ -108,7 +108,7 @@ const QuestionsAnswers = () => {
         map[array[i]["questionAnswerId"]] = array[i]["answered"];
       }
     }
-    console.log("map", map);
+    // console.log("map", map);
     return map;
   }
 
