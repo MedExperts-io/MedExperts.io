@@ -40,7 +40,7 @@ const EditQA = () => {
   }, []);
 
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
-  console.log("qaVersions", qaVersions);
+  //console.log("qaVersions", qaVersions);
 
   const [newQuestion, setNewQuestion] = useState(qaVersions[0]?.question);
   const [newSingleQuestionImage, setNewSingleQuestionImage] = useState("");
@@ -84,14 +84,16 @@ const EditQA = () => {
   const [showToast, setShowToast] = useState(false);
   const [showUpdate, setShowUpdate] = useState("");
   const [validated, setValidated] = useState(false);
-  // modal details
+  const toggleShowToast = () => setShowToast(!showToast);
+
+  //------------ modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setValidated(false);
     setShow(false);
   };
   const handleShow = () => setShow(true);
-  // end modal details
+  //----------- end modal details
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -114,12 +116,10 @@ const EditQA = () => {
   };
 
   const clearText = (evt, text) => {
-    console.log("EVT TEXT", `${text}`);
     evt.target.value = text;
   };
 
-  const toggleShowToast = () => setShowToast(!showToast);
-  console.log("CHECK HETRE FOR STATE Question", newQuestion);
+  //console.log("CHECK HERE FOR STATE Question", newQuestion);
 
   if (qaVersions && qaVersions.length) {
     return (
@@ -196,7 +196,7 @@ const EditQA = () => {
                             ...newQuestionImage,
                             newSingleQuestionImage.trim(),
                           ]);
-                          setNewSingleQuestionImage(""); // Doesn't clear field for some reason
+                          setNewSingleQuestionImage("");
                           setShowUpdate("Image");
                           toggleShowToast();
                         } else {
@@ -226,8 +226,8 @@ const EditQA = () => {
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                setNewExplanationLinks(
-                                  newExplanationLinks.filter(
+                                setNewQuestionImage(
+                                  newQuestionImage.filter(
                                     (currentLink, idx) => {
                                       return idx !== linkIdx;
                                     }
@@ -257,7 +257,6 @@ const EditQA = () => {
                             defaultValue={newSingleOption}
                             onChange={(e) => {
                               setNewSingleOption(e.target.value);
-                              console.log("NEW ENTRY", newSingleOption);
                             }}
                           />
                           <Button
@@ -287,7 +286,7 @@ const EditQA = () => {
                             <Form.Control
                               type="text"
                               onClick={(evt) => clearText(evt, option)}
-                              defaultValue={option} //option
+                              defaultValue={option}
                               onChange={(e) => {
                                 option = e.target.value;
                               }}
@@ -385,8 +384,7 @@ const EditQA = () => {
                   <InputGroup className="mb-3">
                     <Form.Control
                       type="file"
-                      //                      onClick={clearText}
-                      //                      defaultValue={newSingleExpImage}
+                      // defaultValue={newSingleExpImage}
                       // onChange={(e) => {
                       //   setNewSingleExpImage(e.target.value);
                       // }}
@@ -400,7 +398,7 @@ const EditQA = () => {
                             ...newQuestionImage,
                             newExplanationImage.trim(),
                           ]);
-                          setNewExplanationImage(""); // Doesn't clear field for some reason
+                          setNewExplanationImage("");
                           setShowUpdate("Image");
                           toggleShowToast();
                         } else {
@@ -422,7 +420,7 @@ const EditQA = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {newQuestionImage?.map((link, linkIdx) => (
+                      {newExplanationImage?.map((link, linkIdx) => (
                         <tr key={uuidv4()}>
                           <td> {link}</td>
                           <td>
@@ -430,8 +428,8 @@ const EditQA = () => {
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                setNewExplanationLinks(
-                                  newExplanationLinks.filter(
+                                setNewExplanationImage(
+                                  newExplanationImage.filter(
                                     (currentLink, idx) => {
                                       return idx !== linkIdx;
                                     }
@@ -464,7 +462,6 @@ const EditQA = () => {
                             defaultValue={newSingleLink}
                             onChange={(e) => {
                               setNewSingleLink(e.target.value);
-                              console.log("ON CHANGE LINK", newSingleLink);
                             }}
                           />
 
@@ -474,7 +471,6 @@ const EditQA = () => {
                             defaultValue={newSource}
                             onChange={(e) => {
                               setNewSource(e.target.value);
-                              console.log("ON CHANGE SOURCE", newSource);
                             }}
                           />
                           <Button
@@ -484,8 +480,6 @@ const EditQA = () => {
                                 newSingleLink.trim() !== "" &&
                                 newSource.trim() !== ""
                               ) {
-                                // setNewSingleLink(newSingleLink);
-                                // setNewSource(newSource);
                                 setNewExplanationLinks([
                                   ...newExplanationLinks,
                                   `<a href="` +
@@ -646,7 +640,7 @@ const EditQA = () => {
                         <Button
                           variant="secondary"
                           onClick={() => {
-                            console.log("CURRENT ID", qaVersions[0].id);
+                            //console.log("CURRENT ID", qaVersions[0].id);
                             navigate(`/questions/${qaVersions[0].id}`);
                           }}
                         >
@@ -663,7 +657,7 @@ const EditQA = () => {
       </div>
     );
   } else {
-    return <div>DID NOT RENDER</div>;
+    return <div>404 page doesn't exist!</div>;
   }
 };
 
