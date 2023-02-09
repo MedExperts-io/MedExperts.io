@@ -20,6 +20,7 @@ router.get("/", getToken, async (req, res, next) => {
         "level",
         "category",
         "status",
+        "displayId",
       ],
     });
     res.json(allQs);
