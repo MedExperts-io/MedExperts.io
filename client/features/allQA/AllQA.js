@@ -174,7 +174,16 @@ const QuestionsAnswers = () => {
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-  }, []); // Putting userQuestions in here throws a loop
+  }, []);
+
+  const styles = {
+    progressBarEasy: { background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarModerate: { background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarHard: { background: progressCircleBackground(hardPercentage / 100, "#f55b49"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarAll: { background: progressCircleBackground(allPercentage / 100, "#bf5eff"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarBackground: { position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "60%" },
+    progressBarMiddle: { position: "absolute", bottom: "40%", width: "100%", textAlign: "center", fontSize: "150%" },
+  };
 
   if (admin) {
     return <AllQAadmin />;
@@ -188,40 +197,10 @@ const QuestionsAnswers = () => {
               <Row>
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(easyPercentage / 100, "lightgreen"),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {easyPercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarEasy}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
                     </div>
-
                     <Card.Title className="mx-auto" style={{ color: "lightgreen" }}>
                       Easy Level
                     </Card.Title>
@@ -230,123 +209,34 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        textAlign: "right",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {moderatePercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarModerate}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
                     </div>
-
                     <Card.Title className="mx-auto" style={{ color: "#f5ad27" }}>
                       <center>Moderate Level</center>
                     </Card.Title>
                   </Card>
                 </Col>
+
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(hardPercentage / 100, "#f55b49"),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {hardPercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarHard}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
                     </div>
                     <Card.Title className="mx-auto" style={{ color: "#f55b49" }}>
                       Hard Level
                     </Card.Title>
                   </Card>
                 </Col>
+
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(allPercentage / 100, "#bf5eff"),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        marginTop: "0px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {allPercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarAll}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{allPercentage}%</div>
                     </div>
-
                     <Card.Title className="mx-auto" style={{ color: "#bf5eff" }}>
                       All Levels
                     </Card.Title>
