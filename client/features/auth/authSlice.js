@@ -46,8 +46,12 @@ export const authenticate = createAsyncThunk(
         expertise,
         school,
       });
-      window.localStorage.setItem(TOKEN, res.data.token);
-      thunkAPI.dispatch(me());
+      if (method === "login") {
+        window.localStorage.setItem(TOKEN, res.data.token);
+        thunkAPI.dispatch(me());
+      } else {
+        return res.data;
+      }
     } catch (err) {
       if (err.response.data) {
         return thunkAPI.rejectWithValue(err.response.data);
@@ -55,6 +59,16 @@ export const authenticate = createAsyncThunk(
         return "There was an issue with your request.";
       }
     }
+  }
+);
+
+export const verifyNewUserEmail = createAsyncThunk(
+  "auth/verifyNewUserEmail",
+  async ({ token, tempId }) => {
+    const { data } = await axios.get(
+      `/auth/verifyEmail/?token=${token}&tempId=${tempId}`
+    );
+    return data;
   }
 );
 
@@ -115,7 +129,7 @@ export const authSlice = createSlice({
   initialState: {
     me: {},
     error: null,
-    loading: false,
+    // loading: false,
   },
   reducers: {
     logout(state, action) {
@@ -125,22 +139,28 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(me.pending, (state, action) => {
-      state.loading = true;
-    });
+    // builder.addCase(me.pending, (state, action) => {
+    //   state.loading = true;
+    // });
     builder.addCase(me.fulfilled, (state, action) => {
-      state.loading = false;
+      // state.loading = false;
       state.me = action.payload;
     });
     builder.addCase(me.rejected, (state, action) => {
       state.error = action.error;
     });
-    builder.addCase(authenticate.pending, (state, action) => {
-      state.loading = true;
-    });
+    // builder.addCase(authenticate.pending, (state, action) => {
+    //   state.loading = true;
+    // });
     builder.addCase(authenticate.rejected, (state, action) => {
       state.error = action.payload;
-      state.loading = false;
+      // state.loading = false;
+    });
+    builder.addCase(verifyNewUserEmail.fulfilled, (state, action) => {
+      state.me = action.payload;
+    });
+    builder.addCase(verifyNewUserEmail.rejected, (state, action) => {
+      state.error = action.error;
     });
     builder.addCase(editProfile.fulfilled, (state, action) => {
       state.me = action.payload;

@@ -10,7 +10,6 @@ export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () =>
     },
   });
   // API placeholder until the routes are corrected
-  //console.log("THUNK", data);
   return data;
 });
 
@@ -31,7 +30,6 @@ export const allQASlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchAllQuestionsAnswers.fulfilled, (state, action) => {
-        //console.log("builder function", action);
         state.questionsAnswers = action.payload;
         state.easy = action.payload.filter((question) => question.level === "Easy");
         state.moderate = action.payload.filter((question) => question.level === "Moderate");
