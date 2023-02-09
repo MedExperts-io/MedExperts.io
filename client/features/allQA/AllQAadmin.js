@@ -156,7 +156,6 @@ const AllQAadmin = () => {
 
   const favoriteStatus = (questionId) => {
     const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
-    console.log("question", question);
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -238,7 +237,40 @@ const AllQAadmin = () => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
     dispatch(fetchAllUserQuestions());
-  }, []); // Putting userQuestions in here throws a loop
+  }, []);
+
+  const styles = {
+    progressBarEasy: {
+      background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarModerate: {
+      background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length, "#f5ad27"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarHard: {
+      background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length, "#f55b49"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarAll: {
+      background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length, "#bf5eff"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarBackground: { position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "60%" },
+    progressBarMiddle: { position: "absolute", bottom: "40%", width: "100%", textAlign: "center", fontSize: "150%" },
+  };
 
   return (
     <Container>
@@ -249,40 +281,10 @@ const AllQAadmin = () => {
             <Row>
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Completed
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarEasy}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100)}%</div>
                   </div>
-
                   <Card.Title className="mx-auto" style={{ color: "lightgreen" }}>
                     Easy Level
                   </Card.Title>
@@ -291,123 +293,34 @@ const AllQAadmin = () => {
 
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length, "#f5ad27"),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      textAlign: "right",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Completed
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarModerate}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100)}%</div>
                   </div>
-
                   <Card.Title className="mx-auto" style={{ color: "#f5ad27" }}>
                     <center>Moderate Level</center>
                   </Card.Title>
                 </Card>
               </Col>
+
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length, "#f55b49"),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Completed
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarHard}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100)}%</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ color: "#f55b49" }}>
                     Hard Level
                   </Card.Title>
                 </Card>
               </Col>
+
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length, "#bf5eff"),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      marginTop: "0px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Completed
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarAll}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100)}%</div>
                   </div>
-
                   <Card.Title className="mx-auto" style={{ color: "#bf5eff" }}>
                     All Levels
                   </Card.Title>
@@ -470,7 +383,6 @@ const AllQAadmin = () => {
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {expertisePicked.current}
                   </Dropdown.Toggle>
-
                   <Dropdown.Menu>
                     {userExpertise.map((expertise) => (
                       <Dropdown.Item key={expertise} eventKey={expertise}>
@@ -480,17 +392,9 @@ const AllQAadmin = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
-
               <Col md="auto">
                 <Form>
-                  <Form.Switch
-                    onChange={() => onFavoriteSwitch()}
-                    id="custom-switch"
-                    label="Favorites Only"
-                    checked={!seeFavorites}
-
-                    //disabled // apply if you want the switch disabled
-                  />
+                  <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
                 </Form>
               </Col>
             </Row>
