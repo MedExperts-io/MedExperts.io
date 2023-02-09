@@ -56,11 +56,9 @@ const AllQAadmin = () => {
   };
 
   const userExpertiseSelection = (event) => {
-    console.log("hi i guess");
-    dispatch(fetchExpertiseQuestions(event));
     expertiseQuestions ? setCurrentCategory2(event) : null;
     expertisePicked.current = event;
-    event === "All Expertise" ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
+    //event === "All Expertise" ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
     filterFunction();
   };
 
@@ -111,8 +109,8 @@ const AllQAadmin = () => {
 
   const filteredQuestions = useRef(null);
   allQuestions.length && !filteredQuestions.current ? (filteredQuestions.current = allQuestions) : null;
-  expertiseFilterOn.current && expertiseQuestions.length === 0 ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
-  console.log("out of filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current, expertiseFilterOn.current);
+  //expertiseFilterOn.current && expertiseQuestions.length === 0 ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
+  //console.log("out of filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current, expertiseFilterOn.current);
   //expertiseQuestions.length > 0 ? () => filterFunction : null;
   //expertiseQuestions.length > 0 && ? () => userExpertiseSelection : null;
 
@@ -190,9 +188,9 @@ const AllQAadmin = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    console.log("in filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current, expertiseFilterOn.current);
 
-    expertiseFilterOn.current ? (multiFilter = expertiseQuestions) : null;
+    console.log("in filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current);
+    expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
 
     let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
@@ -206,6 +204,25 @@ const AllQAadmin = () => {
       }
     }
     console.log("filterQuestions in filterFunction", multiFilter);
+    multiFilter = multiFilter.map((question) => {
+      if (question.level === "Easy") {
+        return {
+          ...question,
+          color: "lightgreen",
+        };
+      } else if (question.level === "Moderate") {
+        return {
+          ...question,
+          color: "#f5ad27",
+        };
+      } else {
+        return {
+          ...question,
+          color: "#f55b49",
+        };
+      }
+    });
+
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
     multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
     multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
@@ -222,10 +239,10 @@ const AllQAadmin = () => {
   };
 
   useEffect(() => {
+    dispatch(fetchExpertiseQuestions());
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
     dispatch(fetchAllUserQuestions());
-    dispatch(fetchExpertiseQuestions("Student"));
   }, []); // Putting userQuestions in here throws a loop
 
   return (
