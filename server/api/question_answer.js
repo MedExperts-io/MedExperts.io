@@ -69,6 +69,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             },
             include: User_Question,
           });
+          console.log("ROUTE", allVersions)
           res.json(allVersions);
         }
       } //Condition 2B - IF STUDENT
