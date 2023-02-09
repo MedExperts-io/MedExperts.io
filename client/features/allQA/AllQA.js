@@ -67,8 +67,8 @@ const QuestionsAnswers = () => {
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
 
-  console.log("currentitems", currentItems);
-  console.log("rightOrWrong", rightOrWrong);
+  // console.log("currentitems", currentItems);
+  // console.log("rightOrWrong", rightOrWrong);
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
   filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
@@ -88,7 +88,7 @@ const QuestionsAnswers = () => {
         map[array[i]["questionAnswerId"]] = array[i]["answered"];
       }
     }
-    console.log("map", map);
+    //console.log("map", map);
     return map;
   }
 
@@ -177,156 +177,154 @@ const QuestionsAnswers = () => {
     dispatch(fetchUserQuestions(userId));
   }, []); // Putting userQuestions in here throws a loop
 
-  if(admin){
-    return(
-  <AllQAadmin/>
-    )
-  }else{
-  return (
-    <Container>
-      <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-        <Col></Col>
-        <Col>
-          <div style={{ background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}>
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{easyPercentage}%</div>
-          </div>
-        </Col>
-        <Col>
-          <div
-            style={{
-              background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"),
-              borderRadius: "50%",
-              width: "120px",
-              height: "120px",
-              textAlign: "right",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{moderatePercentage}%</div>
-          </div>
-        </Col>
-        <Col>
-          <div
-            style={{
-              background: progressCircleBackground(hardPercentage / 100, "#f55b49"),
-              borderRadius: "50%",
-              width: "120px",
-              height: "120px",
-              position: "relative",
-            }}
-          >
-            {" "}
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{hardPercentage}%</div>
-          </div>
-        </Col>
-        <Col>
-          <div
-            style={{
-              background: progressCircleBackground(allPercentage / 100, "#bf5eff"),
-              borderRadius: "50%",
-              width: "150px",
-              height: "150px",
-              marginTop: "-20px",
-              position: "relative",
-            }}
-          >
-            <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{allPercentage}%</div>
-          </div>
-        </Col>
-        <Col></Col>
-      </Row>
-      <Row style={{ marginBottom: "20px", fontSize: "200%" }}>
-        <Col>
-          {currentDifficulty} & {currentCategory1}
-        </Col>
-      </Row>
-      <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
-        <Col md="auto">
-          <Dropdown onSelect={(event) => pickDifficulty(event)}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {currentDifficulty}
-            </Dropdown.Toggle>
+  if (admin) {
+    return <AllQAadmin />;
+  } else {
+    return (
+      <Container>
+        <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
+          <Col></Col>
+          <Col>
+            <div style={{ background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" }}>
+              <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{easyPercentage}%</div>
+            </div>
+          </Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"),
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                textAlign: "right",
+                position: "relative",
+              }}
+            >
+              <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{moderatePercentage}%</div>
+            </div>
+          </Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(hardPercentage / 100, "#f55b49"),
+                borderRadius: "50%",
+                width: "120px",
+                height: "120px",
+                position: "relative",
+              }}
+            >
+              {" "}
+              <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "150%" }}>{hardPercentage}%</div>
+            </div>
+          </Col>
+          <Col>
+            <div
+              style={{
+                background: progressCircleBackground(allPercentage / 100, "#bf5eff"),
+                borderRadius: "50%",
+                width: "150px",
+                height: "150px",
+                marginTop: "-20px",
+                position: "relative",
+              }}
+            >
+              <div style={{ position: "absolute", bottom: "35%", width: "100%", textAlign: "center", fontSize: "200%" }}>{allPercentage}%</div>
+            </div>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row style={{ marginBottom: "20px", fontSize: "200%" }}>
+          <Col>
+            {currentDifficulty} & {currentCategory1}
+          </Col>
+        </Row>
+        <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
+          <Col md="auto">
+            <Dropdown onSelect={(event) => pickDifficulty(event)}>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {currentDifficulty}
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              {difficultyLevels.map((difficulty) => (
-                <Dropdown.Item key={difficulty} eventKey={difficulty}>
-                  {difficulty}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-        <Col md="auto">
-          <Dropdown onSelect={(event) => pickCategory1(event)}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {currentCategory1}
-            </Dropdown.Toggle>
+              <Dropdown.Menu>
+                {difficultyLevels.map((difficulty) => (
+                  <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                    {difficulty}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+          <Col md="auto">
+            <Dropdown onSelect={(event) => pickCategory1(event)}>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {currentCategory1}
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              {categories.map((category) => (
-                <Dropdown.Item key={category} eventKey={category}>
-                  {category}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
+              <Dropdown.Menu>
+                {categories.map((category) => (
+                  <Dropdown.Item key={category} eventKey={category}>
+                    {category}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
 
-        <Col md="auto">
-          <Form>
-            <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
-          </Form>
-        </Col>
-      </Row>
-      <Row>
-        {loading && <LoadingScreen />}
-        {currentItems && currentItems.length && currentItems !== "nada"
-          ? currentItems.map((question) => (
-              <Col key={question.id}>
-                <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                  <Card.Header style={{ backgroundColor: cardHeaderColor(question.level) }} />
-                  <Card.Body style={{ backgroundColor: cardBodyColor(question.id) }}>
-                    <Card.Img
-                      style={{ float: "right", width: "25px" }}
-                      onClick={() => favorite(userId, question.id)}
-                      variant="top"
-                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
-                    />
-                    <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
-                      <Card.Title style={{ color: "black" }}>Question Number {question.id}</Card.Title>
-                      <Card.Text style={{ color: "black" }}>{truncate(question.question)}</Card.Text>
-                    </Link>
-                  </Card.Body>
-                  <Card.Footer>
-                    <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
-                  </Card.Footer>
-                </Card>
-              </Col>
-            ))
-          : "Sorry, we didn't find anything matching that"}
-      </Row>
-      <ReactPaginate
-        className="pagination"
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-      />
-    </Container>
-  );
+          <Col md="auto">
+            <Form>
+              <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
+            </Form>
+          </Col>
+        </Row>
+        <Row>
+          {loading && <LoadingScreen />}
+          {currentItems && currentItems.length && currentItems !== "nada"
+            ? currentItems.map((question, idx) => (
+                <Col key={question.id}>
+                  <Card style={{ width: "18rem", marginBottom: "20px" }}>
+                    <Card.Header style={{ backgroundColor: cardHeaderColor(question.level) }} />
+                    <Card.Body style={{ backgroundColor: cardBodyColor(question.id) }}>
+                      <Card.Img
+                        style={{ float: "right", width: "25px" }}
+                        onClick={() => favorite(userId, question.id)}
+                        variant="top"
+                        src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                      />
+                      <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
+                        <Card.Title style={{ color: "black" }}>Question Number {question.id}</Card.Title>
+                        <Card.Text style={{ color: "black" }}>{truncate(question.question)}</Card.Text>
+                      </Link>
+                    </Card.Body>
+                    <Card.Footer>
+                      <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" />
+                    </Card.Footer>
+                  </Card>
+                </Col>
+              ))
+            : "Sorry, we didn't find anything matching that"}
+        </Row>
+        <ReactPaginate
+          className="pagination"
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+        />
+      </Container>
+    );
   }
 };
 

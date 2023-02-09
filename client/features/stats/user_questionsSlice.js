@@ -16,6 +16,21 @@ export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", a
   }
 });
 
+// --------For admin's dashboard analytics (by expertise)--------------
+export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions", async (userExpertise) => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/expertise/${userExpertise}`, {
+      userExpertise: userExpertise,
+      headers: {
+        authorization: token,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // --------For logged in user's dashboard analytics--------------
 export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (userId) => {
   try {
@@ -80,17 +95,22 @@ export const allUser_QuestionsSlice = createSlice({
     userModerate: [],
     userHard: [],
     currentUserQuestion: {},
+    expertiseQuestions: [],
     error: null,
   },
   reducers: {},
   extraReducers(builder) {
     builder
       .addCase(fetchAllUserQuestions.fulfilled, (state, action) => {
-        console.log("builder function", action);
+        //console.log("builder function", action);
         state.allUserQuestions = action.payload;
       })
+      .addCase(fetchExpertiseQuestions.fulfilled, (state, action) => {
+        //console.log("builder function", action.payload);
+        state.expertiseQuestions = action.payload;
+      })
       .addCase(fetchUserQuestions.fulfilled, (state, action) => {
-        console.log("User_Questions", action.payload);
+        //console.log("User_Questions", action.payload);
         state.UserQuestions = action.payload;
         state.userEasy = action.payload.filter((question) => question.level === "Easy" && question.userInput);
         state.userModerate = action.payload.filter((question) => question.level === "Moderate" && question.userInput);
