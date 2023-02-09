@@ -33,17 +33,21 @@ const singleQuestion = () => {
     }
     setSelectedOption(option);
   };
-  
-
-
 
   const { singleQuestionId } = useParams();
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.auth.me.id);
   const userExpertise = useSelector((state) => state.auth.me.expertise);
+
   useEffect(() => {
-    dispatch(fetchSingleQuestion(singleQuestionId));
+    dispatch(
+      updateUserQuestionInput({
+        userId: userId,
+        questionAnswerId: singleQuestionId,
+      })
+    ).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
+
     dispatch(fetchUserQuestions(userId));
   }, []);
 
@@ -65,37 +69,38 @@ const singleQuestion = () => {
     ancestorId,
   } = singleQ;
 
+  const AllUserQuestion = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const CurrentQuestionArray = AllUserQuestion.filter(
+    (object) => object.questionAnswerId === id
+  );
 
-
-  const AllUserQuestion = useSelector((state) => state.userQuestions.UserQuestions);
-  const CurrentQuestionArray = AllUserQuestion.filter(object => object.questionAnswerId === id);
-
-  const CurrentQuestion = CurrentQuestionArray[0]
+  const CurrentQuestion = CurrentQuestionArray[0];
 
   const handleSubmit = () => {
-    const rightorwrong = selectedOption === correctAnswer ? 'right' : 'wrong';
     setShowAnswer(true);
-    console.log(selectedOption, correctAnswer)
-    dispatch(
-      updateUserQuestionInput({
-        userId: userId,
-        questionAnswerId: id,
-        userInput: selectedOption,
-        answered:rightorwrong,
-        category: category,
-        level: level,
-        userExpertise:userExpertise
-      }))
-      .then(() => dispatch(fetchSingleQuestion(singleQuestionId)))
-      // .then(() => dispatch(updateUserQuestionInput({answered:rightorwrong})))
-      .then(() => dispatch(fetchUserQuestions(userId)))
+    dispatch(fetchSingleQuestion(id))
+      .then(() =>
+        dispatch(
+          updateUserQuestionInput({
+            userId: userId,
+            questionAnswerId: id,
+            userInput: selectedOption,
+            answered: selectedOption === correctAnswer ? "right" : "wrong",
+            category: category,
+            level: level,
+            userExpertise: userExpertise,
+          })
+        )
+      )
+      .then(() => dispatch(fetchUserQuestions(userId)));
   };
 
-
-// if (CurrentQuestion){
-//   const {answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput} = CurrentQuestion
-//   console.log({answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput});
-// }
+  // if (CurrentQuestion){
+  //   const {answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput} = CurrentQuestion
+  //   console.log({answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput});
+  // }
 
   const handleDelete = () => {
     dispatch(deleteSingleQuestion(id, ancestorId));
@@ -110,9 +115,9 @@ const singleQuestion = () => {
           <Stack gap={3} className="p-3">
             <Stack gap={3}>
               <Stack gap={3}>
-                <div style={{ fontSize: "20px", textAlign: "center" }}>
+                {/* <div style={{ fontSize: "20px", textAlign: "center" }}>
                   singleQuestion
-                </div>
+                </div> */}
                 <Card>
                   <Card.Body style={{ fontSize: "20px", textAlign: "center" }}>
                     Question Number: {id}
@@ -132,7 +137,6 @@ const singleQuestion = () => {
                   </Card.Body>
                 </Card>
               </Stack>
-
               <Stack gap={3} className="mx-auto" direction="horizontal">
                 {questionImage
                   ? questionImage.map((image, index) => (
