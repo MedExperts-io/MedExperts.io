@@ -108,7 +108,6 @@ const QuestionsAnswers = () => {
         map[array[i]["questionAnswerId"]] = array[i]["answered"];
       }
     }
-    // console.log("map", map);
     return map;
   }
 
