@@ -17,10 +17,9 @@ export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", a
 });
 
 // --------For admin's dashboard analytics (by expertise)--------------
-export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions", async (userExpertise) => {
+export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions", async () => {
   try {
-    const { data } = await axios.get(`/api/user_questions/expertise/${userExpertise}`, {
-      userExpertise: userExpertise,
+    const { data } = await axios.get(`/api/user_questions/expertise/all`, {
       headers: {
         authorization: token,
       },
@@ -95,7 +94,7 @@ export const allUser_QuestionsSlice = createSlice({
     userModerate: [],
     userHard: [],
     currentUserQuestion: {},
-    expertiseQuestions: [],
+    expertiseQuestions: {},
     error: null,
   },
   reducers: {},
@@ -106,7 +105,6 @@ export const allUser_QuestionsSlice = createSlice({
         state.allUserQuestions = action.payload;
       })
       .addCase(fetchExpertiseQuestions.fulfilled, (state, action) => {
-        //console.log("builder function", action.payload);
         state.expertiseQuestions = action.payload;
       })
       .addCase(fetchUserQuestions.fulfilled, (state, action) => {
