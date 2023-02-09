@@ -29,7 +29,7 @@ router.get("/", getToken, async (req, res, next) => {
 });
 
 //GET/api/questions/:singleQuestionId
-router.get("/:singleQuestionId", getToken, async (req, res, next) => {
+router.get("/:singleQuestionId/", getToken, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
 
   try {
@@ -69,7 +69,8 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             },
             include: User_Question,
           });
-          console.log("ROUTE", allVersions)
+          console.log("ROUTE", allVersions);
+          //res.send("HAHAHA");
           res.json(allVersions);
         }
       } //Condition 2B - IF STUDENT
