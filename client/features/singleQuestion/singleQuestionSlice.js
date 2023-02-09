@@ -22,6 +22,7 @@ export const fetchQAVersions = createAsyncThunk(
         authorization: token,
       },
     });
+    console.log("THUNK ALL VERSIONS", data)
     return data;
   }
 );
@@ -95,6 +96,7 @@ const singleQuestionSlice = createSlice({
         state.error = action.error;
       })
       .addCase(fetchQAVersions.fulfilled, (state, action) => {
+        console.log("BUILDERR ALL VERSIONS", action.payload)
         state.qaAllVersions = action.payload;
       })
       .addCase(editQuestion.fulfilled, (state, action) => {
