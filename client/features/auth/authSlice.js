@@ -46,11 +46,11 @@ export const authenticate = createAsyncThunk(
         expertise,
         school,
       });
-      if (method === "login") {
+      if (method === "signup") {
+        return res.data;
+      } else {
         window.localStorage.setItem(TOKEN, res.data.token);
         thunkAPI.dispatch(me());
-      } else {
-        return res.data;
       }
     } catch (err) {
       if (err.response.data) {
