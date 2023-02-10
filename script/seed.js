@@ -4881,11 +4881,11 @@ async function seed() {
         `Atypical carcinoids`,
       ],
       correctAnswer: `Adenocarcinoma`,
-      explanation: `According to the National Cancer Institute's PDQ Information Summary for Health Professionals on NSCLC treatment, adenocarcinoma, large cell carcinoma, and squamous cell carcinoma are the three most common types of NSCLC. Whereas NSCLCs, especially squamous cell carcinomas, are associated with smoking, adenocarcinomas may be found in patients who have never smoked.
-      PDQ Adult Treatment Editorial Board. Non-Small Cell Lung Cancer Treatment (PDQ) – Health Professional Version. Bethesda, MD: National Cancer Institute. Updated January 20, 2022.  
-      `,
+      explanation: `According to the National Cancer Institute's PDQ Information Summary for Health Professionals on NSCLC treatment, adenocarcinoma, large cell carcinoma, and squamous cell carcinoma are the three most common types of NSCLC. Whereas NSCLCs, especially squamous cell carcinomas, are associated with smoking, adenocarcinomas may be found in patients who have never smoked.`,
       explanationImage: [],
-      explanationLinks: [],
+      explanationLinks: [
+        `<a href="https://www.cancer.gov/types/lung/hp/non-small-cell-lung-treatment-pdq" target="_blank">PDQ Adult Treatment Editorial Board. Non-Small Cell Lung Cancer Treatment (PDQ) – Health Professional Version. Bethesda, MD: National Cancer Institute. Updated January 20, 2022.</a>`,
+      ],
       level: "Easy",
       category: "Lung Cancer",
     }),
@@ -5374,6 +5374,510 @@ async function seed() {
       ],
       level: "Easy",
       category: "Interstitial Lung Diseases",
+    }),
+
+    //   Q221
+    Question_Answer.create({
+      question: `A 65-year-old male is brought to the emergency department with acute shortness of breath.   His wife says the patient finished eating dinner an hour earlier and was watching a baseball game.  He took two nebulizer treatments but didn’t improve his shortness of breath.  Past medical history shows poorly differentiated adenocarcinoma of the lung that was diagnosed  3 months ago.  He has a past medical history of pulmonary embolism, depression, hypertension, COPD.  He is taking atenolol, St John’s wort, Warfarin and Ipratropium bromide.    His vital signs include oxygen saturation 88 % with 3 L nasal cannula, HR 100 breath/min, RR 20 breaths/min, BP 128/98.  On physical exam:  showed mild jaundice, normal heart sounds and inspiratory crackles.  Labs done indicate:  ALK 800 U/L, AST 191 U/L, ALK 515 U/L, total bilirubin 7.0 mg/dl, D-Dimer 450 ng/mL, pro B type BNP 1300 pg/ml.  A CT angiogram was done with a suspicion of pulmonary embolism, which showed diffuse centrilobular nodular opacities.  He had an echocardiogram done 6 months ago that was normal.  A repeat echocardiogram done in the Emergency Room  today showed right ventricular systolic pressure of 80 mmHg.  Which of the following is the most likely diagnosis? `,
+      questionImage: [],
+      answerOptions: [
+        `Pneumonia`,
+        `Congestive heart failure`,
+        `Lymphangitis carcinomatosis`,
+        `Pulmonary tumor thrombotic microangiopathy (PTTM)`,
+      ],
+      correctAnswer: `Pulmonary tumor thrombotic microangiopathy (PTTM)`,
+      explanation: `Pulmonary tumor thrombotic microangiopathy (PTTM) is a rare complication of gastric cancer (gastric adenocarcinomas) and it is characterized by dyspnea and pulmonary arterial hypertension leading the progressive deterioration in a matter of hours or days.  Other symptoms include hypoxemia, cough and hemoptysis.  Although 60% of gastric cancers account for PTTM, it has been associated with lung cancer (9%), cancer of unknown primary (6 %) and breast cancer (3 %).  A majority of the PTTM cases are associated with radiographic features of PTTM that include diffuse centrilobular nodular opacities, ground-glass pulmonary infiltrates, septal thickening, and tree-in-bud opacities with evidence of cor-pulmonale but without evidence of PE on CT-PE protocol.  Several proteins and tissue factors such as vascular endothelial growth factors are proposed mediators that induce PTTM.    A definitive diagnosis of tumor emboli is made histologically by widespread tumor emboli together with fibro cellular intimal proliferation and thrombus formation in small pulmonary arteries and arterioles in patients with metastatic carcinomas.  Definitive therapy involves direct surgical resection, system chemotherapy, radiation therapy or any combination thereof.  Supportive care is administered with administration of oxygen, mechanical ventilation, inotropic support and steroids, while diagnostic testing is ongoing. `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/22924078/" target="_blank"> Kuwabara H, Yoshida S, Takasu T, et al. Pulmonary tumor thrombotic microangiopathy caused by gastric cancer. Ann Thorac Med. 2012;7(3):168-169  </a>`,
+        `<a href="https://bmccancer.biomedcentral.com/articles/10.1186/s12885-015-1467-7" target="_blank">Ho AL, Szulakowski P, Mohamid WH. The diagnostic challenge of pulmonary tumour thrombotic microangiopathy as a presentation for metastatic gastric cancer: a case report and review of the literature [published correction appears in BMC Cancer. 2015;15:600]. BMC Cancer. 2015;15:450.  </a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Vascular Disease",
+    }),
+
+    //   Q222
+    Question_Answer.create({
+      question: `A 65-year-old female status post bilateral lung transplant for one year presents with new skin lesions. The biopsy of the skin lesion  is reported as squamous cell carcinoma. Her immunosuppressive regimen includes Prednisone, Tacrolimus and Mycophenolate Mofetil. As the treating physician, which of the following would you suggest next?`,
+      questionImage: [],
+      answerOptions: [
+        `Stop Tacrolimus and add Cyclosporine A to the regimen`,
+        `Stop Tacrolimus and Sirolimus to the regimen`,
+        `Stop Mycophenolate and Add Azathioprine to the regimen`,
+        `Decrease the dose of prednisone.`,
+      ],
+      correctAnswer: `Stop Tacrolimus and add Cyclosporine A to the regimen`,
+      explanation: `Calcineurin inhibitors (CNIs) [ Cyclosporine A and Tacrolimus] are indispensable immunosuppressive agents in solid organ transplantation. However, CNI-associated adverse events such as nephrotoxicity, increase of diabetes mellitus, and secondary malignancy limit the use of these drugs. A growing body of evidence indicates that calcineurin inhibitors as a group are associated with posttransplant malignancy.
+ 
+      Sirolimus (SRL) is a promising immunosuppressant replacing calcineurin inhibitors (CNIs). Sirolimus (SRL), a type of mammalian target of rapamycin inhibitor, can be used as a replacement for CNIs post-transplant patients. Compared to CNI, SRL causes less nephrotoxicity and has anticancer effects. Mycophenolate Mofetil [ MMF] is also an   effective immunosuppressive agent in organ transplantation. In addition to its well-documented immunosuppressive effects through blockage of the de novo purine synthesis pathway, it may also possess some anti-neoplastic properties. Azathioprine (AZA) disrupts the synthesis of DNA and RNA, causing effective immunosuppression by interfering with lymphocyte proliferation use with cancer development in transplant recipients has not been established. Steroids are used to treat certain types of cancer, including lymphomas; just decreasing the dose of prednisone will not help the patient.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/15223891/" target="_blank">Guba M, Graeb C, Jauch KW, Geissler EK. Pro- and anti-cancer effects of immunosuppressive agents used in organ transplantation. Transplantation. 2004 Jun 27;77(12):1777-82</a>`,
+      ],
+      level: "Moderate",
+      category: "Lung Transplant",
+    }),
+
+    //   Q223
+    Question_Answer.create({
+      question: `In a restrictive lung function defect, all are true except: `,
+      questionImage: [],
+      answerOptions: [
+        `The FVC is reduced`,
+        `The FEVI is reduced`,
+        `The FEV1/FVC ratio is below Lower limit of Normal`,
+        `The TLC is reduced`,
+      ],
+      correctAnswer: `The FEV1/FVC ratio is below Lower limit of Normal`,
+      explanation: `Patients with restrictive lung disease have low FVC, low FEV1, Low TLC and normal or high FEV1/FVC. (i.e. FEV1/FVC ratio is greater than .80%in patients with restrictive lung disease.)`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/28598732/" target="_blank">Tseng HJ, Henry TS, Veeraraghavan S, Mittal PK, Little BP. Pulmonary Function Tests for the Radiologist. Radiographics. 2017 Jul-Aug;37(4):1037-1058</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q224
+    Question_Answer.create({
+      question: `A 69 year old male presents with progressive breathlessness for the last 8 months. He has bilateral basal crepitation. Lung function tests reveal decrease in total lung capacity and vital capacity with normal FEV1/FVC ratio. The most likely diagnosis is: `,
+      questionImage: [],
+      answerOptions: [
+        `Chronic bronchitis`,
+        `Idiopathic pulmonary fibrosis`,
+        `Cystic fibrosis`,
+        `Allergic bronchopulmonary aspergillosis`,
+      ],
+      correctAnswer: `Idiopathic pulmonary fibrosis`,
+      explanation: `Idiopathic pulmonary fibrosis (IPF) is a progressive disorder with scarring of the lungs due to unknown causes. Pulmonary function test (PFT) usually reveals restrictive impairment. A decline in lung function is a predictor of mortality in these patients, especially reduction in forced vital capacity (FVC), total lung capacity (TLC), alveolar-arterial(A-a) gradient and diffusing capacity for carbon monoxide (DLCO).  
+  
+      Patients present with dyspnea on excretion and cough. On a pulmonary physical exam during the early course of the disease, crackles can be heard at the base of the lungs that progress to the upper zones known as “velcro” rales. Diagnosis can be made by high-resolution CT (HRCT).  
+        
+      PFTs should be performed 3-6 months based on symptoms and disease progression. Two medications are approved for treatment in IPF which include pirfenidone and nintedanib. Lung transplant is recommended with patients with progressive disease.  
+        
+      All the other choices cause airway obstruction patterns. 
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK448162/" target="_blank">Krishna R, Ullah S. Idiopathic Pulmonary Fibrosis. [Updated 2019 Jan 11]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2019 Jan-. </a>`,
+      ],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q225
+    Question_Answer.create({
+      question: `Which of the following is associated with impaired long-term outcomes in ICU patients?`,
+      questionImage: [],
+      answerOptions: [
+        `Benzodiazepines for sedation`,
+        `Levetiracetam for seizure treatment`,
+        `Daily interruption of sedation`,
+        `Early mobilization`,
+      ],
+      correctAnswer: `Benzodiazepines for sedation`,
+      explanation: `Patients who have prolonged stay in the intensive care unit (ICU) are at high risk of cognitive dysfunction. Delirium is defined as acute brain dysfunction and is associated with increased mortality and long-term cognitive impairment. Also, the use of sedative and analgesic medications provides cognitive dysfunction. In the ICU, the most common indication for benzodiazepine is sedation of mechanically ventilation patients. These medications have high risk of over sedation which is can cause delirium even months after ICU stay.  
+ 
+      Levetiracetam use compared with other Anti Epileptic Drugs have lower complication rate and stay in the neuroscience ICU. Older patients and those patients who have strokes are preferably treated with Levetiracetam in management and prevention of seizures.  
+       
+      Daily interruption of sedation is defined as discontinuation or cessation of intravenous sedation. This practice is considered safe to treat ICU patient which can shortening ICU stay and decreased mechanical ventilation duration.  
+       
+      Neuromuscular weakness is common complication with ICU patients and can lead to severe disability leading to long rehabilitation. Some examples of ICU complications are thromboembolism, pneumonia, delirium, and pressure ulcers. Early mobilization is considered a therapeutic intervention to prevent these complications.  
+      
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/14525802/" target="_blank">J.P. Kress, B. Gehlbach, M. Lacy, N. Pliskin, A.S. Pohlman, J.B. Hall. The long-term psychological effects of daily sedative interruption on critically ill patients. Am J Respir Crit Care Med, 168 (2003), pp. 1457-1461 </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/17607530/" target="_blank">Szaflarski JP, Levertiracetam use in critically ill patients. Neurocrit Care 2007; 7(2):140-7 </a>`,
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30214124/" target="_blank">Arias-Fernandez-P. Rehabiliation and early mobilization in critical patient: systemic review. J Phys Ther Sci 2018; 30(9):1193-1201 </a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q226
+    Question_Answer.create({
+      question: `Which of these are contraindications to lung screening with Low-Dose CT?`,
+      questionImage: [],
+      answerOptions: [
+        `69 year old Female with 30 pack-year history of smoking`,
+        `75 year old male retired navy shipyard worker who quit 5 years ago`,
+        `65 year old male Current Smoker`,
+        `72 year old farmer who quit smoking 20 years ago`,
+      ],
+      correctAnswer: `72 year old farmer who quit smoking 20 years ago`,
+      explanation: `The United States Preventive Services Task Force (USPSTF) recommends annual screening for lung cancer with low-dose CT in adults aged 55 to 80 years who have a 30 pack year smoking history and currently smoke or have quit within the past 15 years. Those patients who have not smoked for 15 years or develop health problem that limits life expectancy and can’t be cured with surgery then screening can be discontinued.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.uspreventiveservicestaskforce.org/uspstf/document/RecommendationStatementFinal/lung-cancer-screening" target="_blank"> Final Recommendation Statement: Lung Cancer: Screening. U.S. Preventive Services Task Force. December 2016. 
+      https://www.uspreventiveservicestaskforce.org/Page/Document/RecommendationStatementFinal/lung-cancer-screening </a>`,
+      ],
+      level: "Easy",
+      category: "Lung Cancer",
+    }),
+
+    //   Q227
+    Question_Answer.create({
+      question: `All of the following criteria are used in the Berlin Criteria definition of ARDS, except:`,
+      questionImage: [],
+      answerOptions: [
+        `Acute onset`,
+        `Bilateral radiographic opacities`,
+        `PAOP ≤ 18 mm Hg, or other evidence of absence of left atrial hypertension`,
+        `PaO2:FiO2 ≤ 200`,
+        `PaCO2 ≥ 50 mmHg in the absence of ventilatory support`,
+      ],
+      correctAnswer: `PaCO2 ≥ 50 mmHg in the absence of ventilatory support`,
+      explanation: `Acute respiratory distress syndrome (ARDS) is a life-threatening respiratory condition characterized as, hypoxemia, stiffen lungs where patients eventually need mechanical ventilation. According to American-European Consensus in 1994, ARDS is defined as: the acute onset of respiratory failure, bilateral infiltrates on chest radiograph, hypoxemia as defined by a PaO2/FiO2 ratio ≤200 mmHg, and no evidence of left atrial hypertension or a pulmonary capillary pressure <18 mmHg (if measured) to rule out cardiogenic edema. In 2012, an updated criterion called Berlin definition stated by excluding the term Acute Lung Injury, it also removed the requirement for wedge pressure <18 and included the requirement of positive end-expiratory pressure (PEEP) or continuous positive airway pressure (CPAP) of greater than or equal to 5. `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q227/A227+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/7509706/" target="_blank">Bernard GR, et al. The American–European consensus conference on ARDS Am J Respir Crit Care Med 1994;149818-24 </a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q228
+    Question_Answer.create({
+      question: `Which of the following causes of ARDS is associated with the highest mortality rate? `,
+      questionImage: [],
+      answerOptions: [
+        `Trauma`,
+        `Massive transfusion`,
+        `Aspiration of gastric contents`,
+        `Pneumonia`,
+        `Sepsis`,
+      ],
+      correctAnswer: `Sepsis`,
+      explanation: `Sepsis is the most common cause of ARDS. (Choice E) 
+ 
+      ARDS is a complication of severe trauma with approximately 10 percent developing ARDS. (Choice A)  
+       
+      Transfusion of more than 15 units of red blood cells is a risk factor for the development of ARDS. (Choice B)  
+       
+      The aspiration of stomach contents into the lungs is an example of direct injury causing ARDS. (Choice C)  
+       
+      Community acquired pneumonia is probably the most common cause of ARDS that develops outside of the hospital. (Choice D) 
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/10424602/" target="_blank">Hudson LD, Steinberg KP.  Epidemiology of acute lung injury and ARDS. Chest 1999;116:74S-82S </a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    //   Q229
+    Question_Answer.create({
+      question: `The suprachiasmatic nucleus in the lateral hypothalamus is our endogenous circadian pacemaker.  It is influenced by activity, daylight, and primarily by which one of the following neurotransmitters?`,
+      questionImage: [],
+      answerOptions: [
+        `Acetylcholine`,
+        `Melatonin`,
+        `Norepinephrine`,
+        `Dopamine`,
+      ],
+      correctAnswer: `Melatonin`,
+      explanation: `Suprachiasmatic nucleus receives information from the retina. Its main function is stabilization of wakefulness during the day and sleep during the night. When light hits the retina, it sends a signal to SCN via the retinohypothalamic tract [RHT]. The SCN inhibits the superior cervical ganglion which in turn provides excitatory input to the pineal gland. This excitatory input suppresses melatonin release from the pineal gland. Melatonin in turn activates the SCN at the melatonin type I [MT1] and type 2 [MT2] receptors affecting sleep.
+ 
+      Acetylcholine is formed in cholinergic neurons [Lateral pontine/pedunculopontine tegmentum basal forebrain region]. These neurons are more active during rapid eye movement [REM] sleep.  It does not have a prominent role in regulation of circadian rhythms.
+       
+      Norepinephrine is formed in the noradrenergic neurons located in the locus coeruleus and project to the cortex. These neurons are most active during wakefulness. However, it does not have a primary role in regulating the suprachiasmatic nucleus. 
+       
+      Dopamine is synthesized in the ventral tegmental areas and ventral periaqueductal gray matter. Its most important role is to act during volitional awake activity likely through a connection to the reward system. It does not, however, play a prominent role in regulating the suprachiasmatic nucleus.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/30304113/" target="_blank">Amaral FGD, Cipolla-Neto J. A brief review about melatonin, a pineal hormone. Arch Endocrinol Metab. 2018 Aug;62(4):472-479.</a>`,
+      ],
+      level: "Easy",
+      category: "Sleep",
+    }),
+
+    //   Q230
+    Question_Answer.create({
+      question: `One year after hospital discharge, most survivors of ARDS have:`,
+      questionImage: [],
+      answerOptions: [
+        `Abnormal chest films`,
+        `FVC <50% predicted`,
+        `FeV1 <50% predicted`,
+        `SpO2 < 90% with exercise`,
+        `Reduced 6-minute walk distance`,
+      ],
+      correctAnswer: `Reduced 6-minute walk distance`,
+      explanation: `Acute Respiratory distress syndrome (ARDS) is characterized by bilateral infiltrates on chest x-ray, PaO2/FI02 of 200 or less, and absence of atrial hypertension. Patients who have survivors of ARDS can have many long-term outcomes such as physical and neuropsychological complications due to lung injury, multiorgan failure and stay in the ICU.  
+
+
+      Many patients have functional disabilities such as muscle wasting due to loss of body weight with weakness being the most prominent symptom. The 6-minute walk test was less than predicted value due to exercise limitation and weakness. Muscle wasting can be due to corticosteroid-induced and critical illness myopathy. Some patients also had alopecia but resolved within 6 months.  
+      
+      
+      Lung volumes and spirometry are generally normal after 6 months, but DLCO may be reduced throughout the 12 month follow up. Chest x-ray were normal in 80% of patients.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/12594312/" target="_blank">Herridge MS, Cheung AM, Tansey CM, Matte-Martyn A, Diaz-Granados N, Al-Saidi F, Cooper AB, Guest CB, Mazer CD, Mehta S, Stewart TE, Barr A, Cook D, Slutsky AS; Canadian Critical Care Trials Group. One-year outcomes in survivors of the acute respiratory distress syndrome. N Engl J Med. 2003 Feb 20;348(8):683-93</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q231
+    Question_Answer.create({
+      question: `Which of the following is true about lung cancer:`,
+      questionImage: [],
+      answerOptions: [
+        `Adenocarcinoma most often presents as a hilar mass.`,
+        `Large cell carcinoma is often associated with endobronchial disease.`,
+        `Squamous cell ca of the lung metastasizes early  through blood vessels.`,
+        `Small cell carcinoma is associated with late distant spread.`,
+        `Minimally invasive adenocarcinomas of the lung demonstrate a lepidic pattern`,
+      ],
+      correctAnswer: `Minimally invasive adenocarcinomas of the lung demonstrate a lepidic pattern`,
+      explanation: `Adenocarcinoma is  the most common type of lung cancer. Approximately 50% of adenocarcinomas present as a nodule or mass in the periphery of the lung, 15% as a hilar mass, and 35% as a combination of mass and hilar/mediastinal lymphadenopathy].Squamous cell carcinoma most commonly arises in a lobar or segmental bronchus, occluding the lumen and causing distal collapse or consolidation. Small-cell carcinomas most commonly arise from the main airways, but rapidly invade the submucosal tissues, with early vascular  spread, resulting in high rates of distant metastatic spread. Minimally invasive adenocarcinomas of the lung are localized adenocarcinomas measuring ≤3 cm and demonstrating either pure lepidic or predominant lepidic growth pattern,[Lepidic growth refers to a pattern of cell proliferation along the lining of the alveolar structures of the lung ]with neoplastic cells along the alveolar structures and ≤5 mm of stromal invasion .Three histopathological subtypes are recognized :(1) non-mucinous: by far the most common subtype (2)mucinous: goblet cell (mucus-secreting), often multicentric, rare (3) and mixed. Similar to the adenocarcinoma in situ, minimally invasive adenocarcinoma of the lung cannot be securely diagnosed without entire histologic sampling of the tumor.
+ 
+      `,
+      explanationImage: [],
+      explanationLinks: [],
+      level: "Moderate",
+      category: "Lung Cancer",
+    }),
+
+    //   Q232
+    Question_Answer.create({
+      question: `Hypercapnia may occur in all of the following situations, except:`,
+      questionImage: [],
+      answerOptions: [
+        `High-calorie, high-carbohydrate diet in a patient with limited ventilatory reserve`,
+        `Administration of 100% O2 to a patient with mild COPD`,
+        `Ventilation-perfusion mismatch in a patient with limited ventilatory reserve`,
+        `Prolonged rapid, shallow breathing pattern`,
+      ],
+      correctAnswer: `Administration of 100% O2 to a patient with mild COPD`,
+      explanation: `High calorie or high carbohydrate diets can increase carbon dioxide production which may precipitate respiratory failure in patients with limited ventilatory reserve. Energy from fat results in low levels of carbon dioxide. 
+ 
+      Decreased alveolar ventilation leads to decreased minute ventilation. Dead space and tidal volume increase leasing to constant minute ventilation. Conditions associated with this condition are V/Q mismatch and rapid shallow breathing. 
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29175086/" target="_blank">Barnes T, Zochios V, Parhar K. Re-examining Permissive Hypercapnia in ARDS: A Narrative Review. Chest. 2018 Jul;154(1):185-195.</a>`,
+      ],
+      level: "Moderate",
+      category: "Critical Care",
+    }),
+
+    //   Q233
+    Question_Answer.create({
+      question: `Critical illness polyneuropathy is characterized by:`,
+      questionImage: [],
+      answerOptions: [
+        `Intact deep tendon reflexes`,
+        `Pronounced cranial muscle weakness`,
+        `Progressive, irreversible deterioration`,
+        `Axonal degeneration`,
+      ],
+      correctAnswer: `Axonal degeneration`,
+      explanation: `Critical illness polyneuropathy (CIP) is a disease that affects sensory and motor axons that occurs in patients predominantly with sepsis and multiple organ dysfunction acquired in the ICU. There is usually an overlap with critical illness myopathy. Most patients have difficulty weaning off from a ventilator. The mechanism of axonal injury in CIP is unknown but there is some data showing injury to microcirculation of distal nerves causes ischemia and axonal degeneration. On physical examination patients present with limb muscle weakness, reduced deep tendon reflexes with preservation of cranial muscles. In CSF analysis, there is a mild increase of protein. Nerve conduction studies will show axonal degeneration or motor and sensory nerves. Most cases resolve after weeks or months.`,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/3651796/" target="_blank">Zochodne DW, Bolton CF, Wells GA, et al. Critical illness polyneuropathy. A complication of sepsis and multiple organ failure. Brain 1987; 110 ( Pt 4):819.</a>`,
+      ],
+      level: "Easy",
+      category: "Critical Care",
+    }),
+
+    // Q234
+    Question_Answer.create({
+      question: `Which of the following are the risk factors for the  early-onset OSA in the pediatric population.`,
+      questionImage: [],
+      answerOptions: [
+        `Adenotonsillar hypertrophy (ATH)`,
+        `Prematurity`,
+        `African American ancestry`,
+        `All of the above`,
+      ],
+      correctAnswer: `All of the above`,
+      explanation: `ATH is currently considered the most important risk factor for developing OSA in children. In addition  risk factors for early-onset OSA include prematurity, Down syndrome, African American ancestry , and daycare attendance. The severity can be increased in those with obesity, tobacco exposure, and reduced family income.
+      Children with a history of prematurity are at increased risk for OSA even without the presence of other risk factors. Studies have found that as high as 9.4% of school-aged children who were born prematurely were also eventually diagnosed with OSA. This patient group may not always exhibit the typical signs of pediatric OSA, and there should be a low threshold for sleep study referral. In considering pediatric OSA Boys are at an increased risk after puberty, but the prepubertal risk is equal among boys and girls.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/32131901/" target="_blank">Xu Z, Wu Y, Tai J, Feng G, Ge W, Zheng L, Zhou Z, Ni X. Risk factors of obstructive sleep apnea syndrome in children. J Otolaryngol Head Neck Surg. 2020 Mar 4;49(1):11</a>`,
+        `<a href="https://www.ncbi.nlm.nih.gov/books/NBK557610/" target="_blank">Gouthro K, Slowik JM. Pediatric Obstructive Sleep Apnea. NCBI Bookshelf. StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2020 Jan-. Updated December 3, 2020. Available from:
+        </a>`,
+      ],
+      level: "Moderate",
+      category: "Sleep",
+    }),
+
+    //   Q235
+    Question_Answer.create({
+      question: `BAL fluid eosinophilia is seen in all of the following conditions EXCEPT:`,
+      questionImage: [],
+      answerOptions: [
+        `Chronic eosinophilic pneumonia`,
+        `Respiratory bronchiolitis associated with interstitial disease`,
+        `Tropical pulmonary eosinophilia`,
+        `Acute interstitial pneumonia`,
+      ],
+      correctAnswer: `Respiratory bronchiolitis associated with interstitial disease`,
+      explanation: `Eosinophilic lung diseases are a group of disorders with abnormally increased numbers of eosinophils within the pulmonary airways and parenchyma. Defining pulmonary
+      eosinophilia includes: 
+      Peripheral blood eosinophilia (absolute eosinophil count ≥500 eosinophils/microL) with abnormalities on pulmonary imaging studies 
+      Increased eosinophils in bronchoalveolar lavage (BAL) fluid (eg, >10 percent) 
+      Lung tissue eosinophilia demonstrated in transbronchial or open lung biopsies 
+       
+      Chronic eosinophilic pneumonia (CEP)- is a disorder with abnormal accumulation of eosinophils in the lung seen predominantly in nonsmokers, females after radiation therapy for breast cancer. Common symptoms are progressive breathlessness, weight loss, wheezing, and night sweats. Eosinophilia is common on peripheral smears. (Choice A) 
+       
+      Tropical pulmonary eosinophilia occurs bite from mosquito or recent travel in filaria-endemic region. Diagnosis is made by CT scan (diffuse opacities) with peripheral eosinophilia and elevated IgE levels. (Choice C)  
+       
+      Acute eosinophilic pneumonia is associated with rapid development of acute respiratory failure. It is associated with initiation of cigarette smoking. Peripheral eosinophilia is rare but can develop during the course of the disease.  
+       
+      Respiratory bronchiolitis associated with smoking related interstitial lung disease. BAL is typically done for patients who don’t have a clear diagnosis or moderate to severe disease on basis of symptoms. It is used to exclude other differentials. BAL usually shows an increased number of macrophages. (Choice B)  
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/3565934/" target="_blank">Myers JL, Veal CF Jr, Shin MS, Katzenstein AL. Respiratory bronchiolitis causing interstitial lung disease. A clinicopathologic study of six cases. Am Rev Respir Dis 1987; 135:880.</a>`,
+      ],
+      level: "Easy",
+      category: "Interstitial Lung Diseases",
+    }),
+
+    //   Q236
+    Question_Answer.create({
+      question: `A 65-year-old Caucasian female comes to the ER complaining of increased shortness of breath, for the last week. Her dyspnea is worsening on exertion and now having trouble walking to the bathroom. PMH include hypertension and high cholesterol treated with Amlodipine and Atorvastatin. She has smoked for the last 30 years. The patient is retired and worked for a glass manufacturing company.  On physical examination audible stridor was heard otherwise normal respiratory rhythm and lungs were clear to auscultation bilaterally.   CT scan was done in the ER shown below. She was discharged and under the care with pulmonologist where performed PFT. The results were shown below. `,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q236/Q236+img1.png`,
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q236/Q236+img2.png`,
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q236/Q236+img3.png`,
+      ],
+      answerOptions: [
+        `Extra Thoracic Obstruction`,
+        `Intrathoracic Obstruction`,
+        `Restrictive Airway Disease`,
+        `Bilateral Diaphragmatic Paralysis`,
+      ],
+      correctAnswer: `Intrathoracic Obstruction`,
+      explanation: `This patient presents with dyspnea. The CT scan shows narrowing of the trachea with paramediastinal mass, possibly from malignant process leading to intrathoracic obstruction.  Patient’s PFT also suggests an obstruction defect. The expiratory limb of the flow volume loops plateaus suggesting an obstruction in the intrathoracic region.  The FEV1/FVC is low, FEV1 is low and normal FVC indicates obstructive pattern. This patient has an audible stridor most likely due to tumor at the site of the bronchus [1].  
+ 
+      Extra thoracic obstruction is usually caused by vocal cord paralysis or enlarged goiter and inspiratory flow of volume flow loop will be cutoff.  Restrictive pattern would consist of FEV1/FVC normal or increased, low FVC and low TLC which this patient does not have. Bilateral diaphragmatic paralysis mostly consists of restrictive pattern with reduction in TLC, RV and FEV1. 
+      `,
+      explanationImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q236/A236+img1.png`,
+      ],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/7249767/" target="_blank">Acres JC, Kryger MH. Clinical significance of pulmonary function tests: upper airway obstruction. Chest 1981; 80:207-11 </a>`,
+      ],
+      level: "Hard",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q237
+    Question_Answer.create({
+      question: `A 40-year-old female, nonsmoking, housewife was referred to the pulmonary department with the diagnosis of difficult-to-treat asthma. She has a past medical history of severe persistent asthma as a child, diabetes mellitus, GERD and mild hypertension. She complains of a productive cough and gradually exacerbating shortness of breath on exertion which  began approximately 25 years of age. She was followed-up numerous times at several in-patient clinics, with the diagnosis of exacerbation of asthma, particularly during winter, despite regular use of asthma medication. She is taking fluticasone/salmeterol accuhaler (250/50 mcg) 2 puffs, twice daily; montelukast (10 mg), for dyspnea. She was recently started on a tapering dose of prednisone with no improvement. On physical examination: she is obese and showed expiratory wheezing and stridor in the supine position. Pulmonary function test (PFTs) results showed expiratory flow limitation with no reversibility: FEV1 20% of predicted, FEV1/FVC 0.42, FVC 41% of predicted, peak expiratory flow 84 L/min, forced expiratory flow during the middle half of the FVC maneuver (FEF25–75%) 10% of predicted.  HCRT image is shown below. ABG showed: hypoxia (pH = 7.25, pO2 = 56 mmHg, pCO2 = 30.9 mmHg, HCO3- = 20, mmol/l, SaO2 = 89%).  Skin prick test showed positive results against house dust and cat with borderline elevation of total IgE of 100 U/mL (n:35–70). Which is the most likely diagnosis?`,
+      questionImage: [
+        `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q237/Q237+img1.png`,
+      ],
+      answerOptions: [
+        `Asthma`,
+        `Tracheobronchomalacia`,
+        `COPD`,
+        `Bronchiectasis`,
+      ],
+      correctAnswer: `Tracheobronchomalacia`,
+      explanation: `It is a central airway disease characterized by weakness of tracheal and bronchial walls which is caused by softening of supporting cartilage. This results in loss of airway stiffness, causing the walls to move close enough resulting decrease in the lumen size of them trachea.
+
+        Tracheobronchomalacia can either be due to congenital or acquired causes. The acquired causes are more commonly seen in middle age adult and elders. The most common acquired causes of TBM are posttraumatic such as tracheostomy, intubation with endotracheal tube, chest trauma. However, it can also be seen in patient with COPD, Chronic inflammation, vascular ring. Other than these causes, some studies have shown that severe GERD and obesity is also associated with TBM. The most common clinical presentation of these patients is wheezing m dyspnea, chronic cough, and stridor. In order to diagnose these patients, we can do dynamic multislice helical CT which is a noninvasive test but the gold standard test for these patients is bronchoscopy which is an invasive test. Both of these tests are performed with forced expiratory maneuvers as it decreases the chance of missing collapse associated with TBM. Due to its association with different comorbid conditions, treatment of TBM is usually symptomatic with emphasis on smoking cessation. The other options for these patients are airway stenting and open surgery such as tracheostomy.
+        `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/24295659/" target="_blank">Kugler C, Stanzel F. Tracheomalacia. Thorac Surg Clin. 2014 Feb;24(1):51-58</a>`,
+      ],
+      level: "Hard",
+      category: "Other Pulmonary Diseases",
+    }),
+
+    //   Q238
+    Question_Answer.create({
+      question: `All the following are associated with mixed pattern on Pulmonary Function Tests (PFTs) except:`,
+      questionImage: [],
+      answerOptions: [
+        `Cystic fibrosis`,
+        `Sarcoidosis`,
+        `Asthma`,
+        `Langerhans cell histiocytosis`,
+      ],
+      correctAnswer: `Asthma`,
+      explanation: `Mixed pattern on PFTs is characterized by presence of both obstructive and restrictive defects. It is diagnosed when there is a low TLC plus a low FEV1/FVC ratio. A mixed PFT can be seen in morbidly obese patient with asthma. Common diseases associated with mixed defects are sarcoidosis and chronic hypersensitivity pneumonitis due to lung fibrosis and distal airway narrowing which can occur concurrently. 
+ 
+      An obstructive defect on spirometry is when FEV/FEV <70% where FEV1 is more reduced than FVC. Asthma and chronic obstructive pulmonary disease (CPOD) are common examples.
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/29866281/" target="_blank">Dempsey TM, Scanlon PD. Pulmonary Function Tests for the Generalist: A Brief Review. Mayo Clin Proc. 2018 Jun;93(6):763-771.</a>`,
+      ],
+      level: "Easy",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //   Q239
+    Question_Answer.create({
+      question: `The maximal voluntary ventilation (MVV) is decreased in all the following except?`,
+      questionImage: [],
+      answerOptions: [
+        `Upper airway obstruction`,
+        `Neuromuscular weakness`,
+        `Poor Pulmonary Function test performance`,
+        `Pulmonary embolism`,
+      ],
+      correctAnswer: `Pulmonary embolism`,
+      explanation: `The patient’s ability to breath in and out deeply and rapidly as possible is the measurement of MVV. It is sometimes included in spirometry testing. Normal value is roughly 40 times the FEV1, while lower limit is approximately 30 times FEV1. Conditions where MVV is decreased include, neuromuscular weakness, poor test performance or upper airway obstruction. Measuring maximal respiration can be helpful if neuromuscular weakness is suspected. Evaluation of the inspiratory portion of the flow-volume loop is useful if upper airway obstruction. 
+ 
+      Pulmonary embolism is a vascular disorder that does not affect lung mechanics. 
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://solution.lww.com/Book/Show/452900" target="_blank">Hyatt RE, Scanlon PD, Nakamura M. Interpretation of Pulmonary Function Tests: A Practical Guide. 4th ed Philadelphia, PA: Lippincott Williams & Wilkins; 2914</a>`,
+      ],
+      level: "Moderate",
+      category: "Pulmonary Function Testing",
+    }),
+
+    //Q240
+    Question_Answer.create({
+      question: `What is the correct sequence for putting on personal protective equipment (PPE)?`,
+      questionImage: [],
+      answerOptions: [
+        `Gown, Mask or Respirator, Goggles or Face shield, Gloves`,
+        `Mask or Respirator, Gown, Gloves, Goggles or Face Shield`,
+        `Gloves, Mask or Respirator, Gown, Goggles or Face Shield`,
+        `Goggles or Face Shield, Gloves, Mask or Respirator, Gown`,
+      ],
+      correctAnswer: `Gown, Mask or Respirator, Goggles or Face shield, Gloves`,
+      explanation: `The proper procedure for putting on and removing PPE is custom-made to specific types of PPE. They differ from the level of precautions required such as contact, standard, droplet or airborne infection. 
+ 
+      The correct sequence of putting on PPE include: 
+      Gown- Completely cover chest from neck to knees and wrap around the back 
+      Mask or Respirator- Make sure to tighten elastic bands neck and middle of the head. 
+      Goggles or Face shield- Cover over face and eyes and adjust accordingly
+      Gloves- Extend to cover wrist of isolation gown 
+       
+      How to limit the spread of contamination
+      Do not touch your face 
+      Limit touching surfaces 
+      Change gloves when contaminated or torn 
+      Perform hand hygiene
+      `,
+      explanationImage: [],
+      explanationLinks: [
+        `<a href="https://www.cdc.gov/hai/pdfs/ppe/ppe-sequence.pdf" target="_blank">https://www.cdc.gov/hai/pdfs/ppe/ppe-sequence.pdf</a>`,
+      ],
+      level: "Easy",
+      category: "Other Pulmonary Diseases",
     }),
 
     // <--------------------Sample Layout------------------->
