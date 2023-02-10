@@ -55,7 +55,11 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.INTEGER,
     get() {
       const rawValue = this.getDataValue("displayId");
-      return rawValue ? rawValue : this.getDataValue("id");
+      return rawValue
+        ? rawValue
+        : this.getDataValue("ancestorId")
+        ? this.getDataValue("ancestorId")
+        : this.getDataValue("id");
     },
   },
 });

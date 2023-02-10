@@ -107,9 +107,6 @@ const SingleQuestion = () => {
   //   console.log({answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput});
   // }
 
-  const handleDelete = () => {
-    dispatch(deleteSingleQuestion(id, ancestorId));
-  };
 
   if (admin) {
     return <SingleQAadmin />;
@@ -126,13 +123,13 @@ const SingleQuestion = () => {
                   {/* <div style={{ fontSize: "20px", textAlign: "center" }}>
                   singleQuestion
                 </div> */}
-                  <Card>
+                  {/* <Card>
                     <Card.Body
                       style={{ fontSize: "20px", textAlign: "center" }}
                     >
                       Question: {displayId}
                     </Card.Body>
-                  </Card>
+                  </Card> */}
 
                   <Card>
                     <Card.Body
@@ -143,7 +140,7 @@ const SingleQuestion = () => {
                         textAlign: "center",
                       }}
                     >
-                      Question: {question}
+                      Question {displayId}: {question}
                     </Card.Body>
                   </Card>
                 </Stack>
