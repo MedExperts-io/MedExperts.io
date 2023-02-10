@@ -1,7 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Card, Dropdown, Row, Col, Form, Container, Button } from "react-bootstrap";
+import {
+  Card,
+  Dropdown,
+  Row,
+  Col,
+  Form,
+  Container,
+  Button,
+} from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import {
@@ -381,15 +389,20 @@ const AllQAadmin = () => {
   };
   return (
     <Container fluid>
+      <Row>
+        <Card id="no-border" className="mx-auto">
+          <Button
+            variant="success"
+            as={Link}
+            to="/addQuestion"
+            className="m-2"
+            // style={{ color: "#FF6262" }}
+          >
+            Add a Question
+          </Button>
+        </Card>
+      </Row>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-
-        <Button
-                          variant="success"
-                          as={Link}
-                          to="/addQuestion"
-                          className="m-2"
-                          // style={{ color: "#FF6262" }}
-        >Add a Question</Button>
         <Card id="no-border" className="mx-auto">
           <Card.Body>
             <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
@@ -495,7 +508,6 @@ const AllQAadmin = () => {
             </Row>
           </Card.Body>
         </Card>
-
       </Row>
 
       <Row>
