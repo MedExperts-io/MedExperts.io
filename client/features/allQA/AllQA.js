@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import { Card, Dropdown, Row, Col, Form } from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import {
-  fetchAllUserQuestions,
   fetchUserQuestions,
   updateUserQuestion,
 } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
+import { Chip, Stack } from "@mui/material";
 import AllQAadmin from "./AllQAadmin";
 import { textAlign } from "@mui/system";
 
@@ -78,7 +77,7 @@ const QuestionsAnswers = () => {
   UserQuestions ? (rightOrWrong = userRightOrWrong(UserQuestions)) : null;
 
   let allQuestions = [...questionsAnswers];
-  allQuestions.sort((a, b) => a.id - b.id);
+  allQuestions.sort((a, b) => a.displayId - b.displayId);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions
     ? setfilteredQuestions(allQuestions)
@@ -215,7 +214,52 @@ const QuestionsAnswers = () => {
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-  }, []); // Putting userQuestions in here throws a loop
+  }, []);
+
+  const styles = {
+    progressBarEasy: {
+      background: progressCircleBackground(easyPercentage / 100, "lightgreen"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarModerate: {
+      background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarHard: {
+      background: progressCircleBackground(hardPercentage / 100, "#f55b49"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarAll: {
+      background: progressCircleBackground(allPercentage / 100, "#bf5eff"),
+      borderRadius: "50%",
+      width: "120px",
+      height: "120px",
+      position: "relative",
+    },
+    progressBarBackground: {
+      position: "absolute",
+      bottom: "30%",
+      width: "100%",
+      textAlign: "center",
+      fontSize: "60%",
+    },
+    progressBarMiddle: {
+      position: "absolute",
+      bottom: "40%",
+      width: "100%",
+      textAlign: "center",
+      fontSize: "150%",
+    },
+  };
 
   if (admin) {
     return <AllQAadmin />;
@@ -231,44 +275,13 @@ const QuestionsAnswers = () => {
               <Row>
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          easyPercentage / 100,
-                          "lightgreen"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                        boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
+                    <div className="mx-auto" style={styles.progressBarEasy}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>
+
                         {easyPercentage}%
                       </div>
                     </div>
-
                     <Card.Title
                       className="mx-auto"
                       style={{ color: "lightgreen" }}
@@ -280,45 +293,14 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          moderatePercentage / 100,
-                          "#f5ad27"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        textAlign: "right",
-                        position: "relative",
-                        boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
+
+                    <div className="mx-auto" style={styles.progressBarModerate}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>
+
                         {moderatePercentage}%
                       </div>
                     </div>
-
                     <Card.Title
                       className="mx-auto"
                       style={{ color: "#f5ad27" }}
@@ -327,42 +309,13 @@ const QuestionsAnswers = () => {
                     </Card.Title>
                   </Card>
                 </Col>
+
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          hardPercentage / 100,
-                          "#f55b49"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                        boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
+                    <div className="mx-auto" style={styles.progressBarHard}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>
+
                         {hardPercentage}%
                       </div>
                     </div>
@@ -374,48 +327,17 @@ const QuestionsAnswers = () => {
                     </Card.Title>
                   </Card>
                 </Col>
+
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          allPercentage / 100,
-                          "#bf5eff"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        marginTop: "0px",
-                        position: "relative",
-                        boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)'
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                         
-                        }}
-                      >
+
+                    <div className="mx-auto" style={styles.progressBarAll}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>
+
                         {allPercentage}%
                       </div>
                     </div>
-
                     <Card.Title
                       className="mx-auto"
                       style={{ color: "#bf5eff" }}
@@ -428,6 +350,7 @@ const QuestionsAnswers = () => {
             </Card.Body>
           </Card>
         </Row>
+
         <Row>
           <Card className="mx-auto" id="no-border">
             <Card.Header style={{ marginBottom: "20px", fontSize: "200%",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)', textAlign: 'center' }}>
@@ -486,6 +409,7 @@ const QuestionsAnswers = () => {
                   </Form>
                 </Col>
               </Row>
+
               <Row>
                 {loading && <LoadingScreen />}
                 {currentItems && currentItems.length && currentItems !== "nada"
@@ -505,6 +429,29 @@ const QuestionsAnswers = () => {
                               backgroundColor: cardBodyColor(question.id),
                             }}
                           >
+                            <Link
+                              style={{ textDecoration: "none" }}
+                              to={`/questions/${question.id}`}
+                            >
+                              <Card.Title style={{ color: "black" }}>
+                                Question Number {question.displayId}
+                              </Card.Title>
+                              <Card.Text style={{ color: "black" }}>
+                                {truncate(question.question)}
+                              </Card.Text>
+                            </Link>
+                          </Card.Body>
+                          <Card.Footer>
+                            <Chip
+                              label={question.level}
+                              onClick={() => pickDifficulty(question.level)}
+                              color="info"
+                            />
+                            <Chip
+                              label={question.category}
+                              onClick={() => pickCategory1(question.category)}
+                              color="info"
+                            />
                             <Card.Img
                               style={{ float: "right", width: "25px" }}
                               onClick={() => favorite(userId, question.id)}
@@ -514,23 +461,6 @@ const QuestionsAnswers = () => {
                                   ? "/heart(red).png"
                                   : "/heart.png"
                               }
-                            />
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`/questions/${question.id}`}
-                            >
-                              <Card.Title style={{ color: "black" }}>
-                                Question Number {question.id}
-                              </Card.Title>
-                              <Card.Text style={{ color: "black" }}>
-                                {truncate(question.question)}
-                              </Card.Text>
-                            </Link>
-                          </Card.Body>
-                          <Card.Footer>
-                            <Card.Img
-                              style={{ float: "right", width: "25px" }}
-                              src="/endocrine-system.png"
                             />
                           </Card.Footer>
                         </Card>

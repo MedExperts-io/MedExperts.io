@@ -71,6 +71,7 @@ const SingleQuestion = () => {
     category,
     level,
     ancestorId,
+    displayId,
   } = singleQ;
 
   const AllUserQuestion = useSelector(
@@ -129,7 +130,7 @@ const SingleQuestion = () => {
                     <Card.Body
                       style={{ fontSize: "20px", textAlign: "center" }}
                     >
-                      Question Number: {id}
+                      Question: {displayId}
                     </Card.Body>
                   </Card>
 
@@ -319,7 +320,7 @@ const SingleQuestion = () => {
                     <Card.Body
                       style={{ fontSize: "20px", textAlign: "center" }}
                     >
-                      Question Number: {id}
+                      Question: {displayId}
                     </Card.Body>
                   </Card>
 
