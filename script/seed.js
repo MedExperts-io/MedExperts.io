@@ -2669,8 +2669,8 @@ async function seed() {
         `It is a derivative of the AA lysine `,
       ],
       correctAnswer: `Nebulized tranexamic when used to treat hemoptysis does not decrease the need for Interventional pulmonary or Interventional Radiology procedure`,
-      explanation: `Tranexamic acid is an antifibrinolytic drug that has become progressively more commonly used in the surgical field. It works by blocking the lysine binding site in plasminogen and prevents its binding to fibrin. It has substantial benefit in decreasing the risk of death in both surgical trauma patients as well as decreasing the risk of hemorrhage related death in postpartum patients [1]. It has shown  efficacy in a range of bleeding complications if given early in the course. The risk of thromboembolic disease does not appear to be increased with treatment. 
-      Management of active Hemoptysis  typically  requires  reversing any coagulopathy in addition to  maintaining oxygenation of the patient. However persistent or significant bleeding will usually require invasive measures to both localize and treat the source of bleeding (including cold saline, topical epinephrine, balloon tamponade and argon plasma coagulation) .Nebulized Tranexamic acid has also been used to treat active hemoptysis.  
+      explanation: `Tranexamic acid is an antifibrinolytic drug that has become progressively more commonly used in the surgical field. It works by blocking the lysine binding site in plasminogen and prevents its binding to fibrin. It has substantial benefit in decreasing the risk of death in both surgical trauma patients as well as decreasing the risk of hemorrhage related death in postpartum patients [1]. It has shown  efficacy in a range of bleeding complications if given early in the course. The risk of thromboembolic disease does not appear to be increased with treatment.
+      Management of active Hemoptysis  typically  requires  reversing any coagulopathy in addition to  maintaining oxygenation of the patient. However persistent or significant bleeding will usually require invasive measures to both localize and treat the source of bleeding (including cold saline, topical epinephrine, balloon tamponade and argon plasma coagulation) .Nebulized Tranexamic acid has also been used to treat active hemoptysis.
       Wand et.al. studied  nebulized tranexamic acid in patients without massive hemoptysis or respiratory insufficiency[2]  . Resolution of hemoptysis at 5 days was substantially higher compared to placebo. There was also decreased need for bronchoscopy or angiographic embolization. This appears to be a useful option in stable patients with hemoptysis.`,
       explanationImage: [],
       explanationLinks: [
@@ -2714,8 +2714,8 @@ async function seed() {
         `Bronchogenic Carcinoma`,
       ],
       correctAnswer: `Bronchogenic Carcinoma`,
-      explanation: `Angiotensin converting enzyme (ACE) is an enzyme that converts angiotensin I to angiotensin II. ACE indirectly causes higher blood pressure as it produces a substance that narrows your blood vessels leading to constriction. Higher levels of ACE can be used in diagnosing sarcoidosis but is not a specific finding. Other diseases associated with higher ACE levels include, alcoholic cirrhosis, primary biliary cirrhosis, inflammatory bowel disease, coccidioidomycosis, berylliosis, histoplasmosis, silicosis, asbestosis, hyperthyroidism and miliary tuberculosis. 
- 
+      explanation: `Angiotensin converting enzyme (ACE) is an enzyme that converts angiotensin I to angiotensin II. ACE indirectly causes higher blood pressure as it produces a substance that narrows your blood vessels leading to constriction. Higher levels of ACE can be used in diagnosing sarcoidosis but is not a specific finding. Other diseases associated with higher ACE levels include, alcoholic cirrhosis, primary biliary cirrhosis, inflammatory bowel disease, coccidioidomycosis, berylliosis, histoplasmosis, silicosis, asbestosis, hyperthyroidism and miliary tuberculosis.
+
       Low levels of ACE have been seen with bronchogenic carcinoma.`,
       explanationImage: [],
       explanationLinks: [
@@ -2782,7 +2782,7 @@ async function seed() {
         `Acute lipoid pneumonia`,
       ],
       correctAnswer: `Acute lipoid pneumonia`,
-      explanation: `Lipoid pneumonia is most commonly reported after aspiration of ingested mineral oil. Patients presenting with this condition typically have a history of e-cigarette usage containing nicotine, and marijuana oil or concentrate. CT scan finding of lipoid pneumonia will show ground-glass opacities, crazy paving pattern, interlobular thickening and nodular consolidation. Flexible bronchoscopy with bronchoalveolar lavage (BAL) can be helpful in diagnosing acute lipoid pneumonia, which can show lipid laden macrophages present in this patient. Corticosteroid therapy has been proven to benefit patients. Acute eosinophilic pneumonia (AEP) typically presents with patients with progressive dyspnea less than one month and chest imaging of diffuse parenchymal opacities. Diagnosis established with BAL typically show eosinophilia (>25%  eosinophils). Management of AEP includes supportive care with oxygen, empiric antibiotics until available culture results and systemic glucocorticoid therapy. The Chest X ray in  Bacterial Pneumonia will show  lobar consolidation.. Treatment in these cases should be aimed at managing the underlying infection. Hypersensitivity pneumonitis is an immune-mediated reaction in response to the inhalation of various antigens containing organic dust and chemicals. In acute cases, chest CT may reveal ground-glass opacities with mosaic pattern. In chronic cases, chest CT is more likely to show a reticular pattern of fibrosis, air trapping and bronchiectasis. BAL may show lymphocytosis. 
+      explanation: `Lipoid pneumonia is most commonly reported after aspiration of ingested mineral oil. Patients presenting with this condition typically have a history of e-cigarette usage containing nicotine, and marijuana oil or concentrate. CT scan finding of lipoid pneumonia will show ground-glass opacities, crazy paving pattern, interlobular thickening and nodular consolidation. Flexible bronchoscopy with bronchoalveolar lavage (BAL) can be helpful in diagnosing acute lipoid pneumonia, which can show lipid laden macrophages present in this patient. Corticosteroid therapy has been proven to benefit patients. Acute eosinophilic pneumonia (AEP) typically presents with patients with progressive dyspnea less than one month and chest imaging of diffuse parenchymal opacities. Diagnosis established with BAL typically show eosinophilia (>25%  eosinophils). Management of AEP includes supportive care with oxygen, empiric antibiotics until available culture results and systemic glucocorticoid therapy. The Chest X ray in  Bacterial Pneumonia will show  lobar consolidation.. Treatment in these cases should be aimed at managing the underlying infection. Hypersensitivity pneumonitis is an immune-mediated reaction in response to the inhalation of various antigens containing organic dust and chemicals. In acute cases, chest CT may reveal ground-glass opacities with mosaic pattern. In chronic cases, chest CT is more likely to show a reticular pattern of fibrosis, air trapping and bronchiectasis. BAL may show lymphocytosis.
       Patients with subacute Hypersensitivity pneumonitis will benefit from corticosteroids. Patients with chronic Hypersensitivity pneumonitis  may require immunosuppression treatment.`,
       explanationImage: [],
       explanationLinks: [
@@ -2814,7 +2814,7 @@ async function seed() {
 
     //Q110
     Question_Answer.create({
-      question: `35-year-old pregnant female was brought to the clinic with her friend complaining of high fever, vomiting and malaise. The patient had a cough for 3 days. The patient is working at a kindergarten. The patient had a normal pregnancy till date. Patients used to drink a can of beer a day for 10 years but stopped after conceiving. Temperature 101.2 F, blood pressure 125/82, and pulse 105/min. Pulse oximetry is 97% at room air. Cardiac examination was normal except for tachycardia. Chest X-ray shows mild interstitial filtrates. Laboratory results were normal. Patient was diagnosed with Influenza after a positive rapid flu test.   
+      question: `35-year-old pregnant female was brought to the clinic with her friend complaining of high fever, vomiting and malaise. The patient had a cough for 3 days. The patient is working at a kindergarten. The patient had a normal pregnancy till date. Patients used to drink a can of beer a day for 10 years but stopped after conceiving. Temperature 101.2 F, blood pressure 125/82, and pulse 105/min. Pulse oximetry is 97% at room air. Cardiac examination was normal except for tachycardia. Chest X-ray shows mild interstitial filtrates. Laboratory results were normal. Patient was diagnosed with Influenza after a positive rapid flu test.
       Which of the following is drug of choice in this patient?`,
       questionImage: [],
       answerOptions: [`Favipiravir`, `Zanamivir`, `Peramivir`, `Oseltamivir`],
@@ -2843,10 +2843,10 @@ async function seed() {
       ],
       answerOptions: [`5%`, `10%`, `20%`, `25%`],
       correctAnswer: `10%`,
-      explanation: `This patient’s CT scan shows evidence of emphysema, a condition that falls under the umbrella of chronic obstructive pulmonary disease (COPD). In emphysema, damage to the airways ultimately causes irreversible limitations to airflow. A formal diagnosis of COPD is typically reached on the basis of clinical symptoms such as dyspnea and chronic productive or non-productive cough, as well as objective measures in the form of pulmonary function testing. The GOLD (Global Initiative for Chronic Obstructive Lung Disease) criteria is used to classify severity of COPD on the basis of the FEV1/FVC ratio. An FEV1/FVC ratio of <LLN indicates the presence of airflow limitation [1]. 
- 
-      In some cases, a diagnosis of COPD cannot be reached solely on the basis of spirometry. As such, further investigation is warranted. Radiographic evidence of COPD can be seen using computed tomography as an objective means of assessing the lung parenchyma. Some individuals with COPD symptoms and evidence of emphysematous changes on chest CT, as seen in this patient, can have normal spirometry results on pulmonary function testing. Spirometry has been shown to be normal in approximately 10% of patients with clinically evident COPD on chest CT [2]. These patients are generally considered to have a milder form of the disease. 
-       
+      explanation: `This patient’s CT scan shows evidence of emphysema, a condition that falls under the umbrella of chronic obstructive pulmonary disease (COPD). In emphysema, damage to the airways ultimately causes irreversible limitations to airflow. A formal diagnosis of COPD is typically reached on the basis of clinical symptoms such as dyspnea and chronic productive or non-productive cough, as well as objective measures in the form of pulmonary function testing. The GOLD (Global Initiative for Chronic Obstructive Lung Disease) criteria is used to classify severity of COPD on the basis of the FEV1/FVC ratio. An FEV1/FVC ratio of <LLN indicates the presence of airflow limitation [1].
+
+      In some cases, a diagnosis of COPD cannot be reached solely on the basis of spirometry. As such, further investigation is warranted. Radiographic evidence of COPD can be seen using computed tomography as an objective means of assessing the lung parenchyma. Some individuals with COPD symptoms and evidence of emphysematous changes on chest CT, as seen in this patient, can have normal spirometry results on pulmonary function testing. Spirometry has been shown to be normal in approximately 10% of patients with clinically evident COPD on chest CT [2]. These patients are generally considered to have a milder form of the disease.
+
       Obesity is another factor that may complicate the use of spirometry alone to elucidate causes of airflow limitation such as in COPD. A recent study shows that in those with radiographically evident COPD, obese patients, such as the one described above with a BMI of 47, had a more normal FEV1/FVC ratio on average when compared to non-obese patients. Regarding outcomes, studies have shown an “obesity paradox” in which patients with higher BMI had lower mortality in COPD [3]. Additionally, low BMI was shown to have a higher correlation with emphysema diagnosed on the basis of spirometry [4][5][6]. A clinician should be cognizant of this relationship between BMI and COPD outcomes when managing suspected COPD. These patients may warrant further investigation in the presence of seemingly normal pulmonary function testing results.`,
       explanationImage: [],
       explanationLinks: [
@@ -2938,13 +2938,13 @@ async function seed() {
     //Q115
     Question_Answer.create({
       question: `A 41-year-old woman came into the clinic with shortness of breath for 1 year but worsened for 2 months. She now has shortness of breath even when doing her daily activities like household chores and walking around the house. Also tells us that dyspnea is worse with lying down and mild worsening of dyspnea with raising her arms. She denies H/O fever, cough, difficulty swallowing or hoarseness of voice. She is Obese with BMI of >58 and has been gaining weight. Her past medical history is significant for Severe scoliosis, OSA (not on CPAP), and multinodular goiter. On examination, she was alert and comfortable. Trace to +1 pitting edema. Facial swelling and vascular engorgement of the cervical veins is seen when lifting arms over the head for about a min.
-      Vitals: PR: 75, BP: 135/ 90, O2 sat – 91% on RA supine, improved to 96-97% on RA with deep inspiration on room air. 
+      Vitals: PR: 75, BP: 135/ 90, O2 sat – 91% on RA supine, improved to 96-97% on RA with deep inspiration on room air.
       Lungs: clear, No crackles.
-      Heart: Normal S1 S2, no murmurs 
-      PFTs: FEV1/FVC: 83, FEV1: 1.38 L 59%, FVC: 1.67 L 60%, TLC: 2.76 L 69%, DLCO 44 
+      Heart: Normal S1 S2, no murmurs
+      PFTs: FEV1/FVC: 83, FEV1: 1.38 L 59%, FVC: 1.67 L 60%, TLC: 2.76 L 69%, DLCO 44
       Labs: Normal CBC, TSH.
       ABG: 7.37/60/78
-      CT: 
+      CT:
       What could be the most likely cause of her symptoms?  `,
       questionImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q115/Q115+img1.png`,
@@ -2959,9 +2959,9 @@ async function seed() {
       explanation: `This patient has enlarged thyroid which is compressing the trachea as shown in the CT scan. Patients have a positive Pemberton’s sign. In this maneuver, the patient is asked to elevate both arms until they touch sides of the face. If there is presence of facial congestion and cyanosis and respiratory distress after a minute as seen in this patient. This maneuver is performed during thyroid examination. This maneuver is also useful in patients with adenopathy, tumor or fibrosis in mediastinum.
 
       Ewart’s sign: This sign is positive in patients with large pericardial effusion.  In this patient's large effusion compresses the left lower lobe of the lung that results in dullness to percussion and bronchial breath sounds which can be heard at an inferior angle of the left scapula.
-      
+
       Lerman scratch: It is a murmur that results from rubbing of the pericardium against the pleura. It occurs due to hyperdynamic circulation and tachycardia. This murmur is a mid-systolic scratching sound which is best heard over the upper part of the sternum or second intercostal space at end of the expiration in patients with hyperthyroidism.
-      
+
       Caput Medusae: It’s a network of painless, swollen superficial epigastric veins radiating from umbilicus across the abdomen. It is common in patients with liver disease. `,
       explanationImage: [],
       explanationLinks: [],
@@ -3110,20 +3110,20 @@ async function seed() {
         `Churg Strauss Syndrome`,
       ],
       correctAnswer: `Granulomatosis with polyangiitis`,
-      explanation: `Granulomatosis with polyangiitis (GPA) is a systemic disorder that is characterized by necrotizing vasculitis of the small arteries and veins. The triad of clinical symptoms include necrotizing granulomas of the upper and lower respiratory system, systemic vasculitis and necrotizing glomerulonephritis. Patients with GPA usually present with nonspecific symptoms of fever, malaise, weight loss, arthralgia and myalgia which this patient has.  The earliest complaint for medical attention is related to respiratory system (cough, hemoptysis or dyspnea). This patient has shortness of breath and hemoptysis due to inflammation of the trachea. She also has nasal crusting and bloody nasal discharge due to inflammation of the nose or sinus. Some individuals can develop a tear in the septum dividing the nostrils that can cause a collapse at the bridge of the nose otherwise known as “saddle nose”. 
+      explanation: `Granulomatosis with polyangiitis (GPA) is a systemic disorder that is characterized by necrotizing vasculitis of the small arteries and veins. The triad of clinical symptoms include necrotizing granulomas of the upper and lower respiratory system, systemic vasculitis and necrotizing glomerulonephritis. Patients with GPA usually present with nonspecific symptoms of fever, malaise, weight loss, arthralgia and myalgia which this patient has.  The earliest complaint for medical attention is related to respiratory system (cough, hemoptysis or dyspnea). This patient has shortness of breath and hemoptysis due to inflammation of the trachea. She also has nasal crusting and bloody nasal discharge due to inflammation of the nose or sinus. Some individuals can develop a tear in the septum dividing the nostrils that can cause a collapse at the bridge of the nose otherwise known as “saddle nose”.
 
-      Diagnosis of GPA is often delayed until clinical presentations. It is made upon clinical evaluation including labs, patient history and biopsy.  In this patient CT scan shows multiple bilateral lung masses as well as a large cavitary of consolidation involving most of the left lobe. There is also bilateral hilar adenopathy larger on the left side. In labs there is evidence of kidney failure due to labs (high BUN and CR). ESR is elevated due to inflammation. A positive test for rheumatoid factor occurs in half of patients who have GPA and is useful to correlate disease status and therapeutic effect. 
-      
-      Typical histopathology or positive cytoplasmic ANCA (c-ANCA) is the test for diagnosis for GPA. ANCA is both sensitive and specific for GPA. About 80-95% of cases are associated with c-ANCA with antibodies directed against proteinase 3 antibodies (PR3), the remainder are p-ANCA against myeloperoxidase antibodies (MPO) which this patient exhibits. He has positive C-ANCA titers (1:40) with positive PR3. 
-      
+      Diagnosis of GPA is often delayed until clinical presentations. It is made upon clinical evaluation including labs, patient history and biopsy.  In this patient CT scan shows multiple bilateral lung masses as well as a large cavitary of consolidation involving most of the left lobe. There is also bilateral hilar adenopathy larger on the left side. In labs there is evidence of kidney failure due to labs (high BUN and CR). ESR is elevated due to inflammation. A positive test for rheumatoid factor occurs in half of patients who have GPA and is useful to correlate disease status and therapeutic effect.
+
+      Typical histopathology or positive cytoplasmic ANCA (c-ANCA) is the test for diagnosis for GPA. ANCA is both sensitive and specific for GPA. About 80-95% of cases are associated with c-ANCA with antibodies directed against proteinase 3 antibodies (PR3), the remainder are p-ANCA against myeloperoxidase antibodies (MPO) which this patient exhibits. He has positive C-ANCA titers (1:40) with positive PR3.
+
       The average life expectancy for patients with GPA without treatment is only 5 months. Rituximab has shown to be successful in conjunction with glucocorticoids.  Steroids help suppress the immune system and reduce the inflammation of the blood vessels. Once the disease is stabilized, patients stay on long term immunosuppressants to prevent relapse (methotrexate, azathioprine and mycophenolate) Plasmapheresis can help those with severe GPA and can help the kidney recover [1].
-      
+
       Giant Cell Arteritis also called temporal arteritis involves inflammation of large arteries including the temporal arteries which is along the side of the head near the temples. Symptoms associated with GCA include headache, scalp tenderness, jaw pain and blurred vision. In severe cases, if left untreated blindness can occur which is irreversible.  This type of vasculitis affects individuals who are >50 years of age.  Women are commonly more affected. There is also an association with polymyalgia rheumatica. In labs ESR will be greater or equal to 50 mm/h. Diagnosis is done with biopsy which shows mononuclear cell infiltration or granulomatous inflammation. Timing is very critical to prevent patients with vision loss therefore steroids should be started immediately [2].
-      
+
       Polyarteritis Nodosa affects medium blood and is linked to be associated with Hepatitis B or C infections.  Any organ can be affected but for reasons unknown PAN does not affect the lungs. Diagnosis is made by determining the extent of severity of organ system involvement, testing for Hepatitis B, and confirmation of diagnosis by tissue biopsy or angiography [3].
-      
+
       Microscopic Polyangiitis is a small vessel necrotizing vasculitis. Renal manifestation is the most common and individuals have some form of glomerulonephritis most common form as rapidly progressive glomerulonephritis. Symptoms vary from asymptomatic hematuria to overt renal failure. Patients can also have pulmonary manifestations in the form of alveolar hemorrhage. To distinguish from GPA, labs will be positive for MPO-ANCA which are antibodies against myeloperoxidase detected by ELISA. Treatment is generally with the use of glucocorticoids and cytotoxic agents [4].
-      
+
       Churg Strauss Syndrome also known as eosinophilic granulomatosis with polyangiitis is characterized by necrotizing vasculitis of small and medium size blood vessels. The diagnostic criteria for Churg Strauss Syndrome according to American College of Rheumatology are (4 out of 6): asthma, migratory infiltrates in lungs, paranasal sinus abnormalities, mono or polyneuropathy, peripheral blood eosinophilia (greater than 10% total leucocyte count) and eosinophilic tissue infiltrates in the biopsy. The prevalence of ANCA positivity in Churg Strauss Syndrome is approximately 40% more specific for myeloperoxidase (MPO). Usually on CT scan there is asymmetric diffuse bilateral peripheral ground glass infiltrates along the bronchial wall thickening. Bilateral bronchocentric nodular infiltrates can also occur but they do not cavitate unlike in GPA. Corticosteroids help in reduction of eosinophils in the blood and tissues. With detection and treatment patients have a favorable prognosis with 5-year survival for 90% of patients [5].
       `,
       explanationImage: [],
@@ -3211,7 +3211,7 @@ async function seed() {
         `Place 32 F chest tube`,
       ],
       correctAnswer: `Thoracic Surgery consult and plan for thoracotomy`,
-      explanation: `The rapid recurrence of effusion along with a drop raises strong suspicions of a hemothorax secondary to the prior thoracentesis. The repeat thoracentesis is consistent with hemothorax. Typically, it is considered a hemothorax if the ratio of pleural Hct to serum Hct is >50%. Small (<200-300cc) may be managed expectantly. A chest tube should be placed to evacuate the blood which may be adequate for control. In the past large surgical chest tubes (>28F) were placed for hemothorax but more recent studies suggest that percutaneous small-bore catheters 14F are similarly effective in clinical outcome and are less painful. 
+      explanation: `The rapid recurrence of effusion along with a drop raises strong suspicions of a hemothorax secondary to the prior thoracentesis. The repeat thoracentesis is consistent with hemothorax. Typically, it is considered a hemothorax if the ratio of pleural Hct to serum Hct is >50%. Small (<200-300cc) may be managed expectantly. A chest tube should be placed to evacuate the blood which may be adequate for control. In the past large surgical chest tubes (>28F) were placed for hemothorax but more recent studies suggest that percutaneous small-bore catheters 14F are similarly effective in clinical outcome and are less painful.
       The continued rate of drainage, if present, can help determine if surgery is necessary along with clinical status. A rate >200-300cc/hr would suggest surgical therapy. However, this patient has a large amount of blood, 1L, and is clinically deteriorating rapidly for which surgical treatment will be necessary. In unstable thoracic bleeding a thoracotomy may be preferred by the surgeon whereas VATS would be preferred in stable settings.`,
       explanationImage: [],
       explanationLinks: [
@@ -3234,8 +3234,8 @@ async function seed() {
       ],
       correctAnswer: `Bilateral lower lobe bullous disease`,
       explanation: `Chronic cannabis smoking results in airway inflammation. This can lead to symptoms of cough, sputum production, chest tightness and wheezing. Bilateral bullous lobe emphysema does occur in these patients. Lung function studies for chronic cannabis smoking shows:
-      decrease FEV1, maximal mid-expiratory flow rate, diffusing capacity 
-      mild airway obstruction 
+      decrease FEV1, maximal mid-expiratory flow rate, diffusing capacity
+      mild airway obstruction
       abnormally low <70% FEV/FVC due to increased FVC, however the lower FEV/FVC ratio appears mostly because of a reduction on FVC, rather than FEV1.
       FVC and FEV1 have non-linear association with lifetime cannabis exposure`,
       explanationImage: [],
@@ -3321,8 +3321,8 @@ async function seed() {
         `Peak pressure 34, Plateau 26 and PEEP 12`,
       ],
       correctAnswer: `Peak pressure 34, Plateau 26 and PEEP 12`,
-      explanation: `In Acute respiratory distress syndrome (ARDS) it has been established that low tidal volume based on ideal body weight improves mortality. However beyond tidal volume the Driving Pressure has been found to be a significant variable associated with mortality. Driving pressure (DP) is the ratio of tidal volume to (static) respiratory system compliance ; i.e. DP = VT/CRS. [VT =Tidal volumes and  CSR static respiratory system compliance] 
-      Driving pressure (DP) can also be calculated at the bedside as plateau pressure minus positive end-expiratory pressure (Pplat – PEEP). This represents the Vt normalized to the individual functional lung available and is a way to assess the amount of cyclic lung strain. The Goal is to keep DP  less than <14. This is based primarily on retrospective analyses of multiple RCTs of ARDS patients and shows an association between lower Driving Pressure and  lower mortality.  PEEP has variable effects on oxygenation and outcomes due to the degree of recruitment available and overdistension already present in an individual.  
+      explanation: `In Acute respiratory distress syndrome (ARDS) it has been established that low tidal volume based on ideal body weight improves mortality. However beyond tidal volume the Driving Pressure has been found to be a significant variable associated with mortality. Driving pressure (DP) is the ratio of tidal volume to (static) respiratory system compliance ; i.e. DP = VT/CRS. [VT =Tidal volumes and  CSR static respiratory system compliance]
+      Driving pressure (DP) can also be calculated at the bedside as plateau pressure minus positive end-expiratory pressure (Pplat – PEEP). This represents the Vt normalized to the individual functional lung available and is a way to assess the amount of cyclic lung strain. The Goal is to keep DP  less than <14. This is based primarily on retrospective analyses of multiple RCTs of ARDS patients and shows an association between lower Driving Pressure and  lower mortality.  PEEP has variable effects on oxygenation and outcomes due to the degree of recruitment available and overdistension already present in an individual.
       While Recruitment maneuvers have been used for decades with benefit in lung recruitment and oxygenation there is some evidence that risks may not be worth the potential benefit. The significant increase in intrathoracic pressure may not be well tolerated in certain ARDS patients –most likely those whose RV function is tenuous.  The risk of Pneumothorax remains a concern as well. One of the few RCT addressing the issue showed a higher mortality and higher pneumothorax rate and hypotension rate. For now these maneuvers should be done cautiously until further evidence is available.`,
       explanationImage: [],
       explanationLinks: [
@@ -3356,7 +3356,7 @@ async function seed() {
 
     //Q133
     Question_Answer.create({
-      question: `A 69-year-old male who is a smoker (2PPD for 40 years) came to the emergency department in November with complaints of dyspnea and fever for the past 3 days. Patient was recently diagnosed with squamous cell carcinoma of the lung. He has not started any therapeutic interventions for his recent diagnosis. On a physical exam, the patient is coughing, cachectic, ill appearing, has decreased breath sounds in all lung fields, crackles and dullness to percussion in his left lower lobe. A CXR and thoracentesis are obtained based on the clinical and physical findings. Results of thoracentesis are as follows: 
+      question: `A 69-year-old male who is a smoker (2PPD for 40 years) came to the emergency department in November with complaints of dyspnea and fever for the past 3 days. Patient was recently diagnosed with squamous cell carcinoma of the lung. He has not started any therapeutic interventions for his recent diagnosis. On a physical exam, the patient is coughing, cachectic, ill appearing, has decreased breath sounds in all lung fields, crackles and dullness to percussion in his left lower lobe. A CXR and thoracentesis are obtained based on the clinical and physical findings. Results of thoracentesis are as follows:
       Pleural lactate dehydrogenase: 55 U/L
       Serum lactate dehydrogenase: 89 U/L
       Proteins, serum (total): 7.2 g/dL
@@ -3446,13 +3446,13 @@ async function seed() {
 
     //Q137
     Question_Answer.create({
-      question: `A 50-year-old male working as a car mechanic came into a pulmonary clinic for increasing shortness of breath and dry cough for 2 years but worsened for 5 months. He has a family history of ILD and early onset of gray hair. He denies any fever, chest pain, weight loss. He consulted cardiologists previously for SOB and 2D- ECHO, ECG, Stress test was within normal limits. He was then referred to a pulmonologist at a different city where HRCT was done, he was placed on a medication which he eventually stopped because of frequent watery diarrhea and nausea. He smokes an occasional cigarette once a week while having beer. His past medical history was significant for GERD, hypothyroidism which are now under control 
-      On physical examination, he was moderate built, alert  
+      question: `A 50-year-old male working as a car mechanic came into a pulmonary clinic for increasing shortness of breath and dry cough for 2 years but worsened for 5 months. He has a family history of ILD and early onset of gray hair. He denies any fever, chest pain, weight loss. He consulted cardiologists previously for SOB and 2D- ECHO, ECG, Stress test was within normal limits. He was then referred to a pulmonologist at a different city where HRCT was done, he was placed on a medication which he eventually stopped because of frequent watery diarrhea and nausea. He smokes an occasional cigarette once a week while having beer. His past medical history was significant for GERD, hypothyroidism which are now under control
+      On physical examination, he was moderate built, alert
       Vitals BP: 130/90, PR: 86, temperature: 97.5 F, Oxygen saturation 88 on room air,
-      Lungs: B/L crackles (L>R) all over the lungs. 
+      Lungs: B/L crackles (L>R) all over the lungs.
       Heart: Normal heart sounds
-      PFT:  FVC 53, FEV1 54, FEV1/FVC 74. 
-      HRCT: minor reticular opacity within both lungs 
+      PFT:  FVC 53, FEV1 54, FEV1/FVC 74.
+      HRCT: minor reticular opacity within both lungs
       Family history was positive for the similar condition in his father and maternal uncle. Which of the following mutations in genes can lead to the above patient’s condition?
       `,
       questionImage: [],
@@ -3460,12 +3460,12 @@ async function seed() {
       correctAnswer: `TERT and TR`,
       explanation: `Cause of pulmonary fibrosis is poorly understood. Large number of patients have a family history. Abnormally short telomeres are familial causes of pulmonary fibrosis. Mutations In the genes that code for the telomerase enzyme TERT and TR are the most common cause of familial pulmonary fibrosis. Other genes which may cause pulmonary fibrosis are DKC1, TINF2, RTEL1, PARN, and NAF1. Patients with telomere mediated lung disease show extra pulmonary features like liver diseases and bone marrow failure. Genetic anticipation is also seen in some people depending on the type of mutation.
 
-      MUCIN-5B gene: Polymorphism of MUCIN-5b has been shown to be associated with familial and sporadic IPF. 
-      
+      MUCIN-5B gene: Polymorphism of MUCIN-5b has been shown to be associated with familial and sporadic IPF.
+
       BMPR-2 and ALK-1 mutation could lead to pulmonary hypertension.
-      
+
       FOX-G1 gene mutation is a rare mutation that affects the development of brain development and function. Symptoms include microcephaly, sleep disturbances, slow muscle tone. It is most commonly associated with autism spectrum disorders.
-      
+
       ADAM33 has been linked to asthma, Airway hyperreactivity (AHR), and higher IgE levels.
       `,
       explanationImage: [],
@@ -3485,7 +3485,7 @@ async function seed() {
       questionImage: [],
       answerOptions: [`Clarithromycin`, `Rifampicin`, `Ethambutol`, `Amikacin`],
       correctAnswer: `Clarithromycin`,
-      explanation: `Nontuberculous mycobacteria (NTM) are increasingly recognized as causative agents of opportunistic infections in humans. For most NTM infections the therapy of choice is drug treatment, but treatment regimens differ by species, in particular between slow (e.g. Mycobacterium avium complex, Mycobacterium kansasii) and rapid growers (e.g. Mycobacterium abscessus, Mycobacterium fortuitum). In general, drug treatment is long, costly, and often associated with drug-related toxicities; outcome of drug treatment is poor and is likely related to the high levels of natural antibiotic resistance in NTM.  
+      explanation: `Nontuberculous mycobacteria (NTM) are increasingly recognized as causative agents of opportunistic infections in humans. For most NTM infections the therapy of choice is drug treatment, but treatment regimens differ by species, in particular between slow (e.g. Mycobacterium avium complex, Mycobacterium kansasii) and rapid growers (e.g. Mycobacterium abscessus, Mycobacterium fortuitum). In general, drug treatment is long, costly, and often associated with drug-related toxicities; outcome of drug treatment is poor and is likely related to the high levels of natural antibiotic resistance in NTM.
 
       For MAC particularly the ideal regimen consists of a macrolide [Azithromycin or clarithromycin], rifampicin and ethambutol. The optimal duration is undefined but may be for up to 12 months until clinical resolution or 12 months of negative sputum cultures.  Overall in vitro susceptibilities of M avium complex to antimicrobial agents such as isoniazid, rifamycin drugs, including rifabutin or rifampicin, and ethambutol. Are of no utility in guiding therapy because of poor correlation with clinical response. Therefore, it is recommended that susceptibility testing for M.avium complex be limited to macrolides. [1][2]. Interestingly ATS guidelines for management of M. kansasii Recommend that for treatment of previously untreated M. kansasii strains should be tested in vitro only to rifampin [1]`,
       explanationImage: [],
@@ -3586,21 +3586,21 @@ async function seed() {
 
     // Q143
     Question_Answer.create({
-      question: `A 44-year-old woman with severe asthma treated with high-dose inhaled glucocorticoids and long-acting β-agonists is evaluated for persistent wheezing and dyspnea and 2 exacerbations in the past 3 months. The peripheral blood eosinophil count is 300/uL. 
+      question: `A 44-year-old woman with severe asthma treated with high-dose inhaled glucocorticoids and long-acting β-agonists is evaluated for persistent wheezing and dyspnea and 2 exacerbations in the past 3 months. The peripheral blood eosinophil count is 300/uL.
       Which one of the following monoclonal antibodies would be the most appropriate add-on therapy for this patient?`,
       questionImage: [],
       answerOptions: [`Benralizumab`, `Dupilumab`, `Reslizumab`, `Mepolizumab`],
       correctAnswer: `Benralizumab`,
-      explanation: `All the approved monoclonal antibodies for eosinophilic asthma have been shown to reduce asthma exacerbations in patients with eosinophilic asthma. However, benralizumab 
-      a humanized anti-IL-5 receptor α monoclonal antibody that induces direct, rapid, and nearly complete depletion of eosinophils, reduces exacerbations specifically in patients whose disease is poorly controlled on high-dose inhaled glucocorticoids and long-acting β2-agonists. Both the CALIMA (n=1306) and SIROCCO (n=1205) trials have shown a reduction in the oral glucocorticoid use and decrease of exacerbations, while lowering peripheral blood eosinophil counts in patients with elevated (>300/uL) blood eosinophil count. 
-      
-      Reslizumab has been shown to reduce exacerbations and improve lung function in patients with severe asthma. Reslizumab can help reduce the number of eosinophils in the blood and in the sputum. Mepolizumab has been shown to improve asthma exacerbations in patients with eosinophilic asthma and reduce corticosteroid requirements in patients treated with oral corticosteroids. 
-      
-      Asthma should be treated based on an underlying asthma mechanism of inflammation. Understanding type 2 and non-type 2 inflammatory pathways is the initial step to determining which treatment plan, including which biologic, may be right for your patient. Once you identify the type of asthma the patient has, looking at both phenotypes and endotypes, you can move forward with a personalized approach. Utilize biomarkers to identifying whether the patient has elevations in eosinophils, nitric oxide, or IgE. Identify any allergies or comorbid conditions the patient may have and determine the most appropriate therapeutic strategy in the right patient at the right time. 
-      
-      Recent studies of the underlying pathophysiology of asthma have shown a significantly improved understanding of type 2 asthma, and eosinophilic inflammation, which have led to the latest targeted interventions. There are currently 5 FDA-approved targeted therapies that have been shown to reduce the number of exacerbations of asthma, improve lung function, and improve asthma-related symptoms, each with a unique profile and AEs: benralizumab (anti IL-5Ra), dupilumab (anti IL-4/-13), mepolizumab (anti IL-5), 
-      omalizumab (anti-IgE), reslizumab (anti IL-5). 
-      
+      explanation: `All the approved monoclonal antibodies for eosinophilic asthma have been shown to reduce asthma exacerbations in patients with eosinophilic asthma. However, benralizumab
+      a humanized anti-IL-5 receptor α monoclonal antibody that induces direct, rapid, and nearly complete depletion of eosinophils, reduces exacerbations specifically in patients whose disease is poorly controlled on high-dose inhaled glucocorticoids and long-acting β2-agonists. Both the CALIMA (n=1306) and SIROCCO (n=1205) trials have shown a reduction in the oral glucocorticoid use and decrease of exacerbations, while lowering peripheral blood eosinophil counts in patients with elevated (>300/uL) blood eosinophil count.
+
+      Reslizumab has been shown to reduce exacerbations and improve lung function in patients with severe asthma. Reslizumab can help reduce the number of eosinophils in the blood and in the sputum. Mepolizumab has been shown to improve asthma exacerbations in patients with eosinophilic asthma and reduce corticosteroid requirements in patients treated with oral corticosteroids.
+
+      Asthma should be treated based on an underlying asthma mechanism of inflammation. Understanding type 2 and non-type 2 inflammatory pathways is the initial step to determining which treatment plan, including which biologic, may be right for your patient. Once you identify the type of asthma the patient has, looking at both phenotypes and endotypes, you can move forward with a personalized approach. Utilize biomarkers to identifying whether the patient has elevations in eosinophils, nitric oxide, or IgE. Identify any allergies or comorbid conditions the patient may have and determine the most appropriate therapeutic strategy in the right patient at the right time.
+
+      Recent studies of the underlying pathophysiology of asthma have shown a significantly improved understanding of type 2 asthma, and eosinophilic inflammation, which have led to the latest targeted interventions. There are currently 5 FDA-approved targeted therapies that have been shown to reduce the number of exacerbations of asthma, improve lung function, and improve asthma-related symptoms, each with a unique profile and AEs: benralizumab (anti IL-5Ra), dupilumab (anti IL-4/-13), mepolizumab (anti IL-5),
+      omalizumab (anti-IgE), reslizumab (anti IL-5).
+
       Emerging treatments include tezepelumab (TSLP inhibitor) in phase 3; CRTh2 oral inhibitors, CxCR2 antagonist, as well as IL-6, -17, -33, and -25, to highlight a few.`,
       explanationImage: [],
       explanationLinks: [
@@ -3622,14 +3622,14 @@ async function seed() {
         `He should get the killed influenza and herpes zoster vaccine`,
       ],
       correctAnswer: `Only killed influenza vaccination is recommended at this time.`,
-      explanation: `The above patient already received PPSV23 last year; he does not require getting another PPSV23. He should get an annual influenza vaccine. 
-  
-      Influenza vaccine: All persons aged 6 months and older are recommended for annual vaccination. There are two different types of flu vaccines, trivalent and quadrivalent. Trivalent vaccines protect against two influenza A viruses (an H1N1 and an H3N2) and an influenza B virus. Trivalent vaccines are available in Standard-dose trivalent shots (IIV3), approved for use in people six months and older and recombinant trivalent shot that is egg-free, approved for people 18 years or older. The quadrivalent vaccines protect against two influenza A viruses and two influenza B viruses. An intradermal quadrivalent flu shot  is approved for people 18 through 64 years of age. 
-      
+      explanation: `The above patient already received PPSV23 last year; he does not require getting another PPSV23. He should get an annual influenza vaccine.
+
+      Influenza vaccine: All persons aged 6 months and older are recommended for annual vaccination. There are two different types of flu vaccines, trivalent and quadrivalent. Trivalent vaccines protect against two influenza A viruses (an H1N1 and an H3N2) and an influenza B virus. Trivalent vaccines are available in Standard-dose trivalent shots (IIV3), approved for use in people six months and older and recombinant trivalent shot that is egg-free, approved for people 18 years or older. The quadrivalent vaccines protect against two influenza A viruses and two influenza B viruses. An intradermal quadrivalent flu shot  is approved for people 18 through 64 years of age.
+
       Pneumococcal vaccines:  Based on the guidelines, published by Advisory committee for Immunization Practices (ACIP) [1]
-      
-       Pneumococcal vaccine–naive adults aged 65 years or older (or adults 65 years whose pneumococcal vaccine history is unknown) should receive 1 dose of 13-valent pneumococcal conjugate vaccine (PCV13) followed by a dose of 23-valent pneumococcal polysaccharide vaccine (PPSV23) 6 to 12 months later (minimum duration between PCV13 and PPSV23, 8 weeks). 
-       Adults aged 65 years or older who have previously received 1 or more doses of PPSV23 should receive 1 dose of PCV13 1 year or longer after the most recent PPSV23 dose. 
+
+       Pneumococcal vaccine–naive adults aged 65 years or older (or adults 65 years whose pneumococcal vaccine history is unknown) should receive 1 dose of 13-valent pneumococcal conjugate vaccine (PCV13) followed by a dose of 23-valent pneumococcal polysaccharide vaccine (PPSV23) 6 to 12 months later (minimum duration between PCV13 and PPSV23, 8 weeks).
+       Adults aged 65 years or older who have previously received 1 or more doses of PPSV23 should receive 1 dose of PCV13 1 year or longer after the most recent PPSV23 dose.
        In adults who received PPSV23 before age 65 years, PCV13 should be given after age 65 years (and ≥1 year after the PPSV23 was given). PPSV23 should then be repeated 6 to 12 months later (and ≥5 years since the initial PPSV23 injection).`,
       explanationImage: [],
       explanationLinks: [
@@ -3696,8 +3696,8 @@ async function seed() {
         `Age`,
       ],
       correctAnswer: `Gender`,
-      explanation: `Various validated models have been created to estimate the likelihood of malignancy of nodules based on factors such as patient age; smoking status; history of cancer; and nodule size, morphology, and location. These models use results from large studies and incorporate data into mathematical formulas that yield clinical probabilities for malignancy. One commonly used model from the Mayo Clinic is based on a history of extrathoracic cancer, spiculated morphology, current or past smoking, location in an upper lung, increased nodule diameter, and increased patient age. A more recently developed model from the Veterans Affairs system for nodules larger than 7 mm in diameter is based on only four factors: smoking history, patient age, nodule diameter, and time since quitting smoking.  it is reasonable to assume that older patients, those with a history of extrathoracic cancer, and those with recent smoking histories are at highest risk of malignant solitary pulmonary nodules, whereas younger patients with no history of smoking are at lowest risk. Gender is not a part of risk assessment. Below is the table for radiological features of pulmonary nodules. 
- 
+      explanation: `Various validated models have been created to estimate the likelihood of malignancy of nodules based on factors such as patient age; smoking status; history of cancer; and nodule size, morphology, and location. These models use results from large studies and incorporate data into mathematical formulas that yield clinical probabilities for malignancy. One commonly used model from the Mayo Clinic is based on a history of extrathoracic cancer, spiculated morphology, current or past smoking, location in an upper lung, increased nodule diameter, and increased patient age. A more recently developed model from the Veterans Affairs system for nodules larger than 7 mm in diameter is based on only four factors: smoking history, patient age, nodule diameter, and time since quitting smoking.  it is reasonable to assume that older patients, those with a history of extrathoracic cancer, and those with recent smoking histories are at highest risk of malignant solitary pulmonary nodules, whereas younger patients with no history of smoking are at lowest risk. Gender is not a part of risk assessment. Below is the table for radiological features of pulmonary nodules.
+
       Radiologic Features Suggestive of Benign or Malignant Solitary Pulmonary Nodules`,
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q147/A147+img1.png`,
@@ -3729,7 +3729,7 @@ async function seed() {
       ●History of doctor-diagnosed asthma at some point
       ●History of atopy or allergies
       ●Exposure to a risk factor (eg, ≥10 pack-years tobacco smoking or equivalent indoor/outdoor air pollution)
-      People with asthma and COPD have worse outcomes than asthma or COPD alone and have more frequent exacerbations, rapid decline in lung function and poorer quality of life. ACOS has a higher mortality rate as compared to patients with asthma or COPD alone. 
+      People with asthma and COPD have worse outcomes than asthma or COPD alone and have more frequent exacerbations, rapid decline in lung function and poorer quality of life. ACOS has a higher mortality rate as compared to patients with asthma or COPD alone.
       General nonpharmacologic measures for patients with ACO are based on interventions that are useful in managing asthma and/or COPD.`,
       explanationImage: [],
       explanationLinks: [
@@ -3742,9 +3742,9 @@ async function seed() {
 
     //Q149
     Question_Answer.create({
-      question: `A 55-year-old male with a history of hypothyroidism, chronic obstructive pulmonary disease (COPD), congestive heart failure (CHF) varicose vein, hypertension, obesity, long history of tobacco and alcohol abuse presents to the emergency room complaining of progressive shortness of breath and cough of 6 days duration. He recently underwent vein stripping in an outpatient clinic. After the procedure he complained of left pain and an ultrasound showed left lower extremity DVT. He was started on Xarelto, Advil and sent home. He started complaining of increasing shortness of breath and came to the ER. He denies any fever, chills, dizziness weakness, numbness/tingling sensation. Vitals signs: BP 169/101, SpO2 94%, Temp 98.2 F, HR 120.  Patient is in moderate distress,  
-      tachypneic, tachycardic and bilateral lower extremity edema. STAT ABG done: pH 7.39, pCO2 48, HCO3 29. Labs done indicate: PT 16, INR 1.6, aPTT 40. WBC 13, HG 11, HCT 35. EKG showed sinus tachycardia with no ST segment elevation. CT scan showed: multiple bilateral lobar pulmonary emboli(see image). 
-      
+      question: `A 55-year-old male with a history of hypothyroidism, chronic obstructive pulmonary disease (COPD), congestive heart failure (CHF) varicose vein, hypertension, obesity, long history of tobacco and alcohol abuse presents to the emergency room complaining of progressive shortness of breath and cough of 6 days duration. He recently underwent vein stripping in an outpatient clinic. After the procedure he complained of left pain and an ultrasound showed left lower extremity DVT. He was started on Xarelto, Advil and sent home. He started complaining of increasing shortness of breath and came to the ER. He denies any fever, chills, dizziness weakness, numbness/tingling sensation. Vitals signs: BP 169/101, SpO2 94%, Temp 98.2 F, HR 120.  Patient is in moderate distress,
+      tachypneic, tachycardic and bilateral lower extremity edema. STAT ABG done: pH 7.39, pCO2 48, HCO3 29. Labs done indicate: PT 16, INR 1.6, aPTT 40. WBC 13, HG 11, HCT 35. EKG showed sinus tachycardia with no ST segment elevation. CT scan showed: multiple bilateral lobar pulmonary emboli(see image).
+
       Based on the clinical trial design for non-vitamin K antagonist oral anticoagulants (NOACs) in venous thromboembolism (VTE), which of the following drugs do not require initial parenteral anticoagulation before oral administration?`,
       questionImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q149/Q149+img1.png`,
@@ -3798,8 +3798,8 @@ async function seed() {
         `Mitogen-Activated Protein Kinase Kinase (MAP2K1)`,
       ],
       correctAnswer: `Eukaryotic translation initiation factor 2 alpha kinase 4 (EIF2AK4)`,
-      explanation: `Pulmonary veno-occlusive disease (PVOD) is a rare cause of pulmonary hypertension characterized by progressive obstruction of pulmonary veins.  PVOD presents similarly to pulmonary arterial hypertension (PAH) but has grim prognosis and serious adverse effects that can occur when pulmonary hypertension-specific advanced therapy is administered.  Clinical presentation tends to be non-specific with dyspnea, fatigue and cough with most patients in New York Heart Association functional Class III or IV.   The diagnosis of PVOD is typically based on high clinical suspicion.  
- 
+      explanation: `Pulmonary veno-occlusive disease (PVOD) is a rare cause of pulmonary hypertension characterized by progressive obstruction of pulmonary veins.  PVOD presents similarly to pulmonary arterial hypertension (PAH) but has grim prognosis and serious adverse effects that can occur when pulmonary hypertension-specific advanced therapy is administered.  Clinical presentation tends to be non-specific with dyspnea, fatigue and cough with most patients in New York Heart Association functional Class III or IV.   The diagnosis of PVOD is typically based on high clinical suspicion.
+
       A definitive diagnosis confirmed by surgical or trans-bronchial biopsy that shows widespread fibrous intimal proliferation in the pulmonary veins.  However, with a biopsy there is an increased risk of bleeding and high mortality, therefore it is usually not recommended.  Treatment guidelines for PVOD have not been established but patients (if smokers) are strongly encouraged to join a smoking cessation program.  Patients with PVOD receive conventional therapy (warfarin, diuretics and oxygen if needed) for pulmonary arterial hypertension (PAH).   Use of PAH therapies should be used cautiously to minimize risk of severe pulmonary edema.  Oral therapy may be considered for PVOD patients in New York Heart Association (NYHA) functional class II and III. In patients in NYHA functional class IV, continuous intravenous epoprostenol is used with caution to improve functional and haemodynamic parameters.  It may be considered as a bridge-therapy for lung transplantation.  Without definitive treatment, the prognosis is poor for patients diagnosed with PVOD.`,
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q151/A151+img1.png`,
@@ -3893,10 +3893,10 @@ async function seed() {
       ],
       correctAnswer: `Observation`,
       explanation: `Pulmonary aspergilloma is an infection caused by fungus and usually grows in lung cavities. If aspergilloma is single, the cavity can be stable for months and the patient may experience no symptoms. Aspergillus nodules can occur in immunocompetent hosts and can have single, or multiple cavitation between them.
-      Asymptomatic patients who have stable radiographic findings over many months, require no therapy. Progression to chronic cavitary pulmonary aspergillosis is common however, therefore continued observation is required. Spontaneous resolution can occur in about 10% of patients.  
-      The mainstay of therapy for chronic pulmonary aspergillosis is the azoles particularly itraconazole and voriconazole. However, it is important to be aware of significant adverse effects and drug interactions associated with azoles so monitoring of serum concentration is necessary. In immunocompromised patients, oral steroids will not have a role and will be the patient at risk for further management. 
-      
-      Surgical resection is performed to prevent or treat life-threatening hemoptysis with patients with Aspergilloma. Other indications for resection include, recurrent infection, inability to take azole therapy, azole resistance, and concurrent infection or tumor. Surgery should be avoided with patients with complicated disease of chronic cavitary pulmonary aspergillosis. 
+      Asymptomatic patients who have stable radiographic findings over many months, require no therapy. Progression to chronic cavitary pulmonary aspergillosis is common however, therefore continued observation is required. Spontaneous resolution can occur in about 10% of patients.
+      The mainstay of therapy for chronic pulmonary aspergillosis is the azoles particularly itraconazole and voriconazole. However, it is important to be aware of significant adverse effects and drug interactions associated with azoles so monitoring of serum concentration is necessary. In immunocompromised patients, oral steroids will not have a role and will be the patient at risk for further management.
+
+      Surgical resection is performed to prevent or treat life-threatening hemoptysis with patients with Aspergilloma. Other indications for resection include, recurrent infection, inability to take azole therapy, azole resistance, and concurrent infection or tumor. Surgery should be avoided with patients with complicated disease of chronic cavitary pulmonary aspergillosis.
       In patients with moderate or severe hemoptysis who are too ill for surgery, embolization may be appropriate. The most common cause of hemoptysis is abnormal vascular connections within the pulmonary vessels. Embolization procedures are successful approximately 50-90% of the time. However, rebleeding can occur in 30-50% after three years. Long term antifungal therapy can minimize the relapse of rebleeding.`,
       explanationImage: [],
       explanationLinks: [
@@ -4026,18 +4026,18 @@ async function seed() {
         `Nebulizer`,
       ],
       correctAnswer: `Nebulizer`,
-      explanation: `It is important for clinicians to choose an appropriate and suitable inhaler device for their patients. This requires consideration of a patient's medical history, preferences, and lifestyle.  
-  
-      Dry powder bronchodilator devices have an internal resistance. Effective use depends on the patient generating an adequate inspiratory flow to break up the powder packets into particles less than 5-μm in diameter that can be inhaled into the lower respiratory tract. This disaggregation takes place inside the device before the dose leaves the inhaler; this process is increased if the acceleration is fast at the start of inhalation.  
-      
-      A peak inspiratory flow rate [PIFR] of at least 60 L/min through the dry powder device is considered optimal for the patient to break up the powder and inhale the fine particles into the lungs, whereas a PIFR less than 30 L/min is insufficient.  
-       
-      Peak inspiratory flow depends on an individual’s effort along with the strength of the respiratory muscles, which may be compromised in those with chronic obstructive pulmonary disease as a result of lung hyperinflation, hypoxemia, and muscle wasting. As dry powder inhalers are driven by inspiratory flow and require a certain level of peak inspiratory flow, making this device unsuitable for this patient, who has a low peak inspiratory flow. 
-       
-      Soft mist inhalers create a slow-moving, fine mist, needing less synchronization between device actuation and inhalation. Soft mist inhalers do require strength and dexterity for inhaler preparation.  
-      
-      Pressurized metered dose inhalers require multiple steps for proper use and may be overwhelming for a patient to learn in the hospital. Nebulizers are not dependent on peak inspiratory flow and are easy to use, with no hand-breath coordination required.  
-      
+      explanation: `It is important for clinicians to choose an appropriate and suitable inhaler device for their patients. This requires consideration of a patient's medical history, preferences, and lifestyle.
+
+      Dry powder bronchodilator devices have an internal resistance. Effective use depends on the patient generating an adequate inspiratory flow to break up the powder packets into particles less than 5-μm in diameter that can be inhaled into the lower respiratory tract. This disaggregation takes place inside the device before the dose leaves the inhaler; this process is increased if the acceleration is fast at the start of inhalation.
+
+      A peak inspiratory flow rate [PIFR] of at least 60 L/min through the dry powder device is considered optimal for the patient to break up the powder and inhale the fine particles into the lungs, whereas a PIFR less than 30 L/min is insufficient.
+
+      Peak inspiratory flow depends on an individual’s effort along with the strength of the respiratory muscles, which may be compromised in those with chronic obstructive pulmonary disease as a result of lung hyperinflation, hypoxemia, and muscle wasting. As dry powder inhalers are driven by inspiratory flow and require a certain level of peak inspiratory flow, making this device unsuitable for this patient, who has a low peak inspiratory flow.
+
+      Soft mist inhalers create a slow-moving, fine mist, needing less synchronization between device actuation and inhalation. Soft mist inhalers do require strength and dexterity for inhaler preparation.
+
+      Pressurized metered dose inhalers require multiple steps for proper use and may be overwhelming for a patient to learn in the hospital. Nebulizers are not dependent on peak inspiratory flow and are easy to use, with no hand-breath coordination required.
+
       These devices do need frequent cleaning and maintenance. A nebulizer may be appropriate for transitional care as in this patient and use of another device may be taught to the patient at a follow-up office visit.
       `,
       explanationImage: [],
@@ -4059,7 +4059,7 @@ async function seed() {
         `Periodic limb movements`,
       ],
       correctAnswer: `Quality of Life`,
-      explanation: `The overall grade for the body of evidence on the impact of oral appliances (OAs) to treat obstructive sleep apnea (OSA) varies between low and moderate depending on the physiologic sleep outcome measures. A systematic review of the evidence has shown that OAs reduce AHI, arousal index, and oxygen desaturation index, and increase oxygen saturation. However, OAs have shown no significant effect on sleep architecture and sleep efficiency. 
+      explanation: `The overall grade for the body of evidence on the impact of oral appliances (OAs) to treat obstructive sleep apnea (OSA) varies between low and moderate depending on the physiologic sleep outcome measures. A systematic review of the evidence has shown that OAs reduce AHI, arousal index, and oxygen desaturation index, and increase oxygen saturation. However, OAs have shown no significant effect on sleep architecture and sleep efficiency.
 
       The overall improvement in physiologic sleep parameters with the use of OAs in adult patients with OSA results in an improvement in daily function and quality of life. Although OAs have been shown to improve physiologic sleep parameters, continuous positive airway pressure (CPAP), in the meta-analyses Ramar etal. was found to be superior to OAs in reducing the AHI, arousal index, and oxygen desaturation index and improving oxygen saturation, and therefore, should still generally be the first-line option for treating OSA. The improvement in QOL produced by custom, titratable OAs is not inferior to that reported with CPAP therapy. The custom, titratable OAs improve QOL, but as with CPAP, reduced QOL may persist despite otherwise adequate therapy.
       `,
@@ -4084,16 +4084,16 @@ async function seed() {
         `Lymphangioleiomyomatosis`,
       ],
       correctAnswer: `Diffuse pulmonary alveolar hemorrhage`,
-      explanation: `Diffuse pulmonary alveolar hemorrhage (DAH) is a life-threatening condition resulting in bleeding into the alveolar spaces of the lungs. The disorder is caused by injury or inflammation of the arterioles, venules, or alveolar septal. It is usually associated with cough, fever, dyspnea and hemoptysis initially. Some patients can have acute respiratory failure requiring immediate ventilatory support. On chest x-ray, diffuse opacities can be seen. Characteristic CT scan finding include ground glass pattern or bilateral opacities. Lab findings in DAH are nonspecific. Common findings include low or decreasing hemoglobin or hematocrit and elevated white blood cell count. ESR is usually increased especially those with systemic diseases. 
+      explanation: `Diffuse pulmonary alveolar hemorrhage (DAH) is a life-threatening condition resulting in bleeding into the alveolar spaces of the lungs. The disorder is caused by injury or inflammation of the arterioles, venules, or alveolar septal. It is usually associated with cough, fever, dyspnea and hemoptysis initially. Some patients can have acute respiratory failure requiring immediate ventilatory support. On chest x-ray, diffuse opacities can be seen. Characteristic CT scan finding include ground glass pattern or bilateral opacities. Lab findings in DAH are nonspecific. Common findings include low or decreasing hemoglobin or hematocrit and elevated white blood cell count. ESR is usually increased especially those with systemic diseases.
 
-      Most patients cannot undergo pulmonary function testing but those who are stable enough will show an increase in DLCO usually above 100 percent of predicted. Monitoring DLCO is useful for those patients with DAH. Occasionally, obstructive airway disease may be seen on PFTs in patients with recurrent DAH. 
-      
-      Steroids and immunosuppressive agents remain the treatment of choice for DAH patients. Recombinant activated human factor VII is a new promising therapy but needs further evaluation. 
-      
-      Patients with pulmonary TB usually present with symptoms of weight loss, nausea and vomiting, fever, chills, and night sweats. Risk factors include those individuals living in crowded unclean living conditions, poor nutrition. (choice A) 
-      
-      Bilateral bronchiectasis leads to abnormal dilation and distortion of the bronchial tree resulting in chronic obstructive lung disease. Most common symptoms are coughing up yellow or green mucus, shortness of breath and hemoptysis. Most common cause of bronchiectasis is cystic fibrosis. ON HRCT, findings include airway dilation, bronchial wall thickening, and air trapping. PFTS can show obstructive impairment. (Choice C) 
-      
+      Most patients cannot undergo pulmonary function testing but those who are stable enough will show an increase in DLCO usually above 100 percent of predicted. Monitoring DLCO is useful for those patients with DAH. Occasionally, obstructive airway disease may be seen on PFTs in patients with recurrent DAH.
+
+      Steroids and immunosuppressive agents remain the treatment of choice for DAH patients. Recombinant activated human factor VII is a new promising therapy but needs further evaluation.
+
+      Patients with pulmonary TB usually present with symptoms of weight loss, nausea and vomiting, fever, chills, and night sweats. Risk factors include those individuals living in crowded unclean living conditions, poor nutrition. (choice A)
+
+      Bilateral bronchiectasis leads to abnormal dilation and distortion of the bronchial tree resulting in chronic obstructive lung disease. Most common symptoms are coughing up yellow or green mucus, shortness of breath and hemoptysis. Most common cause of bronchiectasis is cystic fibrosis. ON HRCT, findings include airway dilation, bronchial wall thickening, and air trapping. PFTS can show obstructive impairment. (Choice C)
+
       Lymphangioleiomyomatosis (LAM) is a rare multisystem disease that predominantly affects young women. Symptoms depend on the origin of the disease. Common pulmonary symptoms are fatigue, progressive dyspnea, spontaneous pneumothorax and pleural effusion. (Choice D)
       `,
       explanationImage: [],
@@ -4227,14 +4227,14 @@ async function seed() {
         `Metabolic alkalosis`,
       ],
       correctAnswer: `Metabolic alkalosis`,
-      explanation: `Metabolic alkalosis is a disorder that is caused by increased serum bicarbonate levels and arterial pH, associated with hypokalemia. Serum bicarbonate levels are elevated due to excessive hydrogen loss in the urine or gastrointestinal tract. Patients usually develop respiratory compensation by hypoventilation and elevation in arterial PCO2. Some common causes are vomiting, nasogastric suction, loop or thiazide diuretic.  
- 
-      Surreptitious diuretic use is very common with finding of hyperaldosteronism due to volume depletion, renal chloride loss or contraction alkalosis. Diuretic abuse can also develop chloride unresponsiveness due to profound potassium depletion. (Choice D)  
-       
-      Metabolic acidosis is when there is an increase in hydrogen ions or loss of bicarbonate in the serum. (↓pH, ↓PCO2, ↓ HCO3). Common causes are of metabolic acidosis with high anion gap: MUDPILES: Methanol, uremia, diabetic ketoacidosis, propylene glycol, paraldehyde, isoniazid, lactic acidosis, ethylene glycol and salicylates. (Choice B)  
-       
-      Respiratory acidosis is caused by alveolar hypoventilation resulting in CO2 retention. Common causes include COPD exacerbation and bronchial asthma. (↓pH, ↑PCo2, ↑HCO3). (Choice A) 
-       
+      explanation: `Metabolic alkalosis is a disorder that is caused by increased serum bicarbonate levels and arterial pH, associated with hypokalemia. Serum bicarbonate levels are elevated due to excessive hydrogen loss in the urine or gastrointestinal tract. Patients usually develop respiratory compensation by hypoventilation and elevation in arterial PCO2. Some common causes are vomiting, nasogastric suction, loop or thiazide diuretic.
+
+      Surreptitious diuretic use is very common with finding of hyperaldosteronism due to volume depletion, renal chloride loss or contraction alkalosis. Diuretic abuse can also develop chloride unresponsiveness due to profound potassium depletion. (Choice D)
+
+      Metabolic acidosis is when there is an increase in hydrogen ions or loss of bicarbonate in the serum. (↓pH, ↓PCO2, ↓ HCO3). Common causes are of metabolic acidosis with high anion gap: MUDPILES: Methanol, uremia, diabetic ketoacidosis, propylene glycol, paraldehyde, isoniazid, lactic acidosis, ethylene glycol and salicylates. (Choice B)
+
+      Respiratory acidosis is caused by alveolar hypoventilation resulting in CO2 retention. Common causes include COPD exacerbation and bronchial asthma. (↓pH, ↑PCo2, ↑HCO3). (Choice A)
+
       Respiratory alkalosis happens when there is increased respiratory rate or tidal volume leading to alveolar hyperventilation and Co2 washout. (↑pH, ↓PCO2, ↓HCO3). Causes include pregnancy, high altitude, and drug toxicity from salicylates. (Choice C) `,
       explanationImage: [],
       explanationLinks: [
@@ -4320,17 +4320,17 @@ async function seed() {
         `Sarcoidosis`,
       ],
       correctAnswer: `Idiopathic pulmonary fibrosis`,
-      explanation: `Miliary shadows in the lung are not uncommon and are seen in wide variety of diseases. The term miliary nodules is described as random and peripheral distribution and 1-2 mm in size, Random micronodules can result from hematogenous spread of infections or neoplasms. Differential diagnosis of miliary radiological patterns are miliary tuberculosis, primary or secondary pulmonary malignancy, sarcoidosis, pneumoconiosis or histoplasmosis.  
- 
-      Histoplasmosis is rare clinical diagnosis acquired by inhalation of yeast. Clinical presentations can mimic tuberculosis with upper lobe cavitation, nodular shadows and miliary nodules. Random distribution is also seen in tuberculosis and silicosis.  
-       
-      The characteristic HRCT features of IPF include peripheral, basilar predominant reticular opacities associated with honeycombing and traction bronchiectasis-bronchiolectasis. 
+      explanation: `Miliary shadows in the lung are not uncommon and are seen in wide variety of diseases. The term miliary nodules is described as random and peripheral distribution and 1-2 mm in size, Random micronodules can result from hematogenous spread of infections or neoplasms. Differential diagnosis of miliary radiological patterns are miliary tuberculosis, primary or secondary pulmonary malignancy, sarcoidosis, pneumoconiosis or histoplasmosis.
+
+      Histoplasmosis is rare clinical diagnosis acquired by inhalation of yeast. Clinical presentations can mimic tuberculosis with upper lobe cavitation, nodular shadows and miliary nodules. Random distribution is also seen in tuberculosis and silicosis.
+
+      The characteristic HRCT features of IPF include peripheral, basilar predominant reticular opacities associated with honeycombing and traction bronchiectasis-bronchiolectasis.
       `,
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q174/A174+img1.png`,
       ],
       explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/26628775/" target="_blank">Sharma BB, Miliary nodules on chest radiographs: A diagnostic dilemma. Lung India. 2015 Sep-Oct; 32(5): 518–520. 
+        `<a href="https://pubmed.ncbi.nlm.nih.gov/26628775/" target="_blank">Sharma BB, Miliary nodules on chest radiographs: A diagnostic dilemma. Lung India. 2015 Sep-Oct; 32(5): 518–520.
       </a>`,
       ],
       level: "Easy",
@@ -4348,19 +4348,19 @@ async function seed() {
         `Difficulty in concentrating`,
       ],
       correctAnswer: `Decreased appetite and weight loss`,
-      explanation: `Nicotine is a potent psychoactive drug that causes physical dependence and tolerance. A smoker can develop symptoms of withdrawal in the absence of nicotine and craving for cigarettes. Symptoms can peak in the first three days over the next three to four weeks. Some common nicotine withdrawal symptoms include: 
- 
-      Increased appetite or weight gain 
-      Dysphoria, depressed mood, or anhedonia 
-      Insomnia 
-      Irritability, frustration, or anger 
-      Anxiety 
-      Difficulty concentrating 
-      Restlessness 
-       
-      Weight gain can commonly occur after smoking cessation. The mechanism of weight gain is decreased metabolic rate, increased activity of lipoprotein lipase, and increased caloric intake. Average total weight gain is from 4 to 5 kg but can be more in females. Behavioral counseling such as dietary and physical activity intervention have been successful for patients who have gained weight. Phrenological interventions such as bupropion can be also be helpful temporarily.  
-       
-      Patients with a history of psychotic illnesses are susceptible to symptoms of depression. Patients who have documented depression, smoking cessation have been reported to trigger depressive episodes that need behavioral counseling, medications or both. Despite these triggered depressive episodes, benefits of smoking cessation outweigh the risk in patients with psychotic illness.  
+      explanation: `Nicotine is a potent psychoactive drug that causes physical dependence and tolerance. A smoker can develop symptoms of withdrawal in the absence of nicotine and craving for cigarettes. Symptoms can peak in the first three days over the next three to four weeks. Some common nicotine withdrawal symptoms include:
+
+      Increased appetite or weight gain
+      Dysphoria, depressed mood, or anhedonia
+      Insomnia
+      Irritability, frustration, or anger
+      Anxiety
+      Difficulty concentrating
+      Restlessness
+
+      Weight gain can commonly occur after smoking cessation. The mechanism of weight gain is decreased metabolic rate, increased activity of lipoprotein lipase, and increased caloric intake. Average total weight gain is from 4 to 5 kg but can be more in females. Behavioral counseling such as dietary and physical activity intervention have been successful for patients who have gained weight. Phrenological interventions such as bupropion can be also be helpful temporarily.
+
+      Patients with a history of psychotic illnesses are susceptible to symptoms of depression. Patients who have documented depression, smoking cessation have been reported to trigger depressive episodes that need behavioral counseling, medications or both. Despite these triggered depressive episodes, benefits of smoking cessation outweigh the risk in patients with psychotic illness.
       `,
       explanationImage: [],
       explanationLinks: [
@@ -4382,10 +4382,10 @@ async function seed() {
         `Complete heart block`,
       ],
       correctAnswer: `Complete heart block`,
-      explanation: `Pulsus paradoxus is an exaggerated fall in an individual’s blood pressure during inspiration by greater than 10 mm Hg.  
- 
-      A patient with acute severe asthma presents with tightness of lung airway. The lungs will overinflate, putting extra pressure on the veins carrying oxygenated blood from the heart to the lungs. This causes blood to be backed up in the right ventricle and extra pressure to build up on the right side of the heart, pressing against the left side. This all results in pulsus paradoxus. Similar mechanism is seen in exacerbation of COPD. (Choice A & C)  
-       
+      explanation: `Pulsus paradoxus is an exaggerated fall in an individual’s blood pressure during inspiration by greater than 10 mm Hg.
+
+      A patient with acute severe asthma presents with tightness of lung airway. The lungs will overinflate, putting extra pressure on the veins carrying oxygenated blood from the heart to the lungs. This causes blood to be backed up in the right ventricle and extra pressure to build up on the right side of the heart, pressing against the left side. This all results in pulsus paradoxus. Similar mechanism is seen in exacerbation of COPD. (Choice A & C)
+
       When fluid accumulates in the pericardial space in cardiac tamponade, the intrapericardial pressures increases and the right heart is compressed resulting in increased the right heart pressures. This results in the right heart relying more heavily on the decreased intrathoracic pressures during inspiration to fill, exaggerating the pressure change causing pulsus paradoxus. (Choice B).`,
       explanationImage: [],
       explanationLinks: [
@@ -4407,8 +4407,8 @@ async function seed() {
         `Emphysema`,
       ],
       correctAnswer: `Emphysema`,
-      explanation: `Patients with restrictive lung diseases cannot fully fill their lungs with air. It is characterized by reduced lung volume due to parenchymal, pleural or extrapulmonary respiratory diseases. Unlike obstructive diseases such as asthma, COPD and emphysema (Choice D), which shows normal or increased total lung capacity (TLC), restrictive diseases are associated with decreased TLC. Both forced expiratory volume in one second (FEV1) and forced vital capacity (FVC) are reduced. FEV1/FVC ratio should be normal. Common examples of restrictive lung diseases are interstitial lung disease, pulmonary fibrosis and pneumothorax. (Choice A, B, C)  
- 
+      explanation: `Patients with restrictive lung diseases cannot fully fill their lungs with air. It is characterized by reduced lung volume due to parenchymal, pleural or extrapulmonary respiratory diseases. Unlike obstructive diseases such as asthma, COPD and emphysema (Choice D), which shows normal or increased total lung capacity (TLC), restrictive diseases are associated with decreased TLC. Both forced expiratory volume in one second (FEV1) and forced vital capacity (FVC) are reduced. FEV1/FVC ratio should be normal. Common examples of restrictive lung diseases are interstitial lung disease, pulmonary fibrosis and pneumothorax. (Choice A, B, C)
+
       Obstructive lung disease is when there is increased resistance to air flow caused by narrowing of the airways. Spirometry findings include decreased FEV1, decreased FEV1/FVC ratio, Decreased Vital Capacity (VC), increased RV with normal TLC.
       `,
       explanationImage: [],
@@ -4431,7 +4431,7 @@ async function seed() {
         `Bronchial carcinoid`,
       ],
       correctAnswer: `Squamous cell carcinoma`,
-      explanation: `Lung cancer is the most common cancer worldwide and has more than doubled according to the World Health Organization. The information about lung malignancies is shown below: 
+      explanation: `Lung cancer is the most common cancer worldwide and has more than doubled according to the World Health Organization. The information about lung malignancies is shown below:
       `,
       explanationImage: [
         `https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q178/A178+img1.png`,
@@ -4454,8 +4454,8 @@ async function seed() {
         `Grave’s disease`,
       ],
       correctAnswer: `Adrenal Hyperplasia`,
-      explanation: `Goiter can occur in puberty and pregnancy, but other causes include iodine deficiency and autoimmune origin. The prevalence of non-toxic goiter is higher in smokers compared to non-smokers due to thiocyanate (inhibitor of iodide transport). In patients with Graves’ disease, smoking worsens thyroid-associated ophthalmopathy which is result of inflammation, excess production of glycosaminoglycans and adipogenesis. This leads to increase fatty connective tissue and extraocular muscle bodies.  
- 
+      explanation: `Goiter can occur in puberty and pregnancy, but other causes include iodine deficiency and autoimmune origin. The prevalence of non-toxic goiter is higher in smokers compared to non-smokers due to thiocyanate (inhibitor of iodide transport). In patients with Graves’ disease, smoking worsens thyroid-associated ophthalmopathy which is result of inflammation, excess production of glycosaminoglycans and adipogenesis. This leads to increase fatty connective tissue and extraocular muscle bodies.
+
       Cigarette smoking changes insulin secretion of β cells of the pancreas and insulin resistance leading to impaired glucose homeostasis. Endothelial dysfunction is the key mediator for development of vascular complications of diabetes mellitus.
       `,
       explanationImage: [],
@@ -4559,8 +4559,8 @@ async function seed() {
         `Streptococcus pneumonia`,
       ],
       correctAnswer: `Pseudomonas cepacia`,
-      explanation: `The most common bacterial species isolated from acute exacerbation of COPD are 
-      nontypeable Haemophilus influenzae, Moraxella catarrhalis, and Streptococcus pneumoniae. These bacteria species are also predominant in other respiratory infections like otitis media and sinusitis. Less isolated bacterial species are Haemophilus 
+      explanation: `The most common bacterial species isolated from acute exacerbation of COPD are
+      nontypeable Haemophilus influenzae, Moraxella catarrhalis, and Streptococcus pneumoniae. These bacteria species are also predominant in other respiratory infections like otitis media and sinusitis. Less isolated bacterial species are Haemophilus
       parainfluenzae, Staphylococcus aureus, Pseudomonas aeruginosa, and gram-negative Enterobacteriaceae. H. parainfluenzae and S. aureus `,
       explanationImage: [],
       explanationLinks: [
@@ -4581,9 +4581,9 @@ async function seed() {
         `Bronchial carcinoid`,
       ],
       correctAnswer: `Bronchial carcinoid`,
-      explanation: `Bronchopulmonary carcinoid tumors arise from neuroendocrine cells and have association with Cushing’s syndrome resulting in ectopic secretion of adrenocorticotropic hormone (ACTH). Carcinoid tumors are well-defined, round, or oval enhancing mass located within the central airway. Majority are located in the main, lobar or segmental bronchi. Common symptoms due to increased cortical levels are central obesity, purple striae on the abdomen, round facies, metabolic syndrome, early appearance of psychological disorder and hypertension. Some patients can also present with recurrent pneumonia, cough, hemoptysis and chest pain.  Surgical resection is the preferred treatment of these tumors.  
- 
-      Central tumors give rise to squamous cell carcinoma and small cell carcinoma. 
+      explanation: `Bronchopulmonary carcinoid tumors arise from neuroendocrine cells and have association with Cushing’s syndrome resulting in ectopic secretion of adrenocorticotropic hormone (ACTH). Carcinoid tumors are well-defined, round, or oval enhancing mass located within the central airway. Majority are located in the main, lobar or segmental bronchi. Common symptoms due to increased cortical levels are central obesity, purple striae on the abdomen, round facies, metabolic syndrome, early appearance of psychological disorder and hypertension. Some patients can also present with recurrent pneumonia, cough, hemoptysis and chest pain.  Surgical resection is the preferred treatment of these tumors.
+
+      Central tumors give rise to squamous cell carcinoma and small cell carcinoma.
       Adenocarcinoma is located peripherally. All of these cancers are associated with lung cancer.`,
       explanationImage: [],
       explanationLinks: [
@@ -4648,7 +4648,7 @@ async function seed() {
         `It is the same as FVC in normal subjects.`,
       ],
       correctAnswer: `Equal to sum of inspiratory and expiratory reserve volume.`,
-      explanation: `Vital capacity (VC) refers to the maximal volume of air that can be expired following maximum inspiration. It is the total of tidal volume, inspiratory reserve volume, and expiratory reserve volume (VC = V + IRV + ERV). It decreased with age and was greater in men than females in the same age group. Also, it is decreased with body mass. Generally VC is measured as forced vital capacity on spirometry. 
+      explanation: `Vital capacity (VC) refers to the maximal volume of air that can be expired following maximum inspiration. It is the total of tidal volume, inspiratory reserve volume, and expiratory reserve volume (VC = V + IRV + ERV). It decreased with age and was greater in men than females in the same age group. Also, it is decreased with body mass. Generally VC is measured as forced vital capacity on spirometry.
       Vital capacity may be measured as inspiratory vital capacity (IVC), slow vital capacity (SVC), or forced vital capacity (FVC). The FVC is similar to VC, but it is measured as the patient exhales with maximum speed and effort.
       `,
       explanationImage: [],
@@ -4697,11 +4697,11 @@ async function seed() {
       explanation: `Dead space is the volume of a breath that does not participate in gas exchange. It is ventilation without perfusion.
       Physiologic or total dead space is the sum of anatomic dead space and alveolar dead space.
       Anatomic dead space is the volume of gas within the conducting zone (as opposed to the transitional and respiratory zones) and includes the trachea, bronchus, bronchioles, and terminal bronchioles; it is approximately 2 mL/kg in the upright position. Alveolar dead space is the volume of gas within unperfused alveoli (and thus not participating in gas exchange either); it is usually negligible in the healthy, awake patient. The ratio of physiologic dead space to tidal volume is usually about 1/3.
-       
+
       Factors that increase dead space: are General anesthesia – [ due to loss of skeletal muscle tone and bronchoconstrictor tone],
       Neck extension and jaw protrusion (can increase it twofold), Positive pressure ventilation (i.e. increased airway pressure),
       Upright posture as opposed to supine (because of decreased perfusion to the uppermost alveoli),
-      Pulmonary embolus, PA thrombosis, hemorrhage, hypotension, surgical manipulation of pulmonary artery tree – anything that decreases perfusion to well-ventilated alveoli, Emphysema, increasing age, Anticholinergic drugs[ Anticholinergics relax the bronchial smooth musculature, which reduces airway resistance and increases anatomic dead space. Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep.  
+      Pulmonary embolus, PA thrombosis, hemorrhage, hypotension, surgical manipulation of pulmonary artery tree – anything that decreases perfusion to well-ventilated alveoli, Emphysema, increasing age, Anticholinergic drugs[ Anticholinergics relax the bronchial smooth musculature, which reduces airway resistance and increases anatomic dead space. Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep.
       Similarly  inspiration increases bronchial diameter and length, effectively increasing the anatomic dead space. On the other hand  exhalation decreases the amount of anatomic dead space by "deflating" the bronchial tree. Anatomic dead space is believed to decrease during sleep and be the primary physiologic cause of observed decreases in tidal volume, minute ventilation during sleep`,
       explanationImage: [],
       explanationLinks: [],
@@ -4711,7 +4711,7 @@ async function seed() {
 
     //   Q191
     Question_Answer.create({
-      question: `Spirometry tests are used to demonstrate all of the following in obstructive airway disease 
+      question: `Spirometry tests are used to demonstrate all of the following in obstructive airway disease
       except:`,
       questionImage: [],
       answerOptions: [
@@ -4881,7 +4881,9 @@ async function seed() {
         `Atypical carcinoids`,
       ],
       correctAnswer: `Adenocarcinoma`,
-      explanation: `According to the National Cancer Institute's PDQ Information Summary for Health Professionals on NSCLC treatment, adenocarcinoma, large cell carcinoma, and squamous cell carcinoma are the three most common types of NSCLC. Whereas NSCLCs, especially squamous cell carcinomas, are associated with smoking, adenocarcinomas may be found in patients who have never smoked.`,
+      explanation: `According to the National Cancer Institute's PDQ Information Summary for Health Professionals on NSCLC treatment, adenocarcinoma, large cell carcinoma, and squamous cell carcinoma are the three most common types of NSCLC. Whereas NSCLCs, especially squamous cell carcinomas, are associated with smoking, adenocarcinomas may be found in patients who have never smoked.
+      PDQ Adult Treatment Editorial Board. Non-Small Cell Lung Cancer Treatment (PDQ) – Health Professional Version. Bethesda, MD: National Cancer Institute. Updated January 20, 2022.
+      `,
       explanationImage: [],
       explanationLinks: [
         `<a href="https://www.cancer.gov/types/lung/hp/non-small-cell-lung-treatment-pdq" target="_blank">PDQ Adult Treatment Editorial Board. Non-Small Cell Lung Cancer Treatment (PDQ) – Health Professional Version. Bethesda, MD: National Cancer Institute. Updated January 20, 2022.</a>`,
@@ -4901,14 +4903,14 @@ async function seed() {
         `Berylliosis is steroid responsive.`,
       ],
       correctAnswer: `Isocyanates may cause pulmonary edema.`,
-      explanation: `Occupational lung diseases can lead to airway disease like asthma or commonly interstitial lung disease. These are caused by inhalation of dust, chemicals or proteins.  
- 
-      Occupational asthma (OA) is a form of work-related asthma characterized by airflow obstruction, airway hyperresponsiveness and airway inflammation. The risk factors associated with OA include sex, geographic location, prevalence of atopy, smoking and type of workplace exposure. Atopy is consistently associated with sensitization to high molecular weight agents (HMW). These agents include protein and polysaccharides of animal or plant based. Atopic individuals who are in high-risk workplace should receive regular medical follow-up.  
-       
-      Chronic exposure to isocyanates can also occupational asthma and hypersensitivity pneumonitis (HP). CT findings of HP are mid-to upper zone predominance of centrilobular ground glass or nodular opacities with mosaic attenuation. Isocyanate does not cause pulmonary edema.  
-       
-      Byssinosis (cotton dust disease) is an occupational lung disease caused by exposure to cotton dust in inadequately ventilated working environment. Common symptoms are frequent coughing, chest tightness, dyspnea and wheezing within a few hours of exposure in the workplace. Symptoms in the beginning of the work week are termed as Monday fever. Those individuals who remove themselves from the workplace environment and exposure may have resolution of symptoms.  
-       
+      explanation: `Occupational lung diseases can lead to airway disease like asthma or commonly interstitial lung disease. These are caused by inhalation of dust, chemicals or proteins.
+
+      Occupational asthma (OA) is a form of work-related asthma characterized by airflow obstruction, airway hyperresponsiveness and airway inflammation. The risk factors associated with OA include sex, geographic location, prevalence of atopy, smoking and type of workplace exposure. Atopy is consistently associated with sensitization to high molecular weight agents (HMW). These agents include protein and polysaccharides of animal or plant based. Atopic individuals who are in high-risk workplace should receive regular medical follow-up.
+
+      Chronic exposure to isocyanates can also occupational asthma and hypersensitivity pneumonitis (HP). CT findings of HP are mid-to upper zone predominance of centrilobular ground glass or nodular opacities with mosaic attenuation. Isocyanate does not cause pulmonary edema.
+
+      Byssinosis (cotton dust disease) is an occupational lung disease caused by exposure to cotton dust in inadequately ventilated working environment. Common symptoms are frequent coughing, chest tightness, dyspnea and wheezing within a few hours of exposure in the workplace. Symptoms in the beginning of the work week are termed as Monday fever. Those individuals who remove themselves from the workplace environment and exposure may have resolution of symptoms.
+
       Berylliosis is a disease caused by exposure to beryllium in industries including metal machine shops, electronics, and defense industries. Most clinical manifestations are nonspecific. The drugs of choice are corticosteroids at high doses and slowly tapered off.
       `,
       explanationImage: [],
@@ -5952,7 +5954,8 @@ async function seed() {
       level: "Moderate",
       category: "Pulmonary Function Testing",
       ancestorId: 1,
-      status: "Inactive",
+      status: "Active",
+      displayId: 1,
     }),
   ]);
 
