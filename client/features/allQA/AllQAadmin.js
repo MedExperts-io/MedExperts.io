@@ -485,7 +485,7 @@ const AllQAadmin = () => {
                         <Card.Body>
                           <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
                             <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
-                              Question Number {itemOffset + 1 + idx}
+                              Question Number {question.displayId}
                             </Link>
                           </Card.Title>
                           <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
