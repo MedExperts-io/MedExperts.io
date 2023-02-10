@@ -79,6 +79,7 @@ const AddQuestion = () => {
 
 
 const AllQ = useSelector((state) => state.questionsAnswers.questionsAnswers);
+const newQuestionid = useSelector((state) => state.questionsAnswers.newQuestion.id);
 const Questionid = AllQ.length+1
 
 //Question Images
@@ -669,8 +670,7 @@ useEffect(() => {
                           <Button
                             variant="secondary"
                             onClick={() => {
-                              //console.log("CURRENT ID", qaVersions[0].id);
-                              navigate(`/questions/${qaVersions[0].id}`);
+                              navigate(`/questions/${newQuestionid}`);
                             }}
                           >
                             View Question
