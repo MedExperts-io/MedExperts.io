@@ -382,6 +382,14 @@ const AllQAadmin = () => {
   return (
     <Container fluid>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
+
+        <Button
+                          variant="success"
+                          as={Link}
+                          to="/addQuestion"
+                          className="m-2"
+                          // style={{ color: "#FF6262" }}
+        >Add a Question</Button>
         <Card id="no-border" className="mx-auto">
           <Card.Body>
             <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
@@ -487,6 +495,7 @@ const AllQAadmin = () => {
             </Row>
           </Card.Body>
         </Card>
+
       </Row>
 
       <Row>
