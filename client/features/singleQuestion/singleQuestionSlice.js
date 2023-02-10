@@ -105,7 +105,9 @@ const singleQuestionSlice = createSlice({
         state.qaAllVersions.unshift(action.payload);
       })
       .addCase(deleteSingleQuestion.fulfilled, (state, action) => {
-        state.Question = action.payload;
+        state.qaAllVersions = state.qaAllVersions.filter(
+          (aVersion) => aVersion.id != action.payload
+        );
       });
   },
 });
