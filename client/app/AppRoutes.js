@@ -17,6 +17,7 @@ import LandingPage from "../features/landingPage/LandingPage";
 import AllQAadmin from "../features/allQA/AllQAadmin";
 import EditQA from "../features/singleQuestion/EditQA";
 import VerifyEmail from "../features/auth/VerifyEmail";
+import AddQuestion from "../features/addQ/AddQuestion";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -34,6 +35,7 @@ const AppRoutes = () => {
           <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
+          <Route path="/addQuestion" element={<AddQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
           <Route
             path="/questions/:singleQuestionId"
