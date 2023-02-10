@@ -12,6 +12,7 @@ import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import { Chip, Stack } from "@mui/material";
 import AllQAadmin from "./AllQAadmin";
+import { textAlign } from "@mui/system";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
@@ -82,8 +83,8 @@ const QuestionsAnswers = () => {
     ? setfilteredQuestions(allQuestions)
     : null;
 
-  // console.log("currentitems", currentItems);
-  // console.log("rightOrWrong", rightOrWrong);
+  console.log("currentitems", currentItems);
+  console.log("rightOrWrong", rightOrWrong);
   const endOffset = itemOffset + itemsPerPage;
   filteredQuestions && !pageCount
     ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage))
@@ -107,6 +108,7 @@ const QuestionsAnswers = () => {
         map[array[i]["questionAnswerId"]] = array[i]["answered"];
       }
     }
+    console.log("map", map);
     return map;
   }
 
@@ -267,7 +269,7 @@ const QuestionsAnswers = () => {
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
           <Card id="no-border" className="mx-auto">
             <Card.Body>
-              <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
+              <Card.Header style={{ marginBottom: "20px", fontSize: `200%`,  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)', textAlign: 'center' }} >
                 My Progress
               </Card.Header>
               <Row>
@@ -276,6 +278,7 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
+
                         {easyPercentage}%
                       </div>
                     </div>
@@ -290,9 +293,11 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
+
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
+
                         {moderatePercentage}%
                       </div>
                     </div>
@@ -310,6 +315,7 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
+
                         {hardPercentage}%
                       </div>
                     </div>
@@ -324,9 +330,11 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
+
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
+
                         {allPercentage}%
                       </div>
                     </div>
@@ -345,15 +353,15 @@ const QuestionsAnswers = () => {
 
         <Row>
           <Card className="mx-auto" id="no-border">
-            <Card.Header style={{ marginBottom: "20px", fontSize: "200%" }}>
+            <Card.Header style={{ marginBottom: "20px", fontSize: "200%",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)', textAlign: 'center' }}>
               <Col className="mx-auto">
                 {currentDifficulty} & {currentCategory1}
               </Col>
             </Card.Header>
             <Card.Body>
               {/* <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}> */}
-              <Row style={{ marginBottom: "20px" }} xs={1} sm={3}>
-                <Col md="auto">
+              <Row style={{ marginBottom: "20px", alignItems: 'center' }} xs={1} sm={3}>
+                <Col md="auto"  >
                   <Dropdown
                     onSelect={(event) => pickDifficulty(event)}
                     style={{ marginBottom: "10px" }}
@@ -408,7 +416,7 @@ const QuestionsAnswers = () => {
                   ? currentItems.map((question) => (
                       <Col key={question.id} className="mx-auto">
                         <Card
-                          style={{ width: "18rem", marginBottom: "20px" }}
+                          style={{ width: "18rem", marginBottom: "20px",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)' }}
                           className="mx-auto"
                         >
                           <Card.Header
