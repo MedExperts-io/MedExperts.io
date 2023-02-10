@@ -20,6 +20,7 @@ router.get("/", getToken, async (req, res, next) => {
         "level",
         "category",
         "status",
+        "displayId",
       ],
     });
     res.json(allQs);
@@ -69,8 +70,6 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             },
             include: User_Question,
           });
-          console.log("ROUTE", allVersions);
-          //res.send("HAHAHA");
           res.json(allVersions);
         }
       } //Condition 2B - IF STUDENT
@@ -88,6 +87,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
+            displayId
           } = singleQuestion;
           res.json({
             id,
@@ -97,6 +97,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
+            displayId
           });
         }
       }
@@ -113,7 +114,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
 router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
   //NEED TO ADD CODE FOR IMAGE UPLOAD
-  console.log("REQ BODY", req.body);
+  console.log("REQ BODY FROM EDITQA", req.body);
   try {
     const newQA = await Question_Answer.create(req.body);
     console.log("Edited NEW QA CREATED", newQA);
