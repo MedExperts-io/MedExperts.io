@@ -87,7 +87,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
-            displayId
+            displayId,
           } = singleQuestion;
           res.json({
             id,
@@ -97,7 +97,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
-            displayId
+            displayId,
           });
         }
       }
@@ -154,32 +154,60 @@ router.delete(
     const qaId = req.params.singleQuestionId;
 
     try {
-      const allVersions = await Question_Answer.findAll({
-        order: [["createdAt", "ASC"]],
-        where: {
-          [Op.or]: [{ id: qaId }, { ancestorId: qaId }],
-        },
-        include: User_Question,
-      });
-      console.log("INITIAL ALL VERSIONS", allVersions);
+      ////-----------PREVIOUS
+      // const allVersions = await Question_Answer.findAll({
+      //   order: [["createdAt", "ASC"]],
+      //   where: {
+      //     [Op.or]: [{ id: qaId }, { ancestorId: qaId }],
+      //   },
+      //   include: User_Question,
+      // });
+      // console.log("INITIAL ALL VERSIONS", allVersions);
+
+      //---------NEW------grab all versions of what's coming
+      // let singleQuestion = await Question_Answer.findOne({
+      //   where: { id: qaId },
+      //   include: {
+      //     model: User_Question,
+      //   },
+      // });
+
+      // const allVersions = await Question_Answer.findAll({
+      //   order: [["createdAt", "ASC"]],
+      //   where: {
+      //     [Op.or]: [{ id: qaId }, { ancestorId: qaId }, {ancestorId: singleQuestionId}],
+      //   },
+      //   include: User_Question,
+      // });
+      // console.log("INITIAL ALL VERSIONS", allVersions = [1,...201,.. 202]);
 
       //If deleting root ancestor and it has children
-      if (allVersions[0].id === qaId && allVersions.length > 1) {
-        for (let i = 0; i < allVersions.length; i++) {
-          const updateChildren = await allVersions[i].update({
-            ancestorId: allVersions[1].id,
-          });
-        }
-        console.log("UPDATED ALL VERSIONS", allVersions);
-      }
+      // if (allVersions[0].id === qaId && allVersions.length > 1) {
+      //   const updateChildren = await Promise.all(
+      //     allVersions.map((aVersion, idx) => {
+      //       if (idx === 1) {
+      //         aVersion.update({ ancestorId: null });
+      //       } else {
+      //         aVersion.update({ ancestorId: allVersions[1].id });
+      //       }
+      //     })
+      //   );
+      //   console.log(qaId, "UPDATED VERSIONS", allVersions);
+      // }
+      //else if(allVersions[allVersions.length-1].id === qaId && allVersions.length > 1){
+      // const updateOthers = await allVersions[allVersions.length-2].update({ status: "Active" })
+      //   console.log(qaId, "UPDATED VERSIONS", updateOthers);
+      // }
+      // }
+
       const deleteInstance = await Question_Answer.destroy({
         where: {
-          questionAnswerId: qaId,
+          id: qaId,
         },
       });
 
       // if (allVersions.length === 1) {
-      res.json(deleteInstance); //only sends num of deletion back
+      res.json(qaId); //deleteInstance only sends num of deletion back
       // } else {
       //   res.json(allVersions[allVersions.length - 1]);
       // }
