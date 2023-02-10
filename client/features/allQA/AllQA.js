@@ -77,7 +77,7 @@ const QuestionsAnswers = () => {
   UserQuestions ? (rightOrWrong = userRightOrWrong(UserQuestions)) : null;
 
   let allQuestions = [...questionsAnswers];
-  allQuestions.sort((a, b) => a.id - b.id);
+  allQuestions.sort((a, b) => a.displayId - b.displayId);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
   allQuestions.length && !filteredQuestions
     ? setfilteredQuestions(allQuestions)
@@ -513,7 +513,8 @@ const QuestionsAnswers = () => {
                               to={`/questions/${question.id}`}
                             >
                               <Card.Title style={{ color: "black" }}>
-                                Question Number {question.id}
+                                Question Number {question.displayId}
+                                {/* {question.id} */}
                               </Card.Title>
                               <Card.Text style={{ color: "black" }}>
                                 {truncate(question.question)}
