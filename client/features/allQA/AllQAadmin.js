@@ -378,6 +378,13 @@ const AllQAadmin = () => {
             />
           </Form>
         </Col>
+        <Button
+                          variant="success"
+                          as={Link}
+                          to="/addQuestion"
+                          className="m-2"
+                          // style={{ color: "#FF6262" }}
+        >Add a Question</Button>
       </Row>
       <Row>
         {loading && <LoadingScreen />}
