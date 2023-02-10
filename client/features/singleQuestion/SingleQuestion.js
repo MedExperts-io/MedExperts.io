@@ -130,7 +130,7 @@ const SingleQuestion = () => {
                     <Card.Body
                       style={{ fontSize: "20px", textAlign: "center" }}
                     >
-                      Question Number: {displayId}
+                      Question: {displayId}
                     </Card.Body>
                   </Card>
 
@@ -320,7 +320,7 @@ const SingleQuestion = () => {
                     <Card.Body
                       style={{ fontSize: "20px", textAlign: "center" }}
                     >
-                      Question Number: {displayId}
+                      Question: {displayId}
                     </Card.Body>
                   </Card>
 
