@@ -65,6 +65,7 @@ export const allQASlice = createSlice({
     easy: [],
     moderate: [],
     hard: [],
+    newQuestion: [],
     error: null,
     loading: false,
   },
@@ -82,7 +83,7 @@ export const allQASlice = createSlice({
         state.loading = false;
       })
       .addCase(NewQuestionsAnswers.fulfilled, (state, action) => {
-        state.questionsAnswers = action.payload;
+        state.newQuestion = action.payload;
         // console.log(action.payload)
       })
       .addCase(fetchAllQuestionsAnswers.rejected, (state, action) => {
