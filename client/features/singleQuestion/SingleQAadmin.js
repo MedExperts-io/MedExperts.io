@@ -63,13 +63,14 @@ const SingleQAadmin = () => {
           </div>
           <div>
             {qaVersions && qaVersions?.length ? (
-              qaVersions.map((eachVersion) => (
+              qaVersions.map((eachVersion, idx) => (
                 <Stack gap={3} key={uuidv4()}>
                   <Card>
                     <Card.Body
                       style={{ fontSize: "20px", textAlign: "center" }}
                     >
-                      Question Number: {eachVersion.id}
+                      Question {qaVersions[0].displayId} {"\n"}
+                      Unique ID {eachVersion.id}
                     </Card.Body>
                     <Card.Body
                       className="mb-2 text-center"

@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-// const token = window.localStorage.getItem("token");
+const token = window.localStorage.getItem("token");
 
 export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () => {
-  const token = window.localStorage.getItem("token");
   const { data } = await axios.get(`/api/questions`, {
     headers: {
       authorization: token,
@@ -13,6 +12,52 @@ export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () =>
   return data;
 });
 
+// export const NewQuestionsAnswers = createAsyncThunk("NewQAs", async () => {
+//   const { data } = await axios.post(`/api/questions`,  {
+//     headers: {
+//       authorization: token,
+//     },
+//   });
+//   return data;
+// });
+
+export const NewQuestionsAnswers = createAsyncThunk(
+  "NewQAs",
+  async ({
+    question,
+    questionImage,
+    answerOptions,
+    correctAnswer,
+    explanation,
+    explanationImage,
+    explanationLinks,
+    category,
+    level,
+  }) => {
+    const { data } = await axios.post(
+      `/api/questions/`,
+      {
+        question,
+        questionImage,
+        answerOptions,
+        correctAnswer,
+        explanation,
+        explanationImage,
+        explanationLinks,
+        category,
+        level,
+      },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    return data;
+  }
+);
+
+
 export const allQASlice = createSlice({
   name: "allQA",
   initialState: {
@@ -20,6 +65,7 @@ export const allQASlice = createSlice({
     easy: [],
     moderate: [],
     hard: [],
+    newQuestion: [],
     error: null,
     loading: false,
   },
@@ -36,9 +82,17 @@ export const allQASlice = createSlice({
         state.hard = action.payload.filter((question) => question.level === "Hard");
         state.loading = false;
       })
+      .addCase(NewQuestionsAnswers.fulfilled, (state, action) => {
+        state.newQuestion = action.payload;
+        // console.log(action.payload)
+      })
       .addCase(fetchAllQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
+      })
+      .addCase(NewQuestionsAnswers.rejected, (state, action) => {
+        state.error = action.error;
       });
+      
   },
 });
 

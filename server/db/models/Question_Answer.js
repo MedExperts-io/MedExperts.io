@@ -51,6 +51,13 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.ENUM("Active", "Inactive"),
     defaultValue: "Active",
   },
+  displayId: {
+    type: Sequelize.INTEGER,
+    get() {
+      const rawValue = this.getDataValue("displayId");
+      return rawValue ? rawValue : this.getDataValue("id");
+    },
+  },
 });
 
 module.exports = Question_Answer;
