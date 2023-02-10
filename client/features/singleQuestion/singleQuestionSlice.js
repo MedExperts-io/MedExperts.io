@@ -41,6 +41,7 @@ export const editQuestion = createAsyncThunk(
     category,
     level,
     ancestorId,
+    displayId,
   }) => {
     const { data } = await axios.post(
       `/api/questions/${id}`,
@@ -55,6 +56,7 @@ export const editQuestion = createAsyncThunk(
         category,
         level,
         ancestorId,
+        displayId,
       },
       {
         headers: {
