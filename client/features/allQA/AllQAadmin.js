@@ -1,28 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import {
-  Card,
-  Dropdown,
-  Row,
-  Col,
-  Form,
-  Button,
-  ProgressBar,
-} from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import {
-  fetchAllUserQuestions,
-  fetchUserQuestions,
-  updateUserQuestion,
-} from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
-import LinearProgress from "@mui/material/LinearProgress";
+import { Chip, Stack, LinearProgress } from "@mui/material";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -33,9 +18,8 @@ const AllQAadmin = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(
-    difficultiyLevels[0]
-  );
+  const userExpertise = ["All Expertise", "Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
+  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
   const categories = [
     "All Categories",
     "Asthma",
@@ -55,47 +39,34 @@ const AllQAadmin = () => {
     "Sleep",
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
-  const [currentCategory2, setCurrentCategory2] = useState(categories[0]);
+  const [currentCategory2, setCurrentCategory2] = useState(userExpertise[0]);
   const [seeFavorites, setSeeFavorites] = useState(true);
+  const expertisePicked = useRef("All Expertise");
+  const expertiseFilterOn = useRef(false);
   let isFavorited = false;
+  //let expertiseFilterOn = false;
 
   const onFavoriteSwitch = () => {
     seeFavorites ? (isFavorited = true) : null;
     setSeeFavorites(!seeFavorites);
     filterFunction();
   };
+
+  const userExpertiseSelection = (event) => {
+    expertiseQuestions ? setCurrentCategory2(event) : null;
+    expertisePicked.current = event;
+    //event === "All Expertise" ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
+    filterFunction();
+  };
+
   const loading = useSelector((state) => state.questionsAnswers.loading);
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const userQuestions = useSelector(
-    (state) => state.userQuestions.UserQuestions
-  );
-  const AllUserQuestions = useSelector(
-    (state) => state.userQuestions.allUserQuestions
-  );
-  const stateQuestions = useSelector(
-    (state) => state.questionsAnswers.questionsAnswers
-  );
-
-  const easyQuestions = stateQuestions.filter(
-    (question) => question.level === "Easy"
-  );
-  const moderateQuestions = stateQuestions.filter(
-    (question) => question.level === "Moderate"
-  );
-  const hardQuestions = stateQuestions.filter(
-    (question) => question.level === "Hard"
-  );
-  const userEasyQuestions = userQuestions.filter(
-    (question) => question.level === "Easy" && question.userInput
-  );
-  const userModerateQuestions = userQuestions.filter(
-    (question) => question.level === "Moderate" && question.userInput
-  );
-  const userHardQuestions = userQuestions.filter(
-    (question) => question.level === "Hard" && question.userInput
-  );
+  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
+  const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
+  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+  const expertiseQuestions = useSelector((state) => state.userQuestions.expertiseQuestions);
 
   const EasyQuestionsTotal = AllUserQuestions.filter(
     (question) => question.level === "Easy"
@@ -107,29 +78,17 @@ const AllQAadmin = () => {
     (question) => question.level === "Hard"
   );
 
-  const UsereasyQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Easy" && question.answered === "right"
-  );
-  const UserModerateQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Moderate" && question.answered === "right"
-  );
-  const UserHardQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Hard" && question.answered === "right"
-  );
-  const UserAllQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.answered === "right"
-  );
+  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered === "right");
+  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered === "right");
+  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
+  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
 
-  const easyQuestionsAnsweredPercentage =
-    (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100;
-  const moderateQuestionsAnsweredPercentage =
-    (UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100;
-  const hardQuestionsAnsweredPercentage =
-    (UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100;
-  const allQuestionAnsweredPercentage =
-    (UserAllQuestionsTotal.length / AllUserQuestions.length) * 100;
+  const easyQuestionsAnsweredPercentage = (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100;
+  const moderateQuestionsAnsweredPercentage = (UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100;
+  const hardQuestionsAnsweredPercentage = (UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100;
+  const allQuestionAnsweredPercentage = (UserAllQuestionsTotal.length / AllUserQuestions.length) * 100;
 
-  console.log(EasyQuestionsTotal, UsereasyQuestionsTotal);
+  //console.log(EasyQuestionsTotal, UsereasyQuestionsTotal);
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.id - b.id);
   allQuestions = allQuestions.map((question) => {
@@ -150,24 +109,17 @@ const AllQAadmin = () => {
       };
     }
   });
-  //const listOfFavorites = userQuestions.filter((question) => question.favorite === true);
-  //const allAnswered = userQuestions.length / allQuestions.length;
 
-  // console.log("allQuestionsCheck", allQuestions);
-  const [filteredQuestions, setfilteredQuestions] = useState(null);
-  allQuestions.length && !filteredQuestions
-    ? setfilteredQuestions(allQuestions)
-    : null;
-
-  // console.log("currentitems", currentItems);
+  const filteredQuestions = useRef(null);
+  allQuestions.length && !filteredQuestions.current ? (filteredQuestions.current = allQuestions) : null;
+  //expertiseFilterOn.current && expertiseQuestions.length === 0 ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
+  //console.log("out of filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current, expertiseFilterOn.current);
+  //expertiseQuestions.length > 0 ? () => filterFunction : null;
+  //expertiseQuestions.length > 0 && ? () => userExpertiseSelection : null;
 
   const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions && !pageCount
-    ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage))
-    : null;
-  filteredQuestions && !currentItems
-    ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset))
-    : null;
+  filteredQuestions.current && !pageCount ? setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage)) : null;
+  filteredQuestions.current && !currentItems ? setCurrentItems(filteredQuestions.current.slice(itemOffset, endOffset)) : null;
 
   const truncate = (string) => {
     if (string.length > 20) {
@@ -178,15 +130,10 @@ const AllQAadmin = () => {
   };
 
   const data = (id) => {
-    const filterDataById = AllUserQuestions.filter(
-      (x) => x.questionAnswerId === id
-    );
-    const filterDataByCorrect = filterDataById.filter(
-      (x) => x.answered === "right"
-    );
+    const filterDataById = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByCorrect = filterDataById.filter((x) => x.answered === "right");
 
-    const percentageCorrect =
-      (filterDataByCorrect.length / filterDataById.length) * 100;
+    const percentageCorrect = (filterDataByCorrect.length / filterDataById.length) * 100;
     if (percentageCorrect || percentageCorrect === 0) {
       return percentageCorrect;
     } else {
@@ -194,16 +141,12 @@ const AllQAadmin = () => {
     }
   };
   const filterDataById = (id) => {
-    const filterData = AllUserQuestions.filter(
-      (x) => x.questionAnswerId === id
-    );
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
     return filterData.length;
   };
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter(
-      (x) => x.questionAnswerId === id
-    );
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     const filterDataByRight = filterData.filter((x) => x.answered === "right");
     return filterDataByRight.length;
   };
@@ -242,23 +185,18 @@ const AllQAadmin = () => {
     const newOffset = event.selected * itemsPerPage;
     setItemOffset(newOffset);
     const endOffset = newOffset + itemsPerPage;
-    setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage));
-    setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
+    setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage));
+    setCurrentItems(filteredQuestions.current.slice(newOffset, endOffset));
   };
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    // console.log("isFavorited?", isFavorited, multiFilter);
-    let favNumbers = userQuestions
-      .filter((question) => question.favorite === true)
-      .map((question) => question.questionAnswerId);
-    isFavorited
-      ? (multiFilter = multiFilter.filter((question) =>
-          favNumbers.includes(question.id)
-        ))
-      : null;
-    //seeFavorites ?
-    // console.log("isFavorited?", isFavorited, multiFilter);
+    console.log("in filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current);
+    expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
+
+    let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
+    isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
+
     for (let i = 0; i < filterCriteria.length; i++) {
       if (
         filterCriteria[i] === "All Levels" ||
@@ -273,14 +211,30 @@ const AllQAadmin = () => {
         );
       }
     }
-    // console.log("filterQuestions in filterFunction", multiFilter);
-    multiFilter.length ? setfilteredQuestions(multiFilter) : null;
-    multiFilter.length
-      ? setCurrentItems(multiFilter.slice(0, 12))
-      : setCurrentItems("nada");
-    multiFilter.length
-      ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
-      : setPageCount(0);
+
+    console.log("filterQuestions in filterFunction", multiFilter);
+    multiFilter = multiFilter.map((question) => {
+      if (question.level === "Easy") {
+        return {
+          ...question,
+          color: "lightgreen",
+        };
+      } else if (question.level === "Moderate") {
+        return {
+          ...question,
+          color: "#f5ad27",
+        };
+      } else {
+        return {
+          ...question,
+          color: "#f55b49",
+        };
+      }
+    });
+
+    multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
+    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
+    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
     return multiFilter;
   };
@@ -294,204 +248,60 @@ const AllQAadmin = () => {
   };
 
   useEffect(() => {
+    dispatch(fetchExpertiseQuestions());
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
     dispatch(fetchAllUserQuestions());
-  }, []); // Putting userQuestions in here throws a loop
+  }, []);
 
   return (
-    <Container fluid>
+    <Container>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
         <Card id="no-border" className="mx-auto">
           <Card.Body>
-            <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
-              Student Progress{" "}
-              <Row>
-                <p style={{ fontSize: `50%` }}>
-                  The below charts represent the percentage of questions
-                  answered correctly in each category (i.e., of the 'Easy'
-                  questions answered,{" "}
-                  {Math.round(easyQuestionsAnsweredPercentage)}% were answered
-                  correctly).
-                </p>
-              </Row>
-            </Card.Header>
-
+            <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>My Progress</Card.Header>
             <Row>
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(
-                        UsereasyQuestionsTotal.length /
-                          EasyQuestionsTotal.length,
-                        "lightgreen"
-                      ),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Correct
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round(easyQuestionsAnsweredPercentage)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarEasy}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100)}%</div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "lightgreen" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ color: "lightgreen" }}>
                     Easy Level
                   </Card.Title>
                 </Card>
               </Col>
+
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(
-                        UserModerateQuestionsTotal.length /
-                          ModerateQuestionsTotal.length,
-                        "#f5ad27"
-                      ),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      textAlign: "right",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Correct
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round(moderateQuestionsAnsweredPercentage)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarModerate}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100)}%</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ color: "#f5ad27" }}>
                     <center>Moderate Level</center>
                   </Card.Title>
                 </Card>
               </Col>
+
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(
-                        UserHardQuestionsTotal.length /
-                          HardQuestionsTotal.length,
-                        "#f55b49"
-                      ),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Correct
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round(hardQuestionsAnsweredPercentage)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarHard}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100)}%</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ color: "#f55b49" }}>
                     Hard Level
                   </Card.Title>
                 </Card>
               </Col>
+
               <Col>
                 <Card id="no-border" className="mx-auto">
-                  <div
-                    className="mx-auto"
-                    style={{
-                      background: progressCircleBackground(
-                        UserAllQuestionsTotal.length / AllUserQuestions.length,
-                        "#bf5eff"
-                      ),
-                      borderRadius: "50%",
-                      width: "120px",
-                      height: "120px",
-                      marginTop: "0px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "30%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "60%",
-                      }}
-                    >
-                      Correct
-                    </div>
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "40%",
-                        width: "100%",
-                        textAlign: "center",
-                        fontSize: "150%",
-                      }}
-                    >
-                      {Math.round(allQuestionAnsweredPercentage)}%
-                    </div>
+                  <div className="mx-auto" style={styles.progressBarAll}>
+                    <div style={styles.progressBarBackground}>Completed</div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100)}%</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ color: "#bf5eff" }}>
                     All Levels
@@ -502,42 +312,47 @@ const AllQAadmin = () => {
           </Card.Body>
         </Card>
       </Row>
+
       <Row>
         <Card className="mx-auto" id="no-border">
           <Card.Header style={{ marginBottom: "20px", fontSize: "200%" }}>
-            <Col className="mx-auto">
+            <Col>
               {currentDifficulty} & {currentCategory1}
             </Col>
           </Card.Header>
           <Card.Body>
-            {/* <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}> */}
-            <Row style={{ marginBottom: "20px" }} xs="auto">
-              <Col>
-                <Dropdown
-                  onSelect={(event) => pickDifficulty(event)}
-                  style={{ marginBottom: "10px" }}
-                >
+            <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}>
+              <Col md="auto">
+                <Dropdown onSelect={(event) => pickDifficulty(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {currentDifficulty}
                   </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    {difficultiyLevels.map((difficulty) => (
-                      <Dropdown.Item key={difficulty} eventKey={difficulty}>
-                        {difficulty}
-                      </Dropdown.Item>
-                    ))}
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Col>
-              <Col>
-                <Dropdown
+                        <Dropdown.Menu>
+                          {difficultiyLevels.map((difficulty) => (
+                            <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                              {difficulty}
+                            </Dropdown.Item>
+                          ))}
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </Col>
+                    <Col>
+                      <Dropdown
                   onSelect={(event) => pickCategory1(event)}
                   style={{ marginBottom: "10px" }}
                 >
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    {currentCategory1}
-                  </Dropdown.Toggle>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                          {currentCategory1}
+                        </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    {categories.map((category) => (
+                      <Dropdown.Item key={category} eventKey={category}>
+                        {category}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
 
                   <Dropdown.Menu>
                     {categories.map((category) => (
@@ -548,104 +363,65 @@ const AllQAadmin = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
-
-              <Col>
+              <Col md="auto">
+                <Dropdown onSelect={(event) => userExpertiseSelection(event)}>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {expertisePicked.current}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {userExpertise.map((expertise) => (
+                      <Dropdown.Item key={expertise} eventKey={expertise}>
+                        {expertise}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Col>
+              <Col md="auto">
                 <Form>
-                  <Form.Switch
-                    onChange={() => onFavoriteSwitch()}
-                    id="custom-switch"
-                    label="Favorites Only"
-                    checked={!seeFavorites}
-
-                    //disabled // apply if you want the switch disabled
-                  />
+                  <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
                 </Form>
               </Col>
             </Row>
+
             <Row>
               {loading && <LoadingScreen />}
               {currentItems && currentItems.length && currentItems !== "nada"
-                ? currentItems.map((question) => (
+                ? currentItems.map((question, idx) => (
                     <Col key={question.id}>
                       <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                        <Card.Header
-                          style={{ backgroundColor: `${question.color}` }}
-                        />
-                        <Card.Body style={{}}>
-                          {/* <Card.Img
-                      style={{ float: "right", width: "25px" }}
-                      onClick={() => favorite(userId, question.id)}
-                      variant="top"
-                      src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
-                    /> */}
-                          <Card.Title
-                            style={{ fontSize: "20px", textAlign: "center" }}
-                          >
-                            <Link
-                              to={`/questions/${question.id}`}
-                              style={{ textDecoration: `none` }}
-                            >
-                              Question Number {question.id}
+                        <Card.Header style={{ backgroundColor: `${question.color}` }} />
+                        <Card.Body>
+                          <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
+                            <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
+                              Question Number {itemOffset + 1 + idx}
                             </Link>
                           </Card.Title>
-                          <Card.Text
-                            style={{ fontSize: "15px", textAlign: "center" }}
-                          >
-                            {truncate(question.question)}
-                          </Card.Text>
-
+                          <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
                           <Stack spacing={0.5}>
                             <Chip
-                              label={
-                                <Stack spacing={2}>
-                                  {`Correct Response: ${
-                                    data(question.id) || data(question.id) === 0
-                                      ? data(question.id)
-                                      : 0
-                                  }%`}
-                                </Stack>
-                              }
-                              color={`${
-                                data(question.id) && data(question.id) >= 50
-                                  ? "success"
-                                  : "error"
-                              }`}
+                              label={<Stack spacing={2}>{`Correct Response: ${data(question.id) || data(question.id) === 0 ? data(question.id) : 0}%`}</Stack>}
+                              color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
                               variant="outlined"
                             />
 
-                            <Chip
-                              label={`Total Response(s): ${filterDataById(
-                                question.id
-                              )}`}
-                              size="small"
-                              color="primary"
-                              variant="outlined"
-                            />
+                            <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
                           </Stack>
                         </Card.Body>
                         <LinearProgress
                           sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
                           variant="determinate"
                           value={data(question.id)}
-                          color={`${
-                            data(question.id) && data(question.id) >= 50
-                              ? "success"
-                              : "error"
-                          }`}
+                          color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
                         />
                         <Card.Footer>
-                          {/* <Chip label={question.category} color="success" variant="outlined" /> */}
-                          <Chip label={question.category} color="info" />
-                          {/* <Card.Img style={{ float: "right", width: "25px" }} src="/endocrine-system.png" /> */}
+                          <Chip style={{ marginRight: "4px" }} label={question.level} onClick={() => pickDifficulty(question.level)} color="info" />
+                          <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="info" />
                           <Card.Img
                             style={{ float: "right", width: "25px" }}
                             onClick={() => favorite(userId, question.id)}
                             variant="top"
-                            src={
-                              favoriteStatus(question.id)
-                                ? "/heart(red).png"
-                                : "/heart.png"
-                            }
+                            src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                           />
                         </Card.Footer>
                       </Card>

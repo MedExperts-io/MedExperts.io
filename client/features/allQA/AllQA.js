@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import {
-  fetchAllUserQuestions,
-  fetchUserQuestions,
-  updateUserQuestion,
-} from "../stats/user_questionsSlice";
+import { fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
+import { Chip, Stack } from "@mui/material";
 import AllQAadmin from "./AllQAadmin";
 
 const QuestionsAnswers = () => {
@@ -22,9 +19,7 @@ const QuestionsAnswers = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const difficultyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(
-    difficultyLevels[0]
-  );
+  const [currentDifficulty, setCurrentDifficulty] = useState(difficultyLevels[0]);
   const categories = [
     "All Categories",
     "Asthma",
@@ -58,39 +53,25 @@ const QuestionsAnswers = () => {
   let filterCriteria = [currentDifficulty, currentCategory1];
 
   const admin = useSelector((state) => state.auth.me.isAdmin);
-  const { UserQuestions, userEasy, userModerate, userHard } = useSelector(
-    (state) => state.userQuestions
-  );
-  const { questionsAnswers, easy, moderate, hard } = useSelector(
-    (state) => state.questionsAnswers
-  );
+  const { UserQuestions, userEasy, userModerate, userHard } = useSelector((state) => state.userQuestions);
+  const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
   const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
-  const moderatePercentage = Math.round(
-    (userModerate?.length / moderate?.length) * 100
-  );
+  const moderatePercentage = Math.round((userModerate?.length / moderate?.length) * 100);
   const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
-  const allPercentage = Math.round(
-    (UserQuestions?.length / questionsAnswers?.length) * 100
-  );
+  const allPercentage = Math.round((UserQuestions?.length / questionsAnswers?.length) * 100);
   let rightOrWrong = {};
   UserQuestions ? (rightOrWrong = userRightOrWrong(UserQuestions)) : null;
 
   let allQuestions = [...questionsAnswers];
   allQuestions.sort((a, b) => a.id - b.id);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
-  allQuestions.length && !filteredQuestions
-    ? setfilteredQuestions(allQuestions)
-    : null;
+  allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
 
   // console.log("currentitems", currentItems);
   // console.log("rightOrWrong", rightOrWrong);
   const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions && !pageCount
-    ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage))
-    : null;
-  filteredQuestions && !currentItems
-    ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset))
-    : null;
+  filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
+  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -107,7 +88,6 @@ const QuestionsAnswers = () => {
         map[array[i]["questionAnswerId"]] = array[i]["answered"];
       }
     }
-    // console.log("map", map);
     return map;
   }
 
@@ -121,9 +101,7 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = UserQuestions?.filter(
-      (question) => question.questionAnswerId == questionId
-    );
+    const question = UserQuestions?.filter((question) => question.questionAnswerId == questionId);
     if (question && question[0] && question[0].favorite) return true;
     return false;
   };
@@ -151,37 +129,20 @@ const QuestionsAnswers = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    let favNumbers = UserQuestions.filter(
-      (question) => question.favorite === true
-    ).map((question) => question.questionAnswerId);
-    isFavorited
-      ? (multiFilter = multiFilter.filter((question) =>
-          favNumbers.includes(question.id)
-        ))
-      : null;
+    let favNumbers = UserQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
+    isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
 
     for (let i = 0; i < filterCriteria.length; i++) {
-      if (
-        filterCriteria[i] === "All Levels" ||
-        filterCriteria[i] === "All Categories"
-      ) {
+      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
       } else {
-        multiFilter = multiFilter.filter(
-          (question) =>
-            question.level === filterCriteria[i] ||
-            question.category === filterCriteria[i]
-        );
+        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
 
     multiFilter.length ? setfilteredQuestions(multiFilter) : null;
-    multiFilter.length
-      ? setCurrentItems(multiFilter.slice(0, 12))
-      : setCurrentItems("nada");
-    multiFilter.length
-      ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
-      : setPageCount(0);
+    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
+    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
   };
 
@@ -213,7 +174,16 @@ const QuestionsAnswers = () => {
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
-  }, []); // Putting userQuestions in here throws a loop
+  }, []);
+
+  const styles = {
+    progressBarEasy: { background: progressCircleBackground(easyPercentage / 100, "lightgreen"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarModerate: { background: progressCircleBackground(moderatePercentage / 100, "#f5ad27"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarHard: { background: progressCircleBackground(hardPercentage / 100, "#f55b49"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarAll: { background: progressCircleBackground(allPercentage / 100, "#bf5eff"), borderRadius: "50%", width: "120px", height: "120px", position: "relative" },
+    progressBarBackground: { position: "absolute", bottom: "30%", width: "100%", textAlign: "center", fontSize: "60%" },
+    progressBarMiddle: { position: "absolute", bottom: "40%", width: "100%", textAlign: "center", fontSize: "150%" },
+  };
 
   if (admin) {
     return <AllQAadmin />;
@@ -229,47 +199,11 @@ const QuestionsAnswers = () => {
               <Row>
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          easyPercentage / 100,
-                          "lightgreen"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {easyPercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarEasy}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
                     </div>
-
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "lightgreen" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "lightgreen" }}>
                       Easy Level
                     </Card.Title>
                   </Card>
@@ -277,142 +211,35 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          moderatePercentage / 100,
-                          "#f5ad27"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        textAlign: "right",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {moderatePercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarModerate}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
                     </div>
-
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#f5ad27" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "#f5ad27" }}>
                       <center>Moderate Level</center>
                     </Card.Title>
                   </Card>
                 </Col>
+
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          hardPercentage / 100,
-                          "#f55b49"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {hardPercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarHard}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#f55b49" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "#f55b49" }}>
                       Hard Level
                     </Card.Title>
                   </Card>
                 </Col>
+
                 <Col>
                   <Card id="no-border" className="mx-auto">
-                    <div
-                      className="mx-auto"
-                      style={{
-                        background: progressCircleBackground(
-                          allPercentage / 100,
-                          "#bf5eff"
-                        ),
-                        borderRadius: "50%",
-                        width: "120px",
-                        height: "120px",
-                        marginTop: "0px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "30%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "60%",
-                        }}
-                      >
-                        Completed
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "40%",
-                          width: "100%",
-                          textAlign: "center",
-                          fontSize: "150%",
-                        }}
-                      >
-                        {allPercentage}%
-                      </div>
+                    <div className="mx-auto" style={styles.progressBarAll}>
+                      <div style={styles.progressBarBackground}>Completed</div>
+                      <div style={styles.progressBarMiddle}>{allPercentage}%</div>
                     </div>
-
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#bf5eff" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "#bf5eff" }}>
                       All Levels
                     </Card.Title>
                   </Card>
@@ -421,6 +248,7 @@ const QuestionsAnswers = () => {
             </Card.Body>
           </Card>
         </Row>
+
         <Row>
           <Card className="mx-auto" id="no-border">
             <Card.Header style={{ marginBottom: "20px", fontSize: "200%" }}>
@@ -470,15 +298,11 @@ const QuestionsAnswers = () => {
                   {/* <Col md="auto">
                    */}
                   <Form>
-                    <Form.Switch
-                      onChange={() => onFavoriteSwitch()}
-                      id="custom-switch"
-                      label="Favorites Only"
-                      checked={!seeFavorites}
-                    />
+                    <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
                   </Form>
                 </Col>
               </Row>
+
               <Row>
                 {loading && <LoadingScreen />}
                 {currentItems && currentItems.length && currentItems !== "nada"
@@ -493,37 +317,20 @@ const QuestionsAnswers = () => {
                               backgroundColor: cardHeaderColor(question.level),
                             }}
                           />
-                          <Card.Body
-                            style={{
-                              backgroundColor: cardBodyColor(question.id),
-                            }}
-                          >
+                          <Card.Body style={{ backgroundColor: cardBodyColor(question.id) }}>
+                            <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
+                              <Card.Title style={{ color: "black" }}>Question Number {question.id}</Card.Title>
+                              <Card.Text style={{ color: "black" }}>{truncate(question.question)}</Card.Text>
+                            </Link>
+                          </Card.Body>
+                          <Card.Footer>
+                            <Chip label={question.level} onClick={() => pickDifficulty(question.level)} color="info" />
+                            <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="info" />
                             <Card.Img
                               style={{ float: "right", width: "25px" }}
                               onClick={() => favorite(userId, question.id)}
                               variant="top"
-                              src={
-                                favoriteStatus(question.id)
-                                  ? "/heart(red).png"
-                                  : "/heart.png"
-                              }
-                            />
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`/questions/${question.id}`}
-                            >
-                              <Card.Title style={{ color: "black" }}>
-                                Question Number {question.id}
-                              </Card.Title>
-                              <Card.Text style={{ color: "black" }}>
-                                {truncate(question.question)}
-                              </Card.Text>
-                            </Link>
-                          </Card.Body>
-                          <Card.Footer>
-                            <Card.Img
-                              style={{ float: "right", width: "25px" }}
-                              src="/endocrine-system.png"
+                              src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                             />
                           </Card.Footer>
                         </Card>
