@@ -135,81 +135,117 @@ const SingleQuestion = () => {
                     <Breadcrumb>
                       <Breadcrumb.Item
                         href="/questions"
-                        style={{ textDecorationLine: "underline" }}
+                        id="breadcrumb"
+                        style={{
+                          textDecorationLine: "underline",
+                          // color: "black",
+                        }}
                       >
-                        Questions
+                        All Questions
                       </Breadcrumb.Item>
-                      <Breadcrumb.Item active>
+                      <Breadcrumb.Item id="breadcrumb" active>
                         {" "}
                         Question No.{displayId}
                       </Breadcrumb.Item>
                     </Breadcrumb>
 
                     <Card>
-                      <Card.Body
+                      <Card.Header
                         className="mb-2 text-center"
                         style={{
-                          fontSize: "20px",
+                          fontSize: "100%",
                           // fontWeight: "bold",
                           textAlign: "center",
                         }}
                       >
                         {question}
-                      </Card.Body>
-                    </Card>
-                  </Stack>
-                  <Stack gap={3} className="mx-auto" direction="horizontal">
-                    {questionImage
-                      ? questionImage.map((image, index) => (
-                          <Card gap={3} key={uuidv4()}>
-                            <img
-                              src={image}
+                      </Card.Header>
+                      <Card.Body className="mb-2 text-center">
+                        {/* </Stack> */}
+                        <Stack
+                          gap={3}
+                          className="mx-auto"
+                          direction="horizontal"
+                        >
+                          {questionImage
+                            ? questionImage.map((image, index) => (
+                                <Card
+                                  gap={3}
+                                  key={uuidv4()}
+                                  className="mx-auto"
+                                  id="no-border"
+                                >
+                                  <img
+                                    src={image}
+                                    style={{
+                                      maxHeight: `12rem`,
+                                    }}
+                                  />
+                                  <Card.Subtitle
+                                    className="m-2 text-center"
+                                    style={{ fontSize: "10px" }}
+                                  >
+                                    figure:{index + 1}
+                                  </Card.Subtitle>
+                                </Card>
+                              ))
+                            : null}
+                        </Stack>
+                        {/* </Stack> */}
+                        <Row>
+                          <center>
+                            <p
                               style={{
-                                height: `12rem`,
+                                fontWeight: "bold",
                               }}
-                            />
-                            <Card.Subtitle
-                              className="m-2 text-center"
-                              style={{ fontSize: "10px" }}
                             >
-                              figure:{index + 1}
-                            </Card.Subtitle>
-                          </Card>
-                        ))
-                      : null}
-                  </Stack>
-                </Stack>
-
-                <Stack gap={5}>
-                  <Stack direction="horizontal" gap={3} className=" mx-auto">
-                    {answerOptions
-                      ? answerOptions.map((ans, index) => (
+                              Select your answer:
+                            </p>
+                          </center>
+                        </Row>
+                        <Row className="mx-auto">
+                          {/* <Stack gap={5}>
+                  <Stack direction="horizontal" gap={3} className=" mx-auto"> */}
+                          {answerOptions
+                            ? answerOptions.map((ans, index) => (
+                                <Button
+                                  as={Col}
+                                  className="ms-3 mb-2"
+                                  key={uuidv4()}
+                                  // variant={selectedOption === ans ? "success" : "outline-success"}
+                                  variant={
+                                    CurrentQuestion.userInput
+                                      ? ans === correctAnswer
+                                        ? "success"
+                                        : "danger"
+                                      : CurrentQuestion.answered === ans
+                                      ? "success"
+                                      : "outline-success"
+                                  }
+                                >
+                                  {ans}
+                                </Button>
+                              ))
+                            : null}
+                        </Row>
+                      </Card.Body>
+                      <Card.Footer>
+                        <Stack
+                          direction="horizontal"
+                          gap={3}
+                          className=" mx-auto"
+                        >
                           <Button
-                            key={uuidv4()}
-                            // variant={selectedOption === ans ? "success" : "outline-success"}
-                            variant={
-                              CurrentQuestion.userInput
-                                ? ans === correctAnswer
-                                  ? "success"
-                                  : "danger"
-                                : CurrentQuestion.answered === ans
-                                ? "success"
-                                : "outline-success"
-                            }
+                            className="mx-auto"
+                            variant="danger"
+                            // onClick={handleSubmit}
+                            disabled={selectedOption === null}
                           >
-                            {ans}
+                            Submit
                           </Button>
-                        ))
-                      : null}
-                  </Stack>
-                  <Stack direction="horizontal" gap={3} className=" mx-auto">
-                    <Button
-                      variant="danger"
-                      // onClick={handleSubmit}
-                      disabled={selectedOption === null}
-                    >
-                      Submit
-                    </Button>
+                        </Stack>
+                      </Card.Footer>
+                    </Card>
                   </Stack>
                 </Stack>
 
@@ -327,12 +363,16 @@ const SingleQuestion = () => {
                 <Stack gap={3}>
                   <Breadcrumb>
                     <Breadcrumb.Item
+                      id="breadcrumb"
                       href="/questions"
-                      style={{ textDecorationLine: "underline" }}
+                      style={{
+                        textDecorationLine: "underline",
+                        // fontWeight: "bold",
+                      }}
                     >
-                      Questions
+                      All Questions
                     </Breadcrumb.Item>
-                    <Breadcrumb.Item active>
+                    <Breadcrumb.Item id="breadcrumb" active>
                       Question No.{displayId}
                     </Breadcrumb.Item>
                   </Breadcrumb>
@@ -357,47 +397,42 @@ const SingleQuestion = () => {
                       {question}
                     </Card.Header>
                     <Card.Body className="mx-auto">
-                      //need to fix image stack
-                      <Row>
-                        <Container
+                      {/* <Row>
+                        {/* <Container
                           fluid="sm"
                           className="mx-auto"
                           direction="horizontal"
-                        >
-                          {/* <Stack
-                            gap={3}
-                            className="mx-auto"
-                            direction="horizontal"
-                          > */}
-                          {questionImage
-                            ? questionImage.map((image, index) => (
-                                <Col sm>
-                                  <Card
-                                    gap={3}
-                                    key={uuidv4()}
-                                    className="mx-auto"
-                                    id="no-border"
-                                  >
-                                    <img
-                                      src={image}
-                                      style={{
-                                        maxHeight: `12rem`,
-                                      }}
-                                    />
+                        > */}{" "}
+                      <Stack gap={3} className="mx-auto" direction="horizontal">
+                        {questionImage
+                          ? questionImage.map((image, index) => (
+                              // <Col sm>
+                              <Card
+                                gap={3}
+                                key={uuidv4()}
+                                className="mx-auto"
+                                id="no-border"
+                              >
+                                <img
+                                  src={image}
+                                  style={{
+                                    maxHeight: `12rem`,
+                                  }}
+                                />
 
-                                    <Card.Subtitle
-                                      className="m-2 text-center"
-                                      style={{ fontSize: "10px" }}
-                                    >
-                                      figure:{index + 1}
-                                    </Card.Subtitle>
-                                  </Card>
-                                </Col>
-                              ))
-                            : null}
-                          {/* </Stack> */}
-                        </Container>
-                      </Row>
+                                <Card.Subtitle
+                                  className="m-2 text-center"
+                                  style={{ fontSize: "10px" }}
+                                >
+                                  figure:{index + 1}
+                                </Card.Subtitle>
+                              </Card>
+                              // </Col>
+                            ))
+                          : null}
+                      </Stack>
+                      {/* </Container> */}
+                      {/* </Row> */}
                       <Row>
                         <center>
                           <p

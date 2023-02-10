@@ -6,3 +6,12 @@ body {
 #no-border{
   border:none
 }
+
+a[href="/questions"] {
+  color:black
+  
+}
+ 
+/* href {
+  color:""
+} */
