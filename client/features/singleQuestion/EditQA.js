@@ -82,6 +82,7 @@ const EditQA = () => {
         category: newCategory,
         level: newLevel,
         ancestorId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
+        displayId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
       })
     );
     setValidated(true); //??????

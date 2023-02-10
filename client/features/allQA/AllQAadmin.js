@@ -128,7 +128,7 @@ const AllQAadmin = () => {
 
   //console.log(EasyQuestionsTotal, UsereasyQuestionsTotal);
   let allQuestions = [...stateQuestions];
-  allQuestions.sort((a, b) => a.id - b.id);
+  allQuestions.sort((a, b) => a.displayId - b.displayId);
   allQuestions = allQuestions.map((question) => {
     if (question.level === "Easy") {
       return {
@@ -567,14 +567,9 @@ const AllQAadmin = () => {
                           style={{ backgroundColor: `${question.color}` }}
                         />
                         <Card.Body>
-                          <Card.Title
-                            style={{ fontSize: "20px", textAlign: "center" }}
-                          >
-                            <Link
-                              to={`/questions/${question.id}`}
-                              style={{ textDecoration: `none` }}
-                            >
-                              Question Number {itemOffset + 1 + idx}
+                          <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
+                            <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
+                              Question Number {question.displayId}
                             </Link>
                           </Card.Title>
                           <Card.Text
