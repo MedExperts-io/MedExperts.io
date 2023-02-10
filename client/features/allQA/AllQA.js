@@ -270,7 +270,7 @@ const QuestionsAnswers = () => {
           <Card id="no-border" className="mx-auto">
             <Card.Body>
               <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
-                My Progress
+                <center> My Progress </center>
               </Card.Header>
               <Row>
                 <Col>
@@ -278,7 +278,6 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {easyPercentage}%
                       </div>
                     </div>
@@ -293,11 +292,9 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {moderatePercentage}%
                       </div>
                     </div>
@@ -315,7 +312,6 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {hardPercentage}%
                       </div>
                     </div>
@@ -330,11 +326,9 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {allPercentage}%
                       </div>
                     </div>
@@ -353,7 +347,14 @@ const QuestionsAnswers = () => {
 
         <Row>
           <Card className="mx-auto" id="no-border">
-            <Card.Header style={{ marginBottom: "20px", fontSize: "200%",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)', textAlign: 'center' }}>
+            <Card.Header
+              style={{
+                marginBottom: "20px",
+                fontSize: "200%",
+                boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                textAlign: "center",
+              }}
+            >
               <Col className="mx-auto">
                 {currentDifficulty} & {currentCategory1}
               </Col>
@@ -416,7 +417,12 @@ const QuestionsAnswers = () => {
                   ? currentItems.map((question) => (
                       <Col key={question.id}>
                         <Card
-                          style={{ width: "18rem", marginBottom: "20px",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)' }}
+                          style={{
+                            width: "18rem",
+                            marginBottom: "20px",
+                            boxShadow:
+                              "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                          }}
                           // className="mx-auto"
                         >
                           <Card.Header
