@@ -326,7 +326,7 @@ const AllQAadmin = () => {
   const styles = {
     progressBarEasy: {
       background: progressCircleBackground(
-        easyQuestionsAnsweredPercentage / 100,
+        UsereasyQuestionsTotal.length / EasyQuestionsTotal.length,
         "lightgreen"
       ),
       borderRadius: "50%",
@@ -336,7 +336,7 @@ const AllQAadmin = () => {
     },
     progressBarModerate: {
       background: progressCircleBackground(
-        moderateQuestionsAnsweredPercentage / 100,
+        UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length,
         "#f5ad27"
       ),
       borderRadius: "50%",
@@ -346,7 +346,7 @@ const AllQAadmin = () => {
     },
     progressBarHard: {
       background: progressCircleBackground(
-        hardQuestionsAnsweredPercentage / 100,
+        UserHardQuestionsTotal.length / HardQuestionsTotal.length,
         "#f55b49"
       ),
       borderRadius: "50%",
@@ -356,7 +356,7 @@ const AllQAadmin = () => {
     },
     progressBarAll: {
       background: progressCircleBackground(
-        allQuestionAnsweredPercentage / 100,
+        UserAllQuestionsTotal.length / AllUserQuestions.length,
         "#bf5eff"
       ),
       borderRadius: "50%",
@@ -379,9 +379,8 @@ const AllQAadmin = () => {
       fontSize: "150%",
     },
   };
-
   return (
-    <Container>
+    <Container fluid>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
         <Card id="no-border" className="mx-auto">
           <Card.Body>
@@ -413,7 +412,7 @@ const AllQAadmin = () => {
                   </div>
                   <Card.Title
                     className="mx-auto"
-                    style={{ color: "lightgreen" }}
+                    style={{ color: "lightgreen", paddingTop: "5px" }}
                   >
                     Easy Level
                   </Card.Title>
@@ -433,7 +432,10 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "#f5ad27" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "#f5ad27", paddingTop: "5px" }}
+                  >
                     <center>Moderate Level</center>
                   </Card.Title>
                 </Card>
@@ -452,7 +454,10 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "#f55b49" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "#f55b49", paddingTop: "5px" }}
+                  >
                     Hard Level
                   </Card.Title>
                 </Card>
@@ -471,7 +476,10 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "#bf5eff" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "#bf5eff", paddingTop: "5px" }}
+                  >
                     All Levels
                   </Card.Title>
                 </Card>
@@ -567,8 +575,13 @@ const AllQAadmin = () => {
                           style={{ backgroundColor: `${question.color}` }}
                         />
                         <Card.Body>
-                          <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
-                            <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>
+                          <Card.Title
+                            style={{ fontSize: "20px", textAlign: "center" }}
+                          >
+                            <Link
+                              to={`/questions/${question.id}`}
+                              style={{ textDecoration: `none` }}
+                            >
                               Question Number {question.displayId}
                             </Link>
                           </Card.Title>

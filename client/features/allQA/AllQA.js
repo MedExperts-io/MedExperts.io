@@ -281,7 +281,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "lightgreen" }}
+                      style={{ color: "lightgreen", paddingTop: "5px" }}
                     >
                       Easy Level
                     </Card.Title>
@@ -298,7 +298,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "#f5ad27" }}
+                      style={{ color: "#f5ad27", paddingTop: "5px" }}
                     >
                       <center>Moderate Level</center>
                     </Card.Title>
@@ -315,7 +315,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "#f55b49" }}
+                      style={{ color: "#f55b49", paddingTop: "5px" }}
                     >
                       Hard Level
                     </Card.Title>
@@ -332,7 +332,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "#bf5eff" }}
+                      style={{ color: "#bf5eff", paddingTop: "5px" }}
                     >
                       All Levels
                     </Card.Title>
