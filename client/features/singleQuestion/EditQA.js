@@ -1,24 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Form,
-  Row,
-  Col,
-  Container,
-  Card,
-  Button,
-  Modal,
-  InputGroup,
-  Toast,
-  ToastContainer,
-  Table,
-} from "react-bootstrap";
+import { Form, Row, Col, Container, Card, Button, Modal, InputGroup, Toast, ToastContainer, Table } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  fetchSingleQuestion,
-  fetchQAVersions,
-  editQuestion,
-} from "./singleQuestionSlice";
+import { fetchSingleQuestion, fetchQAVersions, editQuestion } from "./singleQuestionSlice";
 import { v4 as uuidv4 } from "uuid";
 import { ProgressBar } from "react-bootstrap";
 
@@ -44,28 +28,16 @@ const EditQA = () => {
 
   const [newQuestion, setNewQuestion] = useState(qaVersions[0]?.question);
   const [newSingleQuestionImage, setNewSingleQuestionImage] = useState("");
-  const [newQuestionImage, setNewQuestionImage] = useState(
-    qaVersions[0]?.questionImage
-  );
+  const [newQuestionImage, setNewQuestionImage] = useState(qaVersions[0]?.questionImage);
   const [newSingleOption, setNewSingleOption] = useState("");
-  const [newAnswerOptions, setNewAnswerOptions] = useState(
-    qaVersions[0]?.answerOptions
-  );
-  const [newCorrectAnswer, setNewCorrectAnswer] = useState(
-    qaVersions[0]?.correctAnswer
-  );
-  const [newExplanation, setNewExplanation] = useState(
-    qaVersions[0]?.explanation
-  );
+  const [newAnswerOptions, setNewAnswerOptions] = useState(qaVersions[0]?.answerOptions);
+  const [newCorrectAnswer, setNewCorrectAnswer] = useState(qaVersions[0]?.correctAnswer);
+  const [newExplanation, setNewExplanation] = useState(qaVersions[0]?.explanation);
   const [newSingleExpImage, setNewSingleExpImage] = useState("");
-  const [newExplanationImage, setNewExplanationImage] = useState(
-    qaVersions[0]?.explanationImage
-  );
+  const [newExplanationImage, setNewExplanationImage] = useState(qaVersions[0]?.explanationImage);
   const [newSingleLink, setNewSingleLink] = useState("");
   const [newSource, setNewSource] = useState("");
-  const [newExplanationLinks, setNewExplanationLinks] = useState(
-    qaVersions[0]?.explanationLinks
-  );
+  const [newExplanationLinks, setNewExplanationLinks] = useState(qaVersions[0]?.explanationLinks);
   const [newCategory, setNewCategory] = useState(qaVersions[0]?.category);
   const [newLevel, setNewLevel] = useState(qaVersions[0]?.level);
 
@@ -131,31 +103,16 @@ const EditQA = () => {
           <Container>
             <Row className="p-5">
               <ToastContainer className="p-3" position="middle-end">
-                <Toast
-                  bg="success"
-                  show={showToast}
-                  onClose={toggleShowToast}
-                  delay={3000}
-                  autohide
-                  animation={true}
-                >
+                <Toast bg="success" show={showToast} onClose={toggleShowToast} delay={3000} autohide animation={true}>
                   <Toast.Header>
                     <strong className="me-auto">Saved!</strong>
                   </Toast.Header>
                   <Toast.Body>{showUpdate}</Toast.Body>
                 </Toast>
               </ToastContainer>
-              <Card
-                border="light"
-                className="p-5 mx-auto"
-                style={{ maxWidth: "900px" }}
-              >
+              <Card border="light" className="p-5 mx-auto" style={{ maxWidth: "900px" }}>
                 <Col>
-                  <Form
-                    noValidate
-                    validated={validated}
-                    onSubmit={handleSubmit}
-                  >
+                  <Form noValidate validated={validated} onSubmit={handleSubmit}>
                     <h1>Edit Question</h1>
 
                     <Row className="mb-3">
@@ -264,17 +221,12 @@ const EditQA = () => {
                             variant="outline-secondary"
                             onClick={() => {
                               if (newSingleOption.trim() !== "") {
-                                setNewAnswerOptions([
-                                  ...newAnswerOptions,
-                                  newSingleOption.trim(),
-                                ]);
+                                setNewAnswerOptions([...newAnswerOptions, newSingleOption.trim()]);
                                 setNewSingleOption(""); // Doesn't clear field for some reason
                                 setShowUpdate(newSingleOption.trim());
                                 toggleShowToast();
                               } else {
-                                console.log(
-                                  "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                );
+                                console.log("ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING");
                               }
                             }}
                           >
@@ -291,31 +243,25 @@ const EditQA = () => {
                               onChange={(e) => {
                                 option = e.target.value;
                               }}
-                              onFocus={(e) =>
-                                (e.target.placeholder = "Answer Option")
-                              }
+                              onFocus={(e) => (e.target.placeholder = "Answer Option")}
                             />
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
                                 if (option.trim() !== "") {
                                   setNewAnswerOptions(
-                                    newAnswerOptions?.map(
-                                      (currentOption, idx) => {
-                                        if (idx === optionIdx) {
-                                          currentOption = option.trim();
-                                        }
-                                        return currentOption;
+                                    newAnswerOptions?.map((currentOption, idx) => {
+                                      if (idx === optionIdx) {
+                                        currentOption = option.trim();
                                       }
-                                    )
+                                      return currentOption;
+                                    })
                                   );
 
                                   setShowUpdate(option.trim());
                                   toggleShowToast();
                                 } else {
-                                  console.log(
-                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                  );
+                                  console.log("ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING");
                                 }
                               }}
                             >
@@ -325,11 +271,9 @@ const EditQA = () => {
                               variant="outline-secondary"
                               onClick={() => {
                                 setNewAnswerOptions(
-                                  newAnswerOptions.filter(
-                                    (currentOption, idx) => {
-                                      return idx !== optionIdx;
-                                    }
-                                  )
+                                  newAnswerOptions.filter((currentOption, idx) => {
+                                    return idx !== optionIdx;
+                                  })
                                 );
                               }}
                             >
@@ -451,9 +395,7 @@ const EditQA = () => {
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="explanationLinks">
                         <Form.Label>
-                          <strong className="me-auto">
-                            Explanation Sources
-                          </strong>
+                          <strong className="me-auto">Explanation Sources</strong>
                         </Form.Label>
                         <InputGroup className="mb-3">
                           <InputGroup.Text>Link and Citation</InputGroup.Text>
@@ -477,21 +419,9 @@ const EditQA = () => {
                           <Button
                             variant="outline-secondary"
                             onClick={() => {
-                              if (
-                                newSingleLink.trim() !== "" &&
-                                newSource.trim() !== ""
-                              ) {
-                                setNewExplanationLinks([
-                                  ...newExplanationLinks,
-                                  `<a href="` +
-                                    newSingleLink.trim() +
-                                    `" target="_blank">` +
-                                    newSource.trim() +
-                                    `</a`,
-                                ]);
-                                setShowUpdate(
-                                  `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
-                                );
+                              if (newSingleLink.trim() !== "" && newSource.trim() !== "") {
+                                setNewExplanationLinks([...newExplanationLinks, `<a href="` + newSingleLink.trim() + `" target="_blank">` + newSource.trim() + `</a`]);
+                                setShowUpdate(`Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`);
                                 setNewSingleLink(""); //Doesn't clear field for some reason
                                 setNewSource(""); //Doesn't clear field for some reason
                                 toggleShowToast();
@@ -500,9 +430,7 @@ const EditQA = () => {
                                 //   newExplanationLinks
                                 // );
                               } else {
-                                console.log(
-                                  "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                );
+                                console.log("ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING");
                               }
                             }}
                           >
@@ -521,27 +449,17 @@ const EditQA = () => {
                           <tbody>
                             {newExplanationLinks?.map((link, linkIdx) => (
                               <tr key={uuidv4()}>
-                                <td>
-                                  {" "}
-                                  {link.slice(9, link.indexOf(">") - 17)}
-                                </td>
-                                <td>
-                                  {link.slice(
-                                    link.indexOf(">") + 1,
-                                    link.lastIndexOf("<")
-                                  )}
-                                </td>
+                                <td> {link.slice(9, link.indexOf(">") - 17)}</td>
+                                <td>{link.slice(link.indexOf(">") + 1, link.lastIndexOf("<"))}</td>
                                 <td>
                                   {" "}
                                   <Button
                                     variant="outline-secondary"
                                     onClick={() => {
                                       setNewExplanationLinks(
-                                        newExplanationLinks.filter(
-                                          (currentLink, idx) => {
-                                            return idx !== linkIdx;
-                                          }
-                                        )
+                                        newExplanationLinks.filter((currentLink, idx) => {
+                                          return idx !== linkIdx;
+                                        })
                                       );
                                     }}
                                   >
@@ -566,40 +484,21 @@ const EditQA = () => {
                             setNewCategory(e.target.value);
                           }}
                         >
-                          <option defaultValue>
-                            {" "}
-                            {qaVersions[0]?.category}
-                          </option>
+                          <option defaultValue> {qaVersions[0]?.category}</option>
                           <option value="Asthma">Asthma</option>
                           <option value="Bronchiectasis">Bronchiectasis</option>
-                          <option value="Chronic Obstructive Pulmonary Disease">
-                            Chronic Obstructive Pulmonary Disease
-                          </option>
+                          <option value="Chronic Obstructive Pulmonary Disease">Chronic Obstructive Pulmonary Disease</option>
                           <option value="Critical Care">Critical Care</option>
                           <option value="Infection">Infection</option>
-                          <option value="Interstitial Lung Diseases">
-                            Interstitial Lung Diseases
-                          </option>
-                          <option value="Lung Transplant">
-                            Lung Transplant
-                          </option>
+                          <option value="Interstitial Lung Diseases">Interstitial Lung Diseases</option>
+                          <option value="Lung Transplant">Lung Transplant</option>
                           <option value="Lung Cancer">Lung Cancer</option>
-                          <option value="Mediastinal Disorders">
-                            Mediastinal Disorders
-                          </option>
-                          <option value="Other Pulmonary Diseases">
-                            Other Pulmonary Diseases
-                          </option>
+                          <option value="Mediastinal Disorders">Mediastinal Disorders</option>
+                          <option value="Other Pulmonary Diseases">Other Pulmonary Diseases</option>
                           <option value="Pharmacology">Pharmacology</option>
-                          <option value="Pleural Diseases">
-                            Pleural Diseases
-                          </option>
-                          <option value="Pulmonary Function Testing">
-                            Pulmonary Function Testing
-                          </option>
-                          <option value="Pulmonary Vascular Disease">
-                            Pulmonary Vascular Disease
-                          </option>
+                          <option value="Pleural Diseases">Pleural Diseases</option>
+                          <option value="Pulmonary Function Testing">Pulmonary Function Testing</option>
+                          <option value="Pulmonary Vascular Disease">Pulmonary Vascular Disease</option>
                           <option value="Sleep">Sleep</option>
                         </Form.Select>
                       </Form.Group>
@@ -623,11 +522,7 @@ const EditQA = () => {
                     </Row>
 
                     <center>
-                      <Button
-                        type="submit"
-                        variant="secondary"
-                        onClick={handleShow}
-                      >
+                      <Button type="submit" variant="secondary" onClick={handleShow}>
                         Update
                       </Button>
                     </center>
