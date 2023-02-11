@@ -60,15 +60,11 @@ router.post("/login", async (req, res, next) => {
 
 router.post("/signup", async (req, res, next) => {
   try {
-    const { firstName, lastName, email, password, expertise, school } =
-      req.body;
+    const { firstName, lastName, email, password, expertise, school } = req.body;
 
     let tempId = uuidv4();
     let verificationToken = crypto.randomBytes(32).toString("hex");
-    let fpSalt = await bcrypt.hash(
-      verificationToken,
-      Number(verificationToken)
-    );
+    let fpSalt = await bcrypt.hash(verificationToken, Number(verificationToken));
     // let expireDate = Date.now() + 86400000; // link will expire after 24 hrs
 
     const user = await User.create({
@@ -84,10 +80,7 @@ router.post("/signup", async (req, res, next) => {
     });
 
     //message compilation
-    let source = fs.readFileSync(
-      path.join(__dirname, "/verifyAcctTemplate.hbs"),
-      "utf8"
-    );
+    let source = fs.readFileSync(path.join(__dirname, "/verifyAcctTemplate.hbs"), "utf8");
     let compiledTemplate = handlebars.compile(source);
     let htmlToSend = compiledTemplate({
       token: encodeURIComponent(fpSalt),
