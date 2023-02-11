@@ -10,15 +10,16 @@ body {
 }
 
 #form-border{
-  border-color: black;
+  /* border-color: black; */
 }
-
+#question-submit-btn{
+  /* background-color: aqua; */
+}
 a[href="/questions"] {
   color:black
-  
-  
 }
- 
-/* href {
-  color:""
-} */
+
+#form-submit-btn{
+  background-color: #FF6262;
+  border-color: #FF6262;
+}
