@@ -98,14 +98,16 @@ const singleQuestionSlice = createSlice({
         state.error = action.error;
       })
       .addCase(fetchQAVersions.fulfilled, (state, action) => {
-        console.log("BUILDERR ALL VERSIONS", action.payload);
+        console.log("BUILDER ALL VERSIONS", action.payload);
         state.qaAllVersions = action.payload;
       })
       .addCase(editQuestion.fulfilled, (state, action) => {
         state.qaAllVersions.unshift(action.payload);
       })
       .addCase(deleteSingleQuestion.fulfilled, (state, action) => {
-        state.Question = action.payload;
+        state.qaAllVersions = state.qaAllVersions.filter(
+          (aVersion) => aVersion.id != action.payload
+        );
       });
   },
 });

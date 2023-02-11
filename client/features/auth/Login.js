@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <Container>
-      <Row className="vh-100 d-flex justify-content-center align-items-center">
+      <Row className="p-5 justify-content-center">
         <Col md={8} lg={6} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Login</Card.Header>
