@@ -5694,7 +5694,7 @@ async function seed() {
 
     // Q234
     Question_Answer.create({
-      question: `Which of the following are the risk factors for the  early-onset OSA in the pediatric population.`,
+      question: `Which of the following are the risk factors for the  early-onset OSA in the pediatric population?`,
       questionImage: [],
       answerOptions: [
         `Adenotonsillar hypertrophy (ATH)`,

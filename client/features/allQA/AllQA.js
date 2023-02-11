@@ -267,18 +267,21 @@ const QuestionsAnswers = () => {
     return (
       <Container fluid>
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-          <Card id="no-border" className="mx-auto">
+          <Card
+            // id="no-border"
+            className="mx-auto"
+            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+          >
+            <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
+              <center> My Progress </center>
+            </Card.Header>{" "}
             <Card.Body>
-              <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
-                My Progress
-              </Card.Header>
               <Row>
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <Card id="no-border" className="mx-auto ">
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {easyPercentage}%
                       </div>
                     </div>
@@ -293,11 +296,9 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {moderatePercentage}%
                       </div>
                     </div>
@@ -315,7 +316,6 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {hardPercentage}%
                       </div>
                     </div>
@@ -330,11 +330,9 @@ const QuestionsAnswers = () => {
 
                 <Col>
                   <Card id="no-border" className="mx-auto">
-
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>
-
                         {allPercentage}%
                       </div>
                     </div>
@@ -352,8 +350,18 @@ const QuestionsAnswers = () => {
         </Row>
 
         <Row>
-          <Card className="mx-auto" id="no-border">
-            <Card.Header style={{ marginBottom: "20px", fontSize: "200%",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)', textAlign: 'center' }}>
+          <Card
+            className="mx-auto"
+            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+          >
+            <Card.Header
+              style={{
+                marginBottom: "20px",
+                fontSize: "200%",
+                boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                textAlign: "center",
+              }}
+            >
               <Col className="mx-auto">
                 {currentDifficulty} & {currentCategory1}
               </Col>
@@ -416,7 +424,12 @@ const QuestionsAnswers = () => {
                   ? currentItems.map((question) => (
                       <Col key={question.id}>
                         <Card
-                          style={{ width: "18rem", marginBottom: "20px",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)' }}
+                          style={{
+                            width: "23rem",
+                            marginBottom: "20px",
+                            boxShadow:
+                              "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                          }}
                           // className="mx-auto"
                         >
                           <Card.Header
@@ -446,12 +459,14 @@ const QuestionsAnswers = () => {
                               label={question.level}
                               onClick={() => pickDifficulty(question.level)}
                               color="info"
+                              sx={{ spacing: 1 }}
                             />
                             <Chip
                               label={question.category}
                               onClick={() => pickCategory1(question.category)}
                               color="info"
-                            />
+                              sx={{ p: 0.5 }}
+                            />{" "}
                             <Card.Img
                               style={{ float: "right", width: "25px" }}
                               onClick={() => favorite(userId, question.id)}
