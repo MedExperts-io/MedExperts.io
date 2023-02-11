@@ -426,9 +426,9 @@ const QuestionsAnswers = () => {
                         key={question.id}
                         style={{
                           padding: "0px",
-                          width: "23rem",
-                          marginRight: "20px",
-                          marginLeft: "20px",
+                          width: "18rem",
+                          marginRight: "10px",
+                          marginLeft: "10px",
                           marginBottom: "20px",
                           boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
                         }}
