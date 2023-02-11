@@ -2,15 +2,20 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const token = window.localStorage.getItem("token");
 
-export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () => {
-  const { data } = await axios.get(`/api/questions`, {
-    headers: {
-      authorization: token,
-    },
-  });
-  // API placeholder until the routes are corrected
-  return data;
-});
+export const fetchAllQuestionsAnswers = createAsyncThunk(
+  "fetchQAs",
+  async () => {
+    const token = window.localStorage.getItem("token");
+
+    const { data } = await axios.get(`/api/questions`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    // API placeholder until the routes are corrected
+    return data;
+  }
+);
 
 // export const NewQuestionsAnswers = createAsyncThunk("NewQAs", async () => {
 //   const { data } = await axios.post(`/api/questions`,  {
@@ -57,7 +62,6 @@ export const NewQuestionsAnswers = createAsyncThunk(
   }
 );
 
-
 export const allQASlice = createSlice({
   name: "allQA",
   initialState: {
@@ -77,9 +81,15 @@ export const allQASlice = createSlice({
       })
       .addCase(fetchAllQuestionsAnswers.fulfilled, (state, action) => {
         state.questionsAnswers = action.payload;
-        state.easy = action.payload.filter((question) => question.level === "Easy");
-        state.moderate = action.payload.filter((question) => question.level === "Moderate");
-        state.hard = action.payload.filter((question) => question.level === "Hard");
+        state.easy = action.payload.filter(
+          (question) => question.level === "Easy"
+        );
+        state.moderate = action.payload.filter(
+          (question) => question.level === "Moderate"
+        );
+        state.hard = action.payload.filter(
+          (question) => question.level === "Hard"
+        );
         state.loading = false;
       })
       .addCase(NewQuestionsAnswers.fulfilled, (state, action) => {
@@ -92,7 +102,6 @@ export const allQASlice = createSlice({
       .addCase(NewQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
       });
-      
   },
 });
 

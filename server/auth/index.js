@@ -296,7 +296,9 @@ router.post("/resetPassword", async function (req, res, next) {
   });
 
   if (!record) {
-    return res.status(400).json("Token not found. Please try the reset password process again.");
+    return res
+      .status(400)
+      .json("Token not found. Please try the reset password process again.");
   }
 
   await Password_Reset.update(
@@ -323,7 +325,9 @@ router.post("/resetPassword", async function (req, res, next) {
     }
   );
 
-  return res.status(200).json("Password reset. Please login with your new password.");
+  return res
+    .status(200)
+    .json("Password reset. Please login with your new password.");
 });
 
 module.exports = router;
