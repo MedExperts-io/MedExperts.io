@@ -265,11 +265,11 @@ const QuestionsAnswers = () => {
     return <AllQAadmin />;
   } else {
     return (
-      <Container>
+      <Container fluid>
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
           <Card id="no-border" className="mx-auto">
             <Card.Body>
-              <Card.Header style={{ marginBottom: "20px", fontSize: `200%`,  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)', textAlign: 'center' }} >
+              <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
                 My Progress
               </Card.Header>
               <Row>
@@ -284,7 +284,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "lightgreen" }}
+                      style={{ color: "lightgreen", paddingTop: "5px" }}
                     >
                       Easy Level
                     </Card.Title>
@@ -303,7 +303,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "#f5ad27" }}
+                      style={{ color: "#f5ad27", paddingTop: "5px" }}
                     >
                       <center>Moderate Level</center>
                     </Card.Title>
@@ -321,7 +321,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "#f55b49" }}
+                      style={{ color: "#f55b49", paddingTop: "5px" }}
                     >
                       Hard Level
                     </Card.Title>
@@ -340,7 +340,7 @@ const QuestionsAnswers = () => {
                     </div>
                     <Card.Title
                       className="mx-auto"
-                      style={{ color: "#bf5eff" }}
+                      style={{ color: "#bf5eff", paddingTop: "5px" }}
                     >
                       All Levels
                     </Card.Title>
@@ -359,9 +359,8 @@ const QuestionsAnswers = () => {
               </Col>
             </Card.Header>
             <Card.Body>
-              {/* <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}> */}
-              <Row style={{ marginBottom: "20px", alignItems: 'center' }} xs={1} sm={3}>
-                <Col md="auto"  >
+              <Row style={{ marginBottom: "20px" }} xs="auto">
+                <Col>
                   <Dropdown
                     onSelect={(event) => pickDifficulty(event)}
                     style={{ marginBottom: "10px" }}
@@ -379,7 +378,7 @@ const QuestionsAnswers = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-                <Col md="auto">
+                <Col>
                   <Dropdown
                     onSelect={(event) => pickCategory1(event)}
                     style={{ marginBottom: "10px" }}
@@ -397,8 +396,9 @@ const QuestionsAnswers = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-
-                <Col md="auto">
+                <Col>
+                  {/* <Col md="auto">
+                   */}
                   <Form>
                     <Form.Switch
                       onChange={() => onFavoriteSwitch()}
@@ -414,10 +414,10 @@ const QuestionsAnswers = () => {
                 {loading && <LoadingScreen />}
                 {currentItems && currentItems.length && currentItems !== "nada"
                   ? currentItems.map((question) => (
-                      <Col key={question.id} className="mx-auto">
+                      <Col key={question.id}>
                         <Card
                           style={{ width: "18rem", marginBottom: "20px",  boxShadow: '0px 0px 10px 0px rgba(200,200,200,0.75)' }}
-                          className="mx-auto"
+                          // className="mx-auto"
                         >
                           <Card.Header
                             style={{
