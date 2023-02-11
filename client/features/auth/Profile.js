@@ -54,7 +54,7 @@ const Profile = () => {
     <Container>
       <Row className="p-5">
         <Card
-          border="light"
+          id="form-border"
           className="p-5 mx-auto"
           style={{ maxWidth: "800px" }}
         >
