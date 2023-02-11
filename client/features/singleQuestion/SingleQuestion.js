@@ -115,9 +115,6 @@ const SingleQuestion = () => {
   //   console.log({answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput});
   // }
 
-  const handleDelete = () => {
-    dispatch(deleteSingleQuestion(id, ancestorId));
-  };
 
   if (admin) {
     return <SingleQAadmin />;
