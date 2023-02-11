@@ -17,6 +17,56 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/frequency", async (req, res, next) => {
+  try {
+    const allUserQs = await User_Question.findAll({
+      attributes: ["questionAnswerId"],
+      include: {
+        model: Question_Answer,
+        where: {
+          status: "Active",
+        },
+      },
+    });
+    const allQAs = await Question_Answer.findAll({
+      where: {
+        status: "Active",
+      },
+    });
+    let frequency = {};
+
+    for (let i = 0; i < allUserQs.length; i++) {
+      if (!frequency[allUserQs[i]["questionAnswerId"]]) {
+        frequency[allUserQs[i]["questionAnswerId"]] = 1;
+      } else {
+        frequency[allUserQs[i]["questionAnswerId"]]++;
+      }
+    }
+    for (let i = 0; i < allQAs.length; i++) {
+      if (!frequency[allQAs[i]["id"]]) {
+        frequency[allQAs[i]["id"]] = 1;
+      } else {
+        frequency[allQAs[i]["id"]]++;
+      }
+    }
+
+    const questionsAndFrequency = [allQAs, frequency];
+
+    // allQuestions = allQAs.map((question) => {
+    //   return {
+    //     ...question,
+    //     frequency: frequency[question.id],
+    //   };
+    // });
+
+    // const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency).map((question) => question["dataValues"]);
+
+    res.json(questionsAndFrequency);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // --- For logged in student user's dashboard analytics
 router.get("/:userId", async (req, res, next) => {
   try {
