@@ -223,19 +223,31 @@ const QuestionsAnswers = () => {
     return <AllQAadmin />;
   } else {
     return (
-      <Container>
+      <Container fluid>
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-          <Card id="no-border" className="mx-auto">
+          <Card
+            // id="no-border"
+            className="mx-auto"
+            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+          >
+            <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
+              <center> My Progress </center>
+            </Card.Header>{" "}
             <Card.Body>
-              <Card.Header style={{ marginBottom: "20px", fontSize: `200%`, boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)", textAlign: "center" }}>My Progress</Card.Header>
               <Row>
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <Card id="no-border" className="mx-auto ">
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
+
+                      <div style={styles.progressBarMiddle}>
+                        {easyPercentage}%
+                      </div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "lightgreen" }}>
+                    <Card.Title
+                      className="mx-auto"
+                      style={{ color: "lightgreen", paddingTop: "5px" }}
+                    >
                       Easy Level
                     </Card.Title>
                   </Card>
@@ -245,9 +257,14 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
+                      <div style={styles.progressBarMiddle}>
+                        {moderatePercentage}%
+                      </div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "#f5ad27" }}>
+                    <Card.Title
+                      className="mx-auto"
+                      style={{ color: "#f5ad27", paddingTop: "5px" }}
+                    >
                       <center>Moderate Level</center>
                     </Card.Title>
                   </Card>
@@ -257,9 +274,14 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
+                      <div style={styles.progressBarMiddle}>
+                        {hardPercentage}%
+                      </div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "#f55b49" }}>
+                    <Card.Title
+                      className="mx-auto"
+                      style={{ color: "#f55b49", paddingTop: "5px" }}
+                    >
                       Hard Level
                     </Card.Title>
                   </Card>
@@ -269,9 +291,14 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>{allPercentage}%</div>
+                      <div style={styles.progressBarMiddle}>
+                        {allPercentage}%
+                      </div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "#bf5eff" }}>
+                    <Card.Title
+                      className="mx-auto"
+                      style={{ color: "#bf5eff", paddingTop: "5px" }}
+                    >
                       All Levels
                     </Card.Title>
                   </Card>
@@ -282,17 +309,29 @@ const QuestionsAnswers = () => {
         </Row>
 
         <Row>
-          <Card className="mx-auto" id="no-border">
-            <Card.Header style={{ marginBottom: "20px", fontSize: "200%", boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)", textAlign: "center" }}>
+          <Card
+            className="mx-auto"
+            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+          >
+            <Card.Header
+              style={{
+                marginBottom: "20px",
+                fontSize: "200%",
+                boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                textAlign: "center",
+              }}
+            >
               <Col className="mx-auto">
                 {currentDifficulty} & {currentCategory1}
               </Col>
             </Card.Header>
             <Card.Body>
-              {/* <Row xs={2} md={4} lg={6} style={{ marginBottom: "20px" }}> */}
-              <Row style={{ marginBottom: "20px", alignItems: "center" }} xs={1} sm={3}>
-                <Col md="auto">
-                  <Dropdown onSelect={(event) => pickDifficulty(event)} style={{ marginBottom: "10px" }}>
+              <Row style={{ marginBottom: "20px" }} xs="auto">
+                <Col>
+                  <Dropdown
+                    onSelect={(event) => pickDifficulty(event)}
+                    style={{ marginBottom: "10px" }}
+                  >
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {currentDifficulty}
                     </Dropdown.Toggle>
@@ -306,8 +345,11 @@ const QuestionsAnswers = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-                <Col md="auto">
-                  <Dropdown onSelect={(event) => pickCategory1(event)} style={{ marginBottom: "10px" }}>
+                <Col>
+                  <Dropdown
+                    onSelect={(event) => pickCategory1(event)}
+                    style={{ marginBottom: "10px" }}
+                  >
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {currentCategory1}
                     </Dropdown.Toggle>
@@ -321,8 +363,9 @@ const QuestionsAnswers = () => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-
-                <Col md="auto">
+                <Col>
+                  {/* <Col md="auto">
+                   */}
                   <Form>
                     <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
                   </Form>
@@ -333,18 +376,51 @@ const QuestionsAnswers = () => {
                 {loading && <LoadingScreen />}
                 {currentItems && currentItems.length && currentItems !== "nada"
                   ? currentItems.map((question) => (
-                      <Col key={question.id} className="mx-auto">
-                        <Card style={{ width: "18rem", marginBottom: "20px", boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)" }} className="mx-auto">
-                          <Card.Header style={{ backgroundColor: question.color }} />
-                          <Card.Body style={{ backgroundColor: cardBodyColor(question.id) }}>
-                            <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
-                              <Card.Title style={{ color: "black" }}>Question Number {question.displayId}</Card.Title>
-                              <Card.Text style={{ color: "black" }}>{truncate(question.question)}</Card.Text>
+                      <Col key={question.id}>
+                        <Card
+                          style={{
+                            width: "23rem",
+                            marginBottom: "20px",
+                            boxShadow:
+                              "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                          }}
+                          // className="mx-auto"
+                        >
+                          <Card.Header
+                            style={{
+                              backgroundColor: cardHeaderColor(question.level),
+                            }}
+                          />
+                          <Card.Body
+                            style={{
+                              backgroundColor: cardBodyColor(question.id),
+                            }}
+                          >
+                            <Link
+                              style={{ textDecoration: "none" }}
+                              to={`/questions/${question.id}`}
+                            >
+                              <Card.Title style={{ color: "black" }}>
+                                Question Number {question.displayId}
+                              </Card.Title>
+                              <Card.Text style={{ color: "black" }}>
+                                {truncate(question.question)}
+                              </Card.Text>
                             </Link>
                           </Card.Body>
                           <Card.Footer>
-                            <Chip label={question.level} onClick={() => pickDifficulty(question.level)} color="info" />
-                            <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="info" />
+                            <Chip
+                              label={question.level}
+                              onClick={() => pickDifficulty(question.level)}
+                              color="info"
+                              sx={{ spacing: 1 }}
+                            />
+                            <Chip
+                              label={question.category}
+                              onClick={() => pickCategory1(question.category)}
+                              color="info"
+                              sx={{ p: 0.5 }}
+                            />{" "}
                             <Card.Img
                               style={{ float: "right", width: "25px" }}
                               onClick={() => favorite(userId, question.id)}
