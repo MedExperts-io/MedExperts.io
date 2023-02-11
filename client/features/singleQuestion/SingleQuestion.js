@@ -8,8 +8,8 @@ import { useParams, Link } from "react-router-dom";
 import {
   Card,
   Stack,
-  Breadcrumb,
   Button,
+  Breadcrumb,
   ProgressBar,
   Container,
   Row,
@@ -139,7 +139,7 @@ const SingleQuestion = () => {
                         id="breadcrumb"
                         style={{
                           textDecorationLine: "underline",
-                          fontWeight: "bold",
+                          // fontWeight: "bold",
                           // color: "black",
                         }}
                       >
@@ -148,10 +148,12 @@ const SingleQuestion = () => {
                       <Breadcrumb.Item
                         id="breadcrumb"
                         active
-                        style={{
-                          fontWeight: "bold",
-                          // color: "black",
-                        }}
+                        style={
+                          {
+                            // fontWeight: "bold",
+                            // color: "black",
+                          }
+                        }
                       >
                         {" "}
                         Question No.{displayId}
@@ -369,7 +371,7 @@ const SingleQuestion = () => {
                       href="/questions"
                       style={{
                         textDecorationLine: "underline",
-                        fontWeight: "bold",
+                        // fontWeight: "bold",
                       }}
                     >
                       All Questions
@@ -377,9 +379,11 @@ const SingleQuestion = () => {
                     <Breadcrumb.Item
                       id="breadcrumb"
                       active
-                      style={{
-                        fontWeight: "bold",
-                      }}
+                      style={
+                        {
+                          // fontWeight: "bold",
+                        }
+                      }
                     >
                       Question No.{displayId}
                     </Breadcrumb.Item>
