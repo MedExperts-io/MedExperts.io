@@ -1,15 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
+import { Card, Dropdown, Row, Col, Form, Container, Button } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import {
-  fetchAllUserQuestions,
-  fetchUserQuestions,
-  updateUserQuestion,
-  fetchExpertiseQuestions,
-} from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import { Chip, Stack, LinearProgress } from "@mui/material";
@@ -23,21 +18,10 @@ const AllQAadmin = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const userExpertise = [
-    "All Expertise",
-    "Student",
-    "Resident",
-    "Fellow",
-    "Physician Assistant",
-    "Nurse",
-    "Nurse Practitioner",
-    "Pharmacist",
-    "Internal Med",
-    "Other",
-  ];
-  const [currentDifficulty, setCurrentDifficulty] = useState(
-    difficultiyLevels[0]
-  );
+  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
+  const userExpertise = ["All Expertise", "Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
+  const expertisePicked = useRef("All Expertise");
+  const [currentCategory2, setCurrentCategory2] = useState(userExpertise[0]);
   const categories = [
     "All Categories",
     "Asthma",
@@ -57,12 +41,11 @@ const AllQAadmin = () => {
     "Sleep",
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
-  const [currentCategory2, setCurrentCategory2] = useState(userExpertise[0]);
+  const Frequencies = ["Frequency Sort", "Most Answered", "Least Answered"];
+  const currentFrequency = useRef(Frequencies[0]);
   const [seeFavorites, setSeeFavorites] = useState(true);
-  const expertisePicked = useRef("All Expertise");
-  const expertiseFilterOn = useRef(false);
+
   let isFavorited = false;
-  //let expertiseFilterOn = false;
 
   const onFavoriteSwitch = () => {
     seeFavorites ? (isFavorited = true) : null;
@@ -71,9 +54,9 @@ const AllQAadmin = () => {
   };
 
   const userExpertiseSelection = (event) => {
-    expertiseQuestions ? setCurrentCategory2(event) : null;
+    setCurrentCategory2(event);
+    !seeFavorites ? (isFavorited = true) : null;
     expertisePicked.current = event;
-    //event === "All Expertise" ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
     filterFunction();
   };
 
@@ -81,89 +64,30 @@ const AllQAadmin = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const userQuestions = useSelector(
-    (state) => state.userQuestions.UserQuestions
-  );
-  const AllUserQuestions = useSelector(
-    (state) => state.userQuestions.allUserQuestions
-  );
-  const stateQuestions = useSelector(
-    (state) => state.questionsAnswers.questionsAnswers
-  );
-  const expertiseQuestions = useSelector(
-    (state) => state.userQuestions.expertiseQuestions
-  );
+  const { mostAnswered, leastAnswered } = useSelector((state) => state.userQuestions);
+  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
+  const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
+  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
+  const expertiseQuestions = useSelector((state) => state.userQuestions.expertiseQuestions);
 
-  const EasyQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Easy"
-  );
-  const ModerateQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Moderate"
-  );
-  const HardQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Hard"
-  );
+  const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
+  const ModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate");
+  const HardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard");
 
-  const UsereasyQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Easy" && question.answered === "right"
-  );
-  const UserModerateQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Moderate" && question.answered === "right"
-  );
-  const UserHardQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Hard" && question.answered === "right"
-  );
-  const UserAllQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.answered === "right"
-  );
+  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered === "right");
+  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered === "right");
+  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
+  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
 
-  const easyQuestionsAnsweredPercentage =
-    (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100;
-  const moderateQuestionsAnsweredPercentage =
-    (UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100;
-  const hardQuestionsAnsweredPercentage =
-    (UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100;
-  const allQuestionAnsweredPercentage =
-    (UserAllQuestionsTotal.length / AllUserQuestions.length) * 100;
-
-  //console.log(EasyQuestionsTotal, UsereasyQuestionsTotal);
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.displayId - b.displayId);
-  allQuestions = allQuestions.map((question) => {
-    if (question.level === "Easy") {
-      return {
-        ...question,
-        color: "lightgreen",
-      };
-    } else if (question.level === "Moderate") {
-      return {
-        ...question,
-        color: "#f5ad27",
-      };
-    } else {
-      return {
-        ...question,
-        color: "#f55b49",
-      };
-    }
-  });
 
   const filteredQuestions = useRef(null);
-  allQuestions.length && !filteredQuestions.current
-    ? (filteredQuestions.current = allQuestions)
-    : null;
-  //expertiseFilterOn.current && expertiseQuestions.length === 0 ? (expertiseFilterOn.current = false) : (expertiseFilterOn.current = true);
-  //console.log("out of filter function, expertiseQuestions?", expertiseQuestions, expertisePicked.current, expertiseFilterOn.current);
-  //expertiseQuestions.length > 0 ? () => filterFunction : null;
-  //expertiseQuestions.length > 0 && ? () => userExpertiseSelection : null;
+  allQuestions.length && !filteredQuestions.current ? (filteredQuestions.current = allQuestions) : null;
 
   const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions.current && !pageCount
-    ? setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage))
-    : null;
-  filteredQuestions.current && !currentItems
-    ? setCurrentItems(filteredQuestions.current.slice(itemOffset, endOffset))
-    : null;
+  filteredQuestions.current && !pageCount ? setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage)) : null;
+  filteredQuestions.current && !currentItems ? setCurrentItems(filteredQuestions.current.slice(itemOffset, endOffset)) : null;
 
   const truncate = (string) => {
     if (string.length > 20) {
@@ -174,15 +98,10 @@ const AllQAadmin = () => {
   };
 
   const data = (id) => {
-    const filterDataById = AllUserQuestions.filter(
-      (x) => x.questionAnswerId === id
-    );
-    const filterDataByCorrect = filterDataById.filter(
-      (x) => x.answered === "right"
-    );
+    const filterDataById = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterDataByCorrect = filterDataById.filter((x) => x.answered === "right");
 
-    const percentageCorrect =
-      (filterDataByCorrect.length / filterDataById.length) * 100;
+    const percentageCorrect = (filterDataByCorrect.length / filterDataById.length) * 100;
     if (percentageCorrect || percentageCorrect === 0) {
       return percentageCorrect;
     } else {
@@ -190,16 +109,12 @@ const AllQAadmin = () => {
     }
   };
   const filterDataById = (id) => {
-    const filterData = AllUserQuestions.filter(
-      (x) => x.questionAnswerId === id
-    );
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
     return filterData.length;
   };
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter(
-      (x) => x.questionAnswerId === id
-    );
+    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
     const filterDataByRight = filterData.filter((x) => x.answered === "right");
     return filterDataByRight.length;
   };
@@ -232,6 +147,12 @@ const AllQAadmin = () => {
     filterFunction();
   };
 
+  const pickFrequency = (event) => {
+    currentFrequency.current = event;
+    !seeFavorites ? (isFavorited = true) : null;
+    filterFunction();
+  };
+
   const handlePageClick = (event) => {
     const newOffset = event.selected * itemsPerPage;
     setItemOffset(newOffset);
@@ -242,60 +163,25 @@ const AllQAadmin = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    console.log(
-      "in filter function, expertiseQuestions?",
-      expertiseQuestions,
-      expertisePicked.current
-    );
-    expertisePicked.current !== "All Expertise"
-      ? (multiFilter = expertiseQuestions[expertisePicked.current])
-      : null;
 
+    currentFrequency.current === "Most Answered" ? (multiFilter = mostAnswered) : null;
+    currentFrequency.current === "Least Answered" ? (multiFilter = leastAnswered) : null;
+
+    expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
+    
     let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
 
     for (let i = 0; i < filterCriteria.length; i++) {
-      if (
-        filterCriteria[i] === "All Levels" ||
-        filterCriteria[i] === "All Categories"
-      ) {
+      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
       } else {
-        multiFilter = multiFilter.filter(
-          (question) =>
-            question.level === filterCriteria[i] ||
-            question.category === filterCriteria[i]
-        );
+        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
-
-    console.log("filterQuestions in filterFunction", multiFilter);
-    multiFilter = multiFilter.map((question) => {
-      if (question.level === "Easy") {
-        return {
-          ...question,
-          color: "lightgreen",
-        };
-      } else if (question.level === "Moderate") {
-        return {
-          ...question,
-          color: "#f5ad27",
-        };
-      } else {
-        return {
-          ...question,
-          color: "#f55b49",
-        };
-      }
-    });
-
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
-    multiFilter.length
-      ? setCurrentItems(multiFilter.slice(0, 12))
-      : setCurrentItems("nada");
-    multiFilter.length
-      ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
-      : setPageCount(0);
+    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
+    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
     return multiFilter;
   };
@@ -313,6 +199,7 @@ const AllQAadmin = () => {
     dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions(userId));
     dispatch(fetchAllUserQuestions());
+    dispatch(fetchByAnswerFrequency());
   }, []);
 
   const styles = {
@@ -351,14 +238,15 @@ const AllQAadmin = () => {
   return (
     <Container>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-
         <Button
-                          variant="success"
-                          as={Link}
-                          to="/addQuestion"
-                          className="m-2"
-                          // style={{ color: "#FF6262" }}
-        >Add a Question</Button>
+          variant="success"
+          as={Link}
+          to="/addQuestion"
+          className="m-2"
+          // style={{ color: "#FF6262" }}
+        >
+          Add a Question
+        </Button>
         <Card id="no-border" className="mx-auto">
           <Card.Body>
             <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>My Progress</Card.Header>
@@ -413,7 +301,6 @@ const AllQAadmin = () => {
             </Row>
           </Card.Body>
         </Card>
-
       </Row>
 
       <Row>
@@ -478,6 +365,21 @@ const AllQAadmin = () => {
                 </Dropdown>
               </Col>
               <Col md="auto">
+                <Dropdown onSelect={(event) => pickFrequency(event)}>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {currentFrequency.current}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    {Frequencies.map((frequency) => (
+                      <Dropdown.Item key={frequency} eventKey={frequency}>
+                        {frequency}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Col>
+              <Col md="auto">
                 <Form>
                   <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
                 </Form>
@@ -490,7 +392,7 @@ const AllQAadmin = () => {
                 ? currentItems.map((question, idx) => (
                     <Col key={question.id}>
                       <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                        <Card.Header style={{ backgroundColor: `${question.color}` }} />
+                        <Card.Header style={{ backgroundColor: question.color }} />
                         <Card.Body>
                           <Card.Title style={{ fontSize: "20px", textAlign: "center" }}>
                             <Link to={`/questions/${question.id}`} style={{ textDecoration: `none` }}>

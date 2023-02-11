@@ -12,16 +12,7 @@ router.get("/", getToken, async (req, res, next) => {
   try {
     const allQs = await Question_Answer.findAll({
       where: { status: "Active" },
-      attributes: [
-        "id",
-        "question",
-        "questionImage",
-        "answerOptions",
-        "level",
-        "category",
-        "status",
-        "displayId",
-      ],
+      attributes: ["id", "question", "questionImage", "answerOptions", "level", "category", "status", "displayId", "color"],
     });
     res.json(allQs);
   } catch (err) {
@@ -79,16 +70,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
           res.json(singleQuestion);
         } //Condition 3B - If student has not yet responded
         else {
-          const {
-            id,
-            question,
-            questionImage,
-            answerOptions,
-            level,
-            category,
-            ancestorId,
-            displayId
-          } = singleQuestion;
+          const { id, question, questionImage, answerOptions, level, category, ancestorId, displayId } = singleQuestion;
           res.json({
             id,
             question,
@@ -97,7 +79,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
-            displayId
+            displayId,
           });
         }
       }
@@ -146,45 +128,40 @@ router.post("/", getToken, isAdmin, async (req, res, next) => {
 });
 
 //DELETE---api/questions/:singleQuestionId (Feature should be in single QA page)
-router.delete(
-  "/:singleQuestionId",
-  getToken,
-  isAdmin,
-  async (req, res, next) => {
-    const qaId = req.params.singleQuestionId;
+router.delete("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
+  const qaId = req.params.singleQuestionId;
 
-    try {
-      const allVersions = await Question_Answer.findAll({
-        order: [["createdAt", "ASC"]],
-        where: {
-          [Op.or]: [{ id: qaId }, { ancestorId: qaId }],
-        },
-        include: User_Question,
-      });
-      console.log("INITIAL ALL VERSIONS", allVersions);
+  try {
+    const allVersions = await Question_Answer.findAll({
+      order: [["createdAt", "ASC"]],
+      where: {
+        [Op.or]: [{ id: qaId }, { ancestorId: qaId }],
+      },
+      include: User_Question,
+    });
+    console.log("INITIAL ALL VERSIONS", allVersions);
 
-      //If deleting root ancestor and it has children
-      if (allVersions[0].id === qaId && allVersions.length > 1) {
-        for (let i = 0; i < allVersions.length; i++) {
-          const updateChildren = await allVersions[i].update({
-            ancestorId: allVersions[1].id,
-          });
-        }
-        console.log("UPDATED ALL VERSIONS", allVersions);
+    //If deleting root ancestor and it has children
+    if (allVersions[0].id === qaId && allVersions.length > 1) {
+      for (let i = 0; i < allVersions.length; i++) {
+        const updateChildren = await allVersions[i].update({
+          ancestorId: allVersions[1].id,
+        });
       }
-      const deleteInstance = await Question_Answer.destroy({
-        where: {
-          questionAnswerId: qaId,
-        },
-      });
-
-      // if (allVersions.length === 1) {
-      res.json(deleteInstance); //only sends num of deletion back
-      // } else {
-      //   res.json(allVersions[allVersions.length - 1]);
-      // }
-    } catch (err) {
-      next(err);
+      console.log("UPDATED ALL VERSIONS", allVersions);
     }
+    const deleteInstance = await Question_Answer.destroy({
+      where: {
+        questionAnswerId: qaId,
+      },
+    });
+
+    // if (allVersions.length === 1) {
+    res.json(deleteInstance); //only sends num of deletion back
+    // } else {
+    //   res.json(allVersions[allVersions.length - 1]);
+    // }
+  } catch (err) {
+    next(err);
   }
-);
+});
