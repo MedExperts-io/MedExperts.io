@@ -1,9 +1,13 @@
 body {
   font-family: sans-serif;
-  background-image: url("bg_small.png")
+  background-image: url("newBG8T.png")
   
   /* height:calc(100vh - (56px)) */
 }
+
+/* #with-bg {
+  background-image: url("newBG8T.png")
+} */
 
 #no-border{
   border:none

@@ -456,12 +456,12 @@ const QuestionsAnswers = () => {
                           </Link>
                         </Card.Body>
                         <Card.Footer>
-                          <Chip
+                          {/* <Chip
                             label={question.level}
                             onClick={() => pickDifficulty(question.level)}
                             color="info"
                             sx={{ spacing: 1 }}
-                          />
+                          /> */}
                           <Chip
                             label={question.category}
                             onClick={() => pickCategory1(question.category)}
