@@ -70,11 +70,12 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
           res.json(singleQuestion);
         } //Condition 3B - If student has not yet responded
         else {
-          const { id, question, questionImage, answerOptions, level, category, ancestorId, displayId } = singleQuestion;
+          const { id, question, questionImage, answerOptions, level, category, ancestorId, displayId,correctAnswer } = singleQuestion;
           res.json({
             id,
             question,
             questionImage,
+            correctAnswer,
             answerOptions,
             level,
             category,
