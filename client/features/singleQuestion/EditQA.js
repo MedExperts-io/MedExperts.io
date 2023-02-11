@@ -24,7 +24,6 @@ const EditQA = () => {
   }, []);
 
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
-  //console.log("qaVersions", qaVersions);
 
   const [newQuestion, setNewQuestion] = useState(qaVersions[0]?.question);
   const [newSingleQuestionImage, setNewSingleQuestionImage] = useState("");
