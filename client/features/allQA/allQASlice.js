@@ -5,7 +5,7 @@ const token = window.localStorage.getItem("token");
 export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () => {
   const { data } = await axios.get(`/api/questions`, {
     headers: {
-      authorization: token,
+      authorization: window.localStorage.getItem("token"),
     },
   });
   // API placeholder until the routes are corrected
@@ -21,42 +21,28 @@ export const fetchAllQuestionsAnswers = createAsyncThunk("fetchQAs", async () =>
 //   return data;
 // });
 
-export const NewQuestionsAnswers = createAsyncThunk(
-  "NewQAs",
-  async ({
-    question,
-    questionImage,
-    answerOptions,
-    correctAnswer,
-    explanation,
-    explanationImage,
-    explanationLinks,
-    category,
-    level,
-  }) => {
-    const { data } = await axios.post(
-      `/api/questions/`,
-      {
-        question,
-        questionImage,
-        answerOptions,
-        correctAnswer,
-        explanation,
-        explanationImage,
-        explanationLinks,
-        category,
-        level,
+export const NewQuestionsAnswers = createAsyncThunk("NewQAs", async ({ question, questionImage, answerOptions, correctAnswer, explanation, explanationImage, explanationLinks, category, level }) => {
+  const { data } = await axios.post(
+    `/api/questions/`,
+    {
+      question,
+      questionImage,
+      answerOptions,
+      correctAnswer,
+      explanation,
+      explanationImage,
+      explanationLinks,
+      category,
+      level,
+    },
+    {
+      headers: {
+        authorization: token,
       },
-      {
-        headers: {
-          authorization: token,
-        },
-      }
-    );
-    return data;
-  }
-);
-
+    }
+  );
+  return data;
+});
 
 export const allQASlice = createSlice({
   name: "allQA",
@@ -83,7 +69,6 @@ export const allQASlice = createSlice({
       })
       .addCase(NewQuestionsAnswers.fulfilled, (state, action) => {
         state.questionsAnswers = action.payload;
-        // console.log(action.payload)
       })
       .addCase(fetchAllQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
@@ -91,7 +76,6 @@ export const allQASlice = createSlice({
       .addCase(NewQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
       });
-      
   },
 });
 

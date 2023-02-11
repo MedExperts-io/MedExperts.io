@@ -58,6 +58,18 @@ const Question_Answer = db.define("question_answer", {
       return rawValue ? rawValue : this.getDataValue("id");
     },
   },
+  color: {
+    type: Sequelize.STRING,
+    get() {
+      if (this.getDataValue("level") === "Easy") {
+        return "lightgreen";
+      } else if (this.getDataValue("level") === "Moderate") {
+        return "#f5ad27";
+      } else {
+        return "#f55b49";
+      }
+    },
+  },
 });
 
 module.exports = Question_Answer;
