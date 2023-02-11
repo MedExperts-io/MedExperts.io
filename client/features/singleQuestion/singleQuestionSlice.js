@@ -76,7 +76,7 @@ export const deleteSingleQuestion = createAsyncThunk(
         authorization: token,
       },
     });
-    console.log("Delete Thunk", data);
+    console.log("Delete Thunk ", data);
     return data;
   }
 );
@@ -105,6 +105,7 @@ const singleQuestionSlice = createSlice({
         state.qaAllVersions.unshift(action.payload);
       })
       .addCase(deleteSingleQuestion.fulfilled, (state, action) => {
+
         state.qaAllVersions = state.qaAllVersions.filter(
           (aVersion) => aVersion.id != action.payload
         );
