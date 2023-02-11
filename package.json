@@ -41,7 +41,6 @@
     "react-bootstrap-icons": "^1.10.2",
     "react-html-parser": "^2.0.2",
     "react-paginate": "^8.1.4",
-    "run": "^1.4.0",
     "seed": "^0.4.4",
     "sequelize": "^6.25.3",
     "uuid": "^9.0.0"
@@ -58,6 +57,7 @@
     "buffer": "^6.0.3",
     "chai": "^4.3.6",
     "css-loader": "^6.7.3",
+    "dotenv-webpack": "^8.0.1",
     "esm": "^3.2.25",
     "mocha": "^10.1.0",
     "nodemon": "^2.0.20",
