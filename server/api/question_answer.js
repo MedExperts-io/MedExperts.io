@@ -25,16 +25,17 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
 
   try {
-    let singleQuestion = await Question_Answer.findOne({
-      where: { id: qaId },
-      include: {
-        model: User_Question,
-      },
-    });
+   
     //Condition 1 - If instance exists
-    if (singleQuestion) {
+    if (qaId) {
       //Condition 2A - IF ADMIN
       if (req.user.isAdmin) {
+        let singleQuestion = await Question_Answer.findOne({
+          where: { id: qaId },
+          include: {
+            model: User_Question,
+          },
+        });
         if (singleQuestion.ancestorId !== null) {
           // If child
           const allVersions = await Question_Answer.findAll({
@@ -65,23 +66,28 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         }
       } //Condition 2B - IF STUDENT
       else {
-        //Condition 3A - If student has responded to question
-        if (singleQuestion.user_questions.length) {
-          res.json(singleQuestion);
-        } //Condition 3B - If student has not yet responded
-        else {
-          const { id, question, questionImage, answerOptions, level, category, ancestorId, displayId } = singleQuestion;
-          res.json({
-            id,
-            question,
-            questionImage,
-            answerOptions,
-            level,
-            category,
-            ancestorId,
-            displayId,
-          });
-        }
+        let singleQuestion = await Question_Answer.findOne({
+          where: { id: qaId },
+        });
+        res.json(singleQuestion);
+        // //Condition 3A - If student has responded to question
+        // if (singleQuestion.user_questions.length) {
+        //   res.json(singleQuestion);
+        // } //Condition 3B - If student has not yet responded
+        // else {
+        //   const { id, question, questionImage, answerOptions, level, category, ancestorId, displayId,correctAnswer } = singleQuestion;
+        //   res.json({
+        //     id,
+        //     question,
+        //     questionImage,
+        //     correctAnswer,
+        //     answerOptions,
+        //     level,
+        //     category,
+        //     ancestorId,
+        //     displayId,
+        //   });
+        // }
       }
     } else {
       res.json({ error: "Question not found" });
