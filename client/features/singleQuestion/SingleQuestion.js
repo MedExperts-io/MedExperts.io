@@ -23,6 +23,7 @@ import {
   updateUserQuestionInput,
 } from "../stats/user_questionsSlice";
 import SingleQAadmin from "./SingleQAadmin";
+import { Divider } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
 const SingleQuestion = () => {
@@ -138,12 +139,20 @@ const SingleQuestion = () => {
                         id="breadcrumb"
                         style={{
                           textDecorationLine: "underline",
+                          fontWeight: "bold",
                           // color: "black",
                         }}
                       >
                         All Questions
                       </Breadcrumb.Item>
-                      <Breadcrumb.Item id="breadcrumb" active>
+                      <Breadcrumb.Item
+                        id="breadcrumb"
+                        active
+                        style={{
+                          fontWeight: "bold",
+                          // color: "black",
+                        }}
+                      >
                         {" "}
                         Question No.{displayId}
                       </Breadcrumb.Item>
@@ -160,7 +169,7 @@ const SingleQuestion = () => {
                       >
                         {question}
                       </Card.Header>
-                      <Card.Body className="mb-2 text-center">
+                      <Card.Body className="mx-auto">
                         {/* </Stack> */}
                         <Stack
                           gap={3}
@@ -192,20 +201,13 @@ const SingleQuestion = () => {
                             : null}
                         </Stack>
                         {/* </Stack> */}
-                        <Row>
+
+                        <Row style={{ paddingTop: "2%", paddingBottom: "2%" }}>
                           <center>
-                            <p
-                              style={{
-                                fontWeight: "bold",
-                              }}
-                            >
-                              Select your answer:
-                            </p>
+                            <Divider>Select your answer:</Divider>
                           </center>
                         </Row>
                         <Row className="mx-auto">
-                          {/* <Stack gap={5}>
-                  <Stack direction="horizontal" gap={3} className=" mx-auto"> */}
                           {answerOptions
                             ? answerOptions.map((ans, index) => (
                                 <Button
@@ -367,12 +369,18 @@ const SingleQuestion = () => {
                       href="/questions"
                       style={{
                         textDecorationLine: "underline",
-                        // fontWeight: "bold",
+                        fontWeight: "bold",
                       }}
                     >
                       All Questions
                     </Breadcrumb.Item>
-                    <Breadcrumb.Item id="breadcrumb" active>
+                    <Breadcrumb.Item
+                      id="breadcrumb"
+                      active
+                      style={{
+                        fontWeight: "bold",
+                      }}
+                    >
                       Question No.{displayId}
                     </Breadcrumb.Item>
                   </Breadcrumb>
@@ -386,23 +394,9 @@ const SingleQuestion = () => {
                         textAlign: "center",
                       }}
                     >
-                      {/* <div
-                        style={{
-                          fontWeight: "bold",
-                          textDecorationLine: "underline",
-                        }}
-                      >
-                        Question
-                      </div> */}
                       {question}
                     </Card.Header>
                     <Card.Body className="mx-auto">
-                      {/* <Row>
-                        {/* <Container
-                          fluid="sm"
-                          className="mx-auto"
-                          direction="horizontal"
-                        > */}{" "}
                       <Stack gap={3} className="mx-auto" direction="horizontal">
                         {questionImage
                           ? questionImage.map((image, index) => (
@@ -431,17 +425,9 @@ const SingleQuestion = () => {
                             ))
                           : null}
                       </Stack>
-                      {/* </Container> */}
-                      {/* </Row> */}
-                      <Row>
+                      <Row style={{ paddingTop: "2%", paddingBottom: "2%" }}>
                         <center>
-                          <p
-                            style={{
-                              fontWeight: "bold",
-                            }}
-                          >
-                            Select your answer:
-                          </p>
+                          <Divider>Select your answer:</Divider>
                         </center>
                       </Row>
                       <Row className="mx-auto">

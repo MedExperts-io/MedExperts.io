@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background-image: url("bg_small.png")
+  
   /* height:calc(100vh - (56px)) */
 }
 
@@ -7,8 +9,13 @@ body {
   border:none
 }
 
+#form-border{
+  border-color: black;
+}
+
 a[href="/questions"] {
   color:black
+  
   
 }
  
