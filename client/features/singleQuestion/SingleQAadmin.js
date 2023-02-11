@@ -33,6 +33,7 @@ const SingleQAadmin = () => {
 
   useEffect(() => {
     dispatch(fetchQAVersions(singleQuestionId));
+    //dispatch(fetchAllQuestionsAnswers());
   }, [qaVersions]);
 
   useEffect(() => {
@@ -85,6 +86,7 @@ const SingleQAadmin = () => {
                           style={{ textAlign: "center" }}
                           onClick={() => {
                             handleDelete(eachVersion.id);
+
                             if (qaVersions.length > 1) {
                               if (idx === 0) {
                                 navigate(`/questions/${qaVersions[1].id}`);
