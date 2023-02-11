@@ -54,17 +54,17 @@ const SingleQuestion = () => {
   const userExpertise = useSelector((state) => state.auth.me.expertise);
 
   useEffect(() => {
-    dispatch(
-      updateUserQuestionInput({
-        userId: userId,
-        questionAnswerId: singleQuestionId,
-      })
-    ).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
-
-    dispatch(fetchUserQuestions(userId));
+    // dispatch(
+    //   updateUserQuestionInput({
+    //     userId: userId,
+    //     questionAnswerId: singleQuestionId,
+    //   })
+    // ).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
+    // dispatch(fetchUserQuestions(userId)).then(()=>dispatch(fetchSingleQuestion(singleQuestionId)) )
   }, []);
 
   useEffect(() => {
+    dispatch(fetchUserQuestions(userId)).then(()=>dispatch(fetchSingleQuestion(singleQuestionId)))
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
