@@ -58,12 +58,11 @@ const SingleQuestion = () => {
     //     questionAnswerId: singleQuestionId,
     //   })
     // ).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
-
-    dispatch(fetchSingleQuestion(singleQuestionId))
-    dispatch(fetchUserQuestions(userId));
+    // dispatch(fetchUserQuestions(userId)).then(()=>dispatch(fetchSingleQuestion(singleQuestionId)) )
   }, []);
 
   useEffect(() => {
+    dispatch(fetchUserQuestions(userId)).then(()=>dispatch(fetchSingleQuestion(singleQuestionId)))
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
