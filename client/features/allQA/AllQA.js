@@ -240,14 +240,9 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarBackground}>Completed</div>
 
-                      <div style={styles.progressBarMiddle}>
-                        {easyPercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "lightgreen", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
                       Easy Level
                     </Card.Title>
                   </Card>
@@ -257,14 +252,9 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>
-                        {moderatePercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#f5ad27", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
                       <center>Moderate Level</center>
                     </Card.Title>
                   </Card>
@@ -274,14 +264,9 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>
-                        {hardPercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#f55b49", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
                       Hard Level
                     </Card.Title>
                   </Card>
@@ -291,14 +276,9 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>
-                        {allPercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{allPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#bf5eff", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
                       All Levels
                     </Card.Title>
                   </Card>
@@ -309,10 +289,7 @@ const QuestionsAnswers = () => {
         </Row>
 
         <Row>
-          <Card
-            className="mx-auto"
-            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-          >
+          <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
             <Card.Header
               style={{
                 marginBottom: "20px",
@@ -328,10 +305,7 @@ const QuestionsAnswers = () => {
             <Card.Body>
               <Row style={{ marginBottom: "20px" }} xs="auto">
                 <Col>
-                  <Dropdown
-                    onSelect={(event) => pickDifficulty(event)}
-                    style={{ marginBottom: "10px" }}
-                  >
+                  <Dropdown onSelect={(event) => pickDifficulty(event)} style={{ marginBottom: "10px" }}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {currentDifficulty}
                     </Dropdown.Toggle>
@@ -346,10 +320,7 @@ const QuestionsAnswers = () => {
                   </Dropdown>
                 </Col>
                 <Col>
-                  <Dropdown
-                    onSelect={(event) => pickCategory1(event)}
-                    style={{ marginBottom: "10px" }}
-                  >
+                  <Dropdown onSelect={(event) => pickCategory1(event)} style={{ marginBottom: "10px" }}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {currentCategory1}
                     </Dropdown.Toggle>
@@ -381,14 +352,13 @@ const QuestionsAnswers = () => {
                           style={{
                             width: "23rem",
                             marginBottom: "20px",
-                            boxShadow:
-                              "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                            boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
                           }}
                           // className="mx-auto"
                         >
                           <Card.Header
                             style={{
-                              backgroundColor: cardHeaderColor(question.level),
+                              backgroundColor: question.color,
                             }}
                           />
                           <Card.Body
@@ -396,31 +366,14 @@ const QuestionsAnswers = () => {
                               backgroundColor: cardBodyColor(question.id),
                             }}
                           >
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`/questions/${question.id}`}
-                            >
-                              <Card.Title style={{ color: "black" }}>
-                                Question Number {question.displayId}
-                              </Card.Title>
-                              <Card.Text style={{ color: "black" }}>
-                                {truncate(question.question)}
-                              </Card.Text>
+                            <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
+                              <Card.Title style={{ color: "black" }}>Question Number {question.displayId}</Card.Title>
+                              <Card.Text style={{ color: "black" }}>{truncate(question.question)}</Card.Text>
                             </Link>
                           </Card.Body>
                           <Card.Footer>
-                            <Chip
-                              label={question.level}
-                              onClick={() => pickDifficulty(question.level)}
-                              color="info"
-                              sx={{ spacing: 1 }}
-                            />
-                            <Chip
-                              label={question.category}
-                              onClick={() => pickCategory1(question.category)}
-                              color="info"
-                              sx={{ p: 0.5 }}
-                            />{" "}
+                            <Chip label={question.level} onClick={() => pickDifficulty(question.level)} color="info" sx={{ spacing: 1 }} />
+                            <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="info" sx={{ p: 0.5 }} />{" "}
                             <Card.Img
                               style={{ float: "right", width: "25px" }}
                               onClick={() => favorite(userId, question.id)}
