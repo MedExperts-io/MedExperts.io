@@ -1,24 +1,34 @@
 body {
   font-family: sans-serif;
-  background-image: url("bg_small.png")
+  background-image: url("newBG8T.png")
   
   /* height:calc(100vh - (56px)) */
 }
+
+/* #with-bg {
+  background-image: url("newBG8T.png")
+} */
 
 #no-border{
   border:none
 }
 
 #form-border{
-  border-color: black;
+  /* border-color: black; */
 }
-
+#question-submit-btn{
+  /* background-color: aqua; */
+}
 a[href="/questions"] {
   color:black
-  
-  
 }
- 
-/* href {
-  color:""
-} */
+
+#form-submit-btn{
+  background-color: #FF6262;
+  border-color: #FF6262;
+}
+
+#btn-muted {
+  background-color: rgba;
+}
+
