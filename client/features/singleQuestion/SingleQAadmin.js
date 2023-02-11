@@ -5,7 +5,7 @@ import {
   fetchQAVersions,
   deleteSingleQuestion,
 } from "./singleQuestionSlice";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Card, Stack } from "react-bootstrap/";
 import Button from "react-bootstrap/Button";
 import ReactHtmlParser from "react-html-parser";
@@ -17,10 +17,12 @@ import {
 } from "../stats/user_questionsSlice";
 import { ProgressBar } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 
 const SingleQAadmin = () => {
   const { singleQuestionId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -81,7 +83,16 @@ const SingleQAadmin = () => {
                           variant="secondary"
                           size="md"
                           style={{ textAlign: "center" }}
-                          onClick={() => handleDelete(eachVersion.id)}
+                          onClick={() => {
+                            handleDelete(eachVersion.id);
+                            if (qaVersions.length > 1) {
+                              if (idx === 0) {
+                                navigate(`/questions/${qaVersions[1].id}`);
+                              }
+                            } else {
+                              navigate(`/questions`);
+                            }
+                          }}
                         >
                           Delete Version
                         </Button>
@@ -224,7 +235,7 @@ const SingleQAadmin = () => {
               </div>
             ) : (
               <>
-                {" "}
+                {/* {" "}
                 <Link to={`/questions`} style={{ textDecoration: `none` }}>
                   <Button
                     variant="outline-danger"
@@ -233,7 +244,7 @@ const SingleQAadmin = () => {
                   >
                     Navigate to All Questions
                   </Button>
-                </Link>
+                </Link> */}
               </>
             )}
           </div>
