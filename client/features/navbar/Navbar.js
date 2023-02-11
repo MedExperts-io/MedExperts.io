@@ -17,12 +17,7 @@ const SiteNavbar = () => {
   };
 
   return (
-    <Navbar
-      collapseOnSelect
-      style={{ backgroundColor: "#FF6262" }}
-      expand="lg"
-      variant="dark"
-    >
+    <Navbar collapseOnSelect style={{ backgroundColor: "#FF6262" }} expand="lg" variant="dark">
       <Container fluid>
         {isLoggedIn ? (
           <>
@@ -35,13 +30,7 @@ const SiteNavbar = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/questions"
-                  className="m-2"
-                  style={{ color: "#FF6262" }}
-                >
+                <Button variant="light" as={Link} to="/questions" className="m-2" style={{ color: "#FF6262" }}>
                   Questions
                 </Button>
               </Nav>
@@ -85,10 +74,7 @@ const SiteNavbar = () => {
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item
-                      onClick={logoutAndRedirectHome}
-                      style={{ color: "#FF6262" }}
-                    >
+                    <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -104,10 +90,7 @@ const SiteNavbar = () => {
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse
-              id="responsive-navbar-nav"
-              className="justify-content-end"
-            >
+            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
               <Nav>
                 <Button
                   className="m-2"
