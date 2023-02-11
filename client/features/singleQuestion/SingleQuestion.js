@@ -5,8 +5,16 @@ import {
   deleteSingleQuestion,
 } from "./singleQuestionSlice";
 import { useParams, Link } from "react-router-dom";
-import { Card, Stack } from "react-bootstrap/";
-import Button from "react-bootstrap/Button";
+import {
+  Card,
+  Stack,
+  Breadcrumb,
+  Button,
+  ProgressBar,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
 import {
   fetchAllUserQuestions,
@@ -14,8 +22,8 @@ import {
   updateUserQuestion,
   updateUserQuestionInput,
 } from "../stats/user_questionsSlice";
-import { ProgressBar } from "react-bootstrap";
 import SingleQAadmin from "./SingleQAadmin";
+import { Divider } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
 const SingleQuestion = () => {
@@ -116,281 +124,354 @@ const SingleQuestion = () => {
   } else {
     if (CurrentQuestionArray.length > 0 && CurrentQuestion.answered) {
       return (
-        <div>
+        <Container fluid>
           {loading ? (
             <ProgressBar animated now={100} />
           ) : (
-            <Stack gap={3} className="p-3">
-              <Stack gap={3}>
+            <>
+              {" "}
+              <Stack gap={3} className="p-3">
                 <Stack gap={3}>
-                  {/* <div style={{ fontSize: "20px", textAlign: "center" }}>
-                  singleQuestion
-                </div> */}
-                  <Card>
-                    <Card.Body
-                      style={{ fontSize: "20px", textAlign: "center" }}
-                    >
-                      Question: {displayId}
-                    </Card.Body>
-                  </Card>
-
-                  <Card>
-                    <Card.Body
-                      className="mb-2 text-center"
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                        textAlign: "center",
-                      }}
-                    >
-                      Question: {question}
-                    </Card.Body>
-                  </Card>
-                </Stack>
-                <Stack gap={3} className="mx-auto" direction="horizontal">
-                  {questionImage
-                    ? questionImage.map((image, index) => (
-                        <Card gap={3} key={uuidv4()}>
-                          <img
-                            src={image}
-                            style={{
-                              height: `12rem`,
-                            }}
-                          />
-                          <Card.Subtitle
-                            className="m-2 text-center"
-                            style={{ fontSize: "10px" }}
-                          >
-                            figure:{index + 1}
-                          </Card.Subtitle>
-                        </Card>
-                      ))
-                    : null}
-                </Stack>
-              </Stack>
-
-              <Stack gap={5}>
-                <Stack direction="horizontal" gap={3} className=" mx-auto">
-                  {answerOptions
-                    ? answerOptions.map((ans, index) => (
-                        <Button
-                          key={uuidv4()}
-                          // variant={selectedOption === ans ? "success" : "outline-success"}
-                          variant={
-                            CurrentQuestion.userInput
-                              ? ans === correctAnswer
-                                ? "success"
-                                : "danger"
-                              : CurrentQuestion.answered === ans
-                              ? "success"
-                              : "outline-success"
-                          }
-                        >
-                          {ans}
-                        </Button>
-                      ))
-                    : null}
-                </Stack>
-                <Stack direction="horizontal" gap={3} className=" mx-auto">
-                  <Button
-                    variant="danger"
-                    // onClick={handleSubmit}
-                    disabled={selectedOption === null}
-                  >
-                    Submit
-                  </Button>
-                </Stack>
-              </Stack>
-
-              {
-                <Stack gap={3}>
-                  <Stack gap={3} className="mx-auto" direction="horizontal">
-                    {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
-                    <Card>
-                      <Card.Body>
-                        <Card.Title>Correct Answer</Card.Title>
-                        <Button variant={"success"}>{correctAnswer}</Button>
-                      </Card.Body>
-                    </Card>
-                    <Card>
-                      <Card.Body>
-                        <Card.Title>Your Answer</Card.Title>
-                        <Button
-                          variant={
-                            CurrentQuestion.userInput
-                              ? CurrentQuestion.userInput === correctAnswer
-                                ? "success"
-                                : "danger"
-                              : CurrentQuestion.userInput === selectedOption
-                              ? "success"
-                              : "outline-success"
-                          }
-                        >
-                          {CurrentQuestion.userInput}
-                        </Button>
-                      </Card.Body>
-                    </Card>
-                  </Stack>
-
-                  <Card>
-                    <Card.Body
-                      className="m-2 text-center"
-                      style={{
-                        fontSize: "15px",
-                        fontWeight: "bold",
-                        textAlign: "center",
-                      }}
-                    >
-                      Explanation: {explanation}
-                    </Card.Body>
-                  </Card>
-
-                  <Stack gap={3} className="mx-auto" direction="horizontal">
-                    {explanationImage
-                      ? explanationImage.map((image, index) => (
-                          <Card gap={3} key={uuidv4()}>
-                            <img
-                              src={image}
-                              style={{
-                                height: `12rem`,
-                              }}
-                            />
-                            <Card.Subtitle
-                              className="m-2 text-center"
-                              style={{ fontSize: "10px" }}
-                            >
-                              figure:{index + 1}
-                            </Card.Subtitle>
-                          </Card>
-                        ))
-                      : null}
-                  </Stack>
-
-                  {/*    alternate to react-html-parser:
-      not preferred but this works:
-      <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
-
                   <Stack gap={3}>
-                    <Card gap={3} className="mb-2 text-decoration-none ">
-                      <Card.Header>References</Card.Header>
-                      {explanationLinks
-                        ? explanationLinks.map((sourcelink, index) => (
-                            <Card
-                              key={uuidv4()}
-                              className="m-2 text-decoration-none "
-                            >
-                              <Card.Body>
-                                {" "}
-                                <div>
-                                  {index + 1}{" "}
-                                  <div>
-                                    {ReactHtmlParser(sourcelink)}
-                                    <style>
-                                      {` a {
-                              color: inherit;
-                               text-decoration: none;}`}
-                                    </style>
-                                  </div>
-                                </div>
-                              </Card.Body>
+                    <Breadcrumb>
+                      <Breadcrumb.Item
+                        href="/questions"
+                        id="breadcrumb"
+                        style={{
+                          textDecorationLine: "underline",
+                          fontWeight: "bold",
+                          // color: "black",
+                        }}
+                      >
+                        All Questions
+                      </Breadcrumb.Item>
+                      <Breadcrumb.Item
+                        id="breadcrumb"
+                        active
+                        style={{
+                          fontWeight: "bold",
+                          // color: "black",
+                        }}
+                      >
+                        {" "}
+                        Question No.{displayId}
+                      </Breadcrumb.Item>
+                    </Breadcrumb>
+
+                    <Card>
+                      <Card.Header
+                        className="mb-2 text-center"
+                        style={{
+                          fontSize: "100%",
+                          // fontWeight: "bold",
+                          textAlign: "center",
+                        }}
+                      >
+                        {question}
+                      </Card.Header>
+                      <Card.Body className="mx-auto">
+                        {/* </Stack> */}
+                        <Stack
+                          gap={3}
+                          className="mx-auto"
+                          direction="horizontal"
+                        >
+                          {questionImage
+                            ? questionImage.map((image, index) => (
+                                <Card
+                                  gap={3}
+                                  key={uuidv4()}
+                                  className="mx-auto"
+                                  id="no-border"
+                                >
+                                  <img
+                                    src={image}
+                                    style={{
+                                      maxHeight: `12rem`,
+                                    }}
+                                  />
+                                  <Card.Subtitle
+                                    className="m-2 text-center"
+                                    style={{ fontSize: "10px" }}
+                                  >
+                                    figure:{index + 1}
+                                  </Card.Subtitle>
+                                </Card>
+                              ))
+                            : null}
+                        </Stack>
+                        {/* </Stack> */}
+
+                        <Row style={{ paddingTop: "2%", paddingBottom: "2%" }}>
+                          <center>
+                            <Divider>Select your answer:</Divider>
+                          </center>
+                        </Row>
+                        <Row className="mx-auto">
+                          {answerOptions
+                            ? answerOptions.map((ans, index) => (
+                                <Button
+                                  as={Col}
+                                  className="ms-3 mb-2"
+                                  key={uuidv4()}
+                                  // variant={selectedOption === ans ? "success" : "outline-success"}
+                                  variant={
+                                    CurrentQuestion.userInput
+                                      ? ans === correctAnswer
+                                        ? "success"
+                                        : "danger"
+                                      : CurrentQuestion.answered === ans
+                                      ? "success"
+                                      : "outline-success"
+                                  }
+                                >
+                                  {ans}
+                                </Button>
+                              ))
+                            : null}
+                        </Row>
+                      </Card.Body>
+                      <Card.Footer>
+                        <Stack
+                          direction="horizontal"
+                          gap={3}
+                          className=" mx-auto"
+                        >
+                          <Button
+                            className="mx-auto"
+                            variant="danger"
+                            // onClick={handleSubmit}
+                            disabled={selectedOption === null}
+                          >
+                            Submit
+                          </Button>
+                        </Stack>
+                      </Card.Footer>
+                    </Card>
+                  </Stack>
+                </Stack>
+
+                {
+                  <Stack gap={3}>
+                    <Stack gap={3} className="mx-auto" direction="horizontal">
+                      {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>Correct Answer</Card.Title>
+                          <Button variant={"success"}>{correctAnswer}</Button>
+                        </Card.Body>
+                      </Card>
+                      <Card>
+                        <Card.Body>
+                          <Card.Title>Your Answer</Card.Title>
+                          <Button
+                            variant={
+                              CurrentQuestion.userInput
+                                ? CurrentQuestion.userInput === correctAnswer
+                                  ? "success"
+                                  : "danger"
+                                : CurrentQuestion.userInput === selectedOption
+                                ? "success"
+                                : "outline-success"
+                            }
+                          >
+                            {CurrentQuestion.userInput}
+                          </Button>
+                        </Card.Body>
+                      </Card>
+                    </Stack>
+
+                    <Card>
+                      <Card.Body
+                        className="m-2 text-center"
+                        style={{
+                          fontSize: "15px",
+                          fontWeight: "bold",
+                          textAlign: "center",
+                        }}
+                      >
+                        Explanation: {explanation}
+                      </Card.Body>
+                    </Card>
+
+                    <Stack gap={3} className="mx-auto" direction="horizontal">
+                      {explanationImage
+                        ? explanationImage.map((image, index) => (
+                            <Card gap={3} key={uuidv4()}>
+                              <img
+                                src={image}
+                                style={{
+                                  height: `12rem`,
+                                }}
+                              />
+                              <Card.Subtitle
+                                className="m-2 text-center"
+                                style={{ fontSize: "10px" }}
+                              >
+                                figure:{index + 1}
+                              </Card.Subtitle>
                             </Card>
                           ))
                         : null}
-                    </Card>
+                    </Stack>
+
+                    {/*    alternate to react-html-parser:
+      not preferred but this works:
+      <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
+
+                    <Stack gap={3}>
+                      <Card gap={3} className="mb-2 text-decoration-none ">
+                        <Card.Header>References</Card.Header>
+                        {explanationLinks
+                          ? explanationLinks.map((sourcelink, index) => (
+                              <Card
+                                key={uuidv4()}
+                                className="m-2 text-decoration-none "
+                              >
+                                <Card.Body>
+                                  {" "}
+                                  <div>
+                                    {index + 1}{" "}
+                                    <div>
+                                      {ReactHtmlParser(sourcelink)}
+                                      <style>
+                                        {` a {
+                              color: inherit;
+                               text-decoration: none;}`}
+                                      </style>
+                                    </div>
+                                  </div>
+                                </Card.Body>
+                              </Card>
+                            ))
+                          : null}
+                      </Card>
+                    </Stack>
                   </Stack>
-                </Stack>
-              }
-            </Stack>
+                }
+              </Stack>
+            </>
           )}
-        </div>
+        </Container>
       );
     } else {
       return (
-        <div>
+        <Container fluid>
           {loading ? (
             <ProgressBar animated now={100} />
           ) : (
             <Stack gap={3} className="p-3">
               <Stack gap={3}>
                 <Stack gap={3}>
-                  <div style={{ fontSize: "20px", textAlign: "center" }}>
-                    singleQuestion
-                  </div>
-                  <Card>
-                    <Card.Body
-                      style={{ fontSize: "20px", textAlign: "center" }}
+                  <Breadcrumb>
+                    <Breadcrumb.Item
+                      id="breadcrumb"
+                      href="/questions"
+                      style={{
+                        textDecorationLine: "underline",
+                        fontWeight: "bold",
+                      }}
                     >
-                      Question: {displayId}
-                    </Card.Body>
-                  </Card>
+                      All Questions
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item
+                      id="breadcrumb"
+                      active
+                      style={{
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Question No.{displayId}
+                    </Breadcrumb.Item>
+                  </Breadcrumb>
 
                   <Card>
-                    <Card.Body
+                    <Card.Header
                       className="mb-2 text-center"
                       style={{
-                        fontSize: "20px",
-                        fontWeight: "bold",
+                        fontSize: "100%",
+                        // fontWeight: "bold",
                         textAlign: "center",
                       }}
                     >
-                      Question: {question}
+                      {question}
+                    </Card.Header>
+                    <Card.Body className="mx-auto">
+                      <Stack gap={3} className="mx-auto" direction="horizontal">
+                        {questionImage
+                          ? questionImage.map((image, index) => (
+                              // <Col sm>
+                              <Card
+                                gap={3}
+                                key={uuidv4()}
+                                className="mx-auto"
+                                id="no-border"
+                              >
+                                <img
+                                  src={image}
+                                  style={{
+                                    maxHeight: `12rem`,
+                                  }}
+                                />
+
+                                <Card.Subtitle
+                                  className="m-2 text-center"
+                                  style={{ fontSize: "10px" }}
+                                >
+                                  figure:{index + 1}
+                                </Card.Subtitle>
+                              </Card>
+                              // </Col>
+                            ))
+                          : null}
+                      </Stack>
+                      <Row style={{ paddingTop: "2%", paddingBottom: "2%" }}>
+                        <center>
+                          <Divider>Select your answer:</Divider>
+                        </center>
+                      </Row>
+                      <Row className="mx-auto">
+                        {answerOptions
+                          ? answerOptions.map((ans, index) => (
+                              <Button
+                                as={Col}
+                                className="ms-3 mb-2"
+                                key={uuidv4()}
+                                // variant={selectedOption === ans ? "success" : "outline-success"}
+                                variant={
+                                  showAnswer
+                                    ? ans === correctAnswer
+                                      ? "success"
+                                      : "danger"
+                                    : selectedOption === ans
+                                    ? "success"
+                                    : "outline-success"
+                                }
+                                onClick={() => handleOptionSelection(ans)}
+                              >
+                                {ans}
+                              </Button>
+                            ))
+                          : null}
+                      </Row>
                     </Card.Body>
-                  </Card>
-                </Stack>
-
-                <Stack gap={3} className="mx-auto" direction="horizontal">
-                  {questionImage
-                    ? questionImage.map((image, index) => (
-                        <Card gap={3} key={uuidv4()}>
-                          <img
-                            src={image}
-                            style={{
-                              height: `12rem`,
-                            }}
-                          />
-                          <Card.Subtitle
-                            className="m-2 text-center"
-                            style={{ fontSize: "10px" }}
-                          >
-                            figure:{index + 1}
-                          </Card.Subtitle>
-                        </Card>
-                      ))
-                    : null}
-                </Stack>
-              </Stack>
-
-              <Stack gap={5}>
-                <Stack direction="horizontal" gap={3} className=" mx-auto">
-                  {answerOptions
-                    ? answerOptions.map((ans, index) => (
+                    <Card.Footer>
+                      <Stack
+                        direction="horizontal"
+                        gap={3}
+                        className=" mx-auto"
+                      >
                         <Button
-                          key={uuidv4()}
-                          // variant={selectedOption === ans ? "success" : "outline-success"}
-                          variant={
-                            showAnswer
-                              ? ans === correctAnswer
-                                ? "success"
-                                : "danger"
-                              : selectedOption === ans
-                              ? "success"
-                              : "outline-success"
-                          }
-                          onClick={() => handleOptionSelection(ans)}
+                          className="mx-auto"
+                          variant="danger"
+                          onClick={handleSubmit}
+                          disabled={selectedOption === null}
                         >
-                          {ans}
+                          Submit
                         </Button>
-                      ))
-                    : null}
-                </Stack>
-                <Stack direction="horizontal" gap={3} className=" mx-auto">
-                  <Button
-                    variant="danger"
-                    onClick={handleSubmit}
-                    disabled={selectedOption === null}
-                  >
-                    Submit
-                  </Button>
+                      </Stack>
+                    </Card.Footer>
+                  </Card>
                 </Stack>
               </Stack>
 
@@ -493,7 +574,7 @@ const SingleQuestion = () => {
               )}
             </Stack>
           )}
-        </div>
+        </Container>
       );
     }
   }
