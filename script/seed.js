@@ -5926,6 +5926,7 @@ async function seed() {
       category: "Pulmonary Function Testing",
       ancestorId: 1,
       status: "Inactive",
+      displayId: 1,
     }),
     Question_Answer.create({
       question:
