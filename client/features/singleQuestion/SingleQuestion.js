@@ -14,6 +14,7 @@ import {
   Container,
   Row,
   Col,
+  Table,
 } from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
 import {
@@ -114,7 +115,6 @@ const SingleQuestion = () => {
   //   const {answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput} = CurrentQuestion
   //   console.log({answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput});
   // }
-
 
   if (admin) {
     return <SingleQAadmin />;
@@ -252,16 +252,77 @@ const SingleQuestion = () => {
 
                 {
                   <Stack gap={3}>
-                    <Stack gap={3} className="mx-auto" direction="horizontal">
-                      {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
-                      <Card>
-                        <Card.Body>
-                          <Card.Title>Correct Answer</Card.Title>
-                          <Button variant={"success"}>{correctAnswer}</Button>
-                        </Card.Body>
-                      </Card>
-                      <Card>
-                        <Card.Body>
+                    <Card className="mx-auto">
+                      <Table bordered>
+                        <thead>
+                          <tr className="text-center">
+                            <th>Correct Answer</th>
+                            <th>Your Answer</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              {" "}
+                              <Button variant={"success"}>
+                                {correctAnswer}
+                              </Button>
+                            </td>
+                            <td>
+                              {" "}
+                              <Button
+                                variant={
+                                  CurrentQuestion.userInput
+                                    ? CurrentQuestion.userInput ===
+                                      correctAnswer
+                                      ? "success"
+                                      : "danger"
+                                    : CurrentQuestion.userInput ===
+                                      selectedOption
+                                    ? "success"
+                                    : "outline-success"
+                                }
+                              >
+                                {CurrentQuestion.userInput}
+                              </Button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </Card>
+                    {/* <Stack gap={3} className="mx-auto" direction="horizontal"> */}
+                    {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
+                    {/* <Card className="mx-auto">
+                      <Card.Body>
+                        <Row>
+                          <Col>
+                            <Card.Title>Correct Answer</Card.Title>
+                            <Button variant={"success"}>{correctAnswer}</Button>
+                            {/* <Card.Body> */}
+                    {/* </Col>
+                          <Col>
+                            <Card.Title>Your Answer</Card.Title>
+                            <Button
+                              variant={
+                                CurrentQuestion.userInput
+                                  ? CurrentQuestion.userInput === correctAnswer
+                                    ? "success"
+                                    : "danger"
+                                  : CurrentQuestion.userInput === selectedOption
+                                  ? "success"
+                                  : "outline-success"
+                              }
+                            >
+                              {CurrentQuestion.userInput}
+                            </Button>
+                          </Col>
+                        </Row>
+
+                        {/* </Card.Body> */}
+                    {/* </Card.Body>
+                    </Card> */}{" "}
+                    {/* <Card> */}
+                    {/* <Card.Body>
                           <Card.Title>Your Answer</Card.Title>
                           <Button
                             variant={
@@ -276,10 +337,9 @@ const SingleQuestion = () => {
                           >
                             {CurrentQuestion.userInput}
                           </Button>
-                        </Card.Body>
-                      </Card>
-                    </Stack>
-
+                        </Card.Body> */}
+                    {/* </Card> */}
+                    {/* </Stack> */}
                     <Card>
                       <Card.Body
                         className="m-2 text-center"
@@ -292,7 +352,6 @@ const SingleQuestion = () => {
                         Explanation: {explanation}
                       </Card.Body>
                     </Card>
-
                     <Stack gap={3} className="mx-auto" direction="horizontal">
                       {explanationImage
                         ? explanationImage.map((image, index) => (
@@ -313,11 +372,9 @@ const SingleQuestion = () => {
                           ))
                         : null}
                     </Stack>
-
                     {/*    alternate to react-html-parser:
       not preferred but this works:
       <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
-
                     <Stack gap={3}>
                       <Card gap={3} className="mb-2 text-decoration-none ">
                         <Card.Header>References</Card.Header>
@@ -354,6 +411,7 @@ const SingleQuestion = () => {
         </Container>
       );
     } else {
+      // <------------------Not answered view ------------------>
       return (
         <Container fluid>
           {loading ? (
@@ -464,6 +522,7 @@ const SingleQuestion = () => {
                       >
                         <Button
                           className="mx-auto"
+                          id="question-submit-btn"
                           variant="danger"
                           onClick={handleSubmit}
                           disabled={selectedOption === null}
