@@ -87,7 +87,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
-            displayId
+            displayId,
           } = singleQuestion;
           res.json({
             id,
@@ -97,7 +97,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             level,
             category,
             ancestorId,
-            displayId
+            displayId,
           });
         }
       }
@@ -145,44 +145,78 @@ router.post("/", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-//DELETE---api/questions/:singleQuestionId (Feature should be in single QA page)
+//DELETE---api/questions/:singleQuestionId
 router.delete(
   "/:singleQuestionId",
   getToken,
   isAdmin,
   async (req, res, next) => {
-    const qaId = req.params.singleQuestionId;
-
+    const qaId = +req.params.singleQuestionId; // example [1, 201, 202]
     try {
-      const allVersions = await Question_Answer.findAll({
-        order: [["createdAt", "ASC"]],
-        where: {
-          [Op.or]: [{ id: qaId }, { ancestorId: qaId }],
-        },
-        include: User_Question,
-      });
-      console.log("INITIAL ALL VERSIONS", allVersions);
+      //1. Grab instance to get access to ancestorId
+      const singleQuestion = await Question_Answer.findByPk(qaId);
 
-      //If deleting root ancestor and it has children
-      if (allVersions[0].id === qaId && allVersions.length > 1) {
-        for (let i = 0; i < allVersions.length; i++) {
-          const updateChildren = await allVersions[i].update({
-            ancestorId: allVersions[1].id,
+      //2a. If any child is being deleted
+      if (singleQuestion.ancestorId !== null) {
+        //3. Grab all versions of this child version
+        console.log("qaID", qaId, "I am a child");
+        const allVersions = await Question_Answer.findAll({
+          order: [["createdAt", "ASC"]],
+          where: {
+            [Op.or]: [
+              { id: singleQuestion.id }, //self
+              { id: singleQuestion.ancestorId }, //ancestor
+              { ancestorId: singleQuestion.ancestorId }, //siblings
+            ],
+          },
+        });
+        //4. If deleting the latest child
+        if (allVersions[allVersions.length - 1].id === qaId) {
+          console.log("qaID", qaId, "I am the latest child");
+          //5. Update only second to latest sibling
+          await allVersions[allVersions.length - 2].update({
+            status: "Active",
+            //displayId: singleQuestion.ancestorId, // Extra step in case of edge cases
           });
+          console.log("UPDATING 2TOLAST STATUS TO ACTIVE", allVersions);
         }
-        console.log("UPDATED ALL VERSIONS", allVersions);
       }
-      const deleteInstance = await Question_Answer.destroy({
+      //2b. If root ancestor is being deleted
+      else {
+        console.log("qaID", qaId, "I am root");
+        const allVersions = await Question_Answer.findAll({
+          order: [["createdAt", "ASC"]],
+          where: {
+            [Op.or]: [
+              { id: singleQuestion.id }, // self
+              { ancestorId: singleQuestion.id }, //children
+            ],
+          },
+        });
+        //3. If multiple versions exist as in if it has children
+        if (allVersions.length > 1) {
+          console.log("qaID", qaId, "I have children");
+          //4. Update children
+          //(SEE IF DISPLAYID NEEDS TO BE UPDATED ALSO. Note: Practically, we might see instances that have display id which is the id of an instance that no longer exists. Which means that this instance is a newer version of something old that got deleted. Based on the following update, ancestorId could exist. The displayId shows the fact that this instance had an ancestor before and is thus displayed on allQA page according to that ancestor's placement. Remember: DisplayId is set anytime a new version of a question is created so no need to update displayId of children in this update process.)
+          await Promise.all(
+            allVersions.map((aVersion, idx) => {
+              if (idx !== 1) {
+                aVersion.update({ ancestorId: allVersions[1].id });
+              }
+            })
+          );
+          console.log("UPDATING CHILDREN (NOT OLDEST CHILD)", allVersions);
+        }
+      }
+
+      //5. Delete row
+      await Question_Answer.destroy({
+        //This query returns number of deletion
         where: {
-          questionAnswerId: qaId,
+          id: qaId,
         },
       });
-
-      // if (allVersions.length === 1) {
-      res.json(deleteInstance); //only sends num of deletion back
-      // } else {
-      //   res.json(allVersions[allVersions.length - 1]);
-      // }
+      res.json(qaId);
     } catch (err) {
       next(err);
     }
