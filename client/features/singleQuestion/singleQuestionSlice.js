@@ -7,7 +7,7 @@ export const fetchSingleQuestion = createAsyncThunk(
   async (singleQuestionId) => {
     const { data } = await axios.get(`/api/questions/${singleQuestionId}`, {
       headers: {
-        authorization: token,
+        authorization: window.localStorage.getItem("token"),
       },
     });
     return data;
