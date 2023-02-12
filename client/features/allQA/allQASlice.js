@@ -39,7 +39,7 @@ export const NewQuestionsAnswers = createAsyncThunk("NewQAs", async ({ question,
     },
     {
       headers: {
-        authorization: token,
+        authorization: window.localStorage.getItem("token"),
       },
     }
   );
