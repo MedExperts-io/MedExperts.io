@@ -6,8 +6,7 @@ import {
   deleteSingleQuestion,
 } from "./singleQuestionSlice";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Card, Stack } from "react-bootstrap/";
-import Button from "react-bootstrap/Button";
+import { Card, Stack, Button, ProgressBar, Table } from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
 import {
   fetchAllUserQuestions,
@@ -15,7 +14,7 @@ import {
   updateUserQuestion,
   updateUserQuestionInput,
 } from "../stats/user_questionsSlice";
-import { ProgressBar } from "react-bootstrap";
+
 import { v4 as uuidv4 } from "uuid";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 
@@ -131,26 +130,45 @@ const SingleQAadmin = () => {
                       </Stack>
 
                       <Stack gap={10}>
-                        <Stack
-                          direction="horizontal"
-                          gap={3}
-                          className=" mx-auto"
-                        >
-                          {eachVersion.answerOptions
-                            ? eachVersion.answerOptions.map((ans, index) => (
-                                <Button
-                                  key={uuidv4()}
-                                  variant={
-                                    ans === eachVersion.correctAnswer
-                                      ? "success"
-                                      : "danger"
-                                  }
-                                >
-                                  {ans}
-                                </Button>
-                              ))
-                            : null}
-                        </Stack>
+                        <Table hover size="sm" borderless>
+                          <thead>
+                            <tr>
+                              <th>Options</th>
+                              <th>Responses</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {eachVersion.answerOptions
+                              ? eachVersion.answerOptions.map((ans, index) => (
+                                  <tr key={uuidv4()}>
+                                    <td>
+                                      <Button
+                                        // gap={3}
+                                        variant={
+                                          ans === eachVersion.correctAnswer
+                                            ? "success"
+                                            : "danger"
+                                        }
+                                      >
+                                        {ans}
+                                      </Button>
+                                    </td>
+                                    <td>
+                                      <ProgressBar
+                                        variant={
+                                          ans === eachVersion.correctAnswer
+                                            ? "success"
+                                            : "danger"
+                                        }
+                                        now="60"
+                                        label="60%"
+                                      />
+                                    </td>
+                                  </tr>
+                                ))
+                              : null}
+                          </tbody>
+                        </Table>
                       </Stack>
                     </Card>
 
@@ -205,7 +223,7 @@ const SingleQAadmin = () => {
                                     (sourcelink, index) => (
                                       <Card
                                         key={uuidv4()}
-                                        className="m-2 text-decoration-none "
+                                        className="m-2 text-decoration-none"
                                       >
                                         <Card.Body>
                                           {" "}
