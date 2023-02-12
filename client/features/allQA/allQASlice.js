@@ -53,7 +53,7 @@ export const allQASlice = createSlice({
     easy: [],
     moderate: [],
     hard: [],
-    newQuestion: [],
+    newQuestion: {},
     error: null,
     loading: false,
   },
