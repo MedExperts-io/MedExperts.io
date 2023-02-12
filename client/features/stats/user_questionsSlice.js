@@ -29,6 +29,19 @@ export const fetchByAnswerFrequency = createAsyncThunk("fetchByAnswerFrequency",
   }
 });
 
+export const fetchPercentCorrect = createAsyncThunk("fetchPercentCorrect", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/percent_correct`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // --------For admin's dashboard analytics (by expertise)--------------
 export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions", async () => {
   try {
@@ -110,6 +123,8 @@ export const allUser_QuestionsSlice = createSlice({
     expertiseQuestions: {},
     mostAnswered: [],
     leastAnswered: [],
+    mostCorrect: [],
+    leastCorrect: [],
     error: null,
   },
   reducers: {},
@@ -117,6 +132,21 @@ export const allUser_QuestionsSlice = createSlice({
     builder
       .addCase(fetchAllUserQuestions.fulfilled, (state, action) => {
         state.allUserQuestions = action.payload;
+      })
+      .addCase(fetchExpertiseQuestions.fulfilled, (state, action) => {
+        state.expertiseQuestions = action.payload;
+      })
+      .addCase(fetchUserQuestions.fulfilled, (state, action) => {
+        state.UserQuestions = action.payload;
+        state.userEasy = action.payload.filter((question) => question.level === "Easy" && question.userInput);
+        state.userModerate = action.payload.filter((question) => question.level === "Moderate" && question.userInput);
+        state.userHard = action.payload.filter((question) => question.level === "Hard" && question.userInput);
+      })
+      .addCase(updateUserQuestion.fulfilled, (state, action) => {
+        state.currentUserQuestion = action.payload;
+      })
+      .addCase(updateUserQuestionInput.fulfilled, (state, action) => {
+        state.currentUserQuestion = action.payload;
       })
       .addCase(fetchByAnswerFrequency.fulfilled, (state, action) => {
         const allQAs = action.payload[0];
@@ -130,26 +160,27 @@ export const allUser_QuestionsSlice = createSlice({
         });
         const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
         const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
-        // console.log("IN THE FREQUENCY BUILDER: SORTEDBYFREQUENCY: ", sortedByFrequency);
-        // console.log("IN THE FREQUENCY BUILDER: SORTEDBYFREQUENCY REVERSE: ", sortedByFrequencyReverse);
+
         state.mostAnswered = sortedByFrequency;
         state.leastAnswered = sortedByFrequencyReverse;
       })
-      .addCase(fetchExpertiseQuestions.fulfilled, (state, action) => {
-        state.expertiseQuestions = action.payload;
-      })
-      .addCase(fetchUserQuestions.fulfilled, (state, action) => {
-        state.UserQuestions = action.payload;
-        state.userEasy = action.payload.filter((question) => question.level === "Easy" && question.userInput);
-        state.userModerate = action.payload.filter((question) => question.level === "Moderate" && question.userInput);
-        state.userHard = action.payload.filter((question) => question.level === "Hard" && question.userInput);
-      })
-      .addCase(updateUserQuestion.fulfilled, (state, action) => {
-        // console.log("FAVORITED ACTION PAYLOAD", action.payload);
-        state.currentUserQuestion = action.payload;
-      })
-      .addCase(updateUserQuestionInput.fulfilled, (state, action) => {
-        state.currentUserQuestion = action.payload;
+      .addCase(fetchPercentCorrect.fulfilled, (state, action) => {
+        const allQAs = action.payload[0];
+        const frequency = action.payload[1];
+
+        const allQuestions = allQAs.map((question) => {
+          return {
+            ...question,
+            percentCorrect: Math.round((frequency[question.id]["right"] / frequency[question.id]["total"]) * 100),
+          };
+        });
+        const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
+        const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
+
+        console.log("SORTEDBYPERCENTCORRECT", sortedByPercentCorrect);
+        console.log("SORTEDBYPERCENTCORRECTREVERSE", sortedByPercentCorrectReverse);
+        state.mostCorrect = sortedByPercentCorrect;
+        state.leastCorrect = sortedByPercentCorrectReverse;
       });
   },
 });
