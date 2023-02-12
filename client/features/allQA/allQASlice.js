@@ -39,7 +39,7 @@ export const NewQuestionsAnswers = createAsyncThunk("NewQAs", async ({ question,
     },
     {
       headers: {
-        authorization: token,
+        authorization: window.localStorage.getItem("token"),
       },
     }
   );
@@ -53,7 +53,7 @@ export const allQASlice = createSlice({
     easy: [],
     moderate: [],
     hard: [],
-    newQuestion: [],
+    newQuestion: {},
     error: null,
     loading: false,
   },
