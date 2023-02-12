@@ -32,3 +32,12 @@ a[href="/questions"] {
   background-color: rgba;
 }
 
+
+.card {
+  transition: all 0.6s ease-in-out;
+  
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
