@@ -22,7 +22,7 @@ export const fetchQAVersions = createAsyncThunk(
         authorization: token,
       },
     });
-    console.log("THUNK ALL VERSIONS", data);
+    //console.log("THUNK ALL VERSIONS", data);
     return data;
   }
 );
@@ -98,7 +98,7 @@ const singleQuestionSlice = createSlice({
         state.error = action.error;
       })
       .addCase(fetchQAVersions.fulfilled, (state, action) => {
-        console.log("BUILDER ALL VERSIONS", action.payload);
+        //console.log("BUILDER ALL VERSIONS", action.payload);
         state.qaAllVersions = action.payload;
       })
       .addCase(editQuestion.fulfilled, (state, action) => {
