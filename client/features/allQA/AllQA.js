@@ -423,6 +423,7 @@ const QuestionsAnswers = () => {
                   ? currentItems.map((question) => (
                       // <Col key={question.id}>
                       <Card
+                      className="card"
                         key={question.id}
                         style={{
                           padding: "0px",
