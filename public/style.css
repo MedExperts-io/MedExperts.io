@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
-  background-image: url("newBG8T.png")
+  background-image: url("medexpertbg.png");
+  
   
   /* height:calc(100vh - (56px)) */
 }
@@ -33,11 +34,11 @@ a[href="/questions"] {
 }
 
 
-.card {
-  transition: all 0.6s ease-in-out;
-  
+.questionCard {
+  transition: all 0.3s ease-in-out;  
 }
 
-.card:hover {
+.questionCard:hover {
   transform: scale(1.1);
+
 }
