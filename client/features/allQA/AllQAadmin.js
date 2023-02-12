@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Card, Dropdown, Row, Col, Form, Container, Button } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency } from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency, fetchPercentCorrect } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import { Chip, Stack, LinearProgress } from "@mui/material";
@@ -41,8 +41,10 @@ const AllQAadmin = () => {
     "Sleep",
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
-  const Frequencies = ["Frequency Sort", "Most Answered", "Least Answered"];
-  const currentFrequency = useRef(Frequencies[0]);
+  const frequencyList = ["Frequency Sort", "Most Answered", "Least Answered"];
+  const currentFrequency = useRef(frequencyList[0]);
+  const percentCorrectList = ["Percent Correct Sort", "Most Correct", "Least Correct"];
+  const currentPercent = useRef(percentCorrectList[0]);
   const [seeFavorites, setSeeFavorites] = useState(true);
 
   let isFavorited = false;
@@ -64,7 +66,7 @@ const AllQAadmin = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const { mostAnswered, leastAnswered } = useSelector((state) => state.userQuestions);
+  const { mostAnswered, leastAnswered, mostCorrect, leastCorrect } = useSelector((state) => state.userQuestions);
   const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
@@ -86,6 +88,8 @@ const AllQAadmin = () => {
 
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.displayId - b.displayId);
+
+  console.log("UserAllQuestionsTotal", UserAllQuestionsTotal);
 
   const filteredQuestions = useRef(null);
   allQuestions.length && !filteredQuestions.current ? (filteredQuestions.current = allQuestions) : null;
@@ -158,6 +162,12 @@ const AllQAadmin = () => {
     filterFunction();
   };
 
+  const pickPercentCorrect = (event) => {
+    currentPercent.current = event;
+    !seeFavorites ? (isFavorited = true) : null;
+    filterFunction();
+  };
+
   const handlePageClick = (event) => {
     const newOffset = event.selected * itemsPerPage;
     setItemOffset(newOffset);
@@ -171,6 +181,9 @@ const AllQAadmin = () => {
 
     currentFrequency.current === "Most Answered" ? (multiFilter = mostAnswered) : null;
     currentFrequency.current === "Least Answered" ? (multiFilter = leastAnswered) : null;
+
+    currentPercent.current === "Most Correct" ? (multiFilter = mostCorrect) : null;
+    currentPercent.current === "Least Correct" ? (multiFilter = leastCorrect) : null;
 
     expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
 
@@ -205,6 +218,7 @@ const AllQAadmin = () => {
     dispatch(fetchUserQuestions(userId));
     dispatch(fetchAllUserQuestions());
     dispatch(fetchByAnswerFrequency());
+    dispatch(fetchPercentCorrect());
   }, []);
 
   const styles = {
@@ -378,6 +392,7 @@ const AllQAadmin = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
+
               <Col md="auto">
                 <Dropdown onSelect={(event) => userExpertiseSelection(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -392,6 +407,7 @@ const AllQAadmin = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
+
               <Col md="auto">
                 <Dropdown onSelect={(event) => pickFrequency(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -399,7 +415,7 @@ const AllQAadmin = () => {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    {Frequencies.map((frequency) => (
+                    {frequencyList.map((frequency) => (
                       <Dropdown.Item key={frequency} eventKey={frequency}>
                         {frequency}
                       </Dropdown.Item>
@@ -407,6 +423,23 @@ const AllQAadmin = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
+
+              <Col md="auto">
+                <Dropdown onSelect={(event) => pickPercentCorrect(event)}>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {currentPercent.current}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    {percentCorrectList.map((correct) => (
+                      <Dropdown.Item key={correct} eventKey={correct}>
+                        {correct}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Col>
+
               <Col md="auto">
                 <Form>
                   <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
