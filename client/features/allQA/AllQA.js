@@ -345,7 +345,7 @@ const QuestionsAnswers = () => {
           </Card>
         </Row>
 
-        <Row>
+        <Row style={{ marginBottom: "30px" }}>
           <Card
             className="mx-auto"
             style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
@@ -448,10 +448,14 @@ const QuestionsAnswers = () => {
                             style={{ textDecoration: "none" }}
                             to={`/questions/${question.id}`}
                           >
-                            <Card.Title style={{ color: "black" }}>
+                            <Card.Title
+                              style={{ color: "black", textAlign: "center" }}
+                            >
                               Question Number {question.displayId}
                             </Card.Title>
-                            <Card.Text style={{ color: "black" }}>
+                            <Card.Text
+                              style={{ color: "black", textAlign: "center" }}
+                            >
                               {truncate(question.question)}
                             </Card.Text>
                           </Link>
@@ -466,11 +470,13 @@ const QuestionsAnswers = () => {
                           <Chip
                             label={question.category}
                             onClick={() => pickCategory1(question.category)}
-                            color="info"
-                            sx={{ p: 0.5 }}
+                            color="default"
+                            variant="outlined"
+                            size="small"
+                            // sx={{ p: 0.5 }}
                           />{" "}
                           <Card.Img
-                            style={{ float: "right", width: "25px" }}
+                            style={{ float: "right", width: "20px" }}
                             onClick={() => favorite(userId, question.id)}
                             variant="top"
                             src={
