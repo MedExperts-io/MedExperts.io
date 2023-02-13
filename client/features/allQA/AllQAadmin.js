@@ -23,7 +23,14 @@ import {
 } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import { Chip, Stack, LinearProgress } from "@mui/material";
+import AddQuestion from "../addQ/AddQuestion";
+import {
+  Chip,
+  Stack,
+  LinearProgress,
+  SpeedDial,
+  SpeedDialIcon,
+} from "@mui/material";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -384,12 +391,22 @@ const AllQAadmin = () => {
   return (
     <Container fluid>
       <Row>
-        <Card id="no-border" className="mx-auto">
+        <Card
+          id="no-border"
+          className="mx-auto"
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+            maxWidth: "90%",
+            marginTop: "30px",
+          }}
+        >
           <Button
+            size="small"
             variant="success"
             as={Link}
             to="/addQuestion"
-            className="m-2"
+
             // style={{ color: "#FF6262" }}
           >
             Add a Question
