@@ -22,7 +22,14 @@ import {
 } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import { Chip, Stack, LinearProgress } from "@mui/material";
+import AddQuestion from "../addQ/AddQuestion";
+import {
+  Chip,
+  Stack,
+  LinearProgress,
+  SpeedDial,
+  SpeedDialIcon,
+} from "@mui/material";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -384,12 +391,22 @@ const AllQAadmin = () => {
   return (
     <Container fluid>
       <Row>
-        <Card id="no-border" className="mx-auto">
+        <Card
+          id="no-border"
+          className="mx-auto"
+          style={{
+            paddingLeft: 0,
+            paddingRight: 0,
+            maxWidth: "90%",
+            marginTop: "30px",
+          }}
+        >
           <Button
+            size="small"
             variant="success"
             as={Link}
             to="/addQuestion"
-            className="m-2"
+
             // style={{ color: "#FF6262" }}
           >
             Add a Question
@@ -397,20 +414,22 @@ const AllQAadmin = () => {
         </Card>
       </Row>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-        <Card id="no-border" className="mx-auto">
+        <Card
+          className="mx-auto"
+          style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+        >
+          <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
+            <center>Student Progress</center>
+            <Row>
+              <p style={{ fontSize: `50%` }} className="text-muted">
+                The below charts represent the percentage of questions answered
+                correctly in each category (i.e., of the 'Easy' questions
+                answered, {Math.round(easyQuestionsAnsweredPercentage)}% were
+                answered correctly).
+              </p>
+            </Row>
+          </Card.Header>{" "}
           <Card.Body>
-            <Card.Header style={{ marginBottom: "40px", fontSize: `200%` }}>
-              Student Progress
-              <Row>
-                <p style={{ fontSize: `50%` }} className="text-muted">
-                  The below charts represent the percentage of questions
-                  answered correctly in each category (i.e., of the 'Easy'
-                  questions answered,{" "}
-                  {Math.round(easyQuestionsAnsweredPercentage)}% were answered
-                  correctly).
-                </p>
-              </Row>
-            </Card.Header>
             <Row>
               <Col>
                 <Card id="no-border" className="mx-auto">
@@ -504,15 +523,29 @@ const AllQAadmin = () => {
         </Card>
       </Row>
 
-      <Row>
-        <Card className="mx-auto" id="no-border">
-          <Card.Header style={{ marginBottom: "20px", fontSize: "200%" }}>
-            <Col>
+      <Row style={{ marginBottom: "30px" }}>
+        <Card
+          className="mx-auto"
+          style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+        >
+          <Card.Header
+            style={{
+              marginBottom: "20px",
+              fontSize: "200%",
+              boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
+              textAlign: "center",
+            }}
+          >
+            <Col className="mx-auto">
               {currentDifficulty} & {currentCategory1}
             </Col>
           </Card.Header>
           <Card.Body>
-            <Row xs="auto" style={{ marginBottom: "20px" }}>
+            <Row
+              xs="auto"
+              style={{ marginBottom: "20px" }}
+              className="justify-content-center"
+            >
               <Col md="auto">
                 <Dropdown onSelect={(event) => pickDifficulty(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -613,117 +646,144 @@ const AllQAadmin = () => {
                 </Form>
               </Col>
             </Row>
+            {/* ---------------------- question cards mapped onto page
+              ----------------------- */}
 
-            <Row>
+            <Row className="justify-content-center">
               {loading && <LoadingScreen />}
               {currentItems && currentItems.length && currentItems !== "nada"
                 ? currentItems.map((question, idx) => (
-                    <Col key={question.id}>
-                      <Card style={{ width: "18rem", marginBottom: "20px" }}>
-                        <Card.Header
-                          style={{ backgroundColor: question.color }}
-                        />
-                        <Card.Body>
-                          <Card.Title
-                            style={{ fontSize: "20px", textAlign: "center" }}
+                    // <Col>
+                    <Card
+                      key={question.id}
+                      style={{
+                        padding: "0px",
+                        width: "18rem",
+                        marginRight: "10px",
+                        marginLeft: "10px",
+                        marginBottom: "20px",
+                        boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
+                      }}
+                    >
+                      <Card.Header
+                        style={{ backgroundColor: question.color }}
+                      />
+                      <Card.Body>
+                        <Card.Title
+                          style={{
+                            fontSize: "20px",
+                            textAlign: "center",
+                            color: "black",
+                          }}
+                        >
+                          <Link
+                            to={`/questions/${question.id}`}
+                            style={{ textDecoration: `none`, color: "black" }}
                           >
-                            <Link
-                              to={`/questions/${question.id}`}
-                              style={{ textDecoration: `none` }}
-                            >
-                              Question Number {question.displayId}
-                            </Link>
-                          </Card.Title>
-                          <Card.Text
-                            style={{ fontSize: "15px", textAlign: "center" }}
-                          >
-                            {truncate(question.question)}
-                          </Card.Text>
-                          <Stack spacing={0.5}>
-                            <Chip
-                              label={
-                                <Stack spacing={2}>{`Correct Response: ${
-                                  data(question.id) || data(question.id) === 0
-                                    ? data(question.id)
-                                    : 0
-                                }%`}</Stack>
-                              }
-                              color={`${
-                                data(question.id) && data(question.id) >= 50
-                                  ? "success"
-                                  : "error"
-                              }`}
-                              variant="outlined"
-                            />
-
-                            <Chip
-                              label={`Total Response(s): ${filterDataById(
-                                question.id
-                              )}`}
-                              size="small"
-                              color="primary"
-                              variant="outlined"
-                            />
-                          </Stack>
-                        </Card.Body>
-                        <LinearProgress
-                          sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
-                          variant="determinate"
-                          value={data(question.id)}
-                          color={`${
-                            data(question.id) && data(question.id) >= 50
-                              ? "success"
-                              : "error"
-                          }`}
-                        />
-                        <Card.Footer>
+                            Question Number {question.displayId}
+                          </Link>
+                        </Card.Title>
+                        <Card.Text
+                          style={{ fontSize: "15px", textAlign: "center" }}
+                        >
+                          {truncate(question.question)}
+                        </Card.Text>
+                        <Stack spacing={0.5}>
                           <Chip
-                            style={{ marginRight: "4px" }}
-                            label={question.level}
-                            onClick={() => pickDifficulty(question.level)}
-                            color="info"
-                          />
-                          <Chip
-                            label={question.category}
-                            onClick={() => pickCategory1(question.category)}
-                            color="info"
-                          />
-                          <Card.Img
-                            style={{ float: "right", width: "25px" }}
-                            onClick={() => favorite(userId, question.id)}
-                            variant="top"
-                            src={
-                              favoriteStatus(question.id)
-                                ? "/heart(red).png"
-                                : "/heart.png"
+                            label={
+                              <Stack spacing={2}>{`Correct Response: ${
+                                data(question.id) || data(question.id) === 0
+                                  ? data(question.id)
+                                  : 0
+                              }%`}</Stack>
                             }
+                            color={`${
+                              data(question.id) && data(question.id) >= 50
+                                ? "success"
+                                : "error"
+                            }`}
+                            variant="outlined"
                           />
-                        </Card.Footer>
-                      </Card>
-                    </Col>
+
+                          <Chip
+                            label={`Total Response(s): ${filterDataById(
+                              question.id
+                            )}`}
+                            size="small"
+                            color="primary"
+                            variant="outlined"
+                          />
+                        </Stack>
+                      </Card.Body>
+                      <LinearProgress
+                        sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
+                        variant="determinate"
+                        value={data(question.id)}
+                        color={`${
+                          data(question.id) && data(question.id) >= 50
+                            ? "success"
+                            : "error"
+                        }`}
+                      />
+                      <Card.Footer>
+                        {/* <Chip style={{ marginRight: "4px" }} label={question.level} onClick={() => pickDifficulty(question.level)} color="info" /> */}
+
+                        {/* <Button
+                          style={{ padding: "0px", margin: "0px" }}
+                          size="small"
+                          color="primary"
+                          variant="text"
+                          onClick={() => pickCategory1(question.category)}
+                        >
+                          {question.category}
+                        </Button> */}
+                        <Chip
+                          label={question.category}
+                          onClick={() => pickCategory1(question.category)}
+                          color="default"
+                          size="small"
+                          variant="outlined"
+                        />
+                        <Card.Img
+                          style={{ float: "right", width: "20px" }}
+                          onClick={() => favorite(userId, question.id)}
+                          variant="top"
+                          src={
+                            favoriteStatus(question.id)
+                              ? "/heart(red).png"
+                              : "/heart.png"
+                          }
+                        />
+                      </Card.Footer>
+                    </Card>
+                    // </Col>
                   ))
                 : "Sorry, we didn't find anything matching that"}
             </Row>
-            <ReactPaginate
-              className="pagination"
-              //nextLabel="next >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={2}
-              pageCount={pageCount}
-              //previousLabel="< previous"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakLabel="..."
-              breakClassName="page-item"
-              breakLinkClassName="page-link"
-              containerClassName="pagination"
-              activeClassName="active"
-            />
+            <Row className="justify-content-center">
+              <Card className="mx-auto" id="no-border">
+                <ReactPaginate
+                  className="pagination mx-auto"
+                  //nextLabel="next >"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={3}
+                  marginPagesDisplayed={2}
+                  pageCount={pageCount}
+                  //previousLabel="< previous"
+                  pageClassName="page-item"
+                  pageLinkClassName="page-link"
+                  previousClassName="page-item"
+                  previousLinkClassName="page-link"
+                  nextClassName="page-item"
+                  nextLinkClassName="page-link"
+                  breakLabel="..."
+                  breakClassName="page-item"
+                  breakLinkClassName="page-link"
+                  containerClassName="pagination"
+                  activeClassName="active"
+                />{" "}
+              </Card>
+            </Row>
           </Card.Body>
         </Card>
       </Row>
