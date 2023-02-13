@@ -64,7 +64,9 @@ const SingleQuestion = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchUserQuestions(userId)).then(()=>dispatch(fetchSingleQuestion(singleQuestionId)))
+    dispatch(fetchUserQuestions(userId)).then(() =>
+      dispatch(fetchSingleQuestion(singleQuestionId))
+    );
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
@@ -127,7 +129,6 @@ const SingleQuestion = () => {
             <ProgressBar animated now={100} />
           ) : (
             <>
-              {" "}
               <Stack gap={3} className="p-3">
                 <Stack gap={3}>
                   <Stack gap={3}>
@@ -137,24 +138,13 @@ const SingleQuestion = () => {
                         id="breadcrumb"
                         style={{
                           textDecorationLine: "underline",
-                          // fontWeight: "bold",
-                          // color: "black",
                         }}
                       >
                         All Questions
                       </Breadcrumb.Item>
-                      <Breadcrumb.Item
-                        id="breadcrumb"
-                        active
-                        style={
-                          {
-                            // fontWeight: "bold",
-                            // color: "black",
-                          }
-                        }
-                      >
+                      <Breadcrumb.Item id="breadcrumb" active>
                         {" "}
-                        Question No.{displayId}
+                        Question {displayId}
                       </Breadcrumb.Item>
                     </Breadcrumb>
 
@@ -163,14 +153,13 @@ const SingleQuestion = () => {
                         className="mb-2 text-center"
                         style={{
                           fontSize: "100%",
-                          // fontWeight: "bold",
+
                           textAlign: "center",
                         }}
                       >
                         {question}
                       </Card.Header>
                       <Card.Body className="mx-auto">
-                        {/* </Stack> */}
                         <Stack
                           gap={3}
                           className="mx-auto"
@@ -305,56 +294,6 @@ const SingleQuestion = () => {
                         </tbody>
                       </Table>
                     </Card>
-                    {/* <Stack gap={3} className="mx-auto" direction="horizontal"> */}
-                    {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
-                    {/* <Card className="mx-auto">
-                      <Card.Body>
-                        <Row>
-                          <Col>
-                            <Card.Title>Correct Answer</Card.Title>
-                            <Button variant={"success"}>{correctAnswer}</Button>
-                            {/* <Card.Body> */}
-                    {/* </Col>
-                          <Col>
-                            <Card.Title>Your Answer</Card.Title>
-                            <Button
-                              variant={
-                                CurrentQuestion.userInput
-                                  ? CurrentQuestion.userInput === correctAnswer
-                                    ? "success"
-                                    : "danger"
-                                  : CurrentQuestion.userInput === selectedOption
-                                  ? "success"
-                                  : "outline-success"
-                              }
-                            >
-                              {CurrentQuestion.userInput}
-                            </Button>
-                          </Col>
-                        </Row>
-
-                        {/* </Card.Body> */}
-                    {/* </Card.Body>
-                    </Card> */}{" "}
-                    {/* <Card> */}
-                    {/* <Card.Body>
-                          <Card.Title>Your Answer</Card.Title>
-                          <Button
-                            variant={
-                              CurrentQuestion.userInput
-                                ? CurrentQuestion.userInput === correctAnswer
-                                  ? "success"
-                                  : "danger"
-                                : CurrentQuestion.userInput === selectedOption
-                                ? "success"
-                                : "outline-success"
-                            }
-                          >
-                            {CurrentQuestion.userInput}
-                          </Button>
-                        </Card.Body> */}
-                    {/* </Card> */}
-                    {/* </Stack> */}
                     <Accordion>
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>View Explanation</Accordion.Header>
@@ -391,93 +330,6 @@ const SingleQuestion = () => {
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
-                    {/* <Card>
-                      <Card.Body
-                        className="m-2 text-center"
-                        style={{
-                          fontSize: "15px",
-                          fontWeight: "bold",
-                          textAlign: "center",
-                        }}
-                      >
-                        Explanation: {explanation}
-                        <Stack
-                          gap={3}
-                          className="mx-auto"
-                          direction="horizontal"
-                        >
-                          {explanationImage
-                            ? explanationImage.map((image, index) => (
-                                <Card gap={3} key={uuidv4()}>
-                                  <img
-                                    src={image}
-                                    style={{
-                                      height: `12rem`,
-                                    }}
-                                  />
-                                  <Card.Subtitle
-                                    className="m-2 text-center"
-                                    style={{ fontSize: "10px" }}
-                                  >
-                                    figure:{index + 1}
-                                  </Card.Subtitle>
-                                </Card>
-                              ))
-                            : null}
-                        </Stack>
-                      </Card.Body>
-                    </Card> */}
-                    {/* <Stack gap={3} className="mx-auto" direction="horizontal">
-                      {explanationImage
-                        ? explanationImage.map((image, index) => (
-                            <Card gap={3} key={uuidv4()}>
-                              <img
-                                src={image}
-                                style={{
-                                  height: `12rem`,
-                                }}
-                              />
-                              <Card.Subtitle
-                                className="m-2 text-center"
-                                style={{ fontSize: "10px" }}
-                              >
-                                figure:{index + 1}
-                              </Card.Subtitle>
-                            </Card>
-                          ))
-                        : null}
-                    </Stack> */}
-                    {/*    alternate to react-html-parser:
-      not preferred but this works:
-      <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
-                    {/* <Stack gap={3}>
-                      <Card gap={3} className="mb-2 text-decoration-none ">
-                        <Card.Header>References</Card.Header>
-                        {explanationLinks
-                          ? explanationLinks.map((sourcelink, index) => (
-                              <Card
-                                key={uuidv4()}
-                                className="m-2 text-decoration-none "
-                              >
-                                <Card.Body>
-                                  {" "}
-                                  <div>
-                                    {index + 1}{" "}
-                                    <div>
-                                      {ReactHtmlParser(sourcelink)}
-                                      <style>
-                                        {` a {
-                              color: inherit;
-                               text-decoration: none;}`}
-                                      </style>
-                                    </div>
-                                  </div>
-                                </Card.Body>
-                              </Card>
-                            ))
-                          : "null"}
-                      </Card>
-                    </Stack> */}
                   </Stack>
                 }
               </Stack>
@@ -501,20 +353,11 @@ const SingleQuestion = () => {
                       href="/questions"
                       style={{
                         textDecorationLine: "underline",
-                        // fontWeight: "bold",
                       }}
                     >
                       All Questions
                     </Breadcrumb.Item>
-                    <Breadcrumb.Item
-                      id="breadcrumb"
-                      active
-                      style={
-                        {
-                          // fontWeight: "bold",
-                        }
-                      }
-                    >
+                    <Breadcrumb.Item id="breadcrumb" active>
                       Question No.{displayId}
                     </Breadcrumb.Item>
                   </Breadcrumb>
@@ -524,7 +367,7 @@ const SingleQuestion = () => {
                       className="mb-2 text-center"
                       style={{
                         fontSize: "100%",
-                        // fontWeight: "bold",
+
                         textAlign: "center",
                       }}
                     >
@@ -715,102 +558,6 @@ border-color: #FF7276;
                     </Accordion.Item>
                   </Accordion>
                 </Stack>
-
-                //           <Stack gap={3}>
-                //             <Stack gap={3} className="mx-auto" direction="horizontal">
-                //               {/* <div>Correct Answer: {correctAnswer} and you selected: {selectedOption}</div> */}
-                //               <Card>
-                //                 <Card.Body>
-                //                   <Card.Title>Correct Answer</Card.Title>
-                //                   <Button variant={"success"}>{correctAnswer}</Button>
-                //                 </Card.Body>
-                //               </Card>
-                //               <Card>
-                //                 <Card.Body>
-                //                   <Card.Title>Your Answer</Card.Title>
-                //                   <Button
-                //                     variant={
-                //                       showAnswer
-                //                         ? selectedOption === correctAnswer
-                //                           ? "success"
-                //                           : "danger"
-                //                         : selectedOption === selectedOption
-                //                         ? "success"
-                //                         : "outline-success"
-                //                     }
-                //                   >
-                //                     {selectedOption}
-                //                   </Button>
-                //                 </Card.Body>
-                //               </Card>
-                //             </Stack>
-
-                //             <Card>
-                //               <Card.Body
-                //                 className="m-2 text-center"
-                //                 style={{
-                //                   fontSize: "15px",
-                //                   fontWeight: "bold",
-                //                   textAlign: "center",
-                //                 }}
-                //               >
-                //                 Explanation: {explanation}
-                //               </Card.Body>
-                //             </Card>
-
-                //             <Stack gap={3} className="mx-auto" direction="horizontal">
-                //               {explanationImage
-                //                 ? explanationImage.map((image, index) => (
-                //                     <Card gap={3} key={uuidv4()}>
-                //                       <img
-                //                         src={image}
-                //                         style={{
-                //                           height: `12rem`,
-                //                         }}
-                //                       />
-                //                       <Card.Subtitle
-                //                         className="m-2 text-center"
-                //                         style={{ fontSize: "10px" }}
-                //                       >
-                //                         figure:{index + 1}
-                //                       </Card.Subtitle>
-                //                     </Card>
-                //                   ))
-                //                 : null}
-                //             </Stack>
-
-                //             {/*    alternate to react-html-parser:
-                // not preferred but this works:
-                // <div dangerouslySetInnerHTML={{ __html: sourcelink }}/>{" "} */}
-                //             <Stack gap={3}>
-                //               <Card gap={3} className="mb-2 text-decoration-none ">
-                //                 <Card.Header>References</Card.Header>
-                //                 {explanationLinks
-                //                   ? explanationLinks.map((sourcelink, index) => (
-                //                       <Card
-                //                         key={uuidv4()}
-                //                         className="m-2 text-decoration-none "
-                //                       >
-                //                         <Card.Body>
-                //                           {" "}
-                //                           <div>
-                //                             {index + 1}{" "}
-                //                             <div>
-                //                               {ReactHtmlParser(sourcelink)}
-                //                               <style>
-                //                                 {` a {
-                //                         color: inherit;
-                //                          text-decoration: none;}`}
-                //                               </style>
-                //                             </div>
-                //                           </div>
-                //                         </Card.Body>
-                //                       </Card>
-                //                     ))
-                //                   : null}
-                //               </Card>
-                //             </Stack>
-                //           </Stack>
               )}
             </Stack>
           )}
