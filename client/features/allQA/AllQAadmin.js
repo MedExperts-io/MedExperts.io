@@ -10,7 +10,6 @@ import {
   Container,
   Button,
 } from "react-bootstrap";
-
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
 import {
@@ -187,8 +186,9 @@ const AllQAadmin = () => {
       (x) => x.answered === "right"
     );
 
-    const percentageCorrect =
-      (filterDataByCorrect.length / filterDataById.length) * 100;
+    const percentageCorrect = Math.round(
+      (filterDataByCorrect.length / filterDataById.length) * 100
+    );
     if (percentageCorrect || percentageCorrect === 0) {
       return percentageCorrect;
     } else {
