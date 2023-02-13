@@ -12,6 +12,8 @@ import {
   Col,
   Tabs,
   Tab,
+  OverlayTrigger,
+  Tooltip,
 } from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -224,40 +226,65 @@ const SingleQAadmin = () => {
                                         </td>
 
                                         <td style={{ paddingLeft: "20px" }}>
-                                          <ProgressBar
-                                            variant={
-                                              ans === eachVersion.correctAnswer
-                                                ? "success"
-                                                : "danger"
-                                            }
-                                            style={{
-                                              height: "38px",
-                                              minWidth: "200%",
-                                            }}
-                                            now={
-                                              responseData(
-                                                eachVersion.id,
-                                                ans
-                                              ) ||
-                                              responseData(
-                                                eachVersion.id,
-                                                ans
-                                              ) == 0
-                                                ? responseData(
+                                          <OverlayTrigger
+                                            placement="right"
+                                            overlay={
+                                              <Tooltip id={`tooltip-right`}>
+                                                {`${
+                                                  responseData(
                                                     eachVersion.id,
                                                     ans
                                                   )
-                                                : 0
+                                                    ? responseData(
+                                                        eachVersion.id,
+                                                        ans
+                                                      )
+                                                    : "0"
+                                                }%`}
+                                              </Tooltip>
                                             }
-                                            label={`${
-                                              responseData(eachVersion.id, ans)
-                                                ? responseData(
+                                          >
+                                            {
+                                              <ProgressBar
+                                                variant={
+                                                  ans ===
+                                                  eachVersion.correctAnswer
+                                                    ? "success"
+                                                    : "danger"
+                                                }
+                                                style={{
+                                                  height: "38px",
+                                                  minWidth: "200%",
+                                                }}
+                                                now={
+                                                  responseData(
+                                                    eachVersion.id,
+                                                    ans
+                                                  ) ||
+                                                  responseData(
+                                                    eachVersion.id,
+                                                    ans
+                                                  ) == 0
+                                                    ? responseData(
+                                                        eachVersion.id,
+                                                        ans
+                                                      )
+                                                    : 0
+                                                }
+                                                label={`${
+                                                  responseData(
                                                     eachVersion.id,
                                                     ans
                                                   )
-                                                : "0"
-                                            }%`}
-                                          />
+                                                    ? responseData(
+                                                        eachVersion.id,
+                                                        ans
+                                                      )
+                                                    : "0"
+                                                }%`}
+                                              />
+                                            }
+                                          </OverlayTrigger>
                                         </td>
                                       </tr>
                                     )
@@ -450,44 +477,65 @@ const SingleQAadmin = () => {
                                               </Button>
                                             </td>
                                             <td>
-                                              <ProgressBar
-                                                variant={
-                                                  ans ===
-                                                  newestVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
-                                                }
-                                                style={{
-                                                  height: "38px",
-                                                  minWidth: "200%",
-                                                }}
-                                                now={
-                                                  responseData(
-                                                    newestVersion.id,
-                                                    ans
-                                                  ) ||
-                                                  responseData(
-                                                    newestVersion.id,
-                                                    ans
-                                                  ) == 0
-                                                    ? responseData(
+                                              <OverlayTrigger
+                                                placement="right"
+                                                overlay={
+                                                  <Tooltip id={`tooltip-right`}>
+                                                    {`${
+                                                      responseData(
                                                         newestVersion.id,
                                                         ans
                                                       )
-                                                    : 0
+                                                        ? responseData(
+                                                            newestVersion.id,
+                                                            ans
+                                                          )
+                                                        : "0"
+                                                    }%`}
+                                                  </Tooltip>
                                                 }
-                                                label={`${
-                                                  responseData(
-                                                    newestVersion.id,
-                                                    ans
-                                                  )
-                                                    ? responseData(
+                                              >
+                                                {
+                                                  <ProgressBar
+                                                    variant={
+                                                      ans ===
+                                                      newestVersion.correctAnswer
+                                                        ? "success"
+                                                        : "danger"
+                                                    }
+                                                    style={{
+                                                      height: "38px",
+                                                      minWidth: "200%",
+                                                    }}
+                                                    now={
+                                                      responseData(
+                                                        newestVersion.id,
+                                                        ans
+                                                      ) ||
+                                                      responseData(
+                                                        newestVersion.id,
+                                                        ans
+                                                      ) == 0
+                                                        ? responseData(
+                                                            newestVersion.id,
+                                                            ans
+                                                          )
+                                                        : 0
+                                                    }
+                                                    label={`${
+                                                      responseData(
                                                         newestVersion.id,
                                                         ans
                                                       )
-                                                    : "0"
-                                                }%`}
-                                              />
+                                                        ? responseData(
+                                                            newestVersion.id,
+                                                            ans
+                                                          )
+                                                        : "0"
+                                                    }%`}
+                                                  />
+                                                }
+                                              </OverlayTrigger>
                                             </td>
                                           </tr>
                                         )
@@ -661,44 +709,65 @@ const SingleQAadmin = () => {
                                               </Button>
                                             </td>
                                             <td>
-                                              <ProgressBar
-                                                variant={
-                                                  ans ===
-                                                  eachVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
-                                                }
-                                                style={{
-                                                  height: "38px",
-                                                  minWidth: "200%",
-                                                }}
-                                                now={
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  ) ||
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  ) == 0
-                                                    ? responseData(
+                                              <OverlayTrigger
+                                                placement="right"
+                                                overlay={
+                                                  <Tooltip id={`tooltip-right`}>
+                                                    {`${
+                                                      responseData(
                                                         eachVersion.id,
                                                         ans
                                                       )
-                                                    : 0
+                                                        ? responseData(
+                                                            eachVersion.id,
+                                                            ans
+                                                          )
+                                                        : "0"
+                                                    }%`}
+                                                  </Tooltip>
                                                 }
-                                                label={`${
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  )
-                                                    ? responseData(
+                                              >
+                                                {
+                                                  <ProgressBar
+                                                    variant={
+                                                      ans ===
+                                                      eachVersion.correctAnswer
+                                                        ? "success"
+                                                        : "danger"
+                                                    }
+                                                    style={{
+                                                      height: "38px",
+                                                      minWidth: "200%",
+                                                    }}
+                                                    now={
+                                                      responseData(
+                                                        eachVersion.id,
+                                                        ans
+                                                      ) ||
+                                                      responseData(
+                                                        eachVersion.id,
+                                                        ans
+                                                      ) == 0
+                                                        ? responseData(
+                                                            eachVersion.id,
+                                                            ans
+                                                          )
+                                                        : 0
+                                                    }
+                                                    label={`${
+                                                      responseData(
                                                         eachVersion.id,
                                                         ans
                                                       )
-                                                    : "0"
-                                                }%`}
-                                              />
+                                                        ? responseData(
+                                                            eachVersion.id,
+                                                            ans
+                                                          )
+                                                        : "0"
+                                                    }%`}
+                                                  />
+                                                }
+                                              </OverlayTrigger>
                                             </td>
                                           </tr>
                                         )
