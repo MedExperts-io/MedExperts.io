@@ -9,7 +9,7 @@ export const fetchAllUserQuestions = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/user_questions`, {
         headers: {
-          authorization: token,
+          authorization: window.localStorage.getItem("token"),
         },
       });
       return data;
@@ -23,7 +23,7 @@ export const fetchByAnswerFrequency = createAsyncThunk("fetchByAnswerFrequency",
   try {
     const { data } = await axios.get(`/api/user_questions/frequency`, {
       headers: {
-        authorization: token,
+        authorization: window.localStorage.getItem("token"),
       },
     });
     return data;
@@ -36,7 +36,7 @@ export const fetchPercentCorrect = createAsyncThunk("fetchPercentCorrect", async
   try {
     const { data } = await axios.get(`/api/user_questions/percent_correct`, {
       headers: {
-        authorization: token,
+        authorization: window.localStorage.getItem("token"),
       },
     });
     return data;
@@ -52,7 +52,7 @@ export const fetchExpertiseQuestions = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/user_questions/expertise/all`, {
         headers: {
-          authorization: token,
+          authorization: window.localStorage.getItem("token"),
         },
       });
       return data;
@@ -69,7 +69,7 @@ export const fetchUserQuestions = createAsyncThunk(
     try {
       const { data } = await axios.get(`/api/user_questions/${userId}`, {
         headers: {
-          authorization: token,
+          authorization: window.localStorage.getItem("token"),
         },
       });
       console.log(data);
@@ -92,7 +92,7 @@ export const updateUserQuestion = createAsyncThunk(
         },
         {
           headers: {
-            authorization: token,
+            authorization: window.localStorage.getItem("token"),
           },
         }
       );
