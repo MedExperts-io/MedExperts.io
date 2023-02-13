@@ -33,7 +33,7 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
-          <Route path="/" element={<LandingPage isLoggedIn={isLoggedIn} />} />
+          <Route path="/dashboard" element={<LandingPage/>} />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route path="/addQuestion" element={<AddQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
@@ -49,8 +49,8 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<LandingPage />} />
+          <Route path="/*" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
