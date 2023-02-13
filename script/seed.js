@@ -5969,6 +5969,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -5977,6 +5978,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -5985,6 +5987,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -5993,6 +5996,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6001,6 +6005,7 @@ async function seed() {
       userInput: "Obstructive Lung Disease",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6009,6 +6014,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6017,6 +6023,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6025,6 +6032,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6033,6 +6041,7 @@ async function seed() {
       userInput: "Nonspecific Pattern",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Function Testing",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6054,6 +6063,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6065,6 +6075,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6076,6 +6087,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6087,6 +6099,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6098,6 +6111,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6109,6 +6123,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6120,6 +6135,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6131,6 +6147,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6142,6 +6159,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6162,6 +6180,7 @@ async function seed() {
       userInput: "Loffler's syndrome",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6170,6 +6189,7 @@ async function seed() {
       userInput: "Loffler's syndrome",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6178,6 +6198,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6186,6 +6207,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6194,6 +6216,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6202,6 +6225,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6210,6 +6234,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6218,6 +6243,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6226,6 +6252,7 @@ async function seed() {
       userInput: "Allergic Bronchopulmonary Aspergillosis (ABPA)",
       answered: "right",
       userExpertise: "Student",
+      category: "Bronchiectasis",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6244,6 +6271,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6252,6 +6280,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6260,6 +6289,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6268,6 +6298,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6276,6 +6307,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6284,6 +6316,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6292,6 +6325,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6300,6 +6334,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     User_Question.create({
@@ -6308,6 +6343,7 @@ async function seed() {
       userInput: "M. Tuberculosis",
       answered: "right",
       userExpertise: "Student",
+      category: "Infection",
       level: "Easy",
     }),
     // User_Question.create({
@@ -6327,6 +6363,7 @@ async function seed() {
       userInput: "Germ cell origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6335,6 +6372,7 @@ async function seed() {
       userInput: "Germ cell origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6343,6 +6381,7 @@ async function seed() {
       userInput: "Germ cell origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6351,6 +6390,7 @@ async function seed() {
       userInput: "Lymphoid origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6359,6 +6399,7 @@ async function seed() {
       userInput: "Lymphoid origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6367,6 +6408,7 @@ async function seed() {
       userInput: "Lymphoid origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6375,7 +6417,9 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
+
     }),
     User_Question.create({
       userId: 8,
@@ -6383,6 +6427,7 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6391,6 +6436,7 @@ async function seed() {
       userInput: "Metastatic origin",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     // User_Question.create({
@@ -6409,6 +6455,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6417,6 +6464,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6425,6 +6473,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6433,6 +6482,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6441,6 +6491,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6449,6 +6500,7 @@ async function seed() {
       userInput: "Anti-CCP antibodies",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6457,6 +6509,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6465,6 +6518,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     User_Question.create({
@@ -6473,6 +6527,7 @@ async function seed() {
       userInput: "Antibodies against Post Acetylcholine receptors",
       answered: "right",
       userExpertise: "Student",
+      category: "Mediastinal Disorders",
       level: "Hard",
     }),
     // User_Question.create({
@@ -6491,6 +6546,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6499,6 +6555,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6507,6 +6564,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6515,6 +6573,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6523,6 +6582,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6531,6 +6591,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6539,6 +6600,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6547,6 +6609,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6555,6 +6618,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
+       category: "Pharmacology",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6573,6 +6637,7 @@ async function seed() {
       userInput: "The disease affects men much more often than women.",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6581,6 +6646,7 @@ async function seed() {
       userInput: "The disease affects men much more often than women.",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6589,6 +6655,7 @@ async function seed() {
       userInput: "The disease affects men much more often than women.",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6600,6 +6667,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6611,6 +6679,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6622,6 +6691,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6633,6 +6703,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6644,6 +6715,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6655,6 +6727,7 @@ async function seed() {
         "RHC is required during diagnostic evaluation when pulmonary hypertension is suspected.",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6674,6 +6747,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6682,6 +6756,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6690,6 +6765,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6698,6 +6774,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6706,6 +6783,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6714,6 +6792,7 @@ async function seed() {
       userInput: "6-minute walk test",
       answered: "wrong",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6722,6 +6801,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6730,6 +6810,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6738,6 +6819,7 @@ async function seed() {
       userInput: "Ventilation/Perfusion scan",
       answered: "right",
       userExpertise: "Student",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6757,6 +6839,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6765,6 +6848,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6773,6 +6857,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6781,6 +6866,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6789,6 +6875,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6797,6 +6884,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6805,6 +6893,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6813,6 +6902,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6821,6 +6911,7 @@ async function seed() {
       userInput: "Start IV fluids",
       answered: "right",
       userExpertise: "Student",
+      category: "Critical Care",
       level: "Moderate",
     }),
     // User_Question.create({
