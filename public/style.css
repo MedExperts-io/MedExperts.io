@@ -1,24 +1,22 @@
 body {
   font-family: sans-serif;
-  background-image: url("bg_small.png")
-  
+  background-image: url("bg_small.png");
+
   /* height:calc(100vh - (56px)) */
 }
 
-#no-border{
-  border:none
+#no-border {
+  border: none;
 }
 
-#form-border{
+#form-border {
   border-color: black;
 }
 
 a[href="/questions"] {
-  color:black
-  
-  
+  color: black;
 }
- 
+
 /* href {
   color:""
 } */
