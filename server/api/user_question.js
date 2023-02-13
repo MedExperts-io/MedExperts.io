@@ -107,7 +107,7 @@ router.get("/sort_by_right", async (req, res, next) => {
 });
 
 // --- For logged in student user's dashboard analytics
-router.get("/:userId", async (req, res, next) => {
+router.get("/:userId", getToken, async (req, res, next) => {
   try {
     const userId = req.params.userId;
     const allUserQs = await User_Question.findAll({
@@ -237,9 +237,6 @@ router.put("/:userId", async (req, res, next) => {
 // POST -- api/user_questions/:userId
 router.post("/:userId", async (req, res, next) => {
   const uId = req.params.userId;
-  // const qaId = req.body.questionAnswerId;
-  // const entry = req.body.userInput;
-  // const answerCheck = req.body.answered;
   const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
   console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered, category, level, userExpertise);
 
