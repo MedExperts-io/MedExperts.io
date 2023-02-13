@@ -36,6 +36,7 @@ const SingleQAadmin = () => {
 
   useEffect(() => {
     dispatch(fetchQAVersions(singleQuestionId));
+    //dispatch(fetchAllQuestionsAnswers());
   }, [qaVersions]);
 
   useEffect(() => {
@@ -62,7 +63,7 @@ const SingleQAadmin = () => {
     });
     // console.log("Answer and numOfPicks", ansOption, numOfPicks);
     if (numOfPicks !== 0) {
-      return (numOfPicks * 100) / totalResponses;
+      return Math.round((numOfPicks * 100) / totalResponses);
     } else {
       return null;
     }
