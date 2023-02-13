@@ -105,16 +105,27 @@ const AddQuestion = () => {
         setImageUrls((prev) => [...prev, url]);
       });
     });
-  };
-  useEffect(() => {
-    listAll(imagesListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
+
+    listAll(`images/${Questionid}/${imageUpload.name + v4()}`).then(
+      (response) => {
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            setImageUrls((prev) => [...prev, url]);
+          });
         });
-      });
-    });
-  }, []);
+      }
+    );
+  };
+
+  // useEffect(() => {
+  //   listAll(imagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         setImageUrls((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
 
   //explanation Images
   const [eimageUpload, seteImageUpload] = useState(null);
@@ -131,16 +142,26 @@ const AddQuestion = () => {
         seteImageUrls((prev) => [...prev, url]);
       });
     });
-  };
-  useEffect(() => {
-    listAll(eimagesListRef).then((response) => {
+
+    listAll(
+      `images/${Questionid}/explanation/${eimageUpload.name + v4()}`
+    ).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
           seteImageUrls((prev) => [...prev, url]);
         });
       });
     });
-  }, []);
+  };
+  // useEffect(() => {
+  //   listAll(eimagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         seteImageUrls((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -247,7 +268,7 @@ const AddQuestion = () => {
                         <thead>
                           <tr>
                             <th>Figure</th>
-                            <th></th>
+                            <th>Preview</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -455,8 +476,8 @@ const AddQuestion = () => {
                       <Table hover size="sm">
                         <thead>
                           <tr>
-                            <th>Figure</th>
-                            <th></th>
+                            <th>Explanation Figure</th>
+                            <th>Preview</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -466,7 +487,7 @@ const AddQuestion = () => {
                                 {" "}
                                 <a href={link} target="_blank">
                                   {" "}
-                                  Question Figure.{linkIdx + 1}
+                                  {linkIdx + 1}
                                 </a>
                               </td>
                               <td>
