@@ -442,7 +442,6 @@ const EditQA = () => {
                             <tr>
                               <th>Link</th>
                               <th>Citation</th>
-                              <th></th>
                             </tr>
                           </thead>
                           <tbody>

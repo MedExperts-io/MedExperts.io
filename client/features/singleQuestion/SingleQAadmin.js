@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import {
+  Card,
+  Stack,
+  Button,
+  ProgressBar,
+  Table,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap/";
+import ReactHtmlParser from "react-html-parser";
 import {
   fetchSingleQuestion,
   fetchQAVersions,
   deleteSingleQuestion,
 } from "./singleQuestionSlice";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { Card, Stack } from "react-bootstrap/";
-import Button from "react-bootstrap/Button";
-import ReactHtmlParser from "react-html-parser";
 import {
   fetchAllUserQuestions,
   fetchUserQuestions,
   updateUserQuestion,
   updateUserQuestionInput,
 } from "../stats/user_questionsSlice";
-import { ProgressBar } from "react-bootstrap";
-import { v4 as uuidv4 } from "uuid";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 
 const SingleQAadmin = () => {
@@ -41,6 +47,27 @@ const SingleQAadmin = () => {
   }, []);
 
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
+
+  const responseData = (qaId, ansOption) => {
+    let numOfPicks = 0;
+    let totalResponses = 0;
+    const userResponses = qaVersions.map((aVersion) => {
+      if (aVersion.id == qaId) {
+        aVersion.user_questions.map((eachUserInput) => {
+          totalResponses++;
+          if (eachUserInput.userInput == ansOption) {
+            numOfPicks++;
+          }
+        });
+      }
+    });
+    // console.log("Answer and numOfPicks", ansOption, numOfPicks);
+    if (numOfPicks !== 0) {
+      return Math.round((numOfPicks * 100) / totalResponses);
+    } else {
+      return null;
+    }
+  };
 
   const handleDelete = (id) => {
     dispatch(deleteSingleQuestion(id));
@@ -133,26 +160,80 @@ const SingleQAadmin = () => {
                       </Stack>
 
                       <Stack gap={10}>
-                        <Stack
-                          direction="horizontal"
-                          gap={3}
-                          className=" mx-auto"
-                        >
-                          {eachVersion.answerOptions
-                            ? eachVersion.answerOptions.map((ans, index) => (
-                                <Button
-                                  key={uuidv4()}
-                                  variant={
-                                    ans === eachVersion.correctAnswer
-                                      ? "success"
-                                      : "danger"
-                                  }
-                                >
-                                  {ans}
-                                </Button>
-                              ))
-                            : null}
-                        </Stack>
+                        <Table size="sm" borderless>
+                          <thead>
+                            <tr>
+                              <th>Options</th>
+                              <th>Responses</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {eachVersion.answerOptions
+                              ? eachVersion.answerOptions.map((ans, index) => (
+                                  <tr key={uuidv4()}>
+                                    <td>
+                                      <Button
+                                        // gap={3}
+                                        variant={
+                                          ans === eachVersion.correctAnswer
+                                            ? "success"
+                                            : "danger"
+                                        }
+                                      >
+                                        {ans}
+                                      </Button>
+                                    </td>
+                                    <td>
+                                      <OverlayTrigger
+                                        placement="left"
+                                        overlay={
+                                          <Tooltip id={`tooltip-left`}>
+                                            {`${
+                                              responseData(eachVersion.id, ans)
+                                                ? responseData(
+                                                    eachVersion.id,
+                                                    ans
+                                                  )
+                                                : "0"
+                                            }%`}
+                                          </Tooltip>
+                                        }
+                                      >
+                                        <ProgressBar
+                                          variant={
+                                            ans === eachVersion.correctAnswer
+                                              ? "success"
+                                              : "danger"
+                                          }
+                                          style={{
+                                            height: "30px",
+                                          }}
+                                          now={
+                                            responseData(eachVersion.id, ans) ||
+                                            responseData(eachVersion.id, ans) ==
+                                              0
+                                              ? responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                              : 0
+                                          }
+                                          label={`${
+                                            responseData(eachVersion.id, ans)
+                                              ? responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                              : "0"
+                                          }%`}
+                                        />
+                                      </OverlayTrigger>
+                                    </td>
+                                  </tr>
+                                ))
+                              : null}
+                          </tbody>
+                        </Table>
                       </Stack>
                     </Card>
 
@@ -207,7 +288,7 @@ const SingleQAadmin = () => {
                                     (sourcelink, index) => (
                                       <Card
                                         key={uuidv4()}
-                                        className="m-2 text-decoration-none "
+                                        className="m-2 text-decoration-none"
                                       >
                                         <Card.Body>
                                           {" "}
