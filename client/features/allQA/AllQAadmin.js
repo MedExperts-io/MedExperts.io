@@ -155,8 +155,6 @@ const AllQAadmin = () => {
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.displayId - b.displayId);
 
-  console.log("UserAllQuestionsTotal", UserAllQuestionsTotal);
-
   const filteredQuestions = useRef(null);
   allQuestions.length && !filteredQuestions.current
     ? (filteredQuestions.current = allQuestions)
@@ -388,6 +386,12 @@ const AllQAadmin = () => {
       fontSize: "150%",
     },
   };
+
+  const previousButton = document.querySelector('[aria-label="Previous page"]');
+  previousButton ? previousButton.remove() : null;
+  const nextButton = document.querySelector('[aria-label="Next page"]');
+  nextButton ? nextButton.remove() : null;
+
   return (
     <Container fluid>
       <Row>
