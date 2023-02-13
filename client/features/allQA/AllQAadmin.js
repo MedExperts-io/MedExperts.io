@@ -8,7 +8,7 @@ import {
   Col,
   Form,
   Container,
-  // Button,
+  Button,
 } from "react-bootstrap";
 
 import { fetchAllQuestionsAnswers } from "./allQASlice";
@@ -23,7 +23,7 @@ import {
 } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import { Chip, Button, Stack, LinearProgress } from "@mui/material";
+import { Chip, Stack, LinearProgress } from "@mui/material";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -506,7 +506,7 @@ const AllQAadmin = () => {
         </Card>
       </Row>
 
-      <Row>
+      <Row style={{ marginBottom: "30px" }}>
         <Card
           className="mx-auto"
           style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
@@ -653,11 +653,15 @@ const AllQAadmin = () => {
                       />
                       <Card.Body>
                         <Card.Title
-                          style={{ fontSize: "20px", textAlign: "center" }}
+                          style={{
+                            fontSize: "20px",
+                            textAlign: "center",
+                            color: "black",
+                          }}
                         >
                           <Link
                             to={`/questions/${question.id}`}
-                            style={{ textDecoration: `none` }}
+                            style={{ textDecoration: `none`, color: "black" }}
                           >
                             Question Number {question.displayId}
                           </Link>
@@ -707,7 +711,7 @@ const AllQAadmin = () => {
                       <Card.Footer>
                         {/* <Chip style={{ marginRight: "4px" }} label={question.level} onClick={() => pickDifficulty(question.level)} color="info" /> */}
 
-                        <Button
+                        {/* <Button
                           style={{ padding: "0px", margin: "0px" }}
                           size="small"
                           color="primary"
@@ -715,14 +719,14 @@ const AllQAadmin = () => {
                           onClick={() => pickCategory1(question.category)}
                         >
                           {question.category}
-                        </Button>
-                        {/* <Chip
+                        </Button> */}
+                        <Chip
                           label={question.category}
                           onClick={() => pickCategory1(question.category)}
                           color="default"
                           size="small"
                           variant="outlined"
-                        /> */}
+                        />
                         <Card.Img
                           style={{ float: "right", width: "20px" }}
                           onClick={() => favorite(userId, question.id)}
@@ -739,26 +743,30 @@ const AllQAadmin = () => {
                   ))
                 : "Sorry, we didn't find anything matching that"}
             </Row>
-            <ReactPaginate
-              className="pagination"
-              //nextLabel="next >"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={2}
-              pageCount={pageCount}
-              //previousLabel="< previous"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakLabel="..."
-              breakClassName="page-item"
-              breakLinkClassName="page-link"
-              containerClassName="pagination"
-              activeClassName="active"
-            />
+            <Row className="justify-content-center">
+              <Card className="mx-auto" id="no-border">
+                <ReactPaginate
+                  className="pagination mx-auto"
+                  //nextLabel="next >"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={3}
+                  marginPagesDisplayed={2}
+                  pageCount={pageCount}
+                  //previousLabel="< previous"
+                  pageClassName="page-item"
+                  pageLinkClassName="page-link"
+                  previousClassName="page-item"
+                  previousLinkClassName="page-link"
+                  nextClassName="page-item"
+                  nextLinkClassName="page-link"
+                  breakLabel="..."
+                  breakClassName="page-item"
+                  breakLinkClassName="page-link"
+                  containerClassName="pagination"
+                  activeClassName="active"
+                />{" "}
+              </Card>
+            </Row>
           </Card.Body>
         </Card>
       </Row>
