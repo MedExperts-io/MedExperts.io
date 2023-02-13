@@ -2,7 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Card, Stack, Button, ProgressBar, Table } from "react-bootstrap/";
+import {
+  Card,
+  Stack,
+  Button,
+  ProgressBar,
+  Table,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
 import {
   fetchSingleQuestion,
@@ -31,6 +39,7 @@ const SingleQAadmin = () => {
 
   useEffect(() => {
     dispatch(fetchQAVersions(singleQuestionId));
+    //dispatch(fetchAllQuestionsAnswers());
   }, [qaVersions]);
 
   useEffect(() => {
@@ -52,9 +61,9 @@ const SingleQAadmin = () => {
         });
       }
     });
-    console.log("Answer and numOfPicks", ansOption, numOfPicks);
+    // console.log("Answer and numOfPicks", ansOption, numOfPicks);
     if (numOfPicks !== 0) {
-      return (numOfPicks * 100) / totalResponses;
+      return Math.round((numOfPicks * 100) / totalResponses);
     } else {
       return null;
     }
@@ -104,6 +113,7 @@ const SingleQAadmin = () => {
                           style={{ textAlign: "center" }}
                           onClick={() => {
                             handleDelete(eachVersion.id);
+
                             if (qaVersions.length > 1) {
                               if (idx === 0) {
                                 navigate(`/questions/${qaVersions[1].id}`);
@@ -174,27 +184,50 @@ const SingleQAadmin = () => {
                                       </Button>
                                     </td>
                                     <td>
-                                      <ProgressBar
-                                        variant={
-                                          ans === eachVersion.correctAnswer
-                                            ? "success"
-                                            : "danger"
+                                      <OverlayTrigger
+                                        placement="left"
+                                        overlay={
+                                          <Tooltip id={`tooltip-left`}>
+                                            {`${
+                                              responseData(eachVersion.id, ans)
+                                                ? responseData(
+                                                    eachVersion.id,
+                                                    ans
+                                                  )
+                                                : "0"
+                                            }%`}
+                                          </Tooltip>
                                         }
-                                        style={{
-                                          height: "30px",
-                                        }}
-                                        now={
-                                          responseData(eachVersion.id, ans) ||
-                                          responseData(eachVersion.id, ans) == 0
-                                            ? responseData(eachVersion.id, ans)
-                                            : 0
-                                        }
-                                        label={`${
-                                          responseData(eachVersion.id, ans)
-                                            ? responseData(eachVersion.id, ans)
-                                            : "0"
-                                        }%`}
-                                      />
+                                      >
+                                        <ProgressBar
+                                          variant={
+                                            ans === eachVersion.correctAnswer
+                                              ? "success"
+                                              : "danger"
+                                          }
+                                          style={{
+                                            height: "30px",
+                                          }}
+                                          now={
+                                            responseData(eachVersion.id, ans) ||
+                                            responseData(eachVersion.id, ans) ==
+                                              0
+                                              ? responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                              : 0
+                                          }
+                                          label={`${
+                                            responseData(eachVersion.id, ans)
+                                              ? responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                              : "0"
+                                          }%`}
+                                        />
+                                      </OverlayTrigger>
                                     </td>
                                   </tr>
                                 ))
