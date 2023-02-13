@@ -52,15 +52,54 @@ router.get("/frequency", async (req, res, next) => {
 
     const questionsAndFrequency = [allQAs, frequency];
 
-    // allQuestions = allQAs.map((question) => {
-    //   return {
-    //     ...question,
-    //     frequency: frequency[question.id],
-    //   };
-    // });
+    res.json(questionsAndFrequency);
+  } catch (err) {
+    next(err);
+  }
+});
 
-    // const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency).map((question) => question["dataValues"]);
+router.get("/percent_correct", async (req, res, next) => {
+  try {
+    const allUserQs = await User_Question.findAll({
+      attributes: ["questionAnswerId", "answered"],
+      include: {
+        model: Question_Answer,
+        where: {
+          status: "Active",
+        },
+      },
+    });
+    const allQAs = await Question_Answer.findAll({
+      where: {
+        status: "Active",
+      },
+    });
+    let frequency = {};
 
+    for (let i = 0; i < allQAs.length; i++) {
+      if (!frequency[allQAs[i]["id"]]) {
+        frequency[allQAs[i]["id"]] = { right: 0, total: 0 };
+      }
+    }
+    for (let i = 0; i < allUserQs.length; i++) {
+      if (allUserQs[i]["answered"] === "right") {
+        frequency[allUserQs[i]["questionAnswerId"]]["right"]++;
+        frequency[allUserQs[i]["questionAnswerId"]]["total"]++;
+      } else {
+        frequency[allUserQs[i]["questionAnswerId"]]["total"]++;
+      }
+    }
+
+    const questionsPercentCorrect = [allQAs, frequency];
+
+    res.json(questionsPercentCorrect);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/sort_by_right", async (req, res, next) => {
+  try {
     res.json(questionsAndFrequency);
   } catch (err) {
     next(err);

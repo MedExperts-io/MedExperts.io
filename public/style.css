@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
-  background-image: url("newBG8T.png")
+  background-image: url("newBG8T.png");
+  
   
   /* height:calc(100vh - (56px)) */
 }
@@ -32,3 +33,12 @@ a[href="/questions"] {
   background-color: rgba;
 }
 
+
+.questionCard {
+  transition: all 0.3s ease-in-out;  
+}
+
+.questionCard:hover {
+  transform: scale(1.1);
+
+}
