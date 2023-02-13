@@ -90,6 +90,8 @@ const AddQuestion = () => {
   );
   const Questionid = AllQ.length + 1;
 
+
+
   //Question Images
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
@@ -105,16 +107,28 @@ const AddQuestion = () => {
         setImageUrls((prev) => [...prev, url]);
       });
     });
-  };
-  useEffect(() => {
-    listAll(imagesListRef).then((response) => {
+
+    listAll(`images/${Questionid}/${imageUpload.name + v4()}`).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
           setImageUrls((prev) => [...prev, url]);
         });
       });
     });
-  }, []);
+  };
+
+  // useEffect(() => {
+  //   listAll(imagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         setImageUrls((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
+
+
+
 
   //explanation Images
   const [eimageUpload, seteImageUpload] = useState(null);
@@ -131,16 +145,24 @@ const AddQuestion = () => {
         seteImageUrls((prev) => [...prev, url]);
       });
     });
-  };
-  useEffect(() => {
-    listAll(eimagesListRef).then((response) => {
+
+    listAll(`images/${Questionid}/explanation/${eimageUpload.name + v4()}`).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
           seteImageUrls((prev) => [...prev, url]);
         });
       });
     });
-  }, []);
+  };
+  // useEffect(() => {
+  //   listAll(eimagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         seteImageUrls((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
