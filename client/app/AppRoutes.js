@@ -33,7 +33,7 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
-          <Route path="/dashboard" element={<LandingPage/>} />
+          <Route path="/dashboard" element={<LandingPage />} />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route path="/addQuestion" element={<AddQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
@@ -49,8 +49,8 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/*" element={<Login />} />
-          <Route path="/" element={<Login />} />
+          {/* <Route path="/*" element={<Login />} /> */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
@@ -59,9 +59,7 @@ const AppRoutes = () => {
             element={<PasswordRequestConfirmation />}
           />
           <Route path="/resetPassword/*" element={<ResetPassword />} />
-          {/* <Route path="/" element={<VerifyEmail />} /> */}
           <Route path="/verifyEmail/*" element={<VerifyEmail />} />
-          {/* <Route path="/*" element={<LoginOrSignup />} /> */}
         </Routes>
       )}
     </div>
