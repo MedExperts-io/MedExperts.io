@@ -14,21 +14,11 @@ import {
   Table,
 } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  fetchSingleQuestion,
-  fetchQAVersions,
-  editQuestion,
-} from "./singleQuestionSlice";
+import { fetchQAVersions, editQuestion } from "./singleQuestionSlice";
 import { v4 } from "uuid";
 import { v4 as uuidv4 } from "uuid";
 import { ProgressBar } from "react-bootstrap";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../addQ/firebase";
 
 const EditQA = () => {
@@ -86,17 +76,15 @@ const EditQA = () => {
     setNewExplanationLinks(qaVersions[0]?.explanationLinks);
     setNewCategory(qaVersions[0]?.category);
     setNewLevel(qaVersions[0]?.level);
-  }, [qaVersions]); // set the relation between redux qaVersions and local state
+  }, [qaVersions]); // set the relation between redux store's qaVersions and local state
 
   const [showToast, setShowToast] = useState(false);
   const [showUpdate, setShowUpdate] = useState("");
-  const [validated, setValidated] = useState(false);
   const toggleShowToast = () => setShowToast(!showToast);
 
   //------------ modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
-    setValidated(false);
     setShow(false);
   };
   const handleShow = () => setShow(true);
@@ -170,7 +158,6 @@ const EditQA = () => {
         displayId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
       })
     );
-    setValidated(true); //??????
   };
 
   const clearText = (evt, text) => {
@@ -206,11 +193,7 @@ const EditQA = () => {
                 style={{ maxWidth: "900px" }}
               >
                 <Col>
-                  <Form
-                    noValidate
-                    validated={validated}
-                    onSubmit={handleSubmit}
-                  >
+                  <Form onSubmit={handleSubmit}>
                     <h1>Edit Question</h1>
 
                     <Row className="mb-3">
@@ -249,10 +232,6 @@ const EditQA = () => {
                                 uploadFile();
                                 setShowUpdate("Image");
                                 toggleShowToast();
-                              } else {
-                                console.log(
-                                  "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                );
                               }
                             }}
                           >
@@ -330,13 +309,9 @@ const EditQA = () => {
                                   ...newAnswerOptions,
                                   newSingleOption.trim(),
                                 ]);
-                                setNewSingleOption(""); // Doesn't clear field for some reason
+                                setNewSingleOption("");
                                 setShowUpdate(newSingleOption.trim());
                                 toggleShowToast();
-                              } else {
-                                console.log(
-                                  "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                );
                               }
                             }}
                           >
@@ -374,10 +349,6 @@ const EditQA = () => {
 
                                   setShowUpdate(option.trim());
                                   toggleShowToast();
-                                } else {
-                                  console.log(
-                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                  );
                                 }
                               }}
                             >
@@ -461,10 +432,6 @@ const EditQA = () => {
                                 euploadFile();
                                 setShowUpdate("Image");
                                 toggleShowToast();
-                              } else {
-                                console.log(
-                                  "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                );
                               }
                             }}
                           >
@@ -563,13 +530,9 @@ const EditQA = () => {
                                 setShowUpdate(
                                   `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
                                 );
-                                setNewSingleLink(""); //Doesn't clear field for some reason
-                                setNewSource(""); //Doesn't clear field for some reason
+                                setNewSingleLink("");
+                                setNewSource("");
                                 toggleShowToast();
-                              } else {
-                                console.log(
-                                  "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
-                                );
                               }
                             }}
                           >
