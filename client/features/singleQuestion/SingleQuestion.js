@@ -128,13 +128,7 @@ const SingleQuestion = () => {
                 <Stack gap={3}>
                   <Stack gap={3}>
                     <Breadcrumb>
-                      <Breadcrumb.Item
-                        href="/questions"
-                        id="breadcrumb"
-                        style={{
-                          textDecorationLine: "underline",
-                        }}
-                      >
+                      <Breadcrumb.Item href="/questions" id="breadcrumb">
                         All Questions
                       </Breadcrumb.Item>
                       <Breadcrumb.Item id="breadcrumb" active>
@@ -154,39 +148,61 @@ const SingleQuestion = () => {
                       >
                         {question}
                       </Card.Header>
-                      <Card.Body className="mx-auto">
-                        <Stack
-                          gap={3}
-                          className="mx-auto"
-                          direction="horizontal"
-                        >
-                          {questionImage
-                            ? questionImage.map((image, index) => (
-                                <Card
-                                  gap={3}
-                                  key={uuidv4()}
-                                  className="mx-auto"
-                                  id="no-border"
-                                >
-                                  <img
-                                    src={image}
-                                    style={{
-                                      maxHeight: `12rem`,
-                                    }}
-                                  />
-                                  <Card.Subtitle
-                                    className="m-2 text-center"
-                                    style={{ fontSize: "10px" }}
+                      <Card.Body
+                        className="mx-auto"
+                        style={{ paddingBottom: "0px", marginBottom: "0px" }}
+                      >
+                        <Row className="mx-auto">
+                          <Stack
+                            style={{
+                              paddingTop: "10px",
+                              paddingLeft: "0px",
+                              paddingRight: "0px",
+                            }}
+                            direction="horizontal"
+                          >
+                            {questionImage
+                              ? questionImage.map((image, index) => (
+                                  <Table
+                                    responsive="sm"
+                                    size="sm"
+                                    key={uuidv4()}
+                                    borderless
+                                    style={{ paddingBottom: "0px" }}
                                   >
-                                    figure:{index + 1}
-                                  </Card.Subtitle>
-                                </Card>
-                              ))
-                            : null}
-                        </Stack>
-                        {/* </Stack> */}
-
-                        <Row style={{ paddingTop: "2%", paddingBottom: "2%" }}>
+                                    <thead>
+                                      <tr>
+                                        <th style={{ padding: "0px" }}>
+                                          {" "}
+                                          <img
+                                            src={image}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              maxHeight: `12rem`,
+                                              maxInlineSize: "100%",
+                                            }}
+                                          />
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td
+                                          className="text-muted text-center"
+                                          style={{ fontSize: "10px" }}
+                                        >
+                                          Figure:{index + 1}
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </Table>
+                                ))
+                              : null}
+                          </Stack>
+                        </Row>
+                      </Card.Body>
+                      <Card.Body className="mx-auto">
+                        <Row style={{ paddingBottom: "2%" }}>
                           <center>
                             <Divider>Select your answer:</Divider>
                           </center>
@@ -368,36 +384,61 @@ const SingleQuestion = () => {
                     >
                       {question}
                     </Card.Header>
-                    <Card.Body className="mx-auto">
-                      <Stack gap={3} className="mx-auto" direction="horizontal">
-                        {questionImage
-                          ? questionImage.map((image, index) => (
-                              // <Col sm>
-                              <Card
-                                gap={3}
-                                key={uuidv4()}
-                                className="mx-auto"
-                                id="no-border"
-                              >
-                                <img
-                                  src={image}
-                                  style={{
-                                    maxHeight: `12rem`,
-                                  }}
-                                />
-
-                                <Card.Subtitle
-                                  className="m-2 text-center"
-                                  style={{ fontSize: "10px" }}
+                    <Card.Body
+                      className="mx-auto"
+                      style={{ paddingBottom: "0px", marginBottom: "0px" }}
+                    >
+                      <Row className="mx-auto">
+                        <Stack
+                          style={{
+                            paddingTop: "10px",
+                            paddingLeft: "0px",
+                            paddingRight: "0px",
+                          }}
+                          direction="horizontal"
+                        >
+                          {questionImage
+                            ? questionImage.map((image, index) => (
+                                <Table
+                                  responsive="sm"
+                                  size="sm"
+                                  key={uuidv4()}
+                                  borderless
+                                  style={{ paddingBottom: "0px" }}
                                 >
-                                  figure:{index + 1}
-                                </Card.Subtitle>
-                              </Card>
-                              // </Col>
-                            ))
-                          : null}
-                      </Stack>
-                      <Row style={{ paddingTop: "2%", paddingBottom: "2%" }}>
+                                  <thead>
+                                    <tr>
+                                      <th style={{ padding: "0px" }}>
+                                        {" "}
+                                        <img
+                                          src={image}
+                                          style={{
+                                            paddingLeft: "10px",
+                                            maxHeight: `12rem`,
+                                            maxInlineSize: "100%",
+                                          }}
+                                        />
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td
+                                        className="text-muted text-center"
+                                        style={{ fontSize: "10px" }}
+                                      >
+                                        Figure:{index + 1}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </Table>
+                              ))
+                            : null}
+                        </Stack>
+                      </Row>
+                    </Card.Body>
+                    <Card.Body className="mx-auto">
+                      <Row style={{ paddingBottom: "2%" }}>
                         <center>
                           <Divider>Select your answer:</Divider>
                         </center>
