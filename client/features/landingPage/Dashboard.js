@@ -9,12 +9,13 @@ import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 
 
-const LandingPage = ( ) => {
+const Dashboard = ( ) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
+  console.log('USERID', userId)
   useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
+    dispatch(fetchAllQuestionsAnswers()).then(()=> dispatch(fetchUserQuestions(userId)));
+    ;
   }, []);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const AllUserQuestions = useSelector((state) => state.userQuestions.UserQuestions);
@@ -353,7 +354,7 @@ const LandingPage = ( ) => {
       <div className="mx-auto">
         {!isAdmin ? (
           <Stack>
-            <div>Welcome, {firstName}!</div>
+            <div className="welcome">Welcome, {firstName.charAt(0).toUpperCase() + firstName.slice(1)}!</div>
             {/* top row answered amount out of total */}
             <Stack>
             <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
@@ -867,11 +868,11 @@ const LandingPage = ( ) => {
 
           </Stack>
         ) : (
-          <h5>Hold for landing page</h5>
+          <h5>Admin Dashboard place holder</h5>
         )}
       </div>
     </Container>
   );
 };
 
-export default LandingPage;
+export default Dashboard;
