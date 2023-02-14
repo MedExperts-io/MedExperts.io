@@ -96,6 +96,7 @@ const SignUp = () => {
       <Row className="p-5 d-flex justify-content-center align-items-center">
         <Col md={8} lg={10} s={10} xs={12}>
           <Card className="shadow">
+          
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
               <div className="mb-3 mt-md-4">
@@ -309,6 +310,13 @@ const SignUp = () => {
                 </div>
               </div>
             </Card.Body>
+            <Card.Footer>
+              <p className="small">
+                <a className="text" style={{ color: "gray" }} href="/login">
+                  Already have an account? Login to your account.
+                </a>
+              </p>
+            </Card.Footer>
           </Card>
         </Col>
       </Row>
