@@ -177,8 +177,6 @@ const EditQA = () => {
     evt.target.value = text;
   };
 
-  //console.log("CHECK HERE FOR STATE Question", newQuestion);
-
   if (qaVersions && qaVersions.length) {
     return (
       <div>
@@ -568,10 +566,6 @@ const EditQA = () => {
                                 setNewSingleLink(""); //Doesn't clear field for some reason
                                 setNewSource(""); //Doesn't clear field for some reason
                                 toggleShowToast();
-                                // console.log(
-                                //   "newExplanationLinks",
-                                //   newExplanationLinks
-                                // );
                               } else {
                                 console.log(
                                   "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
@@ -713,7 +707,6 @@ const EditQA = () => {
                         <Button
                           variant="secondary"
                           onClick={() => {
-                            //console.log("CURRENT ID", qaVersions[0].id);
                             navigate(`/questions/${qaVersions[0].id}`);
                           }}
                         >
