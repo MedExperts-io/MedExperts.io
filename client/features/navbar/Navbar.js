@@ -30,7 +30,7 @@ const SiteNavbar = () => {
               <Navbar.Brand>
                 <img
                   src="/NewMedExperts.png"
-                  height="50"
+                  height="40"
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -111,7 +111,11 @@ const SiteNavbar = () => {
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+                <img
+                  src="/NewMedExperts.png"
+                  height="40"
+                  alt="Med Expert Logo"
+                />
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />

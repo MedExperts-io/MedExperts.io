@@ -8,8 +8,6 @@ import {
   ProgressBar,
   Stack,
   Table,
-  Row,
-  Col,
   Tabs,
   Tab,
   OverlayTrigger,
@@ -38,7 +36,6 @@ const SingleQAadmin = () => {
 
   useEffect(() => {
     dispatch(fetchQAVersions(singleQuestionId));
-    //dispatch(fetchAllQuestionsAnswers());
   }, [qaVersions]);
 
   useEffect(() => {
@@ -63,7 +60,7 @@ const SingleQAadmin = () => {
         });
       }
     });
-    // console.log("Answer and numOfPicks", ansOption, numOfPicks);
+
     if (numOfPicks !== 0) {
       return Math.round((numOfPicks * 100) / totalResponses);
     } else {
@@ -85,14 +82,8 @@ const SingleQAadmin = () => {
             {qaVersions && qaVersions?.length ? (
               <div>
                 <Breadcrumb>
-                  <Breadcrumb.Item
-                    href="/questions"
-                    id="breadcrumb"
-                    style={{
-                      textDecorationLine: "underline",
-                    }}
-                  >
-                    Back
+                  <Breadcrumb.Item href="/questions" id="breadcrumb">
+                    All Questions
                   </Breadcrumb.Item>
                   <Breadcrumb.Item id="breadcrumb" active>
                     Question {qaVersions[0].displayId}
@@ -100,98 +91,123 @@ const SingleQAadmin = () => {
                 </Breadcrumb>
                 {qaVersions.length === 1 ? (
                   qaVersions.map((eachVersion, idx) => (
-                    <Stack gap={3} key={uuidv4()}>
-                      <Card className="mb-4 mx-auto" style={{ width: "100%" }}>
-                        <Card.Header
-                          style={{ fontSize: "75%", color: "red" }}
-                          id="no-border"
-                          className="d-flex justify-content-end"
-                        >
-                          Unique ID: {eachVersion.id}
-                        </Card.Header>
-
-                        <Card.Header
-                          id="no-border"
-                          className="text-center "
-                          style={{
-                            fontSize: "100%",
-                            textAlign: "center",
-                          }}
-                        >
-                          {eachVersion.question}
-                        </Card.Header>
-                        <Card.Header className="d-flex justify-content-end">
-                          <Button size="small" variant="link">
-                            <Link
-                              to={`/questions/${singleQuestionId}/edit`}
-                              style={{ textDecoration: `none` }}
-                            >
-                              {" "}
-                              <EditIcon />
-                              Edit Question{" "}
-                            </Link>
-                          </Button>
-
-                          {/* <---------------End edit q btn----------------> */}
-                          <Button
-                            variant="link"
-                            size="small"
-                            onClick={() => {
-                              handleDelete(eachVersion.id);
-                              if (qaVersions.length > 1) {
-                                if (idx === 0) {
-                                  navigate(`/questions/${qaVersions[1].id}`);
-                                }
-                              } else {
-                                navigate(`/questions`);
-                              }
-                            }}
-                          >
-                            {" "}
-                            <DeleteIcon />
-                            Delete Version
-                          </Button>
-                        </Card.Header>
-                        <Card.Body>
-                          {/* <------------------Edit Q Btn---------------> */}
-                        </Card.Body>
+                    <Card
+                      className="mb-4 mx-auto"
+                      key={uuidv4()}
+                      style={{ width: "100%" }}
+                    >
+                      <Card.Header
+                        style={{ fontSize: "75%", color: "red" }}
+                        id="no-border"
+                        className="d-flex justify-content-end"
+                      >
+                        Unique ID: {eachVersion.id}
+                      </Card.Header>
+                      <Card.Header
+                        id="no-border"
+                        className="text-center "
+                        style={{
+                          fontSize: "100%",
+                          textAlign: "center",
+                        }}
+                      >
+                        {eachVersion.question}
+                      </Card.Header>
+                      <Card.Header
+                        id="no-border"
+                        className="d-flex justify-content-center"
+                      >
                         <Stack
-                          gap={3}
-                          className="mx-auto"
                           direction="horizontal"
+                          style={{ paddingTop: "10px" }}
                         >
                           {eachVersion.questionImage
                             ? eachVersion.questionImage.map((image, index) => (
-                                <Card gap={3} key={uuidv4()} id="no-border">
-                                  <img
-                                    src={image}
-                                    style={{
-                                      height: `12rem`,
-                                    }}
-                                  />
-                                  <Card.Subtitle
-                                    className="m-2 text-center"
-                                    style={{ fontSize: "10px" }}
-                                  >
-                                    Figure:{index + 1}
-                                  </Card.Subtitle>
-                                </Card>
+                                <Table
+                                  responsive="sm"
+                                  size="sm"
+                                  key={uuidv4()}
+                                  borderless
+                                  style={{ paddingBottom: "0px" }}
+                                >
+                                  <thead>
+                                    <tr>
+                                      <th style={{ padding: "0px" }}>
+                                        {" "}
+                                        <img
+                                          src={image}
+                                          style={{
+                                            paddingLeft: "10px",
+                                            maxHeight: `12rem`,
+                                            maxInlineSize: "100%",
+                                          }}
+                                        />
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td
+                                        className="text-muted text-center"
+                                        style={{ fontSize: "10px" }}
+                                      >
+                                        Figure:{index + 1}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </Table>
                               ))
                             : null}
                         </Stack>
+                      </Card.Header>
+                      <Card.Header
+                        className="d-flex justify-content-end"
+                        style={{ paddingTop: "0" }}
+                      >
+                        <Button size="small" variant="link">
+                          <Link
+                            to={`/questions/${singleQuestionId}/edit`}
+                            style={{ textDecoration: `none` }}
+                          >
+                            {" "}
+                            <EditIcon />
+                            Edit Question{" "}
+                          </Link>
+                        </Button>
 
-                        {/* <Stack gap={3}> */}
-                        <Card className="mx-auto" id="no-border">
-                          <Table size="sm" borderless>
+                        {/* <---------------End edit q btn----------------> */}
+                        <Button
+                          variant="link"
+                          size="small"
+                          onClick={() => {
+                            handleDelete(eachVersion.id);
+                            if (qaVersions.length > 1) {
+                              if (idx === 0) {
+                                navigate(`/questions/${qaVersions[1].id}`);
+                              }
+                            } else {
+                              navigate(`/questions`);
+                            }
+                          }}
+                        >
+                          {" "}
+                          <DeleteIcon />
+                          Delete Version
+                        </Button>
+                      </Card.Header>
+                      {/* <------------------Edit Q Btn---------------> */}
+
+                      <Stack>
+                        <Card
+                          className="mx-auto"
+                          id="no-border"
+                          style={{ minWidth: "50%" }}
+                        >
+                          <Table responsive="sm" borderless>
                             <thead>
                               <tr>
-                                <th style={{ paddingRight: "20px" }}>
-                                  Options
-                                </th>
-
-                                <th style={{ paddingLeft: "20px" }}>
-                                  Responses
-                                </th>
+                                <th>Answer Options</th>
+                                <th>Responses</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -213,8 +229,9 @@ const SingleQAadmin = () => {
                                 ? eachVersion.answerOptions.map(
                                     (ans, index) => (
                                       <tr key={uuidv4()}>
-                                        <td style={{ paddingRight: "20px" }}>
+                                        <td>
                                           <Button
+                                            style={{ margin: "0" }}
                                             variant={
                                               ans === eachVersion.correctAnswer
                                                 ? "success"
@@ -225,7 +242,7 @@ const SingleQAadmin = () => {
                                           </Button>
                                         </td>
 
-                                        <td style={{ paddingLeft: "20px" }}>
+                                        <td>
                                           <OverlayTrigger
                                             placement="right"
                                             overlay={
@@ -254,7 +271,7 @@ const SingleQAadmin = () => {
                                                 }
                                                 style={{
                                                   height: "38px",
-                                                  minWidth: "200%",
+                                                  minWidth: "100%",
                                                 }}
                                                 now={
                                                   responseData(
@@ -292,7 +309,7 @@ const SingleQAadmin = () => {
                                 : null}
                             </tbody>
                           </Table>
-                        </Card>
+                        </Card>{" "}
                         <Accordion>
                           <Accordion.Item eventKey="0">
                             <Accordion.Header>
@@ -337,9 +354,8 @@ const SingleQAadmin = () => {
                             </Accordion.Body>
                           </Accordion.Item>
                         </Accordion>
-                        {/* </Stack> */}
-                      </Card>
-                    </Stack>
+                      </Stack>
+                    </Card>
                   ))
                 ) : (
                   // <---------------if more than 1 version-------------->
@@ -376,6 +392,58 @@ const SingleQAadmin = () => {
                           >
                             {newestVersion.question}
                           </Card.Header>
+                          <Card.Header
+                            id="no-border"
+                            className="d-flex justify-content-center"
+                          >
+                            <Stack
+                              direction="horizontal"
+                              style={{ paddingTop: "10px" }}
+                            >
+                              {newestVersion.questionImage
+                                ? newestVersion.questionImage.map(
+                                    (image, index) => (
+                                      <Table
+                                        responsive="sm"
+                                        size="sm"
+                                        key={uuidv4()}
+                                        borderless
+                                        style={{ paddingBottom: "0px" }}
+                                      >
+                                        <thead>
+                                          <tr>
+                                            <th style={{ padding: "0px" }}>
+                                              {" "}
+                                              <img
+                                                src={image}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  maxHeight: `12rem`,
+                                                  maxInlineSize: "100%",
+                                                }}
+                                              />
+                                            </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td
+                                              className="text-muted text-center"
+                                              style={{
+                                                fontSize: "10px",
+                                                paddingLeft: "10px",
+                                              }}
+                                            >
+                                              Figure:{index + 1}
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </Table>
+                                    )
+                                  )
+                                : null}
+                            </Stack>
+                          </Card.Header>
                           <Card.Header className="d-flex justify-content-end">
                             <Button size="small" variant="link">
                               <Link
@@ -408,40 +476,17 @@ const SingleQAadmin = () => {
                               Delete Version
                             </Button>
                           </Card.Header>
-                          <Card.Body></Card.Body>
-                          <Stack
-                            gap={3}
-                            className="mx-auto"
-                            direction="horizontal"
-                          >
-                            {newestVersion.questionImage
-                              ? newestVersion.questionImage.map(
-                                  (image, index) => (
-                                    <Card gap={3} key={uuidv4()} id="no-border">
-                                      <img
-                                        src={image}
-                                        style={{
-                                          height: `12rem`,
-                                        }}
-                                      />
-                                      <Card.Subtitle
-                                        className="m-2 text-center"
-                                        style={{ fontSize: "10px" }}
-                                      >
-                                        Figure:{index + 1}
-                                      </Card.Subtitle>
-                                    </Card>
-                                  )
-                                )
-                              : null}
-                          </Stack>
 
-                          <Stack gap={3}>
-                            <Card className="mx-auto" id="no-border">
-                              <Table size="sm" borderless>
+                          <Stack>
+                            <Card
+                              className="mx-auto"
+                              id="no-border"
+                              style={{ minWidth: "50%" }}
+                            >
+                              <Table responsive="sm" borderless>
                                 <thead>
-                                  <tr className="text-center">
-                                    <th>Options</th>
+                                  <tr>
+                                    <th>Answer Options</th>
                                     <th>Responses</th>
                                   </tr>
                                 </thead>
@@ -466,6 +511,7 @@ const SingleQAadmin = () => {
                                           <tr key={uuidv4()}>
                                             <td>
                                               <Button
+                                                style={{ margin: "0" }}
                                                 variant={
                                                   ans ===
                                                   newestVersion.correctAnswer
@@ -505,7 +551,7 @@ const SingleQAadmin = () => {
                                                     }
                                                     style={{
                                                       height: "38px",
-                                                      minWidth: "200%",
+                                                      minWidth: "100%",
                                                     }}
                                                     now={
                                                       responseData(
@@ -621,6 +667,55 @@ const SingleQAadmin = () => {
                           >
                             {eachVersion.question}
                           </Card.Header>
+                          <Card.Header
+                            id="no-border"
+                            className="d-flex justify-content-center"
+                          >
+                            <Stack
+                              direction="horizontal"
+                              style={{ paddingTop: "10px" }}
+                            >
+                              {eachVersion.questionImage
+                                ? eachVersion.questionImage.map(
+                                    (image, index) => (
+                                      <Table
+                                        responsive="sm"
+                                        size="sm"
+                                        key={uuidv4()}
+                                        borderless
+                                        style={{ paddingBottom: "0px" }}
+                                      >
+                                        <thead>
+                                          <tr>
+                                            <th style={{ padding: "0px" }}>
+                                              {" "}
+                                              <img
+                                                src={image}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  maxHeight: `12rem`,
+                                                  maxInlineSize: "100%",
+                                                }}
+                                              />
+                                            </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td
+                                              className="text-muted text-center"
+                                              style={{ fontSize: "10px" }}
+                                            >
+                                              Figure:{index + 1}
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </Table>
+                                    )
+                                  )
+                                : null}
+                            </Stack>
+                          </Card.Header>
                           <Card.Header className="d-flex justify-content-end">
                             <Button
                               variant="link"
@@ -640,35 +735,23 @@ const SingleQAadmin = () => {
                               Delete Version
                             </Button>
                           </Card.Header>
-                          <Card.Body></Card.Body>
-                          <Stack
-                            gap={3}
-                            className="mx-auto"
-                            direction="horizontal"
-                          >
-                            {eachVersion.questionImage
-                              ? eachVersion.questionImage.map(
-                                  (image, index) => (
-                                    <Card gap={3} key={uuidv4()} id="no-border">
-                                      <img
-                                        src={image}
-                                        style={{
-                                          height: `12rem`,
-                                        }}
-                                      />
-                                      <Card.Subtitle
-                                        className="m-2 text-center"
-                                        style={{ fontSize: "10px" }}
-                                      >
-                                        Figure:{index + 1}
-                                      </Card.Subtitle>
-                                    </Card>
-                                  )
-                                )
-                              : null}
-                          </Stack>
-                          <style type="text/css">
-                            {`
+
+                          <Stack>
+                            <Card
+                              className="mx-auto"
+                              id="no-border"
+                              style={{ minWidth: "50%" }}
+                            >
+                              <Table responsive="sm" borderless>
+                                <thead>
+                                  <tr>
+                                    <th>Answer Options</th>
+                                    <th>Responses</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <style type="text/css">
+                                    {`
     .btn-success {
       background-color: #7cb69d;
       border-color:#7cb69d;
@@ -679,25 +762,14 @@ const SingleQAadmin = () => {
       border-color: #FF7276;
     }
     `}
-                          </style>
-
-                          <Stack gap={3}>
-                            <Card className="mx-auto" id="no-border">
-                              <Table size="sm" borderless>
-                                <thead>
-                                  <tr className="text-center">
-                                    <th>Options</th>
-                                    <th>Responses</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
+                                  </style>
                                   {eachVersion.answerOptions
                                     ? eachVersion.answerOptions.map(
                                         (ans, index) => (
                                           <tr key={uuidv4()}>
                                             <td>
                                               <Button
-                                                // gap={3}
+                                                style={{ margin: "0" }}
                                                 variant={
                                                   ans ===
                                                   eachVersion.correctAnswer
@@ -737,7 +809,7 @@ const SingleQAadmin = () => {
                                                     }
                                                     style={{
                                                       height: "38px",
-                                                      minWidth: "200%",
+                                                      minWidth: "100%",
                                                     }}
                                                     now={
                                                       responseData(
