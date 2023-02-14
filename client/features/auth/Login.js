@@ -34,6 +34,7 @@ const Login = () => {
 
     dispatch(authenticate({ email, password, method: formName }));
 
+    navigate("/dashboard")
     if (!{ error }) navigate("/");
   };
 

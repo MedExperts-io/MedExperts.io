@@ -39,3 +39,178 @@ a[href="/questions"] {
 .questionCard:hover {
   transform: scale(1.1);
 }
+
+.welcome {
+  color: #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.nofound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 24px;
+}
+
+.top-part {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-part-content {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 50px;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #0066b3;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.qualities-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.quality {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  width: calc(50% - 40px);
+  max-width: 500px;
+}
+
+.quality-icon {
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quality-text {
+  text-align: center;
+}
+
+.quality-text h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.quality-text p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+.testimonials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.testimonial {
+  max-width: 400px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-Shadow: 0px 0px 10px 0px rgba(200,200,200,0.75);
+  text-align: center;
+}
+
+.testimonial .review {
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.testimonial .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.testimonial .occupation {
+  font-size: 16px;
+}
+
+
+.testimonials-heading {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
