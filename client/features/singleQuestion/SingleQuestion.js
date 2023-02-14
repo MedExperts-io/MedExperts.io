@@ -359,17 +359,11 @@ const SingleQuestion = () => {
               <Stack gap={3}>
                 <Stack gap={3}>
                   <Breadcrumb>
-                    <Breadcrumb.Item
-                      id="breadcrumb"
-                      href="/questions"
-                      style={{
-                        textDecorationLine: "underline",
-                      }}
-                    >
+                    <Breadcrumb.Item id="breadcrumb" href="/questions">
                       All Questions
                     </Breadcrumb.Item>
                     <Breadcrumb.Item id="breadcrumb" active>
-                      Question No.{displayId}
+                      Question {displayId}
                     </Breadcrumb.Item>
                   </Breadcrumb>
 
