@@ -17,20 +17,42 @@ const SiteNavbar = () => {
   };
 
   return (
-    <Navbar collapseOnSelect style={{ backgroundColor: "#FF6262" }} expand="lg" variant="dark">
+    <Navbar
+      collapseOnSelect
+      style={{ backgroundColor: "#FF6262" }}
+      expand="lg"
+      variant="dark"
+    >
       <Container fluid>
         {isLoggedIn ? (
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+                <img
+                  src="/NewMedExperts.png"
+                  height="40"
+                  alt="Med Expert Logo"
+                />
               </Navbar.Brand>
             </Link>
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Button variant="light" as={Link} to="/questions" className="m-2" style={{ color: "#FF6262" }}>
+            <Navbar.Collapse
+              id="responsive-navbar-nav"
+              className="justify-content-end"
+            >
+              <Nav>
+                <Button
+                  variant="light"
+                  as={Link}
+                  to="/questions"
+                  className="m-2"
+                  style={{
+                    color: "#FF6262",
+                    paddingTop: "10px",
+                    height: "48px",
+                  }}
+                >
                   Questions
                 </Button>
               </Nav>
@@ -74,7 +96,10 @@ const SiteNavbar = () => {
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={logoutAndRedirectHome} style={{ color: "#FF6262" }}>
+                    <NavDropdown.Item
+                      onClick={logoutAndRedirectHome}
+                      style={{ color: "#FF6262" }}
+                    >
                       Logout
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -86,11 +111,18 @@ const SiteNavbar = () => {
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img src="/MedExpert.png" height="30" alt="Med Expert Logo" />
+                <img
+                  src="/NewMedExperts.png"
+                  height="40"
+                  alt="Med Expert Logo"
+                />
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+            <Navbar.Collapse
+              id="responsive-navbar-nav"
+              className="justify-content-end"
+            >
               <Nav>
                 <Button
                   className="m-2"
