@@ -165,7 +165,6 @@ const AddQuestion = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log(newQuestion);
     dispatch(
       NewQuestionsAnswers({
         // question: 'what is my name?'
@@ -181,7 +180,6 @@ const AddQuestion = () => {
       })
     );
     setValidated(true);
-    console.log("handle submit");
   };
 
   return (
@@ -563,10 +561,6 @@ const AddQuestion = () => {
                               setNewSingleLink(""); //Doesn't clear field for some reason
                               setNewSource(""); //Doesn't clear field for some reason
                               toggleShowToast();
-                              // console.log(
-                              //   "newExplanationLinks",
-                              //   newExplanationLinks
-                              // );
                             } else {
                               console.log(
                                 "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
