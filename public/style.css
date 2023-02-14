@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  background-image: url("newBG8T.png"); 
+  background-image: url("newBG8T.png");
   /* height:calc(100vh - (56px)) */
 }
 
@@ -8,35 +8,34 @@ body {
   background-image: url("newBG8T.png")
 } */
 
-#no-border{
-  border:none
+#no-border {
+  border: none;
 }
 
-#form-border{
+#form-border {
   /* border-color: black; */
 }
-#question-submit-btn{
+#question-submit-btn {
   /* background-color: aqua; */
 }
 a[href="/questions"] {
-  color:black
+  color: black;
+  text-decoration-line: none;
 }
 
-#form-submit-btn{
-  background-color: #FF6262;
-  border-color: #FF6262;
+#form-submit-btn {
+  background-color: #ff6262;
+  border-color: #ff6262;
 }
 
 #btn-muted {
   background-color: rgba;
 }
 
-
 .questionCard {
-  transition: all 0.3s ease-in-out;  
+  transition: all 0.3s ease-in-out;
 }
 
 .questionCard:hover {
   transform: scale(1.1);
-
 }
