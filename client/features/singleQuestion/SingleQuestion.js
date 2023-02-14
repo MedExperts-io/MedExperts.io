@@ -114,11 +114,6 @@ const SingleQuestion = () => {
       .then(() => dispatch(fetchUserQuestions(userId)));
   };
 
-  // if (CurrentQuestion){
-  //   const {answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput} = CurrentQuestion
-  //   console.log({answered, favorite,questionAnswerId, userExpertise,userQuestionId,userInput});
-  // }
-
   if (admin) {
     return <SingleQAadmin />;
   } else {
