@@ -13,11 +13,16 @@ import ResetPassword from "../features/auth/ResetPassword";
 import PasswordRequestConfirmation from "../features/auth/PasswordRequestConfirmation";
 import SingleQuestion from "../features/singleQuestion/SingleQuestion";
 import LoadingScreen from "../features/loading/LoadingScreen";
-import LandingPage from "../features/landingPage/LandingPage";
+import Dashboard from "../features/landingPage/Dashboard";
 import AllQAadmin from "../features/allQA/AllQAadmin";
 import EditQA from "../features/singleQuestion/EditQA";
 import VerifyEmail from "../features/auth/VerifyEmail";
 import AddQuestion from "../features/addQ/AddQuestion";
+import MainLandingPage from "../features/landingPage/MainLandingPage";
+import NoExist from "../features/doesNotExist/NoExist";
+
+
+
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -32,8 +37,9 @@ const AppRoutes = () => {
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<LandingPage isLoggedIn={isLoggedIn} />} />
-          <Route path="/dashboard" element={<LandingPage />} />
+          <Route path="/*" element={<NoExist  />} />
+          <Route path="/" element={<MainLandingPage />} />
+          <Route path="/dashboard" element={<Dashboard isLoggedIn={isLoggedIn}/>} />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route path="/addQuestion" element={<AddQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
@@ -49,8 +55,8 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          {/* <Route path="/*" element={<Login />} /> */}
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/*" element={<NoExist />} />
+          <Route path="/" element={<MainLandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
