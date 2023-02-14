@@ -371,7 +371,7 @@ const AllQAadmin = () => {
             }}
           >
             <Col className="mx-auto">
-              {currentE} {currentDifficulty} & {currentCategory1}
+              {currentDifficulty} & {currentCategory1}
             </Col>
           </Card.Header>
           <Card.Body>
