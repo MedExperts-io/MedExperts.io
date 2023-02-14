@@ -44,6 +44,21 @@ const SiteNavbar = () => {
                 <Button
                   variant="light"
                   as={Link}
+                  to="/dashboard"
+                  className="m-2"
+                  style={{
+                    color: "#FF6262",
+                    paddingTop: "10px",
+                    height: "48px",
+                  }}
+                >
+                  Dashboard
+                </Button>
+              </Nav>
+              <Nav>
+                <Button
+                  variant="light"
+                  as={Link}
                   to="/questions"
                   className="m-2"
                   style={{
@@ -55,6 +70,7 @@ const SiteNavbar = () => {
                   Questions
                 </Button>
               </Nav>
+              
               <Nav>
                 <Button
                   className="m-2"
