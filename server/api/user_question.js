@@ -98,13 +98,6 @@ router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-router.get("/sort_by_right", async (req, res, next) => {
-  try {
-    res.json(questionsAndFrequency);
-  } catch (err) {
-    next(err);
-  }
-});
 
 // --- For logged in student user's dashboard analytics
 router.get("/:userId", getToken, async (req, res, next) => {
