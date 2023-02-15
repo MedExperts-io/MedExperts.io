@@ -4,7 +4,7 @@ import CopyrightIcon from "@mui/icons-material/Copyright";
 
 const Footer = () => {
   return (
-    <Navbar id="footer"  style={{ backgroundColor: "#FF6262" }}>
+    <Navbar id="footer" style={{ backgroundColor: "#FF6262" }}>
       <Container fluid>
         <Nav>
           <p
@@ -15,7 +15,7 @@ const Footer = () => {
               margin: "0px",
             }}
           >
-            © MedExperts, LLC. All Rights Reserved.
+            © Fluence, LLC. All Rights Reserved.
           </p>
         </Nav>
       </Container>
