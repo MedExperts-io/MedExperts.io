@@ -5897,67 +5897,6 @@ async function seed() {
     //     level: "Easy",
     //     category: "Pulmonary Function",
     //   }),
-    //----------------- Fake update to questionId 1 to test VCS (Remove after testing)--------------
-    Question_Answer.create({
-      question:
-        "A 45-year-old male comes to the clinic for evaluation for progressive shortness of breath. PFT of the patient suggests which of the following? Pulmonary function tests are provided below: ",
-      questionImage: [
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1+img1.png",
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1img2.png",
-      ],
-      answerOptions: [
-        "Obstructive Lung Disease",
-        "Restrictive Lung Disease",
-        "Nonspecific Pattern",
-        "Mixed Ventilatory Defect",
-      ],
-      correctAnswer: "Nonspecific Pattern",
-      explanation: `An obstructive ventilatory defect is a disproportionate reduction in maximal airflow from the lung in relation to the maximal volume (i.e. vital capacity, VC) that can be displaced from the lung [1]. It is defined by a reduced Forced Expiratory Volume in 1 second (FEV1)/FVC ratio below the 5th percentile of the predicted value as per ATS/ERS task force [1] or less than 0.70.   In this patient FEV1/FVC is normal.
-
-      A restrictive ventilatory defect is characterized by a reduction in TLC below the 5th percentile of the predicted value, and a normal FEV1/FVC. In this patient TLC is normal. A mixed ventilatory defect is characterized by the coexistence of obstruction and restriction and is defined physiologically when both FEV1/FVC and TLC are below the 5th percentiles of their relevant predicted values.  However, in this patient the FEV1/FVC and TLC are normal.
-
-      Non-specific (NS) pulmonary function pattern refers to pulmonary function test (PFT) with a low forced expiratory volume in first second (FEV1) or low forced vital capacity (FVC) or both; with normal FEV1/FVC ratio and normal total lung capacity (TLC). It is generally believed that that NS pattern may be a consequence of an obstructive disease (including asthma, chronic obstructive pulmonary disease [COPD] and bronchiectasis) or can also be seen in those with restricted expansion of the thorax or the lung as seen in Obesity or interstitial processes. [2] `,
-      explanationImage: [],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
-        `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
-      ],
-      level: "Moderate",
-      category: "Pulmonary Function Testing",
-      ancestorId: 1,
-      status: "Inactive",
-      displayId: 1,
-    }),
-    Question_Answer.create({
-      question:
-        "A 35-year-old male comes to the clinic for evaluation for progressive shortness of breath. PFT of the patient suggests which of the following? Pulmonary function tests are provided below: ",
-      questionImage: [
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1+img1.png",
-        "https://s3.us-east-2.amazonaws.com/medexperts.io/Images/Q1/Q1img2.png",
-      ],
-      answerOptions: [
-        "Obstructive Lung Disease",
-        "Restrictive Lung Disease",
-        "Nonspecific Pattern",
-        "Mixed Ventilatory Defect",
-      ],
-      correctAnswer: "Nonspecific Pattern",
-      explanation: `An obstructive ventilatory defect is a disproportionate reduction in maximal airflow from the lung in relation to the maximal volume (i.e. vital capacity, VC) that can be displaced from the lung [1]. It is defined by a reduced Forced Expiratory Volume in 1 second (FEV1)/FVC ratio below the 5th percentile of the predicted value as per ATS/ERS task force [1] or less than 0.70.   In this patient FEV1/FVC is normal.
-
-      A restrictive ventilatory defect is characterized by a reduction in TLC below the 5th percentile of the predicted value, and a normal FEV1/FVC. In this patient TLC is normal. A mixed ventilatory defect is characterized by the coexistence of obstruction and restriction and is defined physiologically when both FEV1/FVC and TLC are below the 5th percentiles of their relevant predicted values.  However, in this patient the FEV1/FVC and TLC are normal.
-
-      Non-specific (NS) pulmonary function pattern refers to pulmonary function test (PFT) with a low forced expiratory volume in first second (FEV1) or low forced vital capacity (FVC) or both; with normal FEV1/FVC ratio and normal total lung capacity (TLC). It is generally believed that that NS pattern may be a consequence of an obstructive disease (including asthma, chronic obstructive pulmonary disease [COPD] and bronchiectasis) or can also be seen in those with restricted expansion of the thorax or the lung as seen in Obesity or interstitial processes. [2] `,
-      explanationImage: [],
-      explanationLinks: [
-        `<a href="https://pubmed.ncbi.nlm.nih.gov/16264058/" target="_blank"> Pellegrino R, Viegi G, Brusasco V, Crapo RO, Burgos F, Casaburi R, Coates A, van der Grinten CP, Gustafsson P, Hankinson J, Jensen R, Johnson DC, MacIntyre N, McKay R, Miller MR, Navajas D, Pedersen OF, Wanger J: Interpretative strategies for lung function tests. Eur Respir J. 2005, 26 (5): 948-968.</a>`,
-        `<a href='https://pubmed.ncbi.nlm.nih.gov/18812444/' target="_blank">Hyatt RE, Cowl CT, Bjoraker JA, Scanlon PD: Conditions associated with an abnormal nonspecific pattern of pulmonary function tests. Chest. 2009, 135 (2): 419-424.</a>`,
-      ],
-      level: "Moderate",
-      category: "Pulmonary Function Testing",
-      ancestorId: 1,
-      status: "Active",
-      displayId: 1,
-    }),
   ]);
 
   // Creating User_Questions
@@ -6063,7 +6002,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6075,7 +6014,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6087,7 +6026,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6099,7 +6038,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6111,7 +6050,7 @@ async function seed() {
         "D-Dimer test appears positive and indicates a need for further evaluation by CTA.",
       answered: "right",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6123,7 +6062,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6135,7 +6074,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6147,7 +6086,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6159,7 +6098,7 @@ async function seed() {
         "D-Dimer test is positive and indicates immediate treatment of PE.",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pulmonary Vascular Disease",
+      category: "Pulmonary Vascular Disease",
       level: "Moderate",
     }),
     // User_Question.create({
@@ -6419,7 +6358,6 @@ async function seed() {
       userExpertise: "Student",
       category: "Mediastinal Disorders",
       level: "Hard",
-
     }),
     User_Question.create({
       userId: 8,
@@ -6546,7 +6484,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6555,7 +6493,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6564,7 +6502,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6573,7 +6511,7 @@ async function seed() {
       userInput: "Ambrisentan",
       answered: "wrong",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6582,7 +6520,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6591,7 +6529,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6600,7 +6538,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6609,7 +6547,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     User_Question.create({
@@ -6618,7 +6556,7 @@ async function seed() {
       userInput: "Riociguat",
       answered: "right",
       userExpertise: "Student",
-       category: "Pharmacology",
+      category: "Pharmacology",
       level: "Moderate",
     }),
     // User_Question.create({
