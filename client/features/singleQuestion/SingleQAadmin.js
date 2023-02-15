@@ -111,6 +111,7 @@ const SingleQAadmin = () => {
                           textAlign: "center",
                         }}
                       >
+                        Question {qaVersions[0].displayId}:{" "}
                         {eachVersion.question}
                       </Card.Header>
                       <Card.Header
@@ -318,50 +319,50 @@ const SingleQAadmin = () => {
                             <Accordion.Body>
                               {eachVersion.explanation}
                               <Stack
-                          direction="horizontal"
-                          style={{ paddingTop: "10px" }}
-                        >
-                          {eachVersion.explanationImage
-                            ? eachVersion.explanationImage
-                            .map((image, index) => (
-                                <Table
-                                  responsive="sm"
-                                  size="sm"
-                                  key={uuidv4()}
-                                  borderless
-                                  style={{ paddingBottom: "0px" }}
-                                >
-                                  <thead>
-                                    <tr>
-                                      <th style={{ padding: "0px" }}>
-                                        {" "}
-                                        <img
-                                          src={image}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            maxHeight: `12rem`,
-                                            maxInlineSize: "100%",
-                                          }}
-                                        />
-                                      </th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td
-                                        className="text-muted text-center"
-                                        style={{ fontSize: "10px" }}
-                                      >
-                                        Figure:{index + 1}
-                                      </td>
-                                    </tr>
-                                  </tbody>
-                                </Table>
-                              ))
-                            : null}
-                        </Stack>
+                                direction="horizontal"
+                                style={{ paddingTop: "10px" }}
+                              >
+                                {eachVersion.explanationImage
+                                  ? eachVersion.explanationImage.map(
+                                      (image, index) => (
+                                        <Table
+                                          responsive="sm"
+                                          size="sm"
+                                          key={uuidv4()}
+                                          borderless
+                                          style={{ paddingBottom: "0px" }}
+                                        >
+                                          <thead>
+                                            <tr>
+                                              <th style={{ padding: "0px" }}>
+                                                {" "}
+                                                <img
+                                                  src={image}
+                                                  style={{
+                                                    paddingLeft: "10px",
+                                                    maxHeight: `12rem`,
+                                                    maxInlineSize: "100%",
+                                                  }}
+                                                />
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td
+                                                className="text-muted text-center"
+                                                style={{ fontSize: "10px" }}
+                                              >
+                                                Figure:{index + 1}
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </Table>
+                                      )
+                                    )
+                                  : null}
+                              </Stack>
                             </Accordion.Body>
-                           
                           </Accordion.Item>
                           <Accordion.Item eventKey="1">
                             <Accordion.Header>View References</Accordion.Header>
@@ -434,6 +435,7 @@ const SingleQAadmin = () => {
                               textAlign: "center",
                             }}
                           >
+                            Question {newestVersion.displayId}:{" "}
                             {newestVersion.question}
                           </Card.Header>
                           <Card.Header
@@ -709,6 +711,7 @@ const SingleQAadmin = () => {
                               textAlign: "center",
                             }}
                           >
+                            Question {eachVersion.displayId}:{" "}
                             {eachVersion.question}
                           </Card.Header>
                           <Card.Header
