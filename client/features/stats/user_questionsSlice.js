@@ -124,6 +124,10 @@ export const updateUserQuestionInput = createAsyncThunk(
         category: category,
         level: level,
         userExpertise: userExpertise,
+      },{
+        headers: {
+          authorization: window.localStorage.getItem("token"),
+        },
       });
       // console.log("THUNK", data);
       return data;
