@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { ProgressBar } from "react-bootstrap/";
 
 const NoExist = () => {
-  return (
-    <div className='nofound'>
-    <h1>Page Not Found</h1>
-    <p>We're sorry, but the page you requested could not be found.</p>
-    
-  </div>
-  )
-}
+  const [loading, setLoading] = useState(true);
 
-export default NoExist
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  return (
+    <div>
+      {loading ? (
+        <ProgressBar animated now={100} />
+      ) : (
+        <div className="nofound">
+          <h1>Page Not Found</h1>
+          <p>We're sorry, but the page you requested could not be found.</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default NoExist;
