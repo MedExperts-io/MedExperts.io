@@ -196,7 +196,6 @@ const EditQA = () => {
                 <Col>
                   <Form onSubmit={handleSubmit}>
                     <h1>Edit Question</h1>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="question">
                         <Form.Label>
@@ -211,7 +210,6 @@ const EditQA = () => {
                         />
                       </Form.Group>
                     </Row>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="questionImage">
                         <Form.Label>
@@ -287,13 +285,11 @@ const EditQA = () => {
                         </Table>
                       </Form.Group>
                     </Row>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="answerOptions">
                         <Form.Label>
                           <strong className="me-auto">Options</strong>
                         </Form.Label>
-
                         <InputGroup className="mb-3">
                           <Form.Control
                             type="text"
@@ -320,6 +316,7 @@ const EditQA = () => {
                           </Button>
                         </InputGroup>
 
+                        {/* ------------------------------------------------------------------------------------------------ */}
                         {newAnswerOptions?.map((option, optionIdx) => (
                           <InputGroup className="mb-3" key={uuidv4()}>
                             <Form.Control
@@ -373,6 +370,7 @@ const EditQA = () => {
                         ))}
                       </Form.Group>
                     </Row>
+                    {/* ------------------------------------------------------------------------------------------------ */}
 
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="correctAnswer">
@@ -394,7 +392,6 @@ const EditQA = () => {
                         </Form.Select>
                       </Form.Group>
                     </Row>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="explanation">
                         <Form.Label>
@@ -409,7 +406,6 @@ const EditQA = () => {
                         ></Form.Control>
                       </Form.Group>
                     </Row>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="explanationImage">
                         <Form.Label>
@@ -422,7 +418,7 @@ const EditQA = () => {
                           <Form.Control
                             type="file"
                             onChange={(e) => {
-                              seteImageUpload(event.target.files[0]);
+                              seteImageUpload(e.target.files[0]);
                             }}
                           />
 
@@ -486,7 +482,6 @@ const EditQA = () => {
                         </Table>
                       </Form.Group>
                     </Row>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="explanationLinks">
                         <Form.Label>
@@ -584,7 +579,6 @@ const EditQA = () => {
                         </Table>
                       </Form.Group>
                     </Row>
-
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="category">
                         <Form.Label>
@@ -651,7 +645,6 @@ const EditQA = () => {
                         </Form.Select>
                       </Form.Group>
                     </Row>
-
                     <center>
                       <Button
                         type="submit"
@@ -661,7 +654,6 @@ const EditQA = () => {
                         Update
                       </Button>
                     </center>
-
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Body>Your changes have been recorded!</Modal.Body>
                       <Modal.Footer>
