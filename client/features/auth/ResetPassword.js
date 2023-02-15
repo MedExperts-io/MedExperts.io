@@ -70,11 +70,7 @@ const ResetPassword = () => {
             <RequestNewPassword />
           </>
         ) : (
-          <Card
-            border="light"
-            className="p-5 mx-auto"
-            style={{ maxWidth: "800px" }}
-          >
+          <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <h1>Reset Password</h1>
               <p>Enter your new password below:</p>

@@ -88,7 +88,6 @@ const SignUp = () => {
         method: "signup",
       })
     );
-    console.log("please check your email to complete the signup process");
   };
 
   return (
@@ -96,7 +95,6 @@ const SignUp = () => {
       <Row className="p-5 d-flex justify-content-center align-items-center">
         <Col md={8} lg={10} s={10} xs={12}>
           <Card className="shadow">
-          
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
               <div className="mb-3 mt-md-4">
@@ -299,7 +297,7 @@ const SignUp = () => {
                         <Modal.Footer>
                           <Button
                             variant="secondary"
-                            onClick={() => navigate("/home")}
+                            onClick={() => navigate("/")}
                           >
                             Close
                           </Button>
