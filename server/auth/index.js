@@ -106,7 +106,7 @@ router.post("/signup", async (req, res, next) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(info);
+        console.log("");
       }
     });
 
@@ -233,7 +233,7 @@ router.post("/forgotPassword", async function (req, res, next) {
     if (err) {
       console.log(err);
     } else {
-      console.log(info);
+      console.log("h");
     }
   });
 

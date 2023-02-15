@@ -172,7 +172,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
           plain: true,
         }
       );
-      console.log("FAVORITED row", favorited);
+
       res.json(favorited);
     } else {
       // ROW EXISTED ALREADY
@@ -192,7 +192,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
             plain: true,
           }
         );
-        console.log("Removed Favorited", removeFavorite);
+       
         res.json(removeFavorite);
       } else if (row.favorite === false && row.userInput) {
         //Can have existed before due to having user input and not favorited
@@ -209,7 +209,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
             plain: true,
           }
         );
-        console.log("FAVORITED row", favorited);
+
         res.json(favorited);
       } else if (row.favorite === true && row.userInput === null) {
         //Can have existed before due to having no user input and favorited
@@ -231,7 +231,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
 router.post("/:userId", getToken, async (req, res, next) => {
   const uId = req.params.userId;
   const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
-  console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered, category, level, userExpertise);
+
 
   try {
     //If right or wrong answer will be calculated on the frontend
@@ -259,7 +259,7 @@ router.post("/:userId", getToken, async (req, res, next) => {
         plain: true,
       }
     );
-    console.log("USER RESPONSE ROW", userInputEntry);
+
     res.json(userInputEntry);
   } catch (err) {
     next(err);
