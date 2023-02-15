@@ -111,6 +111,7 @@ const SingleQAadmin = () => {
                           textAlign: "center",
                         }}
                       >
+                        Question {qaVersions[0].displayId}:{" "}
                         {eachVersion.question}
                       </Card.Header>
                       <Card.Header
@@ -434,6 +435,7 @@ const SingleQAadmin = () => {
                               textAlign: "center",
                             }}
                           >
+                            Question {newestVersion.displayId}:{" "}
                             {newestVersion.question}
                           </Card.Header>
                           <Card.Header
@@ -755,6 +757,7 @@ const SingleQAadmin = () => {
                               textAlign: "center",
                             }}
                           >
+                            Question {eachVersion.displayId}:{" "}
                             {eachVersion.question}
                           </Card.Header>
                           <Card.Header
