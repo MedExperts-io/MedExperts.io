@@ -354,7 +354,7 @@ const Dashboard = ( ) => {
       <div className="mx-auto">
         {!isAdmin ? (
           <Stack>
-            <div className="welcome">Welcome, {firstName.charAt(0).toUpperCase() + firstName.slice(1)}!</div>
+            <div className="welcome">Welcome, {firstName ? firstName.charAt(0).toUpperCase() + firstName.slice(1): 'User'}!</div>
             {/* top row answered amount out of total */}
             <Stack>
             <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
