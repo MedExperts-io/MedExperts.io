@@ -34,38 +34,17 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-//<-------------original post route-------------->
-// router.post("/signup", async (req, res, next) => {
-//   try {
-//     //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-//     const { firstName, lastName, email, password, expertise, school } =
-//       req.body;
-//     const user = await User.create({
-//       firstName,
-//       lastName,
-//       email,
-//       password,
-//       expertise,
-//       school,
-//     });
-//     res.send({ token: await user.generateToken() });
-//   } catch (err) {
-//     if (err.name === "SequelizeUniqueConstraintError") {
-//       res.status(401).send("User already exists");
-//     } else {
-//       next(err);
-//     }
-//   }
-// });
-
 router.post("/signup", async (req, res, next) => {
   try {
-    const { firstName, lastName, email, password, expertise, school } = req.body;
+    const { firstName, lastName, email, password, expertise, school } =
+      req.body;
 
     let tempId = uuidv4();
     let verificationToken = crypto.randomBytes(32).toString("hex");
-    let fpSalt = await bcrypt.hash(verificationToken, Number(verificationToken));
-    // let expireDate = Date.now() + 86400000; // link will expire after 24 hrs
+    let fpSalt = await bcrypt.hash(
+      verificationToken,
+      Number(verificationToken)
+    );
 
     const user = await User.create({
       tempId: tempId,
@@ -79,8 +58,10 @@ router.post("/signup", async (req, res, next) => {
       school,
     });
 
-    //message compilation
-    let source = fs.readFileSync(path.join(__dirname, "/verifyAcctTemplate.hbs"), "utf8");
+    let source = fs.readFileSync(
+      path.join(__dirname, "/verifyAcctTemplate.hbs"),
+      "utf8"
+    );
     let compiledTemplate = handlebars.compile(source);
     let htmlToSend = compiledTemplate({
       token: encodeURIComponent(fpSalt),
@@ -99,7 +80,7 @@ router.post("/signup", async (req, res, next) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(info);
+        console.log("done");
       }
     });
 
@@ -227,7 +208,7 @@ router.post("/forgotPassword", async function (req, res, next) {
     if (err) {
       console.log(err);
     } else {
-      console.log(info);
+      console.log("done");
     }
   });
 

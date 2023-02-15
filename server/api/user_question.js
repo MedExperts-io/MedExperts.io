@@ -98,7 +98,6 @@ router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-
 // --- For logged in student user's dashboard analytics
 router.get("/:userId", getToken, async (req, res, next) => {
   try {
@@ -116,15 +115,38 @@ router.get("/:userId", getToken, async (req, res, next) => {
 // Finds all questions answered by users of a specific expertise.
 router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
   try {
-    let questionsByExpertise = { Student: [], Resident: [], Fellow: [], "Physician Assistant": [], Nurse: [], "Nurse Practitioner": [], Pharmacist: [], Other: [] };
-    const expertises = ["Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
+    let questionsByExpertise = {
+      Student: [],
+      Resident: [],
+      Fellow: [],
+      "Physician Assistant": [],
+      Nurse: [],
+      "Nurse Practitioner": [],
+      Pharmacist: [],
+      Other: [],
+    };
+    const expertises = [
+      "Student",
+      "Resident",
+      "Fellow",
+      "Physician Assistant",
+      "Nurse",
+      "Nurse Practitioner",
+      "Pharmacist",
+      "Internal Med",
+      "Other",
+    ];
 
     for (let i = 0; i < expertises.length; i++) {
       const allUserQs = await User_Question.findAll({
         where: { userExpertise: expertises[i] },
       });
-      const unique = [...new Map(allUserQs.map((m) => [m.questionAnswerId, m])).values()];
-      const uniqueQuestionIds = unique.map((question) => question.questionAnswerId);
+      const unique = [
+        ...new Map(allUserQs.map((m) => [m.questionAnswerId, m])).values(),
+      ];
+      const uniqueQuestionIds = unique.map(
+        (question) => question.questionAnswerId
+      );
       const questionByExpertise = await Question_Answer.findAll({
         where: {
           id: {
@@ -172,7 +194,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
           plain: true,
         }
       );
-      console.log("FAVORITED row", favorited);
+
       res.json(favorited);
     } else {
       // ROW EXISTED ALREADY
@@ -192,7 +214,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
             plain: true,
           }
         );
-        console.log("Removed Favorited", removeFavorite);
+
         res.json(removeFavorite);
       } else if (row.favorite === false && row.userInput) {
         //Can have existed before due to having user input and not favorited
@@ -209,7 +231,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
             plain: true,
           }
         );
-        console.log("FAVORITED row", favorited);
+
         res.json(favorited);
       } else if (row.favorite === true && row.userInput === null) {
         //Can have existed before due to having no user input and favorited
@@ -230,8 +252,14 @@ router.put("/:userId", getToken, async (req, res, next) => {
 // POST -- api/user_questions/:userId
 router.post("/:userId", getToken, async (req, res, next) => {
   const uId = req.params.userId;
-  const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
-  console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered, category, level, userExpertise);
+  const {
+    questionAnswerId,
+    userInput,
+    answered,
+    category,
+    level,
+    userExpertise,
+  } = req.body;
 
   try {
     //If right or wrong answer will be calculated on the frontend
@@ -259,7 +287,7 @@ router.post("/:userId", getToken, async (req, res, next) => {
         plain: true,
       }
     );
-    console.log("USER RESPONSE ROW", userInputEntry);
+
     res.json(userInputEntry);
   } catch (err) {
     next(err);

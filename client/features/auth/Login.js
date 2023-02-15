@@ -18,7 +18,6 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { error } = useSelector((state) => state.auth);
-  console.log(error, "ERR");
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePassword = (evt) => {
@@ -34,7 +33,7 @@ const Login = () => {
 
     dispatch(authenticate({ email, password, method: formName }));
 
-    navigate("/dashboard")
+    navigate("/dashboard");
     if (!{ error }) navigate("/");
   };
 

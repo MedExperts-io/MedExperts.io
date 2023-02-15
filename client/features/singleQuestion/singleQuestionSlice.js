@@ -76,7 +76,7 @@ export const deleteSingleQuestion = createAsyncThunk(
         authorization: token,
       },
     });
-    console.log("Delete Thunk ", data);
+
     return data;
   }
 );

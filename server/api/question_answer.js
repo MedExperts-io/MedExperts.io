@@ -71,7 +71,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
             },
             include: User_Question,
           });
-          console.log("ALL VERSIONS", allVersions);
+
           res.json(allVersions);
         }
       } //Condition 2B - IF STUDENT
@@ -112,10 +112,10 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
 router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
   //NEED TO ADD CODE FOR IMAGE UPLOAD
-  console.log("REQ BODY FROM EDITQA", req.body);
+
   try {
     const newQA = await Question_Answer.create(req.body);
-    console.log("Edited NEW QA CREATED", newQA);
+
     await Question_Answer.update(
       { status: "Inactive" },
       {
@@ -136,7 +136,7 @@ router.post("/", getToken, isAdmin, async (req, res, next) => {
   //NEED TO ADD CODE FOR IMAGE UPLOAD
   try {
     const newQA = await Question_Answer.create(req.body);
-    console.log("Completely NEW QA CREATED", newQA);
+
     res.json(newQA);
   } catch (err) {
     next(err);
@@ -157,7 +157,7 @@ router.delete(
       //2a. If any child is being deleted
       if (singleQuestion.ancestorId !== null) {
         //3. Grab all versions of this child version
-        console.log("qaID", qaId, "I am a child");
+
         const allVersions = await Question_Answer.findAll({
           order: [["createdAt", "ASC"]],
           where: {
@@ -170,18 +170,15 @@ router.delete(
         });
         //4. If deleting the latest child
         if (allVersions[allVersions.length - 1].id === qaId) {
-          console.log("qaID", qaId, "I am the latest child");
           //5. Update only second to latest sibling
           await allVersions[allVersions.length - 2].update({
             status: "Active",
             //displayId: singleQuestion.ancestorId, // Extra step in case of edge cases
           });
-          console.log("UPDATING 2TOLAST STATUS TO ACTIVE", allVersions);
         }
       }
       //2b. If root ancestor is being deleted
       else {
-        console.log("qaID", qaId, "I am root");
         const allVersions = await Question_Answer.findAll({
           order: [["createdAt", "ASC"]],
           where: {
@@ -193,7 +190,6 @@ router.delete(
         });
         //3. If multiple versions exist as in if it has children
         if (allVersions.length > 1) {
-          console.log("qaID", qaId, "I have children");
           //4. Update children
           //(SEE IF DISPLAYID NEEDS TO BE UPDATED ALSO. Note: Practically, we might see instances that have display id which is the id of an instance that no longer exists. Which means that this instance is a newer version of something old that got deleted. Based on the following update, ancestorId could exist. The displayId shows the fact that this instance had an ancestor before and is thus displayed on allQA page according to that ancestor's placement. Remember: DisplayId is set anytime a new version of a question is created so no need to update displayId of children in this update process.)
           await Promise.all(
@@ -203,7 +199,6 @@ router.delete(
               }
             })
           );
-          console.log("UPDATING CHILDREN (NOT OLDEST CHILD)", allVersions);
         }
       }
 
