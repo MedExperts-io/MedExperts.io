@@ -432,19 +432,9 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarEasy}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UsereasyQuestionsTotal.length /
-                          EasyQuestionsTotal.length) *
-                          100
-                      )}
-                      %
-                    </div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "lightgreen", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
                     Easy Level
                   </Card.Title>
                 </Card>
@@ -454,19 +444,9 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarModerate}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UserModerateQuestionsTotal.length /
-                          ModerateQuestionsTotal.length) *
-                          100
-                      )}
-                      %
-                    </div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "#f5ad27", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
                     <center>Moderate Level</center>
                   </Card.Title>
                 </Card>
@@ -476,19 +456,9 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarHard}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UserHardQuestionsTotal.length /
-                          HardQuestionsTotal.length) *
-                          100
-                      )}
-                      %
-                    </div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "#f55b49", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
                     Hard Level
                   </Card.Title>
                 </Card>
@@ -498,19 +468,9 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarAll}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UserAllQuestionsTotal.length /
-                          AllUserQuestions.length) *
-                          100
-                      )}
-                      %
-                    </div>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "#bf5eff", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
                     All Levels
                   </Card.Title>
                 </Card>
