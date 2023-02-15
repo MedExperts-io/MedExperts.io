@@ -93,7 +93,7 @@ const SignUp = () => {
   return (
     <Container>
       <Row className="p-5 d-flex justify-content-center align-items-center">
-        <Col md={8} lg={10} s={10} xs={12}>
+        <Col md={12} lg={10} s={12} xs={12}>
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
