@@ -27,7 +27,11 @@ const SiteNavbar = () => {
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img src="/MedExpert.svg" height="40" alt="Med Expert Logo" />
+                <img
+                  src="/MedExpert.svg"
+                  style={{ height: "50px" }}
+                  alt="Med Expert Logo"
+                />
               </Navbar.Brand>
             </Link>
 
@@ -82,19 +86,18 @@ const SiteNavbar = () => {
                     className="buttonIcon"
                     style={{
                       paddingTop: "0",
-                      paddingBottom: "0",
                       marginTop: "0",
                       marginBottom: "0",
                     }}
                     title={
                       <AccountCircleRoundedIcon
+                        className="mx-auto"
                         style={{
                           color: "#FF6262",
                           height: "30",
                           width: "30",
                           paddingRight: "7px",
-                          paddingTop: "0",
-                          paddingBottom: "0",
+                          paddingTop: "0px",
                           marginTop: "0",
                           marginBottom: "0",
                         }}
@@ -122,11 +125,16 @@ const SiteNavbar = () => {
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img src="/MedExpert.svg" height="40" alt="Med Expert Logo" />
+                <img
+                  src="/MedExpert.svg"
+                  style={{ height: "50px" }}
+                  alt="Med Expert Logo"
+                />
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
+              style={{ hover: "none" }}
               id="responsive-navbar-nav"
               className="justify-content-end"
             >
@@ -145,7 +153,6 @@ const SiteNavbar = () => {
                     className="buttonIcon"
                     style={{
                       paddingTop: "0",
-                      paddingBottom: "0",
                       marginTop: "0",
                       marginBottom: "0",
                     }}
@@ -155,9 +162,8 @@ const SiteNavbar = () => {
                           color: "#FF6262",
                           height: "30",
                           width: "30",
-                          paddingRight: "5px",
-                          paddingTop: "0",
-                          paddingBottom: "0",
+                          paddingRight: "7px",
+                          paddingTop: "0px",
                           marginTop: "0",
                           marginBottom: "0",
                         }}
