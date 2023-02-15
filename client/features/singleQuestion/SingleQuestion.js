@@ -309,6 +309,59 @@ const SingleQuestion = () => {
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>View Explanation</Accordion.Header>
                         <Accordion.Body>{explanation}</Accordion.Body>
+                        <Accordion.Body
+                        className="mx-auto"
+                        style={{ paddingBottom: "0px", marginBottom: "0px" }}
+                      >
+                        <Row className="mx-auto">
+                          <Stack
+                            style={{
+                              paddingTop: "10px",
+                              paddingLeft: "0px",
+                              paddingRight: "0px",
+                            }}
+                            direction="horizontal"
+                          >
+                            {explanationImage
+                              ? explanationImage.map((image, index) => (
+                                  <Table
+                                    responsive="sm"
+                                    size="sm"
+                                    key={uuidv4()}
+                                    borderless
+                                    style={{ paddingBottom: "0px" }}
+                                  >
+                                    <thead>
+                                      <tr>
+                                        <th style={{ padding: "0px" }}>
+                                          {" "}
+                                          <img
+                                            src={image}
+                                            style={{
+                                              paddingLeft: "10px",
+                                              maxHeight: `12rem`,
+                                              maxInlineSize: "100%",
+                                            }}
+                                          />
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td
+                                          className="text-muted text-center"
+                                          style={{ fontSize: "10px" }}
+                                        >
+                                          Figure:{index + 1}
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </Table>
+                                ))
+                              : null}
+                          </Stack>
+                        </Row>
+                          </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
                         <Accordion.Header>View References</Accordion.Header>
