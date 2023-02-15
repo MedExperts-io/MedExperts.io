@@ -137,6 +137,7 @@ const SiteNavbar = () => {
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse
+              style={{ hover: "none" }}
               id="responsive-navbar-nav"
               className="justify-content-end"
             >

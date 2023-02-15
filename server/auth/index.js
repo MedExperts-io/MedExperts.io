@@ -137,11 +137,10 @@ router.put("/profile", getToken, async (req, res, next) => {
     const user = await User.findByPk(userId);
 
     //Security2: Protecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-    const { firstName, lastName, email, expertise } = req.body;
+    const { firstName, lastName, expertise } = req.body;
     const editUserDetails = await user.update({
       firstName,
       lastName,
-      email,
       expertise,
     });
 

@@ -21,7 +21,6 @@ const Profile = () => {
   );
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
-  const [userEmail, setUserEmail] = useState(email);
   const [userExpertise, setUserExpertise] = useState(expertise);
   // modal details
   const [show, setShow] = useState(false);
@@ -43,7 +42,6 @@ const Profile = () => {
         id,
         firstName: userFirstName,
         lastName: userLastName,
-        email: userEmail,
         expertise: userExpertise,
       })
     );
@@ -54,13 +52,13 @@ const Profile = () => {
     <Container>
       <Row className="p-5">
         <Card
-          id="form-border"
-          className="p-5 mx-auto"
+          // id="form-border"
+          className="mx-auto"
           style={{ maxWidth: "800px", padding: "0px" }}
         >
           <Card.Header
             className="text-center"
-            style={{ fontWeight: "bold", fontSize: "150%" }}
+            style={{ fontWeight: "bold", fontSize: "150%", padding: "0px" }}
           >
             Edit My Profile
           </Card.Header>
@@ -149,22 +147,23 @@ const Profile = () => {
                     </Form.Label>
                     <Form.Control
                       type="email"
-                      aria-describedby="emailBlock"
-                      onClick={clearText}
-                      defaultValue={userEmail}
-                      onChange={(e) => {
-                        setUserEmail(e.target.value);
-                      }}
-                      onFocus={(e) =>
-                        (e.target.placeholder = "Enter Your Email")
-                      }
-                      onBlur={(e) => (e.target.placeholder = userEmail)}
+                      disabled
+                      readOnly
+                      aria-describedby="disabled input for email address"
+                      // onClick={clearText}
+                      placeholder={email}
+                      // onChange={(e) => {
+                      //   setUserEmail(e.target.value);
+                      // }}
+                      // onFocus={(e) =>
+                      //   (e.target.placeholder = "Enter Your Email")
+                      // }
+                      // onBlur={(e) => (e.target.placeholder = userEmail)}
                     ></Form.Control>
                   </Form.Group>
                 </Row>
                 <center>
                   <Button
-                    // id="form-submit-btn"
                     type="submit"
                     variant="secondary"
                     onClick={handleShow}
@@ -181,7 +180,7 @@ const Profile = () => {
                     </Button>
                     <Button
                       variant="secondary"
-                      onClick={() => navigate("/home")}
+                      onClick={() => navigate("/dashboard")}
                     >
                       Dashboard
                     </Button>

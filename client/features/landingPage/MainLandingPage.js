@@ -59,6 +59,7 @@ const MainLandingPage = () => {
                 as={Link}
                 to={isLoggedIn ? "/questions" : "/login"}
                 className="m-2"
+                id="hoverEffect"
                 style={{
                   backgroundcolor: "#0077cc",
                   color: "#fff",
