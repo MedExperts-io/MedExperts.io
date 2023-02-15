@@ -12,7 +12,7 @@ const store = configureStore({
     SingleQuestion: SingleQuestionSliceReducer,
     userQuestions: allUser_QuestionsSliceReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
