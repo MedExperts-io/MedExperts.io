@@ -21,11 +21,7 @@ const VerifyEmail = () => {
   return (
     <Container>
       <Row className="p-5">
-        <Card
-          id="no-border"
-          className="p-5 mx-auto"
-          style={{ maxWidth: "800px" }}
-        >
+        <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
           {error ? (
             <>
               <h3>Uh oh, there was an error with your request! </h3>
