@@ -8,7 +8,7 @@ module.exports = router;
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
 // -----For admin's dashboard analytics (aggregate)
-router.get("/", async (req, res, next) => {
+router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll();
     res.json(allUserQs);
@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/frequency", async (req, res, next) => {
+router.get("/frequency", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
       attributes: ["questionAnswerId"],
@@ -58,7 +58,7 @@ router.get("/frequency", async (req, res, next) => {
   }
 });
 
-router.get("/percent_correct", async (req, res, next) => {
+router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
       attributes: ["questionAnswerId", "answered"],
@@ -98,13 +98,6 @@ router.get("/percent_correct", async (req, res, next) => {
   }
 });
 
-router.get("/sort_by_right", async (req, res, next) => {
-  try {
-    res.json(questionsAndFrequency);
-  } catch (err) {
-    next(err);
-  }
-});
 
 // --- For logged in student user's dashboard analytics
 router.get("/:userId", getToken, async (req, res, next) => {
@@ -121,7 +114,7 @@ router.get("/:userId", getToken, async (req, res, next) => {
 
 // --- For logged in Admin's dashboard analytics.
 // Finds all questions answered by users of a specific expertise.
-router.get("/expertise/all", async (req, res, next) => {
+router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
   try {
     let questionsByExpertise = { Student: [], Resident: [], Fellow: [], "Physician Assistant": [], Nurse: [], "Nurse Practitioner": [], Pharmacist: [], Other: [] };
     const expertises = ["Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
@@ -152,7 +145,7 @@ router.get("/expertise/all", async (req, res, next) => {
 // When user submits response, then make axios.post call
 
 // PUT -- api/user_questions/:userId
-router.put("/:userId", async (req, res, next) => {
+router.put("/:userId", getToken, async (req, res, next) => {
   const uId = req.params.userId;
   const qaId = req.body.questionAnswerId;
 
@@ -235,7 +228,7 @@ router.put("/:userId", async (req, res, next) => {
 });
 
 // POST -- api/user_questions/:userId
-router.post("/:userId", async (req, res, next) => {
+router.post("/:userId", getToken, async (req, res, next) => {
   const uId = req.params.userId;
   const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
   console.log("REQ BODY ITEMS", questionAnswerId, userInput, answered, category, level, userExpertise);
