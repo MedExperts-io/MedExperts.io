@@ -27,11 +27,7 @@ const SiteNavbar = () => {
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img
-                  src="/NewMedExperts.png"
-                  height="40"
-                  alt="Med Expert Logo"
-                />
+                <img src="/MedExpert.svg" height="40" alt="Med Expert Logo" />
               </Navbar.Brand>
             </Link>
 
@@ -70,7 +66,7 @@ const SiteNavbar = () => {
                   Questions
                 </Button>
               </Nav>
-              
+
               <Nav>
                 <Button
                   className="m-2"
@@ -126,11 +122,7 @@ const SiteNavbar = () => {
           <>
             <Link to="/">
               <Navbar.Brand>
-                <img
-                  src="/NewMedExperts.png"
-                  height="40"
-                  alt="Med Expert Logo"
-                />
+                <img src="/MedExpert.svg" height="40" alt="Med Expert Logo" />
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
