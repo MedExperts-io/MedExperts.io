@@ -48,8 +48,8 @@ const SiteNavbar = () => {
                   className="m-2"
                   style={{
                     color: "#FF6262",
-                    paddingBottom: "5px",
-                    height: "40px",
+                    paddingTop: "10px",
+                    height: "48px",
                   }}
                 >
                   Dashboard
@@ -63,8 +63,8 @@ const SiteNavbar = () => {
                   className="m-2"
                   style={{
                     color: "#FF6262",
-                    paddingBottom: "5px",
-                    height: "40px",
+                    paddingTop: "10px",
+                    height: "48px",
                   }}
                 >
                   Questions
@@ -76,7 +76,6 @@ const SiteNavbar = () => {
                   className="m-2"
                   variant="light"
                   style={{
-                    height: "40px",
                     paddingTop: "0",
                     paddingBottom: "0",
                     marginTop: "0",
@@ -87,7 +86,6 @@ const SiteNavbar = () => {
                     className="buttonIcon"
                     style={{
                       paddingTop: "0",
-                      paddingBottom: "10px",
                       marginTop: "0",
                       marginBottom: "0",
                     }}
@@ -100,7 +98,6 @@ const SiteNavbar = () => {
                           width: "30",
                           paddingRight: "7px",
                           paddingTop: "0px",
-                          paddingBottom: "10px",
                           marginTop: "0",
                           marginBottom: "0",
                         }}
@@ -146,7 +143,6 @@ const SiteNavbar = () => {
                   className="m-2"
                   variant="light"
                   style={{
-                    height: "40px",
                     paddingTop: "0",
                     paddingBottom: "0",
                     marginTop: "0",
@@ -157,7 +153,6 @@ const SiteNavbar = () => {
                     className="buttonIcon"
                     style={{
                       paddingTop: "0",
-                      paddingBottom: "10px",
                       marginTop: "0",
                       marginBottom: "0",
                     }}
@@ -169,7 +164,6 @@ const SiteNavbar = () => {
                           width: "30",
                           paddingRight: "7px",
                           paddingTop: "0px",
-                          paddingBottom: "8px",
                           marginTop: "0",
                           marginBottom: "0",
                         }}
