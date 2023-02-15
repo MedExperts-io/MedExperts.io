@@ -19,11 +19,7 @@ const RequestNewPassword = () => {
   return (
     <Container>
       <Row className="p-5">
-        <Card
-          id="no-border"
-          className="p-5 mx-auto"
-          style={{ maxWidth: "800px" }}
-        >
+        <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
           <Form onSubmit={handleSubmit}>
             <h1>Reset Password</h1>
             <p>
