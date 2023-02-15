@@ -450,9 +450,9 @@ const SingleQuestion = () => {
       border-color: #FF7276;
     }
     .btn-outline-success{
-   
+
       border-color:#7cb69d;
-   
+
     }
 
     `}
