@@ -643,6 +643,52 @@ const SingleQAadmin = () => {
                                 </Accordion.Header>
                                 <Accordion.Body>
                                   {newestVersion.explanation}
+                                  <Stack
+                                    direction="horizontal"
+                                    style={{ paddingTop: "10px" }}
+                                  >
+                                    {newestVersion.explanationImage
+                                      ? newestVersion.explanationImage.map(
+                                          (image, index) => (
+                                            <Table
+                                              responsive="sm"
+                                              size="sm"
+                                              key={uuidv4()}
+                                              borderless
+                                              style={{ paddingBottom: "0px" }}
+                                            >
+                                              <thead>
+                                                <tr>
+                                                  <th
+                                                    style={{ padding: "0px" }}
+                                                  >
+                                                    {" "}
+                                                    <img
+                                                      src={image}
+                                                      style={{
+                                                        paddingLeft: "10px",
+                                                        maxHeight: `12rem`,
+                                                        maxInlineSize: "100%",
+                                                      }}
+                                                    />
+                                                  </th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td
+                                                    className="text-muted text-center"
+                                                    style={{ fontSize: "10px" }}
+                                                  >
+                                                    Figure:{index + 1}
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </Table>
+                                          )
+                                        )
+                                      : null}
+                                  </Stack>
                                 </Accordion.Body>
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
@@ -902,6 +948,52 @@ const SingleQAadmin = () => {
                                 </Accordion.Header>
                                 <Accordion.Body>
                                   {eachVersion.explanation}
+                                  <Stack
+                                    direction="horizontal"
+                                    style={{ paddingTop: "10px" }}
+                                  >
+                                    {eachVersion.explanationImage
+                                      ? eachVersion.explanationImage.map(
+                                          (image, index) => (
+                                            <Table
+                                              responsive="sm"
+                                              size="sm"
+                                              key={uuidv4()}
+                                              borderless
+                                              style={{ paddingBottom: "0px" }}
+                                            >
+                                              <thead>
+                                                <tr>
+                                                  <th
+                                                    style={{ padding: "0px" }}
+                                                  >
+                                                    {" "}
+                                                    <img
+                                                      src={image}
+                                                      style={{
+                                                        paddingLeft: "10px",
+                                                        maxHeight: `12rem`,
+                                                        maxInlineSize: "100%",
+                                                      }}
+                                                    />
+                                                  </th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td
+                                                    className="text-muted text-center"
+                                                    style={{ fontSize: "10px" }}
+                                                  >
+                                                    Figure:{index + 1}
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </Table>
+                                          )
+                                        )
+                                      : null}
+                                  </Stack>
                                 </Accordion.Body>
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
