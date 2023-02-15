@@ -1,10 +1,9 @@
 "use strict";
-
 const {
   db,
   models: { User, Question_Answer, User_Question },
 } = require("../server/db");
-
+require('dotenv').config();
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -13,11 +12,12 @@ async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
 
+
   // Creating Users
   const users = await Promise.all([
     User.create({
-      password: "123",
-      email: "cody@lol.com",
+      password: process.env.USER_P,
+      email: process.env.USER_U,
       status: true,
       isAdmin: false,
       firstName: "cody",
@@ -26,9 +26,9 @@ async function seed() {
       expertise: "Student",
     }),
     User.create({
-      password: "TeAmT3Ch4eVa!!",
+      password: process.env.ADMIN_P,
       status: true,
-      email: "admin@medexperts.io",
+      email: process.env.ADMIN_U,
       isAdmin: true,
       firstName: "Admin",
       lastName: "Admin",
