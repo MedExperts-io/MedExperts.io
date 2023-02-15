@@ -161,7 +161,7 @@ const EditQA = () => {
     );
   };
 
-  const clearText = (evt, text) => {
+  const fillField = (evt, text) => {
     evt.target.value = text;
   };
 
@@ -324,7 +324,7 @@ const EditQA = () => {
                           <InputGroup className="mb-3" key={uuidv4()}>
                             <Form.Control
                               type="text"
-                              onClick={(evt) => clearText(evt, option)}
+                              onClick={(evt) => fillField(evt, option)}
                               defaultValue={option}
                               onChange={(e) => {
                                 option = e.target.value;
