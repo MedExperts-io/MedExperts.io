@@ -1,44 +1,26 @@
 # MEDEXPERTS.IO
 
-## Setup
+README for MexExperts
 
-To use this as boilerplate, you'll need to take the following steps:
+MexExperts is a question and answer portal designed for medical professionals in the field of pulmonary medicine. It provides a vast collection of questions on various difficulty levels and sub-categories to help users enhance their knowledge and skills.
 
-- Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+Features:
 
-- Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+Browse questions based on difficulty levels - easy, medium, and hard.
+Filter questions by 15+ subcategories to focus on specific areas of study.
+Personalized dashboard to monitor your progress and track your learning.
+Suitable for medical students, PA, Nurse, nurse practitioners, residents, fellows, and board-certified physicians.
+Responsive design for a seamless experience on all devices.
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template-v2.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
 
-## Customize
+Browse through the available questions based on difficulty levels and subcategories.
+Select a question to view its details and attempt the question.
+Keep track of your progress using the personalized dashboard.
+Contributing:
+We welcome contributions from the community. Please submit a pull request if you would like to contribute to MexExperts.
 
-Now that you've got the code, follow these steps to get acclimated:
+Bug Reports:
+If you encounter a bug, please submit an issue on our GitHub repository.
 
-- Update project name and description in `package.json`
-- `npm install`
-- Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-- These commands will create both your **development** and **test** databases
 
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
 
-- By default, running `npm test` will use your test database, while
-  regular development uses development database
-
-## Start
-
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
-
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
