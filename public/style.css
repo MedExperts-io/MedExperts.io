@@ -1,23 +1,18 @@
 body {
   font-family: sans-serif;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background-image: url("newBG8T.png");
+  padding-bottom: 20px;
   /* height:calc(100vh - (56px)) */
 }
-
-/* #with-bg {
-  background-image: url("newBG8T.png")
-} */
 
 #no-border {
   border: none;
 }
 
-#form-border {
-  /* border-color: black; */
-}
-#question-submit-btn {
-  /* background-color: aqua; */
-}
 a[href="/questions"] {
   color: black;
   text-decoration-line: none;
@@ -26,10 +21,6 @@ a[href="/questions"] {
 #form-submit-btn {
   background-color: #ff6262;
   border-color: #ff6262;
-}
-
-#btn-muted {
-  background-color: rgba;
 }
 
 .questionCard {
@@ -213,4 +204,20 @@ img {
   text-align: center;
   font-size: 32px;
   margin-bottom: 50px;
+}
+
+/* #content {
+  flex-grow: 1;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+} */
+
+#footer {
+  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector, Navigate } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import QuestionsAnswers from "../features/allQA/AllQA";
-import LoginOrSignup from "../features/auth/LoginOrSignup";
+
 import Login from "../features/auth/Login";
 import SignUp from "../features/auth/Signup";
 // import Home from "../features/home/Home";
@@ -21,9 +21,6 @@ import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
 
-
-
-
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
@@ -37,9 +34,12 @@ const AppRoutes = () => {
       {loading && <LoadingScreen />}
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<NoExist  />} />
+          <Route path="/*" element={<NoExist />} />
           <Route path="/" element={<MainLandingPage />} />
-          <Route path="/dashboard" element={<Dashboard isLoggedIn={isLoggedIn}/>} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard isLoggedIn={isLoggedIn} />}
+          />
           <Route path="/questions" element={<QuestionsAnswers />} />
           <Route path="/addQuestion" element={<AddQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
