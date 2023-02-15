@@ -49,7 +49,6 @@ router.post("/signup", async (req, res, next) => {
     const user = await User.create({
       tempId: tempId,
       verificationToken: fpSalt,
-      // expiration: expireDate,
       firstName,
       lastName,
       email,
@@ -84,7 +83,6 @@ router.post("/signup", async (req, res, next) => {
       }
     });
 
-    // return res.json({ status: "ok" });
     return res.send({ token: await user.generateToken() });
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
@@ -153,13 +151,6 @@ router.put("/profile", getToken, async (req, res, next) => {
   }
 });
 
-/** POST route to request password reset
- * when a user requests a new password from the 'forgot password' link we:
- * 1) check if the email exists in our db
- * 2) if another reset token was generated, we delete it
- * 3) generate a new reset token
- * 4) store new token in our db **/
-
 router.post("/forgotPassword", async function (req, res, next) {
   const { email } = req.body;
 
@@ -215,7 +206,6 @@ router.post("/forgotPassword", async function (req, res, next) {
   return res.json({ status: "ok" });
 });
 
-// GET route to check if the token is expired or not.
 router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
   const token = req.query.token;
   const uid = req.query.uid;
@@ -252,7 +242,6 @@ router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
   return res.status(200).json("valid token");
 });
 
-// POST route to actually reset the password
 router.post("/resetPassword", async function (req, res, next) {
   const { password1, password2, token, uid } = req.body;
 

@@ -483,7 +483,6 @@ const QuestionsAnswers = () => {
                 {loading && <LoadingScreen />}
                 {currentItems && currentItems.length && currentItems !== "nada"
                   ? currentItems.map((question) => (
-                      // <Col key={question.id}>
                       <Card
                         className="questionCard"
                         key={question.id}
@@ -511,31 +510,32 @@ const QuestionsAnswers = () => {
                             to={`/questions/${question.id}`}
                           >
                             <Card.Title
-                              style={{ color: "black", textAlign: "center" }}
+                              style={{
+                                color: "black",
+                                textAlign: "center",
+                                fontSize: "20px",
+                              }}
                             >
                               Question Number {question.displayId}
                             </Card.Title>
                             <Card.Text
-                              style={{ color: "black", textAlign: "center" }}
+                              style={{
+                                color: "black",
+                                textAlign: "center",
+                                fontSize: "15px",
+                              }}
                             >
                               {truncate(question.question)}
                             </Card.Text>
                           </Link>
                         </Card.Body>
                         <Card.Footer>
-                          {/* <Chip
-                            label={question.level}
-                            onClick={() => pickDifficulty(question.level)}
-                            color="info"
-                            sx={{ spacing: 1 }}
-                          /> */}
                           <Chip
                             label={question.category}
                             onClick={() => pickCategory1(question.category)}
                             color="default"
                             variant="outlined"
                             size="small"
-                            // sx={{ p: 0.5 }}
                           />{" "}
                           <Card.Img
                             style={{ float: "right", width: "20px" }}
@@ -549,7 +549,6 @@ const QuestionsAnswers = () => {
                           />
                         </Card.Footer>
                       </Card>
-                      // </Col>
                     ))
                   : "Sorry, we didn't find anything matching that"}
               </Row>

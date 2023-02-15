@@ -28,8 +28,8 @@ const SiteNavbar = () => {
             <Link to="/">
               <Navbar.Brand>
                 <img
-                  src="/NewMedExperts.png"
-                  height="40"
+                  src="/MedExpert.svg"
+                  style={{ height: "50px" }}
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -48,8 +48,8 @@ const SiteNavbar = () => {
                   className="m-2"
                   style={{
                     color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
+                    paddingBottom: "5px",
+                    height: "40px",
                   }}
                 >
                   Dashboard
@@ -63,19 +63,20 @@ const SiteNavbar = () => {
                   className="m-2"
                   style={{
                     color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
+                    paddingBottom: "5px",
+                    height: "40px",
                   }}
                 >
                   Questions
                 </Button>
               </Nav>
-              
+
               <Nav>
                 <Button
                   className="m-2"
                   variant="light"
                   style={{
+                    height: "40px",
                     paddingTop: "0",
                     paddingBottom: "0",
                     marginTop: "0",
@@ -86,19 +87,20 @@ const SiteNavbar = () => {
                     className="buttonIcon"
                     style={{
                       paddingTop: "0",
-                      paddingBottom: "0",
+                      paddingBottom: "10px",
                       marginTop: "0",
                       marginBottom: "0",
                     }}
                     title={
                       <AccountCircleRoundedIcon
+                        className="mx-auto"
                         style={{
                           color: "#FF6262",
                           height: "30",
                           width: "30",
                           paddingRight: "7px",
-                          paddingTop: "0",
-                          paddingBottom: "0",
+                          paddingTop: "0px",
+                          paddingBottom: "10px",
                           marginTop: "0",
                           marginBottom: "0",
                         }}
@@ -127,8 +129,8 @@ const SiteNavbar = () => {
             <Link to="/">
               <Navbar.Brand>
                 <img
-                  src="/NewMedExperts.png"
-                  height="40"
+                  src="/MedExpert.svg"
+                  style={{ height: "50px" }}
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -143,6 +145,7 @@ const SiteNavbar = () => {
                   className="m-2"
                   variant="light"
                   style={{
+                    height: "40px",
                     paddingTop: "0",
                     paddingBottom: "0",
                     marginTop: "0",
@@ -153,7 +156,7 @@ const SiteNavbar = () => {
                     className="buttonIcon"
                     style={{
                       paddingTop: "0",
-                      paddingBottom: "0",
+                      paddingBottom: "10px",
                       marginTop: "0",
                       marginBottom: "0",
                     }}
@@ -163,9 +166,9 @@ const SiteNavbar = () => {
                           color: "#FF6262",
                           height: "30",
                           width: "30",
-                          paddingRight: "5px",
-                          paddingTop: "0",
-                          paddingBottom: "0",
+                          paddingRight: "7px",
+                          paddingTop: "0px",
+                          paddingBottom: "8px",
                           marginTop: "0",
                           marginBottom: "0",
                         }}
