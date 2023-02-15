@@ -20,6 +20,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ProgressBar } from "react-bootstrap";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../addQ/firebase";
+import NoExist from "../doesNotExist/NoExist";
 
 const EditQA = () => {
   const dispatch = useDispatch();
@@ -686,7 +687,7 @@ const EditQA = () => {
       </div>
     );
   } else {
-    return <div>404 page doesn't exist!</div>;
+    return <NoExist />;
   }
 };
 
