@@ -12,7 +12,7 @@ import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 const Dashboard = ( ) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
-  console.log('USERID', userId)
+  
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers()).then(()=> dispatch(fetchUserQuestions(userId)));
     ;

@@ -62,7 +62,7 @@ const ResetPassword = () => {
         {error ? (
           <>
             <center>
-              <p style={{ color: "red" }}>
+              <p style={{ color: "red", fontSize: "25px" }}>
                 Sorry, your reset password link has either expired or already
                 been used. You may request a new link below.
               </p>
@@ -72,7 +72,7 @@ const ResetPassword = () => {
         ) : (
           <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
-              <h1>Reset Password</h1>
+              <h3 style={{ fontSize: "25px" }}>Reset Password</h3>
               <p>Enter your new password below:</p>
               <Form.Group className="mb-3" controlId="resetPassword">
                 <Form.Label>New password</Form.Label>
