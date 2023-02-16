@@ -16,8 +16,8 @@ async function seed() {
   // Creating Users
   const users = await Promise.all([
     User.create({
-      password: "123",
-      email: "cody@lol.com",
+      password: process.env.USER_P,
+      email: process.env.USER_U,
       status: true,
       isAdmin: false,
       firstName: "cody",
@@ -26,9 +26,9 @@ async function seed() {
       expertise: "Student",
     }),
     User.create({
-      password: "TeAmT3Ch4eVa!!",
+      password: process.env.ADMIN_P,
       status: true,
-      email: "admin@medexperts.io",
+      email: process.env.ADMIN_U,
       isAdmin: true,
       firstName: "Admin",
       lastName: "Admin",
@@ -5860,7 +5860,6 @@ async function seed() {
     //   }),
   ]);
 
-
   console.log(
     `seeded ${users.length} users, and ${Question.length} question(s).`
   );
@@ -5921,11 +5920,11 @@ module.exports = seed;
 //   }),
 
 //Question#x
-  //   User_Question.create({
-  //     userId: 1,
-  //     questionAnswerId: 1,
-  //     userInput: "Obstructive Lung Disease",
-  //     answered: "wrong",
-  //     userExpertise: "Student",
-  //     category: "Pulmonary Function Testing",
-  //     level: "Moderate",
+//   User_Question.create({
+//     userId: 1,
+//     questionAnswerId: 1,
+//     userInput: "Obstructive Lung Disease",
+//     answered: "wrong",
+//     userExpertise: "Student",
+//     category: "Pulmonary Function Testing",
+//     level: "Moderate",

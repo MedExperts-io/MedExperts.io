@@ -68,7 +68,7 @@ p {
   margin-bottom: 30px;
 }
 
-button {
+button #hoverEffect {
   background-color: #0077cc;
   color: #fff;
   padding: 15px 30px;
@@ -81,7 +81,7 @@ button {
   align-self: center;
 }
 
-button:hover {
+button:hover #hoverEffect {
   background-color: #0066b3;
 }
 
@@ -180,15 +180,6 @@ img {
   font-size: 32px;
   margin-bottom: 50px;
 }
-
-/* #content {
-  flex-grow: 1;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-} */
 
 #footer {
   margin-top: 50px;
