@@ -23,6 +23,7 @@ const MainLandingPage = () => {
 
   return (
     <Grid>
+      {/* Two columns in a grid container. For top of landing page */}
       <Grid
         container
         sx={{
