@@ -96,7 +96,7 @@ export const updateUserQuestion = createAsyncThunk(
           },
         }
       );
-      console.log("THUNK", data);
+
       return data;
     } catch (error) {
       console.log(error);
@@ -129,7 +129,7 @@ export const updateUserQuestionInput = createAsyncThunk(
           authorization: window.localStorage.getItem("token"),
         },
       });
-      // console.log("THUNK", data);
+     
       return data;
     } catch (error) {
       console.log(error);
@@ -209,8 +209,7 @@ export const allUser_QuestionsSlice = createSlice({
         const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
         const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
 
-        console.log("SORTEDBYPERCENTCORRECT", sortedByPercentCorrect);
-        console.log("SORTEDBYPERCENTCORRECTREVERSE", sortedByPercentCorrectReverse);
+       
         state.mostCorrect = sortedByPercentCorrect;
         state.leastCorrect = sortedByPercentCorrectReverse;
       });

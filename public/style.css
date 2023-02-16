@@ -91,7 +91,7 @@ p {
   margin-bottom: 30px;
 }
 
-button {
+button #hoverEffect {
   background-color: #0077cc;
   color: #fff;
   padding: 15px 30px;
@@ -104,7 +104,7 @@ button {
   align-self: center;
 }
 
-button:hover {
+button:hover #hoverEffect {
   background-color: #0066b3;
 }
 
@@ -165,7 +165,6 @@ img {
   line-height: 1.5;
 }
 
-
 .testimonials-container {
   display: flex;
   flex-wrap: wrap;
@@ -179,7 +178,7 @@ img {
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 5px;
-  box-Shadow: 0px 0px 10px 0px rgba(200,200,200,0.75);
+  box-shadow: 0px 0px 10px 0px rgba(200, 200, 200, 0.75);
   text-align: center;
 }
 
@@ -199,21 +198,11 @@ img {
   font-size: 16px;
 }
 
-
 .testimonials-heading {
   text-align: center;
   font-size: 32px;
   margin-bottom: 50px;
 }
-
-/* #content {
-  flex-grow: 1;
-}
-
-#footer {
-  position: fixed;
-  bottom: 0;
-} */
 
 #footer {
   margin-top: 50px;
