@@ -33,8 +33,8 @@ const Login = () => {
 
     dispatch(authenticate({ email, password, method: formName }));
 
-    navigate("/dashboard")
-    if (!{ error }) navigate("/");
+    navigate("/dashboard");
+    if ({ error }) navigate("/login");
   };
 
   return (
@@ -103,7 +103,11 @@ const Login = () => {
                       <Button variant="secondary" type="submit">
                         Login
                       </Button>
-                      {error ? <p style={{ color: "red" }}>{error}</p> : null}
+                      {error ? (
+                        <p className="small" style={{ color: "red" }}>
+                          {error}
+                        </p>
+                      ) : null}
                     </div>
                   </Form>
                 </div>
