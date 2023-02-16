@@ -1,7 +1,7 @@
 {
   "name": "medexperts.io",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Question and answer portal for medical professionals",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -17,7 +17,7 @@
     "test:dev:models": "npm run test:dev -- --grep=model",
     "test:dev:routes": "npm run test:dev -- --grep=route"
   },
-  "author": "Fullstack Academy of Code",
+  "author": "Creators - Tasnim Mollah, Emmanuel Cruz, Cynthia Brito-Mena, Hamza Muhammad, (TeamTECH); Questions data from Fluence LLC.; Built on Boilerplate from Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.10.5",
