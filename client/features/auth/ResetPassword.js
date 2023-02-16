@@ -51,7 +51,7 @@ const ResetPassword = () => {
 
     if (validated) {
       dispatch(resetPassword({ password1, password2, token, uid })).then(() =>
-        navigate("/")
+        navigate("/login")
       );
     }
   };
