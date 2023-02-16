@@ -1,10 +1,9 @@
 "use strict";
-
 const {
   db,
   models: { User, Question_Answer, User_Question },
 } = require("../server/db");
-
+require("dotenv").config();
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
