@@ -222,28 +222,28 @@ const AllQAadmin = () => {
 
   const styles = {
     progressBarEasy: {
-      background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"),
+      background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length || 0, "lightgreen"),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
       position: "relative",
     },
     progressBarModerate: {
-      background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length, "#f5ad27"),
+      background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length || 0, "#f5ad27"),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
       position: "relative",
     },
     progressBarHard: {
-      background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length, "#f55b49"),
+      background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length || 0, "#f55b49"),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
       position: "relative",
     },
     progressBarAll: {
-      background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length, "#bf5eff"),
+      background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length || 0, "#bf5eff"),
       borderRadius: "50%",
       width: "120px",
       height: "120px",

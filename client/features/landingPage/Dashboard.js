@@ -116,50 +116,7 @@ const Dashboard = () => {
       fontSize: "150%",
     },
   };
-  const stylesPercentage = {
-    progressBarEasy: {
-      background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length, "lightgreen"),
-      borderRadius: "50%",
-      width: "120px",
-      height: "120px",
-      position: "relative",
-    },
-    progressBarModerate: {
-      background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length, "#f5ad27"),
-      borderRadius: "50%",
-      width: "120px",
-      height: "120px",
-      position: "relative",
-    },
-    progressBarHard: {
-      background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length, "#f55b49"),
-      borderRadius: "50%",
-      width: "120px",
-      height: "120px",
-      position: "relative",
-    },
-    progressBarAll: {
-      background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length, "#bf5eff"),
-      borderRadius: "50%",
-      width: "120px",
-      height: "120px",
-      position: "relative",
-    },
-    progressBarBackground: {
-      position: "absolute",
-      bottom: "30%",
-      width: "100%",
-      textAlign: "center",
-      fontSize: "60%",
-    },
-    progressBarMiddle: {
-      position: "absolute",
-      bottom: "40%",
-      width: "100%",
-      textAlign: "center",
-      fontSize: "150%",
-    },
-  };
+
   const stylesCategory = {
     progressAsthma: {
       background: progressCircleBackground(AsthmaUser.length / Asthma.length, "#f5ad27"),
@@ -362,9 +319,9 @@ const Dashboard = () => {
                     <Row>
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={stylesPercentage.progressBarEasy}>
-                            <div style={stylesPercentage.progressBarBackground}>Correct</div>
-                            <div style={stylesPercentage.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
+                          <div className="mx-auto" style={styles.progressBarEasy}>
+                            <div style={styles.progressBarBackground}>Correct</div>
+                            <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
                             Easy Level
@@ -374,9 +331,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={stylesPercentage.progressBarModerate}>
-                            <div style={stylesPercentage.progressBarBackground}>Correct</div>
-                            <div style={stylesPercentage.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
+                          <div className="mx-auto" style={styles.progressBarModerate}>
+                            <div style={styles.progressBarBackground}>Correct</div>
+                            <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
                             <center>Moderate Level</center>
@@ -386,9 +343,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={stylesPercentage.progressBarHard}>
-                            <div style={stylesPercentage.progressBarBackground}>Correct</div>
-                            <div style={stylesPercentage.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
+                          <div className="mx-auto" style={styles.progressBarHard}>
+                            <div style={styles.progressBarBackground}>Correct</div>
+                            <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
                             Hard Level
@@ -398,9 +355,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={stylesPercentage.progressBarAll}>
-                            <div style={stylesPercentage.progressBarBackground}>Correct</div>
-                            <div style={stylesPercentage.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
+                          <div className="mx-auto" style={styles.progressBarAll}>
+                            <div style={styles.progressBarBackground}>Correct</div>
+                            <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
                             All Levels

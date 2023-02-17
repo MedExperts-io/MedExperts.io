@@ -28,6 +28,7 @@ const MainLandingPage = () => {
         container
         sx={{
           marginBottom: "5%",
+          backgroundColor: "white",
         }}
       >
         <Grid
@@ -35,7 +36,9 @@ const MainLandingPage = () => {
           xs={6}
           direction="column"
           sx={{
-            margin: "20px",
+            marginLeft: "7%",
+            marginRight: "7%",
+            marginTop: "6%",
           }}
         >
           <div className="top-part">
