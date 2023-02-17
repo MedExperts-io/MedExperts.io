@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { Button, Container, Row, Card, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { verifyNewUserEmail } from "./authSlice";
+// import { verifyNewUserEmail } from "./authSlice";
 
 const VerifyEmail = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const VerifyEmail = () => {
   const tempId = searchParams.get("tempId");
 
   useEffect(() => {
-    dispatch(verifyNewUserEmail({ token, tempId }));
+    // dispatch(verifyNewUserEmail({ token, tempId }));
   }, []);
 
   return (
