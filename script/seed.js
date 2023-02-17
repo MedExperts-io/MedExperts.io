@@ -4897,6 +4897,7 @@ async function seed() {
   ]);
 
   console.log(`seeded ${users.length} users, and ${Question.length} question(s).`);
+
   console.log(`seeded successfully`);
   return {
     users: {

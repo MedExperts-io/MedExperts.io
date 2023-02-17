@@ -60,7 +60,7 @@ export const editQuestion = createAsyncThunk(
       },
       {
         headers: {
-          authorization: token,
+          authorization: window.localStorage.getItem("token"),
         },
       }
     );
@@ -73,10 +73,10 @@ export const deleteSingleQuestion = createAsyncThunk(
   async (singleQuestionId) => {
     const { data } = await axios.delete(`/api/questions/${singleQuestionId}`, {
       headers: {
-        authorization: token,
+        authorization: window.localStorage.getItem("token"),
       },
     });
-    console.log("Delete Thunk ", data);
+
     return data;
   }
 );

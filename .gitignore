@@ -6,5 +6,4 @@ npm-debug.log
 yarn-error.log
 package-lock.json
 .env
-script/seed.js
 client/features/addQ/firebase.js
