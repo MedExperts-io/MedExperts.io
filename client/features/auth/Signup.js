@@ -19,7 +19,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
-  const [validated, setValidated] = useState(false);
+  // const [validated, setValidated] = useState(false);
   const expertiseLevel = [
     "Student",
     "Resident",
@@ -88,6 +88,7 @@ const SignUp = () => {
         method: "signup",
       })
     );
+    // ).then(() => navigate("/login"));
   };
 
   return (
@@ -101,8 +102,8 @@ const SignUp = () => {
                 <div className="mb-3">
                   <Form
                     onSubmit={handleSubmit}
-                    noValidate
-                    validated={validated}
+                    // noValidate
+                    // validated={validated}
                     name="signup"
                   >
                     <Row className="mb-3">
@@ -290,6 +291,25 @@ const SignUp = () => {
                           </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
+                          Please login using the email and password you used to
+                          create your account.
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button
+                            variant="secondary"
+                            onClick={() => navigate("/login")}
+                          >
+                            Login
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
+                      {/* <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                          <Modal.Title>
+                            Thank you for creating a MedExperts account!
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
                           We sent an email to the address you signed up with.
                           Please follow the link in the email to verify your
                           account before signing in.
@@ -302,7 +322,7 @@ const SignUp = () => {
                             Close
                           </Button>
                         </Modal.Footer>
-                      </Modal>
+                      </Modal> */}
                     </div>
                   </Form>
                 </div>

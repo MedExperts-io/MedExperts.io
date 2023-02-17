@@ -62,15 +62,15 @@ export const authenticate = createAsyncThunk(
   }
 );
 
-export const verifyNewUserEmail = createAsyncThunk(
-  "auth/verifyNewUserEmail",
-  async ({ token, tempId }) => {
-    const { data } = await axios.get(
-      `/auth/verifyEmail/?token=${token}&tempId=${tempId}`
-    );
-    return data;
-  }
-);
+// export const verifyNewUserEmail = createAsyncThunk(
+//   "auth/verifyNewUserEmail",
+//   async ({ token, tempId }) => {
+//     const { data } = await axios.get(
+//       `/auth/verifyEmail/?token=${token}&tempId=${tempId}`
+//     );
+//     return data;
+//   }
+// );
 
 export const editProfile = createAsyncThunk(
   "auth/profile",
@@ -156,12 +156,12 @@ export const authSlice = createSlice({
       state.error = action.payload;
       // state.loading = false;
     });
-    builder.addCase(verifyNewUserEmail.fulfilled, (state, action) => {
-      state.me = action.payload;
-    });
-    builder.addCase(verifyNewUserEmail.rejected, (state, action) => {
-      state.error = action.error;
-    });
+    // builder.addCase(verifyNewUserEmail.fulfilled, (state, action) => {
+    //   state.me = action.payload;
+    // });
+    // builder.addCase(verifyNewUserEmail.rejected, (state, action) => {
+    //   state.error = action.error;
+    // });
     builder.addCase(editProfile.fulfilled, (state, action) => {
       state.me = action.payload;
     });
