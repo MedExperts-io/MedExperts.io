@@ -21,10 +21,11 @@ const RequestNewPassword = () => {
       <Row className="p-5">
         <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
           <Form onSubmit={handleSubmit}>
-            <h1>Reset Password</h1>
-            <p>
+            <h3 style={{ fontSize: "25px" }}>Reset Password</h3>
+            <p style={{ fontSize: "15px" }}>
               Please enter your email address. You will receive a link to create
-              a new password via email.
+              a new password via email. If you don't see an email, please be
+              sure to check your spam or junk folders.
             </p>
             <Form.Group className="mb-3" controlId="email">
               <Form.Control type="email" placeholder="Email Address" required />
