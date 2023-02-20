@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Card, Dropdown, Row, Col, Form, Container, Button } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
-import { token } from "morgan";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency, fetchPercentCorrect } from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency, fetchPercentCorrect, fetchActiveQAs } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import AddQuestion from "../addQ/AddQuestion";
-import { Chip, Stack, LinearProgress, SpeedDial, SpeedDialIcon } from "@mui/material";
+import { Chip, Stack, LinearProgress } from "@mui/material";
+import frequencySort from "./filterFunctions";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -67,7 +66,7 @@ const AllQAadmin = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const { mostAnswered, leastAnswered, mostCorrect, leastCorrect } = useSelector((state) => state.userQuestions);
+  const { mostAnswered, leastAnswered, mostCorrect, leastCorrect, activeUserQAs } = useSelector((state) => state.userQuestions);
   const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
   const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
@@ -178,13 +177,12 @@ const AllQAadmin = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
 
-    currentFrequency.current === "Most Answered" ? (multiFilter = mostAnswered) : null;
-    currentFrequency.current === "Least Answered" ? (multiFilter = leastAnswered) : null;
-
-    currentPercent.current === "Most Correct" ? (multiFilter = mostCorrect) : null;
-    currentPercent.current === "Least Correct" ? (multiFilter = leastCorrect) : null;
-
     expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
+
+    currentFrequency.current === "Frequency Sort" ? null : (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current));
+    currentPercent.current === "Percent Correct Sort" ? null : (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current));
+    currentPercent.current === "Least Correct" && currentFrequency.current === "Least Answered" ? (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current)) : null;
+    currentPercent.current === "Least Correct" && currentFrequency.current === "Most Answered" ? (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current)) : null;
 
     let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
@@ -196,10 +194,14 @@ const AllQAadmin = () => {
         multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
+
+    console.log("IN MULTIFILTER FUNCTION, MULTIFILTER:", multiFilter);
+    console.log("BEFORE", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
     multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
     multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
+    console.log("AFTER", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
     return multiFilter;
   };
 
@@ -211,6 +213,80 @@ const AllQAadmin = () => {
     conic-gradient(${color} 360deg, ${color})`;
   };
 
+  const frequencySort = (allQAs, allUserQs, type) => {
+    if (allQAs.length === 0) return [];
+    let frequency = {};
+
+    for (let i = 0; i < allUserQs.length; i++) {
+      if (!frequency[allUserQs[i]["questionAnswerId"]]) {
+        frequency[allUserQs[i]["questionAnswerId"]] = 1;
+      } else {
+        frequency[allUserQs[i]["questionAnswerId"]]++;
+      }
+    }
+    for (let i = 0; i < allQAs.length; i++) {
+      if (!frequency[allQAs[i]["id"]]) {
+        frequency[allQAs[i]["id"]] = 1;
+      } else {
+        frequency[allQAs[i]["id"]]++;
+      }
+    }
+
+    const allQuestions = allQAs.map((question) => {
+      return {
+        ...question,
+        frequency: frequency[question.id],
+      };
+    });
+
+    const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
+    const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
+
+    console.log("sortedByFrequency in FILTERFUNCTION", sortedByFrequency);
+
+    if (type === "Most Answered") {
+      return sortedByFrequency;
+    } else if (type === "Least Answered") {
+      return sortedByFrequencyReverse;
+    }
+  };
+
+  const percentCorrectSort = (allQAs, allUserQs, type) => {
+    if (allQAs.length === 0) return [];
+    let frequency = {};
+
+    for (let i = 0; i < allQAs.length; i++) {
+      if (!frequency[allQAs[i]["id"]]) {
+        frequency[allQAs[i]["id"]] = { right: 0, total: 0 };
+      }
+    }
+    for (let i = 0; i < allUserQs.length; i++) {
+      if (allUserQs[i]["answered"] === "right") {
+        frequency[allUserQs[i]["questionAnswerId"]]["right"]++;
+        frequency[allUserQs[i]["questionAnswerId"]]["total"]++;
+      } else {
+        frequency[allUserQs[i]["questionAnswerId"]]["total"]++;
+      }
+    }
+
+    const allQuestions = allQAs.map((question) => {
+      return {
+        ...question,
+        percentCorrect: Math.round((frequency[question.id]["right"] / frequency[question.id]["total"]) * 100) || 0,
+      };
+    });
+    const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
+    const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
+
+    console.log("sortedByPercentCorrect in FILTERFUNCTION", sortedByPercentCorrect);
+
+    if (type === "Most Correct") {
+      return sortedByPercentCorrect;
+    } else if (type === "Least Correct") {
+      return sortedByPercentCorrectReverse;
+    }
+  };
+
   useEffect(() => {
     dispatch(fetchExpertiseQuestions());
     dispatch(fetchAllQuestionsAnswers());
@@ -218,6 +294,7 @@ const AllQAadmin = () => {
     dispatch(fetchAllUserQuestions());
     dispatch(fetchByAnswerFrequency());
     dispatch(fetchPercentCorrect());
+    dispatch(fetchActiveQAs());
   }, []);
 
   const styles = {
