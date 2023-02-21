@@ -49,15 +49,12 @@ const SignUp = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log("evt", evt);
     const firstName = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
     const expertise = evt.target.expertiseLevel.value;
     const school = evt.target.school.value;
     const email = evt.target.signupEmail.value;
     const password = evt.target.signupPassword.value;
-
-    console.log("firstName, lastName, expertise, email, password", firstName, lastName, expertise, email, password);
 
     if (firstName && lastName && expertise && email && password) setShow(true);
 
