@@ -2,14 +2,16 @@ import AddIcon from "@mui/icons-material/Add";
 import { Box, Chip, Fab, LinearProgress, Stack } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import {
-  Button,
   Card,
   Col,
   Container,
-  Modal,
   Dropdown,
   Form,
+  Modal,
   Row,
+  OverlayTrigger,
+  Tooltip,
+  Button,
 } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
@@ -393,17 +395,30 @@ const AllQAadmin = () => {
   const handleOpen = () => setShow(true);
   return (
     <Container fluid>
-      <Box sx={{ "& > :not(style)": { m: 1 } }}>
+      {/* <Box sx={{ "& > :not(style)": { m: 1 } }}> */}
+
+      <OverlayTrigger
+        key="top"
+        style={{ backgroundColor: "gray" }}
+        placement="top"
+        overlay={<Tooltip id="tooltip-top">Add new question</Tooltip>}
+      >
         <Fab
           size="small"
           onClick={handleOpen}
           color="primary"
           aria-label="add"
-          style={{ position: "fixed", bottom: "12px", right: "12px" }}
+          style={{
+            position: "fixed",
+            bottom: "15px",
+            right: "8px",
+            backgroundColor: "green",
+          }}
         >
           <AddIcon />
         </Fab>
-      </Box>
+      </OverlayTrigger>
+      {/* </Box> */}
       <Modal
         size="lg"
         centered
