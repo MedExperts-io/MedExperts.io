@@ -1,35 +1,30 @@
+import AddIcon from "@mui/icons-material/Add";
+import { Box, Chip, Fab, LinearProgress, Stack } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Modal,
+  Dropdown,
+  Form,
+  Row,
+} from "react-bootstrap";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  Card,
-  Dropdown,
-  Row,
-  Col,
-  Form,
-  Container,
-  Button,
-} from "react-bootstrap";
-import { fetchAllQuestionsAnswers } from "./allQASlice";
-import { token } from "morgan";
+import AddQuestion from "../addQ/AddQuestion";
+import LoadingScreen from "../loading/LoadingScreen";
 import {
   fetchAllUserQuestions,
+  fetchByAnswerFrequency,
+  fetchExpertiseQuestions,
+  fetchPercentCorrect,
   fetchUserQuestions,
   updateUserQuestion,
-  fetchExpertiseQuestions,
-  fetchByAnswerFrequency,
-  fetchPercentCorrect,
 } from "../stats/user_questionsSlice";
-import ReactPaginate from "react-paginate";
-import LoadingScreen from "../loading/LoadingScreen";
-import AddQuestion from "../addQ/AddQuestion";
-import {
-  Chip,
-  Stack,
-  LinearProgress,
-  SpeedDial,
-  SpeedDialIcon,
-} from "@mui/material";
+import { fetchAllQuestionsAnswers } from "./allQASlice";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -392,24 +387,39 @@ const AllQAadmin = () => {
   const nextButton = document.querySelector('[aria-label="Next page"]');
   nextButton ? nextButton.remove() : null;
 
+  //add question modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
   return (
     <Container fluid>
-      <Row>
-        <Card
-          id="no-border"
-          className="mx-auto"
-          style={{
-            paddingLeft: 0,
-            paddingRight: 0,
-            maxWidth: "90%",
-            marginTop: "30px",
-          }}
+      <Box sx={{ "& > :not(style)": { m: 1 } }}>
+        <Fab
+          size="small"
+          onClick={handleOpen}
+          color="primary"
+          aria-label="add"
+          style={{ position: "fixed", bottom: "12px", right: "12px" }}
         >
-          <Button size="small" variant="success" as={Link} to="/addQuestion">
-            Add a Question
-          </Button>
-        </Card>
-      </Row>
+          <AddIcon />
+        </Fab>
+      </Box>
+      <Modal
+        size="lg"
+        centered
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Question</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddQuestion />
+        </Modal.Body>
+      </Modal>
+
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
         <Card
           className="mx-auto"

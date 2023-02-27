@@ -6,7 +6,6 @@ body {
   flex-direction: column;
   background-image: url("newBG8T.png");
   padding-bottom: 20px;
-  /* height:calc(100vh - (56px)) */
 }
 
 #no-border {
