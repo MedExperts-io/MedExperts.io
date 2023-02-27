@@ -395,8 +395,6 @@ const AllQAadmin = () => {
   const handleOpen = () => setShow(true);
   return (
     <Container fluid>
-      {/* <Box sx={{ "& > :not(style)": { m: 1 } }}> */}
-
       <OverlayTrigger
         key="top"
         style={{ backgroundColor: "gray" }}
@@ -418,9 +416,10 @@ const AllQAadmin = () => {
           <AddIcon />
         </Fab>
       </OverlayTrigger>
-      {/* </Box> */}
+
       <Modal
         size="lg"
+        scrollable={true}
         centered
         show={show}
         onHide={handleClose}
@@ -428,7 +427,7 @@ const AllQAadmin = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Add New Question</Modal.Title>
+          <Modal.Title className="text-centered">Add New Question</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddQuestion />
