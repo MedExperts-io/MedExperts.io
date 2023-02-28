@@ -191,3 +191,9 @@ img {
   background-color: rgb(235, 233, 233);
   color: rgb(93, 93, 93);
 }
+
+#navButton {
+  color: #ff6262;
+  padding-top: 10px;
+  height: 48px;
+}

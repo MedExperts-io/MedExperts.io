@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { logout } from "../../app/store";
 import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
@@ -9,6 +9,8 @@ const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   const logoutAndRedirectHome = () => {
     dispatch(logout());
@@ -46,32 +48,21 @@ const SiteNavbar = () => {
                   as={Link}
                   to="/dashboard"
                   className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
+                  id="navButton"
                 >
                   Dashboard
                 </Button>
-              </Nav>
-              <Nav>
+
                 <Button
                   variant="light"
                   as={Link}
+                  id="navButton"
                   to="/questions"
                   className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
                 >
                   Questions
                 </Button>
-              </Nav>
 
-              <Nav>
                 <Button
                   className="m-2"
                   variant="light"
