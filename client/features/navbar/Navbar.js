@@ -74,34 +74,22 @@ const SiteNavbar = () => {
                 <Button
                   className="m-2"
                   variant="light"
-                  style={{
-                    paddingTop: "0",
-                    paddingBottom: "0",
-                    marginTop: "0",
-                    marginBottom: "0",
-                    backgroundColor: "transparent",
-                  }}
+                  id={
+                    location.pathname === "/profile"
+                      ? "navProfileButton-active"
+                      : "navProfileButton"
+                  }
                 >
                   <NavDropdown
                     className="buttonIcon"
-                    style={{
-                      paddingTop: "0",
-                      marginTop: "0",
-                      marginBottom: "0",
-                    }}
                     title={
                       <AccountCircleRoundedIcon
                         className="mx-auto"
-                        style={{
-                          color: "white",
-                          backgroundColor: "transparent",
-                          height: "30",
-                          width: "30",
-                          paddingRight: "7px",
-                          paddingTop: "0px",
-                          marginTop: "0",
-                          marginBottom: "0",
-                        }}
+                        id={
+                          location.pathname === "/profile"
+                            ? "navProfileButtonIcon-active"
+                            : "navProfileButtonIcon"
+                        }
                       />
                     }
                     drop={"start"}
