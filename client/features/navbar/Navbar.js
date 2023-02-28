@@ -48,7 +48,11 @@ const SiteNavbar = () => {
                   as={Link}
                   to="/dashboard"
                   className="m-2"
-                  id="navButton"
+                  id={
+                    location.pathname === "/dashboard"
+                      ? "navButton-active"
+                      : "navButton"
+                  }
                 >
                   Dashboard
                 </Button>
@@ -56,8 +60,12 @@ const SiteNavbar = () => {
                 <Button
                   variant="light"
                   as={Link}
-                  id="navButton"
                   to="/questions"
+                  id={
+                    location.pathname === "/questions"
+                      ? "navButton-active"
+                      : "navButton"
+                  }
                   className="m-2"
                 >
                   Questions
@@ -71,6 +79,7 @@ const SiteNavbar = () => {
                     paddingBottom: "0",
                     marginTop: "0",
                     marginBottom: "0",
+                    backgroundColor: "transparent",
                   }}
                 >
                   <NavDropdown
@@ -84,7 +93,8 @@ const SiteNavbar = () => {
                       <AccountCircleRoundedIcon
                         className="mx-auto"
                         style={{
-                          color: "#FF6262",
+                          color: "white",
+                          backgroundColor: "transparent",
                           height: "30",
                           width: "30",
                           paddingRight: "7px",

@@ -193,7 +193,15 @@ img {
 }
 
 #navButton {
+  color: white;
+  background-color: transparent;
+  padding-top: 10px;
+  height: 48px;
+}
+
+#navButton-active {
   color: #ff6262;
   padding-top: 10px;
   height: 48px;
+  
 }
