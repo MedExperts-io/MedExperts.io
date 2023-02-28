@@ -208,7 +208,7 @@ img {
 #navProfileButton {
   padding-top: 0;
   padding-bottom: 0;
-  /* padding-right: 7px; */
+  height: 48px;
   margin-top: 0;
   margin-bottom: 0;
   background-color: transparent;
@@ -218,7 +218,7 @@ img {
 #navProfileButton-active {
   padding-top: 0;
   padding-bottom: 0;
-  /* padding-right: 7px; */
+  height: 48px;
   margin-top: 0;
   margin-bottom: 0;
   background-color: white;

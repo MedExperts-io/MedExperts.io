@@ -131,31 +131,23 @@ const SiteNavbar = () => {
                 <Button
                   className="m-2"
                   variant="light"
-                  style={{
-                    paddingTop: "0",
-                    paddingBottom: "0",
-                    marginTop: "0",
-                    marginBottom: "0",
-                  }}
+                  id={
+                    location.pathname === "/login" ||
+                    location.pathname === "/signup"
+                      ? "navProfileButton-active"
+                      : "navProfileButton"
+                  }
                 >
                   <NavDropdown
                     className="buttonIcon"
-                    style={{
-                      paddingTop: "0",
-                      marginTop: "0",
-                      marginBottom: "0",
-                    }}
                     title={
                       <AccountCircleRoundedIcon
-                        style={{
-                          color: "#FF6262",
-                          height: "30",
-                          width: "30",
-                          paddingRight: "7px",
-                          paddingTop: "0px",
-                          marginTop: "0",
-                          marginBottom: "0",
-                        }}
+                        id={
+                          location.pathname === "/login" ||
+                          location.pathname === "/signup"
+                            ? "navProfileButtonIcon-active"
+                            : "navProfileButtonIcon"
+                        }
                       />
                     }
                     drop={"start"}
