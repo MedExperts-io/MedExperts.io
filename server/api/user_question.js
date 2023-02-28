@@ -10,7 +10,7 @@ const { getToken, isAdmin } = require("./userCheckMiddleware");
 // -----For admin's dashboard analytics (aggregate)
 router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
-    const allUserQs = await User_Question.findAll();
+    const allUserQs = await User_Question.findAll({});
     res.json(allUserQs);
   } catch (err) {
     next(err);
@@ -98,6 +98,30 @@ router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
+router.get("/all_active", getToken, isAdmin, async (req, res, next) => {
+  try {
+    const allUserQs = await User_Question.findAll({
+      attributes: ["questionAnswerId", "answered"],
+      include: {
+        model: Question_Answer,
+        where: {
+          status: "Active",
+        },
+      },
+    });
+    const allQAs = await Question_Answer.findAll({
+      where: {
+        status: "Active",
+      },
+    });
+
+    const activeQuestions = [allQAs, allUserQs];
+
+    res.json(activeQuestions);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // --- For logged in student user's dashboard analytics
 router.get("/:userId", getToken, async (req, res, next) => {
