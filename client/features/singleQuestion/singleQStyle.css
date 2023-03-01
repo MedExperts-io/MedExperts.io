@@ -54,11 +54,11 @@
   border-color: #ff7276 !important;
 }
 
-a {
+#references a {
   color: inherit !important;
   text-decoration: none !important;
 }
 
-a:hover {
-  color: blue !important;
+#references a:hover {
+  color: #0000ee !important;
 }
