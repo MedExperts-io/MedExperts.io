@@ -103,8 +103,9 @@ const SingleQuestion = () => {
   if (admin) {
     return <SingleQAadmin />;
   } else {
-    if (CurrentQuestionArray.length > 0 && CurrentQuestion.answered) {
-      return (
+    return (
+      //has the user already answered the question? yes -->
+      CurrentQuestionArray.length > 0 && CurrentQuestion.answered ? (
         <Container fluid>
           {loading ? (
             <ProgressBar animated now={100} />
@@ -320,10 +321,9 @@ const SingleQuestion = () => {
             </>
           )}
         </Container>
-      );
-    } else {
-      // <------------------Not answered view ------------------>
-      return (
+      ) : (
+        // <------------------Not answered yet ------------------>
+
         <Container fluid>
           {loading ? (
             <ProgressBar animated now={100} />
@@ -500,8 +500,8 @@ const SingleQuestion = () => {
             </Stack>
           )}
         </Container>
-      );
-    }
+      )
+    );
   }
 };
 
