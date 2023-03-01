@@ -1,5 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Box, Chip, Fab, LinearProgress, Stack } from "@mui/material";
+import { Chip, Fab, LinearProgress, Stack } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Card,
@@ -8,10 +8,9 @@ import {
   Dropdown,
   Form,
   Modal,
-  Row,
   OverlayTrigger,
+  Row,
   Tooltip,
-  Button,
 } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +18,7 @@ import { Link } from "react-router-dom";
 import AddQuestion from "../addQ/AddQuestion";
 import LoadingScreen from "../loading/LoadingScreen";
 import {
+  fetchActiveQAs,
   fetchAllUserQuestions,
   fetchByAnswerFrequency,
   fetchExpertiseQuestions,
@@ -27,11 +27,6 @@ import {
   updateUserQuestion,
 } from "../stats/user_questionsSlice";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency, fetchPercentCorrect, fetchActiveQAs } from "../stats/user_questionsSlice";
-import ReactPaginate from "react-paginate";
-import LoadingScreen from "../loading/LoadingScreen";
-import { Chip, Stack, LinearProgress } from "@mui/material";
-import frequencySort from "./filterFunctions";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -107,11 +102,25 @@ const AllQAadmin = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const { mostAnswered, leastAnswered, mostCorrect, leastCorrect, activeUserQAs } = useSelector((state) => state.userQuestions);
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
-  const expertiseQuestions = useSelector((state) => state.userQuestions.expertiseQuestions);
+  const {
+    mostAnswered,
+    leastAnswered,
+    mostCorrect,
+    leastCorrect,
+    activeUserQAs,
+  } = useSelector((state) => state.userQuestions);
+  const userQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const AllUserQuestions = useSelector(
+    (state) => state.userQuestions.allUserQuestions
+  );
+  const stateQuestions = useSelector(
+    (state) => state.questionsAnswers.questionsAnswers
+  );
+  const expertiseQuestions = useSelector(
+    (state) => state.userQuestions.expertiseQuestions
+  );
 
   const EasyQuestionsTotal = AllUserQuestions.filter(
     (question) => question.level === "Easy"
@@ -190,7 +199,6 @@ const AllQAadmin = () => {
     const filterData = AllUserQuestions.filter(
       (x) => x.questionAnswerId === id
     );
-    // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
     return filterData.length;
   };
   const filterDataByCorrect = (id) => {
@@ -254,12 +262,40 @@ const AllQAadmin = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
 
-    expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
+    expertisePicked.current !== "All Expertise"
+      ? (multiFilter = expertiseQuestions[expertisePicked.current])
+      : null;
 
-    currentFrequency.current === "Frequency Sort" ? null : (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current));
-    currentPercent.current === "Percent Correct Sort" ? null : (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current));
-    currentPercent.current === "Least Correct" && currentFrequency.current === "Least Answered" ? (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current)) : null;
-    currentPercent.current === "Least Correct" && currentFrequency.current === "Most Answered" ? (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current)) : null;
+    currentFrequency.current === "Frequency Sort"
+      ? null
+      : (multiFilter = frequencySort(
+          multiFilter,
+          activeUserQAs,
+          currentFrequency.current
+        ));
+    currentPercent.current === "Percent Correct Sort"
+      ? null
+      : (multiFilter = percentCorrectSort(
+          multiFilter,
+          activeUserQAs,
+          currentPercent.current
+        ));
+    currentPercent.current === "Least Correct" &&
+    currentFrequency.current === "Least Answered"
+      ? (multiFilter = frequencySort(
+          multiFilter,
+          activeUserQAs,
+          currentFrequency.current
+        ))
+      : null;
+    currentPercent.current === "Least Correct" &&
+    currentFrequency.current === "Most Answered"
+      ? (multiFilter = percentCorrectSort(
+          multiFilter,
+          activeUserQAs,
+          currentPercent.current
+        ))
+      : null;
 
     let favNumbers = userQuestions
       .filter((question) => question.favorite === true)
@@ -285,8 +321,6 @@ const AllQAadmin = () => {
       }
     }
 
-    console.log("IN MULTIFILTER FUNCTION, MULTIFILTER:", multiFilter);
-    console.log("BEFORE", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
     multiFilter.length
       ? setCurrentItems(multiFilter.slice(0, 12))
@@ -295,7 +329,7 @@ const AllQAadmin = () => {
       ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
       : setPageCount(0);
     setItemOffset(0);
-    console.log("AFTER", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
+
     return multiFilter;
   };
 
@@ -333,10 +367,10 @@ const AllQAadmin = () => {
       };
     });
 
-    const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
+    const sortedByFrequency = allQuestions.sort(
+      (a, b) => b.frequency - a.frequency
+    );
     const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
-
-    console.log("sortedByFrequency in FILTERFUNCTION", sortedByFrequency);
 
     if (type === "Most Answered") {
       return sortedByFrequency;
@@ -366,13 +400,20 @@ const AllQAadmin = () => {
     const allQuestions = allQAs.map((question) => {
       return {
         ...question,
-        percentCorrect: Math.round((frequency[question.id]["right"] / frequency[question.id]["total"]) * 100) || 0,
+        percentCorrect:
+          Math.round(
+            (frequency[question.id]["right"] /
+              frequency[question.id]["total"]) *
+              100
+          ) || 0,
       };
     });
-    const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
-    const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
-
-    console.log("sortedByPercentCorrect in FILTERFUNCTION", sortedByPercentCorrect);
+    const sortedByPercentCorrect = allQuestions.sort(
+      (a, b) => b.percentCorrect - a.percentCorrect
+    );
+    const sortedByPercentCorrectReverse = sortedByPercentCorrect
+      .slice()
+      .reverse();
 
     if (type === "Most Correct") {
       return sortedByPercentCorrect;
@@ -509,8 +550,12 @@ const AllQAadmin = () => {
               <p style={{ fontSize: `50%` }} className="text-muted">
                 The below charts represent the percentage of questions answered
                 correctly in each category (i.e., of the 'Easy' questions
-                answered, {Math.round(easyQuestionsAnsweredPercentage)}% were
-                answered correctly).
+                answered,{" "}
+                {Math.round(
+                  (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) *
+                    100
+                ) || 0}
+                % were answered correctly).
               </p>
             </Row>
           </Card.Header>{" "}
@@ -738,7 +783,6 @@ const AllQAadmin = () => {
               {loading && <LoadingScreen />}
               {currentItems && currentItems.length && currentItems !== "nada"
                 ? currentItems.map((question, idx) => (
-                    // <Col>
                     <Card
                       key={question.id}
                       style={{

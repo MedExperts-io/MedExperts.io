@@ -10,7 +10,6 @@ const SiteNavbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
 
   const logoutAndRedirectHome = () => {
     dispatch(logout());

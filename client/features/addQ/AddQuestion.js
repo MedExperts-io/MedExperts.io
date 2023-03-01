@@ -3,21 +3,22 @@ import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
-  Col, Form,
+  Col,
+  Form,
   InputGroup,
   Modal,
   ProgressBar,
   Row,
   Table,
   Toast,
-  ToastContainer
+  ToastContainer,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4, v4 } from "uuid";
 import {
   fetchAllQuestionsAnswers,
-  NewQuestionsAnswers
+  NewQuestionsAnswers,
 } from "../allQA/allQASlice";
 import { storage } from "./firebase";
 
@@ -645,7 +646,7 @@ const AddQuestion = () => {
                 </center>
 
                 <Modal show={show} onHide={handleClose}>
-                  <Modal.Body>New Question Have been Added!</Modal.Body>
+                  <Modal.Body>New question successfully added!</Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                       Keep Editing
