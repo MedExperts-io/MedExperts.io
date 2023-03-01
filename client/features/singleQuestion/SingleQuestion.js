@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchSingleQuestion,
-  deleteSingleQuestion,
-} from "./singleQuestionSlice";
-import { useParams, Link } from "react-router-dom";
-import {
-  Card,
-  Stack,
-  Button,
-  Breadcrumb,
-  ProgressBar,
-  Container,
-  Row,
-  Col,
   Accordion,
+  Breadcrumb,
+  Button,
+  Card,
+  Col,
+  Container,
+  ProgressBar,
+  Row,
+  Stack,
   Table,
 } from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import {
-  fetchAllUserQuestions,
   fetchUserQuestions,
-  updateUserQuestion,
   updateUserQuestionInput,
 } from "../stats/user_questionsSlice";
 import SingleQAadmin from "./SingleQAadmin";
+import { fetchSingleQuestion } from "./singleQuestionSlice";
 import { Divider } from "@mui/material";
-import { v4 as uuidv4 } from "uuid";
+import "./singleQStyle.css";
 
 const SingleQuestion = () => {
   const admin = useSelector((state) => state.auth.me.isAdmin);
@@ -52,16 +48,6 @@ const SingleQuestion = () => {
 
   const userId = useSelector((state) => state.auth.me.id);
   const userExpertise = useSelector((state) => state.auth.me.expertise);
-
-  useEffect(() => {
-    // dispatch(
-    //   updateUserQuestionInput({
-    //     userId: userId,
-    //     questionAnswerId: singleQuestionId,
-    //   })
-    // ).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
-    // dispatch(fetchUserQuestions(userId)).then(()=>dispatch(fetchSingleQuestion(singleQuestionId)) )
-  }, []);
 
   useEffect(() => {
     dispatch(fetchUserQuestions(userId)).then(() =>
@@ -138,29 +124,12 @@ const SingleQuestion = () => {
                     </Breadcrumb>
 
                     <Card>
-                      <Card.Header
-                        className="mb-2 text-center"
-                        style={{
-                          fontSize: "100%",
-
-                          textAlign: "center",
-                        }}
-                      >
+                      <Card.Header className="mb-2" id="sq-header">
                         {question}
                       </Card.Header>
-                      <Card.Body
-                        className="mx-auto"
-                        style={{ paddingBottom: "0px", marginBottom: "0px" }}
-                      >
+                      <Card.Body className="mx-auto" id="sq-body">
                         <Row className="mx-auto">
-                          <Stack
-                            style={{
-                              paddingTop: "10px",
-                              paddingLeft: "0px",
-                              paddingRight: "0px",
-                            }}
-                            direction="horizontal"
-                          >
+                          <Stack id="sq-stack" direction="horizontal">
                             {questionImage
                               ? questionImage.map((image, index) => (
                                   <Table
@@ -168,28 +137,21 @@ const SingleQuestion = () => {
                                     size="sm"
                                     key={uuidv4()}
                                     borderless
-                                    style={{ paddingBottom: "0px" }}
+                                    id="sq-table"
                                   >
                                     <thead>
                                       <tr>
-                                        <th style={{ padding: "0px" }}>
+                                        <th id="sq-table-heading">
                                           {" "}
-                                          <img
-                                            src={image}
-                                            style={{
-                                              paddingLeft: "10px",
-                                              maxHeight: `12rem`,
-                                              maxInlineSize: "100%",
-                                            }}
-                                          />
+                                          <img src={image} id="sq-img" />
                                         </th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
                                         <td
-                                          className="text-muted text-center"
-                                          style={{ fontSize: "10px" }}
+                                          className="text-muted"
+                                          id="sq-table-td"
                                         >
                                           Figure:{index + 1}
                                         </td>
@@ -202,7 +164,7 @@ const SingleQuestion = () => {
                         </Row>
                       </Card.Body>
                       <Card.Body className="mx-auto">
-                        <Row style={{ paddingBottom: "2%" }}>
+                        <Row id="sq-row">
                           <center>
                             <Divider>Select your answer:</Divider>
                           </center>
@@ -214,7 +176,6 @@ const SingleQuestion = () => {
                                   as={Col}
                                   className="ms-3 mb-2"
                                   key={uuidv4()}
-                                  // variant={selectedOption === ans ? "success" : "outline-success"}
                                   variant={
                                     CurrentQuestion.userInput
                                       ? ans === correctAnswer
@@ -240,7 +201,6 @@ const SingleQuestion = () => {
                           <Button
                             className="mx-auto"
                             variant="danger"
-                            // onClick={handleSubmit}
                             disabled={selectedOption === null}
                           >
                             Submit
@@ -263,7 +223,7 @@ const SingleQuestion = () => {
                         </thead>
                         <tbody>
                           <tr className="no-border">
-                            <td style={{ borderBottomWidth: "0px" }}>
+                            <td id="sq-answer-td">
                               <style type="text/css">
                                 {`
     .btn-success {
@@ -282,7 +242,7 @@ const SingleQuestion = () => {
                                 {correctAnswer}
                               </Button>
                             </td>
-                            <td style={{ borderBottomWidth: "0px" }}>
+                            <td id="sq-answer-td">
                               {" "}
                               <Button
                                 id="btn-muted"
@@ -309,59 +269,41 @@ const SingleQuestion = () => {
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>View Explanation</Accordion.Header>
                         <Accordion.Body>{explanation}</Accordion.Body>
-                        <Accordion.Body
-                        className="mx-auto"
-                        style={{ paddingBottom: "0px", marginBottom: "0px" }}
-                      >
-                        <Row className="mx-auto">
-                          <Stack
-                            style={{
-                              paddingTop: "10px",
-                              paddingLeft: "0px",
-                              paddingRight: "0px",
-                            }}
-                            direction="horizontal"
-                          >
-                            {explanationImage
-                              ? explanationImage.map((image, index) => (
-                                  <Table
-                                    responsive="sm"
-                                    size="sm"
-                                    key={uuidv4()}
-                                    borderless
-                                    style={{ paddingBottom: "0px" }}
-                                  >
-                                    <thead>
-                                      <tr>
-                                        <th style={{ padding: "0px" }}>
-                                          {" "}
-                                          <img
-                                            src={image}
-                                            style={{
-                                              paddingLeft: "10px",
-                                              maxHeight: `12rem`,
-                                              maxInlineSize: "100%",
-                                            }}
-                                          />
-                                        </th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          className="text-muted text-center"
-                                          style={{ fontSize: "10px" }}
-                                        >
-                                          Figure:{index + 1}
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </Table>
-                                ))
-                              : null}
-                          </Stack>
-                        </Row>
-                          </Accordion.Body>
+                        <Accordion.Body className="mx-auto" id="sq-body">
+                          <Row className="mx-auto">
+                            <Stack id="sq-stack" direction="horizontal">
+                              {explanationImage
+                                ? explanationImage.map((image, index) => (
+                                    <Table
+                                      responsive="sm"
+                                      size="sm"
+                                      key={uuidv4()}
+                                      borderless
+                                      id="sq-table"
+                                    >
+                                      <thead>
+                                        <tr>
+                                          <th id="sq-table-heading">
+                                            <img src={image} id="sq-img" />
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td
+                                            className="text-muted"
+                                            id="sq-table-td"
+                                          >
+                                            Figure:{index + 1}
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </Table>
+                                  ))
+                                : null}
+                            </Stack>
+                          </Row>
+                        </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
                         <Accordion.Header>View References</Accordion.Header>
@@ -421,29 +363,12 @@ const SingleQuestion = () => {
                   </Breadcrumb>
 
                   <Card>
-                    <Card.Header
-                      className="mb-2 text-center"
-                      style={{
-                        fontSize: "100%",
-
-                        textAlign: "center",
-                      }}
-                    >
+                    <Card.Header className="mb-2 text-center" id="sq-header">
                       {question}
                     </Card.Header>
-                    <Card.Body
-                      className="mx-auto"
-                      style={{ paddingBottom: "0px", marginBottom: "0px" }}
-                    >
+                    <Card.Body className="mx-auto" id="sq-body">
                       <Row className="mx-auto">
-                        <Stack
-                          style={{
-                            paddingTop: "10px",
-                            paddingLeft: "0px",
-                            paddingRight: "0px",
-                          }}
-                          direction="horizontal"
-                        >
+                        <Stack id="sq-stack" direction="horizontal">
                           {questionImage
                             ? questionImage.map((image, index) => (
                                 <Table
@@ -451,28 +376,21 @@ const SingleQuestion = () => {
                                   size="sm"
                                   key={uuidv4()}
                                   borderless
-                                  style={{ paddingBottom: "0px" }}
+                                  id="sq-table"
                                 >
                                   <thead>
                                     <tr>
-                                      <th style={{ padding: "0px" }}>
+                                      <th id="sq-table-heading">
                                         {" "}
-                                        <img
-                                          src={image}
-                                          style={{
-                                            paddingLeft: "10px",
-                                            maxHeight: `12rem`,
-                                            maxInlineSize: "100%",
-                                          }}
-                                        />
+                                        <img src={image} id="sq-img" />
                                       </th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
                                       <td
-                                        className="text-muted text-center"
-                                        style={{ fontSize: "10px" }}
+                                        className="text-muted"
+                                        id="sq-table-td"
                                       >
                                         Figure:{index + 1}
                                       </td>
@@ -485,7 +403,7 @@ const SingleQuestion = () => {
                       </Row>
                     </Card.Body>
                     <Card.Body className="mx-auto">
-                      <Row style={{ paddingBottom: "2%" }}>
+                      <Row id="sq-row">
                         <center>
                           <Divider>Select your answer:</Divider>
                         </center>
@@ -516,7 +434,6 @@ const SingleQuestion = () => {
                                 as={Col}
                                 className="ms-3 mb-2"
                                 key={uuidv4()}
-                                // variant={selectedOption === ans ? "success" : "outline-success"}
                                 variant={
                                   showAnswer
                                     ? ans === correctAnswer
@@ -567,7 +484,7 @@ const SingleQuestion = () => {
                       </thead>
                       <tbody>
                         <tr className="no-border">
-                          <td style={{ borderBottomWidth: "0px" }}>
+                          <td id="sq-answer-td">
                             <style type="text/css">
                               {`
 .btn-success {
@@ -584,7 +501,7 @@ border-color: #FF7276;
                             </style>
                             <Button variant={"success"}>{correctAnswer}</Button>
                           </td>
-                          <td style={{ borderBottomWidth: "0px" }}>
+                          <td id="sq-answer-td">
                             {" "}
                             <Button
                               variant={
@@ -651,47 +568,3 @@ border-color: #FF7276;
 };
 
 export default SingleQuestion;
-
-// const App = () => {
-//   const [answers, setAnswers] = useState([
-//     { id: 1, text: 'Option 1' },
-//     { id: 2, text: 'Option 2' },
-//     { id: 3, text: 'Option 3' },
-//   ]);
-//   const [editMode, setEditMode] = useState({});
-
-//   const handleEdit = (id) => {
-//     setEditMode({ ...editMode, [id]: true });
-//   };
-
-//   const handleSave = (id, text) => {
-//     const newAnswers = answers.map((answer) => {
-//       if (answer.id === id) {
-//         return { id, text };
-//       }
-//       return answer;
-//     });
-//     setAnswers(newAnswers);
-//     setEditMode({ ...editMode, [id]: false });
-//   };
-
-//   return (
-//     <div>
-//       {answers.map((answer) => {
-//         return editMode[answer.id] ? (
-//           <div key={answer.id}>
-//             <input
-//               type="text"
-//               value={answer.text}
-//               onChange={(e) => handleSave(answer.id, e.target.value)}
-//             />
-//           </div>
-//         ) : (
-//           <div key={answer.id} onClick={() => handleEdit(answer.id)}>
-//             {answer.text}
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// };

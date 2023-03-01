@@ -1,0 +1,42 @@
+#sq-header {
+  font-size: 100%;
+  text-align: center;
+}
+
+#sq-body {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#sq-stack {
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#sq-table {
+  padding-bottom: 0px;
+}
+
+#sq-table-heading {
+  padding: 0px;
+}
+
+#sq-img {
+  padding-left: 10px;
+  max-height: 12rem;
+  max-inline-size: 100%;
+}
+
+#sq-table-td {
+  font-size: 10px;
+  text-align: center;
+}
+
+#sq-answer-td {
+  border-bottom-width: 0px;
+}
+
+#sq-row {
+  padding-bottom: 2%;
+}
