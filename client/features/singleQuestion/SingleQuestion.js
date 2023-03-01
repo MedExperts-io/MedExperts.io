@@ -224,26 +224,11 @@ const SingleQuestion = () => {
                         <tbody>
                           <tr className="no-border">
                             <td id="sq-answer-td">
-                              <style type="text/css">
-                                {`
-    .btn-success {
-      background-color: #7cb69d;
-      border-color:#7cb69d;
-      color: white;
-    }
-    .btn-danger{
-      background-color: #FF7276;
-      border-color: #FF7276;
-    }
-
-    `}
-                              </style>
                               <Button variant={"success"}>
                                 {correctAnswer}
                               </Button>
                             </td>
                             <td id="sq-answer-td">
-                              {" "}
                               <Button
                                 id="btn-muted"
                                 variant={
@@ -318,14 +303,7 @@ const SingleQuestion = () => {
                                   {" "}
                                   <div>
                                     {index + 1}{" "}
-                                    <div>
-                                      {ReactHtmlParser(sourcelink)}
-                                      <style>
-                                        {` a {
-                              color: inherit;
-                               text-decoration: none;}`}
-                                      </style>
-                                    </div>
+                                    <div>{ReactHtmlParser(sourcelink)}</div>
                                   </div>
                                 </Card.Body>
                               </Card>
@@ -409,25 +387,6 @@ const SingleQuestion = () => {
                         </center>
                       </Row>
                       <Row className="mx-auto">
-                        <style type="text/css">
-                          {`
-    .btn-success {
-      background-color: #7cb69d;
-      border-color:#7cb69d;
-      color: white;
-    }
-    .btn-danger{
-      background-color: #FF7276;
-      border-color: #FF7276;
-    }
-    .btn-outline-success{
-
-      border-color:#7cb69d;
-
-    }
-
-    `}
-                        </style>
                         {answerOptions
                           ? answerOptions.map((ans, index) => (
                               <Button
@@ -485,20 +444,6 @@ const SingleQuestion = () => {
                       <tbody>
                         <tr className="no-border">
                           <td id="sq-answer-td">
-                            <style type="text/css">
-                              {`
-.btn-success {
-background-color: #7cb69d;
-border-color:#7cb69d;
-color: white;
-}
-.btn-danger{
-background-color: #FF7276;
-border-color: #FF7276;
-}
-
-`}
-                            </style>
                             <Button variant={"success"}>{correctAnswer}</Button>
                           </td>
                           <td id="sq-answer-td">
@@ -539,14 +484,7 @@ border-color: #FF7276;
                                 {" "}
                                 <div>
                                   {index + 1}{" "}
-                                  <div>
-                                    {ReactHtmlParser(sourcelink)}
-                                    <style>
-                                      {` a {
-                              color: inherit;
-                               text-decoration: none;}`}
-                                    </style>
-                                  </div>
+                                  <div>{ReactHtmlParser(sourcelink)}</div>
                                 </div>
                               </Card.Body>
                             </Card>

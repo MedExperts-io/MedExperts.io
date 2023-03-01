@@ -40,3 +40,25 @@
 #sq-row {
   padding-bottom: 2%;
 }
+
+.btn-success {
+  background-color: #7cb69d !important;
+  border-color: #7cb69d !important;
+  color: white !important;
+}
+.btn-outline-success {
+  border-color: #7cb69d !important;
+}
+.btn-danger {
+  background-color: #ff7276 !important;
+  border-color: #ff7276 !important;
+}
+
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: blue !important;
+}
