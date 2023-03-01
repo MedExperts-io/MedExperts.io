@@ -3,21 +3,18 @@ import axios from "axios";
 const token = window.localStorage.getItem("token");
 
 // --------For admin's dashboard analytics (aggregate)--------------
-export const fetchAllUserQuestions = createAsyncThunk(
-  "fetchAllUserQuestions",
-  async () => {
-    try {
-      const { data } = await axios.get(`/api/user_questions`, {
-        headers: {
-          authorization: window.localStorage.getItem("token"),
-        },
-      });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 export const fetchByAnswerFrequency = createAsyncThunk(
   "fetchByAnswerFrequency",
@@ -51,22 +48,32 @@ export const fetchPercentCorrect = createAsyncThunk(
   }
 );
 
-// --------For admin's dashboard analytics (by expertise)--------------
-export const fetchExpertiseQuestions = createAsyncThunk(
-  "fetchExpertiseQuestions",
-  async () => {
-    try {
-      const { data } = await axios.get(`/api/user_questions/expertise/all`, {
-        headers: {
-          authorization: window.localStorage.getItem("token"),
-        },
-      });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const fetchActiveQAs = createAsyncThunk("fetchActiveQAs", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/all_active`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
+
+// --------For admin's dashboard analytics (by expertise)--------------
+export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/expertise/all`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // --------For logged in user's dashboard analytics--------------
 export const fetchUserQuestions = createAsyncThunk(
@@ -83,32 +90,28 @@ export const fetchUserQuestions = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-  }
-);
+});
 
 // --------TO FAVORITE, UNFAVORITE--------------
-export const updateUserQuestion = createAsyncThunk(
-  "updateUserQuestion",
-  async ({ userId, questionAnswerId }) => {
-    try {
-      const { data } = await axios.put(
-        `/api/user_questions/${userId}`,
-        {
-          questionAnswerId: questionAnswerId,
+export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async ({ userId, questionAnswerId }) => {
+  try {
+    const { data } = await axios.put(
+      `/api/user_questions/${userId}`,
+      {
+        questionAnswerId: questionAnswerId,
+      },
+      {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
         },
-        {
-          headers: {
-            authorization: window.localStorage.getItem("token"),
-          },
-        }
-      );
-
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+      }
+    );
+    console.log("THUNK", data);
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 // --------TO STORE USER INPUT--------------
 export const updateUserQuestionInput = createAsyncThunk(
@@ -143,9 +146,8 @@ export const updateUserQuestionInput = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
-    }
   }
-);
+});
 
 export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
@@ -161,6 +163,8 @@ export const allUser_QuestionsSlice = createSlice({
     leastAnswered: [],
     mostCorrect: [],
     leastCorrect: [],
+    activeQAs: [],
+    activeUserQAs: [],
     error: null,
   },
   reducers: {},
@@ -174,15 +178,9 @@ export const allUser_QuestionsSlice = createSlice({
       })
       .addCase(fetchUserQuestions.fulfilled, (state, action) => {
         state.UserQuestions = action.payload;
-        state.userEasy = action.payload.filter(
-          (question) => question.level === "Easy" && question.userInput
-        );
-        state.userModerate = action.payload.filter(
-          (question) => question.level === "Moderate" && question.userInput
-        );
-        state.userHard = action.payload.filter(
-          (question) => question.level === "Hard" && question.userInput
-        );
+        state.userEasy = action.payload.filter((question) => question.level === "Easy" && question.userInput);
+        state.userModerate = action.payload.filter((question) => question.level === "Moderate" && question.userInput);
+        state.userHard = action.payload.filter((question) => question.level === "Hard" && question.userInput);
       })
       .addCase(updateUserQuestion.fulfilled, (state, action) => {
         state.currentUserQuestion = action.payload;
@@ -231,6 +229,10 @@ export const allUser_QuestionsSlice = createSlice({
 
         state.mostCorrect = sortedByPercentCorrect;
         state.leastCorrect = sortedByPercentCorrectReverse;
+      })
+      .addCase(fetchActiveQAs.fulfilled, (state, action) => {
+        state.activeQAs = action.payload[0];
+        state.activeUserQAs = action.payload[1];
       });
   },
 });

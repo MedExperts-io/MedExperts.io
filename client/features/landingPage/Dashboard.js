@@ -22,6 +22,7 @@ const Dashboard = () => {
   const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
   const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
   const { UserQuestions, userEasy, userModerate, userHard } = useSelector((state) => state.userQuestions);
+  const UserQuestionsAnswered = UserQuestions.filter((question) => question.answered !== null);
   const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
   const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
   const totalEasyAnswered = `${userEasy?.length} / ${easy?.length}`;
@@ -29,8 +30,8 @@ const Dashboard = () => {
   const totalmoderateAnswere = `${userModerate?.length} / ${moderate?.length}`;
   const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
   const totalhardAnswered = `${userHard?.length} / ${hard?.length}`;
-  const allPercentage = Math.round((UserQuestions?.length / questionsAnswers?.length) * 100);
-  const totalallAnswered = `${UserQuestions?.length} / ${questionsAnswers?.length}`;
+  const allPercentage = Math.round((UserQuestionsAnswered?.length / questionsAnswers?.length) * 100);
+  const totalallAnswered = `${UserQuestionsAnswered?.length} / ${questionsAnswers?.length}`;
 
   const Asthma = questionsAnswers.filter((question) => question.category === "Asthma");
   const Bronchiectasis = questionsAnswers.filter((question) => question.category === "Bronchiectasis");
