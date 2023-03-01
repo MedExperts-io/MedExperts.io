@@ -72,6 +72,8 @@ export const fetchExpertiseQuestions = createAsyncThunk(
 export const fetchUserQuestions = createAsyncThunk(
   "fetchUserQuestions",
   async (userId) => {
+    // o: you don't need to send the userId here as that can be retrieved from
+      //  req.user in express
     try {
       const { data } = await axios.get(`/api/user_questions/${userId}`, {
         headers: {
@@ -91,6 +93,8 @@ export const updateUserQuestion = createAsyncThunk(
   "updateUserQuestion",
   async ({ userId, questionAnswerId }) => {
     try {
+      // o: you don't need to send the userId here as that can be retrieved from
+      //  req.user in express
       const { data } = await axios.put(
         `/api/user_questions/${userId}`,
         {
@@ -123,6 +127,8 @@ export const updateUserQuestionInput = createAsyncThunk(
     userExpertise,
   }) => {
     try {
+      // o: you don't need to send the userId here as that can be retrieved from
+      //  req.user in express
       const { data } = await axios.post(
         `/api/user_questions/${userId}`,
         {

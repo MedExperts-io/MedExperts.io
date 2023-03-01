@@ -102,6 +102,8 @@ router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
 // --- For logged in student user's dashboard analytics
 router.get("/:userId", getToken, async (req, res, next) => {
   try {
+    // o: you should get this from req.user otherwise I can pass in any userId
+    //  via a request and fake as another person
     const userId = req.params.userId;
     const allUserQs = await User_Question.findAll({
       where: { userId: userId },
@@ -146,6 +148,8 @@ router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
 
 // PUT -- api/user_questions/:userId
 router.put("/:userId", getToken, async (req, res, next) => {
+  // o: you should get this from req.user otherwise I can pass in any userId
+    //  via a request and fake as another person
   const uId = req.params.userId;
   const qaId = req.body.questionAnswerId;
 
@@ -229,6 +233,8 @@ router.put("/:userId", getToken, async (req, res, next) => {
 
 // POST -- api/user_questions/:userId
 router.post("/:userId", getToken, async (req, res, next) => {
+  // o: you should get this from req.user otherwise I can pass in any userId
+  //  via a request and fake as another person
   const uId = req.params.userId;
   const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
 

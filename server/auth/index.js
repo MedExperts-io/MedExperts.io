@@ -192,6 +192,7 @@ router.post("/forgotPassword", async function (req, res, next) {
 
   let user = await User.findOne({ where: { email: email } });
 
+  // o: is there a reason this is just "ok" here
   if (user == null) {
     return res.json({ status: "ok" });
   }
@@ -222,6 +223,7 @@ router.post("/forgotPassword", async function (req, res, next) {
     uid: encodeURIComponent(userId),
   });
 
+  // o: is there a reason this is a function?
   const message = () => {
     return {
       from: process.env.SENDER_ADDRESS,
@@ -235,6 +237,7 @@ router.post("/forgotPassword", async function (req, res, next) {
     if (err) {
       console.log(err);
     } else {
+      // o: you should improve this message or remove it
       console.log("h");
     }
   });
@@ -253,6 +256,10 @@ router.get("/resetPassword/:token?:uid?", async function (req, res, next) {
     },
   });
 
+  // o: if this query depends on the one before this one, consider utilizing
+  //   a transaction https://sequelize.org/docs/v6/other-topics/transactions/
+  //  otherwise you may end up in a sitation where the pasword reset is not destroyed
+  //  and you try to run this findOne and it doesn't exist
   let record = await Password_Reset.findOne({
     where: {
       uid: uid,

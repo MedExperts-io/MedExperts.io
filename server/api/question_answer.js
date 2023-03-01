@@ -143,6 +143,7 @@ router.post("/", getToken, isAdmin, async (req, res, next) => {
 });
 
 //DELETE---api/questions/:singleQuestionId
+// o: you want to check if the person owns the question before deleting it here
 router.delete(
   "/:singleQuestionId",
   getToken,
