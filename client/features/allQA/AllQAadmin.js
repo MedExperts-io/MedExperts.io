@@ -236,8 +236,8 @@ const AllQAadmin = () => {
       };
     });
 
-    const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
-    const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
+    const sortedByFrequency = allQuestions.slice().sort((a, b) => b.frequency - a.frequency);
+    const sortedByFrequencyReverse = allQuestions.slice().sort((a, b) => a.frequency - b.frequency);
 
     if (type === "Most Answered") {
       return sortedByFrequency;
@@ -271,8 +271,8 @@ const AllQAadmin = () => {
         percentCorrect: Math.round((frequency[question.id]["right"] / frequency[question.id]["total"]) * 100) || 0,
       };
     });
-    const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
-    const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
+    const sortedByPercentCorrect = allQuestions.slice().sort((a, b) => b.percentCorrect - a.percentCorrect);
+    const sortedByPercentCorrectReverse = allQuestions.slice().sort((a, b) => a.percentCorrect - b.percentCorrect);
 
     if (type === "Most Correct") {
       return sortedByPercentCorrect;
