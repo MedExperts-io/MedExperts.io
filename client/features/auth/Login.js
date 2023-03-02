@@ -18,6 +18,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { error } = useSelector((state) => state.auth);
+  const [err, setErr] = useState(error);
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePassword = (evt) => {
@@ -25,16 +26,18 @@ const Login = () => {
     setPasswordShown(!passwordShown);
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
     const email = evt.target.loginEmail.value;
     const password = evt.target.loginPassword.value;
 
-    dispatch(authenticate({ email, password, method: formName }));
-
-    navigate("/dashboard");
-    if (!{ error }) navigate("/");
+    await dispatch(authenticate({ email, password, method: formName }))
+      .unwrap()
+      .then(() => {
+        if (err) navigate("/login");
+        else navigate("/dashboard");
+      });
   };
 
   return (

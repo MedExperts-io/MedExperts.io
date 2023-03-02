@@ -1,9 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Card, Dropdown, Row, Col, Form, Container, Button } from "react-bootstrap";
+import {
+  Card,
+  Dropdown,
+  Row,
+  Col,
+  Form,
+  Container,
+  Button,
+} from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency, fetchPercentCorrect, fetchActiveQAs } from "../stats/user_questionsSlice";
+import {
+  fetchAllUserQuestions,
+  fetchUserQuestions,
+  updateUserQuestion,
+  fetchExpertiseQuestions,
+  fetchByAnswerFrequency,
+  fetchPercentCorrect,
+  fetchActiveQAs,
+} from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import { Chip, Stack, LinearProgress } from "@mui/material";
@@ -18,8 +34,21 @@ const AllQAadmin = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const difficultiyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(difficultiyLevels[0]);
-  const userExpertise = ["All Expertise", "Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
+  const [currentDifficulty, setCurrentDifficulty] = useState(
+    difficultiyLevels[0]
+  );
+  const userExpertise = [
+    "All Expertise",
+    "Student",
+    "Resident",
+    "Fellow",
+    "Physician Assistant",
+    "Nurse",
+    "Nurse Practitioner",
+    "Pharmacist",
+    "Internal Med",
+    "Other",
+  ];
   const expertisePicked = useRef("All Expertise");
   const [currentCategory2, setCurrentCategory2] = useState(userExpertise[0]);
   const categories = [
@@ -43,7 +72,11 @@ const AllQAadmin = () => {
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const frequencyList = ["Frequency Sort", "Most Answered", "Least Answered"];
   const currentFrequency = useRef(frequencyList[0]);
-  const percentCorrectList = ["Percent Correct Sort", "Most Correct", "Least Correct"];
+  const percentCorrectList = [
+    "Percent Correct Sort",
+    "Most Correct",
+    "Least Correct",
+  ];
   const currentPercent = useRef(percentCorrectList[0]);
   const [seeFavorites, setSeeFavorites] = useState(true);
 
@@ -66,35 +99,73 @@ const AllQAadmin = () => {
 
   let filterCriteria = [currentDifficulty, currentCategory1];
 
-  const { mostAnswered, leastAnswered, mostCorrect, leastCorrect, activeUserQAs } = useSelector((state) => state.userQuestions);
-  const userQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  const AllUserQuestions = useSelector((state) => state.userQuestions.allUserQuestions);
-  const stateQuestions = useSelector((state) => state.questionsAnswers.questionsAnswers);
-  const expertiseQuestions = useSelector((state) => state.userQuestions.expertiseQuestions);
+  const {
+    mostAnswered,
+    leastAnswered,
+    mostCorrect,
+    leastCorrect,
+    activeUserQAs,
+  } = useSelector((state) => state.userQuestions);
+  const userQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const AllUserQuestions = useSelector(
+    (state) => state.userQuestions.allUserQuestions
+  );
+  const stateQuestions = useSelector(
+    (state) => state.questionsAnswers.questionsAnswers
+  );
+  const expertiseQuestions = useSelector(
+    (state) => state.userQuestions.expertiseQuestions
+  );
 
-  const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
-  const ModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate");
-  const HardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard");
+  const EasyQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Easy"
+  );
+  const ModerateQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Moderate"
+  );
+  const HardQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Hard"
+  );
 
-  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered === "right");
-  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered === "right");
-  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
-  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
+  const UsereasyQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Easy" && question.answered === "right"
+  );
+  const UserModerateQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Moderate" && question.answered === "right"
+  );
+  const UserHardQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Hard" && question.answered === "right"
+  );
+  const UserAllQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.answered === "right"
+  );
 
-  const easyQuestionsAnsweredPercentage = (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100;
-  const moderateQuestionsAnsweredPercentage = (UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100;
-  const hardQuestionsAnsweredPercentage = (UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100;
-  const allQuestionAnsweredPercentage = (UserAllQuestionsTotal.length / AllUserQuestions.length) * 100;
+  const easyQuestionsAnsweredPercentage =
+    (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100;
+  const moderateQuestionsAnsweredPercentage =
+    (UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100;
+  const hardQuestionsAnsweredPercentage =
+    (UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100;
+  const allQuestionAnsweredPercentage =
+    (UserAllQuestionsTotal.length / AllUserQuestions.length) * 100;
 
   let allQuestions = [...stateQuestions];
   allQuestions.sort((a, b) => a.displayId - b.displayId);
 
   const filteredQuestions = useRef(null);
-  allQuestions.length && !filteredQuestions.current ? (filteredQuestions.current = allQuestions) : null;
+  allQuestions.length && !filteredQuestions.current
+    ? (filteredQuestions.current = allQuestions)
+    : null;
 
   const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions.current && !pageCount ? setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage)) : null;
-  filteredQuestions.current && !currentItems ? setCurrentItems(filteredQuestions.current.slice(itemOffset, endOffset)) : null;
+  filteredQuestions.current && !pageCount
+    ? setPageCount(Math.ceil(filteredQuestions.current.length / itemsPerPage))
+    : null;
+  filteredQuestions.current && !currentItems
+    ? setCurrentItems(filteredQuestions.current.slice(itemOffset, endOffset))
+    : null;
 
   const truncate = (string) => {
     if (string.length > 20) {
@@ -105,10 +176,16 @@ const AllQAadmin = () => {
   };
 
   const data = (id) => {
-    const filterDataById = AllUserQuestions.filter((x) => x.questionAnswerId === id);
-    const filterDataByCorrect = filterDataById.filter((x) => x.answered === "right");
+    const filterDataById = AllUserQuestions.filter(
+      (x) => x.questionAnswerId === id
+    );
+    const filterDataByCorrect = filterDataById.filter(
+      (x) => x.answered === "right"
+    );
 
-    const percentageCorrect = Math.round((filterDataByCorrect.length / filterDataById.length) * 100);
+    const percentageCorrect = Math.round(
+      (filterDataByCorrect.length / filterDataById.length) * 100
+    );
     if (percentageCorrect || percentageCorrect === 0) {
       return percentageCorrect;
     } else {
@@ -116,12 +193,16 @@ const AllQAadmin = () => {
     }
   };
   const filterDataById = (id) => {
-    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterData = AllUserQuestions.filter(
+      (x) => x.questionAnswerId === id
+    );
     // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
     return filterData.length;
   };
   const filterDataByCorrect = (id) => {
-    const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
+    const filterData = AllUserQuestions.filter(
+      (x) => x.questionAnswerId === id
+    );
     const filterDataByRight = filterData.filter((x) => x.answered === "right");
     return filterDataByRight.length;
   };
@@ -136,7 +217,9 @@ const AllQAadmin = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = userQuestions.filter((question) => question.questionAnswerId == questionId);
+    const question = userQuestions.filter(
+      (question) => question.questionAnswerId == questionId
+    );
     if (question[0] && question[0].favorite) return true;
     return false;
   };
@@ -177,31 +260,74 @@ const AllQAadmin = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
 
-    expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
+    expertisePicked.current !== "All Expertise"
+      ? (multiFilter = expertiseQuestions[expertisePicked.current])
+      : null;
 
-    currentFrequency.current === "Frequency Sort" ? null : (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current));
-    currentPercent.current === "Percent Correct Sort" ? null : (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current));
-    currentPercent.current === "Least Correct" && currentFrequency.current === "Least Answered" ? (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current)) : null;
-    currentPercent.current === "Least Correct" && currentFrequency.current === "Most Answered" ? (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current)) : null;
+    currentFrequency.current === "Frequency Sort"
+      ? null
+      : (multiFilter = frequencySort(
+          multiFilter,
+          activeUserQAs,
+          currentFrequency.current
+        ));
+    currentPercent.current === "Percent Correct Sort"
+      ? null
+      : (multiFilter = percentCorrectSort(
+          multiFilter,
+          activeUserQAs,
+          currentPercent.current
+        ));
+    currentPercent.current === "Least Correct" &&
+    currentFrequency.current === "Least Answered"
+      ? (multiFilter = frequencySort(
+          multiFilter,
+          activeUserQAs,
+          currentFrequency.current
+        ))
+      : null;
+    currentPercent.current === "Least Correct" &&
+    currentFrequency.current === "Most Answered"
+      ? (multiFilter = percentCorrectSort(
+          multiFilter,
+          activeUserQAs,
+          currentPercent.current
+        ))
+      : null;
 
-    let favNumbers = userQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
-    isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
+    let favNumbers = userQuestions
+      .filter((question) => question.favorite === true)
+      .map((question) => question.questionAnswerId);
+    isFavorited
+      ? (multiFilter = multiFilter.filter((question) =>
+          favNumbers.includes(question.id)
+        ))
+      : null;
 
     for (let i = 0; i < filterCriteria.length; i++) {
-      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
+      if (
+        filterCriteria[i] === "All Levels" ||
+        filterCriteria[i] === "All Categories"
+      ) {
         continue;
       } else {
-        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
+        multiFilter = multiFilter.filter(
+          (question) =>
+            question.level === filterCriteria[i] ||
+            question.category === filterCriteria[i]
+        );
       }
     }
 
-    console.log("IN MULTIFILTER FUNCTION, MULTIFILTER:", multiFilter);
-    console.log("BEFORE", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
-    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
-    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
+    multiFilter.length
+      ? setCurrentItems(multiFilter.slice(0, 12))
+      : setCurrentItems("nada");
+    multiFilter.length
+      ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
+      : setPageCount(0);
     setItemOffset(0);
-    console.log("AFTER", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
+
     return multiFilter;
   };
 
@@ -239,10 +365,10 @@ const AllQAadmin = () => {
       };
     });
 
-    const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
+    const sortedByFrequency = allQuestions.sort(
+      (a, b) => b.frequency - a.frequency
+    );
     const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
-
-    console.log("sortedByFrequency in FILTERFUNCTION", sortedByFrequency);
 
     if (type === "Most Answered") {
       return sortedByFrequency;
@@ -272,13 +398,20 @@ const AllQAadmin = () => {
     const allQuestions = allQAs.map((question) => {
       return {
         ...question,
-        percentCorrect: Math.round((frequency[question.id]["right"] / frequency[question.id]["total"]) * 100) || 0,
+        percentCorrect:
+          Math.round(
+            (frequency[question.id]["right"] /
+              frequency[question.id]["total"]) *
+              100
+          ) || 0,
       };
     });
-    const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
-    const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
-
-    console.log("sortedByPercentCorrect in FILTERFUNCTION", sortedByPercentCorrect);
+    const sortedByPercentCorrect = allQuestions.sort(
+      (a, b) => b.percentCorrect - a.percentCorrect
+    );
+    const sortedByPercentCorrectReverse = sortedByPercentCorrect
+      .slice()
+      .reverse();
 
     if (type === "Most Correct") {
       return sortedByPercentCorrect;
@@ -299,28 +432,40 @@ const AllQAadmin = () => {
 
   const styles = {
     progressBarEasy: {
-      background: progressCircleBackground(UsereasyQuestionsTotal.length / EasyQuestionsTotal.length || 0, "lightgreen"),
+      background: progressCircleBackground(
+        UsereasyQuestionsTotal.length / EasyQuestionsTotal.length || 0,
+        "lightgreen"
+      ),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
       position: "relative",
     },
     progressBarModerate: {
-      background: progressCircleBackground(UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length || 0, "#f5ad27"),
+      background: progressCircleBackground(
+        UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length || 0,
+        "#f5ad27"
+      ),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
       position: "relative",
     },
     progressBarHard: {
-      background: progressCircleBackground(UserHardQuestionsTotal.length / HardQuestionsTotal.length || 0, "#f55b49"),
+      background: progressCircleBackground(
+        UserHardQuestionsTotal.length / HardQuestionsTotal.length || 0,
+        "#f55b49"
+      ),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
       position: "relative",
     },
     progressBarAll: {
-      background: progressCircleBackground(UserAllQuestionsTotal.length / AllUserQuestions.length || 0, "#bf5eff"),
+      background: progressCircleBackground(
+        UserAllQuestionsTotal.length / AllUserQuestions.length || 0,
+        "#bf5eff"
+      ),
       borderRadius: "50%",
       width: "120px",
       height: "120px",
@@ -373,12 +518,17 @@ const AllQAadmin = () => {
         </Card>
       </Row>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-        <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
+        <Card
+          className="mx-auto"
+          style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+        >
           <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
             <center>Student Progress</center>
             <Row>
               <p style={{ fontSize: `50%` }} className="text-muted">
-                The below charts represent the percentage of questions answered correctly in each category (i.e., of the 'Easy' questions answered, {Math.round(easyQuestionsAnsweredPercentage)}% were
+                The below charts represent the percentage of questions answered
+                correctly in each category (i.e., of the 'Easy' questions
+                answered, {Math.round(easyQuestionsAnsweredPercentage)}% were
                 answered correctly).
               </p>
             </Row>
@@ -389,9 +539,19 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarEasy}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UsereasyQuestionsTotal.length /
+                          EasyQuestionsTotal.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "lightgreen", paddingTop: "5px" }}
+                  >
                     Easy Level
                   </Card.Title>
                 </Card>
@@ -401,9 +561,19 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarModerate}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UserModerateQuestionsTotal.length /
+                          ModerateQuestionsTotal.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "#f5ad27", paddingTop: "5px" }}
+                  >
                     <center>Moderate Level</center>
                   </Card.Title>
                 </Card>
@@ -413,9 +583,19 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarHard}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UserHardQuestionsTotal.length /
+                          HardQuestionsTotal.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "#f55b49", paddingTop: "5px" }}
+                  >
                     Hard Level
                   </Card.Title>
                 </Card>
@@ -425,9 +605,19 @@ const AllQAadmin = () => {
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarAll}>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UserAllQuestionsTotal.length /
+                          AllUserQuestions.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                   </div>
-                  <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
+                  <Card.Title
+                    className="mx-auto"
+                    style={{ color: "#bf5eff", paddingTop: "5px" }}
+                  >
                     All Levels
                   </Card.Title>
                 </Card>
@@ -438,7 +628,10 @@ const AllQAadmin = () => {
       </Row>
 
       <Row style={{ marginBottom: "30px" }}>
-        <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
+        <Card
+          className="mx-auto"
+          style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+        >
           <Card.Header
             style={{
               marginBottom: "20px",
@@ -452,7 +645,11 @@ const AllQAadmin = () => {
             </Col>
           </Card.Header>
           <Card.Body>
-            <Row xs="auto" style={{ marginBottom: "20px" }} className="justify-content-center">
+            <Row
+              xs="auto"
+              style={{ marginBottom: "20px" }}
+              className="justify-content-center"
+            >
               <Col md="auto">
                 <Dropdown onSelect={(event) => pickDifficulty(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -469,7 +666,10 @@ const AllQAadmin = () => {
                 </Dropdown>
               </Col>
               <Col>
-                <Dropdown onSelect={(event) => pickCategory1(event)} style={{ marginBottom: "10px" }}>
+                <Dropdown
+                  onSelect={(event) => pickCategory1(event)}
+                  style={{ marginBottom: "10px" }}
+                >
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {currentCategory1}
                   </Dropdown.Toggle>
@@ -541,7 +741,12 @@ const AllQAadmin = () => {
 
               <Col md="auto">
                 <Form>
-                  <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
+                  <Form.Switch
+                    onChange={() => onFavoriteSwitch()}
+                    id="custom-switch"
+                    label="Favorites Only"
+                    checked={!seeFavorites}
+                  />
                 </Form>
               </Col>
             </Row>
@@ -564,7 +769,9 @@ const AllQAadmin = () => {
                         boxShadow: "0px 0px 10px 0px rgba(200,200,200,0.75)",
                       }}
                     >
-                      <Card.Header style={{ backgroundColor: question.color }} />
+                      <Card.Header
+                        style={{ backgroundColor: question.color }}
+                      />
                       <Card.Body>
                         <Card.Title
                           style={{
@@ -573,26 +780,54 @@ const AllQAadmin = () => {
                             color: "black",
                           }}
                         >
-                          <Link to={`/questions/${question.id}`} style={{ textDecoration: `none`, color: "black" }}>
+                          <Link
+                            to={`/questions/${question.id}`}
+                            style={{ textDecoration: `none`, color: "black" }}
+                          >
                             Question Number {question.displayId}
                           </Link>
                         </Card.Title>
-                        <Card.Text style={{ fontSize: "15px", textAlign: "center" }}>{truncate(question.question)}</Card.Text>
+                        <Card.Text
+                          style={{ fontSize: "15px", textAlign: "center" }}
+                        >
+                          {truncate(question.question)}
+                        </Card.Text>
                         <Stack spacing={0.5}>
                           <Chip
-                            label={<Stack spacing={2}>{`Correct Response: ${data(question.id) || data(question.id) === 0 ? data(question.id) : 0}%`}</Stack>}
-                            color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                            label={
+                              <Stack spacing={2}>{`Correct Response: ${
+                                data(question.id) || data(question.id) === 0
+                                  ? data(question.id)
+                                  : 0
+                              }%`}</Stack>
+                            }
+                            color={`${
+                              data(question.id) && data(question.id) >= 50
+                                ? "success"
+                                : "error"
+                            }`}
                             variant="outlined"
                           />
 
-                          <Chip label={`Total Response(s): ${filterDataById(question.id)}`} size="small" color="primary" variant="outlined" />
+                          <Chip
+                            label={`Total Response(s): ${filterDataById(
+                              question.id
+                            )}`}
+                            size="small"
+                            color="primary"
+                            variant="outlined"
+                          />
                         </Stack>
                       </Card.Body>
                       <LinearProgress
                         sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
                         variant="determinate"
                         value={data(question.id)}
-                        color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                        color={`${
+                          data(question.id) && data(question.id) >= 50
+                            ? "success"
+                            : "error"
+                        }`}
                       />
                       <Card.Footer>
                         {/* <Chip style={{ marginRight: "4px" }} label={question.level} onClick={() => pickDifficulty(question.level)} color="info" /> */}
@@ -606,12 +841,22 @@ const AllQAadmin = () => {
                         >
                           {question.category}
                         </Button> */}
-                        <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="default" size="small" variant="outlined" />
+                        <Chip
+                          label={question.category}
+                          onClick={() => pickCategory1(question.category)}
+                          color="default"
+                          size="small"
+                          variant="outlined"
+                        />
                         <Card.Img
                           style={{ float: "right", width: "20px" }}
                           onClick={() => favorite(userId, question.id)}
                           variant="top"
-                          src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                          src={
+                            favoriteStatus(question.id)
+                              ? "/heart(red).png"
+                              : "/heart.png"
+                          }
                         />
                       </Card.Footer>
                     </Card>
