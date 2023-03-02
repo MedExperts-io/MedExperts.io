@@ -51,6 +51,19 @@ export const fetchPercentCorrect = createAsyncThunk(
   }
 );
 
+export const fetchActiveQAs = createAsyncThunk("fetchActiveQAs", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/all_active`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // --------For admin's dashboard analytics (by expertise)--------------
 export const fetchExpertiseQuestions = createAsyncThunk(
   "fetchExpertiseQuestions",
@@ -161,6 +174,8 @@ export const allUser_QuestionsSlice = createSlice({
     leastAnswered: [],
     mostCorrect: [],
     leastCorrect: [],
+    activeQAs: [],
+    activeUserQAs: [],
     error: null,
   },
   reducers: {},
@@ -231,6 +246,10 @@ export const allUser_QuestionsSlice = createSlice({
 
         state.mostCorrect = sortedByPercentCorrect;
         state.leastCorrect = sortedByPercentCorrectReverse;
+      })
+      .addCase(fetchActiveQAs.fulfilled, (state, action) => {
+        state.activeQAs = action.payload[0];
+        state.activeUserQAs = action.payload[1];
       });
   },
 });
