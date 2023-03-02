@@ -1,11 +1,10 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import CopyrightIcon from "@mui/icons-material/Copyright";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Footer = () => {
   return (
     <Navbar id="footer" style={{ backgroundColor: "#FF6262" }}>
-      <Container fluid>
+      <Container fluid className="d-flex justify-content-end">
         <Nav>
           <p
             style={{
