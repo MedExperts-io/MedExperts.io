@@ -6,7 +6,6 @@ body {
   flex-direction: column;
   background-image: url("newBG8T.png");
   padding-bottom: 20px;
-  /* height:calc(100vh - (56px)) */
 }
 
 #no-border {
@@ -186,4 +185,9 @@ img {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+#tooltip-top > .tooltip-inner {
+  background-color: rgb(235, 233, 233);
+  color: rgb(93, 93, 93);
 }
