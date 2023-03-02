@@ -1,13 +1,14 @@
+import AddIcon from "@mui/icons-material/Add";
+import { Chip, Fab, LinearProgress, Stack } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
+import { Card, Col, Container, Dropdown, Form, Modal, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Card, Dropdown, Row, Col, Form, Container, Button } from "react-bootstrap";
-import { fetchAllQuestionsAnswers } from "./allQASlice";
-import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, fetchExpertiseQuestions, fetchByAnswerFrequency, fetchPercentCorrect, fetchActiveQAs } from "../stats/user_questionsSlice";
-import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
-import { Chip, Stack, LinearProgress } from "@mui/material";
-import frequencySort from "./filterFunctions";
+import { fetchActiveQAs, fetchAllUserQuestions, fetchByAnswerFrequency, fetchExpertiseQuestions, fetchPercentCorrect, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import { fetchAllQuestionsAnswers } from "./allQASlice";
+import AddQuestion from "../addQ/AddQuestion";
 
 const AllQAadmin = () => {
   const dispatch = useDispatch();
@@ -117,7 +118,6 @@ const AllQAadmin = () => {
   };
   const filterDataById = (id) => {
     const filterData = AllUserQuestions.filter((x) => x.questionAnswerId === id);
-    // const filterDataByCorrect = filterDataById.filter(x => x.answered === 'right')
     return filterData.length;
   };
   const filterDataByCorrect = (id) => {
@@ -353,39 +353,44 @@ const AllQAadmin = () => {
   const nextButton = document.querySelector('[aria-label="Next page"]');
   nextButton ? nextButton.remove() : null;
 
+  //add question modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
+
   return (
     <Container fluid>
-      <Row>
-        <Card
-          id="no-border"
-          className="mx-auto"
+      <OverlayTrigger key="top" style={{ backgroundColor: "gray" }} placement="top" overlay={<Tooltip id="tooltip-top">Add new question</Tooltip>}>
+        <Fab
+          size="medium"
+          onClick={handleOpen}
+          aria-label="add new question"
           style={{
-            paddingLeft: 0,
-            paddingRight: 0,
-            maxWidth: "90%",
-            marginTop: "30px",
+            position: "fixed",
+            bottom: "15px",
+            right: "8px",
+            backgroundColor: "green",
           }}
         >
-          <Button
-            size="small"
-            variant="success"
-            as={Link}
-            to="/addQuestion"
-
-            // style={{ color: "#FF6262" }}
-          >
-            Add a Question
-          </Button>
-        </Card>
-      </Row>
+          <AddIcon style={{ color: "white" }} />
+        </Fab>
+      </OverlayTrigger>
+      <Modal size="lg" centered scrollable={true} show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Question</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <AddQuestion />
+        </Modal.Body>
+      </Modal>
       <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
         <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
           <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
             <center>Student Progress</center>
             <Row>
               <p style={{ fontSize: `50%` }} className="text-muted">
-                The below charts represent the percentage of questions answered correctly in each category (i.e., of the 'Easy' questions answered, {Math.round(easyQuestionsAnsweredPercentage)}% were
-                answered correctly).
+                The below charts represent the percentage of questions answered correctly in each category (i.e., of the 'Easy' questions answered,{" "}
+                {Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}% were answered correctly).
               </p>
             </Row>
           </Card.Header>{" "}
@@ -601,18 +606,13 @@ const AllQAadmin = () => {
                         color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
                       />
                       <Card.Footer>
-                        {/* <Chip style={{ marginRight: "4px" }} label={question.level} onClick={() => pickDifficulty(question.level)} color="info" /> */}
-
-                        {/* <Button
-                          style={{ padding: "0px", margin: "0px" }}
-                          size="small"
-                          color="primary"
-                          variant="text"
+                        <Chip
+                          label={question.category === "Chronic Obstructive Pulmonary Disease" ? "COPD" : question.category}
                           onClick={() => pickCategory1(question.category)}
-                        >
-                          {question.category}
-                        </Button> */}
-                        <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="default" size="small" variant="outlined" />
+                          color="default"
+                          size="small"
+                          variant="outlined"
+                        />
                         <Card.Img
                           style={{ float: "right", width: "20px" }}
                           onClick={() => favorite(userId, question.id)}
@@ -621,7 +621,6 @@ const AllQAadmin = () => {
                         />
                       </Card.Footer>
                     </Card>
-                    // </Col>
                   ))
                 : "Sorry, we didn't find anything matching that"}
             </Row>
@@ -629,12 +628,10 @@ const AllQAadmin = () => {
               <Card className="mx-auto" id="no-border">
                 <ReactPaginate
                   className="pagination mx-auto"
-                  //nextLabel="next >"
                   onPageChange={handlePageClick}
                   pageRangeDisplayed={3}
                   marginPagesDisplayed={2}
                   pageCount={pageCount}
-                  //previousLabel="< previous"
                   pageClassName="page-item"
                   pageLinkClassName="page-link"
                   previousClassName="page-item"

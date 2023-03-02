@@ -3,18 +3,21 @@ import axios from "axios";
 const token = window.localStorage.getItem("token");
 
 // --------For admin's dashboard analytics (aggregate)--------------
-export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", async () => {
-  try {
-    const { data } = await axios.get(`/api/user_questions`, {
-      headers: {
-        authorization: window.localStorage.getItem("token"),
-      },
-    });
-    return data;
-  } catch (error) {
-    console.log(error);
+export const fetchAllUserQuestions = createAsyncThunk(
+  "fetchAllUserQuestions",
+  async () => {
+    try {
+      const { data } = await axios.get(`/api/user_questions`, {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 export const fetchByAnswerFrequency = createAsyncThunk(
   "fetchByAnswerFrequency",
@@ -62,18 +65,21 @@ export const fetchActiveQAs = createAsyncThunk("fetchActiveQAs", async () => {
 });
 
 // --------For admin's dashboard analytics (by expertise)--------------
-export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions", async () => {
-  try {
-    const { data } = await axios.get(`/api/user_questions/expertise/all`, {
-      headers: {
-        authorization: window.localStorage.getItem("token"),
-      },
-    });
-    return data;
-  } catch (error) {
-    console.log(error);
+export const fetchExpertiseQuestions = createAsyncThunk(
+  "fetchExpertiseQuestions",
+  async () => {
+    try {
+      const { data } = await axios.get(`/api/user_questions/expertise/all`, {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 // --------For logged in user's dashboard analytics--------------
 export const fetchUserQuestions = createAsyncThunk(
@@ -90,28 +96,32 @@ export const fetchUserQuestions = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-});
+  }
+);
 
 // --------TO FAVORITE, UNFAVORITE--------------
-export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async ({ userId, questionAnswerId }) => {
-  try {
-    const { data } = await axios.put(
-      `/api/user_questions/${userId}`,
-      {
-        questionAnswerId: questionAnswerId,
-      },
-      {
-        headers: {
-          authorization: window.localStorage.getItem("token"),
+export const updateUserQuestion = createAsyncThunk(
+  "updateUserQuestion",
+  async ({ userId, questionAnswerId }) => {
+    try {
+      const { data } = await axios.put(
+        `/api/user_questions/${userId}`,
+        {
+          questionAnswerId: questionAnswerId,
         },
-      }
-    );
-    console.log("THUNK", data);
-    return data;
-  } catch (error) {
-    console.log(error);
+        {
+          headers: {
+            authorization: window.localStorage.getItem("token"),
+          },
+        }
+      );
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 // --------TO STORE USER INPUT--------------
 export const updateUserQuestionInput = createAsyncThunk(
@@ -146,8 +156,9 @@ export const updateUserQuestionInput = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
+    }
   }
-});
+);
 
 export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
@@ -178,9 +189,15 @@ export const allUser_QuestionsSlice = createSlice({
       })
       .addCase(fetchUserQuestions.fulfilled, (state, action) => {
         state.UserQuestions = action.payload;
-        state.userEasy = action.payload.filter((question) => question.level === "Easy" && question.userInput);
-        state.userModerate = action.payload.filter((question) => question.level === "Moderate" && question.userInput);
-        state.userHard = action.payload.filter((question) => question.level === "Hard" && question.userInput);
+        state.userEasy = action.payload.filter(
+          (question) => question.level === "Easy" && question.userInput
+        );
+        state.userModerate = action.payload.filter(
+          (question) => question.level === "Moderate" && question.userInput
+        );
+        state.userHard = action.payload.filter(
+          (question) => question.level === "Hard" && question.userInput
+        );
       })
       .addCase(updateUserQuestion.fulfilled, (state, action) => {
         state.currentUserQuestion = action.payload;
