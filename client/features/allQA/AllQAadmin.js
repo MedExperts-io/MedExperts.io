@@ -529,7 +529,7 @@ const AllQAadmin = () => {
                         >
                           {question.category}
                         </Button> */}
-                        <Chip label={question.category} onClick={() => pickCategory1(question.category)} color="default" size="small" variant="outlined" />
+                        <Chip label={question.category === 'Chronic Obstructive Pulmonary Disease' ? 'COPD' : question.category} onClick={() => pickCategory1(question.category)} color="default" size="small" variant="outlined" />
                         <Card.Img
                           style={{ float: "right", width: "20px" }}
                           onClick={() => favorite(userId, question.id)}

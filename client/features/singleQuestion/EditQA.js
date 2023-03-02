@@ -209,7 +209,7 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="question">
                           <Form.Label className="text-muted">
-                            Question
+                            <strong className="me-auto">Question</strong>
                           </Form.Label>
                           <Form.Control
                             as="textarea"
@@ -223,7 +223,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="questionImage">
                           <Form.Label className="text-muted">
-                            Question Images
+                            <strong className="me-auto">
+                              Question Figures
+                            </strong>
                           </Form.Label>
 
                           <InputGroup className="mb-3">
@@ -256,8 +258,22 @@ const EditQA = () => {
                           >
                             <thead>
                               <tr>
-                                <th className="text-muted">Question Figure</th>
-                                <th className="text-muted">Preview</th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Figure #
+                                </th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Preview
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -305,7 +321,7 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="answerOptions">
                           <Form.Label className="text-muted">
-                            Options
+                            <strong className="me-auto">Options</strong>
                           </Form.Label>
                           <InputGroup className="mb-3">
                             <Form.Control
@@ -391,7 +407,9 @@ const EditQA = () => {
 
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="correctAnswer">
-                          <Form.Label className="text-muted">Answer</Form.Label>
+                          <Form.Label className="text-muted">
+                            <strong className="me-auto">Answer</strong>
+                          </Form.Label>
                           <Form.Select
                             aria-label="Default select example"
                             onChange={(e) => {
@@ -410,7 +428,7 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanation">
                           <Form.Label className="text-muted">
-                            Explanation
+                            <strong className="me-auto">Explanation</strong>
                           </Form.Label>
                           <Form.Control
                             as="textarea"
@@ -424,7 +442,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanationImage">
                           <Form.Label className="text-muted">
-                            Explanation Images
+                            <strong className="me-auto">
+                              Explanation Figures
+                            </strong>
                           </Form.Label>
 
                           <InputGroup className="mb-3">
@@ -449,13 +469,30 @@ const EditQA = () => {
                             </Button>
                           </InputGroup>
 
-                          <Table hover size="sm" bordered>
+                          <Table
+                            hover
+                            size="sm"
+                            bordered
+                            className="text-center"
+                          >
                             <thead>
                               <tr>
-                                <th className="text-muted">
-                                  Explanation Figure
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Figure #
                                 </th>
-                                <th className="text-muted">Preview</th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Preview
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -503,7 +540,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanationLinks">
                           <Form.Label className="text-muted">
-                            Explanation Sources
+                            <strong className="me-auto">
+                              Explanation Sources
+                            </strong>
                           </Form.Label>
                           <InputGroup className="mb-3">
                             <InputGroup.Text>Link and Citation</InputGroup.Text>
@@ -552,11 +591,30 @@ const EditQA = () => {
                             </Button>
                           </InputGroup>
 
-                          <Table hover size="sm" bordered>
+                          <Table
+                            hover
+                            size="sm"
+                            bordered
+                            className="text-center"
+                          >
                             <thead>
                               <tr>
-                                <th className="text-muted">Link</th>
-                                <th className="text-muted">Citation</th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Link
+                                </th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                    color: "gray",
+                                  }}
+                                >
+                                  Citation
+                                </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -598,7 +656,7 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="category">
                           <Form.Label className="text-muted">
-                            Category
+                            <strong className="me-auto">Category</strong>
                           </Form.Label>
                           <Form.Select
                             aria-label="default select example"
@@ -647,7 +705,9 @@ const EditQA = () => {
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="level">
-                          <Form.Label className="text-muted">Level</Form.Label>
+                          <Form.Label className="text-muted">
+                            <strong className="me-auto">Level</strong>
+                          </Form.Label>
                           <Form.Select
                             aria-label="default select example"
                             onChange={(e) => {

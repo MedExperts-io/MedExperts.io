@@ -68,7 +68,9 @@ const Profile = () => {
                 {/* <h1>Edit My Profile</h1> */}
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="firstName">
-                    <Form.Label className="text-muted">First Name</Form.Label>
+                    <Form.Label className="text-muted">
+                      <strong className="me-auto">First Name</strong>
+                    </Form.Label>
                     <Form.Control
                       onClick={clearText}
                       type="text"
@@ -84,7 +86,10 @@ const Profile = () => {
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="lastName">
-                    <Form.Label className="text-muted">Last Name</Form.Label>
+                    <Form.Label className="text-muted">
+                      {" "}
+                      <strong className="me-auto">Last Name</strong>
+                    </Form.Label>
                     <Form.Control
                       onClick={clearText}
                       type="text"
@@ -102,7 +107,8 @@ const Profile = () => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="school">
                     <Form.Label className="text-muted">
-                      School Affiliation
+                      {" "}
+                      <strong className="me-auto">School Affiliation</strong>
                     </Form.Label>
                     <Form.Control
                       type="text"
@@ -115,7 +121,8 @@ const Profile = () => {
 
                   <Form.Group as={Col} controlId="expertiseLevel">
                     <Form.Label className="text-muted">
-                      Expertise Level
+                      {" "}
+                      <strong className="me-auto">Expertise Level</strong>
                     </Form.Label>
                     <Form.Select
                       aria-label="default select example"
@@ -143,7 +150,8 @@ const Profile = () => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="email">
                     <Form.Label className="text-muted">
-                      Email Address
+                      {" "}
+                      <strong className="me-auto">Email Address</strong>
                     </Form.Label>
                     <Form.Control
                       type="email"

@@ -531,7 +531,7 @@ const QuestionsAnswers = () => {
                         </Card.Body>
                         <Card.Footer>
                           <Chip
-                            label={question.category}
+                            label={question.category === 'Chronic Obstructive Pulmonary Disease' ? 'COPD' : question.category}
                             onClick={() => pickCategory1(question.category)}
                             color="default"
                             variant="outlined"
