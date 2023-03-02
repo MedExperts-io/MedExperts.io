@@ -82,20 +82,16 @@ const QuestionsAnswers = () => {
   let filterCriteria = [currentDifficulty, currentCategory1];
 
   const admin = useSelector((state) => state.auth.me.isAdmin);
-  const { UserQuestions, userEasy, userModerate, userHard } = useSelector(
-    (state) => state.userQuestions
-  );
-  const { questionsAnswers, easy, moderate, hard } = useSelector(
-    (state) => state.questionsAnswers
-  );
+  const { UserQuestions, userEasy, userModerate, userHard } = useSelector((state) => state.userQuestions);
+  const UserQuestionsAnswered = UserQuestions.filter((question) => question.answered !== null);
+  const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
   const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
   const moderatePercentage = Math.round(
     (userModerate?.length / moderate?.length) * 100
   );
   const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
-  const allPercentage = Math.round(
-    (UserQuestions?.length / questionsAnswers?.length) * 100
-  );
+  const allPercentage = Math.round((UserQuestionsAnswered?.length / questionsAnswers?.length) * 100);
+
   let rightOrWrong = {};
   UserQuestions ? (rightOrWrong = userRightOrWrong(UserQuestions)) : null;
 
