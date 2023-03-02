@@ -177,8 +177,6 @@ const AllQAadmin = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
 
-    expertisePicked.current !== "All Expertise" ? (multiFilter = expertiseQuestions[expertisePicked.current]) : null;
-
     currentFrequency.current === "Frequency Sort" ? null : (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current));
     currentPercent.current === "Percent Correct Sort" ? null : (multiFilter = percentCorrectSort(multiFilter, activeUserQAs, currentPercent.current));
     currentPercent.current === "Least Correct" && currentFrequency.current === "Least Answered" ? (multiFilter = frequencySort(multiFilter, activeUserQAs, currentFrequency.current)) : null;
@@ -195,13 +193,12 @@ const AllQAadmin = () => {
       }
     }
 
-    console.log("IN MULTIFILTER FUNCTION, MULTIFILTER:", multiFilter);
-    console.log("BEFORE", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
+    multiFilter = expertiseFilterFunction(multiFilter);
+
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
     multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
     multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
-    console.log("AFTER", "ItemOffset:", itemOffset, "pageCount:", pageCount, "currentItems:", currentItems);
     return multiFilter;
   };
 
@@ -242,8 +239,6 @@ const AllQAadmin = () => {
     const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
     const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
 
-    console.log("sortedByFrequency in FILTERFUNCTION", sortedByFrequency);
-
     if (type === "Most Answered") {
       return sortedByFrequency;
     } else if (type === "Least Answered") {
@@ -253,13 +248,14 @@ const AllQAadmin = () => {
 
   const percentCorrectSort = (allQAs, allUserQs, type) => {
     if (allQAs.length === 0) return [];
-    let frequency = {};
 
+    let frequency = {};
     for (let i = 0; i < allQAs.length; i++) {
       if (!frequency[allQAs[i]["id"]]) {
         frequency[allQAs[i]["id"]] = { right: 0, total: 0 };
       }
     }
+
     for (let i = 0; i < allUserQs.length; i++) {
       if (allUserQs[i]["answered"] === "right") {
         frequency[allUserQs[i]["questionAnswerId"]]["right"]++;
@@ -278,13 +274,23 @@ const AllQAadmin = () => {
     const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
     const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
 
-    console.log("sortedByPercentCorrect in FILTERFUNCTION", sortedByPercentCorrect);
-
     if (type === "Most Correct") {
       return sortedByPercentCorrect;
     } else if (type === "Least Correct") {
       return sortedByPercentCorrectReverse;
     }
+  };
+
+  const expertiseFilterFunction = (multiFilter) => {
+    if (expertisePicked.current === "All Expertise") {
+      return multiFilter;
+    }
+
+    const userQAs = expertiseQuestions[expertisePicked.current];
+    const userQAIds = userQAs.map((question) => question.id);
+
+    multiFilter = multiFilter.filter((question) => userQAIds.includes(question.id));
+    return multiFilter;
   };
 
   useEffect(() => {
