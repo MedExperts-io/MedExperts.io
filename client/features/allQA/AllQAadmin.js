@@ -614,7 +614,7 @@ const AllQAadmin = () => {
                           variant="outlined"
                         />
                         <Card.Img
-                          style={{ float: "right", width: "20px" }}
+                          style={{ float: "right", width: "20px", cursor: "pointer" }}
                           onClick={() => favorite(userId, question.id)}
                           variant="top"
                           src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
