@@ -275,9 +275,10 @@ const EditQA = () => {
                                 >
                                   Preview
                                 </th>
+                                <th></th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody style={{ borderTop: "none" }}>
                               {newQuestionImage?.map((link, linkIdx) => (
                                 <tr key={uuidv4()}>
                                   <td>
@@ -495,9 +496,10 @@ const EditQA = () => {
                                 >
                                   Preview
                                 </th>
+                                <th></th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody style={{ borderTop: "none" }}>
                               {newExplanationImage?.map((link, linkIdx) => (
                                 <tr key={uuidv4()}>
                                   <td>
@@ -600,7 +602,11 @@ const EditQA = () => {
                             className="text-center"
                             responsive
                           >
-                            <thead>
+                            <thead
+                              style={{
+                                background: "red",
+                              }}
+                            >
                               <tr>
                                 <th
                                   style={{
@@ -618,9 +624,10 @@ const EditQA = () => {
                                 >
                                   Citation
                                 </th>
+                                <th></th>
                               </tr>
                             </thead>
-                            <tbody>
+                            <tbody style={{ borderTop: "none" }}>
                               {newExplanationLinks?.map((link, linkIdx) => (
                                 <tr key={uuidv4()}>
                                   <td>
