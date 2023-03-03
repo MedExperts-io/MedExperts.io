@@ -255,6 +255,7 @@ const EditQA = () => {
                             size="sm"
                             bordered
                             className="text-center"
+                            responsive
                           >
                             <thead>
                               <tr>
@@ -474,6 +475,7 @@ const EditQA = () => {
                             size="sm"
                             bordered
                             className="text-center"
+                            responsive
                           >
                             <thead>
                               <tr>
@@ -596,6 +598,7 @@ const EditQA = () => {
                             size="sm"
                             bordered
                             className="text-center"
+                            responsive
                           >
                             <thead>
                               <tr>
