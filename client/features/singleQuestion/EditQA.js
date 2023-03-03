@@ -253,15 +253,21 @@ const EditQA = () => {
                           <Table
                             size="sm"
                             bordered
-                            className="text-center"
                             responsive
+                            style={{
+                              tableLayout: "fixed",
+                              textAlign: "center",
+                            }}
                           >
-                            <thead>
+                            <thead
+                              style={{
+                                background: "#eaecef",
+                              }}
+                            >
                               <tr>
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    color: "gray",
                                   }}
                                 >
                                   Figure #
@@ -269,7 +275,6 @@ const EditQA = () => {
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    color: "gray",
                                   }}
                                 >
                                   Preview
@@ -473,23 +478,28 @@ const EditQA = () => {
                           <Table
                             size="sm"
                             bordered
-                            className="text-center"
                             responsive
+                            style={{
+                              tableLayout: "fixed",
+                              textAlign: "center",
+                            }}
                           >
-                            <thead>
+                            <thead
+                              style={{
+                                background: "#eaecef",
+                              }}
+                            >
                               <tr>
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    color: "gray",
                                   }}
                                 >
                                   Figure #
                                 </th>
                                 <th
                                   style={{
-                                    fontWeight: "normal",
-                                    color: "gray",
+                                    fontWeight: "normal"
                                   }}
                                 >
                                   Preview
@@ -596,10 +606,10 @@ const EditQA = () => {
                           <Table
                             size="sm"
                             bordered
-                            className="text-center"
                             responsive
                             style={{
                               tableLayout: "fixed",
+                              textAlign: "center",
                             }}
                           >
                             <thead
@@ -611,7 +621,6 @@ const EditQA = () => {
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    // color: "gray",
                                   }}
                                 >
                                   Link
@@ -619,7 +628,6 @@ const EditQA = () => {
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    // color: "gray",
                                   }}
                                 >
                                   Citation
