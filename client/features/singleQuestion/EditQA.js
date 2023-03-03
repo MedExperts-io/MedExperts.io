@@ -251,7 +251,6 @@ const EditQA = () => {
                           </InputGroup>
 
                           <Table
-                            hover
                             size="sm"
                             bordered
                             className="text-center"
@@ -472,7 +471,6 @@ const EditQA = () => {
                           </InputGroup>
 
                           <Table
-                            hover
                             size="sm"
                             bordered
                             className="text-center"
@@ -596,22 +594,24 @@ const EditQA = () => {
                           </InputGroup>
 
                           <Table
-                            hover
                             size="sm"
                             bordered
                             className="text-center"
                             responsive
+                            style={{
+                              tableLayout: "fixed",
+                            }}
                           >
                             <thead
                               style={{
-                                background: "red",
+                                background: "#eaecef",
                               }}
                             >
                               <tr>
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    color: "gray",
+                                    // color: "gray",
                                   }}
                                 >
                                   Link
@@ -619,7 +619,7 @@ const EditQA = () => {
                                 <th
                                   style={{
                                     fontWeight: "normal",
-                                    color: "gray",
+                                    // color: "gray",
                                   }}
                                 >
                                   Citation
