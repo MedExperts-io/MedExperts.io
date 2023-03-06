@@ -129,7 +129,6 @@ export const authSlice = createSlice({
   initialState: {
     me: {},
     error: null,
-    // loading: false,
   },
   reducers: {
     logout(state, action) {
@@ -139,22 +138,17 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // builder.addCase(me.pending, (state, action) => {
-    //   state.loading = true;
-    // });
     builder.addCase(me.fulfilled, (state, action) => {
-      // state.loading = false;
       state.me = action.payload;
     });
     builder.addCase(me.rejected, (state, action) => {
       state.error = action.error;
     });
-    // builder.addCase(authenticate.pending, (state, action) => {
-    //   state.loading = true;
-    // });
+    builder.addCase(authenticate.fulfilled, (state, action) => {
+      state.error = null;
+    });
     builder.addCase(authenticate.rejected, (state, action) => {
       state.error = action.payload;
-      // state.loading = false;
     });
     // builder.addCase(verifyNewUserEmail.fulfilled, (state, action) => {
     //   state.me = action.payload;
