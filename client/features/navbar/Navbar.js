@@ -73,50 +73,29 @@ const SiteNavbar = () => {
 
               <Nav>
                 <Button
-                  className="m-2"
                   variant="light"
+                  as={Link}
+                  to="/profile"
+                  className="m-2"
                   style={{
-                    paddingTop: "0",
-                    paddingBottom: "0",
-                    marginTop: "0",
-                    marginBottom: "0",
+                    color: "#FF6262",
+                    paddingTop: "10px",
+                    height: "48px",
                   }}
                 >
-                  <NavDropdown
-                    className="buttonIcon"
-                    style={{
-                      paddingTop: "0",
-                      marginTop: "0",
-                      marginBottom: "0",
-                    }}
-                    title={
-                      <AccountCircleRoundedIcon
-                        className="mx-auto"
-                        style={{
-                          color: "#FF6262",
-                          height: "30",
-                          width: "30",
-                          paddingRight: "7px",
-                          paddingTop: "0px",
-                          marginTop: "0",
-                          marginBottom: "0",
-                        }}
-                      />
-                    }
-                    drop={"start"}
-                    id="collapsible-nav-dropdown"
-                  >
-                    <NavDropdown.Item as={Link} to="/profile">
-                      Profile
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
-                      onClick={logoutAndRedirectHome}
-                      style={{ color: "#FF6262" }}
-                    >
-                      Logout
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  My Profile
+                </Button>
+                <Button
+                  variant="light"
+                  onClick={logoutAndRedirectHome}
+                  className="m-2"
+                  style={{
+                    color: "#FF6262",
+                    paddingTop: "10px",
+                    height: "48px",
+                  }}
+                >
+                  Logout
                 </Button>
               </Nav>
             </Navbar.Collapse>
@@ -140,46 +119,30 @@ const SiteNavbar = () => {
             >
               <Nav>
                 <Button
-                  className="m-2"
                   variant="light"
+                  as={Link}
+                  to="/login"
+                  className="m-2"
                   style={{
-                    paddingTop: "0",
-                    paddingBottom: "0",
-                    marginTop: "0",
-                    marginBottom: "0",
+                    color: "#FF6262",
+                    paddingTop: "10px",
+                    height: "48px",
                   }}
                 >
-                  <NavDropdown
-                    className="buttonIcon"
-                    style={{
-                      paddingTop: "0",
-                      marginTop: "0",
-                      marginBottom: "0",
-                    }}
-                    title={
-                      <AccountCircleRoundedIcon
-                        style={{
-                          color: "#FF6262",
-                          height: "30",
-                          width: "30",
-                          paddingRight: "7px",
-                          paddingTop: "0px",
-                          marginTop: "0",
-                          marginBottom: "0",
-                        }}
-                      />
-                    }
-                    drop={"start"}
-                    id="collapsible-nav-dropdown"
-                  >
-                    <NavDropdown.Item as={Link} to="/login">
-                      Login
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/signup">
-                      Create Account
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  Login
+                </Button>
+                <Button
+                  variant="light"
+                  as={Link}
+                  to="/signup"
+                  className="m-2"
+                  style={{
+                    color: "#FF6262",
+                    paddingTop: "10px",
+                    height: "48px",
+                  }}
+                >
+                  Create Account
                 </Button>
               </Nav>
             </Navbar.Collapse>
