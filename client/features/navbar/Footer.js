@@ -10,7 +10,7 @@ const Footer = () => {
           <p
             style={{
               fontSize: "7px",
-              color: "white",
+              color: "black",
               padding: "0px",
               margin: "0px",
             }}

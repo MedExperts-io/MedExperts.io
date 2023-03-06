@@ -191,3 +191,8 @@ img {
   background-color: rgb(235, 233, 233);
   color: rgb(93, 93, 93);
 }
+
+.navbarButton:hover {
+  border-radius: 50px;
+  background-color: rgb(237, 237, 237);
+}
