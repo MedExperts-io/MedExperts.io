@@ -12,11 +12,6 @@ body {
   border: none;
 }
 
-a[href="/questions"] {
-  color: black;
-  text-decoration-line: none;
-}
-
 #form-submit-btn {
   background-color: #ff6262;
   border-color: #ff6262;
@@ -184,7 +179,7 @@ img {
   margin-top: 50px;
   position: absolute;
   bottom: 0;
-  right: 0;
+  width: 100%;
 }
 
 #tooltip-top > .tooltip-inner {
@@ -202,7 +197,7 @@ img {
 }
 
 .navbar-link {
-  color: black;
+  color: white;
   text-decoration-line: none;
-  padding: 10px;
+  text-align: center;
 }

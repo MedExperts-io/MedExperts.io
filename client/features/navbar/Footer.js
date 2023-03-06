@@ -5,17 +5,17 @@ import CopyrightIcon from "@mui/icons-material/Copyright";
 const Footer = () => {
   return (
     <Navbar id="footer" style={{ backgroundColor: "#FF6262" }}>
-      <Container fluid>
+      <Container fluid className="d-flex justify-content-center">
         <Nav>
           <p
             style={{
-              fontSize: "7px",
+              fontSize: "10px",
               color: "white",
               padding: "0px",
               margin: "0px",
             }}
           >
-            © Fluence, LLC. All Rights Reserved.
+            Copyright © 2023 Fluence LLC. All rights reserved.
           </p>
         </Nav>
       </Container>

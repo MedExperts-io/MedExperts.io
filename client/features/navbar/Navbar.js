@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../app/store";
-import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import LogoutIcon from "@mui/icons-material/Logout";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import LogoutIcon from "@mui/icons-material/Logout";
 import QuizIcon from "@mui/icons-material/Quiz";
+import LoginIcon from "@mui/icons-material/Login";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
+import BottomNavigation from "@mui/material/BottomNavigation";
+
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -38,22 +43,43 @@ const SiteNavbar = () => {
               id="responsive-navbar-nav"
               className="justify-content-end"
             >
-              <Nav>
-                <Link to="/dashboard" className="navbar-link">
-                  Dashboard
-                </Link>
+              {" "}
+              <BottomNavigation
+                showLabels
+                style={{ backgroundColor: "transparent", color: "white" }}
+              >
+                <BottomNavigationAction
+                  label="Dashboard"
+                  className="navbar-link"
+                  onClick={() => navigate("/dashboard")}
+                  style={{ color: "white" }}
+                  icon={<DashboardIcon />}
+                />
 
-                <Link to="/questions" className="navbar-link">
-                  Questions
-                </Link>
+                <BottomNavigationAction
+                  label="Questions"
+                  className="navbar-link"
+                  onClick={() => navigate("/questions")}
+                  style={{ color: "white" }}
+                  icon={<QuizIcon />}
+                />
 
-                <Link to="/profile" className="navbar-link">
-                  Profile
-                </Link>
-                <Link onClick={logoutAndRedirectHome} className="navbar-link">
-                  Logout
-                </Link>
-              </Nav>
+                <BottomNavigationAction
+                  label="Profile"
+                  className="navbar-link"
+                  onClick={() => navigate("/profile")}
+                  style={{ color: "white" }}
+                  icon={<AccountCircleRoundedIcon />}
+                />
+
+                <BottomNavigationAction
+                  label="Logout"
+                  className="navbar-link"
+                  style={{ color: "white" }}
+                  onClick={logoutAndRedirectHome}
+                  icon={<LogoutIcon />}
+                />
+              </BottomNavigation>
             </Navbar.Collapse>
           </>
         ) : (
@@ -75,10 +101,10 @@ const SiteNavbar = () => {
             >
               <Nav>
                 <Link to="/login" className="navbar-link">
-                  Login
+                  <LoginIcon /> Login
                 </Link>
                 <Link to="/signup" className="navbar-link">
-                  Create Account
+                  <PersonAddIcon /> Create Account
                 </Link>
               </Nav>
             </Navbar.Collapse>
