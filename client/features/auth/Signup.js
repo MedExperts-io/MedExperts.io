@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { authenticate } from "../../app/store";
-import {
-  Button,
-  Col,
-  Card,
-  Container,
-  Form,
-  Row,
-  InputGroup,
-  Modal,
-} from "react-bootstrap";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import React, { useState } from "react";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  InputGroup,
+  Modal,
+  Row,
+} from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { me } from "../../app/store";
+import { authenticate } from "../../app/store";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -22,9 +21,7 @@ const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const { error } = useSelector((state) => state.auth);
   const [err, setErr] = useState(error);
-  console.log(error, "error");
 
-  // const [validated, setValidated] = useState(false);
   const expertiseLevel = [
     "Student",
     "Resident",
@@ -67,7 +64,6 @@ const SignUp = () => {
   // start modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
-    // setValidated(false);
     setShow(false);
   };
   const handleShow = () => {}; //setShow(true);
@@ -113,12 +109,7 @@ const SignUp = () => {
             <Card.Body>
               <div className="mb-3 mt-md-4">
                 <div className="mb-3">
-                  <Form
-                    onSubmit={handleSubmit}
-                    // noValidate
-                    // validated={validated}
-                    name="signup"
-                  >
+                  <Form onSubmit={handleSubmit} name="signup">
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="firstName">
                         <Form.Label label="First Name">First Name</Form.Label>
@@ -287,7 +278,6 @@ const SignUp = () => {
                     )}
                     <div className="d-grid">
                       <Button
-                        // onClick={() => setValidated(true)}
                         onClick={handleShow}
                         disabled={passwordStrength != 5}
                         id="buttons"
