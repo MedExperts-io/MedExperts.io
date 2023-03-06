@@ -191,3 +191,18 @@ img {
   background-color: rgb(235, 233, 233);
   color: rgb(93, 93, 93);
 }
+
+/* nav */
+.navbar {
+  background-color: #ff6262;
+}
+
+.navbar-logo {
+  height: 50px;
+}
+
+.navbar-link {
+  color: black;
+  text-decoration-line: none;
+  padding: 10px;
+}

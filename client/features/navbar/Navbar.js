@@ -4,24 +4,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import LogoutIcon from "@mui/icons-material/Logout";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import QuizIcon from "@mui/icons-material/Quiz";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const logoutAndRedirectHome = () => {
-    dispatch(logout());
+  const logoutAndRedirectHome = async () => {
+    await dispatch(logout());
     navigate("/");
   };
 
   return (
-    <Navbar
-      collapseOnSelect
-      style={{ backgroundColor: "#FF6262" }}
-      expand="lg"
-      variant="dark"
-    >
+    <Navbar collapseOnSelect className="navbar" expand="lg" variant="dark">
       <Container fluid>
         {isLoggedIn ? (
           <>
@@ -29,7 +27,7 @@ const SiteNavbar = () => {
               <Navbar.Brand>
                 <img
                   src="/MedExpert.svg"
-                  style={{ height: "50px" }}
+                  className="navbar-logo"
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -41,62 +39,20 @@ const SiteNavbar = () => {
               className="justify-content-end"
             >
               <Nav>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/dashboard"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
+                <Link to="/dashboard" className="navbar-link">
                   Dashboard
-                </Button>
-              </Nav>
-              <Nav>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/questions"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
-                  Questions
-                </Button>
-              </Nav>
+                </Link>
 
-              <Nav>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/profile"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
-                  My Profile
-                </Button>
-                <Button
-                  variant="light"
-                  onClick={logoutAndRedirectHome}
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
+                <Link to="/questions" className="navbar-link">
+                  Questions
+                </Link>
+
+                <Link to="/profile" className="navbar-link">
+                  Profile
+                </Link>
+                <Link onClick={logoutAndRedirectHome} className="navbar-link">
                   Logout
-                </Button>
+                </Link>
               </Nav>
             </Navbar.Collapse>
           </>
@@ -106,7 +62,7 @@ const SiteNavbar = () => {
               <Navbar.Brand>
                 <img
                   src="/MedExpert.svg"
-                  style={{ height: "50px" }}
+                  className="navbar-logo"
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -118,32 +74,12 @@ const SiteNavbar = () => {
               className="justify-content-end"
             >
               <Nav>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/login"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
+                <Link to="/login" className="navbar-link">
                   Login
-                </Button>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/signup"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
+                </Link>
+                <Link to="/signup" className="navbar-link">
                   Create Account
-                </Button>
+                </Link>
               </Nav>
             </Navbar.Collapse>
           </>
