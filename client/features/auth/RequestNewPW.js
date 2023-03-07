@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Container, Form, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { forgotPassword } from "./authSlice";
@@ -18,27 +18,39 @@ const RequestNewPassword = () => {
 
   return (
     <Container>
-      <Row className="p-5">
-        <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
-          <Form onSubmit={handleSubmit}>
-            <h3 style={{ fontSize: "25px" }}>Reset Password</h3>
-            <p style={{ fontSize: "15px" }}>
-              Please enter your email address. You will receive a link to create
-              a new password via email. If you don't see an email, please be
-              sure to check your spam or junk folders.
-            </p>
-            <Form.Group className="mb-3" controlId="email">
-              <Form.Control type="email" placeholder="Email Address" required />
-              <Form.Control.Feedback type="invalid">
-                Please provide a valid email address.
-              </Form.Control.Feedback>
-            </Form.Group>
+      <Row className="p-5 justify-content-center">
+        <Col>
+          <Card className="shadow mx-auto" style={{ maxWidth: "600px" }}>
+            <Card.Header>Reset your password</Card.Header>
+            <Card.Body>
+              <div className="mb-3 mt-md-4">
+                <div className="mb-3">
+                  <Form onSubmit={handleSubmit}>
+                    {/* <h3 style={{ fontSize: "25px" }}>Reset your password</h3>s */}
+                    <p style={{ fontSize: "15px" }}>
+                      Enter your user account's verified email address and we
+                      will send you a password reset link.
+                    </p>
+                    <Form.Group className="mb-3" controlId="email">
+                      <Form.Control
+                        type="email"
+                        placeholder="Email Address"
+                        required
+                      />
+                      <Form.Control.Feedback type="invalid">
+                        Please provide a valid email address.
+                      </Form.Control.Feedback>
+                    </Form.Group>
 
-            <Button variant="secondary" type="submit">
-              Get New Password
-            </Button>
-          </Form>
-        </Card>
+                    <Button variant="success" type="submit">
+                      Send password reset email
+                    </Button>
+                  </Form>
+                </div>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );
