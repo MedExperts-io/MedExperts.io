@@ -47,7 +47,7 @@ const Login = () => {
           <Card className="shadow">
             <Card.Header>Login</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit} name="login">
                     <Form.Group className="mb-3" controlId="loginEmail">

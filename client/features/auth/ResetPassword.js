@@ -62,7 +62,9 @@ const ResetPassword = () => {
         {error ? (
           <>
             <center>
-              <p style={{ color: "red", fontSize: "25px" }}>
+              <p
+                style={{ color: "black", fontWeight: "500", fontSize: "20px" }}
+              >
                 Sorry, your reset password link has either expired or already
                 been used. You may request a new link below.
               </p>

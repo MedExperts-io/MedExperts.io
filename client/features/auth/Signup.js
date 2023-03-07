@@ -107,7 +107,7 @@ const SignUp = () => {
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit} name="signup">
                     <Row className="mb-3">

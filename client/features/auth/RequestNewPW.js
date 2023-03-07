@@ -20,14 +20,15 @@ const RequestNewPassword = () => {
     <Container>
       <Row className="p-5 justify-content-center">
         <Col>
-          <Card className="shadow mx-auto" style={{ maxWidth: "600px" }}>
-            <Card.Header>Reset your password</Card.Header>
+          <Card className="shadow mx-auto" id="request-pw-reset-card">
+            <Card.Header id="request-pw-reset-card-header">
+              Reset your password
+            </Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div>
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit}>
-                    {/* <h3 style={{ fontSize: "25px" }}>Reset your password</h3>s */}
-                    <p style={{ fontSize: "15px" }}>
+                    <p>
                       Enter your user account's verified email address and we
                       will send you a password reset link.
                     </p>

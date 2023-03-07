@@ -212,3 +212,16 @@ img {
 .asterisk {
   color: red;
 }
+
+/* request reset pw link */
+#request-pw-reset-card {
+  max-width: 600px;
+}
+
+#request-pw-reset-card-header {
+  font-weight: 500;
+}
+
+#request-pw-reset-card p {
+  font-size: 15px;
+}
