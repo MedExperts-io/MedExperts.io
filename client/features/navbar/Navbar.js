@@ -1,22 +1,23 @@
+import { Home } from "@mui/icons-material";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import LogoutIcon from "@mui/icons-material/Logout";
-import QuizIcon from "@mui/icons-material/Quiz";
 import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { logout } from "../../app/store";
+import QuizIcon from "@mui/icons-material/Quiz";
 import BottomNavigation from "@mui/material/BottomNavigation";
-
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import React from "react";
+import { Container, Navbar } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const logoutAndRedirectHome = async () => {
     await dispatch(logout());
@@ -24,7 +25,7 @@ const SiteNavbar = () => {
   };
 
   return (
-    <Navbar collapseOnSelect className="navbar" expand="lg" variant="dark">
+    <Navbar collapseOnSelect className="navbar" expand="md" variant="dark">
       <Container fluid>
         {isLoggedIn ? (
           <>
@@ -52,7 +53,16 @@ const SiteNavbar = () => {
                   label="Dashboard"
                   className="navbar-link"
                   onClick={() => navigate("/dashboard")}
-                  style={{ color: "white" }}
+                  style={
+                    location.pathname === "/dashboard"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
                   icon={<DashboardIcon />}
                 />
 
@@ -60,7 +70,16 @@ const SiteNavbar = () => {
                   label="Questions"
                   className="navbar-link"
                   onClick={() => navigate("/questions")}
-                  style={{ color: "white" }}
+                  style={
+                    location.pathname === "/questions"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
                   icon={<QuizIcon />}
                 />
 
@@ -68,14 +87,24 @@ const SiteNavbar = () => {
                   label="Profile"
                   className="navbar-link"
                   onClick={() => navigate("/profile")}
-                  style={{ color: "white" }}
+                  style={
+                    location.pathname === "/profile"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
                   icon={<AccountCircleRoundedIcon />}
                 />
 
                 <BottomNavigationAction
                   label="Logout"
+                  disableRipple
                   className="navbar-link"
-                  style={{ color: "white" }}
+                  style={{ color: "#f2ecec" }}
                   onClick={logoutAndRedirectHome}
                   icon={<LogoutIcon />}
                 />
@@ -99,14 +128,59 @@ const SiteNavbar = () => {
               id="responsive-navbar-nav"
               className="justify-content-end"
             >
-              <Nav>
-                <Link to="/login" className="navbar-link">
-                  <LoginIcon /> Login
-                </Link>
-                <Link to="/signup" className="navbar-link">
-                  <PersonAddIcon /> Create Account
-                </Link>
-              </Nav>
+              <BottomNavigation
+                showLabels
+                style={{ backgroundColor: "transparent", color: "white" }}
+              >
+                <BottomNavigationAction
+                  label="Home"
+                  className="navbar-link"
+                  onClick={() => navigate("/")}
+                  style={
+                    location.pathname === "/"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "white" }
+                  }
+                  icon={<Home />}
+                />
+                <BottomNavigationAction
+                  label="Login"
+                  className="navbar-link"
+                  onClick={() => navigate("/login")}
+                  style={
+                    location.pathname === "/login"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "white" }
+                  }
+                  icon={<LoginIcon />}
+                />
+                <BottomNavigationAction
+                  label="Sign Up"
+                  className="navbar-link"
+                  onClick={() => navigate("/signup")}
+                  style={
+                    location.pathname === "/signup"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "white" }
+                  }
+                  icon={<PersonAddIcon />}
+                />
+              </BottomNavigation>
             </Navbar.Collapse>
           </>
         )}
