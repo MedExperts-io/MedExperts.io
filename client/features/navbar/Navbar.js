@@ -116,7 +116,11 @@ const SiteNavbar = () => {
 
                 <BottomNavigationAction
                   label="Logout"
-                  disableRipple
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   className="navbar-link"
                   style={{ color: "#f2ecec" }}
                   onClick={logoutAndRedirectHome}
