@@ -44,7 +44,6 @@ const SiteNavbar = () => {
               id="responsive-navbar-nav"
               className="justify-content-end"
             >
-              {" "}
               <BottomNavigation
                 showLabels
                 style={{ backgroundColor: "transparent", color: "white" }}
@@ -53,6 +52,11 @@ const SiteNavbar = () => {
                   label="Dashboard"
                   className="navbar-link"
                   onClick={() => navigate("/dashboard")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   style={
                     location.pathname === "/dashboard"
                       ? {
@@ -70,6 +74,11 @@ const SiteNavbar = () => {
                   label="Questions"
                   className="navbar-link"
                   onClick={() => navigate("/questions")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   style={
                     location.pathname === "/questions"
                       ? {
@@ -87,6 +96,11 @@ const SiteNavbar = () => {
                   label="Profile"
                   className="navbar-link"
                   onClick={() => navigate("/profile")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   style={
                     location.pathname === "/profile"
                       ? {
@@ -136,6 +150,11 @@ const SiteNavbar = () => {
                   label="Home"
                   className="navbar-link"
                   onClick={() => navigate("/")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   style={
                     location.pathname === "/"
                       ? {
@@ -152,6 +171,11 @@ const SiteNavbar = () => {
                   label="Login"
                   className="navbar-link"
                   onClick={() => navigate("/login")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   style={
                     location.pathname === "/login"
                       ? {
@@ -168,6 +192,11 @@ const SiteNavbar = () => {
                   label="Sign Up"
                   className="navbar-link"
                   onClick={() => navigate("/signup")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   style={
                     location.pathname === "/signup"
                       ? {

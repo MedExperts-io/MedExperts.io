@@ -198,7 +198,7 @@ img {
 
 .navbar-link {
   color: white;
-  background-color: #fffefe8d;
+  background-color: rgba(255, 255, 255, 0.354);
   text-decoration-line: underline;
 
   text-align: center;
