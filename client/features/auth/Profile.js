@@ -48,14 +48,22 @@ const Profile = () => {
     setValidated(true);
   };
 
+  const expertiseOptions = [
+    "Student",
+    "Resident",
+    "Fellow",
+    "Physician Assistant",
+    "Nurse",
+    "Nurse Practitioner",
+    "Pharmacist",
+    "Internal Med",
+    "Other",
+  ];
+
   return (
     <Container>
       <Row className="p-5">
-        <Card
-          // id="form-border"
-          className="mx-auto"
-          style={{ maxWidth: "800px", padding: "0px" }}
-        >
+        <Card className="mx-auto" style={{ maxWidth: "800px", padding: "0px" }}>
           <Card.Header
             className="text-center"
             style={{ fontWeight: "bold", fontSize: "150%", padding: "0px" }}
@@ -65,7 +73,6 @@ const Profile = () => {
           <Card.Body>
             <Col>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                {/* <h1>Edit My Profile</h1> */}
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="firstName">
                     <Form.Label className="text-muted">
@@ -130,20 +137,13 @@ const Profile = () => {
                         setUserExpertise(e.target.value);
                       }}
                     >
-                      <option defaultValue> {expertise}</option>
-                      <option value="Student">Student</option>
-                      <option value="Resident">Resident</option>
-                      <option value="Fellow">Fellow</option>
-                      <option value="Physician Assistant">
-                        Physician Assistant
-                      </option>
-                      <option value="Nurse">Nurse</option>
-                      <option value="Nurse Practitioner">
-                        Nurse Practitioner
-                      </option>
-                      <option value="Pharmacist">Pharmacist</option>
-                      <option value="Internal Med">Internal Med</option>
-                      <option value="Other">Other</option>
+                      {expertiseOptions
+                        .filter((current, expertise) => {
+                          return current !== expertise;
+                        })
+                        .map((level) => {
+                          return <option value={level}>{level}</option>;
+                        })}
                     </Form.Select>
                   </Form.Group>
                 </Row>
@@ -158,15 +158,7 @@ const Profile = () => {
                       disabled
                       readOnly
                       aria-describedby="disabled input for email address"
-                      // onClick={clearText}
                       placeholder={email}
-                      // onChange={(e) => {
-                      //   setUserEmail(e.target.value);
-                      // }}
-                      // onFocus={(e) =>
-                      //   (e.target.placeholder = "Enter Your Email")
-                      // }
-                      // onBlur={(e) => (e.target.placeholder = userEmail)}
                     ></Form.Control>
                   </Form.Group>
                 </Row>
