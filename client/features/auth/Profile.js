@@ -22,6 +22,8 @@ const Profile = () => {
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
   const [userExpertise, setUserExpertise] = useState(expertise);
+  const [userSchool, setUserSchool] = useState(school);
+
   // modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -43,6 +45,7 @@ const Profile = () => {
         firstName: userFirstName,
         lastName: userLastName,
         expertise: userExpertise,
+        school: userSchool,
       })
     );
     setValidated(true);
@@ -75,9 +78,7 @@ const Profile = () => {
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="firstName">
-                    <Form.Label className="text-muted">
-                      <strong className="me-auto">First Name</strong>
-                    </Form.Label>
+                    <Form.Label className="text-muted">First Name</Form.Label>
                     <Form.Control
                       onClick={clearText}
                       type="text"
@@ -85,18 +86,12 @@ const Profile = () => {
                       onChange={(e) => {
                         setUserFirstName(e.target.value);
                       }}
-                      onFocus={(e) =>
-                        (e.target.placeholder = "Enter Your First Name")
-                      }
                       onBlur={(e) => (e.target.placeholder = userFirstName)}
                     />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="lastName">
-                    <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">Last Name</strong>
-                    </Form.Label>
+                    <Form.Label className="text-muted">Last Name</Form.Label>
                     <Form.Control
                       onClick={clearText}
                       type="text"
@@ -104,9 +99,6 @@ const Profile = () => {
                       onChange={(e) => {
                         setUserLastName(e.target.value);
                       }}
-                      onFocus={(e) =>
-                        (e.target.placeholder = "Enter Your Last Name")
-                      }
                       onBlur={(e) => (e.target.placeholder = userLastName)}
                     />
                   </Form.Group>
@@ -114,22 +106,22 @@ const Profile = () => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="school">
                     <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">School Affiliation</strong>
+                      School Affiliation
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={school}
-                      aria-label="Disabled input for school affiliation"
-                      disabled
-                      readOnly
+                      defaultValue={school}
+                      onClick={clearText}
+                      onChange={(e) => {
+                        setUserSchool(e.target.value);
+                      }}
+                      onBlur={(e) => (e.target.placeholder = school)}
                     />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="expertiseLevel">
                     <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">Expertise Level</strong>
+                      Expertise Level
                     </Form.Label>
                     <Form.Select
                       aria-label="default select example"
@@ -150,8 +142,7 @@ const Profile = () => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="email">
                     <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">Email Address</strong>
+                      Email Address
                     </Form.Label>
                     <Form.Control
                       type="email"
