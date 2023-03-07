@@ -12,11 +12,6 @@ body {
   border: none;
 }
 
-a[href="/questions"] {
-  color: black;
-  text-decoration-line: none;
-}
-
 #form-submit-btn {
   background-color: #ff6262;
   border-color: #ff6262;
@@ -184,10 +179,27 @@ img {
   margin-top: 50px;
   position: absolute;
   bottom: 0;
-  right: 0;
+  width: 100%;
 }
 
 #tooltip-top > .tooltip-inner {
   background-color: rgb(235, 233, 233);
   color: rgb(93, 93, 93);
+}
+
+/* nav */
+.navbar {
+  background-color: #ff6262;
+}
+
+.navbar-logo {
+  height: 50px;
+}
+
+.navbar-link {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.354);
+  text-decoration-line: underline;
+
+  text-align: center;
 }
