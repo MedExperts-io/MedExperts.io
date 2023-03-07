@@ -66,15 +66,8 @@ const Profile = () => {
   return (
     <Container>
       <Row className="p-5">
-        <Card className="mx-auto" style={{ maxWidth: "800px", padding: "0px" }}>
-          <Card.Header
-            className="text-center"
-            style={{
-              fontSize: "150%",
-              margin: "4px",
-              backgroundColor: "transparent",
-            }}
-          >
+        <Card className="mx-auto" id="edit-profile-card">
+          <Card.Header className="text-center" id="edit-profile-card-header">
             Edit My Profile
           </Card.Header>
           <Card.Body>
@@ -83,7 +76,7 @@ const Profile = () => {
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="firstName">
                     <Form.Label className="text-muted">
-                      First Name <span style={{ color: "red" }}>*</span>
+                      First Name <span className="asterisk">*</span>
                     </Form.Label>
                     <Form.Control
                       onClick={clearText}
@@ -98,7 +91,7 @@ const Profile = () => {
 
                   <Form.Group as={Col} controlId="lastName">
                     <Form.Label className="text-muted">
-                      Last Name <span style={{ color: "red" }}>*</span>
+                      Last Name <span className="asterisk">*</span>
                     </Form.Label>
                     <Form.Control
                       onClick={clearText}
@@ -113,9 +106,7 @@ const Profile = () => {
                 </Row>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="school">
-                    <Form.Label className="text-muted">
-                      School Affiliation
-                    </Form.Label>
+                    <Form.Label className="text-muted">School</Form.Label>
                     <Form.Control
                       type="text"
                       defaultValue={school}
@@ -129,7 +120,7 @@ const Profile = () => {
 
                   <Form.Group as={Col} controlId="expertiseLevel">
                     <Form.Label className="text-muted">
-                      Expertise Level <span style={{ color: "red" }}>*</span>
+                      Expertise Level <span className="asterisk">*</span>
                     </Form.Label>
                     <Form.Select
                       aria-label="default select example"
@@ -141,8 +132,12 @@ const Profile = () => {
                         .filter((current, expertise) => {
                           return current !== expertise;
                         })
-                        .map((level) => {
-                          return <option value={level}>{level}</option>;
+                        .map((level, idx) => {
+                          return (
+                            <option value={level} key={idx}>
+                              {level}
+                            </option>
+                          );
                         })}
                     </Form.Select>
                   </Form.Group>

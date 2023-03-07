@@ -203,3 +203,21 @@ img {
 
   text-align: center;
 }
+
+/* edit profile */
+
+#edit-profile-card {
+  max-width: 800px;
+  padding: 0px;
+}
+
+#edit-profile-card-header {
+  font-size: 150%;
+  margin: 4px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.asterisk {
+  color: red;
+}
