@@ -11,8 +11,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions(userId)));
+    dispatch(fetchAllUsers());
   }, []);
-  dispatch(fetchAllUsers());
+
   const allUsers = useSelector((state) => state.userQuestions.allUsers);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const AllUserQuestions = useSelector((state) => state.userQuestions.UserQuestions);
