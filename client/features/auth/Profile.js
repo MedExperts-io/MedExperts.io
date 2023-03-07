@@ -69,7 +69,11 @@ const Profile = () => {
         <Card className="mx-auto" style={{ maxWidth: "800px", padding: "0px" }}>
           <Card.Header
             className="text-center"
-            style={{ fontWeight: "bold", fontSize: "150%", padding: "0px" }}
+            style={{
+              fontSize: "150%",
+              margin: "4px",
+              backgroundColor: "transparent",
+            }}
           >
             Edit My Profile
           </Card.Header>
@@ -78,7 +82,9 @@ const Profile = () => {
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="firstName">
-                    <Form.Label className="text-muted">First Name</Form.Label>
+                    <Form.Label className="text-muted">
+                      First Name <span style={{ color: "red" }}>*</span>
+                    </Form.Label>
                     <Form.Control
                       onClick={clearText}
                       type="text"
@@ -91,7 +97,9 @@ const Profile = () => {
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="lastName">
-                    <Form.Label className="text-muted">Last Name</Form.Label>
+                    <Form.Label className="text-muted">
+                      Last Name <span style={{ color: "red" }}>*</span>
+                    </Form.Label>
                     <Form.Control
                       onClick={clearText}
                       type="text"
@@ -121,7 +129,7 @@ const Profile = () => {
 
                   <Form.Group as={Col} controlId="expertiseLevel">
                     <Form.Label className="text-muted">
-                      Expertise Level
+                      Expertise Level <span style={{ color: "red" }}>*</span>
                     </Form.Label>
                     <Form.Select
                       aria-label="default select example"
@@ -154,11 +162,7 @@ const Profile = () => {
                   </Form.Group>
                 </Row>
                 <center>
-                  <Button
-                    type="submit"
-                    variant="secondary"
-                    onClick={handleShow}
-                  >
+                  <Button type="submit" variant="success" onClick={handleShow}>
                     Update
                   </Button>
                 </center>
@@ -166,11 +170,11 @@ const Profile = () => {
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Body>Your changes have been recorded!</Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="success" onClick={handleClose}>
                       Keep Editing
                     </Button>
                     <Button
-                      variant="secondary"
+                      variant="success"
                       onClick={() => navigate("/dashboard")}
                     >
                       Dashboard
