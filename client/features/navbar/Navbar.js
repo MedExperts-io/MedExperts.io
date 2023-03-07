@@ -184,7 +184,7 @@ const SiteNavbar = () => {
                           borderBottomWidth: "2px",
                           borderBottomStyle: "solid",
                         }
-                      : { color: "white" }
+                      : { color: "#f2ecec" }
                   }
                   icon={<LoginIcon />}
                 />
@@ -205,7 +205,7 @@ const SiteNavbar = () => {
                           borderBottomWidth: "2px",
                           borderBottomStyle: "solid",
                         }
-                      : { color: "white" }
+                      : { color: "#f2ecec" }
                   }
                   icon={<PersonAddIcon />}
                 />
