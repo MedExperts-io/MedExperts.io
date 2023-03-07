@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
-import { fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import { fetchAllUsers, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
-  
+
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions(userId)));
+    dispatch(fetchAllUsers());
   }, []);
+
+  const allUsers = useSelector((state) => state.userQuestions.allUsers);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const AllUserQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
@@ -587,7 +590,10 @@ const Dashboard = () => {
             </Stack>
           </Stack>
         ) : (
-          <h5>Admin Dashboard place holder</h5>
+          <>
+            <h5>Admin Dashboard place holder</h5>
+            Number of users. {allUsers.length}
+          </>
         )}
       </div>
     </Container>
