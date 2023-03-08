@@ -209,7 +209,8 @@ img {
   background-color: transparent;
 }
 
-.asterisk {
+.asterisk,
+.warning {
   color: red;
 }
 
@@ -220,8 +221,16 @@ img {
 
 #request-pw-reset-card-header {
   font-weight: 500;
+  font-size: 150%;
 }
 
 #request-pw-reset-card p {
   font-size: 15px;
+}
+
+/* reset password */
+.expired-link {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
 }

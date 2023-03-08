@@ -22,7 +22,7 @@ const RequestNewPassword = () => {
         <Col>
           <Card className="shadow mx-auto" id="request-pw-reset-card">
             <Card.Header id="request-pw-reset-card-header">
-              Reset your password
+              Request new password
             </Card.Header>
             <Card.Body>
               <div>

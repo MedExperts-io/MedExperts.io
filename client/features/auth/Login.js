@@ -11,7 +11,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { authenticate } from "../../app/store";
 
 const Login = () => {
@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <Container>
       <Row className="p-5 justify-content-center">
-        <Col md={8} lg={6} s={10} xs={12}>
+        <Col md={10} lg={6} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Login</Card.Header>
             <Card.Body>
@@ -118,9 +118,9 @@ const Login = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "gray" }} href="/signup">
+                <Link className="text" style={{ color: "gray" }} to="/signup">
                   New to MedExperts? Create account.
-                </a>
+                </Link>
               </p>
             </Card.Footer>
           </Card>
