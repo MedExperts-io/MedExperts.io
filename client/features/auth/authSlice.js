@@ -136,6 +136,9 @@ export const authSlice = createSlice({
       state.me = {};
       state.error = null;
     },
+    navigateToForm(state, action) {
+      state.error = null;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(me.fulfilled, (state, action) => {
@@ -186,7 +189,7 @@ export const authSlice = createSlice({
 /*
   ACTIONS
 */
-export const { logout } = authSlice.actions;
+export const { logout, navigateToForm } = authSlice.actions;
 
 /*
   REDUCER

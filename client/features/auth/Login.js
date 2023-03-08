@@ -3,16 +3,16 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
 import {
   Button,
-  Form,
-  InputGroup,
-  Container,
   Card,
   Col,
+  Container,
+  Form,
+  InputGroup,
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
-import { authenticate } from "../../app/store";
+import { Link, useNavigate } from "react-router-dom";
+import { authenticate, navigateToForm } from "../../app/store";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -118,7 +118,14 @@ const Login = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <Link className="text" style={{ color: "gray" }} to="/signup">
+                <Link
+                  className="text"
+                  style={{ color: "gray" }}
+                  to="/signup"
+                  onClick={() => {
+                    dispatch(navigateToForm());
+                  }}
+                >
                   New to MedExperts? Create account.
                 </Link>
               </p>

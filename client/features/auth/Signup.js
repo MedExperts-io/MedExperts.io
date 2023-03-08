@@ -12,8 +12,8 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
-import { authenticate } from "../../app/store";
+import { Link, useNavigate } from "react-router-dom";
+import { authenticate, navigateToForm } from "../../app/store";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -279,7 +279,6 @@ const SignUp = () => {
                     <div className="d-grid">
                       <Button
                         onClick={handleShow}
-                        disabled={passwordStrength != 5}
                         id="buttons"
                         variant="secondary"
                         type="submit"
@@ -320,7 +319,14 @@ const SignUp = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <Link className="text" style={{ color: "gray" }} to="/login">
+                <Link
+                  className="text"
+                  style={{ color: "gray" }}
+                  to="/login"
+                  onClick={() => {
+                    dispatch(navigateToForm());
+                  }}
+                >
                   Already have an account? Login to your account.
                 </Link>
               </p>
