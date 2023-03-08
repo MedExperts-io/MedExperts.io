@@ -74,13 +74,13 @@ export const authenticate = createAsyncThunk(
 
 export const editProfile = createAsyncThunk(
   "auth/profile",
-  async ({ firstName, lastName, expertise }) => {
+  async ({ firstName, lastName, expertise, school }) => {
     const token = window.localStorage.getItem(TOKEN);
 
     if (token) {
       const { data } = await axios.put(
         "/auth/profile",
-        { firstName, lastName, expertise },
+        { firstName, lastName, expertise, school },
         { headers: { authorization: token } }
       );
       return data;

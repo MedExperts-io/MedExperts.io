@@ -50,15 +50,6 @@ h1 {
 
 p {
   font-size: 24px;
-}
-
-h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 24px;
   margin-bottom: 30px;
 }
 
@@ -202,4 +193,44 @@ img {
   text-decoration-line: underline;
 
   text-align: center;
+}
+
+/* edit profile */
+
+#edit-profile-card {
+  max-width: 800px;
+  padding: 0px;
+}
+
+#edit-profile-card-header {
+  font-size: 150%;
+  margin: 4px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.asterisk,
+.warning {
+  color: red;
+}
+
+/* request reset pw link */
+#request-pw-reset-card {
+  max-width: 600px;
+}
+
+#request-pw-reset-card-header {
+  font-weight: 500;
+  font-size: 150%;
+}
+
+#request-pw-reset-card p {
+  font-size: 15px;
+}
+
+/* reset password */
+.expired-link {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
 }

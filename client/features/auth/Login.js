@@ -11,7 +11,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { authenticate } from "../../app/store";
 
 const Login = () => {
@@ -43,11 +43,11 @@ const Login = () => {
   return (
     <Container>
       <Row className="p-5 justify-content-center">
-        <Col md={8} lg={6} s={10} xs={12}>
+        <Col md={10} lg={6} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Login</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit} name="login">
                     <Form.Group className="mb-3" controlId="loginEmail">
@@ -93,13 +93,13 @@ const Login = () => {
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
-                        <a
+                        <Link
                           className="text"
                           style={{ color: "#FF6262" }}
-                          href="/forgotPassword"
+                          to="/forgotPassword"
                         >
                           Forgot password?
-                        </a>
+                        </Link>
                       </p>
                     </Form.Group>
                     <div className="d-grid">
@@ -118,9 +118,9 @@ const Login = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "gray" }} href="/signup">
+                <Link className="text" style={{ color: "gray" }} to="/signup">
                   New to MedExperts? Create account.
-                </a>
+                </Link>
               </p>
             </Card.Footer>
           </Card>

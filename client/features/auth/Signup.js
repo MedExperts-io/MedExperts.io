@@ -12,7 +12,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { authenticate } from "../../app/store";
 
 const SignUp = () => {
@@ -103,11 +103,11 @@ const SignUp = () => {
   return (
     <Container>
       <Row className="p-5 d-flex justify-content-center align-items-center">
-        <Col md={8} lg={10} s={10} xs={12}>
+        <Col md={10} lg={10} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit} name="signup">
                     <Row className="mb-3">
@@ -320,9 +320,9 @@ const SignUp = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "gray" }} href="/login">
+                <Link className="text" style={{ color: "gray" }} to="/login">
                   Already have an account? Login to your account.
-                </a>
+                </Link>
               </p>
             </Card.Footer>
           </Card>
