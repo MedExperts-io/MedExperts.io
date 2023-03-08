@@ -61,9 +61,6 @@ const SignUp = () => {
     setPasswordShown(!passwordShown);
   };
 
-  console.log(show, "SHOW");
-  console.log(error, "ERROR");
-  console.log(err, "ERR");
   // start modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -282,7 +279,6 @@ const SignUp = () => {
                     <div className="d-grid">
                       <Button
                         onClick={handleShow}
-                        disabled={passwordStrength != 5}
                         id="buttons"
                         variant="secondary"
                         type="submit"
