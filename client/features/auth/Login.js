@@ -93,13 +93,13 @@ const Login = () => {
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
-                        <a
+                        <Link
                           className="text"
                           style={{ color: "#FF6262" }}
-                          href="/forgotPassword"
+                          to="/forgotPassword"
                         >
                           Forgot password?
-                        </a>
+                        </Link>
                       </p>
                     </Form.Group>
                     <div className="d-grid">
