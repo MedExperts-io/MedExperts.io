@@ -53,7 +53,11 @@ router.post("/signup", async (req, res, next) => {
     // res.send({ token: await user.generateToken() });
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
-      res.status(401).send("User already exists");
+      res
+        .status(401)
+        .send(
+          "This MedExperts account already exists. Please login or reset your password."
+        );
     } else {
       next(err);
     }
@@ -167,11 +171,12 @@ router.put("/profile", getToken, async (req, res, next) => {
     const user = await User.findByPk(userId);
 
     //Security2: Protecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
-    const { firstName, lastName, expertise } = req.body;
+    const { firstName, lastName, expertise, school } = req.body;
     const editUserDetails = await user.update({
       firstName,
       lastName,
       expertise,
+      school,
     });
 
     res.json(editUserDetails);
