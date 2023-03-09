@@ -1,15 +1,7 @@
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
-import {
-  Button,
-  Form,
-  InputGroup,
-  Container,
-  Card,
-  Col,
-  Row,
-} from "react-bootstrap";
+import { Button, Form, InputGroup, Container, Card, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authenticate } from "../../app/store";
@@ -54,50 +46,23 @@ const Login = () => {
                       <Form.Label className="text-center" label="Email Address">
                         Email address
                       </Form.Label>
-                      <Form.Control
-                        required
-                        autoComplete="email"
-                        type="email"
-                        placeholder="Enter email"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide a valid email address.
-                      </Form.Control.Feedback>
+                      <Form.Control required autoComplete="email" type="email" placeholder="Enter email" />
+                      <Form.Control.Feedback type="invalid">Please provide a valid email address.</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="loginPassword">
                       <Form.Label label="Password">Password</Form.Label>
                       <InputGroup>
-                        <Form.Control
-                          required
-                          autoComplete="current-password"
-                          type={passwordShown ? "text" : "password"}
-                          placeholder="Enter password"
-                        />
-                        <Button
-                          variant="outline-secondary"
-                          onClick={togglePassword}
-                          size="md"
-                          style={{ zIndex: 0 }}
-                        >
-                          {passwordShown ? (
-                            <VisibilityOffIcon />
-                          ) : (
-                            <RemoveRedEyeIcon />
-                          )}
+                        <Form.Control required autoComplete="current-password" type={passwordShown ? "text" : "password"} placeholder="Enter password" />
+                        <Button title="hide or show password" variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
+                          {passwordShown ? <VisibilityOffIcon title="show password" /> : <RemoveRedEyeIcon title="hide password" />}
                         </Button>
 
-                        <Form.Control.Feedback type="invalid">
-                          Please provide a password.
-                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
                       </InputGroup>
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
-                        <a
-                          className="text"
-                          style={{ color: "#FF6262" }}
-                          href="/forgotPassword"
-                        >
+                        <a className="text" style={{ color: "black" }} href="/forgotPassword">
                           Forgot password?
                         </a>
                       </p>
@@ -118,7 +83,7 @@ const Login = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "gray" }} href="/signup">
+                <a className="text" style={{ color: "black" }} href="/signup">
                   New to MedExperts? Create account.
                 </a>
               </p>

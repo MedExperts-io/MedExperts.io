@@ -264,7 +264,7 @@ const QuestionsAnswers = () => {
 
                       <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       Easy Level
                     </Card.Title>
                   </Card>
@@ -276,7 +276,7 @@ const QuestionsAnswers = () => {
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       <center>Moderate Level</center>
                     </Card.Title>
                   </Card>
@@ -288,7 +288,7 @@ const QuestionsAnswers = () => {
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       Hard Level
                     </Card.Title>
                   </Card>
@@ -300,7 +300,7 @@ const QuestionsAnswers = () => {
                       <div style={styles.progressBarBackground}>Completed</div>
                       <div style={styles.progressBarMiddle}>{allPercentage}%</div>
                     </div>
-                    <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       All Levels
                     </Card.Title>
                   </Card>
