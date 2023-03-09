@@ -22,6 +22,8 @@ const Profile = () => {
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
   const [userExpertise, setUserExpertise] = useState(expertise);
+  const [userSchool, setUserSchool] = useState(school);
+
   // modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -43,33 +45,38 @@ const Profile = () => {
         firstName: userFirstName,
         lastName: userLastName,
         expertise: userExpertise,
+        school: userSchool,
       })
     );
     setValidated(true);
   };
 
+  const expertiseOptions = [
+    "Student",
+    "Resident",
+    "Fellow",
+    "Physician Assistant",
+    "Nurse",
+    "Nurse Practitioner",
+    "Pharmacist",
+    "Internal Med",
+    "Other",
+  ];
+
   return (
     <Container>
       <Row className="p-5">
-        <Card
-          // id="form-border"
-          className="mx-auto"
-          style={{ maxWidth: "800px", padding: "0px" }}
-        >
-          <Card.Header
-            className="text-center"
-            style={{ fontWeight: "bold", fontSize: "150%", padding: "0px" }}
-          >
+        <Card className="mx-auto" id="edit-profile-card">
+          <Card.Header className="text-center" id="edit-profile-card-header">
             Edit My Profile
           </Card.Header>
           <Card.Body>
             <Col>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                {/* <h1>Edit My Profile</h1> */}
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="firstName">
                     <Form.Label className="text-muted">
-                      <strong className="me-auto">First Name</strong>
+                      First Name <span className="asterisk">*</span>
                     </Form.Label>
                     <Form.Control
                       onClick={clearText}
@@ -78,17 +85,13 @@ const Profile = () => {
                       onChange={(e) => {
                         setUserFirstName(e.target.value);
                       }}
-                      onFocus={(e) =>
-                        (e.target.placeholder = "Enter Your First Name")
-                      }
                       onBlur={(e) => (e.target.placeholder = userFirstName)}
                     />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="lastName">
                     <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">Last Name</strong>
+                      Last Name <span className="asterisk">*</span>
                     </Form.Label>
                     <Form.Control
                       onClick={clearText}
@@ -97,32 +100,27 @@ const Profile = () => {
                       onChange={(e) => {
                         setUserLastName(e.target.value);
                       }}
-                      onFocus={(e) =>
-                        (e.target.placeholder = "Enter Your Last Name")
-                      }
                       onBlur={(e) => (e.target.placeholder = userLastName)}
                     />
                   </Form.Group>
                 </Row>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="school">
-                    <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">School Affiliation</strong>
-                    </Form.Label>
+                    <Form.Label className="text-muted">School</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder={school}
-                      aria-label="Disabled input for school affiliation"
-                      disabled
-                      readOnly
+                      defaultValue={school}
+                      onClick={clearText}
+                      onChange={(e) => {
+                        setUserSchool(e.target.value);
+                      }}
+                      onBlur={(e) => (e.target.placeholder = school)}
                     />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="expertiseLevel">
                     <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">Expertise Level</strong>
+                      Expertise Level <span className="asterisk">*</span>
                     </Form.Label>
                     <Form.Select
                       aria-label="default select example"
@@ -130,52 +128,36 @@ const Profile = () => {
                         setUserExpertise(e.target.value);
                       }}
                     >
-                      <option defaultValue> {expertise}</option>
-                      <option value="Student">Student</option>
-                      <option value="Resident">Resident</option>
-                      <option value="Fellow">Fellow</option>
-                      <option value="Physician Assistant">
-                        Physician Assistant
-                      </option>
-                      <option value="Nurse">Nurse</option>
-                      <option value="Nurse Practitioner">
-                        Nurse Practitioner
-                      </option>
-                      <option value="Pharmacist">Pharmacist</option>
-                      <option value="Internal Med">Internal Med</option>
-                      <option value="Other">Other</option>
+                      {expertiseOptions
+                        .filter((current, expertise) => {
+                          return current !== expertise;
+                        })
+                        .map((level, idx) => {
+                          return (
+                            <option value={level} key={idx}>
+                              {level}
+                            </option>
+                          );
+                        })}
                     </Form.Select>
                   </Form.Group>
                 </Row>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="email">
                     <Form.Label className="text-muted">
-                      {" "}
-                      <strong className="me-auto">Email Address</strong>
+                      Email Address
                     </Form.Label>
                     <Form.Control
                       type="email"
                       disabled
                       readOnly
                       aria-describedby="disabled input for email address"
-                      // onClick={clearText}
                       placeholder={email}
-                      // onChange={(e) => {
-                      //   setUserEmail(e.target.value);
-                      // }}
-                      // onFocus={(e) =>
-                      //   (e.target.placeholder = "Enter Your Email")
-                      // }
-                      // onBlur={(e) => (e.target.placeholder = userEmail)}
                     ></Form.Control>
                   </Form.Group>
                 </Row>
                 <center>
-                  <Button
-                    type="submit"
-                    variant="secondary"
-                    onClick={handleShow}
-                  >
+                  <Button type="submit" variant="success" onClick={handleShow}>
                     Update
                   </Button>
                 </center>
@@ -183,11 +165,11 @@ const Profile = () => {
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Body>Your changes have been recorded!</Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="success" onClick={handleClose}>
                       Keep Editing
                     </Button>
                     <Button
-                      variant="secondary"
+                      variant="success"
                       onClick={() => navigate("/dashboard")}
                     >
                       Dashboard

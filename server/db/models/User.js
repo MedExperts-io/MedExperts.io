@@ -80,7 +80,9 @@ User.prototype.generateToken = function () {
 User.authenticate = async function ({ email, password }) {
   const user = await User.findOne({ where: { email, status: true } });
   if (!user) {
-    const error = Error("Please verify your email before logging in");
+    const error = Error(
+      "We couldn't find your MedExperts account. Please make sure you entered your email address correctly."
+    );
     error.status = 401;
     throw error;
   } else if (user && !(await user.correctPassword(password))) {
