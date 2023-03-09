@@ -34,23 +34,90 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
-//<-------------original post route-------------->
+// //<-------------original post route-------------->
+// router.post("/signup", async (req, res, next) => {
+//   try {
+//     //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
+//     const { firstName, lastName, email, password, expertise, school } =
+//       req.body;
+//     const user = await User.create({
+//       firstName,
+//       lastName,
+//       email,
+//       password,
+//       expertise,
+//       school,
+//       status: true,
+//     });
+//     res.json(user);
+//     // res.send({ token: await user.generateToken() });
+//   } catch (err) {
+//     if (err.name === "SequelizeUniqueConstraintError") {
+//       res
+//         .status(401)
+//         .send(
+//           "This MedExperts account already exists. Please login or reset your password."
+//         );
+//     } else {
+//       next(err);
+//     }
+//   }
+// });
+
 router.post("/signup", async (req, res, next) => {
   try {
-    //Security2: Prrotecting against injection attacks in Sequelize via Insomnia/Postman (can't make isAdmin true)
     const { firstName, lastName, email, password, expertise, school } =
       req.body;
+
+    let tempId = uuidv4();
+    let verificationToken = crypto.randomBytes(32).toString("hex");
+    let fpSalt = await bcrypt.hash(
+      verificationToken,
+      Number(verificationToken)
+    );
+    // let expireDate = Date.now() + 86400000; // link will expire after 24 hrs
+
     const user = await User.create({
+      tempId: tempId,
+      verificationToken: fpSalt,
+      // expiration: expireDate,
       firstName,
       lastName,
       email,
       password,
       expertise,
       school,
-      status: true,
     });
-    res.json(user);
-    // res.send({ token: await user.generateToken() });
+
+    //message compilation
+    let source = fs.readFileSync(
+      path.join(__dirname, "/verifyAcctTemplate.hbs"),
+      "utf8"
+    );
+    let compiledTemplate = handlebars.compile(source);
+    let htmlToSend = compiledTemplate({
+      token: encodeURIComponent(fpSalt),
+      uid: encodeURIComponent(tempId),
+    });
+
+    const message = () => {
+      return {
+        from: process.env.SENDER_ADDRESS,
+        to: email,
+        subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
+        html: htmlToSend,
+      };
+    };
+    transport.sendMail(message(), function (err, info) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("");
+      }
+    });
+
+    // return res.json({ status: "ok" });
+    return res.send({ token: await user.generateToken() });
   } catch (err) {
     if (err.name === "SequelizeUniqueConstraintError") {
       res
@@ -64,98 +131,35 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-// router.post("/signup", async (req, res, next) => {
-//   try {
-//     const { firstName, lastName, email, password, expertise, school } =
-//       req.body;
+router.get("/verifyEmail/:token?:tempId?", async function (req, res, next) {
+  const token = req.query.token;
+  const tempId = req.query.tempId;
 
-//     let tempId = uuidv4();
-//     let verificationToken = crypto.randomBytes(32).toString("hex");
-//     let fpSalt = await bcrypt.hash(
-//       verificationToken,
-//       Number(verificationToken)
-//     );
-//     // let expireDate = Date.now() + 86400000; // link will expire after 24 hrs
+  let user = await User.findOne({
+    where: {
+      tempId: tempId,
+      verificationToken: token,
+      status: false,
+    },
+  });
 
-//     const user = await User.create({
-//       tempId: tempId,
-//       verificationToken: fpSalt,
-//       // expiration: expireDate,
-//       firstName,
-//       lastName,
-//       email,
-//       password,
-//       expertise,
-//       school,
-//     });
+  if (!user) {
+    return res.status(400).json("something's gone wrong");
+  }
 
-//     //message compilation
-//     let source = fs.readFileSync(
-//       path.join(__dirname, "/verifyAcctTemplate.hbs"),
-//       "utf8"
-//     );
-//     let compiledTemplate = handlebars.compile(source);
-//     let htmlToSend = compiledTemplate({
-//       token: encodeURIComponent(fpSalt),
-//       uid: encodeURIComponent(tempId),
-//     });
+  await user.update(
+    {
+      status: true,
+    },
+    {
+      where: {
+        tempId: tempId,
+      },
+    }
+  );
 
-//     const message = () => {
-//       return {
-//         from: process.env.SENDER_ADDRESS,
-//         to: email,
-//         subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
-//         html: htmlToSend,
-//       };
-//     };
-//     transport.sendMail(message(), function (err, info) {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log("");
-//       }
-//     });
-
-//     // return res.json({ status: "ok" });
-//     return res.send({ token: await user.generateToken() });
-//   } catch (err) {
-//     if (err.name === "SequelizeUniqueConstraintError") {
-//       res.status(401).send("User already exists");
-//     } else {
-//       next(err);
-//     }
-//   }
-// });
-
-// router.get("/verifyEmail/:token?:tempId?", async function (req, res, next) {
-//   const token = req.query.token;
-//   const tempId = req.query.tempId;
-
-//   let user = await User.findOne({
-//     where: {
-//       tempId: tempId,
-//       verificationToken: token,
-//       status: false,
-//     },
-//   });
-
-//   if (!user) {
-//     return res.status(400).json("something's gone wrong");
-//   }
-
-//   await user.update(
-//     {
-//       status: true,
-//     },
-//     {
-//       where: {
-//         tempId: tempId,
-//       },
-//     }
-//   );
-
-//   return res.status(200).json("email verified");
-// });
+  return res.status(200).json("email verified");
+});
 
 router.get("/me", async (req, res, next) => {
   try {

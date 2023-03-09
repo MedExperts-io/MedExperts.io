@@ -291,7 +291,30 @@ const SignUp = () => {
                           {error}
                         </p>
                       )}
+
                       <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                          <Modal.Title>
+                            Thank you for creating a MedExperts account!
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          We sent an email to the address you signed up with.
+                          Please follow the link in the email to verify your
+                          account before signing in.
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button
+                            variant="secondary"
+                            onClick={() => navigate("/home")}
+                          >
+                            Close
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
+
+                      {/* modal without email validation */}
+                      {/* <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
                           <Modal.Title>
                             Thank you for creating a MedExperts account!
@@ -311,7 +334,7 @@ const SignUp = () => {
                             Login
                           </Button>
                         </Modal.Footer>
-                      </Modal>
+                      </Modal> */}
                     </div>
                   </Form>
                 </div>
