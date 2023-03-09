@@ -116,7 +116,11 @@ const SiteNavbar = () => {
 
                 <BottomNavigationAction
                   label="Logout"
-                  disableRipple
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
                   className="navbar-link"
                   style={{ color: "#f2ecec" }}
                   onClick={logoutAndRedirectHome}
@@ -184,7 +188,7 @@ const SiteNavbar = () => {
                           borderBottomWidth: "2px",
                           borderBottomStyle: "solid",
                         }
-                      : { color: "white" }
+                      : { color: "#f2ecec" }
                   }
                   icon={<LoginIcon />}
                 />
@@ -205,7 +209,7 @@ const SiteNavbar = () => {
                           borderBottomWidth: "2px",
                           borderBottomStyle: "solid",
                         }
-                      : { color: "white" }
+                      : { color: "#f2ecec" }
                   }
                   icon={<PersonAddIcon />}
                 />

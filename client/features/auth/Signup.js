@@ -3,8 +3,8 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
 import { Button, Card, Col, Container, Form, InputGroup, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { authenticate } from "../../app/store";
+import { Link, useNavigate } from "react-router-dom";
+import { authenticate, navigateToForm } from "../../app/store";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -82,11 +82,11 @@ const SignUp = () => {
   return (
     <Container>
       <Row className="p-5 d-flex justify-content-center align-items-center">
-        <Col md={8} lg={10} s={10} xs={12}>
+        <Col md={10} lg={10} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit} name="signup">
                     <Row className="mb-3">
@@ -188,7 +188,13 @@ const SignUp = () => {
                       </div>
                     )}
                     <div className="d-grid">
-                      <Button onClick={handleShow} disabled={passwordStrength != 5} id="buttons" variant="secondary" type="submit" size="md">
+                      <Button
+                        onClick={handleShow}
+                        id="buttons"
+                        variant="secondary"
+                        type="submit"
+                        size="md"
+                      >
                         Sign Up
                       </Button>
                       {error && (
@@ -219,9 +225,16 @@ const SignUp = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "black" }} href="/login">
+                <Link
+                  className="text"
+                  style={{ color: "black" }}
+                  to="/login"
+                  onClick={() => {
+                    dispatch(navigateToForm());
+                  }}
+                >
                   Already have an account? Login to your account.
-                </a>
+                </Link>
               </p>
             </Card.Footer>
           </Card>
