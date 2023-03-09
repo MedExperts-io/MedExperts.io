@@ -57,7 +57,10 @@ const MainLandingPage = () => {
         </Grid>
         <Grid item xs={4} direction="column">
           <div className="image-container">
-            <img src="https://firebasestorage.googleapis.com/v0/b/medexpertsio-a0906.appspot.com/o/lung%20with%20bulb%20.png?alt=media&token=34610860-8e8d-4f71-87bb-5b79eb36a20b" alt="example" />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/medexpertsio-a0906.appspot.com/o/lung%20with%20bulb%20.png?alt=media&token=34610860-8e8d-4f71-87bb-5b79eb36a20b"
+              alt="a picture of lungs smiling and walking joyfully"
+            />
           </div>
         </Grid>
       </Grid>
