@@ -189,6 +189,14 @@ const SignUp = () => {
                     )}
                     <div className="d-grid">
                       <Button onClick={handleShow} id="buttons" variant="secondary" type="submit" size="md">
+                      <Button
+                        onClick={handleShow}
+                        id="buttons"
+                        variant="secondary"
+                        type="submit"
+                        size="md"
+                      >
+
                         Sign Up
                       </Button>
                       {error && (
@@ -221,7 +229,7 @@ const SignUp = () => {
               <p className="small">
                 <Link
                   className="text"
-                  style={{ color: "gray" }}
+                  style={{ color: "black" }}
                   to="/login"
                   onClick={() => {
                     dispatch(navigateToForm());

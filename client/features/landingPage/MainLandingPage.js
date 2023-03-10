@@ -43,30 +43,21 @@ const MainLandingPage = () => {
           <div className="top-part">
             <h1>Welcome to MedExperts</h1>
             <p>
-              The ultimate question and answer portal for medical professionals
-              in the field of pulmonary medicine. Our platform is designed
-              specifically for all expertise levels, ranging from medical
-              students to board-certified physicians, to enhance their knowledge
-              and skills.
+              The ultimate question and answer portal for medical professionals in the field of pulmonary medicine. Our platform is designed specifically for all expertise levels, ranging from medical
+              students to board-certified physicians, to enhance their knowledge and skills.
             </p>
             <p>
-              With MedExperts, you have access to a vast collection of questions
-              in a variety of difficulty levels - easy, medium, and hard. Our
-              questions cover 15+ sub categories, allowing you to target your
-              studying and focus on areas for improvement.
+              With MedExperts, you have access to a vast collection of questions in a variety of difficulty levels - easy, medium, and hard. Our questions cover 15+ sub categories, allowing you to
+              target your studying and focus on areas for improvement.
             </p>
-            <p>
-              Join the growing community of medical professionals and start
-              improving your knowledge in pulmonary medicine today. Get Started
-              with MedExperts!
-            </p>
+            <p>Join the growing community of medical professionals and start improving your knowledge in pulmonary medicine today. Get Started with MedExperts!</p>
           </div>
         </Grid>
         <Grid xs={4} item>
           <div className="image-container">
             <img
               src="https://firebasestorage.googleapis.com/v0/b/medexpertsio-a0906.appspot.com/o/lung%20with%20bulb%20.png?alt=media&token=34610860-8e8d-4f71-87bb-5b79eb36a20b"
-              alt="example"
+              alt="a picture of lungs smiling and walking joyfully"
             />
           </div>
         </Grid>
@@ -89,10 +80,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>Hand Curated Questions</h3>
-                <p>
-                  240 Questions with detailed answers designed to help students
-                  gain a deeper understanding of the subject.
-                </p>
+                <p>240 Questions with detailed answers designed to help students gain a deeper understanding of the subject.</p>
               </div>
             </div>
 
@@ -102,10 +90,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>Sort And Filter</h3>
-                <p>
-                  Users can easily sort questions by difficulty or their level
-                  of expertise.
-                </p>
+                <p>Users can easily sort questions by difficulty or their level of expertise.</p>
               </div>
             </div>
 
@@ -115,10 +100,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>Favorites</h3>
-                <p>
-                  Users can favorite a question to easily access that question
-                  at a later time.
-                </p>
+                <p>Users can favorite a question to easily access that question at a later time.</p>
               </div>
             </div>
 
@@ -128,11 +110,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>For Everyone</h3>
-                <p>
-                  Questions are designed for students at all levels, ranging
-                  from medical students to board certified medical
-                  professionals.
-                </p>
+                <p>Questions are designed for students at all levels, ranging from medical students to board certified medical professionals.</p>
               </div>
             </div>
 
@@ -142,10 +120,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>Multiple Categories</h3>
-                <p>
-                  Questions are divided into more than 15 different categories
-                  to target learning.
-                </p>
+                <p>Questions are divided into more than 15 different categories to target learning.</p>
               </div>
             </div>
 
@@ -155,10 +130,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>Stat Dashboard</h3>
-                <p>
-                  Users get a personalized dashboard with all the important
-                  statistics, so the user can monitor their progress!
-                </p>
+                <p>Users get a personalized dashboard with all the important statistics, so the user can monitor their progress!</p>
               </div>
             </div>
 
@@ -168,10 +140,7 @@ const MainLandingPage = () => {
               </div>
               <div className="quality-text">
                 <h3>Reference</h3>
-                <p>
-                  Explanations for each question include citations to external
-                  articles, for students who want to get a deeper understanding.
-                </p>
+                <p>Explanations for each question include citations to external articles, for students who want to get a deeper understanding.</p>
               </div>
             </div>
           </div>
@@ -190,34 +159,22 @@ const MainLandingPage = () => {
           <h2 className="testimonials-heading">What our users are saying:</h2>
           <div className="testimonials-container">
             <Card className="testimonial">
-              <p className="review">
-                "I love MedExpertsio! It's so easy to use, has really improved
-                my productivity, and helped me pass my Boards!"
-              </p>
+              <p className="review">"I love MedExpertsio! It's so easy to use, has really improved my productivity, and helped me pass my Boards!"</p>
               <p className="name">Cody LOL</p>
               <p className="occupation">Medical Student, Hardvard Med</p>
             </Card>
             <Card className="testimonial">
-              <p className="review">
-                "I love MedExpertsio! It's so easy to use, has really improved
-                my productivity, and helped me pass my Boards!"
-              </p>
+              <p className="review">"I love MedExpertsio! It's so easy to use, has really improved my productivity, and helped me pass my Boards!"</p>
               <p className="name">Cody LOL</p>
               <p className="occupation">Medical Student, Hardvard Med</p>
             </Card>
             <Card className="testimonial">
-              <p className="review">
-                "I love MedExpertsio! It's so easy to use, has really improved
-                my productivity, and helped me pass my Boards!"
-              </p>
+              <p className="review">"I love MedExpertsio! It's so easy to use, has really improved my productivity, and helped me pass my Boards!"</p>
               <p className="name">Cody LOL</p>
               <p className="occupation">Medical Student, Hardvard Med</p>
             </Card>
             <Card className="testimonial">
-              <p className="review">
-                "I love MedExpertsio! It's so easy to use, has really improved
-                my productivity, and helped me pass my Boards!"
-              </p>
+              <p className="review">"I love MedExpertsio! It's so easy to use, has really improved my productivity, and helped me pass my Boards!"</p>
               <p className="name">Cody LOL</p>
               <p className="occupation">Medical Student, Hardvard Med</p>
             </Card>

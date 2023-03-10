@@ -62,7 +62,7 @@ const Login = () => {
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
-                        <Link className="text" style={{ color: "#FF6262" }} to="/forgotPassword">
+                        <Link className="text" style={{ color: "black" }} to="/forgotPassword">
                           Forgot password?
                         </Link>
                       </p>
@@ -85,7 +85,7 @@ const Login = () => {
               <p className="small">
                 <Link
                   className="text"
-                  style={{ color: "gray" }}
+                  style={{ color: "black" }}
                   to="/signup"
                   onClick={() => {
                     dispatch(navigateToForm());
