@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
-import { fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
+import { fetchAllUsers, fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.me.id);
-  
+
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions(userId)));
+    isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
+
+  const allUsers = useSelector((state) => state.userQuestions.allUsers);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const AllUserQuestions = useSelector((state) => state.userQuestions.UserQuestions);
   const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
@@ -262,7 +265,7 @@ const Dashboard = () => {
 
                             <div style={styles.progressBarMiddle}>{totalEasyAnswered}</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Easy Level
                           </Card.Title>
                         </Card>
@@ -274,7 +277,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Completed</div>
                             <div style={styles.progressBarMiddle}>{totalmoderateAnswere}</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             <center>Moderate Level</center>
                           </Card.Title>
                         </Card>
@@ -286,7 +289,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Completed</div>
                             <div style={styles.progressBarMiddle}>{totalhardAnswered}</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Hard Level
                           </Card.Title>
                         </Card>
@@ -298,7 +301,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Completed</div>
                             <div style={styles.progressBarMiddle}>{totalallAnswered}</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             All Levels
                           </Card.Title>
                         </Card>
@@ -324,7 +327,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Correct</div>
                             <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "lightgreen", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Easy Level
                           </Card.Title>
                         </Card>
@@ -336,7 +339,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Correct</div>
                             <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "#f5ad27", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             <center>Moderate Level</center>
                           </Card.Title>
                         </Card>
@@ -348,7 +351,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Correct</div>
                             <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "#f55b49", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Hard Level
                           </Card.Title>
                         </Card>
@@ -360,7 +363,7 @@ const Dashboard = () => {
                             <div style={styles.progressBarBackground}>Correct</div>
                             <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ color: "#bf5eff", paddingTop: "5px" }}>
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             All Levels
                           </Card.Title>
                         </Card>
@@ -587,7 +590,10 @@ const Dashboard = () => {
             </Stack>
           </Stack>
         ) : (
-          <h5>Admin Dashboard place holder</h5>
+          <>
+            <h5>Admin Dashboard place holder</h5>
+            Number of users. {allUsers.length}
+          </>
         )}
       </div>
     </Container>

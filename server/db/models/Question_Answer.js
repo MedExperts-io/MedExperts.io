@@ -9,6 +9,9 @@ const Question_Answer = db.define("question_answer", {
   questionImage: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
+  questionImageAltText: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+  },
   answerOptions: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
@@ -20,6 +23,9 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.TEXT,
   },
   explanationImage: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+  },
+  explanationImageAltText: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
   explanationLinks: {
@@ -55,11 +61,7 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.INTEGER,
     get() {
       const rawValue = this.getDataValue("displayId");
-      return rawValue
-        ? rawValue
-        : this.getDataValue("ancestorId")
-        ? this.getDataValue("ancestorId")
-        : this.getDataValue("id");
+      return rawValue ? rawValue : this.getDataValue("ancestorId") ? this.getDataValue("ancestorId") : this.getDataValue("id");
     },
   },
   color: {

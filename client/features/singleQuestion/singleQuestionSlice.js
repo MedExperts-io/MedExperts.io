@@ -2,30 +2,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const token = window.localStorage.getItem("token");
 
-export const fetchSingleQuestion = createAsyncThunk(
-  "fetchSingleQuestion",
-  async (singleQuestionId) => {
-    const { data } = await axios.get(`/api/questions/${singleQuestionId}`, {
-      headers: {
-        authorization: window.localStorage.getItem("token"),
-      },
-    });
-    return data;
-  }
-);
+export const fetchSingleQuestion = createAsyncThunk("fetchSingleQuestion", async (singleQuestionId) => {
+  const { data } = await axios.get(`/api/questions/${singleQuestionId}`, {
+    headers: {
+      authorization: window.localStorage.getItem("token"),
+    },
+  });
+  return data;
+});
 
-export const fetchQAVersions = createAsyncThunk(
-  "fetchQAVersions",
-  async (singleQuestionId) => {
-    const { data } = await axios.get(`/api/questions/${singleQuestionId}`, {
-      headers: {
-        authorization: window.localStorage.getItem("token"),
-      },
-    });
+export const fetchQAVersions = createAsyncThunk("fetchQAVersions", async (singleQuestionId) => {
+  const { data } = await axios.get(`/api/questions/${singleQuestionId}`, {
+    headers: {
+      authorization: window.localStorage.getItem("token"),
+    },
+  });
 
-    return data;
-  }
-);
+  return data;
+});
 
 export const editQuestion = createAsyncThunk(
   "editQuestion",
@@ -33,10 +27,12 @@ export const editQuestion = createAsyncThunk(
     id,
     question,
     questionImage,
+    questionImageAltText,
     answerOptions,
     correctAnswer,
     explanation,
     explanationImage,
+    explanationImageAltText,
     explanationLinks,
     category,
     level,
@@ -48,10 +44,12 @@ export const editQuestion = createAsyncThunk(
       {
         question,
         questionImage,
+        questionImageAltText,
         answerOptions,
         correctAnswer,
         explanation,
         explanationImage,
+        explanationImageAltText,
         explanationLinks,
         category,
         level,
@@ -68,18 +66,15 @@ export const editQuestion = createAsyncThunk(
   }
 );
 
-export const deleteSingleQuestion = createAsyncThunk(
-  "deleteSingleQuestion",
-  async (singleQuestionId) => {
-    const { data } = await axios.delete(`/api/questions/${singleQuestionId}`, {
-      headers: {
-        authorization: window.localStorage.getItem("token"),
-      },
-    });
+export const deleteSingleQuestion = createAsyncThunk("deleteSingleQuestion", async (singleQuestionId) => {
+  const { data } = await axios.delete(`/api/questions/${singleQuestionId}`, {
+    headers: {
+      authorization: window.localStorage.getItem("token"),
+    },
+  });
 
-    return data;
-  }
-);
+  return data;
+});
 
 const singleQuestionSlice = createSlice({
   name: "singleQuestion",
@@ -104,9 +99,7 @@ const singleQuestionSlice = createSlice({
         state.qaAllVersions.unshift(action.payload);
       })
       .addCase(deleteSingleQuestion.fulfilled, (state, action) => {
-        state.qaAllVersions = state.qaAllVersions.filter(
-          (aVersion) => aVersion.id != action.payload
-        );
+        state.qaAllVersions = state.qaAllVersions.filter((aVersion) => aVersion.id != action.payload);
       });
   },
 });
