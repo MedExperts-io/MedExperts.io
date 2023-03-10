@@ -231,6 +231,7 @@ const EditQA = () => {
                           <InputGroup className="mb-3">
                             <Form.Control
                               type="file"
+                              
                               onChange={(e) => {
                                 setImageUpload(e.target.files[0]);
                               }}
@@ -262,6 +263,7 @@ const EditQA = () => {
                             <thead
                               style={{
                                 background: "#eaecef",
+                                color: "#6c767d",
                               }}
                             >
                               <tr>
@@ -487,6 +489,7 @@ const EditQA = () => {
                             <thead
                               style={{
                                 background: "#eaecef",
+                                color: "#6c767d",
                               }}
                             >
                               <tr>
@@ -499,7 +502,7 @@ const EditQA = () => {
                                 </th>
                                 <th
                                   style={{
-                                    fontWeight: "normal"
+                                    fontWeight: "normal",
                                   }}
                                 >
                                   Preview
@@ -615,6 +618,7 @@ const EditQA = () => {
                             <thead
                               style={{
                                 background: "#eaecef",
+                                color: "#6c767d",
                               }}
                             >
                               <tr>
