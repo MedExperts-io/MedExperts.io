@@ -1,29 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchSingleQuestion,
-  deleteSingleQuestion,
-} from "./singleQuestionSlice";
+import { fetchSingleQuestion, deleteSingleQuestion } from "./singleQuestionSlice";
 import { useParams, Link } from "react-router-dom";
-import {
-  Card,
-  Stack,
-  Button,
-  Breadcrumb,
-  ProgressBar,
-  Container,
-  Row,
-  Col,
-  Accordion,
-  Table,
-} from "react-bootstrap/";
+import { Card, Stack, Button, Breadcrumb, ProgressBar, Container, Row, Col, Accordion, Table } from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
-import {
-  fetchAllUserQuestions,
-  fetchUserQuestions,
-  updateUserQuestion,
-  updateUserQuestionInput,
-} from "../stats/user_questionsSlice";
+import { fetchAllUserQuestions, fetchUserQuestions, updateUserQuestion, updateUserQuestionInput } from "../stats/user_questionsSlice";
 import SingleQAadmin from "./SingleQAadmin";
 import { Divider } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
@@ -64,9 +45,7 @@ const SingleQuestion = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchUserQuestions(userId)).then(() =>
-      dispatch(fetchSingleQuestion(singleQuestionId))
-    );
+    dispatch(fetchUserQuestions(userId)).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
@@ -78,7 +57,9 @@ const SingleQuestion = () => {
     correctAnswer,
     explanation,
     explanationImage,
+    explanationImageAltText,
     questionImage,
+    questionImageAltText,
     explanationLinks,
     category,
     level,
@@ -86,12 +67,10 @@ const SingleQuestion = () => {
     displayId,
   } = singleQ;
 
-  const AllUserQuestion = useSelector(
-    (state) => state.userQuestions.UserQuestions
-  );
-  const CurrentQuestionArray = AllUserQuestion.filter(
-    (object) => object.questionAnswerId === id
-  );
+  console.log("ALTIMAGETEXT:", questionImageAltText, explanationImageAltText);
+
+  const AllUserQuestion = useSelector((state) => state.userQuestions.UserQuestions);
+  const CurrentQuestionArray = AllUserQuestion.filter((object) => object.questionAnswerId === id);
 
   const CurrentQuestion = CurrentQuestionArray[0];
 
@@ -142,16 +121,12 @@ const SingleQuestion = () => {
                         className="mb-2 text-center"
                         style={{
                           fontSize: "100%",
-
                           textAlign: "center",
                         }}
                       >
                         {question}
                       </Card.Header>
-                      <Card.Body
-                        className="mx-auto"
-                        style={{ paddingBottom: "0px", marginBottom: "0px" }}
-                      >
+                      <Card.Body className="mx-auto" style={{ paddingBottom: "0px", marginBottom: "0px" }}>
                         <Row className="mx-auto">
                           <Stack
                             style={{
@@ -163,18 +138,13 @@ const SingleQuestion = () => {
                           >
                             {questionImage
                               ? questionImage.map((image, index) => (
-                                  <Table
-                                    responsive="sm"
-                                    size="sm"
-                                    key={uuidv4()}
-                                    borderless
-                                    style={{ paddingBottom: "0px" }}
-                                  >
+                                  <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
                                     <thead>
                                       <tr>
                                         <th style={{ padding: "0px" }}>
                                           {" "}
                                           <img
+                                            alt={questionImageAltText}
                                             src={image}
                                             style={{
                                               paddingLeft: "10px",
@@ -187,10 +157,7 @@ const SingleQuestion = () => {
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <td
-                                          className="text-muted text-center"
-                                          style={{ fontSize: "10px" }}
-                                        >
+                                        <td className="text-muted text-center" style={{ fontSize: "10px" }}>
                                           Figure:{index + 1}
                                         </td>
                                       </tr>
@@ -215,15 +182,7 @@ const SingleQuestion = () => {
                                   className="ms-3 mb-2"
                                   key={uuidv4()}
                                   // variant={selectedOption === ans ? "success" : "outline-success"}
-                                  variant={
-                                    CurrentQuestion.userInput
-                                      ? ans === correctAnswer
-                                        ? "success"
-                                        : "danger"
-                                      : CurrentQuestion.answered === ans
-                                      ? "success"
-                                      : "outline-success"
-                                  }
+                                  variant={CurrentQuestion.userInput ? (ans === correctAnswer ? "success" : "danger") : CurrentQuestion.answered === ans ? "success" : "outline-success"}
                                 >
                                   {ans}
                                 </Button>
@@ -232,11 +191,7 @@ const SingleQuestion = () => {
                         </Row>
                       </Card.Body>
                       <Card.Footer>
-                        <Stack
-                          direction="horizontal"
-                          gap={3}
-                          className=" mx-auto"
-                        >
+                        <Stack direction="horizontal" gap={3} className=" mx-auto">
                           <Button
                             className="mx-auto"
                             variant="danger"
@@ -278,9 +233,7 @@ const SingleQuestion = () => {
 
     `}
                               </style>
-                              <Button variant={"success"}>
-                                {correctAnswer}
-                              </Button>
+                              <Button variant={"success"}>{correctAnswer}</Button>
                             </td>
                             <td style={{ borderBottomWidth: "0px" }}>
                               {" "}
@@ -288,12 +241,10 @@ const SingleQuestion = () => {
                                 id="btn-muted"
                                 variant={
                                   CurrentQuestion.userInput
-                                    ? CurrentQuestion.userInput ===
-                                      correctAnswer
+                                    ? CurrentQuestion.userInput === correctAnswer
                                       ? "success"
                                       : "danger"
-                                    : CurrentQuestion.userInput ===
-                                      selectedOption
+                                    : CurrentQuestion.userInput === selectedOption
                                     ? "success"
                                     : "outline-success"
                                 }
@@ -309,69 +260,55 @@ const SingleQuestion = () => {
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>View Explanation</Accordion.Header>
                         <Accordion.Body>{explanation}</Accordion.Body>
-                        <Accordion.Body
-                        className="mx-auto"
-                        style={{ paddingBottom: "0px", marginBottom: "0px" }}
-                      >
-                        <Row className="mx-auto">
-                          <Stack
-                            style={{
-                              paddingTop: "10px",
-                              paddingLeft: "0px",
-                              paddingRight: "0px",
-                            }}
-                            direction="horizontal"
-                          >
-                            {explanationImage
-                              ? explanationImage.map((image, index) => (
-                                  <Table
-                                    responsive="sm"
-                                    size="sm"
-                                    key={uuidv4()}
-                                    borderless
-                                    style={{ paddingBottom: "0px" }}
-                                  >
-                                    <thead>
-                                      <tr>
-                                        <th style={{ padding: "0px" }}>
-                                          {" "}
-                                          <img
-                                            src={image}
-                                            style={{
-                                              paddingLeft: "10px",
-                                              maxHeight: `12rem`,
-                                              maxInlineSize: "100%",
-                                            }}
-                                          />
-                                        </th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td
-                                          className="text-muted text-center"
-                                          style={{ fontSize: "10px" }}
-                                        >
-                                          Figure:{index + 1}
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </Table>
-                                ))
-                              : null}
-                          </Stack>
-                        </Row>
-                          </Accordion.Body>
+                        <Accordion.Body className="mx-auto" style={{ paddingBottom: "0px", marginBottom: "0px" }}>
+                          <Row className="mx-auto">
+                            <Stack
+                              style={{
+                                paddingTop: "10px",
+                                paddingLeft: "0px",
+                                paddingRight: "0px",
+                              }}
+                              direction="horizontal"
+                            >
+                              {explanationImage
+                                ? explanationImage.map((image, index) => (
+                                    <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
+                                      <thead>
+                                        <tr>
+                                          <th style={{ padding: "0px" }}>
+                                            {" "}
+                                            <img
+                                              alt={explanationImageAltText}
+                                              src={image}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                maxHeight: `12rem`,
+                                                maxInlineSize: "100%",
+                                              }}
+                                            />
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                            Figure:{index + 1}
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </Table>
+                                  ))
+                                : null}
+                            </Stack>
+                          </Row>
+                        </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
                         <Accordion.Header>View References</Accordion.Header>
                         <Accordion.Body>
                           {explanationLinks.length ? (
                             explanationLinks.map((sourcelink, index) => (
-                              <Card
-                                key={uuidv4()}
-                                className="m-2 text-decoration-none "
-                              >
+                              <Card key={uuidv4()} className="m-2 text-decoration-none ">
                                 <Card.Body>
                                   {" "}
                                   <div>
@@ -431,10 +368,7 @@ const SingleQuestion = () => {
                     >
                       {question}
                     </Card.Header>
-                    <Card.Body
-                      className="mx-auto"
-                      style={{ paddingBottom: "0px", marginBottom: "0px" }}
-                    >
+                    <Card.Body className="mx-auto" style={{ paddingBottom: "0px", marginBottom: "0px" }}>
                       <Row className="mx-auto">
                         <Stack
                           style={{
@@ -446,18 +380,13 @@ const SingleQuestion = () => {
                         >
                           {questionImage
                             ? questionImage.map((image, index) => (
-                                <Table
-                                  responsive="sm"
-                                  size="sm"
-                                  key={uuidv4()}
-                                  borderless
-                                  style={{ paddingBottom: "0px" }}
-                                >
+                                <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
                                   <thead>
                                     <tr>
                                       <th style={{ padding: "0px" }}>
                                         {" "}
                                         <img
+                                          alt={questionImageAltText}
                                           src={image}
                                           style={{
                                             paddingLeft: "10px",
@@ -470,10 +399,7 @@ const SingleQuestion = () => {
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td
-                                        className="text-muted text-center"
-                                        style={{ fontSize: "10px" }}
-                                      >
+                                      <td className="text-muted text-center" style={{ fontSize: "10px" }}>
                                         Figure:{index + 1}
                                       </td>
                                     </tr>
@@ -517,15 +443,7 @@ const SingleQuestion = () => {
                                 className="ms-3 mb-2"
                                 key={uuidv4()}
                                 // variant={selectedOption === ans ? "success" : "outline-success"}
-                                variant={
-                                  showAnswer
-                                    ? ans === correctAnswer
-                                      ? "success"
-                                      : "danger"
-                                    : selectedOption === ans
-                                    ? "success"
-                                    : "outline-success"
-                                }
+                                variant={showAnswer ? (ans === correctAnswer ? "success" : "danger") : selectedOption === ans ? "success" : "outline-success"}
                                 onClick={() => handleOptionSelection(ans)}
                               >
                                 {ans}
@@ -535,18 +453,8 @@ const SingleQuestion = () => {
                       </Row>
                     </Card.Body>
                     <Card.Footer>
-                      <Stack
-                        direction="horizontal"
-                        gap={3}
-                        className=" mx-auto"
-                      >
-                        <Button
-                          className="mx-auto"
-                          id="question-submit-btn"
-                          variant="danger"
-                          onClick={handleSubmit}
-                          disabled={selectedOption === null}
-                        >
+                      <Stack direction="horizontal" gap={3} className=" mx-auto">
+                        <Button className="mx-auto" id="question-submit-btn" variant="danger" onClick={handleSubmit} disabled={selectedOption === null}>
                           Submit
                         </Button>
                       </Stack>
@@ -586,17 +494,7 @@ border-color: #FF7276;
                           </td>
                           <td style={{ borderBottomWidth: "0px" }}>
                             {" "}
-                            <Button
-                              variant={
-                                showAnswer
-                                  ? selectedOption === correctAnswer
-                                    ? "success"
-                                    : "danger"
-                                  : selectedOption === selectedOption
-                                  ? "success"
-                                  : "outline-success"
-                              }
-                            >
+                            <Button variant={showAnswer ? (selectedOption === correctAnswer ? "success" : "danger") : selectedOption === selectedOption ? "success" : "outline-success"}>
                               {selectedOption}
                             </Button>
                           </td>
@@ -614,10 +512,7 @@ border-color: #FF7276;
                       <Accordion.Body>
                         {explanationLinks.length ? (
                           explanationLinks.map((sourcelink, index) => (
-                            <Card
-                              key={uuidv4()}
-                              className="m-2 text-decoration-none "
-                            >
+                            <Card key={uuidv4()} className="m-2 text-decoration-none ">
                               <Card.Body>
                                 {" "}
                                 <div>
