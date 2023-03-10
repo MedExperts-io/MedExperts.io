@@ -16,8 +16,6 @@ import CategoryIcon from "@mui/icons-material/Category";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 
-// const isLoggedIn = LoggedIn
-
 const MainLandingPage = () => {
   const isLoggedIn = useSelector((state) => state.auth.me.id);
 
@@ -32,6 +30,7 @@ const MainLandingPage = () => {
         }}
       >
         <Grid
+          container
           item
           xs={6}
           direction="column"
@@ -52,12 +51,14 @@ const MainLandingPage = () => {
               target your studying and focus on areas for improvement.
             </p>
             <p>Join the growing community of medical professionals and start improving your knowledge in pulmonary medicine today. Get Started with MedExperts!</p>
-            {/* <Button >Get Started</Button> */}
           </div>
         </Grid>
-        <Grid item xs={4} direction="column">
+        <Grid xs={4} item>
           <div className="image-container">
-            <img src="https://firebasestorage.googleapis.com/v0/b/medexpertsio-a0906.appspot.com/o/lung%20with%20bulb%20.png?alt=media&token=34610860-8e8d-4f71-87bb-5b79eb36a20b" alt="example" />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/medexpertsio-a0906.appspot.com/o/lung%20with%20bulb%20.png?alt=media&token=34610860-8e8d-4f71-87bb-5b79eb36a20b"
+              alt="a picture of lungs smiling and walking joyfully"
+            />
           </div>
         </Grid>
       </Grid>
