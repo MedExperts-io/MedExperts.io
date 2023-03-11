@@ -45,7 +45,7 @@ const SingleQuestion = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchUserQuestions(userId)).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
+    dispatch(fetchUserQuestions()).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
@@ -80,7 +80,6 @@ const SingleQuestion = () => {
       .then(() =>
         dispatch(
           updateUserQuestionInput({
-            userId: userId,
             questionAnswerId: id,
             userInput: selectedOption,
             answered: selectedOption === correctAnswer ? "right" : "wrong",
@@ -90,7 +89,7 @@ const SingleQuestion = () => {
           })
         )
       )
-      .then(() => dispatch(fetchUserQuestions(userId)));
+      .then(() => dispatch(fetchUserQuestions()));
   };
 
   if (admin) {

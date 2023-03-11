@@ -12,7 +12,7 @@ export const fetchAllUserQuestions = createAsyncThunk(
           authorization: window.localStorage.getItem("token"),
         },
       });
-      return data;
+      return data
     } catch (error) {
       console.log(error);
     }
@@ -116,10 +116,10 @@ export const fetchUserQuestions = createAsyncThunk(
 // --------TO FAVORITE, UNFAVORITE--------------
 export const updateUserQuestion = createAsyncThunk(
   "updateUserQuestion",
-  async ({ userId, questionAnswerId }) => {
+  async ({ questionAnswerId }) => {
     try {
       const { data } = await axios.put(
-        `/api/user_questions/${userId}`,
+        `/api/user_questions/favorite`,
         {
           questionAnswerId: questionAnswerId,
         },
@@ -141,7 +141,6 @@ export const updateUserQuestion = createAsyncThunk(
 export const updateUserQuestionInput = createAsyncThunk(
   "updateUserQuestionInput",
   async ({
-    userId,
     questionAnswerId,
     userInput,
     answered,
@@ -151,7 +150,7 @@ export const updateUserQuestionInput = createAsyncThunk(
   }) => {
     try {
       const { data } = await axios.post(
-        `/api/user_questions/${userId}`,
+        `/api/user_questions/response`,
         {
           questionAnswerId: questionAnswerId,
           userInput: userInput,

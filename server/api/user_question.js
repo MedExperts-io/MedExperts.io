@@ -7,7 +7,7 @@ module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
-// -----For admin's dashboard analytics (aggregate)
+//GET/api/user_question ----- For admin's dashboard analytics (aggregate)
 router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({});
@@ -17,6 +17,7 @@ router.get("/", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
+//GET/api/user_question/frequency ----- For admin
 router.get("/frequency", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
@@ -58,6 +59,7 @@ router.get("/frequency", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
+//GET/api/user_question/percent_correct ----- For admin
 router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
@@ -98,6 +100,7 @@ router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
+//GET/api/user_question/all_active ----- For admin
 router.get("/all_active", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
@@ -123,11 +126,10 @@ router.get("/all_active", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-// --- For logged in student user's dashboard analytics
+//GET/api/user_question/dashboard ------- For user's dashboard analytics
 router.get("/dashboard", getToken, async (req, res, next) => {
   try {
     const userId = req.user.id;
-    console.log("USER ID", userId);
     const allUserQs = await User_Question.findAll({
       where: { userId: userId },
     });
@@ -137,8 +139,7 @@ router.get("/dashboard", getToken, async (req, res, next) => {
   }
 });
 
-// --- For logged in Admin's dashboard analytics.
-// Finds all questions answered by users of a specific expertise.
+//GET/api/user_question/expertise/all ----- For admin to find all questions answered by users of a specific expertise.
 router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
   try {
     let questionsByExpertise = {
@@ -188,13 +189,9 @@ router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-// SCENARIO
-// When user clicks "Favorite" button, then make axios.put call
-// When user submits response, then make axios.post call
-
-// PUT -- api/user_questions/:userId
-router.put("/:userId", getToken, async (req, res, next) => {
-  const uId = req.params.userId;
+//PUT/api/user_questions/favorite ----- For user to favorite question
+router.put("/favorite", getToken, async (req, res, next) => {
+  const uId = req.user.id;
   const qaId = req.body.questionAnswerId;
 
   try {
@@ -206,7 +203,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
     });
 
     if (isNew) {
-      //ROW NEVER EXISTED BEFORE
+      //Row never existed before
       const [, favorited] = await User_Question.update(
         {
           favorite: true,
@@ -223,7 +220,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
 
       res.json(favorited);
     } else {
-      // ROW EXISTED ALREADY
+      //Row existed already
 
       if (row.favorite === true && row.userInput) {
         //Can have existed before due to having both user input and favorited
@@ -275,9 +272,9 @@ router.put("/:userId", getToken, async (req, res, next) => {
   }
 });
 
-// POST -- api/user_questions/:userId
-router.post("/:userId", getToken, async (req, res, next) => {
-  const uId = req.params.userId;
+//POST/api/user_questions/response ----- For user to answer question (Correct/incorrect answer calculated on the frontend)
+router.post("/response", getToken, async (req, res, next) => {
+  const uId = req.user.id;
   const {
     questionAnswerId,
     userInput,
@@ -288,7 +285,6 @@ router.post("/:userId", getToken, async (req, res, next) => {
   } = req.body;
 
   try {
-    //If right or wrong answer will be calculated on the frontend
     const [row, isNew] = await User_Question.findOrCreate({
       where: {
         userId: uId,
