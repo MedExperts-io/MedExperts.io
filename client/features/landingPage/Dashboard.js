@@ -10,7 +10,7 @@ const Dashboard = () => {
   const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions(userId)));
+    dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions()));
     isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
 

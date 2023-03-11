@@ -124,9 +124,10 @@ router.get("/all_active", getToken, isAdmin, async (req, res, next) => {
 });
 
 // --- For logged in student user's dashboard analytics
-router.get("/:userId", getToken, async (req, res, next) => {
+router.get("/dashboard", getToken, async (req, res, next) => {
   try {
-    const userId = req.params.userId;
+    const userId = req.user.id;
+    console.log("USER ID", userId);
     const allUserQs = await User_Question.findAll({
       where: { userId: userId },
     });
@@ -140,15 +141,38 @@ router.get("/:userId", getToken, async (req, res, next) => {
 // Finds all questions answered by users of a specific expertise.
 router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
   try {
-    let questionsByExpertise = { Student: [], Resident: [], Fellow: [], "Physician Assistant": [], Nurse: [], "Nurse Practitioner": [], Pharmacist: [], Other: [] };
-    const expertises = ["Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
+    let questionsByExpertise = {
+      Student: [],
+      Resident: [],
+      Fellow: [],
+      "Physician Assistant": [],
+      Nurse: [],
+      "Nurse Practitioner": [],
+      Pharmacist: [],
+      Other: [],
+    };
+    const expertises = [
+      "Student",
+      "Resident",
+      "Fellow",
+      "Physician Assistant",
+      "Nurse",
+      "Nurse Practitioner",
+      "Pharmacist",
+      "Internal Med",
+      "Other",
+    ];
 
     for (let i = 0; i < expertises.length; i++) {
       const allUserQs = await User_Question.findAll({
         where: { userExpertise: expertises[i] },
       });
-      const unique = [...new Map(allUserQs.map((m) => [m.questionAnswerId, m])).values()];
-      const uniqueQuestionIds = unique.map((question) => question.questionAnswerId);
+      const unique = [
+        ...new Map(allUserQs.map((m) => [m.questionAnswerId, m])).values(),
+      ];
+      const uniqueQuestionIds = unique.map(
+        (question) => question.questionAnswerId
+      );
       const questionByExpertise = await Question_Answer.findAll({
         where: {
           id: {
@@ -216,7 +240,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
             plain: true,
           }
         );
-       
+
         res.json(removeFavorite);
       } else if (row.favorite === false && row.userInput) {
         //Can have existed before due to having user input and not favorited
@@ -254,8 +278,14 @@ router.put("/:userId", getToken, async (req, res, next) => {
 // POST -- api/user_questions/:userId
 router.post("/:userId", getToken, async (req, res, next) => {
   const uId = req.params.userId;
-  const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
-
+  const {
+    questionAnswerId,
+    userInput,
+    answered,
+    category,
+    level,
+    userExpertise,
+  } = req.body;
 
   try {
     //If right or wrong answer will be calculated on the frontend
