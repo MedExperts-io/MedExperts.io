@@ -57,48 +57,25 @@ const Login = () => {
                       <Form.Label className="text-center" label="Email Address">
                         Email address
                       </Form.Label>
-                      <Form.Control
-                        required
-                        autoComplete="email"
-                        type="email"
-                        placeholder="Enter email"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide a valid email address.
-                      </Form.Control.Feedback>
+                      <Form.Control required autoComplete="email" type="email" placeholder="Enter email" />
+                      <Form.Control.Feedback type="invalid">Please provide a valid email address.</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="loginPassword">
                       <Form.Label label="Password">Password</Form.Label>
                       <InputGroup>
-                        <Form.Control
-                          required
-                          autoComplete="current-password"
-                          type={passwordShown ? "text" : "password"}
-                          placeholder="Enter password"
-                        />
-                        <Button
-                          variant="outline-secondary"
-                          onClick={togglePassword}
-                          size="md"
-                          style={{ zIndex: 0 }}
-                        >
-                          {passwordShown ? (
-                            <VisibilityOffIcon />
-                          ) : (
-                            <RemoveRedEyeIcon />
-                          )}
+                        <Form.Control required autoComplete="current-password" type={passwordShown ? "text" : "password"} placeholder="Enter password" />
+                        <Button title="hide or show password" variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
+                          {passwordShown ? <VisibilityOffIcon title="show password" /> : <RemoveRedEyeIcon title="hide password" />}
                         </Button>
 
-                        <Form.Control.Feedback type="invalid">
-                          Please provide a password.
-                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
                       </InputGroup>
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
                         <Link
                           className="text"
-                          style={{ color: "#FF6262" }}
+                          style={{ color: "black" }}
                           to="/forgotPassword"
                         >
                           Forgot password?
@@ -123,7 +100,7 @@ const Login = () => {
               <p className="small">
                 <Link
                   className="text"
-                  style={{ color: "gray" }}
+                  style={{ color: "black" }}
                   to="/signup"
                   onClick={() => {
                     dispatch(navigateToForm());
