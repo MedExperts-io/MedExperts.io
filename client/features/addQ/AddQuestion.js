@@ -24,7 +24,7 @@ import { storage } from "./firebase";
 
 const AddQuestion = () => {
   const [loading, setLoading] = useState(true);
-  const [newQuestion, setNewQuestion] = useState("Type New Question Here...");
+  const [newQuestion, setNewQuestion] = useState("Type new question here...");
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState([
     "Answer Option 1",
@@ -33,13 +33,13 @@ const AddQuestion = () => {
     "Answer Option 4",
   ]);
   const [newCorrectAnswer, setNewCorrectAnswer] = useState(
-    "Select Correct Answer Here"
+    "Select correct answer"
   );
   const [newExplanation, setNewExplanation] = useState(
-    "Type Explanation Here...."
+    "Type explanation here..."
   );
   const [newSingleLink, setNewSingleLink] = useState("www.example.com");
-  const [newSource, setNewSource] = useState("Type Citation Here");
+  const [newSource, setNewSource] = useState("Type citation here...");
   const [newCategory, setNewCategory] = useState("");
   const [newLevel, setNewLevel] = useState("");
 
