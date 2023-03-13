@@ -113,12 +113,17 @@ const Profile = () => {
                       <Form.Label className="text-muted">School</Form.Label>
                       <Form.Control
                         type="text"
+                        // defaultValue={school && school.length ? school : ""}
                         defaultValue={school}
                         onClick={clearText}
                         onChange={(e) => {
                           setUserSchool(e.target.value);
                         }}
-                        onBlur={(e) => (e.target.placeholder = school)}
+                        onBlur={(e) =>
+                          school && school.length
+                            ? (e.target.placeholder = userSchool)
+                            : (e.target.placeholder = "")
+                        }
                       />
                     </Form.Group>
 
