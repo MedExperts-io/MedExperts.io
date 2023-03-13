@@ -42,7 +42,10 @@ const Login = () => {
 
   return (
     <Container>
-      <Row className="p-5 justify-content-center">
+      <Row
+        className="d-flex justify-content-center align-items-center"
+        style={{ paddingTop: "5rem" }}
+      >
         <Col md={10} lg={6} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Login</Card.Header>

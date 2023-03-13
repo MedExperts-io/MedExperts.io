@@ -144,7 +144,7 @@ const SingleQuestion = () => {
                                         <th style={{ padding: "0px" }}>
                                           {" "}
                                           <img
-                                            alt={questionImageAltText}
+                                            alt={questionImageAltText ? questionImageAltText[index] : "We're missing an explanation here, contact us!"}
                                             src={image}
                                             style={{
                                               paddingLeft: "10px",
@@ -278,7 +278,7 @@ const SingleQuestion = () => {
                                           <th style={{ padding: "0px" }}>
                                             {" "}
                                             <img
-                                              alt={explanationImageAltText}
+                                              alt={explanationImageAltText ? explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
                                               src={image}
                                               style={{
                                                 paddingLeft: "10px",
@@ -386,7 +386,7 @@ const SingleQuestion = () => {
                                       <th style={{ padding: "0px" }}>
                                         {" "}
                                         <img
-                                          alt={questionImageAltText}
+                                          alt={questionImageAltText ? questionImageAltText[index] : "We're missing an explanation here, contact us!"}
                                           src={image}
                                           style={{
                                             paddingLeft: "10px",
