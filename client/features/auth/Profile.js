@@ -113,7 +113,6 @@ const Profile = () => {
                       <Form.Label className="text-muted">School</Form.Label>
                       <Form.Control
                         type="text"
-                        // defaultValue={school && school.length ? school : ""}
                         defaultValue={school}
                         onClick={clearText}
                         onChange={(e) => {
