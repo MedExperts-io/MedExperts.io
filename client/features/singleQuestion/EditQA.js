@@ -310,6 +310,13 @@ const EditQA = () => {
                                 >
                                   Preview
                                 </th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                  }}
+                                >
+                                  Alt Text
+                                </th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -536,6 +543,13 @@ const EditQA = () => {
                                   }}
                                 >
                                   Preview
+                                </th>
+                                <th
+                                  style={{
+                                    fontWeight: "normal",
+                                  }}
+                                >
+                                  Alt Text
                                 </th>
                                 <th></th>
                               </tr>
