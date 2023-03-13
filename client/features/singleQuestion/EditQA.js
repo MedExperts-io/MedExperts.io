@@ -63,6 +63,7 @@ const EditQA = () => {
   const [newExplanationImage, setNewExplanationImage] = useState(
     qaVersions[0]?.explanationImage
   );
+  const [newSingleExpImageAltText, setNewSingleExpImageAltText] = useState("");
   const [newExplanationImageAltText, setNewExplanationImageAltText] = useState(
     qaVersions[0]?.explanationImageAltText
   );
@@ -499,14 +500,31 @@ const EditQA = () => {
                                 seteImageUpload(e.target.files[0]);
                               }}
                             />
-
+                            <InputGroup.Text>Alt Text</InputGroup.Text>
+                            <Form.Control
+                              type="text"
+                              placeholder="Type alt text here"
+                              defaultValue={newSingleExpImageAltText}
+                              onChange={(e) => {
+                                setNewSingleExpImageAltText(e.target.value);
+                              }}
+                            />
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
                                 if (eimageUpload) {
-                                  euploadFile();
-                                  setShowUpdate("Image");
-                                  toggleShowToast();
+                                  if (newSingleExpImageAltText.trim() !== "") {
+                                    setNewExplanationImageAltText([
+                                      ...newExplanationImageAltText,
+                                      newSingleExpImageAltText.trim(),
+                                    ]);
+                                    euploadFile();
+                                    setNewSingleExpImageAltText("");
+                                    setShowUpdate(
+                                      `Image with alt text: ${newSingleExpImageAltText.trim()}`
+                                    );
+                                    toggleShowToast();
+                                  }
                                 }
                               }}
                             >
