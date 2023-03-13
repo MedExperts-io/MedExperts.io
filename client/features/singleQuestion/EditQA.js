@@ -363,6 +363,7 @@ const EditQA = () => {
                           <InputGroup className="mb-3">
                             <Form.Control
                               type="text"
+                              placeholder="Type new multiple choice option here..."
                               defaultValue={newSingleOption}
                               onChange={(e) => {
                                 setNewSingleOption(e.target.value);
@@ -593,6 +594,7 @@ const EditQA = () => {
                             <Form.Control
                               aria-label="Link"
                               type="text"
+                              placeholder="Type link here..."
                               defaultValue={newSingleLink}
                               onChange={(e) => {
                                 setNewSingleLink(e.target.value);
@@ -602,6 +604,7 @@ const EditQA = () => {
                             <Form.Control
                               aria-label="Citation"
                               type="text"
+                              placeholder="Type citation here..."
                               defaultValue={newSource}
                               onChange={(e) => {
                                 setNewSource(e.target.value);
