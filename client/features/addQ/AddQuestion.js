@@ -24,7 +24,7 @@ import { storage } from "./firebase";
 
 const AddQuestion = () => {
   const [loading, setLoading] = useState(true);
-  const [newQuestion, setNewQuestion] = useState("Type new question here...");
+  const [newQuestion, setNewQuestion] = useState("Type new question here");
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState([
     "Answer Option 1",
@@ -35,11 +35,9 @@ const AddQuestion = () => {
   const [newCorrectAnswer, setNewCorrectAnswer] = useState(
     "Select correct answer"
   );
-  const [newExplanation, setNewExplanation] = useState(
-    "Type explanation here..."
-  );
-  const [newSingleLink, setNewSingleLink] = useState("www.example.com");
-  const [newSource, setNewSource] = useState("Type citation here...");
+  const [newExplanation, setNewExplanation] = useState("Type explanation here");
+  const [newSingleLink, setNewSingleLink] = useState("Type link here");
+  const [newSource, setNewSource] = useState("Type citation here");
   const [newCategory, setNewCategory] = useState("");
   const [newLevel, setNewLevel] = useState("");
 
@@ -280,6 +278,7 @@ const AddQuestion = () => {
                     <InputGroup className="mb-3">
                       <Form.Control
                         type="text"
+                        placeholder="Type new multiple choice option here"
                         defaultValue={newSingleOption}
                         onChange={(e) => {
                           setNewSingleOption(e.target.value);

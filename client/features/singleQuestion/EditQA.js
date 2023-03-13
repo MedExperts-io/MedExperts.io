@@ -251,7 +251,7 @@ const EditQA = () => {
                             <InputGroup.Text>Alt Text</InputGroup.Text>
                             <Form.Control
                               type="text"
-                              placeholder="Type alt text here..."
+                              placeholder="Type alt text here"
                               defaultValue={newSingleQImageAltText}
                               onChange={(e) => {
                                 setNewSingleQImageAltText(e.target.value);
@@ -363,7 +363,7 @@ const EditQA = () => {
                           <InputGroup className="mb-3">
                             <Form.Control
                               type="text"
-                              placeholder="Type new multiple choice option here..."
+                              placeholder="Type new multiple choice option here"
                               defaultValue={newSingleOption}
                               onChange={(e) => {
                                 setNewSingleOption(e.target.value);
@@ -594,7 +594,7 @@ const EditQA = () => {
                             <Form.Control
                               aria-label="Link"
                               type="text"
-                              placeholder="Type link here..."
+                              placeholder="Type link here"
                               defaultValue={newSingleLink}
                               onChange={(e) => {
                                 setNewSingleLink(e.target.value);
@@ -604,7 +604,7 @@ const EditQA = () => {
                             <Form.Control
                               aria-label="Citation"
                               type="text"
-                              placeholder="Type citation here..."
+                              placeholder="Type citation here"
                               defaultValue={newSource}
                               onChange={(e) => {
                                 setNewSource(e.target.value);
