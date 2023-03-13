@@ -590,7 +590,7 @@ const EditQA = () => {
                             </strong>
                           </Form.Label>
                           <InputGroup className="mb-3">
-                            <InputGroup.Text>Link and Citation</InputGroup.Text>
+                            <InputGroup.Text>Link</InputGroup.Text>
                             <Form.Control
                               aria-label="Link"
                               type="text"
@@ -600,7 +600,7 @@ const EditQA = () => {
                                 setNewSingleLink(e.target.value);
                               }}
                             />
-
+                            <InputGroup.Text>Citation</InputGroup.Text>
                             <Form.Control
                               aria-label="Citation"
                               type="text"
