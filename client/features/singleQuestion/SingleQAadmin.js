@@ -109,7 +109,7 @@ const SingleQAadmin = () => {
                                       <th style={{ padding: "0px" }}>
                                         {" "}
                                         <img
-                                          alt={eachVersion.questionImageAltText}
+                                          alt={eachVersion.questionImageAltText ? eachVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
                                           src={image}
                                           style={{
                                             paddingLeft: "10px",
@@ -254,7 +254,7 @@ const SingleQAadmin = () => {
                                             <th style={{ padding: "0px" }}>
                                               {" "}
                                               <img
-                                                alt={eachVersion.explanationImageAltText}
+                                                alt={eachVersion.explanationImageAltText ? eachVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
                                                 src={image}
                                                 style={{
                                                   paddingLeft: "10px",
@@ -340,7 +340,7 @@ const SingleQAadmin = () => {
                                           <th style={{ padding: "0px" }}>
                                             {" "}
                                             <img
-                                              alt={newestVersion.questionImageAltText}
+                                              alt={newestVersion.questionImageAltText ? newestVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
                                               src={image}
                                               style={{
                                                 paddingLeft: "10px",
@@ -491,7 +491,7 @@ const SingleQAadmin = () => {
                                                 <th style={{ padding: "0px" }}>
                                                   {" "}
                                                   <img
-                                                    alt={newestVersion.explanationImageAltText}
+                                                    alt={newestVersion.explanationImageAltText ? newestVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
                                                     src={image}
                                                     style={{
                                                       paddingLeft: "10px",
@@ -576,7 +576,7 @@ const SingleQAadmin = () => {
                                           <th style={{ padding: "0px" }}>
                                             {" "}
                                             <img
-                                              alt={eachVersion.questionImageAltText}
+                                              alt={eachVersion.questionImageAltText ? eachVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
                                               src={image}
                                               style={{
                                                 paddingLeft: "10px",
@@ -710,7 +710,7 @@ const SingleQAadmin = () => {
                                                 <th style={{ padding: "0px" }}>
                                                   {" "}
                                                   <img
-                                                    alt={eachVersion.explanationImageAltText}
+                                                    alt={eachVersion.explanationImageAltText ? eachVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
                                                     src={image}
                                                     style={{
                                                       paddingLeft: "10px",
