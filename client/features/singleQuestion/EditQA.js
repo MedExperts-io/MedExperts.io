@@ -255,6 +255,7 @@ const EditQA = () => {
                             <InputGroup.Text>Alt Text</InputGroup.Text>
                             <Form.Control
                               type="text"
+                              required
                               placeholder="Type alt text here"
                               defaultValue={newSingleQImageAltText}
                               onChange={(e) => {
@@ -343,7 +344,7 @@ const EditQA = () => {
                                       }}
                                     />{" "}
                                   </td>
-                                  <td>Alt text</td>
+                                  <td>{newQuestionImageAltText[linkIdx]}</td>
                                   <td>
                                     {" "}
                                     <Button
@@ -353,6 +354,13 @@ const EditQA = () => {
                                           newQuestionImage.filter(
                                             (currentLink, idx) => {
                                               return idx !== linkIdx;
+                                            }
+                                          )
+                                        );
+                                        setNewQuestionImageAltText(
+                                          newQuestionImageAltText.filter(
+                                            (currentText, idx) => {
+                                              return idx != linkIdx;
                                             }
                                           )
                                         );
@@ -595,7 +603,7 @@ const EditQA = () => {
                                       }}
                                     />{" "}
                                   </td>
-                                  <td>Alt text</td>
+                                  <td>{newExplanationImageAltText[linkIdx]}</td>
                                   <td>
                                     {" "}
                                     <Button
@@ -605,6 +613,13 @@ const EditQA = () => {
                                           newExplanationImage.filter(
                                             (currentLink, idx) => {
                                               return idx !== linkIdx;
+                                            }
+                                          )
+                                        );
+                                        setNewExplanationImageAltText(
+                                          newExplanationImageAltText.filter(
+                                            (currentText, idx) => {
+                                              return idx != linkIdx;
                                             }
                                           )
                                         );
