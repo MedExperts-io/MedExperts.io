@@ -180,6 +180,7 @@ const EditQA = () => {
     evt.target.value = text;
   };
   console.log("INITIAL QUESTION IMG ALT TEXT ARRAY", newQuestionImageAltText);
+
   if (qaVersions && qaVersions.length) {
     return (
       <div>
@@ -223,7 +224,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="question">
                           <Form.Label className="text-muted">
-                            <strong className="me-auto">Question</strong>
+                            <strong className="me-auto">
+                              Question {qaVersions[0]?.displayId}
+                            </strong>
                           </Form.Label>
                           <Form.Control
                             as="textarea"
@@ -340,6 +343,7 @@ const EditQA = () => {
                                       }}
                                     />{" "}
                                   </td>
+                                  <td>Alt text</td>
                                   <td>
                                     {" "}
                                     <Button

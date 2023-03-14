@@ -112,6 +112,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
 router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
   try {
+    console.log("REQ BODY", req.body)
     const newQA = await Question_Answer.create(req.body);
 
     await Question_Answer.update(
