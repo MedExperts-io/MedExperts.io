@@ -591,6 +591,7 @@ const EditQA = () => {
                                       }}
                                     />{" "}
                                   </td>
+                                  <td>Alt text</td>
                                   <td>
                                     {" "}
                                     <Button
