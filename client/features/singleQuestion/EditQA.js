@@ -21,6 +21,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../addQ/firebase";
 import NoExist from "../doesNotExist/NoExist";
+import { set } from "immer/dist/internal";
 
 const EditQA = () => {
   const dispatch = useDispatch();
@@ -176,9 +177,22 @@ const EditQA = () => {
     );
   };
 
-  const fillField = (evt, text) => {
+  const fillField = (evt, text, extraIdx) => {
     evt.target.value = text;
+    console.log("EXTRAIDX", extraIdx);
+    if (extraIdx) {
+      setNewQuestionImageAltText(
+        newQuestionImageAltText.map((text, idx) => {
+          if (idx == extraIdx) {
+            text = "";
+          }
+          return text;
+        })
+      );
+      console.log("FILLFIELD", newQuestionImageAltText);
+    }
   };
+
   console.log("INITIAL QUESTION IMG ALT TEXT ARRAY", newQuestionImageAltText);
 
   if (qaVersions && qaVersions.length) {
@@ -255,7 +269,6 @@ const EditQA = () => {
                             <InputGroup.Text>Alt Text</InputGroup.Text>
                             <Form.Control
                               type="text"
-                              required
                               placeholder="Type alt text here"
                               defaultValue={newSingleQImageAltText}
                               onChange={(e) => {
@@ -277,6 +290,8 @@ const EditQA = () => {
                                       `Image with alt text: ${newSingleQImageAltText.trim()}`
                                     );
                                     toggleShowToast();
+                                  } else {
+                                    console.log("No alt text entered");
                                   }
                                 }
                               }}
@@ -344,7 +359,67 @@ const EditQA = () => {
                                       }}
                                     />{" "}
                                   </td>
-                                  <td>{newQuestionImageAltText[linkIdx]}</td>
+                                  <td>
+                                    <InputGroup className="mb-3">
+                                      <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        onClick={(evt) => {
+                                          console.log(
+                                            "ONCLICK",
+                                            newQuestionImageAltText[linkIdx]
+                                          );
+                                          if (
+                                            newQuestionImageAltText[linkIdx]
+                                          ) {
+                                            fillField(
+                                              evt,
+                                              newQuestionImageAltText[linkIdx]
+                                            );
+                                          } else {
+                                            fillField(evt, "", linkIdx);
+                                          }
+                                        }}
+                                        defaultValue={
+                                          newQuestionImageAltText[linkIdx]
+                                        }
+                                        onChange={(e) => {
+                                          console.log(
+                                            "ONCHANGE",
+                                            newQuestionImageAltText[linkIdx],
+                                            e.target.value
+                                          );
+                                          newQuestionImageAltText[linkIdx] =
+                                            e.target.value;
+                                        }}
+                                        onFocus={(e) =>
+                                          (e.target.placeholder = "Alt Text")
+                                        }
+                                      />
+                                      {/* <Button
+                                        variant="outline-secondary"
+                                        onClick={() => {
+                                          if (option.trim() !== "") {
+                                            setNewAnswerOptions(
+                                              newAnswerOptions?.map(
+                                                (currentOption, idx) => {
+                                                  if (idx === optionIdx) {
+                                                    currentOption =
+                                                      option.trim();
+                                                  }
+                                                  return currentOption;
+                                                }
+                                              )
+                                            );
+                                            setShowUpdate(option.trim());
+                                            toggleShowToast();
+                                          }
+                                        }}
+                                      >
+                                        Save
+                                      </Button> */}
+                                    </InputGroup>
+                                  </td>
                                   <td>
                                     {" "}
                                     <Button
@@ -536,6 +611,8 @@ const EditQA = () => {
                                       `Image with alt text: ${newSingleExpImageAltText.trim()}`
                                     );
                                     toggleShowToast();
+                                  } else {
+                                    console.log("No alt text entered");
                                   }
                                 }
                               }}
