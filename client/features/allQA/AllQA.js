@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
 import { token } from "morgan";
-import {
-  fetchUserQuestions,
-  updateUserQuestion,
-} from "../stats/user_questionsSlice";
+import { fetchUserQuestions, updateUserQuestion } from "../stats/user_questionsSlice";
 import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import { Chip } from "@mui/material";
@@ -22,9 +19,7 @@ const QuestionsAnswers = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const difficultyLevels = ["All Levels", "Easy", "Moderate", "Hard"];
-  const [currentDifficulty, setCurrentDifficulty] = useState(
-    difficultyLevels[0]
-  );
+  const [currentDifficulty, setCurrentDifficulty] = useState(difficultyLevels[0]);
   const categories = [
     "All Categories",
     "Asthma",
@@ -44,18 +39,7 @@ const QuestionsAnswers = () => {
     "Sleep",
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
-  const userExpertise = [
-    "All Expertise",
-    "Student",
-    "Resident",
-    "Fellow",
-    "Physician Assistant",
-    "Nurse",
-    "Nurse Practitioner",
-    "Pharmacist",
-    "Internal Med",
-    "Other",
-  ];
+  const userExpertise = ["All Expertise", "Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
   const currentExpertise = useRef(userExpertise[0]);
   const userExpertiseRelation = {
     "All Expertise": null,
@@ -86,9 +70,7 @@ const QuestionsAnswers = () => {
   const UserQuestionsAnswered = UserQuestions.filter((question) => question.answered !== null);
   const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
   const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
-  const moderatePercentage = Math.round(
-    (userModerate?.length / moderate?.length) * 100
-  );
+  const moderatePercentage = Math.round((userModerate?.length / moderate?.length) * 100);
   const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
   const allPercentage = Math.round((UserQuestionsAnswered?.length / questionsAnswers?.length) * 100);
 
@@ -98,17 +80,11 @@ const QuestionsAnswers = () => {
   let allQuestions = [...questionsAnswers];
   allQuestions.sort((a, b) => a.displayId - b.displayId);
   const [filteredQuestions, setfilteredQuestions] = useState(null);
-  allQuestions.length && !filteredQuestions
-    ? setfilteredQuestions(allQuestions)
-    : null;
+  allQuestions.length && !filteredQuestions ? setfilteredQuestions(allQuestions) : null;
 
   const endOffset = itemOffset + itemsPerPage;
-  filteredQuestions && !pageCount
-    ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage))
-    : null;
-  filteredQuestions && !currentItems
-    ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset))
-    : null;
+  filteredQuestions && !pageCount ? setPageCount(Math.ceil(filteredQuestions.length / itemsPerPage)) : null;
+  filteredQuestions && !currentItems ? setCurrentItems(filteredQuestions.slice(itemOffset, endOffset)) : null;
 
   const truncate = (string) => {
     if (string.length > 50) {
@@ -138,9 +114,7 @@ const QuestionsAnswers = () => {
   };
 
   const favoriteStatus = (questionId) => {
-    const question = UserQuestions?.filter(
-      (question) => question.questionAnswerId == questionId
-    );
+    const question = UserQuestions?.filter((question) => question.questionAnswerId == questionId);
     if (question && question[0] && question[0].favorite) return true;
     return false;
   };
@@ -176,53 +150,28 @@ const QuestionsAnswers = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
-    let favNumbers = UserQuestions.filter(
-      (question) => question.favorite === true
-    ).map((question) => question.questionAnswerId);
-    isFavorited
-      ? (multiFilter = multiFilter.filter((question) =>
-          favNumbers.includes(question.id)
-        ))
-      : null;
+    let favNumbers = UserQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
+    isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
 
     if (userExpertiseRelation[currentExpertise.current]) {
       if (userExpertiseRelation[currentExpertise.current][0] === true) {
-        multiFilter = multiFilter.filter(
-          (question) =>
-            question.level ===
-            userExpertiseRelation[currentExpertise.current][1]
-        );
+        multiFilter = multiFilter.filter((question) => question.level === userExpertiseRelation[currentExpertise.current][1]);
       } else {
-        multiFilter = multiFilter.filter(
-          (question) =>
-            question.level !==
-            userExpertiseRelation[currentExpertise.current][1]
-        );
+        multiFilter = multiFilter.filter((question) => question.level !== userExpertiseRelation[currentExpertise.current][1]);
       }
     }
 
     for (let i = 0; i < filterCriteria.length; i++) {
-      if (
-        filterCriteria[i] === "All Levels" ||
-        filterCriteria[i] === "All Categories"
-      ) {
+      if (filterCriteria[i] === "All Levels" || filterCriteria[i] === "All Categories") {
         continue;
       } else {
-        multiFilter = multiFilter.filter(
-          (question) =>
-            question.level === filterCriteria[i] ||
-            question.category === filterCriteria[i]
-        );
+        multiFilter = multiFilter.filter((question) => question.level === filterCriteria[i] || question.category === filterCriteria[i]);
       }
     }
 
     multiFilter.length ? setfilteredQuestions(multiFilter) : null;
-    multiFilter.length
-      ? setCurrentItems(multiFilter.slice(0, 12))
-      : setCurrentItems("nada");
-    multiFilter.length
-      ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
-      : setPageCount(0);
+    multiFilter.length ? setCurrentItems(multiFilter.slice(0, 12)) : setCurrentItems("nada");
+    multiFilter.length ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage)) : setPageCount(0);
     setItemOffset(0);
   };
 
@@ -302,10 +251,7 @@ const QuestionsAnswers = () => {
     return (
       <Container fluid>
         <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-          <Card
-            className="mx-auto"
-            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-          >
+          <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
             <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
               <center> My Progress </center>
             </Card.Header>{" "}
@@ -316,14 +262,9 @@ const QuestionsAnswers = () => {
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarBackground}>Completed</div>
 
-                      <div style={styles.progressBarMiddle}>
-                        {easyPercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "lightgreen", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       Easy Level
                     </Card.Title>
                   </Card>
@@ -333,14 +274,9 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>
-                        {moderatePercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#f5ad27", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       <center>Moderate Level</center>
                     </Card.Title>
                   </Card>
@@ -350,14 +286,9 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>
-                        {hardPercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#f55b49", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       Hard Level
                     </Card.Title>
                   </Card>
@@ -367,14 +298,9 @@ const QuestionsAnswers = () => {
                   <Card id="no-border" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarBackground}>Completed</div>
-                      <div style={styles.progressBarMiddle}>
-                        {allPercentage}%
-                      </div>
+                      <div style={styles.progressBarMiddle}>{allPercentage}%</div>
                     </div>
-                    <Card.Title
-                      className="mx-auto"
-                      style={{ color: "#bf5eff", paddingTop: "5px" }}
-                    >
+                    <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                       All Levels
                     </Card.Title>
                   </Card>
@@ -385,10 +311,7 @@ const QuestionsAnswers = () => {
         </Row>
 
         <Row style={{ marginBottom: "30px" }}>
-          <Card
-            className="mx-auto"
-            style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-          >
+          <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
             <Card.Header
               style={{
                 marginBottom: "20px",
@@ -398,21 +321,13 @@ const QuestionsAnswers = () => {
               }}
             >
               <Col className="mx-auto">
-                {currentExpertise.current} & {currentDifficulty} &{" "}
-                {currentCategory1}
+                {currentExpertise.current} & {currentDifficulty} & {currentCategory1}
               </Col>
             </Card.Header>
             <Card.Body>
-              <Row
-                style={{ marginBottom: "20px" }}
-                xs="auto"
-                className="justify-content-center"
-              >
+              <Row style={{ marginBottom: "20px" }} xs="auto" className="justify-content-center">
                 <Col>
-                  <Dropdown
-                    onSelect={(event) => pickExpertise(event)}
-                    style={{ marginBottom: "10px" }}
-                  >
+                  <Dropdown onSelect={(event) => pickExpertise(event)} style={{ marginBottom: "10px" }}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       For {currentExpertise.current}s
                     </Dropdown.Toggle>
@@ -427,10 +342,7 @@ const QuestionsAnswers = () => {
                   </Dropdown>
                 </Col>
                 <Col>
-                  <Dropdown
-                    onSelect={(event) => pickDifficulty(event)}
-                    style={{ marginBottom: "10px" }}
-                  >
+                  <Dropdown onSelect={(event) => pickDifficulty(event)} style={{ marginBottom: "10px" }}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {currentDifficulty}
                     </Dropdown.Toggle>
@@ -445,10 +357,7 @@ const QuestionsAnswers = () => {
                   </Dropdown>
                 </Col>
                 <Col>
-                  <Dropdown
-                    onSelect={(event) => pickCategory1(event)}
-                    style={{ marginBottom: "10px" }}
-                  >
+                  <Dropdown onSelect={(event) => pickCategory1(event)} style={{ marginBottom: "10px" }}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                       {currentCategory1}
                     </Dropdown.Toggle>
@@ -464,12 +373,7 @@ const QuestionsAnswers = () => {
                 </Col>
                 <Col>
                   <Form>
-                    <Form.Switch
-                      onChange={() => onFavoriteSwitch()}
-                      id="custom-switch"
-                      label="Favorites Only"
-                      checked={!seeFavorites}
-                    />
+                    <Form.Switch onChange={() => onFavoriteSwitch()} id="custom-switch" label="Favorites Only" checked={!seeFavorites} />
                   </Form>
                 </Col>
               </Row>
@@ -501,10 +405,7 @@ const QuestionsAnswers = () => {
                             backgroundColor: cardBodyColor(question.id),
                           }}
                         >
-                          <Link
-                            style={{ textDecoration: "none" }}
-                            to={`/questions/${question.id}`}
-                          >
+                          <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
                             <Card.Title
                               style={{
                                 color: "black",
@@ -527,21 +428,17 @@ const QuestionsAnswers = () => {
                         </Card.Body>
                         <Card.Footer>
                           <Chip
-                            label={question.category}
+                            label={question.category === "Chronic Obstructive Pulmonary Disease" ? "COPD" : question.category}
                             onClick={() => pickCategory1(question.category)}
                             color="default"
                             variant="outlined"
                             size="small"
                           />{" "}
                           <Card.Img
-                            style={{ float: "right", width: "20px" }}
+                            style={{ float: "right", width: "20px", cursor: "pointer" }}
                             onClick={() => favorite(userId, question.id)}
                             variant="top"
-                            src={
-                              favoriteStatus(question.id)
-                                ? "/heart(red).png"
-                                : "/heart.png"
-                            }
+                            src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
                           />
                         </Card.Footer>
                       </Card>

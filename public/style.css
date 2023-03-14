@@ -6,16 +6,10 @@ body {
   flex-direction: column;
   background-image: url("newBG8T.png");
   padding-bottom: 20px;
-  /* height:calc(100vh - (56px)) */
 }
 
 #no-border {
   border: none;
-}
-
-a[href="/questions"] {
-  color: black;
-  text-decoration-line: none;
 }
 
 #form-submit-btn {
@@ -47,15 +41,6 @@ a[href="/questions"] {
   height: 100vh;
   font-family: Arial, sans-serif;
   text-align: center;
-}
-
-h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 24px;
 }
 
 h1 {
@@ -186,4 +171,66 @@ img {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+#tooltip-top > .tooltip-inner {
+  background-color: rgb(235, 233, 233);
+  color: rgb(93, 93, 93);
+}
+
+/* nav */
+.navbar {
+  background-color: #ff6262;
+}
+
+.navbar-logo {
+  height: 50px;
+}
+
+.navbar-link {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.354);
+  text-decoration-line: underline;
+
+  text-align: center;
+}
+
+/* edit profile */
+
+#edit-profile-card {
+  max-width: 800px;
+  padding: 0px;
+}
+
+#edit-profile-card-header {
+  font-size: 150%;
+  margin: 4px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.asterisk,
+.warning {
+  color: red;
+}
+
+/* request reset pw link */
+#request-pw-reset-card {
+  max-width: 600px;
+}
+
+#request-pw-reset-card-header {
+  font-weight: 500;
+  font-size: 150%;
+}
+
+#request-pw-reset-card p {
+  font-size: 15px;
+}
+
+/* reset password */
+.expired-link {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
 }

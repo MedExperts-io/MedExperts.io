@@ -16,37 +16,45 @@ export const fetchAllUserQuestions = createAsyncThunk("fetchAllUserQuestions", a
   }
 });
 
-export const fetchByAnswerFrequency = createAsyncThunk(
-  "fetchByAnswerFrequency",
-  async () => {
-    try {
-      const { data } = await axios.get(`/api/user_questions/frequency`, {
-        headers: {
-          authorization: window.localStorage.getItem("token"),
-        },
-      });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+// --------For admin's dashboard analytics (aggregate)--------------
+export const fetchAllUsers = createAsyncThunk("fetchAllUsers", async () => {
+  try {
+    const { data } = await axios.get(`/api/users`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
-export const fetchPercentCorrect = createAsyncThunk(
-  "fetchPercentCorrect",
-  async () => {
-    try {
-      const { data } = await axios.get(`/api/user_questions/percent_correct`, {
-        headers: {
-          authorization: window.localStorage.getItem("token"),
-        },
-      });
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+export const fetchByAnswerFrequency = createAsyncThunk("fetchByAnswerFrequency", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/frequency`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
+
+export const fetchPercentCorrect = createAsyncThunk("fetchPercentCorrect", async () => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/percent_correct`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export const fetchActiveQAs = createAsyncThunk("fetchActiveQAs", async () => {
   try {
@@ -76,20 +84,18 @@ export const fetchExpertiseQuestions = createAsyncThunk("fetchExpertiseQuestions
 });
 
 // --------For logged in user's dashboard analytics--------------
-export const fetchUserQuestions = createAsyncThunk(
-  "fetchUserQuestions",
-  async (userId) => {
-    try {
-      const { data } = await axios.get(`/api/user_questions/${userId}`, {
-        headers: {
-          authorization: window.localStorage.getItem("token"),
-        },
-      });
+export const fetchUserQuestions = createAsyncThunk("fetchUserQuestions", async (userId) => {
+  try {
+    const { data } = await axios.get(`/api/user_questions/${userId}`, {
+      headers: {
+        authorization: window.localStorage.getItem("token"),
+      },
+    });
 
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // --------TO FAVORITE, UNFAVORITE--------------
@@ -106,7 +112,7 @@ export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async (
         },
       }
     );
-    console.log("THUNK", data);
+
     return data;
   } catch (error) {
     console.log(error);
@@ -114,38 +120,28 @@ export const updateUserQuestion = createAsyncThunk("updateUserQuestion", async (
 });
 
 // --------TO STORE USER INPUT--------------
-export const updateUserQuestionInput = createAsyncThunk(
-  "updateUserQuestionInput",
-  async ({
-    userId,
-    questionAnswerId,
-    userInput,
-    answered,
-    category,
-    level,
-    userExpertise,
-  }) => {
-    try {
-      const { data } = await axios.post(
-        `/api/user_questions/${userId}`,
-        {
-          questionAnswerId: questionAnswerId,
-          userInput: userInput,
-          answered: answered,
-          category: category,
-          level: level,
-          userExpertise: userExpertise,
+export const updateUserQuestionInput = createAsyncThunk("updateUserQuestionInput", async ({ userId, questionAnswerId, userInput, answered, category, level, userExpertise }) => {
+  try {
+    const { data } = await axios.post(
+      `/api/user_questions/${userId}`,
+      {
+        questionAnswerId: questionAnswerId,
+        userInput: userInput,
+        answered: answered,
+        category: category,
+        level: level,
+        userExpertise: userExpertise,
+      },
+      {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
         },
-        {
-          headers: {
-            authorization: window.localStorage.getItem("token"),
-          },
-        }
-      );
+      }
+    );
 
-      return data;
-    } catch (error) {
-      console.log(error);
+    return data;
+  } catch (error) {
+    console.log(error);
   }
 });
 
@@ -153,6 +149,7 @@ export const allUser_QuestionsSlice = createSlice({
   name: "allUser_Questions",
   initialState: {
     allUserQuestions: [],
+    allUsers: [],
     UserQuestions: [],
     userEasy: [],
     userModerate: [],
@@ -172,6 +169,9 @@ export const allUser_QuestionsSlice = createSlice({
     builder
       .addCase(fetchAllUserQuestions.fulfilled, (state, action) => {
         state.allUserQuestions = action.payload;
+      })
+      .addCase(fetchAllUsers.fulfilled, (state, action) => {
+        state.allUsers = action.payload;
       })
       .addCase(fetchExpertiseQuestions.fulfilled, (state, action) => {
         state.expertiseQuestions = action.payload;
@@ -198,9 +198,7 @@ export const allUser_QuestionsSlice = createSlice({
             frequency: frequency[question.id],
           };
         });
-        const sortedByFrequency = allQuestions.sort(
-          (a, b) => b.frequency - a.frequency
-        );
+        const sortedByFrequency = allQuestions.sort((a, b) => b.frequency - a.frequency);
         const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
 
         state.mostAnswered = sortedByFrequency;
@@ -213,19 +211,11 @@ export const allUser_QuestionsSlice = createSlice({
         const allQuestions = allQAs.map((question) => {
           return {
             ...question,
-            percentCorrect: Math.round(
-              (frequency[question.id]["right"] /
-                frequency[question.id]["total"]) *
-                100
-            ),
+            percentCorrect: Math.round((frequency[question.id]["right"] / frequency[question.id]["total"]) * 100),
           };
         });
-        const sortedByPercentCorrect = allQuestions.sort(
-          (a, b) => b.percentCorrect - a.percentCorrect
-        );
-        const sortedByPercentCorrectReverse = sortedByPercentCorrect
-          .slice()
-          .reverse();
+        const sortedByPercentCorrect = allQuestions.sort((a, b) => b.percentCorrect - a.percentCorrect);
+        const sortedByPercentCorrectReverse = sortedByPercentCorrect.slice().reverse();
 
         state.mostCorrect = sortedByPercentCorrect;
         state.leastCorrect = sortedByPercentCorrectReverse;

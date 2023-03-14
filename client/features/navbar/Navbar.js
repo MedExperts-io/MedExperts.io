@@ -1,27 +1,31 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../app/store";
-import { Container, Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
+import { Home } from "@mui/icons-material";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import QuizIcon from "@mui/icons-material/Quiz";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import React from "react";
+import { Container, Navbar } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
 
 const SiteNavbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const logoutAndRedirectHome = () => {
-    dispatch(logout());
+  const logoutAndRedirectHome = async () => {
+    await dispatch(logout());
     navigate("/");
   };
 
   return (
-    <Navbar
-      collapseOnSelect
-      style={{ backgroundColor: "#FF6262" }}
-      expand="lg"
-      variant="dark"
-    >
+    <Navbar collapseOnSelect className="navbar" expand="md" variant="dark">
       <Container fluid>
         {isLoggedIn ? (
           <>
@@ -29,7 +33,7 @@ const SiteNavbar = () => {
               <Navbar.Brand>
                 <img
                   src="/MedExpert.svg"
-                  style={{ height: "50px" }}
+                  className="navbar-logo"
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -40,85 +44,89 @@ const SiteNavbar = () => {
               id="responsive-navbar-nav"
               className="justify-content-end"
             >
-              <Nav>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/dashboard"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
+              <BottomNavigation
+                showLabels
+                style={{ backgroundColor: "transparent", color: "white" }}
+              >
+                <BottomNavigationAction
+                  label="Dashboard"
+                  className="navbar-link"
+                  onClick={() => navigate("/dashboard")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
                   }}
-                >
-                  Dashboard
-                </Button>
-              </Nav>
-              <Nav>
-                <Button
-                  variant="light"
-                  as={Link}
-                  to="/questions"
-                  className="m-2"
-                  style={{
-                    color: "#FF6262",
-                    paddingTop: "10px",
-                    height: "48px",
-                  }}
-                >
-                  Questions
-                </Button>
-              </Nav>
+                  style={
+                    location.pathname === "/dashboard"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
+                  icon={<DashboardIcon />}
+                />
 
-              <Nav>
-                <Button
-                  className="m-2"
-                  variant="light"
-                  style={{
-                    paddingTop: "0",
-                    paddingBottom: "0",
-                    marginTop: "0",
-                    marginBottom: "0",
+                <BottomNavigationAction
+                  label="Questions"
+                  className="navbar-link"
+                  onClick={() => navigate("/questions")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
                   }}
-                >
-                  <NavDropdown
-                    className="buttonIcon"
-                    style={{
-                      paddingTop: "0",
-                      marginTop: "0",
-                      marginBottom: "0",
-                    }}
-                    title={
-                      <AccountCircleRoundedIcon
-                        className="mx-auto"
-                        style={{
-                          color: "#FF6262",
-                          height: "30",
-                          width: "30",
-                          paddingRight: "7px",
-                          paddingTop: "0px",
-                          marginTop: "0",
-                          marginBottom: "0",
-                        }}
-                      />
-                    }
-                    drop={"start"}
-                    id="collapsible-nav-dropdown"
-                  >
-                    <NavDropdown.Item as={Link} to="/profile">
-                      Profile
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
-                      onClick={logoutAndRedirectHome}
-                      style={{ color: "#FF6262" }}
-                    >
-                      Logout
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Button>
-              </Nav>
+                  style={
+                    location.pathname === "/questions"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
+                  icon={<QuizIcon />}
+                />
+
+                <BottomNavigationAction
+                  label="Profile"
+                  className="navbar-link"
+                  onClick={() => navigate("/profile")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
+                  style={
+                    location.pathname === "/profile"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
+                  icon={<AccountCircleRoundedIcon />}
+                />
+
+                <BottomNavigationAction
+                  label="Logout"
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
+                  className="navbar-link"
+                  style={{ color: "#f2ecec" }}
+                  onClick={logoutAndRedirectHome}
+                  icon={<LogoutIcon />}
+                />
+              </BottomNavigation>
             </Navbar.Collapse>
           </>
         ) : (
@@ -127,7 +135,7 @@ const SiteNavbar = () => {
               <Navbar.Brand>
                 <img
                   src="/MedExpert.svg"
-                  style={{ height: "50px" }}
+                  className="navbar-logo"
                   alt="Med Expert Logo"
                 />
               </Navbar.Brand>
@@ -138,50 +146,74 @@ const SiteNavbar = () => {
               id="responsive-navbar-nav"
               className="justify-content-end"
             >
-              <Nav>
-                <Button
-                  className="m-2"
-                  variant="light"
-                  style={{
-                    paddingTop: "0",
-                    paddingBottom: "0",
-                    marginTop: "0",
-                    marginBottom: "0",
+              <BottomNavigation
+                showLabels
+                style={{ backgroundColor: "transparent", color: "white" }}
+              >
+                <BottomNavigationAction
+                  label="Home"
+                  className="navbar-link"
+                  onClick={() => navigate("/")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
                   }}
-                >
-                  <NavDropdown
-                    className="buttonIcon"
-                    style={{
-                      paddingTop: "0",
-                      marginTop: "0",
-                      marginBottom: "0",
-                    }}
-                    title={
-                      <AccountCircleRoundedIcon
-                        style={{
-                          color: "#FF6262",
-                          height: "30",
-                          width: "30",
-                          paddingRight: "7px",
-                          paddingTop: "0px",
-                          marginTop: "0",
-                          marginBottom: "0",
-                        }}
-                      />
-                    }
-                    drop={"start"}
-                    id="collapsible-nav-dropdown"
-                  >
-                    <NavDropdown.Item as={Link} to="/login">
-                      Login
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/signup">
-                      Create Account
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Button>
-              </Nav>
+                  style={
+                    location.pathname === "/"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "white" }
+                  }
+                  icon={<Home />}
+                />
+                <BottomNavigationAction
+                  label="Login"
+                  className="navbar-link"
+                  onClick={() => navigate("/login")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
+                  style={
+                    location.pathname === "/login"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
+                  icon={<LoginIcon />}
+                />
+                <BottomNavigationAction
+                  label="Sign Up"
+                  className="navbar-link"
+                  onClick={() => navigate("/signup")}
+                  sx={{
+                    "&& .MuiTouchRipple-rippleVisible": {
+                      color: "rgba(255, 255, 255, 0.354)",
+                    },
+                  }}
+                  style={
+                    location.pathname === "/signup"
+                      ? {
+                          color: "white",
+                          borderBottomColor: "white",
+                          borderBottomWidth: "2px",
+                          borderBottomStyle: "solid",
+                        }
+                      : { color: "#f2ecec" }
+                  }
+                  icon={<PersonAddIcon />}
+                />
+              </BottomNavigation>
             </Navbar.Collapse>
           </>
         )}

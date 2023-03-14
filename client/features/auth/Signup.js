@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { authenticate } from "../../app/store";
-import { Button, Col, Card, Container, Form, Row, InputGroup, Modal } from "react-bootstrap";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Button, Card, Col, Container, Form, InputGroup, Modal, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { authenticate, navigateToForm } from "../../app/store";
 
 const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [passwordShown, setPasswordShown] = useState(false);
-  // const [validated, setValidated] = useState(false);
+  const { error } = useSelector((state) => state.auth);
+  const [err, setErr] = useState(error);
+
   const expertiseLevel = ["Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
 
   //password checker
@@ -41,13 +43,12 @@ const SignUp = () => {
   // start modal details
   const [show, setShow] = useState(false);
   const handleClose = () => {
-    setValidated(false);
     setShow(false);
   };
   const handleShow = () => {}; //setShow(true);
   // end modal details
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const firstName = evt.target.firstName.value;
     const lastName = evt.target.lastName.value;
@@ -56,37 +57,41 @@ const SignUp = () => {
     const email = evt.target.signupEmail.value;
     const password = evt.target.signupPassword.value;
 
-    if (firstName && lastName && expertise && email && password) setShow(true);
-
-    dispatch(
-      authenticate({
-        firstName,
-        lastName,
-        email,
-        password,
-        expertise,
-        school,
-        method: "signup",
-      })
-    );
-    // ).then(() => navigate("/login"));
+    if (firstName && lastName && expertise && email && password) {
+      await dispatch(
+        authenticate({
+          firstName,
+          lastName,
+          email,
+          password,
+          expertise,
+          school,
+          method: "signup",
+        })
+      )
+        .unwrap()
+        .then(() => {
+          if (err) navigate("/signup");
+          else if (!err) {
+            setShow(true);
+          }
+        });
+    }
   };
 
   return (
     <Container>
-      <Row className="p-5 d-flex justify-content-center align-items-center">
-        <Col md={8} lg={10} s={10} xs={12}>
+      <Row
+        className="d-flex justify-content-center align-items-center"
+        style={{ paddingTop: "5rem" }}
+      >
+        <Col md={10} lg={10} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
-                  <Form
-                    onSubmit={handleSubmit}
-                    // noValidate
-                    // validated={validated}
-                    name="signup"
-                  >
+                  <Form onSubmit={handleSubmit} name="signup">
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="firstName">
                         <Form.Label label="First Name">First Name</Form.Label>
@@ -159,8 +164,8 @@ const SignUp = () => {
                                 type={passwordShown ? "text" : "password"}
                                 placeholder="Enter password"
                               />
-                              <Button variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
-                                {passwordShown ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}
+                              <Button title="hide or show password" variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
+                                {passwordShown ? <VisibilityOffIcon title="show password" /> : <RemoveRedEyeIcon title="hide password" />}
                               </Button>
                               <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
                             </InputGroup>
@@ -186,48 +191,30 @@ const SignUp = () => {
                       </div>
                     )}
                     <div className="d-grid">
-                      <Button
-                        // onClick={() => setValidated(true)}
-                        onClick={handleShow}
-                        disabled={passwordStrength != 5}
-                        id="buttons"
-                        variant="secondary"
-                        type="submit"
-                        size="md"
-                      >
+                      <Button onClick={handleShow} id="buttons" variant="secondary" type="submit" size="md">
                         Sign Up
                       </Button>
+                      {error && (
+                        <p className="small" style={{ color: "red" }}>
+                          {error}
+                        </p>
+                      )}
                       <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
                           <Modal.Title>Thank you for creating a MedExperts account!</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>Please login using the email and password you used to create your account.</Modal.Body>
                         <Modal.Footer>
-                          <Button variant="secondary" onClick={() => navigate("/login")}>
+                          <Button
+                            variant="secondary"
+                            onClick={() => {
+                              navigate("/login");
+                            }}
+                          >
                             Login
                           </Button>
                         </Modal.Footer>
                       </Modal>
-                      {/* <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                          <Modal.Title>
-                            Thank you for creating a MedExperts account!
-                          </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                          We sent an email to the address you signed up with.
-                          Please follow the link in the email to verify your
-                          account before signing in.
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button
-                            variant="secondary"
-                            onClick={() => navigate("/")}
-                          >
-                            Close
-                          </Button>
-                        </Modal.Footer>
-                      </Modal> */}
                     </div>
                   </Form>
                 </div>
@@ -235,9 +222,16 @@ const SignUp = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "gray" }} href="/login">
+                <Link
+                  className="text"
+                  style={{ color: "black" }}
+                  to="/login"
+                  onClick={() => {
+                    dispatch(navigateToForm());
+                  }}
+                >
                   Already have an account? Login to your account.
-                </a>
+                </Link>
               </p>
             </Card.Footer>
           </Card>
