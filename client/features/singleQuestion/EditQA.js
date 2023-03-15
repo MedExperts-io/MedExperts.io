@@ -21,7 +21,6 @@ import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
 import { storage } from "../addQ/firebase";
 import NoExist from "../doesNotExist/NoExist";
-import { set } from "immer/dist/internal";
 
 const EditQA = () => {
   const dispatch = useDispatch();
@@ -48,9 +47,8 @@ const EditQA = () => {
   );
 
   const [newSingleQImageAltText, setNewSingleQImageAltText] = useState("");
-  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState(
-    qaVersions[0]?.questionImageAltText
-  );
+  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState();
+
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState(
     qaVersions[0]?.answerOptions
@@ -80,7 +78,7 @@ const EditQA = () => {
   useEffect(() => {
     setNewQuestion(qaVersions[0]?.question);
     setNewQuestionImage(qaVersions[0]?.questionImage);
-    setNewQuestionImageAltText(qaVersions[0]?.questionImageAltText);
+    setNewQuestionImageAltText(qaVersions[0]?.questionImageAltText.slice());
     setNewAnswerOptions(qaVersions[0]?.answerOptions);
     setNewCorrectAnswer(qaVersions[0]?.correctAnswer);
     setNewExplanation(qaVersions[0]?.explanation);
@@ -91,6 +89,7 @@ const EditQA = () => {
     setNewLevel(qaVersions[0]?.level);
   }, [qaVersions]); // set the relation between redux store's qaVersions and local state
 
+  console.log("newQuestionImageAltText", newQuestionImageAltText);
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
   const [showUpdate, setShowUpdate] = useState("");
@@ -177,20 +176,22 @@ const EditQA = () => {
     );
   };
 
-  const fillField = (evt, text, extraIdx) => {
+  const fillField = (evt, text) => {
+    console.log("FillField Function text:--", text);
     evt.target.value = text;
-    console.log("EXTRAIDX", extraIdx);
-    if (extraIdx) {
-      setNewQuestionImageAltText(
-        newQuestionImageAltText.map((text, idx) => {
-          if (idx == extraIdx) {
-            text = "";
-          }
-          return text;
-        })
-      );
-      console.log("FILLFIELD", newQuestionImageAltText);
-    }
+
+    // console.log("EXTRAIDX", extraIdx);
+    // if (extraIdx) {
+    //   setNewQuestionImageAltText(
+    //     newQuestionImageAltText?.map((text, idx) => {
+    //       if (idx == extraIdx) {
+    //         newQuestionImageAltText[idx] = "hello";
+    //       }
+    //       return newQuestionImageAltText[idx];
+    //     })
+    //   );
+    //   console.log("FILLFIELD", newQuestionImageAltText[extraIdx]);
+    // }
   };
 
   console.log("INITIAL QUESTION IMG ALT TEXT ARRAY", newQuestionImageAltText);
@@ -363,61 +364,84 @@ const EditQA = () => {
                                     <InputGroup className="mb-3">
                                       <Form.Control
                                         as="textarea"
-                                        rows={3}
+                                        rows={4}
                                         onClick={(evt) => {
                                           console.log(
                                             "ONCLICK",
-                                            newQuestionImageAltText[linkIdx]
+                                            "newQuestionImageAltText[linkIdx]",
+                                            newQuestionImageAltText[linkIdx],
+                                            "IS SEALED",
+                                            Object.isSealed(
+                                              newQuestionImageAltText
+                                            )
                                           );
                                           if (
-                                            newQuestionImageAltText[linkIdx]
+                                            newQuestionImageAltText[linkIdx] !==
+                                            undefined
                                           ) {
                                             fillField(
                                               evt,
                                               newQuestionImageAltText[linkIdx]
                                             );
                                           } else {
-                                            fillField(evt, "", linkIdx);
+                                            fillField(evt, "");
                                           }
                                         }}
                                         defaultValue={
+                                          // newQuestionImageAltText[linkIdx] ||
+                                          // " "
                                           newQuestionImageAltText[linkIdx]
+                                            ? newQuestionImageAltText[
+                                                linkIdx
+                                              ] !== undefined
+                                            : ""
                                         }
                                         onChange={(e) => {
+                                          newQuestionImageAltText[linkIdx] =
+                                            e.target.value;
                                           console.log(
                                             "ONCHANGE",
                                             newQuestionImageAltText[linkIdx],
                                             e.target.value
                                           );
-                                          newQuestionImageAltText[linkIdx] =
-                                            e.target.value;
                                         }}
                                         onFocus={(e) =>
-                                          (e.target.placeholder = "Alt Text")
+                                          (e.target.placeholder =
+                                            "Type alt text here")
                                         }
                                       />
-                                      {/* <Button
+                                      <Button
                                         variant="outline-secondary"
                                         onClick={() => {
-                                          if (option.trim() !== "") {
-                                            setNewAnswerOptions(
-                                              newAnswerOptions?.map(
-                                                (currentOption, idx) => {
-                                                  if (idx === optionIdx) {
-                                                    currentOption =
-                                                      option.trim();
+                                          if (
+                                            newQuestionImageAltText[
+                                              linkIdx
+                                            ].trim() !== ""
+                                          ) {
+                                            setNewQuestionImageAltText(
+                                              newQuestionImageAltText?.map(
+                                                (currentText, idx) => {
+                                                  if (idx === linkIdx) {
+                                                    currentText =
+                                                      newQuestionImageAltText[
+                                                        linkIdx
+                                                      ].trim();
                                                   }
-                                                  return currentOption;
+                                                  return currentText;
                                                 }
                                               )
                                             );
-                                            setShowUpdate(option.trim());
+                                            setShowUpdate(
+                                              newQuestionImageAltText[
+                                                linkIdx
+                                              ].trim()
+                                            );
                                             toggleShowToast();
                                           }
                                         }}
                                       >
                                         Save
-                                      </Button> */}
+                                      </Button>
                                     </InputGroup>
                                   </td>
                                   <td>
@@ -487,10 +511,22 @@ const EditQA = () => {
                             <InputGroup className="mb-3" key={uuidv4()}>
                               <Form.Control
                                 type="text"
-                                onClick={(evt) => fillField(evt, option)}
+                                onClick={(evt) => {
+                                  console.log("ONCLICK", option);
+                                  console.log(
+                                    "IS SEALED",
+                                    Object.isSealed(newAnswerOptions)
+                                  );
+                                  fillField(evt, option);
+                                }}
                                 defaultValue={option}
                                 onChange={(e) => {
                                   option = e.target.value;
+                                  console.log(
+                                    "ONCHANGE",
+                                    option,
+                                    e.target.value
+                                  );
                                 }}
                                 onFocus={(e) =>
                                   (e.target.placeholder = "Answer Option")
