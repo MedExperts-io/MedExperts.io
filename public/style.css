@@ -165,7 +165,7 @@ img {
   font-size: 32px;
   margin-bottom: 50px;
 }
-
+/* footer */
 #footer {
   margin-top: 50px;
   position: absolute;
@@ -179,6 +179,22 @@ img {
 
 .footer-description {
   font-size: 10px;
+  font-weight: 300;
+}
+
+.footer-col {
+  list-style: none;
+  text-align: start;
+}
+
+.footer-col-header {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.footer-li {
+  font-size: 10px;
+  font-weight: 300;
 }
 
 #tooltip-top > .tooltip-inner {

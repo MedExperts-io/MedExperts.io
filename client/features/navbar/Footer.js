@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, Row, Col } from "react-bootstrap";
+import { Container, Navbar, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
   return (
@@ -8,14 +8,10 @@ const Footer = () => {
       style={{ backgroundColor: "#FF6262" }}
       className="text-center"
     >
-      {/* <Container fluid className="d-flex justify-content-center">
-       */}{" "}
       <Container fluid>
-        {/* <section> */}
-        {/* <Row className="d-flex justify-content-center"> */}
         <Container>
           <Row className="mx-auto">
-            <Col className="me-auto mb-4">
+            <Col className="mx-auto mb-4">
               <img
                 src="/MedExpert.svg"
                 className="footer-logo"
@@ -27,29 +23,25 @@ const Footer = () => {
                 professionals in the field of pulmonary medicine.
               </p>
             </Col>
-            <Col className="me-auto mb-4">
-              <ul style={{ listStyle: "none", textAlign: "start" }}>
-                <li> Our Company </li>
-                <li> Contact Us </li>
-                <li> About Us </li>
-                <li> FAQ </li>
+            <Col className="mx-auto mb-4">
+              <ul className="footer-col">
+                <li className="footer-col-header"> Our Company </li>
+                <li className="footer-li"> Contact Us </li>
+                <li className="footer-li"> About Us </li>
+                <li className="footer-li"> FAQ </li>
               </ul>
             </Col>
-            <Col className="me-auto mb-1">
-              {" "}
-              <ul style={{ listStyle: "none", textAlign: "start" }}>
-                <li> Follow Us</li>
-                <li> LinkedIn </li>
-                <li> Instagram </li>
-                <li> Twitter </li>
-                <li> Github </li>
+            <Col className="mx-auto mb-1">
+              <ul className="footer-col">
+                <li className="footer-col-header"> Follow Us</li>
+                <li className="footer-li"> LinkedIn </li>
+                <li className="footer-li"> Instagram </li>
+                <li className="footer-li"> Twitter </li>
+                <li className="footer-li"> Github </li>
               </ul>
             </Col>
           </Row>
-        </Container>
-        {/* </section> */}
-        {/* <Container>
-          {" "}
+          <hr />
           <Row>
             <div
               style={{
@@ -62,7 +54,7 @@ const Footer = () => {
               Copyright © 2023 Fluence LLC. All rights reserved.
             </div>{" "}
           </Row>
-        </Container> */}
+        </Container>
       </Container>
     </Navbar>
   );
