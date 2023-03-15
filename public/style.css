@@ -171,6 +171,7 @@ img {
   position: absolute;
   bottom: 0;
   width: 100%;
+  background-color: #ff6262;
 }
 
 .footer-logo {
@@ -190,6 +191,7 @@ img {
 .footer-col-header {
   font-size: 12px;
   font-weight: 500;
+  list-style: none;
 }
 
 .footer-li {

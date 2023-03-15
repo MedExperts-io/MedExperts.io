@@ -10,11 +10,12 @@ const Footer = () => {
   return (
     <Navbar
       id="footer"
-      style={{ backgroundColor: "#FF6262" }}
+      // style={{ backgroundColor: "#FF6262" }}
       className="text-center"
     >
       <Container fluid>
         <Container>
+          <br />
           <Row className="mx-auto">
             <Col className="mx-auto mb-4">
               <img
@@ -37,34 +38,36 @@ const Footer = () => {
               </ul>
             </Col>
             <Col className="mx-auto mb-1">
-              <ul className="footer-col">
-                <li className="footer-col-header"> Follow Us</li>
-                <li className="footer-li">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/company/medexperts-io/"
-                  >
-                    <LinkedInIcon style={{ height: "25px", color: "black" }} />
-                  </a>
-                </li>
-                <li className="footer-li">
-                  <a
-                    target="_blank"
-                    href="https://www.instagram.com/medexperts.io/"
-                  >
-                    <InstagramIcon style={{ height: "25px", color: "black" }} />{" "}
-                  </a>
-                </li>
+              {/* <ul className="footer-col"> */}
+              <li className="footer-col-header"> Follow Us</li>
+              <div className="footer-li">
+                {/* <li className="footer-li"> */}
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/company/medexperts-io/"
+                >
+                  <LinkedInIcon style={{ height: "25px", color: "black" }} />
+                </a>
+                {/* </li> */}
+                {/* <li className="footer-li"> */}
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/medexperts.io/"
+                >
+                  <InstagramIcon style={{ height: "25px", color: "black" }} />{" "}
+                </a>
+                {/* </li> */}
 
-                <li className="footer-li">
-                  <a
-                    target="_blank"
-                    href="https://github.com/MedExperts-io/MedExperts.io"
-                  >
-                    <GitHubIcon style={{ height: "25px", color: "black" }} />{" "}
-                  </a>
-                </li>
-              </ul>
+                {/* <li className="footer-li"> */}
+                <a
+                  target="_blank"
+                  href="https://github.com/MedExperts-io/MedExperts.io"
+                >
+                  <GitHubIcon style={{ height: "25px", color: "black" }} />{" "}
+                </a>
+                {/* </li> */}
+              </div>
+              {/* </ul> */}
             </Col>
           </Row>
           <hr />
