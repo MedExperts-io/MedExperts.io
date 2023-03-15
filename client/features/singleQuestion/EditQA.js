@@ -285,25 +285,6 @@ const EditQA = () => {
                                 if (imageUpload) {
                                   if (newSingleQImageAltText.trim() !== "") {
                                     uploadFile();
-                                    // setNewQuestionImageAltText([
-                                    //   ...newQuestionImageAltText,
-                                    //   newSingleQImageAltText.trim(),
-                                    // ]);
-                                    // setNewQuestionImageAltText(
-                                    //   newQuestionImageAltText.map(
-                                    //     (text, idx) => {
-                                    //       if (
-                                    //         idx ==
-                                    //         newQuestionImage.length - 1
-                                    //       ) {
-                                    //         text =
-                                    //           newSingleQImageAltText.trim();
-                                    //       }
-                                    //       return text;
-                                    //     }
-                                    //   )
-                                    // );
-
                                     setNewSingleQImageAltText("");
                                     setShowUpdate(
                                       `Image with alt text: ${newSingleQImageAltText.trim()}`
