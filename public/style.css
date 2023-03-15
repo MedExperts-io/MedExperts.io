@@ -173,6 +173,14 @@ img {
   width: 100%;
 }
 
+.footer-logo {
+  height: 30px;
+}
+
+.footer-description {
+  font-size: 10px;
+}
+
 #tooltip-top > .tooltip-inner {
   background-color: rgb(235, 233, 233);
   color: rgb(93, 93, 93);
