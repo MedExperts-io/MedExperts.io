@@ -1,5 +1,10 @@
 import React from "react";
 import { Container, Navbar, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Footer = () => {
   return (
@@ -34,10 +39,31 @@ const Footer = () => {
             <Col className="mx-auto mb-1">
               <ul className="footer-col">
                 <li className="footer-col-header"> Follow Us</li>
-                <li className="footer-li"> LinkedIn </li>
-                <li className="footer-li"> Instagram </li>
-                <li className="footer-li"> Twitter </li>
-                <li className="footer-li"> Github </li>
+                <li className="footer-li">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/company/medexperts-io/"
+                  >
+                    <LinkedInIcon style={{ height: "25px", color: "black" }} />
+                  </a>
+                </li>
+                <li className="footer-li">
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/medexperts.io/"
+                  >
+                    <InstagramIcon style={{ height: "25px", color: "black" }} />{" "}
+                  </a>
+                </li>
+
+                <li className="footer-li">
+                  <a
+                    target="_blank"
+                    href="https://github.com/MedExperts-io/MedExperts.io"
+                  >
+                    <GitHubIcon style={{ height: "25px", color: "black" }} />{" "}
+                  </a>
+                </li>
               </ul>
             </Col>
           </Row>
