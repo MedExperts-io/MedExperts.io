@@ -127,6 +127,9 @@ const EditQA = () => {
         });
       }
     );
+    console.log("newQuestionImage.length", newQuestionImage.length);
+    newQuestionImageAltText[newQuestionImage.length] =
+      newSingleQImageAltText.trim();
   };
 
   //Explanation Images
@@ -281,11 +284,26 @@ const EditQA = () => {
                               onClick={() => {
                                 if (imageUpload) {
                                   if (newSingleQImageAltText.trim() !== "") {
-                                    setNewQuestionImageAltText([
-                                      ...newQuestionImageAltText,
-                                      newSingleQImageAltText.trim(),
-                                    ]);
                                     uploadFile();
+                                    // setNewQuestionImageAltText([
+                                    //   ...newQuestionImageAltText,
+                                    //   newSingleQImageAltText.trim(),
+                                    // ]);
+                                    // setNewQuestionImageAltText(
+                                    //   newQuestionImageAltText.map(
+                                    //     (text, idx) => {
+                                    //       if (
+                                    //         idx ==
+                                    //         newQuestionImage.length - 1
+                                    //       ) {
+                                    //         text =
+                                    //           newSingleQImageAltText.trim();
+                                    //       }
+                                    //       return text;
+                                    //     }
+                                    //   )
+                                    // );
+
                                     setNewSingleQImageAltText("");
                                     setShowUpdate(
                                       `Image with alt text: ${newSingleQImageAltText.trim()}`
@@ -388,13 +406,13 @@ const EditQA = () => {
                                           }
                                         }}
                                         defaultValue={
-                                          // newQuestionImageAltText[linkIdx] ||
-                                          // " "
-                                          newQuestionImageAltText[linkIdx]
-                                            ? newQuestionImageAltText[
-                                                linkIdx
-                                              ] !== undefined
-                                            : ""
+                                          newQuestionImageAltText[linkIdx] ||
+                                          " "
+                                          // newQuestionImageAltText[linkIdx]
+                                          //   ? newQuestionImageAltText[
+                                          //       linkIdx
+                                          //     ] !== undefined
+                                          //   : ""
                                         }
                                         onChange={(e) => {
                                           newQuestionImageAltText[linkIdx] =
