@@ -261,9 +261,8 @@ const Dashboard = () => {
                       <Col>
                         <Card id="no-border" className="mx-auto ">
                           <div className="mx-auto" style={styles.progressBarEasy}>
-                            <div style={styles.progressBarBackground}>Completed</div>
-
                             <div style={styles.progressBarMiddle}>{totalEasyAnswered}</div>
+                            <div style={styles.progressBarBackground}>Completed</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Easy Level
@@ -272,10 +271,10 @@ const Dashboard = () => {
                       </Col>
 
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <Card title={`Moderate Level. ${totalmoderateAnswere} Completed`} id="no-border" className="mx-auto">
                           <div className="mx-auto" style={styles.progressBarModerate}>
-                            <div style={styles.progressBarBackground}>Completed</div>
                             <div style={styles.progressBarMiddle}>{totalmoderateAnswere}</div>
+                            <div style={styles.progressBarBackground}>Completed</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             <center>Moderate Level</center>
@@ -285,9 +284,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={styles.progressBarHard}>
-                            <div style={styles.progressBarBackground}>Completed</div>
+                          <div title={`Hard Level. ${totalhardAnswered} Completed`} className="mx-auto" style={styles.progressBarHard}>
                             <div style={styles.progressBarMiddle}>{totalhardAnswered}</div>
+                            <div style={styles.progressBarBackground}>Completed</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Hard Level
@@ -297,9 +296,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={styles.progressBarAll}>
-                            <div style={styles.progressBarBackground}>Completed</div>
+                          <div title={`All Levels. ${totalhardAnswered} Completed`} className="mx-auto" style={styles.progressBarAll}>
                             <div style={styles.progressBarMiddle}>{totalallAnswered}</div>
+                            <div style={styles.progressBarBackground}>Completed</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             All Levels
@@ -323,9 +322,9 @@ const Dashboard = () => {
                     <Row>
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={styles.progressBarEasy}>
-                            <div style={styles.progressBarBackground}>Correct</div>
+                          <div title={`Easy Level. ${Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}% Correct`} className="mx-auto" style={styles.progressBarEasy}>
                             <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
+                            <div style={styles.progressBarBackground}>Correct</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Easy Level
@@ -335,9 +334,13 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={styles.progressBarModerate}>
-                            <div style={styles.progressBarBackground}>Correct</div>
+                          <div
+                            title={`Moderate Level. ${Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}% Correct`}
+                            className="mx-auto"
+                            style={styles.progressBarModerate}
+                          >
                             <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
+                            <div style={styles.progressBarBackground}>Correct</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             <center>Moderate Level</center>
@@ -347,9 +350,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={styles.progressBarHard}>
-                            <div style={styles.progressBarBackground}>Correct</div>
+                          <div title={`Hard Level. ${Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}% Correct`} className="mx-auto" style={styles.progressBarHard}>
                             <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
+                            <div style={styles.progressBarBackground}>Correct</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Hard Level
@@ -359,9 +362,9 @@ const Dashboard = () => {
 
                       <Col>
                         <Card id="no-border" className="mx-auto">
-                          <div className="mx-auto" style={styles.progressBarAll}>
-                            <div style={styles.progressBarBackground}>Correct</div>
+                          <div title={`All Levels. ${Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}% Correct`} className="mx-auto" style={styles.progressBarAll}>
                             <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
+                            <div style={styles.progressBarBackground}>Correct</div>
                           </div>
                           <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             All Levels
@@ -387,9 +390,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressAsthma}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${AsthmaUser.length} / ${Asthma.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Asthma
@@ -400,9 +402,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressBronchiectasis}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${BronchiectasisUser.length} / ${Bronchiectasis.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Bronchiectasis
@@ -413,9 +414,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressCOPD}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${COPDUser.length} / ${COPD.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               COPD
@@ -426,9 +426,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressCriticalCare}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${CriticalCareUser.length} / ${CriticalCare.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Critical Care
@@ -439,9 +438,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressInfection}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${InfectionUser.length} / ${Infection.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Infection
@@ -454,9 +452,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressInterstitialLungDisease}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${InterstitialLungDiseaseUser.length} / ${InterstitialLungDisease.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Interstitial Lung Disease
@@ -467,9 +464,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressLungCancer}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${LungCancerUser.length} / ${LungCancer.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Lung Cancer
@@ -480,9 +476,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressLungTransplant}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${LungTransplantUser.length} / ${LungTransplant.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Lung Transplant
@@ -493,9 +488,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressMediastinalDisorders}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${MediastinalDisordersUser.length} / ${MediastinalDisorders.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Mediastinal Disorders
@@ -506,9 +500,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressOtherPulmonaryDiseases}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${OtherPulmonaryDiseasesUser.length} / ${OtherPulmonaryDiseases.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Other Pulmonary Diseases
@@ -521,9 +514,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressPharmacology}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${PharmacologyUser.length} / ${Pharmacology.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Pharmacology
@@ -534,9 +526,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressPleuralDisease}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${PleuralDiseaseUser.length} / ${PleuralDisease.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                               Pleural Disease
@@ -547,9 +538,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressPulmonaryFunctionTesting}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${PulmonaryFunctionTestingUser.length} / ${PulmonaryFunctionTesting.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Pulmonary Function Testing
@@ -560,9 +550,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressPulmonaryVascularDisease}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${PulmonaryVascularDiseaseUser.length} / ${PulmonaryVascularDisease.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Pulmonary Vascular Disease
@@ -573,9 +562,8 @@ const Dashboard = () => {
                         <Col>
                           <Card id="no-border" className="mx-auto ">
                             <div className="mx-auto" style={stylesCategory.progressSleep}>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-
                               <div style={stylesCategory.progressBarMiddle}>{`${SleepUser.length} / ${Sleep.length}`}</div>
+                              <div style={stylesCategory.progressBarBackground}>Completed</div>
                             </div>
                             <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
                               Sleep
