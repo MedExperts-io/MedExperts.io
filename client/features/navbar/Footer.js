@@ -11,13 +11,13 @@ const Footer = () => {
     <Navbar
       id="footer"
       // style={{ backgroundColor: "#FF6262" }}
-      className="text-center"
+      // className="text-center"
     >
       <Container fluid>
         <Container>
           <br />
-          <Row className="mx-auto">
-            <Col className="mx-auto mb-4">
+          <Row>
+            <Col xs={5} className="mx-auto">
               <img
                 src="/MedExpert.svg"
                 className="footer-logo"
@@ -29,7 +29,7 @@ const Footer = () => {
                 professionals in the field of pulmonary medicine.
               </p>
             </Col>
-            <Col className="mx-auto mb-4">
+            <Col xs={3} className="mx-auto">
               <ul className="footer-col">
                 <li className="footer-col-header"> Our Company </li>
                 <li className="footer-li"> Contact Us </li>
@@ -37,7 +37,7 @@ const Footer = () => {
                 <li className="footer-li"> FAQ </li>
               </ul>
             </Col>
-            <Col className="mx-auto mb-1">
+            <Col xs={3} className="mx-auto">
               {/* <ul className="footer-col"> */}
               <li className="footer-col-header"> Follow Us</li>
               <div className="footer-li">
@@ -46,7 +46,7 @@ const Footer = () => {
                   target="_blank"
                   href="https://www.linkedin.com/company/medexperts-io/"
                 >
-                  <LinkedInIcon style={{ height: "25px", color: "black" }} />
+                  <LinkedInIcon className="footer-icon" />
                 </a>
                 {/* </li> */}
                 {/* <li className="footer-li"> */}
@@ -54,7 +54,7 @@ const Footer = () => {
                   target="_blank"
                   href="https://www.instagram.com/medexperts.io/"
                 >
-                  <InstagramIcon style={{ height: "25px", color: "black" }} />{" "}
+                  <InstagramIcon className="footer-icon" />{" "}
                 </a>
                 {/* </li> */}
 
@@ -63,7 +63,7 @@ const Footer = () => {
                   target="_blank"
                   href="https://github.com/MedExperts-io/MedExperts.io"
                 >
-                  <GitHubIcon style={{ height: "25px", color: "black" }} />{" "}
+                  <GitHubIcon className="footer-icon" />{" "}
                 </a>
                 {/* </li> */}
               </div>

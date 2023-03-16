@@ -176,16 +176,17 @@ img {
 
 .footer-logo {
   height: 30px;
+  padding: 0;
 }
 
 .footer-description {
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .footer-col {
   list-style: none;
-  text-align: start;
+  padding: 0;
 }
 
 .footer-col-header {
@@ -196,7 +197,13 @@ img {
 
 .footer-li {
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+.footer-icon {
+  height: 25px;
+  color: black;
+  padding: 0;
 }
 
 #tooltip-top > .tooltip-inner {
