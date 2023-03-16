@@ -5,10 +5,10 @@ const {
 module.exports = router;
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
+//GET/api/users ----- For admin (Hiding secrets & explicitly sending only a few fields)
 router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
-      // Security1: Hiding secrets in Sequelize (explicitly select only a few fields to send)
       attributes: ["id", "email", "expertise", "school"],
     });
     res.json(users);
