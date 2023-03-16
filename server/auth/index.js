@@ -14,28 +14,18 @@ require("dotenv").config();
 const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+const sgMail = require("@sendgrid/mail");
 
 // const transport = nodemailer.createTransport({
 //   host: process.env.HOST,
-//   service: process.env.SERVICE,
+//   // service: process.env.SERVICE,
 //   port: process.env.PORT,
-//   secure: true,
+//   // secure: true,
 //   auth: {
 //     user: process.env.EMAIL_USER,
 //     pass: process.env.EMAIL_PASS,
 //   },
 // });
-
-const transport = nodemailer.createTransport({
-  host: process.env.HOST,
-  // service: process.env.SERVICE,
-  port: process.env.PORT,
-  // secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
 
 router.post("/login", async (req, res, next) => {
   try {
@@ -75,6 +65,8 @@ router.post("/login", async (req, res, next) => {
 //   }
 // });
 
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 router.post("/signup", async (req, res, next) => {
   try {
     const { firstName, lastName, email, password, expertise, school } =
@@ -101,31 +93,55 @@ router.post("/signup", async (req, res, next) => {
     });
 
     //message compilation
-    let source = fs.readFileSync(
-      path.join(__dirname, "/verifyAcctTemplate.hbs"),
-      "utf8"
-    );
-    let compiledTemplate = handlebars.compile(source);
-    let htmlToSend = compiledTemplate({
-      token: encodeURIComponent(fpSalt),
-      uid: encodeURIComponent(tempId),
-    });
+    // let source = fs.readFileSync(
+    //   path.join(__dirname, "/verifyAcctTemplate.hbs"),
+    //   "utf8"
+    // );
+    // let compiledTemplate = handlebars.compile(source);
+    // let htmlToSend = compiledTemplate({
+    //   token: encodeURIComponent(fpSalt),
+    //   uid: encodeURIComponent(tempId),
+    // });
 
-    const message = () => {
-      return {
-        from: process.env.SENDER_ADDRESS,
-        to: email,
-        subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
-        html: htmlToSend,
-      };
+    // const message = () => {
+    //   return {
+    //     from: process.env.SENDER_ADDRESS,
+    //     to: email,
+    //     subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
+    //     html: htmlToSend,
+    //   };
+    // };
+    // transport.sendMail(message(), function (err, info) {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log("");
+    //   }
+    // });
+
+    const msg = {
+      to: email, // Change to your recipient
+      from: process.env.SENDER_ADDRESS, // Change to your verified sender
+      // subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
+      dynamic_template_data: {
+        firstName: `${firstName}`,
+        url: `http://medexperts.io/verifyEmail/?token=${verificationToken}&tempId=${tempId}`,
+      },
+
+      templateId: "d-3c887106cc754155846421fcc321156f",
+      // text: "and easy to do anywhere, even with Node.js",
+      // html: "<strong>and easy to do anywhere, even with Node.js</strong>",
     };
-    transport.sendMail(message(), function (err, info) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("");
-      }
-    });
+
+    sgMail
+      .send(msg)
+      .then((response) => {
+        console.log(response[0].statusCode);
+        console.log(response[0].headers);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
     // return res.json({ status: "ok" });
     return res.send({ token: await user.generateToken() });
