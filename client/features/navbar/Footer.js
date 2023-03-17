@@ -1,15 +1,14 @@
 import React from "react";
-import { Container, Navbar, Row, Col } from "react-bootstrap";
+import { Container, Navbar, Row, Nav, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Footer = () => {
   return (
     <Navbar id="footer">
-      <Container fluid>
+      <Container fluid className="d-flex justify-content-center">
         <Container>
           <br />
           <Row className="mx-auto">
