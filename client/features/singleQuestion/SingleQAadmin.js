@@ -79,7 +79,7 @@ const SingleQAadmin = () => {
   const handleDelete = (id) => {
     dispatch(deleteSingleQuestion(id));
   };
-
+  console.log("QA VERSIONS", qaVersions);
   return (
     <Container fluid>
       {loading ? (
@@ -946,6 +946,7 @@ const SingleQAadmin = () => {
                                   variant="danger"
                                   onClick={() => {
                                     handleDelete(eachVersion.id);
+                                    console.log("OLD VERSIONS ONCLICK");
                                     if (qaVersions.length > 1) {
                                       if (idx === 0) {
                                         navigate(
