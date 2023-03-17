@@ -7,10 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   return (
     <div>
-      <div className="wrapper">
-        <Navbar />
-        <AppRoutes />
-      </div>
+      <Navbar />
+      <AppRoutes />
       <Footer />
     </div>
   );
