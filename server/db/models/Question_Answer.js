@@ -8,7 +8,6 @@ const Question_Answer = db.define("question_answer", {
   },
   questionImage: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
-    defaultValue: [],
   },
   questionImageAltText: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
@@ -27,7 +26,6 @@ const Question_Answer = db.define("question_answer", {
   },
   explanationImage: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
-    defaultValue: [],
   },
   explanationImageAltText: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
@@ -35,7 +33,6 @@ const Question_Answer = db.define("question_answer", {
   },
   explanationLinks: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
-    defaultValue: [],
   },
   level: {
     type: Sequelize.ENUM("Easy", "Moderate", "Hard"),
