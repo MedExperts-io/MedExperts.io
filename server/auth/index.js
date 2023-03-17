@@ -92,7 +92,7 @@ router.post("/signup", async (req, res, next) => {
       school,
     });
 
-    //message compilation
+    //<------------------------------ START sending mail through nodemailer --------------------------------->
     // let source = fs.readFileSync(
     //   path.join(__dirname, "/verifyAcctTemplate.hbs"),
     //   "utf8"
@@ -118,7 +118,9 @@ router.post("/signup", async (req, res, next) => {
     //     console.log("");
     //   }
     // });
+    //<--------------------------- END sending mail through nodemailer ----------------------------->
 
+    // <-------------------- START sending mail through sendgrid --------------------->
     const msg = {
       to: email, // Change to your recipient
       from: process.env.SENDER_ADDRESS, // Change to your verified sender
@@ -128,9 +130,8 @@ router.post("/signup", async (req, res, next) => {
         url: `http://localhost:8080/verifyEmail/?token=${fpSalt}&tempId=${tempId}`,
       },
 
-      templateId: "d-3c887106cc754155846421fcc321156f",
-      // text: "and easy to do anywhere, even with Node.js",
-      // html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+      // templateId: "d-3c887106cc754155846421fcc321156f",
+      templateId: "d-cc66d89d138c46ada031f1d836164a22",
     };
 
     sgMail
@@ -142,6 +143,8 @@ router.post("/signup", async (req, res, next) => {
       .catch((error) => {
         console.error(error);
       });
+
+    // <-------------------- END sending mail through sendgrid --------------------->
 
     // return res.json({ status: "ok" });
     return res.send({ token: await user.generateToken() });
