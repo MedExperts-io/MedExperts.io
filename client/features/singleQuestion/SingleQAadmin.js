@@ -45,6 +45,8 @@ const SingleQAadmin = () => {
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
 
   const newestVersion = qaVersions[0];
+  console.log(qaVersions, "QA VERSION");
+  console.log(newestVersion, "NEWEST VERSUIB");
   const allOtherVersions = qaVersions.slice(1);
 
   const responseData = (qaId, ansOption) => {
