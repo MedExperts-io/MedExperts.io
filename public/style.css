@@ -4,9 +4,59 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-
   background-image: url("newBG8T.png");
-  /* padding-bottom: 20px; */
+  padding-bottom: 220px;
+}
+
+/* .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-height: -webkit-calc(100% - 186px);
+  min-height: -moz-calc(100% - 186px);
+  min-height: calc(100% - 186px);
+  position: relative;
+} */
+
+/* footer */
+#footer {
+  position: absolute;
+  bottom: 0;
+  height: 186px;
+  width: 100%;
+  background-color: #ff6262;
+}
+
+.footer-logo {
+  height: 30px;
+  padding: 0;
+}
+
+.footer-description {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.footer-col {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col-header {
+  font-size: 12px;
+  font-weight: 500;
+  list-style: none;
+}
+
+.footer-li {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.footer-icon {
+  height: 25px;
+  color: black;
+  padding: 0;
 }
 
 #no-border {
@@ -165,46 +215,6 @@ img {
   text-align: center;
   font-size: 32px;
   margin-bottom: 50px;
-}
-/* footer */
-#footer {
-  position: static;
-  margin-top: 50px;
-  bottom: 0;
-  width: 100%;
-  background-color: #ff6262;
-}
-
-.footer-logo {
-  height: 30px;
-  padding: 0;
-}
-
-.footer-description {
-  font-size: 10px;
-  font-weight: 400;
-}
-
-.footer-col {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col-header {
-  font-size: 12px;
-  font-weight: 500;
-  list-style: none;
-}
-
-.footer-li {
-  font-size: 10px;
-  font-weight: 400;
-}
-
-.footer-icon {
-  height: 25px;
-  color: black;
-  padding: 0;
 }
 
 #tooltip-top > .tooltip-inner {
