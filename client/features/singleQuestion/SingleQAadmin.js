@@ -53,7 +53,7 @@ const SingleQAadmin = () => {
     let totalResponses = 0;
     const userResponses = qaVersions.map((aVersion) => {
       if (aVersion.id == qaId) {
-        aVersion.user_questions.map((eachUserInput) => {
+        aVersion?.user_questions.map((eachUserInput) => {
           totalResponses++;
           if (eachUserInput.userInput == ansOption) {
             numOfPicks++;
@@ -226,7 +226,6 @@ const SingleQAadmin = () => {
                                 } else {
                                   navigate(`/questions`);
                                 }
-                                handleClose();
                               }}
                             >
                               Delete
@@ -600,7 +599,6 @@ const SingleQAadmin = () => {
                                     } else {
                                       navigate(`/questions`);
                                     }
-                                    handleClose();
                                   }}
                                 >
                                   Delete
@@ -957,7 +955,6 @@ const SingleQAadmin = () => {
                                     } else {
                                       navigate(`/questions`);
                                     }
-                                    handleClose();
                                   }}
                                 >
                                   Delete

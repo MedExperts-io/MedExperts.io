@@ -1045,9 +1045,9 @@ const EditQA = () => {
                           Your changes have been recorded!
                         </Modal.Body>
                         <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
+                          {/* <Button variant="secondary" onClick={handleClose}>
                             Keep Editing
-                          </Button>
+                          </Button> */}
                           <Button
                             variant="secondary"
                             onClick={() => {
