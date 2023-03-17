@@ -47,7 +47,9 @@ const EditQA = () => {
   );
 
   const [newSingleQImageAltText, setNewSingleQImageAltText] = useState("");
-  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState();
+  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState(
+    qaVersions[0]?.questionImageAltText.slice()
+  );
 
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState(
@@ -64,7 +66,7 @@ const EditQA = () => {
   );
   const [newSingleExpImageAltText, setNewSingleExpImageAltText] = useState("");
   const [newExplanationImageAltText, setNewExplanationImageAltText] = useState(
-    qaVersions[0]?.explanationImageAltText
+    qaVersions[0]?.explanationImageAltText.slice()
   );
 
   const [newSingleLink, setNewSingleLink] = useState("");
