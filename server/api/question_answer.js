@@ -149,6 +149,7 @@ router.delete(
   isAdmin,
   async (req, res, next) => {
     const qaId = +req.params.singleQuestionId; // example [1, 201, 202]
+    console.log("DELETE ROUTE FOR QA ID", qaId);
     try {
       //1. Grab instance to get access to ancestorId
       const singleQuestion = await Question_Answer.findByPk(qaId);
