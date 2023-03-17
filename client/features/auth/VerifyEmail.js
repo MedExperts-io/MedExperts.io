@@ -9,10 +9,13 @@ const VerifyEmail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { error } = useSelector((state) => state.auth);
-
+  console.log(error, "ERROR");
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
+
   const tempId = searchParams.get("tempId");
+  console.log(token, "token");
+  console.log(tempId, "tempId");
 
   useEffect(() => {
     dispatch(verifyNewUserEmail({ token, tempId }));
@@ -24,14 +27,17 @@ const VerifyEmail = () => {
         <Card className="p-5 mx-auto" style={{ maxWidth: "800px" }}>
           {error ? (
             <>
-              <h3>Uh oh, there was an error with your request! </h3>
-              <p>
+              <p style={{ fontSize: "20px" }}>
+                {" "}
+                <strong>There was an error with your request! </strong>
+              </p>
+              <p style={{ fontSize: "15px" }}>
                 If you haven't already, please create an account following the
                 link below and be sure to check your inbox for an email from
                 MedExperts with next steps.
               </p>
               <br />
-              <p>
+              <p style={{ fontSize: "15px" }}>
                 If you already verified your account and believe you received
                 this message in error, you may <a href="/login">login</a> using
                 your credentials.

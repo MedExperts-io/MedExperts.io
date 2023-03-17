@@ -125,7 +125,7 @@ router.post("/signup", async (req, res, next) => {
       // subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
       dynamic_template_data: {
         firstName: `${firstName}`,
-        url: `http://medexperts.io/verifyEmail/?token=${verificationToken}&tempId=${tempId}`,
+        url: `http://localhost:8080/verifyEmail/?token=${fpSalt}&tempId=${tempId}`,
       },
 
       templateId: "d-3c887106cc754155846421fcc321156f",
@@ -160,7 +160,9 @@ router.post("/signup", async (req, res, next) => {
 
 router.get("/verifyEmail/:token?:tempId?", async function (req, res, next) {
   const token = req.query.token;
+  console.log(token);
   const tempId = req.query.tempId;
+  console.log(tempId);
 
   let user = await User.findOne({
     where: {
@@ -169,7 +171,7 @@ router.get("/verifyEmail/:token?:tempId?", async function (req, res, next) {
       status: false,
     },
   });
-
+  console.log(user);
   if (!user) {
     return res.status(400).json("something's gone wrong");
   }
