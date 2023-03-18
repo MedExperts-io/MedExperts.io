@@ -24,10 +24,11 @@ import { deleteSingleQuestion, fetchQAVersions } from "./singleQuestionSlice";
 
 const SingleQAadmin = () => {
   const { singleQuestionId } = useParams();
+  console.log(singleQuestionId, "SQID");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [key, setKey] = useState(newestVersion?.id);
+  const [key, setKey] = useState(singleQuestionId);
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,17 +39,18 @@ const SingleQAadmin = () => {
   useEffect(() => {
     dispatch(fetchQAVersions(singleQuestionId));
   }, [qaVersions]);
-  // }, [qaVersions]);
+
+  // }, [qaVersions]); giving me infinite loop
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
+  console.log(qaVersions);
 
   const newestVersion = qaVersions[0];
-  // console.log(qaVersions, "QA VERSION");
-  // console.log(newestVersion, "NEWEST VERSUIB");
+
   const allOtherVersions = qaVersions.slice(1);
 
   const responseData = (qaId, ansOption) => {
@@ -76,19 +78,15 @@ const SingleQAadmin = () => {
     console.log(id, "id");
 
     if (id === newestVersion?.id) {
-      await dispatch(deleteSingleQuestion(id))
-        .dispatch(fetchQAVersions(singleQuestionId))
-        .then(() => {
-          console.log("inside", newestVersion?.id);
-          setKey(newestVersion?.id);
-        });
+      await dispatch(deleteSingleQuestion(id));
+      setKey();
+      console.log("handle newest", qaVersions.id);
+      console.log("handle single", singleQuestionId);
+    } else {
+      dispatch(deleteSingleQuestion(id));
+      console.log("not the neewest ", newestVersion?.id);
+      setKey(newestVersion?.id);
     }
-    dispatch(deleteSingleQuestion(id));
-    // .dispatch(fetchQAVersions(singleQuestionId))
-    // .unwrap()
-
-    console.log("not the neewest ", newestVersion?.id);
-    setKey(newestVersion?.id);
   };
 
   console.log("kEY", key, "NEW", newestVersion?.id);
