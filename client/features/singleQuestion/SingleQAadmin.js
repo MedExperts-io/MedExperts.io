@@ -72,8 +72,16 @@ const SingleQAadmin = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(true);
+  };
   //----------- end modal details
+
+  const deleteMedium = (id)=> {
+    console.log("ID BEING DELETED:", eachVersion.id);
+    handleDelete(eachVersion.id);
+    navigate(`/questions`);
+  }
 
   const handleDelete = (id) => {
     console.log("DELETIING ID", id);
@@ -86,6 +94,31 @@ const SingleQAadmin = () => {
         <ProgressBar animated now={100} />
       ) : (
         <Stack gap={3} className="p-3">
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Confirm delete</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Once you delete, the previous version of this question will be
+              activated. If no other versions exist, you'll be redirected to the
+              Questions page.
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button
+                variant="danger"
+                onClick={() => {
+                  // console.log("ID BEING DELETED:", eachVersion.id);
+                  // handleDelete(eachVersion.id);
+                  // navigate(`/questions`);
+                }}
+              >
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
           <div>
             {qaVersions && qaVersions?.length ? (
               <div>
@@ -188,21 +221,13 @@ const SingleQAadmin = () => {
                         <Button
                           variant="link"
                           size="small"
-                          // onClick={handleShow}
-                          onClick={() => {
-                            console.log(
-                              "HITTING SECTION FOR ONLY 1 VERSION. ID BEING DELETED:",
-                              eachVersion.id
-                            );
-                            handleDelete(eachVersion.id);
-                            navigate(`/questions`);
-                          }}
+                          onClick={handleShow}
                         >
                           {" "}
                           <DeleteIcon />
                           Delete Version
                         </Button>
-                        {/* <Modal show={show} onHide={handleClose}>
+                        <Modal show={show} onHide={handleClose}>
                           <Modal.Header closeButton>
                             <Modal.Title>Confirm delete</Modal.Title>
                           </Modal.Header>
@@ -225,20 +250,13 @@ const SingleQAadmin = () => {
                                   eachVersion.id
                                 );
                                 handleDelete(eachVersion.id);
-                                // if (qaVersions.length > 1) {
-                                //   if (idx === 0) {
-                                //     navigate(`/questions/${qaVersions[1].id}`);
-                                //   }
-                                // } else {
-
                                 navigate(`/questions`);
-                                //   }
                               }}
                             >
                               Delete
                             </Button>
                           </Modal.Footer>
-                        </Modal> */}
+                        </Modal>
                         {/* <------------------End delete q Btn---------------> */}
                       </Card.Header>
 
@@ -552,14 +570,6 @@ const SingleQAadmin = () => {
                               variant="link"
                               size="small"
                               onClick={handleShow}
-                              // onClick={() => {
-                              //   console.log(
-                              //     "HITTING SECTION FOR ONLY MULTIPLE VERSION'S NEWEST VERSION. ID BEING DELETED:",
-                              //     newestVersion.id
-                              //   );
-                              //   handleDelete(newestVersion.id);
-                              //   navigate(`/questions/${qaVersions[1].id}`);
-                              // }}
                             >
                               {" "}
                               <DeleteIcon />
@@ -595,13 +605,7 @@ const SingleQAadmin = () => {
                                     );
                                     handleDelete(newestVersion.id);
                                     handleClose();
-                                    // if (qaVersions.length > 1) {
-                                    // if (idx === 0) {
                                     navigate(`/questions/${qaVersions[1].id}`);
-                                    // }
-                                    // } else {
-                                    //   navigate(`/questions`);
-                                    // }
                                   }}
                                 >
                                   Delete
@@ -903,14 +907,6 @@ const SingleQAadmin = () => {
                               variant="link"
                               size="small"
                               onClick={handleShow}
-                              // onClick={() => {
-                              //   console.log(
-                              //     "HITTING SECTION FOR MUTIPLE VERSION'S OLDER VERSIONS. ID BEING DELETED:",
-                              //     eachVersion.id
-                              //   );
-                              //   handleDelete(eachVersion.id);
-                              //   navigate(`/questions/${singleQuestionId}`);
-                              // }}
                             >
                               {" "}
                               <DeleteIcon />
@@ -946,13 +942,7 @@ const SingleQAadmin = () => {
                                     );
                                     handleDelete(eachVersion.id);
                                     handleClose();
-                                    // if (qaVersions.length > 1) {
-                                    // if (idx == qaVersions.length-1) {
                                     navigate(`/questions/${singleQuestionId}`);
-                                    // }
-                                    // } else {
-                                    //   navigate(`/questions`);
-                                    // }
                                   }}
                                 >
                                   Delete
