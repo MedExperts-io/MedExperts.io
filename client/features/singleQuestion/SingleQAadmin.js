@@ -27,6 +27,7 @@ const SingleQAadmin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [key, setKey] = useState(newestVersion?.id);
 
   useEffect(() => {
     setTimeout(() => {
@@ -37,6 +38,7 @@ const SingleQAadmin = () => {
   useEffect(() => {
     dispatch(fetchQAVersions(singleQuestionId));
   }, [qaVersions]);
+  // }, [qaVersions]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,8 +47,8 @@ const SingleQAadmin = () => {
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
 
   const newestVersion = qaVersions[0];
-  console.log(qaVersions, "QA VERSION");
-  console.log(newestVersion, "NEWEST VERSUIB");
+  // console.log(qaVersions, "QA VERSION");
+  // console.log(newestVersion, "NEWEST VERSUIB");
   const allOtherVersions = qaVersions.slice(1);
 
   const responseData = (qaId, ansOption) => {
@@ -70,10 +72,26 @@ const SingleQAadmin = () => {
     }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    console.log(id, "id");
+
+    if (id === newestVersion?.id) {
+      await dispatch(deleteSingleQuestion(id))
+        .dispatch(fetchQAVersions(singleQuestionId))
+        .then(() => {
+          console.log("inside", newestVersion?.id);
+          setKey(newestVersion?.id);
+        });
+    }
     dispatch(deleteSingleQuestion(id));
+    // .dispatch(fetchQAVersions(singleQuestionId))
+    // .unwrap()
+
+    console.log("not the neewest ", newestVersion?.id);
+    setKey(newestVersion?.id);
   };
 
+  console.log("kEY", key, "NEW", newestVersion?.id);
   return (
     <Container fluid>
       {loading ? (
@@ -408,14 +426,15 @@ const SingleQAadmin = () => {
                   // <---------------if more than 1 version-------------->
 
                   <Tabs
-                    defaultActiveKey={`${newestVersion.id}`}
+                    activeKey={key}
+                    onSelect={(k) => {
+                      console.log(k);
+                      setKey(k);
+                    }}
                     id="uncontrolled-tab-example"
                     className="mb-3"
                   >
-                    <Tab
-                      eventKey={`${newestVersion.id}`}
-                      title="Current Version"
-                    >
+                    <Tab eventKey={newestVersion.id} title="Current Version">
                       <Stack gap={3} key={uuidv4()}>
                         <Card
                           className="mb-4 mx-auto"
