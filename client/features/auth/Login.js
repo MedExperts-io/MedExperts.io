@@ -3,16 +3,16 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
 import {
   Button,
-  Form,
-  InputGroup,
-  Container,
   Card,
   Col,
+  Container,
+  Form,
+  InputGroup,
   Row,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { authenticate } from "../../app/store";
+import { Link, useNavigate } from "react-router-dom";
+import { authenticate, navigateToForm } from "../../app/store";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -42,64 +42,44 @@ const Login = () => {
 
   return (
     <Container>
-      <Row className="p-5 justify-content-center">
-        <Col md={8} lg={6} s={10} xs={12}>
+      <Row
+        className="d-flex justify-content-center align-items-center"
+        style={{ paddingTop: "5rem" }}
+      >
+        <Col md={10} lg={6} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Login</Card.Header>
             <Card.Body>
-              <div className="mb-3 mt-md-4">
+              <div className="mb-3 mt-md-2">
                 <div className="mb-3">
                   <Form onSubmit={handleSubmit} name="login">
                     <Form.Group className="mb-3" controlId="loginEmail">
                       <Form.Label className="text-center" label="Email Address">
                         Email address
                       </Form.Label>
-                      <Form.Control
-                        required
-                        autoComplete="email"
-                        type="email"
-                        placeholder="Enter email"
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        Please provide a valid email address.
-                      </Form.Control.Feedback>
+                      <Form.Control required autoComplete="email" type="email" placeholder="Enter email" />
+                      <Form.Control.Feedback type="invalid">Please provide a valid email address.</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="loginPassword">
                       <Form.Label label="Password">Password</Form.Label>
                       <InputGroup>
-                        <Form.Control
-                          required
-                          autoComplete="current-password"
-                          type={passwordShown ? "text" : "password"}
-                          placeholder="Enter password"
-                        />
-                        <Button
-                          variant="outline-secondary"
-                          onClick={togglePassword}
-                          size="md"
-                          style={{ zIndex: 0 }}
-                        >
-                          {passwordShown ? (
-                            <VisibilityOffIcon />
-                          ) : (
-                            <RemoveRedEyeIcon />
-                          )}
+                        <Form.Control required autoComplete="current-password" type={passwordShown ? "text" : "password"} placeholder="Enter password" />
+                        <Button title="hide or show password" variant="outline-secondary" onClick={togglePassword} size="md" style={{ zIndex: 0 }}>
+                          {passwordShown ? <VisibilityOffIcon title="show password" /> : <RemoveRedEyeIcon title="hide password" />}
                         </Button>
 
-                        <Form.Control.Feedback type="invalid">
-                          Please provide a password.
-                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
                       </InputGroup>
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
-                        <a
+                        <Link
                           className="text"
-                          style={{ color: "#FF6262" }}
-                          href="/forgotPassword"
+                          style={{ color: "black" }}
+                          to="/forgotPassword"
                         >
                           Forgot password?
-                        </a>
+                        </Link>
                       </p>
                     </Form.Group>
                     <div className="d-grid">
@@ -118,9 +98,16 @@ const Login = () => {
             </Card.Body>
             <Card.Footer>
               <p className="small">
-                <a className="text" style={{ color: "gray" }} href="/signup">
+                <Link
+                  className="text"
+                  style={{ color: "black" }}
+                  to="/signup"
+                  onClick={() => {
+                    dispatch(navigateToForm());
+                  }}
+                >
                   New to MedExperts? Create account.
-                </a>
+                </Link>
               </p>
             </Card.Footer>
           </Card>

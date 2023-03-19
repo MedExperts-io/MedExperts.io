@@ -262,10 +262,6 @@ const AllQAadmin = () => {
   const filterFunction = () => {
     let multiFilter = allQuestions;
 
-    expertisePicked.current !== "All Expertise"
-      ? (multiFilter = expertiseQuestions[expertisePicked.current])
-      : null;
-
     currentFrequency.current === "Frequency Sort"
       ? null
       : (multiFilter = frequencySort(
@@ -321,6 +317,8 @@ const AllQAadmin = () => {
       }
     }
 
+    multiFilter = expertiseFilterFunction(multiFilter);
+
     multiFilter.length ? (filteredQuestions.current = multiFilter) : null;
     multiFilter.length
       ? setCurrentItems(multiFilter.slice(0, 12))
@@ -329,7 +327,6 @@ const AllQAadmin = () => {
       ? setPageCount(Math.ceil(multiFilter.length / itemsPerPage))
       : setPageCount(0);
     setItemOffset(0);
-
     return multiFilter;
   };
 
@@ -367,10 +364,12 @@ const AllQAadmin = () => {
       };
     });
 
-    const sortedByFrequency = allQuestions.sort(
-      (a, b) => b.frequency - a.frequency
-    );
-    const sortedByFrequencyReverse = sortedByFrequency.slice().reverse();
+    const sortedByFrequency = allQuestions
+      .slice()
+      .sort((a, b) => b.frequency - a.frequency);
+    const sortedByFrequencyReverse = allQuestions
+      .slice()
+      .sort((a, b) => a.frequency - b.frequency);
 
     if (type === "Most Answered") {
       return sortedByFrequency;
@@ -381,13 +380,14 @@ const AllQAadmin = () => {
 
   const percentCorrectSort = (allQAs, allUserQs, type) => {
     if (allQAs.length === 0) return [];
-    let frequency = {};
 
+    let frequency = {};
     for (let i = 0; i < allQAs.length; i++) {
       if (!frequency[allQAs[i]["id"]]) {
         frequency[allQAs[i]["id"]] = { right: 0, total: 0 };
       }
     }
+
     for (let i = 0; i < allUserQs.length; i++) {
       if (allUserQs[i]["answered"] === "right") {
         frequency[allUserQs[i]["questionAnswerId"]]["right"]++;
@@ -408,18 +408,32 @@ const AllQAadmin = () => {
           ) || 0,
       };
     });
-    const sortedByPercentCorrect = allQuestions.sort(
-      (a, b) => b.percentCorrect - a.percentCorrect
-    );
-    const sortedByPercentCorrectReverse = sortedByPercentCorrect
+    const sortedByPercentCorrect = allQuestions
       .slice()
-      .reverse();
+      .sort((a, b) => b.percentCorrect - a.percentCorrect);
+    const sortedByPercentCorrectReverse = allQuestions
+      .slice()
+      .sort((a, b) => a.percentCorrect - b.percentCorrect);
 
     if (type === "Most Correct") {
       return sortedByPercentCorrect;
     } else if (type === "Least Correct") {
       return sortedByPercentCorrectReverse;
     }
+  };
+
+  const expertiseFilterFunction = (multiFilter) => {
+    if (expertisePicked.current === "All Expertise") {
+      return multiFilter;
+    }
+
+    const userQAs = expertiseQuestions[expertisePicked.current];
+    const userQAIds = userQAs.map((question) => question.id);
+
+    multiFilter = multiFilter.filter((question) =>
+      userQAIds.includes(question.id)
+    );
+    return multiFilter;
   };
 
   useEffect(() => {
@@ -572,10 +586,7 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "lightgreen", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     Easy Level
                   </Card.Title>
                 </Card>
@@ -594,10 +605,7 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "#f5ad27", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     <center>Moderate Level</center>
                   </Card.Title>
                 </Card>
@@ -616,10 +624,7 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "#f55b49", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     Hard Level
                   </Card.Title>
                 </Card>
@@ -638,10 +643,7 @@ const AllQAadmin = () => {
                       %
                     </div>
                   </div>
-                  <Card.Title
-                    className="mx-auto"
-                    style={{ color: "#bf5eff", paddingTop: "5px" }}
-                  >
+                  <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     All Levels
                   </Card.Title>
                 </Card>
@@ -717,7 +719,10 @@ const AllQAadmin = () => {
               </Col>
 
               <Col md="auto">
-                <Dropdown onSelect={(event) => userExpertiseSelection(event)}>
+                <Dropdown
+                  onSelect={(event) => userExpertiseSelection(event)}
+                  style={{ marginBottom: "10px" }}
+                >
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {expertisePicked.current}
                   </Dropdown.Toggle>
@@ -781,7 +786,6 @@ const AllQAadmin = () => {
               {loading && <LoadingScreen />}
               {currentItems && currentItems.length && currentItems !== "nada"
                 ? currentItems.map((question, idx) => (
-                    // <Col>
                     <Card
                       key={question.id}
                       style={{
@@ -867,7 +871,11 @@ const AllQAadmin = () => {
                           variant="outlined"
                         />
                         <Card.Img
-                          style={{ float: "right", width: "20px" }}
+                          style={{
+                            float: "right",
+                            width: "20px",
+                            cursor: "pointer",
+                          }}
                           onClick={() => favorite(userId, question.id)}
                           variant="top"
                           src={
