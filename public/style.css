@@ -239,9 +239,23 @@ img {
 .about-card {
   width: 90%;
   margin-top: 30px;
+  border: none;
 }
 
 .about-heading {
   text-align: center;
-  color: #0066b3;
+  font-weight: 400;
+}
+
+#member-card {
+  width: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* padding: 0;
+  margin: 0; */
+}
+
+#member-card-title {
+  font-weight: 200;
+  text-align: center;
 }
