@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <Container fluid>
       <Card className="about-card mx-auto">
-        <h1>About Us </h1>
+        <h1 className="about-heading"> Meet the Team </h1>
       </Card>
     </Container>
   );

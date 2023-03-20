@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector, Navigate } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import QuestionsAnswers from "../features/allQA/AllQA";
-import AboutUs from "../features/aboutUs/aboutUs";
+import AboutUs from "../features/aboutUs/AboutUs";
 import Login from "../features/auth/Login";
 import SignUp from "../features/auth/Signup";
 // import Home from "../features/home/Home";
