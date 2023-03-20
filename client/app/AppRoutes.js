@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector, Navigate } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import QuestionsAnswers from "../features/allQA/AllQA";
-
+import AboutUs from "../features/aboutUs/aboutUs";
 import Login from "../features/auth/Login";
 import SignUp from "../features/auth/Signup";
 // import Home from "../features/home/Home";
@@ -36,6 +36,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<NoExist />} />
           <Route path="/" element={<MainLandingPage />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
           <Route
             path="/dashboard"
             element={<Dashboard isLoggedIn={isLoggedIn} />}
@@ -57,6 +58,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<NoExist />} />
           <Route path="/" element={<MainLandingPage />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
