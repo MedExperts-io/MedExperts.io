@@ -647,9 +647,6 @@ const AddQuestion = () => {
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Body>New question successfully added!</Modal.Body>
                   <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Keep Editing
-                    </Button>
                     <Button
                       variant="secondary"
                       onClick={() => {

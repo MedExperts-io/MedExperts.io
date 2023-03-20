@@ -128,7 +128,10 @@ const EditQA = () => {
         category: newCategory,
         level: newLevel,
         ancestorId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
-        displayId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
+        displayId:
+          qaVersions[0]?.displayId ||
+          qaVersions[0]?.ancestorId ||
+          qaVersions[0]?.id,
       })
     );
   };
@@ -617,9 +620,9 @@ const EditQA = () => {
                       <Modal show={show} onHide={handleClose}>
                         <Modal.Body>Your changes have been recorded!</Modal.Body>
                         <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
+                          {/* <Button variant="secondary" onClick={handleClose}>
                             Keep Editing
-                          </Button>
+                          </Button> */}
                           <Button
                             variant="secondary"
                             onClick={() => {
