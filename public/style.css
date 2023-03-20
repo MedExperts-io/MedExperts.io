@@ -234,3 +234,9 @@ img {
   font-weight: 500;
   font-size: 20px;
 }
+
+/* about us */
+.about-card {
+  width: 90%;
+  margin-top: 30px;
+}

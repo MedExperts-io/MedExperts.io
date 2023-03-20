@@ -1,10 +1,12 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 const AboutUs = () => {
   return (
     <Container fluid>
-      <Card>About Us </Card>{" "}
+      <Card className="about-card mx-auto">
+        <h1>About Us </h1>
+      </Card>
     </Container>
   );
 };
