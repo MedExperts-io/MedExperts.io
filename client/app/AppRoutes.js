@@ -36,7 +36,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<NoExist />} />
           <Route path="/" element={<MainLandingPage />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route
             path="/dashboard"
             element={<Dashboard isLoggedIn={isLoggedIn} />}
@@ -58,7 +58,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/*" element={<NoExist />} />
           <Route path="/" element={<MainLandingPage />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotPassword" element={<RequestNewPassword />} />
