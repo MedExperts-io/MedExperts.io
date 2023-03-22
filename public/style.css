@@ -262,6 +262,19 @@ img {
   transition-delay: 0.2s;
 } */
 
+#member-img {
+  padding: none;
+  margin: none;
+}
+/* #member-link {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 15px;
+  color: #333;
+  font-weight: 200;
+  text-decoration: none;
+  bottom: 0;
+} */
 #member-card-title {
   padding: 0;
   width: 100%;
@@ -272,21 +285,6 @@ img {
   right: 0;
   height: 7rem;
 }
-
-#member-img {
-  padding: none;
-  margin: none;
-}
-#member-link {
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 15px;
-  color: #333;
-  font-weight: 200;
-  text-decoration: none;
-  bottom: 0;
-}
-
 #member-name {
   padding-left: 5px;
   padding-right: 5px;
@@ -305,4 +303,13 @@ img {
   text-align: center;
   font-weight: 200;
   font-size: 15px;
+}
+
+#member-read {
+  bottom: 0;
+  position: absolute;
+  left: 35%;
+  font-size: 15px;
+  /* padding-left: 5px;
+  padding-right: 5px; */
 }

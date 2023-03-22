@@ -45,7 +45,7 @@ const AboutUs = () => {
                         {firstName} {lastName}
                       </p>
                       <p id="member-role"> {title}</p>{" "}
-                      <p id="member-role"> Read More</p>
+                      <p id="member-read"> Read More </p>
                     </Card.Title>
                   </Card.ImgOverlay>
 
