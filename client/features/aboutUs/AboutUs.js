@@ -66,9 +66,19 @@ const AboutUs = () => {
                   </Card.ImgOverlay>
                 </Card.Body>{" "}
                 <Modal show={modalShow} size="lg" onHide={handleClose} centered>
+                  {" "}
+                  <Modal.Header
+                    style={{ padding: "4px", margin: "4px", border: "none" }}
+                    closeButton
+                  >
+                    {" "}
+                  </Modal.Header>
                   <Modal.Body>
                     <Card className="mx-auto" style={{ border: "none" }}>
-                      <Card.Body className="mx-auto">
+                      <Card.Body
+                        className="mx-auto"
+                        style={{ marginTop: "0", paddingTop: "0" }}
+                      >
                         <Row className="mx-auto">
                           <Col md={6}>
                             <div className="d-flex justify-content-center align-items-center">
@@ -110,21 +120,17 @@ const AboutUs = () => {
                               habitasse platea dictumst. Integer sit amet urna
                               id sapien laoreet tincidunt in at felis.
                             </p>
-                            <Row className="mr-auto">
-                              {" "}
-                              <p>
+                            <Row>
+                              <p className="d-flex justify-content-start">
                                 <GitHubIcon />
                                 <LinkedInIcon />
                               </p>
-                            </Row>
+                            </Row>{" "}
                           </Col>
-                        </Row>
+                        </Row>{" "}
                       </Card.Body>
                     </Card>
                   </Modal.Body>{" "}
-                  <ModalFooter>
-                    <Button onClick={handleClose}>Close</Button>
-                  </ModalFooter>
                 </Modal>
               </Card>
             );
