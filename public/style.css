@@ -255,11 +255,6 @@ img {
   border: none;
   transition: all 0.3 ease;
 }
-#member-card:hover {
-  /* transform: scale(1.1); */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
 
 .member-card-hover .default {
   display: block;
@@ -267,6 +262,7 @@ img {
 
 .member-card-hover .hover {
   display: none;
+  box-shadow: 0 0 2px #ff6262;
 }
 
 .member-card-hover:hover .default {
@@ -290,7 +286,7 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 7rem;
+  height: 6rem;
 }
 #member-name {
   padding-left: 5px;
