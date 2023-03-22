@@ -29,26 +29,36 @@ const AboutUs = () => {
             }) => {
               return (
                 <Card
-                  id={flipped ? "member-card-flipped" : "member-card"}
                   key={firstName}
+                  id="member-card"
+                  className="member-card-hover"
                 >
-                  <Card.Img
-                    id="member-img"
-                    variant="top"
-                    src={picture}
-                    alt={`${firstName} ${lastName}`}
-                  />
+                  <Card.Body className="default">
+                    <Card.Img
+                      id="member-img"
+                      variant="top"
+                      src={picture}
+                      alt={`${firstName} ${lastName}`}
+                    />
+                  </Card.Body>{" "}
+                  <Card.Body className="hover">
+                    <Card.Img
+                      id="member-img"
+                      variant="top"
+                      src={picture}
+                      alt={`${firstName} ${lastName}`}
+                    />
 
-                  <Card.ImgOverlay>
-                    <Card.Title id="member-card-title">
-                      <p id="member-name">
-                        {firstName} {lastName}
-                      </p>
-                      <p id="member-role"> {title}</p>{" "}
-                      <p id="member-read"> Read More </p>
-                    </Card.Title>
-                  </Card.ImgOverlay>
-
+                    <Card.ImgOverlay>
+                      <Card.Title id="member-card-title">
+                        <p id="member-name">
+                          {firstName} {lastName}
+                        </p>
+                        <p id="member-role"> {title}</p>{" "}
+                        <p id="member-read"> Read More </p>
+                      </Card.Title>
+                    </Card.ImgOverlay>
+                  </Card.Body>{" "}
                   {/* <Card.Text>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Aliquam fringilla purus ac ultricies facilisis. Integer

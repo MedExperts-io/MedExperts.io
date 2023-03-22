@@ -253,28 +253,35 @@ img {
   padding: 0;
   margin: 10px;
   border: none;
+  transition: all 0.3 ease;
 }
-/* #member-card:hover {
-  opacity: 1;
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-} */
+#member-card:hover {
+  /* transform: scale(1.1); */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.member-card-hover .default {
+  display: block;
+}
+
+.member-card-hover .hover {
+  display: none;
+}
+
+.member-card-hover:hover .default {
+  display: none;
+}
+
+.member-card-hover:hover .hover {
+  display: block;
+}
 
 #member-img {
   padding: none;
   margin: none;
 }
-/* #member-link {
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 15px;
-  color: #333;
-  font-weight: 200;
-  text-decoration: none;
-  bottom: 0;
-} */
+
 #member-card-title {
   padding: 0;
   width: 100%;
