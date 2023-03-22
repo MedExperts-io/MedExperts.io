@@ -236,32 +236,73 @@ img {
 }
 
 /* about us */
-.about-card {
+#about-card {
   width: 90%;
   margin-top: 30px;
   border: none;
+  margin-bottom: 30px;
 }
 
 .about-heading {
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 #member-card {
   width: 18rem;
-  /* margin-left: 10px;
-  margin-right: 10px; */
   padding: 0;
   margin: 10px;
+  border: none;
 }
+/* #member-card:hover {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+} */
 
 #member-card-title {
   padding: 0;
-  font-weight: 200;
-  text-align: center;
+  width: 100%;
+  background-color: #f8f8f8a6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7rem;
 }
 
 #member-img {
   padding: none;
   margin: none;
+}
+#member-link {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 15px;
+  color: #333;
+  font-weight: 200;
+  text-decoration: none;
+  bottom: 0;
+}
+
+#member-name {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  color: #ff6262;
+}
+
+#member-role {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0;
+  text-align: center;
+  font-weight: 200;
+  font-size: 15px;
 }
