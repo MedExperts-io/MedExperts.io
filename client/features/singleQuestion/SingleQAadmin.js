@@ -111,8 +111,8 @@ const SingleQAadmin = () => {
             </Modal.Header>
             <Modal.Body>
               Once you delete, the previous version of this question will be
-              activated. If no other versions exist, you'll be redirected to the
-              Questions page.
+              activated. If no other versions exist, you will be redirected to
+              the Questions page.
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
