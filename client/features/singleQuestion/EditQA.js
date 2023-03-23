@@ -230,7 +230,6 @@ const EditQA = () => {
                     <strong
                       className="me-auto"
                       style={{
-                        fontWeight: "bold",
                         fontSize: "150%",
                       }}
                     >
@@ -239,8 +238,7 @@ const EditQA = () => {
                   </Toast.Header>
                   <Toast.Body
                     style={{
-                      fontWeight: "bold",
-                      fontSize: "100%",
+                      fontSize: "150%",
                     }}
                   >
                     {showUpdate}
@@ -253,7 +251,9 @@ const EditQA = () => {
                 show={showAlert}
                 onClose={toggleShowAlert}
               >
-                <Alert.Heading>Alert!</Alert.Heading>
+                <Alert.Heading>
+                  <strong>Alert!</strong>
+                </Alert.Heading>
                 <p>You must enter alt text for images.</p>
               </Alert>
               <Card
@@ -313,6 +313,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleQImageAltText(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -459,9 +460,9 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              newQuestionImageAltText[
+                                              `Image with alt text: ${newQuestionImageAltText[
                                                 linkIdx
-                                              ].trim()
+                                              ].trim()}`
                                             );
                                             toggleShowToast();
                                           }
@@ -659,6 +660,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleExpImageAltText(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -808,9 +810,9 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              newExplanationImageAltText[
+                                              `Image with alt text: ${newExplanationImageAltText[
                                                 linkIdx
-                                              ].trim()
+                                              ].trim()}`
                                             );
                                             toggleShowToast();
                                           }
