@@ -81,7 +81,10 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Row className="p-5 d-flex justify-content-center align-items-center">
+      <Row
+        className="d-flex justify-content-center align-items-center"
+        style={{ paddingTop: "5rem" }}
+      >
         <Col md={10} lg={10} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>

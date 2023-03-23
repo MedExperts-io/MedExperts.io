@@ -104,13 +104,12 @@ const QuestionsAnswers = () => {
     return map;
   }
 
-  const favorite = (userId, questionId) => {
+  const favorite = (questionId) => {
     dispatch(
       updateUserQuestion({
-        userId: userId,
         questionAnswerId: questionId,
       })
-    ).then(() => dispatch(fetchUserQuestions(userId)));
+    ).then(() => dispatch(fetchUserQuestions()));
   };
 
   const favoriteStatus = (questionId) => {
@@ -192,7 +191,7 @@ const QuestionsAnswers = () => {
 
   useEffect(() => {
     dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
+    dispatch(fetchUserQuestions());
   }, []);
 
   const styles = {
