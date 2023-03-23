@@ -323,7 +323,7 @@ const EditQA = () => {
                                     uploadFile();
                                     setNewSingleQImageAltText("");
                                     setShowUpdate(
-                                      `Image with alt text: ${newSingleQImageAltText.trim()}`
+                                      `Image with alt text: "${newSingleQImageAltText.trim()}".`
                                     );
                                     toggleShowToast();
                                   } else {
@@ -460,9 +460,9 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              `Image with alt text: ${newQuestionImageAltText[
+                                              `Image with alt text: "${newQuestionImageAltText[
                                                 linkIdx
-                                              ].trim()}`
+                                              ].trim()}"`
                                             );
                                             toggleShowToast();
                                           }
@@ -670,7 +670,7 @@ const EditQA = () => {
                                     euploadFile();
                                     setNewSingleExpImageAltText("");
                                     setShowUpdate(
-                                      `Image with alt text: ${newSingleExpImageAltText.trim()}`
+                                      `Image with alt text: "${newSingleExpImageAltText.trim()}"`
                                     );
                                     toggleShowToast();
                                   } else {
@@ -810,9 +810,9 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              `Image with alt text: ${newExplanationImageAltText[
+                                              `Image with alt text: "${newExplanationImageAltText[
                                                 linkIdx
-                                              ].trim()}`
+                                              ].trim()}".`
                                             );
                                             toggleShowToast();
                                           }
