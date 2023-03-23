@@ -5,6 +5,7 @@ import {
   fetchAllUsers,
   fetchUserQuestions,
   updateUserQuestion,
+  fetchAllUserQuestions,
 } from "../stats/user_questionsSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
@@ -14,7 +15,13 @@ const Dashboard = () => {
   const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions()));
+    isAdmin
+      ? dispatch(fetchAllQuestionsAnswers()).then(() =>
+          dispatch(fetchAllUserQuestions())
+        )
+      : dispatch(fetchAllQuestionsAnswers()).then(() =>
+          dispatch(fetchUserQuestions())
+        );
     isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
 
