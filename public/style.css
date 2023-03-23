@@ -315,7 +315,7 @@ img {
   font-size: 15px;
 }
 .modal-backdrop {
-  --bs-backdrop-bg: rgb(0 0 0 / 30%) !important;
+  --bs-backdrop-bg: rgba(27, 9, 9, 0.961) !important;
 }
 /* .modal-dialog {
   --bs-modal-width: 60vw;

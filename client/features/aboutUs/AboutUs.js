@@ -73,6 +73,7 @@ const AboutUs = () => {
             show={modalShow}
             onHide={handleClose}
             centered
+            size="lg"
             // masktransitionname="maskTransitionName"
           >
             <Modal.Header
