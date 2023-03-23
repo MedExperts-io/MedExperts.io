@@ -462,7 +462,7 @@ const EditQA = () => {
                                             setShowUpdate(
                                               `Image with alt text: "${newQuestionImageAltText[
                                                 linkIdx
-                                              ].trim()}"`
+                                              ].trim()}".`
                                             );
                                             toggleShowToast();
                                           }
@@ -670,7 +670,7 @@ const EditQA = () => {
                                     euploadFile();
                                     setNewSingleExpImageAltText("");
                                     setShowUpdate(
-                                      `Image with alt text: "${newSingleExpImageAltText.trim()}"`
+                                      `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                                     );
                                     toggleShowToast();
                                   } else {
