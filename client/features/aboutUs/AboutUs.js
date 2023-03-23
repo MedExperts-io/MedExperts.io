@@ -69,7 +69,7 @@ const AboutUs = () => {
                   show={modalShow}
                   onHide={handleClose}
                   centered
-                  masktransitionname="maskTransitionName"
+                  // masktransitionname="maskTransitionName"
                 >
                   <Modal.Header
                     style={{ padding: "4px", margin: "4px", border: "none" }}
