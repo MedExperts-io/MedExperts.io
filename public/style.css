@@ -246,6 +246,8 @@ img {
 .about-heading {
   text-align: center;
   font-weight: 500;
+  font-size: 50px;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }
 
 #member-card {
@@ -317,10 +319,12 @@ img {
 .modal-backdrop {
   --bs-backdrop-bg: rgba(27, 9, 9, 0.961) !important;
 }
-/* .modal-dialog {
-  --bs-modal-width: 60vw;
-  min-width: 50vw;
+.modal-dialog {
+  --bs-modal-width: 75%;
+  --bs-modal-height: 50%;
+  /* min-width: 50vw; */
 }
+/* 
 .modal-content {
   --bs-modal-width: 60vw;
   min-width: 50vw;

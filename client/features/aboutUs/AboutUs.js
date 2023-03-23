@@ -16,9 +16,7 @@ import { Github } from "react-bootstrap-icons";
 
 const AboutUs = () => {
   const [modalShow, setModalShow] = useState(false);
-  console.log(modalShow);
   const [memberInfo, setMemberInfo] = useState(null);
-  console.log(memberInfo, "outside modal");
 
   const handleClose = () => setModalShow(false);
   const handleShow = () => setModalShow(true);
@@ -74,6 +72,7 @@ const AboutUs = () => {
             onHide={handleClose}
             centered
             size="lg"
+            scrollable
             // masktransitionname="maskTransitionName"
           >
             <Modal.Header
@@ -128,8 +127,18 @@ const AboutUs = () => {
                       </p>
                       <Row>
                         <p className="d-flex justify-content-start">
-                          <GitHubIcon />
-                          <LinkedInIcon />
+                          {memberInfo?.github && (
+                            <a
+                              target="_blank"
+                              href={memberInfo?.github}
+                              style={{ color: "#FF6262" }}
+                            >
+                              <GitHubIcon />
+                            </a>
+                          )}
+                          <a target="_blank" style={{ color: "#FF6262" }}>
+                            <LinkedInIcon />
+                          </a>
                         </p>
                       </Row>{" "}
                     </Col>
