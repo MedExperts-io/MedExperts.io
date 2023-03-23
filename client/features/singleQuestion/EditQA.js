@@ -13,6 +13,7 @@ import {
   ToastContainer,
   Table,
   ProgressBar,
+  Alert,
 } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchQAVersions, editQuestion } from "./singleQuestionSlice";
@@ -100,6 +101,11 @@ const EditQA = () => {
   const [showUpdate, setShowUpdate] = useState("");
   const toggleShowToast = () => setShowToast(!showToast);
   //----------- end toast details
+
+  //------------ alert details
+  const [showAlert, setShowAlert] = useState(false);
+  const toggleShowAlert = () => setShowAlert(!showAlert);
+  //----------- end alert details
 
   //------------ modal details
   const [show, setShow] = useState(false);
@@ -199,19 +205,6 @@ const EditQA = () => {
   const fillField = (evt, text) => {
     console.log("FillField function text", text);
     evt.target.value = text;
-
-    // console.log("EXTRAIDX", extraIdx);
-    // if (extraIdx) {
-    //   setNewQuestionImageAltText(
-    //     newQuestionImageAltText?.map((text, idx) => {
-    //       if (idx == extraIdx) {
-    //         newQuestionImageAltText[idx] = "hello";
-    //       }
-    //       return newQuestionImageAltText[idx];
-    //     })
-    //   );
-    //   console.log("FILLFIELD", newQuestionImageAltText[extraIdx]);
-    // }
   };
 
   console.log("INITIAL QUESTION IMG ALT TEXT ARRAY", newQuestionImageAltText);
@@ -229,16 +222,40 @@ const EditQA = () => {
                   bg="success"
                   show={showToast}
                   onClose={toggleShowToast}
-                  delay={3000}
+                  delay={5000}
                   autohide
                   animation={true}
                 >
                   <Toast.Header>
-                    <strong className="me-auto">Saved!</strong>
+                    <strong
+                      className="me-auto"
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "150%",
+                      }}
+                    >
+                      Saved!
+                    </strong>
                   </Toast.Header>
-                  <Toast.Body>{showUpdate}</Toast.Body>
+                  <Toast.Body
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "100%",
+                    }}
+                  >
+                    {showUpdate}
+                  </Toast.Body>
                 </Toast>
               </ToastContainer>
+              <Alert
+                variant="danger"
+                dismissible
+                show={showAlert}
+                onClose={toggleShowAlert}
+              >
+                <Alert.Heading>Alert!</Alert.Heading>
+                <p>You must enter alt text for images.</p>
+              </Alert>
               <Card
                 className="mx-auto"
                 style={{ maxWidth: "900px", padding: "0px" }}
@@ -309,7 +326,7 @@ const EditQA = () => {
                                     );
                                     toggleShowToast();
                                   } else {
-                                    console.log("No alt text entered");
+                                    toggleShowAlert();
                                   }
                                 }
                               }}
@@ -372,7 +389,7 @@ const EditQA = () => {
                                     <img
                                       src={link}
                                       style={{
-                                        width: "200px",
+                                        width: "150px",
                                         height: "100px",
                                       }}
                                     />{" "}
@@ -655,7 +672,7 @@ const EditQA = () => {
                                     );
                                     toggleShowToast();
                                   } else {
-                                    console.log("No alt text entered");
+                                    toggleShowAlert();
                                   }
                                 }
                               }}
@@ -718,7 +735,7 @@ const EditQA = () => {
                                     <img
                                       src={link}
                                       style={{
-                                        width: "100px",
+                                        width: "150px",
                                         height: "100px",
                                       }}
                                     />{" "}
@@ -782,7 +799,7 @@ const EditQA = () => {
                                                 (currentText, idx) => {
                                                   if (idx === linkIdx) {
                                                     currentText =
-                                                    newExplanationImageAltText[
+                                                      newExplanationImageAltText[
                                                         linkIdx
                                                       ].trim();
                                                   }
