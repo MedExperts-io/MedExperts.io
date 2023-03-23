@@ -403,11 +403,6 @@ const EditQA = () => {
                                         defaultValue={
                                           newQuestionImageAltText[linkIdx] ||
                                           " "
-                                          // newQuestionImageAltText[linkIdx]
-                                          //   ? newQuestionImageAltText[
-                                          //       linkIdx
-                                          //     ] !== undefined
-                                          //   : ""
                                         }
                                         onChange={(e) => {
                                           newQuestionImageAltText[linkIdx] =
@@ -778,16 +773,16 @@ const EditQA = () => {
                                         variant="outline-secondary"
                                         onClick={() => {
                                           if (
-                                            newQuestionImageAltText[
+                                            newExplanationImageAltText[
                                               linkIdx
                                             ].trim() !== ""
                                           ) {
-                                            setNewQuestionImageAltText(
-                                              newQuestionImageAltText?.map(
+                                            setNewExplanationImageAltText(
+                                              newExplanationImageAltText?.map(
                                                 (currentText, idx) => {
                                                   if (idx === linkIdx) {
                                                     currentText =
-                                                      newQuestionImageAltText[
+                                                    newExplanationImageAltText[
                                                         linkIdx
                                                       ].trim();
                                                   }
@@ -796,7 +791,7 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              newQuestionImageAltText[
+                                              newExplanationImageAltText[
                                                 linkIdx
                                               ].trim()
                                             );
