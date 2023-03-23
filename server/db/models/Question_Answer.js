@@ -11,9 +11,11 @@ const Question_Answer = db.define("question_answer", {
   },
   questionImageAltText: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
+    defaultValue: [],
   },
   answerOptions: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
+    allowNull: false,
   },
   correctAnswer: {
     type: Sequelize.TEXT,
@@ -27,6 +29,7 @@ const Question_Answer = db.define("question_answer", {
   },
   explanationImageAltText: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
+    defaultValue: [],
   },
   explanationLinks: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
@@ -61,7 +64,11 @@ const Question_Answer = db.define("question_answer", {
     type: Sequelize.INTEGER,
     get() {
       const rawValue = this.getDataValue("displayId");
-      return rawValue ? rawValue : this.getDataValue("ancestorId") ? this.getDataValue("ancestorId") : this.getDataValue("id");
+      return rawValue
+        ? rawValue
+        : this.getDataValue("ancestorId")
+        ? this.getDataValue("ancestorId")
+        : this.getDataValue("id");
     },
   },
   color: {
@@ -80,4 +87,4 @@ const Question_Answer = db.define("question_answer", {
 
 module.exports = Question_Answer;
 
-// displayId middle argumen reference to ancstorId only applies to fake data. Practically, anything without displayId means that it is a root instance and anything with displayId in db means that it has been created thru EditQA. Keep now in case of any edge cases I'm not thinking of. Remove this middle condition if no other edge cases.
+//DisplayId middle argument of ancestorId maybe unnecessary as it only applies to fake data where ancestorId was manually inserted. Practically, anything without displayId means that it is a root instance and anything with displayId in db means that it has been created thru EditQA. Keep now in case of any edge cases I'm not thinking of. Remove this middle condition if no other edge cases.

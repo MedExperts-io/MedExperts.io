@@ -54,7 +54,7 @@ const SingleQAadmin = () => {
     let totalResponses = 0;
     const userResponses = qaVersions.map((aVersion) => {
       if (aVersion.id == qaId) {
-        aVersion.user_questions.map((eachUserInput) => {
+        aVersion.user_questions?.map((eachUserInput) => {
           totalResponses++;
           if (eachUserInput.userInput == ansOption) {
             numOfPicks++;
@@ -111,8 +111,8 @@ const SingleQAadmin = () => {
             </Modal.Header>
             <Modal.Body>
               Once you delete, the previous version of this question will be
-              activated. If no other versions exist, you'll be redirected to the
-              Questions page.
+              activated. If no other versions exist, you will be redirected to
+              the Questions page.
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
