@@ -94,8 +94,6 @@ const EditQA = () => {
     setNewLevel(qaVersions[0]?.level);
   }, [qaVersions]); // set the relation between redux store's qaVersions and local state
 
-  console.log("newQuestionImageAltText", newQuestionImageAltText);
-  console.log("newExplanationImageAltText", newExplanationImageAltText);
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
   const [showUpdate, setShowUpdate] = useState("");
@@ -138,10 +136,6 @@ const EditQA = () => {
         });
       }
     );
-    console.log(
-      "(Iffy about length) newQuestionImage.length",
-      newQuestionImage.length
-    );
     newQuestionImageAltText[newQuestionImage.length] =
       newSingleQImageAltText.trim();
   };
@@ -169,10 +163,6 @@ const EditQA = () => {
         });
       });
     });
-    console.log(
-      "(Iffy about length) newQuestionImage.length",
-      newExplanationImage.length
-    );
     newExplanationImageAltText[newExplanationImage.length] =
       newSingleExpImageAltText.trim();
   };
@@ -203,11 +193,8 @@ const EditQA = () => {
   };
 
   const fillField = (evt, text) => {
-    console.log("FillField function text", text);
     evt.target.value = text;
   };
-
-  console.log("INITIAL QUESTION IMG ALT TEXT ARRAY", newQuestionImageAltText);
 
   if (qaVersions && qaVersions.length) {
     return (
@@ -401,11 +388,6 @@ const EditQA = () => {
                                         as="textarea"
                                         rows={3}
                                         onClick={(evt) => {
-                                          console.log(
-                                            "ONCLICK",
-                                            "newQuestionImageAltText[linkIdx]",
-                                            newQuestionImageAltText[linkIdx]
-                                          );
                                           if (
                                             newQuestionImageAltText[linkIdx] !==
                                             undefined
@@ -425,13 +407,6 @@ const EditQA = () => {
                                         onChange={(e) => {
                                           newQuestionImageAltText[linkIdx] =
                                             e.target.value;
-                                          console.log(
-                                            "ONCHANGE",
-                                            "newQuestionImageAltText[linkIdx]",
-                                            newQuestionImageAltText[linkIdx],
-                                            "e.target.value",
-                                            e.target.value
-                                          );
                                         }}
                                         onFocus={(e) =>
                                           (e.target.placeholder =
@@ -540,21 +515,11 @@ const EditQA = () => {
                               <Form.Control
                                 type="text"
                                 onClick={(evt) => {
-                                  console.log("ONCLICK", option);
-                                  console.log(
-                                    "IS SEALED",
-                                    Object.isSealed(newAnswerOptions)
-                                  );
                                   fillField(evt, option);
                                 }}
                                 defaultValue={option}
                                 onChange={(e) => {
                                   option = e.target.value;
-                                  console.log(
-                                    "ONCHANGE",
-                                    option,
-                                    e.target.value
-                                  );
                                 }}
                                 onFocus={(e) =>
                                   (e.target.placeholder = "Answer Option")
@@ -748,11 +713,6 @@ const EditQA = () => {
                                         as="textarea"
                                         rows={3}
                                         onClick={(evt) => {
-                                          console.log(
-                                            "ONCLICK",
-                                            "newExplanationImageAltText[linkIdx]",
-                                            newExplanationImageAltText[linkIdx]
-                                          );
                                           if (
                                             newExplanationImageAltText[
                                               linkIdx
@@ -775,13 +735,6 @@ const EditQA = () => {
                                         onChange={(e) => {
                                           newExplanationImageAltText[linkIdx] =
                                             e.target.value;
-                                          console.log(
-                                            "ONCHANGE",
-                                            "newExplanationImageAltText[linkIdx]",
-                                            newExplanationImageAltText[linkIdx],
-                                            "e.target.value",
-                                            e.target.value
-                                          );
                                         }}
                                         onFocus={(e) =>
                                           (e.target.placeholder =
