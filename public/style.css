@@ -316,13 +316,16 @@ img {
 }
 
 .modal-dialog {
-  --bs-modal-width: 80vw;
+  --bs-modal-width: 70vw;
+  animation-fill-mode: forwards !important;
 }
 .modal-content {
-  --bs-modal-width: 80vw;
+  --bs-modal-width: 70vw;
   /* max-width: 90vw; */
+  animation-fill-mode: forwards !important;
 }
 
 .modal-backdrop {
   --bs-backdrop-bg: rgb(0 0 0 / 30%) !important;
+  animation-fill-mode: forwards !important;
 }

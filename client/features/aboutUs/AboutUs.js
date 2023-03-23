@@ -65,7 +65,12 @@ const AboutUs = () => {
                     </Card.Title>
                   </Card.ImgOverlay>
                 </Card.Body>{" "}
-                <Modal show={modalShow} onHide={handleClose} centered>
+                <Modal
+                  show={modalShow}
+                  onHide={handleClose}
+                  centered
+                  masktransitionname="maskTransitionName"
+                >
                   <Modal.Header
                     style={{ padding: "4px", margin: "4px", border: "none" }}
                     closeButton
