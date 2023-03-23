@@ -122,7 +122,7 @@ const SingleQAadmin = () => {
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                      <td className="text-center" style={{ fontSize: "10px" }}>
                                         Figure:{index + 1}
                                       </td>
                                     </tr>
@@ -208,31 +208,25 @@ const SingleQAadmin = () => {
                                 ? eachVersion.answerOptions.map((ans, index) => (
                                     <tr key={uuidv4()}>
                                       <td>
-                                        <Button disabled style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
+                                        <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
                                           {ans}
                                         </Button>
                                       </td>
 
                                       <td>
-                                        <OverlayTrigger
-                                          placement="right"
-                                          overlay={<Tooltip id={`tooltip-right`}>{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : "0"}%`}</Tooltip>}
-                                        >
-                                          {
-                                            <ProgressBar
-                                              title="Progress bar for responses"
-                                              aria-label="Progress bar for responses"
-                                              name="Progress bar for responses"
-                                              variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
-                                              style={{
-                                                height: "38px",
-                                                minWidth: "100%",
-                                              }}
-                                              now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == 0 ? responseData(eachVersion.id, ans) : 0}
-                                              label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : "0"}%`}
-                                            />
-                                          }
-                                        </OverlayTrigger>
+                                        <span className="visually-hidden">{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}</span>
+                                        {
+                                          <ProgressBar
+                                            aria-hidden="true"
+                                            variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
+                                            style={{
+                                              height: "38px",
+                                              minWidth: "100%",
+                                            }}
+                                            now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == "0" ? responseData(eachVersion.id, ans) : 100}
+                                            label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}
+                                          />
+                                        }
                                       </td>
                                     </tr>
                                   ))
@@ -267,7 +261,7 @@ const SingleQAadmin = () => {
                                         </thead>
                                         <tbody>
                                           <tr>
-                                            <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                            <td className="text-center" style={{ fontSize: "10px" }}>
                                               Figure:{index + 1}
                                             </td>
                                           </tr>
@@ -354,7 +348,7 @@ const SingleQAadmin = () => {
                                       <tbody>
                                         <tr>
                                           <td
-                                            className="text-muted text-center"
+                                            className="text-center"
                                             style={{
                                               fontSize: "10px",
                                               paddingLeft: "10px",
@@ -446,30 +440,25 @@ const SingleQAadmin = () => {
                                     ? newestVersion.answerOptions.map((ans, index) => (
                                         <tr key={uuidv4()}>
                                           <td>
-                                            <Button disabled style={{ margin: "0" }} variant={ans === newestVersion.correctAnswer ? "success" : "danger"}>
+                                            <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === newestVersion.correctAnswer ? "success" : "danger"}>
                                               {ans}
                                             </Button>
                                           </td>
+
                                           <td>
-                                            <OverlayTrigger
-                                              placement="right"
-                                              overlay={<Tooltip id={`tooltip-right`}>{`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : "0"}%`}</Tooltip>}
-                                            >
-                                              {
-                                                <ProgressBar
-                                                  title="Progress bar for responses"
-                                                  aria-label="Progress bar for responses"
-                                                  name="Progress bar for responses"
-                                                  variant={ans === newestVersion.correctAnswer ? "success" : "danger"}
-                                                  style={{
-                                                    height: "38px",
-                                                    minWidth: "100%",
-                                                  }}
-                                                  now={responseData(newestVersion.id, ans) || responseData(newestVersion.id, ans) == 0 ? responseData(newestVersion.id, ans) : 0}
-                                                  label={`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : "0"}%`}
-                                                />
-                                              }
-                                            </OverlayTrigger>
+                                            <span className="visually-hidden">{`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : 0}%`}</span>
+                                            {
+                                              <ProgressBar
+                                                aria-hidden="true"
+                                                variant={ans === newestVersion.correctAnswer ? "success" : "danger"}
+                                                style={{
+                                                  height: "38px",
+                                                  minWidth: "100%",
+                                                }}
+                                                now={responseData(newestVersion.id, ans) || responseData(newestVersion.id, ans) == "0" ? responseData(newestVersion.id, ans) : 100}
+                                                label={`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : 0}%`}
+                                              />
+                                            }
                                           </td>
                                         </tr>
                                       ))
@@ -504,7 +493,7 @@ const SingleQAadmin = () => {
                                             </thead>
                                             <tbody>
                                               <tr>
-                                                <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                                <td className="text-center" style={{ fontSize: "10px" }}>
                                                   Figure:{index + 1}
                                                 </td>
                                               </tr>
@@ -589,7 +578,7 @@ const SingleQAadmin = () => {
                                       </thead>
                                       <tbody>
                                         <tr>
-                                          <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                          <td className="text-center" style={{ fontSize: "10px" }}>
                                             Figure:{index + 1}
                                           </td>
                                         </tr>
@@ -665,30 +654,25 @@ const SingleQAadmin = () => {
                                     ? eachVersion.answerOptions.map((ans, index) => (
                                         <tr key={uuidv4()}>
                                           <td>
-                                            <Button disabled style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
+                                            <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
                                               {ans}
                                             </Button>
                                           </td>
+
                                           <td>
-                                            <OverlayTrigger
-                                              placement="right"
-                                              overlay={<Tooltip id={`tooltip-right`}>{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : "0"}%`}</Tooltip>}
-                                            >
-                                              {
-                                                <ProgressBar
-                                                  title="Progress bar for responses"
-                                                  aria-label="Progress bar for responses"
-                                                  name="Progress bar for responses"
-                                                  variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
-                                                  style={{
-                                                    height: "38px",
-                                                    minWidth: "100%",
-                                                  }}
-                                                  now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == 0 ? responseData(eachVersion.id, ans) : 0}
-                                                  label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : "0"}%`}
-                                                />
-                                              }
-                                            </OverlayTrigger>
+                                            <span className="visually-hidden">{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}</span>
+                                            {
+                                              <ProgressBar
+                                                aria-hidden="true"
+                                                variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
+                                                style={{
+                                                  height: "38px",
+                                                  minWidth: "100%",
+                                                }}
+                                                now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == "0" ? responseData(eachVersion.id, ans) : 100}
+                                                label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}
+                                              />
+                                            }
                                           </td>
                                         </tr>
                                       ))

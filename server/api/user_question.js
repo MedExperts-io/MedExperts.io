@@ -216,7 +216,7 @@ router.put("/:userId", getToken, async (req, res, next) => {
             plain: true,
           }
         );
-       
+
         res.json(removeFavorite);
       } else if (row.favorite === false && row.userInput) {
         //Can have existed before due to having user input and not favorited
@@ -255,7 +255,6 @@ router.put("/:userId", getToken, async (req, res, next) => {
 router.post("/:userId", getToken, async (req, res, next) => {
   const uId = req.params.userId;
   const { questionAnswerId, userInput, answered, category, level, userExpertise } = req.body;
-
 
   try {
     //If right or wrong answer will be calculated on the frontend
