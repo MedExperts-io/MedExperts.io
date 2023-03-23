@@ -65,78 +65,78 @@ const AboutUs = () => {
                     </Card.Title>
                   </Card.ImgOverlay>
                 </Card.Body>{" "}
-                <Modal
-                  show={modalShow}
-                  onHide={handleClose}
-                  centered
-                  // masktransitionname="maskTransitionName"
-                >
-                  <Modal.Header
-                    style={{ padding: "4px", margin: "4px", border: "none" }}
-                    closeButton
-                  ></Modal.Header>
-                  <Modal.Body>
-                    <Card className="mx-auto" style={{ border: "none" }}>
-                      <Card.Body
-                        className="mx-auto"
-                        style={{ marginTop: "0", paddingTop: "0" }}
-                      >
-                        <Row className="mx-auto">
-                          <Col md={6}>
-                            <div className="d-flex justify-content-center align-items-center">
-                              <img
-                                src={memberInfo?.picture}
-                                style={{ maxWidth: "100%" }}
-                                alt={`${memberInfo?.firstName} ${memberInfo?.lastName}`}
-                              />
-                            </div>
-                          </Col>{" "}
-                          <Col md={6}>
-                            <p
-                              style={{
-                                fontSize: "25px",
-                                fontWeight: "400",
-                                paddingBottom: "0",
-                                marginBottom: "0",
-                              }}
-                            >
-                              {memberInfo?.firstName} {memberInfo?.lastName}
-                            </p>
-                            <p
-                              style={{
-                                fontSize: "20px",
-                                paddingTop: "0",
-                                marginTop: "0",
-                                fontWeight: "200",
-                              }}
-                            >
-                              {memberInfo?.title}
-                            </p>
-                            <p style={{ fontSize: "14px" }}>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Aliquam fringilla purus ac ultricies
-                              facilisis. Integer rutrum, ante et ultricies
-                              cursus, augue augue aliquet orci, non feugiat diam
-                              metus sit amet eros. Nulla facilisi. Mauris sit
-                              amet egestas ligula. Suspendisse potenti. In hac
-                              habitasse platea dictumst. Integer sit amet urna
-                              id sapien laoreet tincidunt in at felis.
-                            </p>
-                            <Row>
-                              <p className="d-flex justify-content-start">
-                                <GitHubIcon />
-                                <LinkedInIcon />
-                              </p>
-                            </Row>{" "}
-                          </Col>
-                        </Row>{" "}
-                      </Card.Body>
-                    </Card>
-                  </Modal.Body>{" "}
-                </Modal>
               </Card>
             );
           })}
+
+          <Modal
+            show={modalShow}
+            onHide={handleClose}
+            centered
+            // masktransitionname="maskTransitionName"
+          >
+            <Modal.Header
+              style={{ padding: "4px", margin: "4px", border: "none" }}
+              closeButton
+            ></Modal.Header>
+            <Modal.Body>
+              <Card className="mx-auto" style={{ border: "none" }}>
+                <Card.Body
+                  className="mx-auto"
+                  style={{ marginTop: "0", paddingTop: "0" }}
+                >
+                  <Row className="mx-auto">
+                    <Col md={6}>
+                      <div className="d-flex justify-content-center align-items-center">
+                        <img
+                          src={memberInfo?.picture}
+                          style={{ maxWidth: "100%" }}
+                          alt={`${memberInfo?.firstName} ${memberInfo?.lastName}`}
+                        />
+                      </div>
+                    </Col>{" "}
+                    <Col md={6}>
+                      <p
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "400",
+                          paddingBottom: "0",
+                          marginBottom: "0",
+                        }}
+                      >
+                        {memberInfo?.firstName} {memberInfo?.lastName}
+                      </p>
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          paddingTop: "0",
+                          marginTop: "0",
+                          fontWeight: "200",
+                        }}
+                      >
+                        {memberInfo?.title}
+                      </p>
+                      <p style={{ fontSize: "14px" }}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Aliquam fringilla purus ac ultricies facilisis. Integer
+                        rutrum, ante et ultricies cursus, augue augue aliquet
+                        orci, non feugiat diam metus sit amet eros. Nulla
+                        facilisi. Mauris sit amet egestas ligula. Suspendisse
+                        potenti. In hac habitasse platea dictumst. Integer sit
+                        amet urna id sapien laoreet tincidunt in at felis.
+                      </p>
+                      <Row>
+                        <p className="d-flex justify-content-start">
+                          <GitHubIcon />
+                          <LinkedInIcon />
+                        </p>
+                      </Row>{" "}
+                    </Col>
+                  </Row>{" "}
+                </Card.Body>
+              </Card>
+            </Modal.Body>{" "}
+          </Modal>
         </Row>
       </Card>
     </Container>
