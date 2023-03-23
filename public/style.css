@@ -315,6 +315,14 @@ img {
   font-size: 15px;
 }
 
+.modal-dialog {
+  --bs-modal-width: 80vw;
+}
+.modal-content {
+  --bs-modal-width: 80vw;
+  /* max-width: 90vw; */
+}
+
 .modal-backdrop {
   --bs-backdrop-bg: rgb(0 0 0 / 30%) !important;
 }

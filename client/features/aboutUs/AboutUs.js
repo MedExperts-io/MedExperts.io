@@ -65,14 +65,11 @@ const AboutUs = () => {
                     </Card.Title>
                   </Card.ImgOverlay>
                 </Card.Body>{" "}
-                <Modal show={modalShow} size="lg" onHide={handleClose} centered>
-                  {" "}
+                <Modal show={modalShow} onHide={handleClose} centered>
                   <Modal.Header
                     style={{ padding: "4px", margin: "4px", border: "none" }}
                     closeButton
-                  >
-                    {" "}
-                  </Modal.Header>
+                  ></Modal.Header>
                   <Modal.Body>
                     <Card className="mx-auto" style={{ border: "none" }}>
                       <Card.Body
