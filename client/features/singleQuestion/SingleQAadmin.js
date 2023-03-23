@@ -28,6 +28,7 @@ const SingleQAadmin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [key, setKey] = useState(newestVersion?.id);
 
   useEffect(() => {
     setTimeout(() => {
@@ -68,24 +69,66 @@ const SingleQAadmin = () => {
     }
   };
 
-  //------------ modal details
+  //------------ Delete modal details
+  const [deleteId, setDeleteId] = useState(null);
+  const [deletePosition, setDeletePosition] = useState("");
   const [show, setShow] = useState(false);
-  const handleClose = () => {
-    setShow(false);
-  };
-  const handleShow = () => setShow(true);
-  //----------- end modal details
 
-  const handleDelete = (id) => {
-    dispatch(deleteSingleQuestion(id));
+  const handleShow = (id, position) => {
+    //Step2: handleShow sets state with provided id & position & shows modal
+    setDeleteId(id);
+    setDeletePosition(position);
+    setShow(true);
   };
-  console.log("QA VERSIONS", qaVersions);
+  const handleClose = () => setShow(false);
+
+  const handleDelete = (id, position) => {
+    //Step4: Based on position, delete dispatched & navigation called.
+    dispatch(deleteSingleQuestion(id));
+    if (position === "only") {
+      navigate(`/questions`);
+    } else if (position === "newest") {
+      setKey();
+      navigate(`/questions/${qaVersions[1].id}`);
+    } else if (position === "older") {
+      setKey(newestVersion?.id);
+    }
+    handleClose(); //Step5: Modal closed
+  };
+  //----------- end Delete modal details
+
   return (
     <Container fluid>
       {loading ? (
         <ProgressBar animated now={100} />
       ) : (
         <Stack gap={3} className="p-3">
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                Delete version with unique ID {deleteId}?
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Once you delete, the previous version of this question will be
+              activated. If no other versions exist, you'll be redirected to the
+              Questions page.
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button
+                variant="danger"
+                onClick={() => {
+                  //Step3: Final delete button clicked and handleDelete function called with deleteId and deletePosition from state
+                  handleDelete(deleteId, deletePosition);
+                }}
+              >
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
           <div>
             {qaVersions && qaVersions?.length ? (
               <div>
@@ -194,44 +237,12 @@ const SingleQAadmin = () => {
                         <Button
                           variant="link"
                           size="small"
-                          onClick={handleShow}
+                          onClick={() => handleShow(eachVersion.id, "only")} //Step1: Delete icon clicked and specific id & position passed to handleShow function
                         >
                           {" "}
                           <DeleteIcon />
                           Delete Version
                         </Button>
-                        <Modal show={show} onHide={handleClose}>
-                          <Modal.Header closeButton>
-                            <Modal.Title>Confirm delete</Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            Once you delete, the previous version of this
-                            question will be activated.
-                            {"\n"}
-                            If no other versions exist, you'll be redirected to
-                            the Questions page.
-                          </Modal.Body>
-                          <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                              Cancel
-                            </Button>
-                            <Button
-                              variant="danger"
-                              onClick={() => {
-                                handleDelete(eachVersion.id);
-                                if (qaVersions.length > 1) {
-                                  if (idx === 0) {
-                                    navigate(`/questions/${qaVersions[1].id}`);
-                                  }
-                                } else {
-                                  navigate(`/questions`);
-                                }
-                              }}
-                            >
-                              Delete
-                            </Button>
-                          </Modal.Footer>
-                        </Modal>
                         {/* <------------------End delete q Btn---------------> */}
                       </Card.Header>
 
@@ -451,9 +462,9 @@ const SingleQAadmin = () => {
                   ))
                 ) : (
                   // <---------------if more than 1 version-------------->
-
                   <Tabs
-                    defaultActiveKey={`${newestVersion.id}`}
+                    activeKey={key}
+                    onSelect={(k) => setKey(k)}
                     id="uncontrolled-tab-example"
                     className="mb-3"
                   >
@@ -562,49 +573,14 @@ const SingleQAadmin = () => {
                             <Button
                               variant="link"
                               size="small"
-                              onClick={handleShow}
+                              onClick={() =>
+                                handleShow(newestVersion.id, "newest")
+                              } //Step1: Delete icon clicked and specific id & position passed to handleShow function
                             >
                               {" "}
                               <DeleteIcon />
                               Delete Version
                             </Button>
-                            <Modal show={show} onHide={handleClose}>
-                              <Modal.Header closeButton>
-                                <Modal.Title>Confirm delete</Modal.Title>
-                              </Modal.Header>
-                              <Modal.Body>
-                                Once you delete, the previous version of this
-                                question will be activated.
-                                {"\n"}
-                                If no other versions exist, you'll be redirected
-                                to the Questions page.
-                              </Modal.Body>
-                              <Modal.Footer>
-                                <Button
-                                  variant="secondary"
-                                  onClick={handleClose}
-                                >
-                                  Cancel
-                                </Button>
-                                <Button
-                                  variant="danger"
-                                  onClick={() => {
-                                    handleDelete(newestVersion.id);
-                                    if (qaVersions.length > 1) {
-                                      // if (idx === 0) {
-                                      navigate(
-                                        `/questions/${qaVersions[1].id}`
-                                      );
-                                      // }
-                                    } else {
-                                      navigate(`/questions`);
-                                    }
-                                  }}
-                                >
-                                  Delete
-                                </Button>
-                              </Modal.Footer>
-                            </Modal>
                             {/* <------------------End delete q Btn---------------> */}
                           </Card.Header>
 
@@ -918,50 +894,14 @@ const SingleQAadmin = () => {
                             <Button
                               variant="link"
                               size="small"
-                              onClick={handleShow}
+                              onClick={() =>
+                                handleShow(eachVersion.id, "older")
+                              } //Step1: Delete icon clicked and specific id & position passed to handleShow function
                             >
                               {" "}
                               <DeleteIcon />
                               Delete Version
                             </Button>
-                            <Modal show={show} onHide={handleClose}>
-                              <Modal.Header closeButton>
-                                <Modal.Title>Confirm delete</Modal.Title>
-                              </Modal.Header>
-                              <Modal.Body>
-                                Once you delete, the previous version of this
-                                question will be activated.
-                                {"\n"}
-                                If no other versions exist, you'll be redirected
-                                to the Questions page.
-                              </Modal.Body>
-                              <Modal.Footer>
-                                <Button
-                                  variant="secondary"
-                                  onClick={handleClose}
-                                >
-                                  Cancel
-                                </Button>
-                                <Button
-                                  variant="danger"
-                                  onClick={() => {
-                                    handleDelete(eachVersion.id);
-                                    console.log("OLD VERSIONS ONCLICK");
-                                    if (qaVersions.length > 1) {
-                                      if (idx === 0) {
-                                        navigate(
-                                          `/questions/${qaVersions[1].id}`
-                                        );
-                                      }
-                                    } else {
-                                      navigate(`/questions`);
-                                    }
-                                  }}
-                                >
-                                  Delete
-                                </Button>
-                              </Modal.Footer>
-                            </Modal>
                             {/* <------------------End delete q Btn---------------> */}
                           </Card.Header>
 
