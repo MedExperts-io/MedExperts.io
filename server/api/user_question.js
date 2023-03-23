@@ -7,7 +7,7 @@ module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
-//GET/api/user_question ----- For admin's dashboard analytics (aggregate)
+//GET/api/user_questions ----- For admin's dashboard analytics (aggregate)
 router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({});
@@ -17,7 +17,7 @@ router.get("/", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-//GET/api/user_question/frequency ----- For admin
+//GET/api/user_questions/frequency ----- For admin
 router.get("/frequency", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
@@ -100,7 +100,7 @@ router.get("/percent_correct", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-//GET/api/user_question/all_active ----- For admin
+//GET/api/user_questions/all_active ----- For admin
 router.get("/all_active", getToken, isAdmin, async (req, res, next) => {
   try {
     const allUserQs = await User_Question.findAll({
@@ -126,7 +126,7 @@ router.get("/all_active", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-//GET/api/user_question/dashboard ------- For user's dashboard analytics
+//GET/api/user_questions/dashboard ------- For user's dashboard analytics
 router.get("/dashboard", getToken, async (req, res, next) => {
   try {
     const userId = req.user.id;
@@ -139,7 +139,7 @@ router.get("/dashboard", getToken, async (req, res, next) => {
   }
 });
 
-//GET/api/user_question/expertise/all ----- For admin to find all questions answered by users of a specific expertise.
+//GET/api/user_questions/expertise/all ----- For admin to find all questions answered by users of a specific expertise.
 router.get("/expertise/all", getToken, isAdmin, async (req, res, next) => {
   try {
     let questionsByExpertise = {

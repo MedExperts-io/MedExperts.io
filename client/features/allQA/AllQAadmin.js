@@ -575,15 +575,8 @@ const AllQAadmin = () => {
               <Col>
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarEasy}>
+                    <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UsereasyQuestionsTotal.length /
-                          EasyQuestionsTotal.length) *
-                          100
-                      ) || 0}
-                      %
-                    </div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     Easy Level
@@ -594,15 +587,8 @@ const AllQAadmin = () => {
               <Col>
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarModerate}>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UserModerateQuestionsTotal.length /
-                          ModerateQuestionsTotal.length) *
-                          100
-                      ) || 0}
-                      %
-                    </div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     <center>Moderate Level</center>
@@ -613,15 +599,8 @@ const AllQAadmin = () => {
               <Col>
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarHard}>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UserHardQuestionsTotal.length /
-                          HardQuestionsTotal.length) *
-                          100
-                      ) || 0}
-                      %
-                    </div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     Hard Level
@@ -632,15 +611,8 @@ const AllQAadmin = () => {
               <Col>
                 <Card id="no-border" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarAll}>
+                    <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
                     <div style={styles.progressBarBackground}>Correct</div>
-                    <div style={styles.progressBarMiddle}>
-                      {Math.round(
-                        (UserAllQuestionsTotal.length /
-                          AllUserQuestions.length) *
-                          100
-                      ) || 0}
-                      %
-                    </div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                     All Levels
@@ -670,11 +642,7 @@ const AllQAadmin = () => {
             </Col>
           </Card.Header>
           <Card.Body>
-            <Row
-              xs="auto"
-              style={{ marginBottom: "20px" }}
-              className="justify-content-center"
-            >
+            <Row xs="auto" style={{ marginBottom: "30px" }} className="justify-content-center">
               <Col md="auto">
                 <Dropdown onSelect={(event) => pickDifficulty(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -690,11 +658,8 @@ const AllQAadmin = () => {
                   </Dropdown.Menu>
                 </Dropdown>
               </Col>
-              <Col>
-                <Dropdown
-                  onSelect={(event) => pickCategory1(event)}
-                  style={{ marginBottom: "10px" }}
-                >
+              <Col md="auto">
+                <Dropdown onSelect={(event) => pickCategory1(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {currentCategory1}
                   </Dropdown.Toggle>
@@ -850,11 +815,8 @@ const AllQAadmin = () => {
                         sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
                         variant="determinate"
                         value={data(question.id)}
-                        color={`${
-                          data(question.id) && data(question.id) >= 50
-                            ? "success"
-                            : "error"
-                        }`}
+                        color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                        aria-hidden="true"
                       />
                       <Card.Footer>
                         <Chip
@@ -869,16 +831,16 @@ const AllQAadmin = () => {
                           size="small"
                           variant="outlined"
                         />
-                        <Card.Img
-                          style={{ float: "right", width: "20px", cursor: "pointer" }}
-                          onClick={() => favorite(question.id)}
-                          variant="top"
-                          src={
-                            favoriteStatus(question.id)
-                              ? "/heart(red).png"
-                              : "/heart.png"
-                          }
-                        />
+                        <button onClick={() => favorite(userId, question.id)} style={{ border: "none", background: "none", float: "right", cursor: "pointer" }}>
+                          <Card.Img
+                            tabIndex={-1}
+                            type="button"
+                            alt={`Heart button for question ${question.displayId}. ${favoriteStatus(question.id) ? "Favorited" : "Not Favorited"} `}
+                            style={{ width: "20px" }}
+                            variant="top"
+                            src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                          />
+                        </button>
                       </Card.Footer>
                     </Card>
                   ))

@@ -13,6 +13,7 @@ import {
   ToastContainer,
   Table,
   ProgressBar,
+  Alert,
 } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchQAVersions, editQuestion } from "./singleQuestionSlice";
@@ -47,7 +48,9 @@ const EditQA = () => {
   );
 
   const [newSingleQImageAltText, setNewSingleQImageAltText] = useState("");
-  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState();
+  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState(
+    qaVersions[0]?.questionImageAltText.slice()
+  );
 
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState(
@@ -64,7 +67,7 @@ const EditQA = () => {
   );
   const [newSingleExpImageAltText, setNewSingleExpImageAltText] = useState("");
   const [newExplanationImageAltText, setNewExplanationImageAltText] = useState(
-    qaVersions[0]?.explanationImageAltText
+    qaVersions[0]?.explanationImageAltText.slice()
   );
 
   const [newSingleLink, setNewSingleLink] = useState("");
@@ -91,13 +94,16 @@ const EditQA = () => {
     setNewLevel(qaVersions[0]?.level);
   }, [qaVersions]); // set the relation between redux store's qaVersions and local state
 
-  console.log("newQuestionImageAltText", newQuestionImageAltText);
-  console.log("newExplanationImageAltText", newExplanationImageAltText);
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
   const [showUpdate, setShowUpdate] = useState("");
   const toggleShowToast = () => setShowToast(!showToast);
   //----------- end toast details
+
+  //------------ alert details
+  const [showAlert, setShowAlert] = useState(false);
+  const toggleShowAlert = () => setShowAlert(!showAlert);
+  //----------- end alert details
 
   //------------ modal details
   const [show, setShow] = useState(false);
@@ -130,10 +136,6 @@ const EditQA = () => {
         });
       }
     );
-    console.log(
-      "(Iffy about length) newQuestionImage.length",
-      newQuestionImage.length
-    );
     newQuestionImageAltText[newQuestionImage.length] =
       newSingleQImageAltText.trim();
   };
@@ -161,10 +163,6 @@ const EditQA = () => {
         });
       });
     });
-    console.log(
-      "(Iffy about length) newQuestionImage.length",
-      newExplanationImage.length
-    );
     newExplanationImageAltText[newExplanationImage.length] =
       newSingleExpImageAltText.trim();
   };
@@ -186,30 +184,17 @@ const EditQA = () => {
         category: newCategory,
         level: newLevel,
         ancestorId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
-        displayId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
+        displayId:
+          qaVersions[0]?.displayId ||
+          qaVersions[0]?.ancestorId ||
+          qaVersions[0]?.id,
       })
     );
   };
 
   const fillField = (evt, text) => {
-    console.log("FillField function text", text);
     evt.target.value = text;
-
-    // console.log("EXTRAIDX", extraIdx);
-    // if (extraIdx) {
-    //   setNewQuestionImageAltText(
-    //     newQuestionImageAltText?.map((text, idx) => {
-    //       if (idx == extraIdx) {
-    //         newQuestionImageAltText[idx] = "hello";
-    //       }
-    //       return newQuestionImageAltText[idx];
-    //     })
-    //   );
-    //   console.log("FILLFIELD", newQuestionImageAltText[extraIdx]);
-    // }
   };
-
-  console.log("INITIAL QUESTION IMG ALT TEXT ARRAY", newQuestionImageAltText);
 
   if (qaVersions && qaVersions.length) {
     return (
@@ -224,16 +209,40 @@ const EditQA = () => {
                   bg="success"
                   show={showToast}
                   onClose={toggleShowToast}
-                  delay={3000}
+                  delay={5000}
                   autohide
                   animation={true}
                 >
                   <Toast.Header>
-                    <strong className="me-auto">Saved!</strong>
+                    <strong
+                      className="me-auto"
+                      style={{
+                        fontSize: "150%",
+                      }}
+                    >
+                      Saved!
+                    </strong>
                   </Toast.Header>
-                  <Toast.Body>{showUpdate}</Toast.Body>
+                  <Toast.Body
+                    style={{
+                      fontSize: "150%",
+                    }}
+                  >
+                    {showUpdate}
+                  </Toast.Body>
                 </Toast>
               </ToastContainer>
+              <Alert
+                variant="danger"
+                dismissible
+                show={showAlert}
+                onClose={toggleShowAlert}
+              >
+                <Alert.Heading>
+                  <strong>Alert!</strong>
+                </Alert.Heading>
+                <p>You must enter alt text for images.</p>
+              </Alert>
               <Card
                 className="mx-auto"
                 style={{ maxWidth: "900px", padding: "0px" }}
@@ -291,6 +300,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleQImageAltText(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -300,11 +310,11 @@ const EditQA = () => {
                                     uploadFile();
                                     setNewSingleQImageAltText("");
                                     setShowUpdate(
-                                      `Image with alt text: ${newSingleQImageAltText.trim()}`
+                                      `Image with alt text: "${newSingleQImageAltText.trim()}".`
                                     );
                                     toggleShowToast();
                                   } else {
-                                    console.log("No alt text entered");
+                                    toggleShowAlert();
                                   }
                                 }
                               }}
@@ -367,7 +377,7 @@ const EditQA = () => {
                                     <img
                                       src={link}
                                       style={{
-                                        width: "200px",
+                                        width: "150px",
                                         height: "100px",
                                       }}
                                     />{" "}
@@ -378,11 +388,6 @@ const EditQA = () => {
                                         as="textarea"
                                         rows={3}
                                         onClick={(evt) => {
-                                          console.log(
-                                            "ONCLICK",
-                                            "newQuestionImageAltText[linkIdx]",
-                                            newQuestionImageAltText[linkIdx]
-                                          );
                                           if (
                                             newQuestionImageAltText[linkIdx] !==
                                             undefined
@@ -398,22 +403,10 @@ const EditQA = () => {
                                         defaultValue={
                                           newQuestionImageAltText[linkIdx] ||
                                           " "
-                                          // newQuestionImageAltText[linkIdx]
-                                          //   ? newQuestionImageAltText[
-                                          //       linkIdx
-                                          //     ] !== undefined
-                                          //   : ""
                                         }
                                         onChange={(e) => {
                                           newQuestionImageAltText[linkIdx] =
                                             e.target.value;
-                                          console.log(
-                                            "ONCHANGE",
-                                            "newQuestionImageAltText[linkIdx]",
-                                            newQuestionImageAltText[linkIdx],
-                                            "e.target.value",
-                                            e.target.value
-                                          );
                                         }}
                                         onFocus={(e) =>
                                           (e.target.placeholder =
@@ -442,9 +435,9 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              newQuestionImageAltText[
+                                              `Image with alt text: "${newQuestionImageAltText[
                                                 linkIdx
-                                              ].trim()
+                                              ].trim()}".`
                                             );
                                             toggleShowToast();
                                           }
@@ -522,21 +515,11 @@ const EditQA = () => {
                               <Form.Control
                                 type="text"
                                 onClick={(evt) => {
-                                  console.log("ONCLICK", option);
-                                  console.log(
-                                    "IS SEALED",
-                                    Object.isSealed(newAnswerOptions)
-                                  );
                                   fillField(evt, option);
                                 }}
                                 defaultValue={option}
                                 onChange={(e) => {
                                   option = e.target.value;
-                                  console.log(
-                                    "ONCHANGE",
-                                    option,
-                                    e.target.value
-                                  );
                                 }}
                                 onFocus={(e) =>
                                   (e.target.placeholder = "Answer Option")
@@ -642,6 +625,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleExpImageAltText(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -651,11 +635,11 @@ const EditQA = () => {
                                     euploadFile();
                                     setNewSingleExpImageAltText("");
                                     setShowUpdate(
-                                      `Image with alt text: ${newSingleExpImageAltText.trim()}`
+                                      `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                                     );
                                     toggleShowToast();
                                   } else {
-                                    console.log("No alt text entered");
+                                    toggleShowAlert();
                                   }
                                 }
                               }}
@@ -718,7 +702,7 @@ const EditQA = () => {
                                     <img
                                       src={link}
                                       style={{
-                                        width: "100px",
+                                        width: "150px",
                                         height: "100px",
                                       }}
                                     />{" "}
@@ -729,11 +713,6 @@ const EditQA = () => {
                                         as="textarea"
                                         rows={3}
                                         onClick={(evt) => {
-                                          console.log(
-                                            "ONCLICK",
-                                            "newExplanationImageAltText[linkIdx]",
-                                            newExplanationImageAltText[linkIdx]
-                                          );
                                           if (
                                             newExplanationImageAltText[
                                               linkIdx
@@ -756,13 +735,6 @@ const EditQA = () => {
                                         onChange={(e) => {
                                           newExplanationImageAltText[linkIdx] =
                                             e.target.value;
-                                          console.log(
-                                            "ONCHANGE",
-                                            "newExplanationImageAltText[linkIdx]",
-                                            newExplanationImageAltText[linkIdx],
-                                            "e.target.value",
-                                            e.target.value
-                                          );
                                         }}
                                         onFocus={(e) =>
                                           (e.target.placeholder =
@@ -773,16 +745,16 @@ const EditQA = () => {
                                         variant="outline-secondary"
                                         onClick={() => {
                                           if (
-                                            newQuestionImageAltText[
+                                            newExplanationImageAltText[
                                               linkIdx
                                             ].trim() !== ""
                                           ) {
-                                            setNewQuestionImageAltText(
-                                              newQuestionImageAltText?.map(
+                                            setNewExplanationImageAltText(
+                                              newExplanationImageAltText?.map(
                                                 (currentText, idx) => {
                                                   if (idx === linkIdx) {
                                                     currentText =
-                                                      newQuestionImageAltText[
+                                                      newExplanationImageAltText[
                                                         linkIdx
                                                       ].trim();
                                                   }
@@ -791,9 +763,9 @@ const EditQA = () => {
                                               )
                                             );
                                             setShowUpdate(
-                                              newQuestionImageAltText[
+                                              `Image with alt text: "${newExplanationImageAltText[
                                                 linkIdx
-                                              ].trim()
+                                              ].trim()}".`
                                             );
                                             toggleShowToast();
                                           }
@@ -1043,9 +1015,9 @@ const EditQA = () => {
                           Your changes have been recorded!
                         </Modal.Body>
                         <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
+                          {/* <Button variant="secondary" onClick={handleClose}>
                             Keep Editing
-                          </Button>
+                          </Button> */}
                           <Button
                             variant="secondary"
                             onClick={() => {
