@@ -24,7 +24,8 @@ import { storage } from "./firebase";
 
 const AddQuestion = () => {
   const [loading, setLoading] = useState(true);
-  const [newQuestion, setNewQuestion] = useState("Type new question here");
+
+  const [newQuestion, setNewQuestion] = useState("");
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState([
     "Answer Option 1",
@@ -35,9 +36,9 @@ const AddQuestion = () => {
   const [newCorrectAnswer, setNewCorrectAnswer] = useState(
     "Select correct answer"
   );
-  const [newExplanation, setNewExplanation] = useState("Type explanation here");
-  const [newSingleLink, setNewSingleLink] = useState("Type link here");
-  const [newSource, setNewSource] = useState("Type citation here");
+  const [newExplanation, setNewExplanation] = useState("");
+  const [newSingleLink, setNewSingleLink] = useState("");
+  const [newSource, setNewSource] = useState("");
   const [newCategory, setNewCategory] = useState("");
   const [newLevel, setNewLevel] = useState("");
 
@@ -79,8 +80,12 @@ const AddQuestion = () => {
   const Questionid = AllQ.length + 1;
 
   //Question Images
-  const [imageUpload, setImageUpload] = useState(null);
+
   const [imageUrls, setImageUrls] = useState([]);
+  const [newSingleQImageAltText, setNewSingleQImageAltText] = useState("");
+  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState([]);
+
+  const [imageUpload, setImageUpload] = useState(null);
   const imagesListRef = ref(storage, `images/${Questionid}/`);
   const uploadFile = () => {
     if (imageUpload == null) return;
@@ -106,8 +111,13 @@ const AddQuestion = () => {
   };
 
   //Explanation Images
-  const [eimageUpload, seteImageUpload] = useState(null);
   const [eimageUrls, seteImageUrls] = useState([]);
+  const [newSingleExpImageAltText, setNewSingleExpImageAltText] = useState("");
+  const [newExplanationImageAltText, setNewExplanationImageAltText] = useState(
+    []
+  );
+
+  const [eimageUpload, seteImageUpload] = useState(null);
   const eimagesListRef = ref(storage, `images/${Questionid}/explanation`);
   const euploadFile = () => {
     if (eimageUpload == null) return;
@@ -186,7 +196,9 @@ const AddQuestion = () => {
                     <Form.Control
                       as="textarea"
                       rows={3}
-                      placeholder={newQuestion}
+                      // placeholder={newQuestion}
+                      placeholder="Type question here"
+                      defaultValue={newQuestion}
                       onChange={(e) => {
                         setNewQuestion(e.target.value);
                       }}
@@ -206,17 +218,35 @@ const AddQuestion = () => {
                       <Form.Control
                         type="file"
                         onChange={(e) => {
-                          setImageUpload(event.target.files[0]);
+                          setImageUpload(e.target.files[0]);
                         }}
+                      />
+
+                      <InputGroup.Text>Alt Text</InputGroup.Text>
+                      <Form.Control
+                        type="text"
+                        placeholder="Type alt text here"
+                        defaultValue={newSingleQImageAltText}
+                        onChange={(e) => {
+                          setNewSingleQImageAltText(e.target.value);
+                        }}
+                        // onFocus={() => setShowAlert(false)}
                       />
 
                       <Button
                         variant="outline-secondary"
                         onClick={() => {
                           if (imageUpload) {
-                            uploadFile();
-                            setShowUpdate("Image");
-                            toggleShowToast();
+                            if (newSingleQImageAltText.trim() !== "") {
+                              uploadFile();
+                              setNewSingleQImageAltText("");
+                              setShowUpdate(
+                                `Image with alt text: "${newSingleQImageAltText.trim()}".`
+                              );
+                              toggleShowToast();
+                            } else {
+                              console.log("Add toast for missing alt text");
+                            }
                           } else {
                             console.log(
                               "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
@@ -228,29 +258,127 @@ const AddQuestion = () => {
                       </Button>
                     </InputGroup>
 
-                    <Table hover size="sm">
-                      <thead>
+                    <Table
+                      size="sm"
+                      bordered
+                      responsive
+                      style={{
+                        tableLayout: "fixed",
+                        textAlign: "center",
+                      }}
+                    >
+                      <thead
+                        style={{
+                          background: "#eaecef",
+                          color: "#6c767d",
+                        }}
+                      >
                         <tr>
-                          <th>Figure</th>
-                          <th>Preview</th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Figure #
+                          </th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Preview
+                          </th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Alt Text
+                          </th>
+                          <th></th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody style={{ borderTop: "none" }}>
                         {imageUrls?.map((link, linkIdx) => (
                           <tr key={uuidv4()}>
                             <td>
                               {" "}
                               <a href={link} target="_blank">
                                 {" "}
-                                Question Figure.{linkIdx + 1}
+                                {linkIdx + 1}
                               </a>
                             </td>
                             <td>
                               <img
                                 src={link}
-                                style={{ width: "100px", height: "100px" }}
+                                style={{ width: "150px", height: "100px" }}
                               />{" "}
                             </td>
+                            {/* <td>
+                                    <InputGroup className="mb-3">
+                                      <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        onClick={(evt) => {
+                                          if (
+                                            newQuestionImageAltText[linkIdx] !==
+                                            undefined
+                                          ) {
+                                            fillField(
+                                              evt,
+                                              newQuestionImageAltText[linkIdx]
+                                            );
+                                          } else {
+                                            fillField(evt, "");
+                                          }
+                                        }}
+                                        defaultValue={
+                                          newQuestionImageAltText[linkIdx] ||
+                                          " "
+                                        }
+                                        onChange={(e) => {
+                                          newQuestionImageAltText[linkIdx] =
+                                            e.target.value;
+                                        }}
+                                        onFocus={(e) =>
+                                          (e.target.placeholder =
+                                            "Type alt text here")
+                                        }
+                                      />
+                                      <Button
+                                        variant="outline-secondary"
+                                        onClick={() => {
+                                          if (
+                                            newQuestionImageAltText[
+                                              linkIdx
+                                            ].trim() !== ""
+                                          ) {
+                                            setNewQuestionImageAltText(
+                                              newQuestionImageAltText?.map(
+                                                (currentText, idx) => {
+                                                  if (idx === linkIdx) {
+                                                    currentText =
+                                                      newQuestionImageAltText[
+                                                        linkIdx
+                                                      ].trim();
+                                                  }
+                                                  return currentText;
+                                                }
+                                              )
+                                            );
+                                            setShowUpdate(
+                                              `Image with alt text: "${newQuestionImageAltText[
+                                                linkIdx
+                                              ].trim()}".`
+                                            );
+                                            toggleShowToast();
+                                          }
+                                        }}
+                                      >
+                                        Save
+                                      </Button>
+                                    </InputGroup>
+                                  </td> */}
                             <td>
                               {" "}
                               <Button
@@ -260,6 +388,13 @@ const AddQuestion = () => {
                                     imageUrls.filter((currentLink, idx) => {
                                       return idx !== linkIdx;
                                     })
+                                  );
+                                  setNewQuestionImageAltText(
+                                    newQuestionImageAltText.filter(
+                                      (currentText, idx) => {
+                                        return idx != linkIdx;
+                                      }
+                                    )
                                   );
                                 }}
                               >
@@ -392,7 +527,10 @@ const AddQuestion = () => {
                     </Form.Label>
                     <Form.Control
                       as="textarea"
-                      placeholder={newExplanation}
+                      rows={3}
+                      // placeholder={newExplanation}
+                      placeholder="Type explanation here"
+                      defaultValue={newExplanation}
                       onChange={(e) => {
                         setNewExplanation(e.target.value);
                       }}
@@ -403,7 +541,7 @@ const AddQuestion = () => {
                 {/* explanation image links */}
 
                 <Row className="mb-3">
-                  <Form.Group as={Col} controlId="questionImage">
+                  <Form.Group as={Col} controlId="explanationImage">
                     <Form.Label className="text-muted">
                       <strong className="me-auto">Explanation Figures</strong>
                     </Form.Label>
@@ -412,17 +550,33 @@ const AddQuestion = () => {
                       <Form.Control
                         type="file"
                         onChange={(e) => {
-                          seteImageUpload(event.target.files[0]);
+                          seteImageUpload(e.target.files[0]);
                         }}
                       />
-
+                      <InputGroup.Text>Alt Text</InputGroup.Text>
+                      <Form.Control
+                        type="text"
+                        placeholder="Type alt text here"
+                        defaultValue={newSingleExpImageAltText}
+                        onChange={(e) => {
+                          setNewSingleExpImageAltText(e.target.value);
+                        }}
+                        // onFocus={() => setShowAlert(false)}
+                      />
                       <Button
                         variant="outline-secondary"
                         onClick={() => {
                           if (eimageUpload) {
-                            euploadFile();
-                            setShowUpdate("Image");
-                            toggleShowToast();
+                            if (newSingleExpImageAltText.trim() !== "") {
+                              euploadFile();
+                              setNewSingleExpImageAltText("");
+                              setShowUpdate(
+                                `Image with alt text: "${newSingleExpImageAltText.trim()}".`
+                              );
+                              toggleShowToast();
+                            } else {
+                              toggleShowAlert();
+                            }
                           } else {
                             console.log(
                               "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
@@ -434,14 +588,47 @@ const AddQuestion = () => {
                       </Button>
                     </InputGroup>
 
-                    <Table hover size="sm">
-                      <thead>
+                    <Table
+                      size="sm"
+                      bordered
+                      responsive
+                      style={{
+                        tableLayout: "fixed",
+                        textAlign: "center",
+                      }}
+                    >
+                      <thead
+                        style={{
+                          background: "#eaecef",
+                          color: "#6c767d",
+                        }}
+                      >
                         <tr>
-                          <th>Explanation Figure</th>
-                          <th>Preview</th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Figure #
+                          </th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Preview
+                          </th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Alt Text
+                          </th>
+                          <th></th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody style={{ borderTop: "none" }}>
                         {eimageUrls?.map((link, linkIdx) => (
                           <tr key={uuidv4()}>
                             <td>
@@ -454,9 +641,73 @@ const AddQuestion = () => {
                             <td>
                               <img
                                 src={link}
-                                style={{ width: "100px", height: "100px" }}
+                                style={{ width: "150px", height: "100px" }}
                               />{" "}
                             </td>
+                            {/* <td>
+                              <InputGroup className="mb-3">
+                                <Form.Control
+                                  as="textarea"
+                                  rows={3}
+                                  onClick={(evt) => {
+                                    if (
+                                      newExplanationImageAltText[linkIdx] !==
+                                      undefined
+                                    ) {
+                                      fillField(
+                                        evt,
+                                        newExplanationImageAltText[linkIdx]
+                                      );
+                                    } else {
+                                      fillField(evt, "");
+                                    }
+                                  }}
+                                  defaultValue={
+                                    newExplanationImageAltText[linkIdx] || " "
+                                  }
+                                  onChange={(e) => {
+                                    newExplanationImageAltText[linkIdx] =
+                                      e.target.value;
+                                  }}
+                                  onFocus={(e) =>
+                                    (e.target.placeholder =
+                                      "Type alt text here")
+                                  }
+                                />
+                                <Button
+                                  variant="outline-secondary"
+                                  onClick={() => {
+                                    if (
+                                      newExplanationImageAltText[
+                                        linkIdx
+                                      ].trim() !== ""
+                                    ) {
+                                      setNewExplanationImageAltText(
+                                        newExplanationImageAltText?.map(
+                                          (currentText, idx) => {
+                                            if (idx === linkIdx) {
+                                              currentText =
+                                                newExplanationImageAltText[
+                                                  linkIdx
+                                                ].trim();
+                                            }
+                                            return currentText;
+                                          }
+                                        )
+                                      );
+                                      setShowUpdate(
+                                        `Image with alt text: "${newExplanationImageAltText[
+                                          linkIdx
+                                        ].trim()}".`
+                                      );
+                                      toggleShowToast();
+                                    }
+                                  }}
+                                >
+                                  Save
+                                </Button>
+                              </InputGroup>
+                            </td> */}
                             <td>
                               {" "}
                               <Button
@@ -466,6 +717,13 @@ const AddQuestion = () => {
                                     eimageUrls.filter((currentLink, idx) => {
                                       return idx !== linkIdx;
                                     })
+                                  );
+                                  setNewExplanationImageAltText(
+                                    newExplanationImageAltText.filter(
+                                      (currentText, idx) => {
+                                        return idx != linkIdx;
+                                      }
+                                    )
                                   );
                                 }}
                               >
@@ -485,20 +743,24 @@ const AddQuestion = () => {
                       <strong className="me-auto">Explanation Sources</strong>
                     </Form.Label>
                     <InputGroup className="mb-3">
-                      <InputGroup.Text>Link and Citation</InputGroup.Text>
+                      <InputGroup.Text>Link</InputGroup.Text>
                       <Form.Control
                         aria-label="Link"
                         type="text"
-                        placeholder={newSingleLink}
+                        // placeholder={newSingleLink}
+                        defaultValue={newSingleLink}
+                        placeholder="Type link here"
                         onChange={(e) => {
                           setNewSingleLink(e.target.value);
                         }}
                       />
-
+                      <InputGroup.Text>Citation</InputGroup.Text>
                       <Form.Control
                         aria-label="Citation"
                         type="text"
-                        placeholder={newSource}
+                        // placeholder={newSource}
+                        placeholder="Type citation here"
+                        defaultValue={newSource}
                         onChange={(e) => {
                           setNewSource(e.target.value);
                         }}
@@ -535,15 +797,40 @@ const AddQuestion = () => {
                       </Button>
                     </InputGroup>
 
-                    <Table hover size="sm">
-                      <thead>
+                    <Table
+                      size="sm"
+                      bordered
+                      responsive
+                      style={{
+                        tableLayout: "fixed",
+                        textAlign: "center",
+                      }}
+                    >
+                      <thead
+                        style={{
+                          background: "#eaecef",
+                          color: "#6c767d",
+                        }}
+                      >
                         <tr>
-                          <th>Link</th>
-                          <th>Citation</th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Link
+                          </th>
+                          <th
+                            style={{
+                              fontWeight: "normal",
+                            }}
+                          >
+                            Citation
+                          </th>
                           <th></th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody style={{ borderTop: "none" }}>
                         {newExplanationLinks?.map((link, linkIdx) => (
                           <tr key={uuidv4()}>
                             <td> {link.slice(9, link.indexOf(">") - 17)}</td>

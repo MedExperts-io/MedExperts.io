@@ -316,6 +316,10 @@ const EditQA = () => {
                                   } else {
                                     toggleShowAlert();
                                   }
+                                } else {
+                                  console.log(
+                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  );
                                 }
                               }}
                             >
@@ -502,6 +506,10 @@ const EditQA = () => {
                                   setNewSingleOption("");
                                   setShowUpdate(newSingleOption.trim());
                                   toggleShowToast();
+                                } else {
+                                  console.log(
+                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  );
                                 }
                               }}
                             >
@@ -509,7 +517,6 @@ const EditQA = () => {
                             </Button>
                           </InputGroup>
 
-                          {/* ------------------------------------------------------------------------------------------------ */}
                           {newAnswerOptions?.map((option, optionIdx) => (
                             <InputGroup className="mb-3" key={uuidv4()}>
                               <Form.Control
@@ -542,6 +549,10 @@ const EditQA = () => {
 
                                     setShowUpdate(option.trim());
                                     toggleShowToast();
+                                  } else {
+                                    console.log(
+                                      "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                    );
                                   }
                                 }}
                               >
@@ -565,7 +576,6 @@ const EditQA = () => {
                           ))}
                         </Form.Group>
                       </Row>
-                      {/* ------------------------------------------------------------------------------------------------ */}
 
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="correctAnswer">
@@ -625,7 +635,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleExpImageAltText(e.target.value);
                               }}
-                              onFocus={() => setShowAlert(false)}
+                              // onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -641,6 +651,10 @@ const EditQA = () => {
                                   } else {
                                     toggleShowAlert();
                                   }
+                                } else {
+                                  console.log(
+                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  );
                                 }
                               }}
                             >
@@ -854,6 +868,10 @@ const EditQA = () => {
                                   setNewSingleLink("");
                                   setNewSource("");
                                   toggleShowToast();
+                                } else {
+                                  console.log(
+                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  );
                                 }
                               }}
                             >
