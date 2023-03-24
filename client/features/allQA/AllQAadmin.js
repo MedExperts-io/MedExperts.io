@@ -209,13 +209,12 @@ const AllQAadmin = () => {
     return filterDataByRight.length;
   };
 
-  const favorite = (userId, questionId) => {
+  const favorite = (questionId) => {
     dispatch(
       updateUserQuestion({
-        userId: userId,
         questionAnswerId: questionId,
       })
-    ).then(() => dispatch(fetchUserQuestions(userId)));
+    ).then(() => dispatch(fetchUserQuestions()));
   };
 
   const favoriteStatus = (questionId) => {
@@ -439,7 +438,7 @@ const AllQAadmin = () => {
   useEffect(() => {
     dispatch(fetchExpertiseQuestions());
     dispatch(fetchAllQuestionsAnswers());
-    dispatch(fetchUserQuestions(userId));
+    dispatch(fetchUserQuestions());
     dispatch(fetchAllUserQuestions());
     dispatch(fetchByAnswerFrequency());
     dispatch(fetchPercentCorrect());
@@ -871,12 +870,8 @@ const AllQAadmin = () => {
                           variant="outlined"
                         />
                         <Card.Img
-                          style={{
-                            float: "right",
-                            width: "20px",
-                            cursor: "pointer",
-                          }}
-                          onClick={() => favorite(userId, question.id)}
+                          style={{ float: "right", width: "20px", cursor: "pointer" }}
+                          onClick={() => favorite(question.id)}
                           variant="top"
                           src={
                             favoriteStatus(question.id)
