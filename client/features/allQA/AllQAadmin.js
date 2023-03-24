@@ -543,8 +543,23 @@ const AllQAadmin = () => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Add New Question</Modal.Title>
+        <Modal.Header
+          closeButton
+          style={
+            {
+              //alignSelf: "center",
+            }
+          }
+        >
+          <Modal.Title
+            style={{
+              fontWeight: "bold",
+              fontSize: "150%",
+              padding: "0px",
+            }}
+          >
+            Add New Question
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddQuestion />
@@ -870,7 +885,11 @@ const AllQAadmin = () => {
                           variant="outlined"
                         />
                         <Card.Img
-                          style={{ float: "right", width: "20px", cursor: "pointer" }}
+                          style={{
+                            float: "right",
+                            width: "20px",
+                            cursor: "pointer",
+                          }}
                           onClick={() => favorite(question.id)}
                           variant="top"
                           src={

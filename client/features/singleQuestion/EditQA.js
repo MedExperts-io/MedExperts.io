@@ -248,11 +248,11 @@ const EditQA = () => {
                 style={{ maxWidth: "900px", padding: "0px" }}
               >
                 <Card.Header
-                  className="text-center"
                   style={{
                     fontWeight: "bold",
                     fontSize: "150%",
                     padding: "0px",
+                    textAlign: "center",
                   }}
                 >
                   Edit Question
