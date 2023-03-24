@@ -198,7 +198,7 @@ const EditQA = () => {
 
   if (qaVersions && qaVersions.length) {
     return (
-      <div>
+      <>
         {loading ? (
           <ProgressBar animated now={100} />
         ) : (
@@ -1035,7 +1035,7 @@ const EditQA = () => {
             </Row>
           </Container>
         )}
-      </div>
+      </>
     );
   } else {
     return <NoExist />;

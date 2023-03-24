@@ -56,10 +56,13 @@ const AddQuestion = () => {
     evt.target.value = text;
   };
 
+  //------------ toast details
   const [showToast, setShowToast] = useState(false);
   const [showUpdate, setShowUpdate] = useState("");
-  const [validated, setValidated] = useState(false);
   const toggleShowToast = () => setShowToast(!showToast);
+  //----------- end toast details
+
+  const [validated, setValidated] = useState(false);
 
   //------------ modal details
   const [show, setShow] = useState(false);
@@ -102,7 +105,7 @@ const AddQuestion = () => {
     );
   };
 
-  //explanation Images
+  //Explanation Images
   const [eimageUpload, seteImageUpload] = useState(null);
   const [eimageUrls, seteImageUrls] = useState([]);
   const eimagesListRef = ref(storage, `images/${Questionid}/explanation`);
@@ -158,7 +161,7 @@ const AddQuestion = () => {
               bg="success"
               show={showToast}
               onClose={toggleShowToast}
-              delay={3000}
+              delay={5000}
               autohide
               animation={true}
             >
