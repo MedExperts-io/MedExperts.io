@@ -23,7 +23,16 @@ import {
 import { storage } from "./firebase";
 
 const AddQuestion = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(fetchAllQuestionsAnswers());
+      setLoading(false);
+    }, 500);
+  }, []);
 
   const [newQuestion, setNewQuestion] = useState("");
   const [newSingleOption, setNewSingleOption] = useState("");
@@ -37,25 +46,13 @@ const AddQuestion = () => {
     "Select correct answer"
   );
   const [newExplanation, setNewExplanation] = useState("");
+
   const [newSingleLink, setNewSingleLink] = useState("");
   const [newSource, setNewSource] = useState("");
-  const [newCategory, setNewCategory] = useState("");
-  const [newLevel, setNewLevel] = useState("");
-
   const [newExplanationLinks, setNewExplanationLinks] = useState([]);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(fetchAllQuestionsAnswers());
-      setLoading(false);
-    }, 500);
-  }, []);
-
-  const clearText = (evt, text) => {
-    evt.target.value = text;
-  };
+  const [newCategory, setNewCategory] = useState("");
+  const [newLevel, setNewLevel] = useState("");
 
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
@@ -72,6 +69,7 @@ const AddQuestion = () => {
     setShow(false);
   };
   const handleShow = () => setShow(true);
+  //------------ end modal details
 
   const AllQ = useSelector((state) => state.questionsAnswers.questionsAnswers);
   const newQuestionid = useSelector(
@@ -80,7 +78,6 @@ const AddQuestion = () => {
   const Questionid = AllQ.length + 1;
 
   //Question Images
-
   const [imageUrls, setImageUrls] = useState([]);
   const [newSingleQImageAltText, setNewSingleQImageAltText] = useState("");
   const [newQuestionImageAltText, setNewQuestionImageAltText] = useState([]);
@@ -148,16 +145,22 @@ const AddQuestion = () => {
       NewQuestionsAnswers({
         question: newQuestion.trim(),
         questionImage: imageUrls,
+        questionImageAltText: newQuestionImageAltText,
         answerOptions: newAnswerOptions,
         correctAnswer: newCorrectAnswer,
         explanation: newExplanation.trim(),
         explanationImage: eimageUrls,
+        explanationImageAltText: newExplanationImageAltText,
         explanationLinks: newExplanationLinks,
         category: newCategory,
         level: newLevel,
       })
     );
     setValidated(true);
+  };
+
+  const clearText = (evt, text) => {
+    evt.target.value = text;
   };
 
   return (

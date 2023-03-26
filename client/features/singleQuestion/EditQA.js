@@ -102,6 +102,7 @@ const EditQA = () => {
 
   //------------ alert details
   const [showAlert, setShowAlert] = useState(false);
+  const [alertMsg, setAlertMsg] = useState("");
   const toggleShowAlert = () => setShowAlert(!showAlert);
   //----------- end alert details
 
@@ -241,7 +242,7 @@ const EditQA = () => {
                 <Alert.Heading>
                   <strong>Alert!</strong>
                 </Alert.Heading>
-                <p>You must enter alt text for images.</p>
+                <p>{alertMsg}</p>
               </Alert>
               <Card
                 className="mx-auto"
@@ -291,6 +292,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setImageUpload(e.target.files[0]);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <InputGroup.Text>Alt Text</InputGroup.Text>
                             <Form.Control
@@ -314,12 +316,16 @@ const EditQA = () => {
                                     );
                                     toggleShowToast();
                                   } else {
+                                    setAlertMsg(
+                                      "You must enter alt text for images."
+                                    );
                                     toggleShowAlert();
                                   }
                                 } else {
-                                  console.log(
-                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  setAlertMsg(
+                                    "You haven't added an image yet."
                                   );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -494,6 +500,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleOption(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -507,9 +514,10 @@ const EditQA = () => {
                                   setShowUpdate(newSingleOption.trim());
                                   toggleShowToast();
                                 } else {
-                                  console.log(
-                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  setAlertMsg(
+                                    "You haven't added a new multiple choice option yet."
                                   );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -531,6 +539,8 @@ const EditQA = () => {
                                 onFocus={(e) =>
                                   (e.target.placeholder = "Answer Option")
                                 }
+                                // placeholder="Type multiple choice option"
+                                // onFocus={() => setShowAlert(false)}
                               />
                               <Button
                                 variant="outline-secondary"
@@ -550,9 +560,10 @@ const EditQA = () => {
                                     setShowUpdate(option.trim());
                                     toggleShowToast();
                                   } else {
-                                    console.log(
-                                      "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                    setAlertMsg(
+                                      `You haven't added any text yet. \n Add a multiple choice option here or remove this field`
                                     );
+                                    toggleShowAlert();
                                   }
                                 }}
                               >
