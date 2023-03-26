@@ -414,10 +414,6 @@ const EditQA = () => {
                                           newQuestionImageAltText[linkIdx] =
                                             e.target.value;
                                         }}
-                                        // onFocus={(e) =>
-                                        //   (e.target.placeholder =
-                                        //     "Type alt text here")
-                                        // }
                                         placeholder="Type alt text here"
                                         onFocus={() => setShowAlert(false)}
                                       />
@@ -539,9 +535,6 @@ const EditQA = () => {
                                 onChange={(e) => {
                                   option = e.target.value;
                                 }}
-                                // onFocus={(e) =>
-                                //   (e.target.placeholder = "Answer Option")
-                                // }
                                 placeholder="Type multiple choice option"
                                 onFocus={() => setShowAlert(false)}
                               />
@@ -764,10 +757,6 @@ const EditQA = () => {
                                           newExplanationImageAltText[linkIdx] =
                                             e.target.value;
                                         }}
-                                        // onFocus={(e) =>
-                                        //   (e.target.placeholder =
-                                        //     "Type alt text here")
-                                        // }
                                         placeholder="Type alt text here"
                                         onFocus={() => setShowAlert(false)}
                                       />
@@ -886,7 +875,7 @@ const EditQA = () => {
                                       `</a`,
                                   ]);
                                   setShowUpdate(
-                                    `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
+                                    `Citation: ${newSource.trim()} \n Link: ${newSingleLink.trim()}`
                                   );
                                   setNewSingleLink("");
                                   setNewSource("");
