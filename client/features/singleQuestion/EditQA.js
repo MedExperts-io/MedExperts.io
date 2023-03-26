@@ -536,11 +536,11 @@ const EditQA = () => {
                                 onChange={(e) => {
                                   option = e.target.value;
                                 }}
-                                onFocus={(e) =>
-                                  (e.target.placeholder = "Answer Option")
-                                }
-                                // placeholder="Type multiple choice option"
-                                // onFocus={() => setShowAlert(false)}
+                                // onFocus={(e) =>
+                                //   (e.target.placeholder = "Answer Option")
+                                // }
+                                placeholder="Type multiple choice option"
+                                onFocus={() => setShowAlert(false)}
                               />
                               <Button
                                 variant="outline-secondary"
@@ -561,7 +561,7 @@ const EditQA = () => {
                                     toggleShowToast();
                                   } else {
                                     setAlertMsg(
-                                      `You haven't added any text yet. \n Add a multiple choice option here or remove this field`
+                                      `You must enter a multiple choice option here or 'Remove' this field`
                                     );
                                     toggleShowAlert();
                                   }
