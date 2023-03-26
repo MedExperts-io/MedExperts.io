@@ -311,19 +311,12 @@ const EditQA = () => {
                                   imageUpload &&
                                   newSingleQImageAltText.trim() !== ""
                                 ) {
-                                  //if (newSingleQImageAltText.trim() !== "") {
                                   uploadFile();
                                   setNewSingleQImageAltText("");
                                   setShowUpdate(
                                     `Image with alt text: "${newSingleQImageAltText.trim()}".`
                                   );
                                   toggleShowToast();
-                                  // } else {
-                                  //   setAlertMsg(
-                                  //     "You must enter alt text for images."
-                                  //   );
-                                  //   toggleShowAlert();
-                                  // }
                                 } else {
                                   setAlertMsg(
                                     "You must enter both Image and Alt Text."
@@ -421,10 +414,12 @@ const EditQA = () => {
                                           newQuestionImageAltText[linkIdx] =
                                             e.target.value;
                                         }}
-                                        onFocus={(e) =>
-                                          (e.target.placeholder =
-                                            "Type alt text here")
-                                        }
+                                        // onFocus={(e) =>
+                                        //   (e.target.placeholder =
+                                        //     "Type alt text here")
+                                        // }
+                                        placeholder="Type alt text here"
+                                        onFocus={() => setShowAlert(false)}
                                       />
                                       <Button
                                         variant="outline-secondary"
@@ -453,6 +448,11 @@ const EditQA = () => {
                                               ].trim()}".`
                                             );
                                             toggleShowToast();
+                                          } else {
+                                            setAlertMsg(
+                                              `You must enter an alt text for the image here or 'Remove' this entire row.`
+                                            );
+                                            toggleShowAlert();
                                           }
                                         }}
                                       >
@@ -658,19 +658,12 @@ const EditQA = () => {
                                   eimageUpload &&
                                   newSingleExpImageAltText.trim() !== ""
                                 ) {
-                                  //if (newSingleExpImageAltText.trim() !== "") {
                                   euploadFile();
                                   setNewSingleExpImageAltText("");
                                   setShowUpdate(
                                     `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                                   );
                                   toggleShowToast();
-                                  // } else {
-                                  //setAlertMsg(
-                                  //     "You must enter alt text for images."
-                                  //   );
-                                  //   toggleShowAlert();
-                                  // }
                                 } else {
                                   setAlertMsg(
                                     "You must enter both Image and Alt Text."
@@ -771,10 +764,12 @@ const EditQA = () => {
                                           newExplanationImageAltText[linkIdx] =
                                             e.target.value;
                                         }}
-                                        onFocus={(e) =>
-                                          (e.target.placeholder =
-                                            "Type alt text here")
-                                        }
+                                        // onFocus={(e) =>
+                                        //   (e.target.placeholder =
+                                        //     "Type alt text here")
+                                        // }
+                                        placeholder="Type alt text here"
+                                        onFocus={() => setShowAlert(false)}
                                       />
                                       <Button
                                         variant="outline-secondary"
@@ -803,6 +798,11 @@ const EditQA = () => {
                                               ].trim()}".`
                                             );
                                             toggleShowToast();
+                                          } else {
+                                            setAlertMsg(
+                                              `You must enter an alt text for the image here or 'Remove' this entire row.`
+                                            );
+                                            toggleShowAlert();
                                           }
                                         }}
                                       >
