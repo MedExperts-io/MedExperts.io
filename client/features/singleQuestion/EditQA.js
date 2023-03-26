@@ -307,23 +307,26 @@ const EditQA = () => {
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                if (imageUpload) {
-                                  if (newSingleQImageAltText.trim() !== "") {
-                                    uploadFile();
-                                    setNewSingleQImageAltText("");
-                                    setShowUpdate(
-                                      `Image with alt text: "${newSingleQImageAltText.trim()}".`
-                                    );
-                                    toggleShowToast();
-                                  } else {
-                                    setAlertMsg(
-                                      "You must enter alt text for images."
-                                    );
-                                    toggleShowAlert();
-                                  }
+                                if (
+                                  imageUpload &&
+                                  newSingleQImageAltText.trim() !== ""
+                                ) {
+                                  //if (newSingleQImageAltText.trim() !== "") {
+                                  uploadFile();
+                                  setNewSingleQImageAltText("");
+                                  setShowUpdate(
+                                    `Image with alt text: "${newSingleQImageAltText.trim()}".`
+                                  );
+                                  toggleShowToast();
+                                  // } else {
+                                  //   setAlertMsg(
+                                  //     "You must enter alt text for images."
+                                  //   );
+                                  //   toggleShowAlert();
+                                  // }
                                 } else {
                                   setAlertMsg(
-                                    "You haven't added an image yet."
+                                    "You must enter both Image and Alt Text."
                                   );
                                   toggleShowAlert();
                                 }
@@ -646,26 +649,33 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleExpImageAltText(e.target.value);
                               }}
-                              // onFocus={() => setShowAlert(false)}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                if (eimageUpload) {
-                                  if (newSingleExpImageAltText.trim() !== "") {
-                                    euploadFile();
-                                    setNewSingleExpImageAltText("");
-                                    setShowUpdate(
-                                      `Image with alt text: "${newSingleExpImageAltText.trim()}".`
-                                    );
-                                    toggleShowToast();
-                                  } else {
-                                    toggleShowAlert();
-                                  }
-                                } else {
-                                  console.log(
-                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                if (
+                                  eimageUpload &&
+                                  newSingleExpImageAltText.trim() !== ""
+                                ) {
+                                  //if (newSingleExpImageAltText.trim() !== "") {
+                                  euploadFile();
+                                  setNewSingleExpImageAltText("");
+                                  setShowUpdate(
+                                    `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                                   );
+                                  toggleShowToast();
+                                  // } else {
+                                  //setAlertMsg(
+                                  //     "You must enter alt text for images."
+                                  //   );
+                                  //   toggleShowAlert();
+                                  // }
+                                } else {
+                                  setAlertMsg(
+                                    "You must enter both Image and Alt Text."
+                                  );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -847,6 +857,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleLink(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <InputGroup.Text>Citation</InputGroup.Text>
                             <Form.Control
@@ -857,6 +868,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSource(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -880,9 +892,10 @@ const EditQA = () => {
                                   setNewSource("");
                                   toggleShowToast();
                                 } else {
-                                  console.log(
-                                    "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                                  setAlertMsg(
+                                    "You must enter both Link and Citation."
                                   );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
