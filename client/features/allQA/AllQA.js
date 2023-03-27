@@ -185,7 +185,7 @@ const QuestionsAnswers = () => {
     if (rightOrWrong && rightOrWrong[id] === "right") {
       return "rgb(144, 238, 144, .25)";
     } else if (rightOrWrong && rightOrWrong[id] === "wrong") {
-      return "rgb(245, 91, 73, .25)";
+      return "rgb(0, 0, 0, .10)";
     }
   };
 
@@ -259,7 +259,8 @@ const QuestionsAnswers = () => {
             <Card.Body>
               <Row>
                 <Col>
-                  <Card id="no-border" className="mx-auto ">
+                  <div className="visually-hidden">Easy Level {easyPercentage}% Completed</div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarMiddle}>{easyPercentage}%</div>
                       <div style={styles.progressBarBackground}>Completed</div>
@@ -271,7 +272,8 @@ const QuestionsAnswers = () => {
                 </Col>
 
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <div className="visually-hidden">Moderate Level {moderatePercentage}% Completed</div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarMiddle}>{moderatePercentage}%</div>
                       <div style={styles.progressBarBackground}>Completed</div>
@@ -283,7 +285,8 @@ const QuestionsAnswers = () => {
                 </Col>
 
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <div className="visually-hidden">Hard Level {hardPercentage}% Completed</div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarMiddle}>{hardPercentage}%</div>
                       <div style={styles.progressBarBackground}>Completed</div>
@@ -295,7 +298,8 @@ const QuestionsAnswers = () => {
                 </Col>
 
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <div className="visually-hidden">All Levels {allPercentage}% Completed</div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarMiddle}>{allPercentage}%</div>
                       <div style={styles.progressBarBackground}>Completed</div>
@@ -407,7 +411,7 @@ const QuestionsAnswers = () => {
                           backgroundColor: cardBodyColor(question.id),
                         }}
                       >
-                        <Link style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
+                        <Link aria-label={`Question Number ${question.displayId}, difficulty: ${question.level} `} style={{ textDecoration: "none" }} to={`/questions/${question.id}`}>
                           <Card.Title
                             style={{
                               color: "black",
@@ -417,16 +421,16 @@ const QuestionsAnswers = () => {
                           >
                             Question Number {question.displayId}
                           </Card.Title>
-                          <Card.Text
-                            style={{
-                              color: "black",
-                              textAlign: "center",
-                              fontSize: "15px",
-                            }}
-                          >
-                            {truncate(question.question)}
-                          </Card.Text>
                         </Link>
+                        <Card.Text
+                          style={{
+                            color: "black",
+                            textAlign: "center",
+                            fontSize: "15px",
+                          }}
+                        >
+                          {truncate(question.question)}
+                        </Card.Text>
                       </Card.Body>
                       <Card.Footer>
                         <Chip
