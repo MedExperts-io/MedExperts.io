@@ -16,16 +16,16 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const sgMail = require("@sendgrid/mail");
 
-// const transport = nodemailer.createTransport({
-//   host: process.env.HOST,
-//   // service: process.env.SERVICE,
-//   port: process.env.PORT,
-//   // secure: true,
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-// });
+const transport = nodemailer.createTransport({
+  host: process.env.HOST,
+  // service: process.env.SERVICE,
+  port: process.env.PORT,
+  // secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 router.post("/login", async (req, res, next) => {
   try {
@@ -65,7 +65,7 @@ router.post("/login", async (req, res, next) => {
 //   }
 // });
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 router.post("/signup", async (req, res, next) => {
   try {
@@ -93,56 +93,58 @@ router.post("/signup", async (req, res, next) => {
     });
 
     //<------------------------------ START sending mail through nodemailer --------------------------------->
-    // let source = fs.readFileSync(
-    //   path.join(__dirname, "/verifyAcctTemplate.hbs"),
-    //   "utf8"
-    // );
-    // let compiledTemplate = handlebars.compile(source);
-    // let htmlToSend = compiledTemplate({
-    //   token: encodeURIComponent(fpSalt),
-    //   uid: encodeURIComponent(tempId),
-    // });
+    let source = fs.readFileSync(
+      path.join(__dirname, "/verifyAcctTemplate.hbs"),
+      "utf8"
+    );
+    let compiledTemplate = handlebars.compile(source);
+    let htmlToSend = compiledTemplate({
+      token: encodeURIComponent(fpSalt),
+      uid: encodeURIComponent(tempId),
+    });
 
-    // const message = () => {
-    //   return {
-    //     from: process.env.SENDER_ADDRESS,
-    //     to: email,
-    //     subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
-    //     html: htmlToSend,
-    //   };
-    // };
-    // transport.sendMail(message(), function (err, info) {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("");
-    //   }
-    // });
+    const message = () => {
+      return {
+        from: process.env.SENDER_ADDRESS,
+        to: email,
+        subject: process.env.VERIFY_ACCT_SUBJECT_LINE_C,
+        html: htmlToSend,
+      };
+    };
+    transport.sendMail(message(), function (err, info) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("");
+      }
+    });
     //<--------------------------- END sending mail through nodemailer ----------------------------->
 
     // <-------------------- START sending mail through sendgrid --------------------->
-    const msg = {
-      to: email, // Change to your recipient
-      from: process.env.SENDER_ADDRESS, // Change to your verified sender
-      // subject: process.env.VERIFY_ACCT_SUBJECT_LINE,
-      dynamic_template_data: {
-        firstName: `${firstName}`,
-        url: `http://localhost:8080/verifyEmail/?token=${fpSalt}&tempId=${tempId}`,
-      },
+    // const msg = {
+    //   to: email, // Change to your recipient
+    //   from: process.env.SENDER_ADDRESS, // Change to your verified sender
+    //   // subject: process.env.VERIFY_ACCT_SUBJECT_LINE_A,
+    //   dynamic_template_data: {
+    //     firstName: `${firstName}`,
+    //     fpSalt: fpSalt,
+    //     tempId: tempId,
+    //     url: `http://localhost:8080/verifyEmail/?token=${fpSalt}&tempId=${tempId}`,
+    //   },
 
-      // templateId: "d-3c887106cc754155846421fcc321156f",
-      templateId: "d-cc66d89d138c46ada031f1d836164a22",
-    };
+    //   templateId: "d-3c887106cc754155846421fcc321156f",
+    //   // templateId: "d-cc66d89d138c46ada031f1d836164a22",
+    // };
 
-    sgMail
-      .send(msg)
-      .then((response) => {
-        console.log(response[0].statusCode);
-        console.log(response[0].headers);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // sgMail
+    //   .send(msg)
+    //   .then((response) => {
+    //     console.log(response[0].statusCode);
+    //     console.log(response[0].headers);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
 
     // <-------------------- END sending mail through sendgrid --------------------->
 
