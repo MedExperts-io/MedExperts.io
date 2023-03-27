@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
-import { fetchAllUsers, fetchUserQuestions, updateUserQuestion, fetchAllUserQuestions } from "../stats/user_questionsSlice";
+import { fetchAllUsers, fetchUserQuestions, fetchAllUserQuestions } from "../stats/user_questionsSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
-import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
-import { CancelRounded } from "@mui/icons-material";
+import { Card, Row, Col, Container } from "react-bootstrap";
+import { v4 as uuidv4 } from "uuid";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
     isAdmin ? dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchAllUserQuestions())) : dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions()));
@@ -289,7 +288,7 @@ const Dashboard = () => {
                     <Card.Body>
                       <Row>
                         {allCategories.map((category) => (
-                          <Col style={{ paddingRight: "60px", paddingLeft: "60px", paddingTop: "15px" }}>
+                          <Col key={uuidv4()} style={{ paddingRight: "60px", paddingLeft: "60px", paddingTop: "15px" }}>
                             <div className="visually-hidden">
                               {`${category} `} {progressBarRatio(category, true)} Completed
                             </div>
