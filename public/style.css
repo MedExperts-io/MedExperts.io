@@ -309,6 +309,25 @@ img {
   font-weight: 200;
   font-size: 15px;
 }
+#member-name1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-weight: 400;
+  text-align: left;
+  font-size: 18px;
+  /* color: #ff6262; */
+}
+#member-role1 {
+  margin: 0;
+  text-align: left;
+  font-weight: 200;
+  font-size: 15px;
+  color: #ff6262;
+}
+#member-desc1 {
+  font-size: 15px;
+  font-weight: 200;
+}
 
 #member-read {
   bottom: 0;
