@@ -190,9 +190,22 @@ const AddQuestion = () => {
               animation={true}
             >
               <Toast.Header>
-                <strong className="me-auto">Saved!</strong>
+                <strong
+                  className="me-auto"
+                  style={{
+                    fontSize: "150%",
+                  }}
+                >
+                  Saved!
+                </strong>
               </Toast.Header>
-              <Toast.Body>{showUpdate}</Toast.Body>
+              <Toast.Body
+                style={{
+                  fontSize: "150%",
+                }}
+              >
+                {showUpdate}
+              </Toast.Body>
             </Toast>
           </ToastContainer>
           <Alert
@@ -245,6 +258,7 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           setImageUpload(e.target.files[0]);
                         }}
+                        onFocus={() => setShowAlert(false)}
                       />
 
                       <InputGroup.Text>Alt Text</InputGroup.Text>
@@ -583,6 +597,7 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           seteImageUpload(e.target.files[0]);
                         }}
+                        onFocus={() => setShowAlert(false)}
                       />
                       <InputGroup.Text>Alt Text</InputGroup.Text>
                       <Form.Control
@@ -679,26 +694,19 @@ const AddQuestion = () => {
                                 style={{ width: "150px", height: "100px" }}
                               />{" "}
                             </td>
-                            {/* <td>
+                            <td>
                               <InputGroup className="mb-3">
                                 <Form.Control
                                   as="textarea"
                                   rows={3}
                                   onClick={(evt) => {
-                                    if (
-                                      newExplanationImageAltText[linkIdx] !==
-                                      undefined
-                                    ) {
-                                      fillField(
-                                        evt,
-                                        newExplanationImageAltText[linkIdx]
-                                      );
-                                    } else {
-                                      fillField(evt, "");
-                                    }
+                                    clearText(
+                                      evt,
+                                      newExplanationImageAltText[linkIdx]
+                                    );
                                   }}
                                   defaultValue={
-                                    newExplanationImageAltText[linkIdx] || " "
+                                    newExplanationImageAltText[linkIdx]
                                   }
                                   onChange={(e) => {
                                     newExplanationImageAltText[linkIdx] =
@@ -745,7 +753,7 @@ const AddQuestion = () => {
                                   Save
                                 </Button>
                               </InputGroup>
-                            </td> */}
+                            </td>
                             <td>
                               {" "}
                               <Button

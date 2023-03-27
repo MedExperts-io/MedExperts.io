@@ -31,23 +31,27 @@ export const NewQuestionsAnswers = createAsyncThunk(
   async ({
     question,
     questionImage,
+    questionImageAltText,
     answerOptions,
     correctAnswer,
     explanation,
     explanationImage,
+    explanationImageAltText,
     explanationLinks,
     category,
     level,
   }) => {
     const { data } = await axios.post(
-      `/api/questions/`,
+      `/api/questions`,
       {
         question,
         questionImage,
+        questionImageAltText,
         answerOptions,
         correctAnswer,
         explanation,
         explanationImage,
+        explanationImageAltText,
         explanationLinks,
         category,
         level,
