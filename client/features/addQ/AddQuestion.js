@@ -1,6 +1,7 @@
 import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import React, { useEffect, useState } from "react";
 import {
+  Alert,
   Button,
   Card,
   Col,
@@ -37,14 +38,12 @@ const AddQuestion = () => {
   const [newQuestion, setNewQuestion] = useState("");
   const [newSingleOption, setNewSingleOption] = useState("");
   const [newAnswerOptions, setNewAnswerOptions] = useState([
-    "Answer Option 1",
-    "Answer Option 2",
-    "Answer Option 3",
-    "Answer Option 4",
+    "Type multiple choice option 1",
+    "Type multiple choice option 2",
+    "Type multiple choice option 3",
+    "Type multiple choice option 4",
   ]);
-  const [newCorrectAnswer, setNewCorrectAnswer] = useState(
-    "Select correct answer"
-  );
+  const [newCorrectAnswer, setNewCorrectAnswer] = useState("Select answer");
   const [newExplanation, setNewExplanation] = useState("");
 
   const [newSingleLink, setNewSingleLink] = useState("");
@@ -59,6 +58,12 @@ const AddQuestion = () => {
   const [showUpdate, setShowUpdate] = useState("");
   const toggleShowToast = () => setShowToast(!showToast);
   //----------- end toast details
+
+  //------------ alert details
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMsg, setAlertMsg] = useState("");
+  const toggleShowAlert = () => setShowAlert(!showAlert);
+  //----------- end alert details
 
   const [validated, setValidated] = useState(false);
 
@@ -76,6 +81,8 @@ const AddQuestion = () => {
     (state) => state.questionsAnswers.newQuestion.id
   );
   const Questionid = AllQ.length + 1;
+  console.log("Questionid", Questionid);
+  console.log("newQuestionid after submit", newQuestionid);
 
   //Question Images
   const [imageUrls, setImageUrls] = useState([]);
@@ -105,6 +112,8 @@ const AddQuestion = () => {
         });
       }
     );
+
+    newQuestionImageAltText[imageUrls.length] = newSingleQImageAltText.trim();
   };
 
   //Explanation Images
@@ -137,6 +146,8 @@ const AddQuestion = () => {
         });
       });
     });
+    newExplanationImageAltText[eimageUrls.length] =
+      newSingleExpImageAltText.trim();
   };
 
   const handleSubmit = (evt) => {
@@ -184,6 +195,17 @@ const AddQuestion = () => {
               <Toast.Body>{showUpdate}</Toast.Body>
             </Toast>
           </ToastContainer>
+          <Alert
+            variant="danger"
+            dismissible
+            show={showAlert}
+            onClose={toggleShowAlert}
+          >
+            <Alert.Heading>
+              <strong>Alert!</strong>
+            </Alert.Heading>
+            <p>{alertMsg}</p>
+          </Alert>
           <Card
             id="no-border"
             className="mx-auto"
@@ -233,27 +255,30 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           setNewSingleQImageAltText(e.target.value);
                         }}
-                        // onFocus={() => setShowAlert(false)}
+                        onFocus={() => setShowAlert(false)}
                       />
-
                       <Button
                         variant="outline-secondary"
                         onClick={() => {
-                          if (imageUpload) {
-                            if (newSingleQImageAltText.trim() !== "") {
-                              uploadFile();
-                              setNewSingleQImageAltText("");
-                              setShowUpdate(
-                                `Image with alt text: "${newSingleQImageAltText.trim()}".`
-                              );
-                              toggleShowToast();
-                            } else {
-                              console.log("Add toast for missing alt text");
-                            }
-                          } else {
-                            console.log(
-                              "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                          if (
+                            imageUpload &&
+                            newSingleQImageAltText.trim() !== ""
+                          ) {
+                            //if (newSingleQImageAltText.trim() !== "") {
+                            uploadFile();
+                            setNewSingleQImageAltText("");
+                            setShowUpdate(
+                              `Image with alt text: "${newSingleQImageAltText.trim()}".`
                             );
+                            toggleShowToast();
+                            // } else {
+                            //   console.log("Add toast for missing alt text");
+                            // }
+                          } else {
+                            setAlertMsg(
+                              "You must enter both Image and Alt Text."
+                            );
+                            toggleShowAlert();
                           }
                         }}
                       >
@@ -317,71 +342,66 @@ const AddQuestion = () => {
                                 style={{ width: "150px", height: "100px" }}
                               />{" "}
                             </td>
-                            {/* <td>
-                                    <InputGroup className="mb-3">
-                                      <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        onClick={(evt) => {
-                                          if (
-                                            newQuestionImageAltText[linkIdx] !==
-                                            undefined
-                                          ) {
-                                            fillField(
-                                              evt,
-                                              newQuestionImageAltText[linkIdx]
-                                            );
-                                          } else {
-                                            fillField(evt, "");
+                            <td>
+                              <InputGroup className="mb-3">
+                                <Form.Control
+                                  as="textarea"
+                                  rows={3}
+                                  onClick={(evt) => {
+                                    clearText(
+                                      evt,
+                                      newQuestionImageAltText[linkIdx]
+                                    );
+                                  }}
+                                  defaultValue={
+                                    newQuestionImageAltText[linkIdx]
+                                  }
+                                  onChange={(e) => {
+                                    newQuestionImageAltText[linkIdx] =
+                                      e.target.value;
+                                  }}
+                                  placeholder="Type alt text here"
+                                  onFocus={() => setShowAlert(false)}
+                                />
+                                <Button
+                                  variant="outline-secondary"
+                                  onClick={() => {
+                                    if (
+                                      newQuestionImageAltText[
+                                        linkIdx
+                                      ].trim() !== ""
+                                    ) {
+                                      setNewQuestionImageAltText(
+                                        newQuestionImageAltText?.map(
+                                          (currentText, idx) => {
+                                            if (idx === linkIdx) {
+                                              currentText =
+                                                newQuestionImageAltText[
+                                                  linkIdx
+                                                ].trim();
+                                            }
+                                            return currentText;
                                           }
-                                        }}
-                                        defaultValue={
-                                          newQuestionImageAltText[linkIdx] ||
-                                          " "
-                                        }
-                                        onChange={(e) => {
-                                          newQuestionImageAltText[linkIdx] =
-                                            e.target.value;
-                                        }}
-                                        onFocus={(e) =>
-                                          (e.target.placeholder =
-                                            "Type alt text here")
-                                        }
-                                      />
-                                      <Button
-                                        variant="outline-secondary"
-                                        onClick={() => {
-                                          if (
-                                            newQuestionImageAltText[
-                                              linkIdx
-                                            ].trim() !== ""
-                                          ) {
-                                            setNewQuestionImageAltText(
-                                              newQuestionImageAltText?.map(
-                                                (currentText, idx) => {
-                                                  if (idx === linkIdx) {
-                                                    currentText =
-                                                      newQuestionImageAltText[
-                                                        linkIdx
-                                                      ].trim();
-                                                  }
-                                                  return currentText;
-                                                }
-                                              )
-                                            );
-                                            setShowUpdate(
-                                              `Image with alt text: "${newQuestionImageAltText[
-                                                linkIdx
-                                              ].trim()}".`
-                                            );
-                                            toggleShowToast();
-                                          }
-                                        }}
-                                      >
-                                        Save
-                                      </Button>
-                                    </InputGroup>
-                                  </td> */}
+                                        )
+                                      );
+                                      setShowUpdate(
+                                        `Image with alt text: "${newQuestionImageAltText[
+                                          linkIdx
+                                        ].trim()}".`
+                                      );
+                                      toggleShowToast();
+                                    } else {
+                                      setAlertMsg(
+                                        `You must enter an alt text for the image here or 'Remove' this entire row.`
+                                      );
+                                      toggleShowAlert();
+                                    }
+                                  }}
+                                >
+                                  Save
+                                </Button>
+                              </InputGroup>
+                            </td>
                             <td>
                               {" "}
                               <Button
@@ -425,6 +445,7 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           setNewSingleOption(e.target.value);
                         }}
+                        onFocus={() => setShowAlert(false)}
                       />
                       <Button
                         variant="outline-secondary"
@@ -434,13 +455,14 @@ const AddQuestion = () => {
                               ...newAnswerOptions,
                               newSingleOption.trim(),
                             ]);
-                            setNewSingleOption(""); // Doesn't clear field for some reason
                             setShowUpdate(newSingleOption.trim());
+                            setNewSingleOption(""); // Doesn't clear field for some reason
                             toggleShowToast();
                           } else {
-                            console.log(
-                              "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                            setAlertMsg(
+                              "You haven't added a new multiple choice option yet."
                             );
+                            toggleShowAlert();
                           }
                         }}
                       >
@@ -453,13 +475,18 @@ const AddQuestion = () => {
                         <Form.Control
                           type="text"
                           onClick={(evt) => clearText(evt, option)}
-                          placeholder={option}
+                          //placeholder={option}
+                          defaultValue={option}
                           onChange={(e) => {
                             option = e.target.value;
                           }}
-                          onFocus={(e) =>
-                            (e.target.placeholder = "Answer Option")
-                          }
+                          // onFocus={(e) =>
+                          //   (e.target.placeholder = "Answer Option")
+                          // }
+                          placeholder={`Type multiple choice option ${
+                            optionIdx + 1
+                          }`}
+                          onFocus={() => setShowAlert(false)}
                         />
                         <Button
                           variant="outline-secondary"
@@ -477,9 +504,10 @@ const AddQuestion = () => {
                               setShowUpdate(option.trim());
                               toggleShowToast();
                             } else {
-                              console.log(
-                                "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                              setAlertMsg(
+                                `You must enter a multiple choice option here or 'Remove' this field`
                               );
+                              toggleShowAlert();
                             }
                           }}
                         >
@@ -564,26 +592,30 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           setNewSingleExpImageAltText(e.target.value);
                         }}
-                        // onFocus={() => setShowAlert(false)}
+                        onFocus={() => setShowAlert(false)}
                       />
                       <Button
                         variant="outline-secondary"
                         onClick={() => {
-                          if (eimageUpload) {
-                            if (newSingleExpImageAltText.trim() !== "") {
-                              euploadFile();
-                              setNewSingleExpImageAltText("");
-                              setShowUpdate(
-                                `Image with alt text: "${newSingleExpImageAltText.trim()}".`
-                              );
-                              toggleShowToast();
-                            } else {
-                              toggleShowAlert();
-                            }
-                          } else {
-                            console.log(
-                              "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                          if (
+                            eimageUpload &&
+                            newSingleExpImageAltText.trim() !== ""
+                          ) {
+                            // if (newSingleExpImageAltText.trim() !== "") {
+                            euploadFile();
+                            setNewSingleExpImageAltText("");
+                            setShowUpdate(
+                              `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                             );
+                            toggleShowToast();
+                            // } else {
+                            //   toggleShowAlert();
+                            // }
+                          } else {
+                            setAlertMsg(
+                              "You must enter both Image and Alt Text."
+                            );
+                            toggleShowAlert();
                           }
                         }}
                       >
@@ -672,10 +704,8 @@ const AddQuestion = () => {
                                     newExplanationImageAltText[linkIdx] =
                                       e.target.value;
                                   }}
-                                  onFocus={(e) =>
-                                    (e.target.placeholder =
-                                      "Type alt text here")
-                                  }
+                                  placeholder="Type alt text here"
+                                  onFocus={() => setShowAlert(false)}
                                 />
                                 <Button
                                   variant="outline-secondary"
@@ -704,6 +734,11 @@ const AddQuestion = () => {
                                         ].trim()}".`
                                       );
                                       toggleShowToast();
+                                    } else {
+                                      setAlertMsg(
+                                        `You must enter an alt text for the image here or 'Remove' this entire row.`
+                                      );
+                                      toggleShowAlert();
                                     }
                                   }}
                                 >
@@ -756,6 +791,7 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           setNewSingleLink(e.target.value);
                         }}
+                        onFocus={() => setShowAlert(false)}
                       />
                       <InputGroup.Text>Citation</InputGroup.Text>
                       <Form.Control
@@ -767,6 +803,7 @@ const AddQuestion = () => {
                         onChange={(e) => {
                           setNewSource(e.target.value);
                         }}
+                        onFocus={() => setShowAlert(false)}
                       />
                       <Button
                         variant="outline-secondary"
@@ -784,15 +821,16 @@ const AddQuestion = () => {
                                 `</a`,
                             ]);
                             setShowUpdate(
-                              `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
+                              `Citation: ${newSource.trim()} \n Link: ${newSingleLink.trim()}`
                             );
                             setNewSingleLink(""); //Doesn't clear field for some reason
                             setNewSource(""); //Doesn't clear field for some reason
                             toggleShowToast();
                           } else {
-                            console.log(
-                              "ADD ALERT FOR MISSING FIELD- ONE OR BOTH FIELDS ARE MISSING"
+                            setAlertMsg(
+                              "You must enter both Link and Citation."
                             );
+                            toggleShowAlert();
                           }
                         }}
                       >
