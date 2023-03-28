@@ -69,6 +69,7 @@ const AddQuestion = () => {
 
   //------------ modal details
   const [show, setShow] = useState(false);
+  const [modalMsg, setModalMsg] = useState("");
   const handleClose = () => {
     setValidated(false);
     setShow(false);
@@ -167,6 +168,7 @@ const AddQuestion = () => {
         level: newLevel,
       })
     );
+    setModalMsg("New question successfully added!");
     setValidated(true);
   };
 
@@ -232,6 +234,7 @@ const AddQuestion = () => {
                       <strong className="me-auto">Question</strong>
                     </Form.Label>
                     <Form.Control
+                      required
                       as="textarea"
                       rows={3}
                       // placeholder={newQuestion}
@@ -984,7 +987,7 @@ const AddQuestion = () => {
                 </center>
 
                 <Modal show={show} onHide={handleClose}>
-                  <Modal.Body>New question successfully added!</Modal.Body>
+                  <Modal.Body>{modalMsg}</Modal.Body>
                   <Modal.Footer>
                     <Button
                       variant="secondary"
