@@ -620,7 +620,7 @@ const AllQAadmin = () => {
                           size="small"
                           variant="outlined"
                         />
-                        <button onClick={() => favorite(userId, question.id)} style={{ border: "none", background: "none", float: "right", cursor: "pointer" }}>
+                        <button onClick={() => favorite(question.id)} style={{ border: "none", background: "none", float: "right", cursor: "pointer" }}>
                           <Card.Img
                             tabIndex={-1}
                             type="button"

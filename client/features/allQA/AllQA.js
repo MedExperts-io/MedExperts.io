@@ -441,7 +441,7 @@ const QuestionsAnswers = () => {
                           variant="outlined"
                           size="small"
                         />{" "}
-                        <button onClick={() => favorite(userId, question.id)} style={{ border: "none", background: "none", float: "right", cursor: "pointer" }}>
+                        <button onClick={() => favorite(question.id)} style={{ border: "none", background: "none", float: "right", cursor: "pointer" }}>
                           <Card.Img
                             tabIndex={-1}
                             type="button"
