@@ -312,10 +312,10 @@ const EditQA = () => {
                                   newSingleQImageAltText.trim() !== ""
                                 ) {
                                   uploadFile();
-                                  setNewSingleQImageAltText("");
                                   setToastMsg(
                                     `Image with alt text: "${newSingleQImageAltText.trim()}".`
                                   );
+                                  setNewSingleQImageAltText("");
                                   toggleShowToast();
                                 } else {
                                   setAlertMsg(
@@ -509,8 +509,8 @@ const EditQA = () => {
                                     ...newAnswerOptions,
                                     newSingleOption.trim(),
                                   ]);
-                                  setNewSingleOption("");
                                   setToastMsg(newSingleOption.trim());
+                                  setNewSingleOption("");
                                   toggleShowToast();
                                 } else {
                                   setAlertMsg(
@@ -652,10 +652,10 @@ const EditQA = () => {
                                   newSingleExpImageAltText.trim() !== ""
                                 ) {
                                   euploadFile();
-                                  setNewSingleExpImageAltText("");
                                   setToastMsg(
                                     `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                                   );
+                                  setNewSingleExpImageAltText("");
                                   toggleShowToast();
                                 } else {
                                   setAlertMsg(

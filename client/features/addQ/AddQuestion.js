@@ -154,7 +154,13 @@ const AddQuestion = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    if (newQuestion.trim() === "" || newCategory === "" || newLevel === "") {
+    if (
+      newQuestion.trim() === "" ||
+      newCategory === "" ||
+      newCategory === "none" ||
+      newLevel === "" ||
+      newLevel === "none"
+    ) {
       setAlertMsg("A required field is missing!");
       toggleShowAlert();
     } else {
@@ -288,10 +294,10 @@ const AddQuestion = () => {
                             newSingleQImageAltText.trim() !== ""
                           ) {
                             uploadFile();
-                            setNewSingleQImageAltText("");
                             setToastMsg(
                               `Image with alt text: "${newSingleQImageAltText.trim()}".`
                             );
+                            setNewSingleQImageAltText("");
                             toggleShowToast();
                           } else {
                             setAlertMsg(
@@ -618,10 +624,10 @@ const AddQuestion = () => {
                             newSingleExpImageAltText.trim() !== ""
                           ) {
                             euploadFile();
-                            setNewSingleExpImageAltText("");
                             setToastMsg(
                               `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                             );
+                            setNewSingleExpImageAltText("");
                             toggleShowToast();
                           } else {
                             setAlertMsg(
@@ -920,7 +926,7 @@ const AddQuestion = () => {
                       }}
                       onFocus={() => setShowAlert(false)}
                     >
-                      <option defaultValue>Select category</option>
+                      <option value="none">Select category</option>
                       <option value="Asthma">Asthma</option>
                       <option value="Bronchiectasis">Bronchiectasis</option>
                       <option value="Chronic Obstructive Pulmonary Disease">
@@ -962,7 +968,7 @@ const AddQuestion = () => {
                       }}
                       onFocus={() => setShowAlert(false)}
                     >
-                      <option defaultValue>Select difficulty level</option>
+                      <option value="none">Select difficulty level</option>
                       <option value="Easy">Easy</option>
                       <option value="Moderate">Moderate</option>
                       <option value="Hard">Hard</option>
@@ -978,7 +984,9 @@ const AddQuestion = () => {
                       if (
                         newQuestion.trim() !== "" &&
                         newCategory !== "" &&
-                        newLevel !== ""
+                        newCategory !== "none" &&
+                        newLevel !== "" &&
+                        newLevel !== "none"
                       ) {
                         handleShow();
                       }
