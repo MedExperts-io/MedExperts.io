@@ -155,7 +155,8 @@ const AddQuestion = () => {
     evt.preventDefault();
 
     if (newQuestion.trim() === "" || newCategory === "" || newLevel === "") {
-      setModalMsg("A required field is missing!");
+      setAlertMsg("A required field is missing!");
+      toggleShowAlert();
     } else {
       dispatch(
         NewQuestionsAnswers({
@@ -242,12 +243,12 @@ const AddQuestion = () => {
                       required
                       as="textarea"
                       rows={3}
-                      // placeholder={newQuestion}
                       placeholder="Type question here"
                       defaultValue={newQuestion}
                       onChange={(e) => {
                         setNewQuestion(e.target.value);
                       }}
+                      onFocus={() => setShowAlert(false)}
                     />
                   </Form.Group>
                 </Row>
@@ -573,12 +574,12 @@ const AddQuestion = () => {
                     <Form.Control
                       as="textarea"
                       rows={3}
-                      // placeholder={newExplanation}
                       placeholder="Type explanation here"
                       defaultValue={newExplanation}
                       onChange={(e) => {
                         setNewExplanation(e.target.value);
                       }}
+                      onFocus={() => setShowAlert(false)}
                     ></Form.Control>
                   </Form.Group>
                 </Row>
@@ -616,16 +617,12 @@ const AddQuestion = () => {
                             eimageUpload &&
                             newSingleExpImageAltText.trim() !== ""
                           ) {
-                            // if (newSingleExpImageAltText.trim() !== "") {
                             euploadFile();
                             setNewSingleExpImageAltText("");
                             setShowUpdate(
                               `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                             );
                             toggleShowToast();
-                            // } else {
-                            //   toggleShowAlert();
-                            // }
                           } else {
                             setAlertMsg(
                               "You must enter both Image and Alt Text."
@@ -793,7 +790,6 @@ const AddQuestion = () => {
                       <Form.Control
                         aria-label="Link"
                         type="text"
-                        // placeholder={newSingleLink}
                         defaultValue={newSingleLink}
                         placeholder="Type link here"
                         onChange={(e) => {
@@ -805,7 +801,6 @@ const AddQuestion = () => {
                       <Form.Control
                         aria-label="Citation"
                         type="text"
-                        // placeholder={newSource}
                         placeholder="Type citation here"
                         defaultValue={newSource}
                         onChange={(e) => {
@@ -923,6 +918,7 @@ const AddQuestion = () => {
                       onChange={(e) => {
                         setNewCategory(e.target.value);
                       }}
+                      onFocus={() => setShowAlert(false)}
                     >
                       <option defaultValue>{"Category"}</option>
                       <option value="Asthma">Asthma</option>
@@ -964,8 +960,9 @@ const AddQuestion = () => {
                       onChange={(e) => {
                         setNewLevel(e.target.value);
                       }}
+                      onFocus={() => setShowAlert(false)}
                     >
-                      <option defaultValue> {"Difficulty Level"}</option>
+                      <option disabled>Select difficulty level</option>
                       <option value="Easy">Easy</option>
                       <option value="Moderate">Moderate</option>
                       <option value="Hard">Hard</option>
@@ -977,7 +974,15 @@ const AddQuestion = () => {
                   <Button
                     type="submit"
                     variant="secondary"
-                    onClick={handleShow}
+                    onClick={() => {
+                      if (
+                        newQuestion.trim() !== "" &&
+                        newCategory !== "" &&
+                        newLevel !== ""
+                      ) {
+                        handleShow();
+                      }
+                    }}
                   >
                     Add Question
                   </Button>
@@ -986,22 +991,14 @@ const AddQuestion = () => {
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Body>{modalMsg}</Modal.Body>
                   <Modal.Footer>
-                    {newQuestion.trim() === "" ||
-                    newCategory === "" ||
-                    newLevel === "" ? (
-                      <Button variant="secondary" onClick={handleClose}>
-                        Keep Editing
-                      </Button>
-                    ) : (
-                      <Button
-                        variant="secondary"
-                        onClick={() => {
-                          navigate(`/questions/${newQuestionid}`);
-                        }}
-                      >
-                        View Question
-                      </Button>
-                    )}
+                    <Button
+                      variant="secondary"
+                      onClick={() => {
+                        navigate(`/questions/${newQuestionid}`);
+                      }}
+                    >
+                      View Question
+                    </Button>
                   </Modal.Footer>
                 </Modal>
               </Form>
