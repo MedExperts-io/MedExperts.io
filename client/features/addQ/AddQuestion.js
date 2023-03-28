@@ -153,23 +153,28 @@ const AddQuestion = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(
-      NewQuestionsAnswers({
-        question: newQuestion.trim(),
-        questionImage: imageUrls,
-        questionImageAltText: newQuestionImageAltText,
-        answerOptions: newAnswerOptions,
-        correctAnswer: newCorrectAnswer,
-        explanation: newExplanation.trim(),
-        explanationImage: eimageUrls,
-        explanationImageAltText: newExplanationImageAltText,
-        explanationLinks: newExplanationLinks,
-        category: newCategory,
-        level: newLevel,
-      })
-    );
-    setModalMsg("New question successfully added!");
-    setValidated(true);
+
+    if (newQuestion.trim() === "" || newCategory === "" || newLevel === "") {
+      setModalMsg("A required field is missing!");
+    } else {
+      dispatch(
+        NewQuestionsAnswers({
+          question: newQuestion.trim(),
+          questionImage: imageUrls,
+          questionImageAltText: newQuestionImageAltText,
+          answerOptions: newAnswerOptions,
+          correctAnswer: newCorrectAnswer,
+          explanation: newExplanation.trim(),
+          explanationImage: eimageUrls,
+          explanationImageAltText: newExplanationImageAltText,
+          explanationLinks: newExplanationLinks,
+          category: newCategory,
+          level: newLevel,
+        })
+      );
+      setModalMsg("New question successfully added!");
+      setValidated(true);
+    }
   };
 
   const clearText = (evt, text) => {
@@ -281,16 +286,12 @@ const AddQuestion = () => {
                             imageUpload &&
                             newSingleQImageAltText.trim() !== ""
                           ) {
-                            //if (newSingleQImageAltText.trim() !== "") {
                             uploadFile();
                             setNewSingleQImageAltText("");
                             setShowUpdate(
                               `Image with alt text: "${newSingleQImageAltText.trim()}".`
                             );
                             toggleShowToast();
-                            // } else {
-                            //   console.log("Add toast for missing alt text");
-                            // }
                           } else {
                             setAlertMsg(
                               "You must enter both Image and Alt Text."
@@ -492,14 +493,10 @@ const AddQuestion = () => {
                         <Form.Control
                           type="text"
                           onClick={(evt) => clearText(evt, option)}
-                          //placeholder={option}
                           defaultValue={option}
                           onChange={(e) => {
                             option = e.target.value;
                           }}
-                          // onFocus={(e) =>
-                          //   (e.target.placeholder = "Answer Option")
-                          // }
                           placeholder={`Type multiple choice option ${
                             optionIdx + 1
                           }`}
@@ -989,14 +986,22 @@ const AddQuestion = () => {
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Body>{modalMsg}</Modal.Body>
                   <Modal.Footer>
-                    <Button
-                      variant="secondary"
-                      onClick={() => {
-                        navigate(`/questions/${newQuestionid}`);
-                      }}
-                    >
-                      View Question
-                    </Button>
+                    {newQuestion.trim() === "" ||
+                    newCategory === "" ||
+                    newLevel === "" ? (
+                      <Button variant="secondary" onClick={handleClose}>
+                        Keep Editing
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="secondary"
+                        onClick={() => {
+                          navigate(`/questions/${newQuestionid}`);
+                        }}
+                      >
+                        View Question
+                      </Button>
+                    )}
                   </Modal.Footer>
                 </Modal>
               </Form>
