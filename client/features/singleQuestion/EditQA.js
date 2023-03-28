@@ -96,7 +96,7 @@ const EditQA = () => {
 
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
-  const [showUpdate, setShowUpdate] = useState("");
+  const [toastMsg, setToastMsg] = useState("");
   const toggleShowToast = () => setShowToast(!showToast);
   //----------- end toast details
 
@@ -107,11 +107,11 @@ const EditQA = () => {
   //----------- end alert details
 
   //------------ modal details
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const handleClose = () => {
-    setShow(false);
+    setShowModal(false);
   };
-  const handleShow = () => setShow(true);
+  const handleShow = () => setShowModal(true);
   //----------- end modal details
 
   //Question Images
@@ -229,7 +229,7 @@ const EditQA = () => {
                       fontSize: "150%",
                     }}
                   >
-                    {showUpdate}
+                    {toastMsg}
                   </Toast.Body>
                 </Toast>
               </ToastContainer>
@@ -313,7 +313,7 @@ const EditQA = () => {
                                 ) {
                                   uploadFile();
                                   setNewSingleQImageAltText("");
-                                  setShowUpdate(
+                                  setToastMsg(
                                     `Image with alt text: "${newSingleQImageAltText.trim()}".`
                                   );
                                   toggleShowToast();
@@ -438,7 +438,7 @@ const EditQA = () => {
                                                 }
                                               )
                                             );
-                                            setShowUpdate(
+                                            setToastMsg(
                                               `Image with alt text: "${newQuestionImageAltText[
                                                 linkIdx
                                               ].trim()}".`
@@ -510,7 +510,7 @@ const EditQA = () => {
                                     newSingleOption.trim(),
                                   ]);
                                   setNewSingleOption("");
-                                  setShowUpdate(newSingleOption.trim());
+                                  setToastMsg(newSingleOption.trim());
                                   toggleShowToast();
                                 } else {
                                   setAlertMsg(
@@ -553,7 +553,7 @@ const EditQA = () => {
                                       )
                                     );
 
-                                    setShowUpdate(option.trim());
+                                    setToastMsg(option.trim());
                                     toggleShowToast();
                                   } else {
                                     setAlertMsg(
@@ -653,7 +653,7 @@ const EditQA = () => {
                                 ) {
                                   euploadFile();
                                   setNewSingleExpImageAltText("");
-                                  setShowUpdate(
+                                  setToastMsg(
                                     `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                                   );
                                   toggleShowToast();
@@ -781,7 +781,7 @@ const EditQA = () => {
                                                 }
                                               )
                                             );
-                                            setShowUpdate(
+                                            setToastMsg(
                                               `Image with alt text: "${newExplanationImageAltText[
                                                 linkIdx
                                               ].trim()}".`
@@ -874,7 +874,7 @@ const EditQA = () => {
                                       newSource.trim() +
                                       `</a`,
                                   ]);
-                                  setShowUpdate(
+                                  setToastMsg(
                                     `Citation: ${newSource.trim()} \n Link: ${newSingleLink.trim()}`
                                   );
                                   setNewSingleLink("");
@@ -1041,7 +1041,7 @@ const EditQA = () => {
                           Update
                         </Button>
                       </center>
-                      <Modal show={show} onHide={handleClose}>
+                      <Modal show={showModal} onHide={handleClose}>
                         <Modal.Body>
                           Your changes have been recorded!
                         </Modal.Body>

@@ -55,7 +55,7 @@ const AddQuestion = () => {
 
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
-  const [showUpdate, setShowUpdate] = useState("");
+  const [toastMsg, setToastMsg] = useState("");
   const toggleShowToast = () => setShowToast(!showToast);
   //----------- end toast details
 
@@ -68,13 +68,13 @@ const AddQuestion = () => {
   const [validated, setValidated] = useState(false);
 
   //------------ modal details
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [modalMsg, setModalMsg] = useState("");
   const handleClose = () => {
     setValidated(false);
-    setShow(false);
+    setShowModal(false);
   };
-  const handleShow = () => setShow(true);
+  const handleShow = () => setShowModal(true);
   //------------ end modal details
 
   const AllQ = useSelector((state) => state.questionsAnswers.questionsAnswers);
@@ -212,7 +212,7 @@ const AddQuestion = () => {
                   fontSize: "150%",
                 }}
               >
-                {showUpdate}
+                {toastMsg}
               </Toast.Body>
             </Toast>
           </ToastContainer>
@@ -289,7 +289,7 @@ const AddQuestion = () => {
                           ) {
                             uploadFile();
                             setNewSingleQImageAltText("");
-                            setShowUpdate(
+                            setToastMsg(
                               `Image with alt text: "${newSingleQImageAltText.trim()}".`
                             );
                             toggleShowToast();
@@ -403,7 +403,7 @@ const AddQuestion = () => {
                                           }
                                         )
                                       );
-                                      setShowUpdate(
+                                      setToastMsg(
                                         `Image with alt text: "${newQuestionImageAltText[
                                           linkIdx
                                         ].trim()}".`
@@ -474,7 +474,7 @@ const AddQuestion = () => {
                               ...newAnswerOptions,
                               newSingleOption.trim(),
                             ]);
-                            setShowUpdate(newSingleOption.trim());
+                            setToastMsg(newSingleOption.trim());
                             setNewSingleOption(""); // Doesn't clear field for some reason
                             toggleShowToast();
                           } else {
@@ -516,7 +516,7 @@ const AddQuestion = () => {
                                 })
                               );
 
-                              setShowUpdate(option.trim());
+                              setToastMsg(option.trim());
                               toggleShowToast();
                             } else {
                               setAlertMsg(
@@ -619,7 +619,7 @@ const AddQuestion = () => {
                           ) {
                             euploadFile();
                             setNewSingleExpImageAltText("");
-                            setShowUpdate(
+                            setToastMsg(
                               `Image with alt text: "${newSingleExpImageAltText.trim()}".`
                             );
                             toggleShowToast();
@@ -733,7 +733,7 @@ const AddQuestion = () => {
                                           }
                                         )
                                       );
-                                      setShowUpdate(
+                                      setToastMsg(
                                         `Image with alt text: "${newExplanationImageAltText[
                                           linkIdx
                                         ].trim()}".`
@@ -823,7 +823,7 @@ const AddQuestion = () => {
                                 newSource.trim() +
                                 `</a`,
                             ]);
-                            setShowUpdate(
+                            setToastMsg(
                               `Citation: ${newSource.trim()} \n Link: ${newSingleLink.trim()}`
                             );
                             setNewSingleLink(""); //Doesn't clear field for some reason
@@ -920,7 +920,7 @@ const AddQuestion = () => {
                       }}
                       onFocus={() => setShowAlert(false)}
                     >
-                      <option defaultValue>{"Category"}</option>
+                      <option defaultValue>Select category</option>
                       <option value="Asthma">Asthma</option>
                       <option value="Bronchiectasis">Bronchiectasis</option>
                       <option value="Chronic Obstructive Pulmonary Disease">
@@ -962,7 +962,7 @@ const AddQuestion = () => {
                       }}
                       onFocus={() => setShowAlert(false)}
                     >
-                      <option disabled>Select difficulty level</option>
+                      <option defaultValue>Select difficulty level</option>
                       <option value="Easy">Easy</option>
                       <option value="Moderate">Moderate</option>
                       <option value="Hard">Hard</option>
@@ -988,7 +988,7 @@ const AddQuestion = () => {
                   </Button>
                 </center>
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={showModal} onHide={handleClose}>
                   <Modal.Body>{modalMsg}</Modal.Body>
                   <Modal.Footer>
                     <Button
