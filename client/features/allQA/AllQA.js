@@ -40,6 +40,10 @@ const QuestionsAnswers = () => {
   ];
   const [currentCategory1, setCurrentCategory1] = useState(categories[0]);
   const userExpertise = ["All Expertise", "Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
+  const answerStatusOptions = ["All", "Answered", "Unanswered"];
+  const currentAnswerStatus = useRef(answerStatusOptions[0]);
+  const answerCorrectOptions = ["All", "Correct", "Incorrect"];
+  const currentCorrectStatus = useRef(answerCorrectOptions[0]);
   const currentExpertise = useRef(userExpertise[0]);
   const userExpertiseRelation = {
     "All Expertise": null,
@@ -128,7 +132,6 @@ const QuestionsAnswers = () => {
   const pickExpertise = (event) => {
     currentExpertise.current = event;
     !seeFavorites ? (isFavorited = true) : null;
-    //filterCriteria[2] = event;
     filterFunction();
   };
 
@@ -136,6 +139,18 @@ const QuestionsAnswers = () => {
     setCurrentCategory1(event);
     !seeFavorites ? (isFavorited = true) : null;
     filterCriteria[1] = event;
+    filterFunction();
+  };
+
+  const changeAnswerStatus = (event) => {
+    currentAnswerStatus.current = event;
+    !seeFavorites ? (isFavorited = true) : null;
+    filterFunction();
+  };
+
+  const changeCorrectStatus = (event) => {
+    currentCorrectStatus.current = event;
+    !seeFavorites ? (isFavorited = true) : null;
     filterFunction();
   };
 
@@ -148,8 +163,22 @@ const QuestionsAnswers = () => {
   };
 
   const filterFunction = () => {
+    console.log("userquestions", UserQuestions, "questionanswers", questionsAnswers);
+    console.log("currentExpertise", currentExpertise, "currentDifficulty", currentDifficulty);
+    console.log("answerStatus", currentAnswerStatus.current, "correctStatus", currentCorrectStatus.current);
+
     let multiFilter = allQuestions;
+    let rightAnswers = UserQuestions.filter((question) => question.answered === "right").map((question) => question.questionAnswerId);
+    let wrongAnswers = UserQuestions.filter((question) => question.answered === "wrong").map((question) => question.questionAnswerId);
+    let answered = UserQuestions.filter((question) => question.answered !== null).map((question) => question.questionAnswerId);
     let favNumbers = UserQuestions.filter((question) => question.favorite === true).map((question) => question.questionAnswerId);
+
+    currentAnswerStatus.current === "Answered" ? (multiFilter = multiFilter.filter((question) => answered.includes(question.id))) : null;
+    currentAnswerStatus.current === "Unanswered" ? (multiFilter = multiFilter.filter((question) => !answered.includes(question.id))) : null;
+
+    currentCorrectStatus.current === "Correct" ? (multiFilter = multiFilter.filter((question) => rightAnswers.includes(question.id))) : null;
+    currentCorrectStatus.current === "Incorrect" ? (multiFilter = multiFilter.filter((question) => wrongAnswers.includes(question.id))) : null;
+
     isFavorited ? (multiFilter = multiFilter.filter((question) => favNumbers.includes(question.id))) : null;
 
     if (userExpertiseRelation[currentExpertise.current]) {
@@ -370,6 +399,36 @@ const QuestionsAnswers = () => {
 
                     <Dropdown.Menu>
                       {categories.map((category) => (
+                        <Dropdown.Item key={category} eventKey={category}>
+                          {category}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+                <Col>
+                  <Dropdown onSelect={(event) => changeAnswerStatus(event)} style={{ marginBottom: "10px" }}>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {currentAnswerStatus.current}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {answerStatusOptions.map((category) => (
+                        <Dropdown.Item key={category} eventKey={category}>
+                          {category}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+                <Col>
+                  <Dropdown onSelect={(event) => changeCorrectStatus(event)} style={{ marginBottom: "10px" }}>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {currentCorrectStatus.current}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {answerCorrectOptions.map((category) => (
                         <Dropdown.Item key={category} eventKey={category}>
                           {category}
                         </Dropdown.Item>
