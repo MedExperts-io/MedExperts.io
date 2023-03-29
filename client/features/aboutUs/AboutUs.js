@@ -8,8 +8,17 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 const AboutUs = () => {
   return (
     <Container fluid>
-      <Card className="mx-auto" id="about-card">
-        <h1 className="about-heading"> Meet the Team </h1>
+      <Card className="shadow mx-auto" id="about-card">
+        <Card.Header
+          className="about-heading"
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+          }}
+        >
+          Meet the Team
+        </Card.Header>
+
         <Row className="justify-content-center">
           {aboutData.map((member, idx) => {
             return (
@@ -27,7 +36,7 @@ const AboutUs = () => {
                     </p>
                     <p id="member-role1"> {member?.title}</p>{" "}
                   </Card.Title>{" "}
-                  <p id="member-desc1">
+                  {/* <p id="member-desc1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aliquam fringilla purus ac ultricies facilisis. Integer
                     rutrum, ante et ultricies cursus, augue augue aliquet orci,
@@ -35,7 +44,7 @@ const AboutUs = () => {
                     sit amet egestas ligula. Suspendisse potenti. In hac
                     habitasse platea dictumst. Integer sit amet urna id sapien
                     laoreet tincidunt in at felis.
-                  </p>
+                  </p> */}
                   <p className="d-flex justify-content-start">
                     {member?.github && (
                       <a
