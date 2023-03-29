@@ -45,7 +45,7 @@ const SingleQuestion = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchUserQuestions(userId)).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
+    dispatch(fetchUserQuestions()).then(() => dispatch(fetchSingleQuestion(singleQuestionId)));
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
@@ -67,8 +67,6 @@ const SingleQuestion = () => {
     displayId,
   } = singleQ;
 
-  console.log("ALTIMAGETEXT:", questionImageAltText, explanationImageAltText);
-
   const AllUserQuestion = useSelector((state) => state.userQuestions.UserQuestions);
   const CurrentQuestionArray = AllUserQuestion.filter((object) => object.questionAnswerId === id);
 
@@ -80,7 +78,6 @@ const SingleQuestion = () => {
       .then(() =>
         dispatch(
           updateUserQuestionInput({
-            userId: userId,
             questionAnswerId: id,
             userInput: selectedOption,
             answered: selectedOption === correctAnswer ? "right" : "wrong",
@@ -90,7 +87,7 @@ const SingleQuestion = () => {
           })
         )
       )
-      .then(() => dispatch(fetchUserQuestions(userId)));
+      .then(() => dispatch(fetchUserQuestions()));
   };
 
   if (admin) {
@@ -157,7 +154,7 @@ const SingleQuestion = () => {
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                        <td className="text-center" style={{ fontSize: "10px" }}>
                                           Figure:{index + 1}
                                         </td>
                                       </tr>
@@ -171,7 +168,8 @@ const SingleQuestion = () => {
                       <Card.Body className="mx-auto">
                         <Row style={{ paddingBottom: "2%" }}>
                           <center>
-                            <Divider>Select your answer:</Divider>
+                            <span className="visually-hidden">Select your answer:</span>
+                            <Divider aria-hidden="true">Select your answer:</Divider>
                           </center>
                         </Row>
                         <Row className="mx-auto">
@@ -291,7 +289,7 @@ const SingleQuestion = () => {
                                       </thead>
                                       <tbody>
                                         <tr>
-                                          <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                          <td className="text-center" style={{ fontSize: "10px" }}>
                                             Figure:{index + 1}
                                           </td>
                                         </tr>
@@ -399,7 +397,7 @@ const SingleQuestion = () => {
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td className="text-muted text-center" style={{ fontSize: "10px" }}>
+                                      <td className="text-center" style={{ fontSize: "10px" }}>
                                         Figure:{index + 1}
                                       </td>
                                     </tr>
@@ -413,7 +411,8 @@ const SingleQuestion = () => {
                     <Card.Body className="mx-auto">
                       <Row style={{ paddingBottom: "2%" }}>
                         <center>
-                          <Divider>Select your answer:</Divider>
+                          <span className="visually-hidden">Select your answer:</span>
+                          <Divider aria-hidden="true">Select your answer:</Divider>
                         </center>
                       </Row>
                       <Row className="mx-auto">

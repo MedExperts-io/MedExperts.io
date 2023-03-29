@@ -1,19 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Accordion,
-  Breadcrumb,
-  Button,
-  Card,
-  Container,
-  ProgressBar,
-  Modal,
-  Stack,
-  Table,
-  Tabs,
-  Tab,
-  OverlayTrigger,
-  Tooltip,
-} from "react-bootstrap/";
+import { Accordion, Breadcrumb, Button, Card, Container, ProgressBar, Modal, Stack, Table, Tabs, Tab, OverlayTrigger, Tooltip } from "react-bootstrap/";
 import ReactHtmlParser from "react-html-parser";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -28,7 +14,6 @@ const SingleQAadmin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [key, setKey] = useState(newestVersion?.id);
 
   useEffect(() => {
     setTimeout(() => {
@@ -69,33 +54,17 @@ const SingleQAadmin = () => {
     }
   };
 
-  //------------ Delete modal details
-  const [deleteId, setDeleteId] = useState(null);
-  const [deletePosition, setDeletePosition] = useState("");
+  //------------ modal details
   const [show, setShow] = useState(false);
-
-  const handleShow = (id, position) => {
-    //Step2: handleShow sets state with provided id & position & shows modal
-    setDeleteId(id);
-    setDeletePosition(position);
-    setShow(true);
+  const handleClose = () => {
+    setShow(false);
   };
-  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  //----------- end modal details
 
-  const handleDelete = (id, position) => {
-    //Step4: Based on position, delete dispatched & navigation called.
+  const handleDelete = (id) => {
     dispatch(deleteSingleQuestion(id));
-    if (position === "only") {
-      navigate(`/questions`);
-    } else if (position === "newest") {
-      setKey();
-      navigate(`/questions/${qaVersions[1].id}`);
-    } else if (position === "older") {
-      setKey(newestVersion?.id);
-    }
-    handleClose(); //Step5: Modal closed
   };
-  //----------- end Delete modal details
 
   return (
     <Container fluid>
@@ -103,32 +72,6 @@ const SingleQAadmin = () => {
         <ProgressBar animated now={100} />
       ) : (
         <Stack gap={3} className="p-3">
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>
-                Delete version with unique ID {deleteId}?
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              Once you delete, the previous version of this question will be
-              activated. If no other versions exist, you'll be redirected to the
-              Questions page.
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Cancel
-              </Button>
-              <Button
-                variant="danger"
-                onClick={() => {
-                  //Step3: Final delete button clicked and handleDelete function called with deleteId and deletePosition from state
-                  handleDelete(deleteId, deletePosition);
-                }}
-              >
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
           <div>
             {qaVersions && qaVersions?.length ? (
               <div>
@@ -142,16 +85,8 @@ const SingleQAadmin = () => {
                 </Breadcrumb>
                 {qaVersions.length === 1 ? (
                   qaVersions.map((eachVersion, idx) => (
-                    <Card
-                      className="mb-4 mx-auto"
-                      key={uuidv4()}
-                      style={{ width: "100%" }}
-                    >
-                      <Card.Header
-                        style={{ fontSize: "75%", color: "red" }}
-                        id="no-border"
-                        className="d-flex justify-content-end"
-                      >
+                    <Card className="mb-4 mx-auto" key={uuidv4()} style={{ width: "100%" }}>
+                      <Card.Header style={{ fontSize: "75%", color: "red" }} id="no-border" className="d-flex justify-content-end">
                         Unique ID: {eachVersion.id}
                       </Card.Header>
                       <Card.Header
@@ -162,37 +97,19 @@ const SingleQAadmin = () => {
                           textAlign: "center",
                         }}
                       >
-                        Question {qaVersions[0].displayId}:{" "}
-                        {eachVersion.question}
+                        Question {qaVersions[0].displayId}: {eachVersion.question}
                       </Card.Header>
-                      <Card.Header
-                        id="no-border"
-                        className="d-flex justify-content-center"
-                      >
-                        <Stack
-                          direction="horizontal"
-                          style={{ paddingTop: "10px" }}
-                        >
+                      <Card.Header id="no-border" className="d-flex justify-content-center">
+                        <Stack direction="horizontal" style={{ paddingTop: "10px" }}>
                           {eachVersion.questionImage
                             ? eachVersion.questionImage.map((image, index) => (
-                                <Table
-                                  responsive="sm"
-                                  size="sm"
-                                  key={uuidv4()}
-                                  borderless
-                                  style={{ paddingBottom: "0px" }}
-                                >
+                                <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
                                   <thead>
                                     <tr>
                                       <th style={{ padding: "0px" }}>
                                         {" "}
                                         <img
-                                          alt={
-                                            eachVersion.questionImageAltText
-                                              ? eachVersion
-                                                  .questionImageAltText[index]
-                                              : "We're missing an explanation here, contact us!"
-                                          }
+                                          alt={eachVersion.questionImageAltText ? eachVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
                                           src={image}
                                           style={{
                                             paddingLeft: "10px",
@@ -205,10 +122,7 @@ const SingleQAadmin = () => {
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td
-                                        className="text-muted text-center"
-                                        style={{ fontSize: "10px" }}
-                                      >
+                                      <td className="text-center" style={{ fontSize: "10px" }}>
                                         Figure:{index + 1}
                                       </td>
                                     </tr>
@@ -218,15 +132,9 @@ const SingleQAadmin = () => {
                             : null}
                         </Stack>
                       </Card.Header>
-                      <Card.Header
-                        className="d-flex justify-content-end"
-                        style={{ paddingTop: "0" }}
-                      >
-                        <Button size="small" variant="link">
-                          <Link
-                            to={`/questions/${singleQuestionId}/edit`}
-                            style={{ textDecoration: `none` }}
-                          >
+                      <Card.Header className="d-flex justify-content-end" style={{ paddingTop: "0" }}>
+                        <Button tabIndex={-1} size="small" variant="link">
+                          <Link to={`/questions/${singleQuestionId}/edit`} style={{ color: "#1362d8", textDecoration: `none` }}>
                             {" "}
                             <EditIcon />
                             Edit Question{" "}
@@ -234,24 +142,46 @@ const SingleQAadmin = () => {
                         </Button>
                         {/* <---------------End edit q btn----------------> */}
 
-                        <Button
-                          variant="link"
-                          size="small"
-                          onClick={() => handleShow(eachVersion.id, "only")} //Step1: Delete icon clicked and specific id & position passed to handleShow function
-                        >
+                        <Button variant="link" size="small" style={{ color: "#1362d8" }} onClick={handleShow}>
                           {" "}
                           <DeleteIcon />
                           Delete Version
                         </Button>
+                        <Modal show={show} onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Confirm delete</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            Once you delete, the previous version of this question will be activated.
+                            {"\n"}
+                            If no other versions exist, you'll be redirected to the Questions page.
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                              Cancel
+                            </Button>
+                            <Button
+                              variant="danger"
+                              onClick={() => {
+                                handleDelete(eachVersion.id);
+                                if (qaVersions.length > 1) {
+                                  if (idx === 0) {
+                                    navigate(`/questions/${qaVersions[1].id}`);
+                                  }
+                                } else {
+                                  navigate(`/questions`);
+                                }
+                              }}
+                            >
+                              Delete
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                         {/* <------------------End delete q Btn---------------> */}
                       </Card.Header>
 
                       <Stack>
-                        <Card
-                          className="mx-auto"
-                          id="no-border"
-                          style={{ minWidth: "50%" }}
-                        >
+                        <Card className="mx-auto" id="no-border" style={{ minWidth: "50%" }}>
                           <Table responsive="sm" borderless>
                             <thead>
                               <tr>
@@ -275,258 +205,50 @@ const SingleQAadmin = () => {
     `}
                               </style>
                               {eachVersion.answerOptions
-                                ? eachVersion.answerOptions.map(
-                                    (ans, index) => (
-                                      <tr key={uuidv4()}>
-                                        <td>
-                                          <Button
-                                            disabled
-                                            style={{ margin: "0" }}
-                                            variant={
-                                              ans === eachVersion.correctAnswer
-                                                ? "success"
-                                                : "danger"
-                                            }
-                                          >
-                                            {ans}
-                                          </Button>
-                                        </td>
+                                ? eachVersion.answerOptions.map((ans, index) => (
+                                    <tr key={uuidv4()}>
+                                      <td>
+                                        <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "outline-success" : "outline-danger"}>
+                                          {ans}
+                                        </Button>
+                                      </td>
 
-                                        <td>
-                                          <OverlayTrigger
-                                            placement="right"
-                                            overlay={
-                                              <Tooltip id={`tooltip-right`}>{`${
-                                                responseData(
-                                                  eachVersion.id,
-                                                  ans
-                                                )
-                                                  ? responseData(
-                                                      eachVersion.id,
-                                                      ans
-                                                    )
-                                                  : "0"
-                                              }%`}</Tooltip>
-                                            }
-                                          >
-                                            {
-                                              <ProgressBar
-                                                title="Progress bar for responses"
-                                                aria-label="Progress bar for responses"
-                                                name="Progress bar for responses"
-                                                variant={
-                                                  ans ===
-                                                  eachVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
-                                                }
-                                                style={{
-                                                  height: "38px",
-                                                  minWidth: "100%",
-                                                }}
-                                                now={
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  ) ||
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  ) == 0
-                                                    ? responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      )
-                                                    : 0
-                                                }
-                                                label={`${
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  )
-                                                    ? responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      )
-                                                    : "0"
-                                                }%`}
-                                              />
-                                            }
-                                          </OverlayTrigger>
-                                        </td>
-                                      </tr>
-                                    )
-                                  )
+                                      <td>
+                                        <span className="visually-hidden">{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}</span>
+                                        {
+                                          <ProgressBar
+                                            aria-hidden="true"
+                                            variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
+                                            style={{
+                                              height: "38px",
+                                              minWidth: "100%",
+                                            }}
+                                            now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == "0" ? responseData(eachVersion.id, ans) : 100}
+                                            label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}
+                                          />
+                                        }
+                                      </td>
+                                    </tr>
+                                  ))
                                 : null}
                             </tbody>
                           </Table>
                         </Card>{" "}
                         <Accordion>
                           <Accordion.Item eventKey="0">
-                            <Accordion.Header>
-                              View Explanation
-                            </Accordion.Header>
+                            <Accordion.Header>View Explanation</Accordion.Header>
                             <Accordion.Body>
                               {eachVersion.explanation}
-                              <Stack
-                                direction="horizontal"
-                                style={{ paddingTop: "10px" }}
-                              >
+                              <Stack direction="horizontal" style={{ paddingTop: "10px" }}>
                                 {eachVersion.explanationImage
-                                  ? eachVersion.explanationImage.map(
-                                      (image, index) => (
-                                        <Table
-                                          responsive="sm"
-                                          size="sm"
-                                          key={uuidv4()}
-                                          borderless
-                                          style={{ paddingBottom: "0px" }}
-                                        >
-                                          <thead>
-                                            <tr>
-                                              <th style={{ padding: "0px" }}>
-                                                {" "}
-                                                <img
-                                                  alt={
-                                                    eachVersion.explanationImageAltText
-                                                      ? eachVersion
-                                                          .explanationImageAltText[
-                                                          index
-                                                        ]
-                                                      : "We're missing an explanation here, contact us!"
-                                                  }
-                                                  src={image}
-                                                  style={{
-                                                    paddingLeft: "10px",
-                                                    maxHeight: `12rem`,
-                                                    maxInlineSize: "100%",
-                                                  }}
-                                                />
-                                              </th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <td
-                                                className="text-muted text-center"
-                                                style={{ fontSize: "10px" }}
-                                              >
-                                                Figure:{index + 1}
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </Table>
-                                      )
-                                    )
-                                  : null}
-                              </Stack>
-                            </Accordion.Body>
-                          </Accordion.Item>
-                          <Accordion.Item eventKey="1">
-                            <Accordion.Header>View References</Accordion.Header>
-                            <Accordion.Body>
-                              {eachVersion.explanationLinks.length ? (
-                                eachVersion.explanationLinks.map(
-                                  (sourcelink, index) => (
-                                    <Card
-                                      key={uuidv4()}
-                                      className="m-2 text-decoration-none "
-                                    >
-                                      <Card.Body>
-                                        {" "}
-                                        <div>
-                                          {index + 1}{" "}
-                                          <div>
-                                            {ReactHtmlParser(sourcelink)}
-                                            <style>
-                                              {` a {
-                            color: inherit;
-                             text-decoration: none;}`}
-                                            </style>
-                                          </div>
-                                        </div>
-                                      </Card.Body>
-                                    </Card>
-                                  )
-                                )
-                              ) : (
-                                <p>
-                                  No references available for this question.
-                                </p>
-                              )}
-                            </Accordion.Body>
-                          </Accordion.Item>
-                        </Accordion>
-                      </Stack>
-                    </Card>
-                  ))
-                ) : (
-                  // <---------------if more than 1 version-------------->
-                  <Tabs
-                    activeKey={key}
-                    onSelect={(k) => setKey(k)}
-                    id="uncontrolled-tab-example"
-                    className="mb-3"
-                  >
-                    <Tab
-                      eventKey={`${newestVersion.id}`}
-                      title="Current Version"
-                    >
-                      <Stack gap={3} key={uuidv4()}>
-                        <Card
-                          className="mb-4 mx-auto"
-                          style={{ width: "100%" }}
-                        >
-                          <Card.Header
-                            style={{ fontSize: "75%", color: "red" }}
-                            id="no-border"
-                            className="d-flex justify-content-end"
-                          >
-                            Unique ID: {newestVersion.id}
-                          </Card.Header>
-
-                          <Card.Header
-                            id="no-border"
-                            className="text-center"
-                            style={{
-                              fontSize: "100%",
-                              textAlign: "center",
-                            }}
-                          >
-                            Question {newestVersion.displayId}:{" "}
-                            {newestVersion.question}
-                          </Card.Header>
-                          <Card.Header
-                            id="no-border"
-                            className="d-flex justify-content-center"
-                          >
-                            <Stack
-                              direction="horizontal"
-                              style={{ paddingTop: "10px" }}
-                            >
-                              {newestVersion.questionImage
-                                ? newestVersion.questionImage.map(
-                                    (image, index) => (
-                                      <Table
-                                        responsive="sm"
-                                        size="sm"
-                                        key={uuidv4()}
-                                        borderless
-                                        style={{ paddingBottom: "0px" }}
-                                      >
+                                  ? eachVersion.explanationImage.map((image, index) => (
+                                      <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
                                         <thead>
                                           <tr>
                                             <th style={{ padding: "0px" }}>
                                               {" "}
                                               <img
-                                                alt={
-                                                  newestVersion.questionImageAltText
-                                                    ? newestVersion
-                                                        .questionImageAltText[
-                                                        index
-                                                      ]
-                                                    : "We're missing an explanation here, contact us!"
-                                                }
+                                                alt={eachVersion.explanationImageAltText ? eachVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
                                                 src={image}
                                                 style={{
                                                   paddingLeft: "10px",
@@ -539,57 +261,159 @@ const SingleQAadmin = () => {
                                         </thead>
                                         <tbody>
                                           <tr>
-                                            <td
-                                              className="text-muted text-center"
-                                              style={{
-                                                fontSize: "10px",
-                                                paddingLeft: "10px",
-                                              }}
-                                            >
+                                            <td className="text-center" style={{ fontSize: "10px" }}>
                                               Figure:{index + 1}
                                             </td>
                                           </tr>
                                         </tbody>
                                       </Table>
-                                    )
-                                  )
+                                    ))
+                                  : null}
+                              </Stack>
+                            </Accordion.Body>
+                          </Accordion.Item>
+                          <Accordion.Item eventKey="1">
+                            <Accordion.Header>View References</Accordion.Header>
+                            <Accordion.Body>
+                              {eachVersion.explanationLinks.length ? (
+                                eachVersion.explanationLinks.map((sourcelink, index) => (
+                                  <Card key={uuidv4()} className="m-2 text-decoration-none ">
+                                    <Card.Body>
+                                      {" "}
+                                      <div>
+                                        {index + 1}{" "}
+                                        <div>
+                                          {ReactHtmlParser(sourcelink)}
+                                          <style>
+                                            {` a {
+                            color: inherit;
+                             text-decoration: none;}`}
+                                          </style>
+                                        </div>
+                                      </div>
+                                    </Card.Body>
+                                  </Card>
+                                ))
+                              ) : (
+                                <p>No references available for this question.</p>
+                              )}
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        </Accordion>
+                      </Stack>
+                    </Card>
+                  ))
+                ) : (
+                  // <---------------if more than 1 version-------------->
+
+                  <Tabs defaultActiveKey={`${newestVersion.id}`} id="uncontrolled-tab-example" className="mb-3">
+                    <Tab eventKey={`${newestVersion.id}`} title="Current Version">
+                      <Stack gap={3} key={uuidv4()}>
+                        <Card className="mb-4 mx-auto" style={{ width: "100%" }}>
+                          <Card.Header style={{ fontSize: "75%", color: "red" }} id="no-border" className="d-flex justify-content-end">
+                            Unique ID: {newestVersion.id}
+                          </Card.Header>
+
+                          <Card.Header
+                            id="no-border"
+                            className="text-center"
+                            style={{
+                              fontSize: "100%",
+                              textAlign: "center",
+                            }}
+                          >
+                            Question {newestVersion.displayId}: {newestVersion.question}
+                          </Card.Header>
+                          <Card.Header id="no-border" className="d-flex justify-content-center">
+                            <Stack direction="horizontal" style={{ paddingTop: "10px" }}>
+                              {newestVersion.questionImage
+                                ? newestVersion.questionImage.map((image, index) => (
+                                    <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
+                                      <thead>
+                                        <tr>
+                                          <th style={{ padding: "0px" }}>
+                                            {" "}
+                                            <img
+                                              alt={newestVersion.questionImageAltText ? newestVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
+                                              src={image}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                maxHeight: `12rem`,
+                                                maxInlineSize: "100%",
+                                              }}
+                                            />
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td
+                                            className="text-center"
+                                            style={{
+                                              fontSize: "10px",
+                                              paddingLeft: "10px",
+                                            }}
+                                          >
+                                            Figure:{index + 1}
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </Table>
+                                  ))
                                 : null}
                             </Stack>
                           </Card.Header>
                           <Card.Header className="d-flex justify-content-end">
-                            <Button size="small" variant="link">
-                              <Link
-                                to={`/questions/${singleQuestionId}/edit`}
-                                style={{ textDecoration: `none` }}
-                              >
+                            <Button tabIndex={-1} size="small" variant="link">
+                              <Link to={`/questions/${singleQuestionId}/edit`} style={{ color: "#1362d8", textDecoration: `none` }}>
                                 {" "}
-                                <EditIcon />
+                                <EditIcon style={{ color: "#1362d8" }} />
                                 Edit Question{" "}
                               </Link>
                             </Button>
 
                             {/* <---------------End edit q btn----------------> */}
 
-                            <Button
-                              variant="link"
-                              size="small"
-                              onClick={() =>
-                                handleShow(newestVersion.id, "newest")
-                              } //Step1: Delete icon clicked and specific id & position passed to handleShow function
-                            >
+                            <Button variant="link" size="small" style={{ color: "#1362d8", textDecoration: `none` }} onClick={handleShow}>
                               {" "}
                               <DeleteIcon />
                               Delete Version
                             </Button>
+                            <Modal show={show} onHide={handleClose}>
+                              <Modal.Header closeButton>
+                                <Modal.Title>Confirm delete</Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body>
+                                Once you delete, the previous version of this question will be activated.
+                                {"\n"}
+                                If no other versions exist, you'll be redirected to the Questions page.
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                  Cancel
+                                </Button>
+                                <Button
+                                  variant="danger"
+                                  onClick={() => {
+                                    handleDelete(newestVersion.id);
+                                    if (qaVersions.length > 1) {
+                                      // if (idx === 0) {
+                                      navigate(`/questions/${qaVersions[1].id}`);
+                                      // }
+                                    } else {
+                                      navigate(`/questions`);
+                                    }
+                                  }}
+                                >
+                                  Delete
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
                             {/* <------------------End delete q Btn---------------> */}
                           </Card.Header>
 
                           <Stack>
-                            <Card
-                              className="mx-auto"
-                              id="no-border"
-                              style={{ minWidth: "50%" }}
-                            >
+                            <Card className="mx-auto" id="no-border" style={{ minWidth: "50%" }}>
                               <Table responsive="sm" borderless>
                                 <thead>
                                   <tr>
@@ -613,190 +437,97 @@ const SingleQAadmin = () => {
     `}
                                   </style>
                                   {newestVersion.answerOptions
-                                    ? newestVersion.answerOptions.map(
-                                        (ans, index) => (
-                                          <tr key={uuidv4()}>
-                                            <td>
-                                              <Button
-                                                disabled
-                                                style={{ margin: "0" }}
-                                                variant={
-                                                  ans ===
-                                                  newestVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
-                                                }
-                                              >
-                                                {ans}
-                                              </Button>
-                                            </td>
-                                            <td>
-                                              <OverlayTrigger
-                                                placement="right"
-                                                overlay={
-                                                  <Tooltip
-                                                    id={`tooltip-right`}
-                                                  >{`${
-                                                    responseData(
-                                                      newestVersion.id,
-                                                      ans
-                                                    )
-                                                      ? responseData(
-                                                          newestVersion.id,
-                                                          ans
-                                                        )
-                                                      : "0"
-                                                  }%`}</Tooltip>
-                                                }
-                                              >
-                                                {
-                                                  <ProgressBar
-                                                    title="Progress bar for responses"
-                                                    aria-label="Progress bar for responses"
-                                                    name="Progress bar for responses"
-                                                    variant={
-                                                      ans ===
-                                                      newestVersion.correctAnswer
-                                                        ? "success"
-                                                        : "danger"
-                                                    }
-                                                    style={{
-                                                      height: "38px",
-                                                      minWidth: "100%",
-                                                    }}
-                                                    now={
-                                                      responseData(
-                                                        newestVersion.id,
-                                                        ans
-                                                      ) ||
-                                                      responseData(
-                                                        newestVersion.id,
-                                                        ans
-                                                      ) == 0
-                                                        ? responseData(
-                                                            newestVersion.id,
-                                                            ans
-                                                          )
-                                                        : 0
-                                                    }
-                                                    label={`${
-                                                      responseData(
-                                                        newestVersion.id,
-                                                        ans
-                                                      )
-                                                        ? responseData(
-                                                            newestVersion.id,
-                                                            ans
-                                                          )
-                                                        : "0"
-                                                    }%`}
-                                                  />
-                                                }
-                                              </OverlayTrigger>
-                                            </td>
-                                          </tr>
-                                        )
-                                      )
+                                    ? newestVersion.answerOptions.map((ans, index) => (
+                                        <tr key={uuidv4()}>
+                                          <td>
+                                            <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === newestVersion.correctAnswer ? "success" : "danger"}>
+                                              {ans}
+                                            </Button>
+                                          </td>
+
+                                          <td>
+                                            <span className="visually-hidden">{`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : 0}%`}</span>
+                                            {
+                                              <ProgressBar
+                                                aria-hidden="true"
+                                                variant={ans === newestVersion.correctAnswer ? "success" : "danger"}
+                                                style={{
+                                                  height: "38px",
+                                                  minWidth: "100%",
+                                                }}
+                                                now={responseData(newestVersion.id, ans) || responseData(newestVersion.id, ans) == "0" ? responseData(newestVersion.id, ans) : 100}
+                                                label={`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : 0}%`}
+                                              />
+                                            }
+                                          </td>
+                                        </tr>
+                                      ))
                                     : null}
                                 </tbody>
                               </Table>{" "}
                             </Card>
                             <Accordion>
                               <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                  View Explanation
-                                </Accordion.Header>
+                                <Accordion.Header>View Explanation</Accordion.Header>
                                 <Accordion.Body>
                                   {newestVersion.explanation}
-                                  <Stack
-                                    direction="horizontal"
-                                    style={{ paddingTop: "10px" }}
-                                  >
+                                  <Stack direction="horizontal" style={{ paddingTop: "10px" }}>
                                     {newestVersion.explanationImage
-                                      ? newestVersion.explanationImage.map(
-                                          (image, index) => (
-                                            <Table
-                                              responsive="sm"
-                                              size="sm"
-                                              key={uuidv4()}
-                                              borderless
-                                              style={{ paddingBottom: "0px" }}
-                                            >
-                                              <thead>
-                                                <tr>
-                                                  <th
-                                                    style={{ padding: "0px" }}
-                                                  >
-                                                    {" "}
-                                                    <img
-                                                      alt={
-                                                        newestVersion.explanationImageAltText
-                                                          ? newestVersion
-                                                              .explanationImageAltText[
-                                                              index
-                                                            ]
-                                                          : "We're missing an explanation here, contact us!"
-                                                      }
-                                                      src={image}
-                                                      style={{
-                                                        paddingLeft: "10px",
-                                                        maxHeight: `12rem`,
-                                                        maxInlineSize: "100%",
-                                                      }}
-                                                    />
-                                                  </th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                <tr>
-                                                  <td
-                                                    className="text-muted text-center"
-                                                    style={{ fontSize: "10px" }}
-                                                  >
-                                                    Figure:{index + 1}
-                                                  </td>
-                                                </tr>
-                                              </tbody>
-                                            </Table>
-                                          )
-                                        )
+                                      ? newestVersion.explanationImage.map((image, index) => (
+                                          <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
+                                            <thead>
+                                              <tr>
+                                                <th style={{ padding: "0px" }}>
+                                                  {" "}
+                                                  <img
+                                                    alt={newestVersion.explanationImageAltText ? newestVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
+                                                    src={image}
+                                                    style={{
+                                                      paddingLeft: "10px",
+                                                      maxHeight: `12rem`,
+                                                      maxInlineSize: "100%",
+                                                    }}
+                                                  />
+                                                </th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td className="text-center" style={{ fontSize: "10px" }}>
+                                                  Figure:{index + 1}
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </Table>
+                                        ))
                                       : null}
                                   </Stack>
                                 </Accordion.Body>
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
-                                <Accordion.Header>
-                                  View References
-                                </Accordion.Header>
+                                <Accordion.Header>View References</Accordion.Header>
                                 <Accordion.Body>
                                   {newestVersion.explanationLinks.length ? (
-                                    newestVersion.explanationLinks.map(
-                                      (sourcelink, index) => (
-                                        <Card
-                                          key={uuidv4()}
-                                          className="m-2 text-decoration-none "
-                                        >
-                                          <Card.Body>
-                                            {" "}
+                                    newestVersion.explanationLinks.map((sourcelink, index) => (
+                                      <Card key={uuidv4()} className="m-2 text-decoration-none ">
+                                        <Card.Body>
+                                          {" "}
+                                          <div>
+                                            {index + 1}{" "}
                                             <div>
-                                              {index + 1}{" "}
-                                              <div>
-                                                {ReactHtmlParser(sourcelink)}
-                                                <style>
-                                                  {` a {
+                                              {ReactHtmlParser(sourcelink)}
+                                              <style>
+                                                {` a {
                           color: inherit;
                            text-decoration: none;}`}
-                                                </style>
-                                              </div>
+                                              </style>
                                             </div>
-                                          </Card.Body>
-                                        </Card>
-                                      )
-                                    )
+                                          </div>
+                                        </Card.Body>
+                                      </Card>
+                                    ))
                                   ) : (
-                                    <p>
-                                      No references available for this question.
-                                    </p>
+                                    <p>No references available for this question.</p>
                                   )}
                                 </Accordion.Body>
                               </Accordion.Item>
@@ -808,17 +539,9 @@ const SingleQAadmin = () => {
                     {/* <----------------------End of V1-------------------> */}
 
                     {allOtherVersions.map((eachVersion, idx) => (
-                      <Tab
-                        eventKey={`${eachVersion.id}`}
-                        key={uuidv4()}
-                        title={`Version ${allOtherVersions.length - idx} `}
-                      >
+                      <Tab eventKey={`${eachVersion.id}`} key={uuidv4()} title={`Version ${allOtherVersions.length - idx} `}>
                         <Card className="mb-4">
-                          <Card.Header
-                            style={{ fontSize: "75%", color: "red" }}
-                            id="no-border"
-                            className="d-flex justify-content-end"
-                          >
+                          <Card.Header style={{ fontSize: "75%", color: "red" }} id="no-border" className="d-flex justify-content-end">
                             Unique ID: {eachVersion.id}
                           </Card.Header>
 
@@ -830,87 +553,82 @@ const SingleQAadmin = () => {
                               textAlign: "center",
                             }}
                           >
-                            Question {eachVersion.displayId}:{" "}
-                            {eachVersion.question}
+                            Question {eachVersion.displayId}: {eachVersion.question}
                           </Card.Header>
-                          <Card.Header
-                            id="no-border"
-                            className="d-flex justify-content-center"
-                          >
-                            <Stack
-                              direction="horizontal"
-                              style={{ paddingTop: "10px" }}
-                            >
+                          <Card.Header id="no-border" className="d-flex justify-content-center">
+                            <Stack direction="horizontal" style={{ paddingTop: "10px" }}>
                               {eachVersion.questionImage
-                                ? eachVersion.questionImage.map(
-                                    (image, index) => (
-                                      <Table
-                                        responsive="sm"
-                                        size="sm"
-                                        key={uuidv4()}
-                                        borderless
-                                        style={{ paddingBottom: "0px" }}
-                                      >
-                                        <thead>
-                                          <tr>
-                                            <th style={{ padding: "0px" }}>
-                                              {" "}
-                                              <img
-                                                alt={
-                                                  eachVersion.questionImageAltText
-                                                    ? eachVersion
-                                                        .questionImageAltText[
-                                                        index
-                                                      ]
-                                                    : "We're missing an explanation here, contact us!"
-                                                }
-                                                src={image}
-                                                style={{
-                                                  paddingLeft: "10px",
-                                                  maxHeight: `12rem`,
-                                                  maxInlineSize: "100%",
-                                                }}
-                                              />
-                                            </th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td
-                                              className="text-muted text-center"
-                                              style={{ fontSize: "10px" }}
-                                            >
-                                              Figure:{index + 1}
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </Table>
-                                    )
-                                  )
+                                ? eachVersion.questionImage.map((image, index) => (
+                                    <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
+                                      <thead>
+                                        <tr>
+                                          <th style={{ padding: "0px" }}>
+                                            {" "}
+                                            <img
+                                              alt={eachVersion.questionImageAltText ? eachVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
+                                              src={image}
+                                              style={{
+                                                paddingLeft: "10px",
+                                                maxHeight: `12rem`,
+                                                maxInlineSize: "100%",
+                                              }}
+                                            />
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td className="text-center" style={{ fontSize: "10px" }}>
+                                            Figure:{index + 1}
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </Table>
+                                  ))
                                 : null}
                             </Stack>
                           </Card.Header>
                           <Card.Header className="d-flex justify-content-end">
-                            <Button
-                              variant="link"
-                              size="small"
-                              onClick={() =>
-                                handleShow(eachVersion.id, "older")
-                              } //Step1: Delete icon clicked and specific id & position passed to handleShow function
-                            >
+                            <Button variant="link" size="small" onClick={handleShow}>
                               {" "}
                               <DeleteIcon />
                               Delete Version
                             </Button>
+                            <Modal show={show} onHide={handleClose}>
+                              <Modal.Header closeButton>
+                                <Modal.Title>Confirm delete</Modal.Title>
+                              </Modal.Header>
+                              <Modal.Body>
+                                Once you delete, the previous version of this question will be activated.
+                                {"\n"}
+                                If no other versions exist, you'll be redirected to the Questions page.
+                              </Modal.Body>
+                              <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                  Cancel
+                                </Button>
+                                <Button
+                                  variant="danger"
+                                  onClick={() => {
+                                    handleDelete(eachVersion.id);
+                                    if (qaVersions.length > 1) {
+                                      if (idx === 0) {
+                                        navigate(`/questions/${qaVersions[1].id}`);
+                                      }
+                                    } else {
+                                      navigate(`/questions`);
+                                    }
+                                  }}
+                                >
+                                  Delete
+                                </Button>
+                              </Modal.Footer>
+                            </Modal>
                             {/* <------------------End delete q Btn---------------> */}
                           </Card.Header>
 
                           <Stack>
-                            <Card
-                              className="mx-auto"
-                              id="no-border"
-                              style={{ minWidth: "50%" }}
-                            >
+                            <Card className="mx-auto" id="no-border" style={{ minWidth: "50%" }}>
                               <Table responsive="sm" borderless>
                                 <thead>
                                   <tr>
@@ -933,192 +651,99 @@ const SingleQAadmin = () => {
     `}
                                   </style>
                                   {eachVersion.answerOptions
-                                    ? eachVersion.answerOptions.map(
-                                        (ans, index) => (
-                                          <tr key={uuidv4()}>
-                                            <td>
-                                              <Button
-                                                disabled
-                                                style={{ margin: "0" }}
-                                                variant={
-                                                  ans ===
-                                                  eachVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
-                                                }
-                                              >
-                                                {ans}
-                                              </Button>
-                                            </td>
-                                            <td>
-                                              <OverlayTrigger
-                                                placement="right"
-                                                overlay={
-                                                  <Tooltip
-                                                    id={`tooltip-right`}
-                                                  >{`${
-                                                    responseData(
-                                                      eachVersion.id,
-                                                      ans
-                                                    )
-                                                      ? responseData(
-                                                          eachVersion.id,
-                                                          ans
-                                                        )
-                                                      : "0"
-                                                  }%`}</Tooltip>
-                                                }
-                                              >
-                                                {
-                                                  <ProgressBar
-                                                    title="Progress bar for responses"
-                                                    aria-label="Progress bar for responses"
-                                                    name="Progress bar for responses"
-                                                    variant={
-                                                      ans ===
-                                                      eachVersion.correctAnswer
-                                                        ? "success"
-                                                        : "danger"
-                                                    }
-                                                    style={{
-                                                      height: "38px",
-                                                      minWidth: "100%",
-                                                    }}
-                                                    now={
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      ) ||
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      ) == 0
-                                                        ? responseData(
-                                                            eachVersion.id,
-                                                            ans
-                                                          )
-                                                        : 0
-                                                    }
-                                                    label={`${
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      )
-                                                        ? responseData(
-                                                            eachVersion.id,
-                                                            ans
-                                                          )
-                                                        : "0"
-                                                    }%`}
-                                                  />
-                                                }
-                                              </OverlayTrigger>
-                                            </td>
-                                          </tr>
-                                        )
-                                      )
+                                    ? eachVersion.answerOptions.map((ans, index) => (
+                                        <tr key={uuidv4()}>
+                                          <td>
+                                            <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
+                                              {ans}
+                                            </Button>
+                                          </td>
+
+                                          <td>
+                                            <span className="visually-hidden">{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}</span>
+                                            {
+                                              <ProgressBar
+                                                aria-hidden="true"
+                                                variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
+                                                style={{
+                                                  height: "38px",
+                                                  minWidth: "100%",
+                                                }}
+                                                now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == "0" ? responseData(eachVersion.id, ans) : 100}
+                                                label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}
+                                              />
+                                            }
+                                          </td>
+                                        </tr>
+                                      ))
                                     : null}
                                 </tbody>
                               </Table>{" "}
                             </Card>
                             <Accordion>
                               <Accordion.Item eventKey="0">
-                                <Accordion.Header>
-                                  View Explanation
-                                </Accordion.Header>
+                                <Accordion.Header>View Explanation</Accordion.Header>
                                 <Accordion.Body>
                                   {eachVersion.explanation}
-                                  <Stack
-                                    direction="horizontal"
-                                    style={{ paddingTop: "10px" }}
-                                  >
+                                  <Stack direction="horizontal" style={{ paddingTop: "10px" }}>
                                     {eachVersion.explanationImage
-                                      ? eachVersion.explanationImage.map(
-                                          (image, index) => (
-                                            <Table
-                                              responsive="sm"
-                                              size="sm"
-                                              key={uuidv4()}
-                                              borderless
-                                              style={{ paddingBottom: "0px" }}
-                                            >
-                                              <thead>
-                                                <tr>
-                                                  <th
-                                                    style={{ padding: "0px" }}
-                                                  >
-                                                    {" "}
-                                                    <img
-                                                      alt={
-                                                        eachVersion.explanationImageAltText
-                                                          ? eachVersion
-                                                              .explanationImageAltText[
-                                                              index
-                                                            ]
-                                                          : "We're missing an explanation here, contact us!"
-                                                      }
-                                                      src={image}
-                                                      style={{
-                                                        paddingLeft: "10px",
-                                                        maxHeight: `12rem`,
-                                                        maxInlineSize: "100%",
-                                                      }}
-                                                    />
-                                                  </th>
-                                                </tr>
-                                              </thead>
-                                              <tbody>
-                                                <tr>
-                                                  <td
-                                                    className="text-muted text-center"
-                                                    style={{ fontSize: "10px" }}
-                                                  >
-                                                    Figure:{index + 1}
-                                                  </td>
-                                                </tr>
-                                              </tbody>
-                                            </Table>
-                                          )
-                                        )
+                                      ? eachVersion.explanationImage.map((image, index) => (
+                                          <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
+                                            <thead>
+                                              <tr>
+                                                <th style={{ padding: "0px" }}>
+                                                  {" "}
+                                                  <img
+                                                    alt={eachVersion.explanationImageAltText ? eachVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
+                                                    src={image}
+                                                    style={{
+                                                      paddingLeft: "10px",
+                                                      maxHeight: `12rem`,
+                                                      maxInlineSize: "100%",
+                                                    }}
+                                                  />
+                                                </th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td className=" text-center" style={{ fontSize: "10px" }}>
+                                                  Figure:{index + 1}
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </Table>
+                                        ))
                                       : null}
                                   </Stack>
                                 </Accordion.Body>
                               </Accordion.Item>
                               <Accordion.Item eventKey="1">
-                                <Accordion.Header>
-                                  View References
-                                </Accordion.Header>
+                                <Accordion.Header>View References</Accordion.Header>
                                 <Accordion.Body>
                                   {eachVersion.explanationLinks.length ? (
-                                    eachVersion.explanationLinks.map(
-                                      (sourcelink, index) => (
-                                        // {explanationLinks.length ? (
-                                        //   explanationLinks.map((sourcelink, index) => (
-                                        <Card
-                                          key={uuidv4()}
-                                          className="m-2 text-decoration-none "
-                                        >
-                                          <Card.Body>
-                                            {" "}
+                                    eachVersion.explanationLinks.map((sourcelink, index) => (
+                                      // {explanationLinks.length ? (
+                                      //   explanationLinks.map((sourcelink, index) => (
+                                      <Card key={uuidv4()} className="m-2 text-decoration-none ">
+                                        <Card.Body>
+                                          {" "}
+                                          <div>
+                                            {index + 1}{" "}
                                             <div>
-                                              {index + 1}{" "}
-                                              <div>
-                                                {ReactHtmlParser(sourcelink)}
-                                                <style>
-                                                  {` a {
+                                              {ReactHtmlParser(sourcelink)}
+                                              <style>
+                                                {` a {
                               color: inherit;
                                text-decoration: none;}`}
-                                                </style>
-                                              </div>
+                                              </style>
                                             </div>
-                                          </Card.Body>
-                                        </Card>
-                                      )
-                                    )
+                                          </div>
+                                        </Card.Body>
+                                      </Card>
+                                    ))
                                   ) : (
-                                    <p>
-                                      No references available for this question.
-                                    </p>
+                                    <p>No references available for this question.</p>
                                   )}
                                 </Accordion.Body>
                               </Accordion.Item>

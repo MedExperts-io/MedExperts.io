@@ -81,10 +81,7 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Row
-        className="d-flex justify-content-center align-items-center"
-        style={{ paddingTop: "5rem" }}
-      >
+      <Row className="d-flex justify-content-center align-items-center" style={{ paddingTop: "5rem" }}>
         <Col md={10} lg={10} s={10} xs={12}>
           <Card className="shadow">
             <Card.Header>Create Account</Card.Header>
@@ -176,7 +173,7 @@ const SignUp = () => {
                     {showReqs && (
                       <div>
                         <div className="password-strength-meter"></div>
-                        <div className="text-muted">
+                        <div className="">
                           <ul>
                             <small style={{ textDecorationLine: "underline" }}>{passwordStrength < 5 && "Password Requirements"}</small>
                             <small>
