@@ -282,8 +282,7 @@ img {
 .member-card-hover:hover .hover {
   display: block;
 }
-
-#member-img {
+.member-img {
   padding: none;
   margin: none;
   border-radius: 2px;
@@ -293,18 +292,19 @@ img {
 
 .member-caption {
   position: absolute;
-  padding-left: 3px;
-  padding-top: 3px;
-  padding-right: 3px;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 10px;
   /* top: auto; */
   bottom: 0;
   /* opacity: 1; */
   left: 0;
   width: 100%;
-  height: 85%;
-  background-color: #f8f8f8da;
-  -webkit-transform: translateY(85%);
-  transform: translateY(85%);
+  height: 45%;
+  background-color: #d6d6d6e1;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transition: opacity 0.1s 0.4s, -webkit-transform 0.4s;
@@ -316,7 +316,7 @@ img {
 #member-card-title {
   padding: 0;
   width: 100%;
-  background-color: #f8f8f8a6;
+  background-color: #f8f8f8c4;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -360,12 +360,14 @@ img {
   color: black;
 }
 #member-desc1 {
-  font-size: 15px;
+  font-size: 12px;
   color: black;
-  font-weight: 250;
+  font-weight: 350;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
-.member-caption:hover {
+.slide-up:hover .member-caption {
   /* opacity: 0.6; */
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
