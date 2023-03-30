@@ -32,12 +32,18 @@ const AboutUs = () => {
                       alt={`${member?.firstName} ${member?.lastName}`}
                     />{" "}
                     <div className="member-caption">
+                      {" "}
+                      <Card.Title>
+                        <p id="member-name1">
+                          {member?.firstName} {member?.lastName}
+                        </p>
+                        <p id="member-role1"> {member?.title}</p>{" "}
+                      </Card.Title>{" "}
                       <p id="member-desc1">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Aliquam fringilla purus ac ultricies facilisis. Integer
                         rutrum, ante et ultricies cursus, augue augue aliquet
-                        orci, non feugiat diam metus sit amet eros. Nulla
-                        facilisi. Mauris sit amet egestas ligula.
+                        orci, non feugiat diam metus sit amet eros.
                       </p>
                       <p
                         className="d-flex justify-content-start"
@@ -58,12 +64,6 @@ const AboutUs = () => {
                       </p>
                     </div>
                   </div>
-                  <Card.Title>
-                    <p id="member-name1">
-                      {member?.firstName} {member?.lastName}
-                    </p>
-                    <p id="member-role1"> {member?.title}</p>{" "}
-                  </Card.Title>{" "}
                 </Card.Body>{" "}
               </Card>
             );
