@@ -82,8 +82,6 @@ const AddQuestion = () => {
     (state) => state.questionsAnswers.newQuestion.id
   );
   const Questionid = AllQ.length + 1;
-  console.log("Questionid", Questionid);
-  console.log("newQuestionid after submit", newQuestionid);
 
   //Question Images
   const [imageUrls, setImageUrls] = useState([]);
