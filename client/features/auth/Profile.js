@@ -79,7 +79,7 @@ const Profile = () => {
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="firstName">
-                      <Form.Label className="text-muted">
+                      <Form.Label className="">
                         First Name <span className="asterisk">*</span>
                       </Form.Label>
                       <Form.Control
@@ -94,7 +94,7 @@ const Profile = () => {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="lastName">
-                      <Form.Label className="text-muted">
+                      <Form.Label className="">
                         Last Name <span className="asterisk">*</span>
                       </Form.Label>
                       <Form.Control
@@ -110,7 +110,7 @@ const Profile = () => {
                   </Row>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="school">
-                      <Form.Label className="text-muted">School</Form.Label>
+                      <Form.Label className="">School</Form.Label>
                       <Form.Control
                         type="text"
                         defaultValue={school}
@@ -127,7 +127,7 @@ const Profile = () => {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="expertiseLevel">
-                      <Form.Label className="text-muted">
+                      <Form.Label className="">
                         Expertise Level <span className="asterisk">*</span>
                       </Form.Label>
                       <Form.Select
@@ -152,9 +152,7 @@ const Profile = () => {
                   </Row>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="email">
-                      <Form.Label className="text-muted">
-                        Email Address
-                      </Form.Label>
+                      <Form.Label className="">Email Address</Form.Label>
                       <Form.Control
                         type="email"
                         disabled

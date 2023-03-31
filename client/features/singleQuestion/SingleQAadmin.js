@@ -205,7 +205,10 @@ const SingleQAadmin = () => {
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td className="text-center" style={{ fontSize: "10px" }}>
+                                      <td
+                                        className="text-center"
+                                        style={{ fontSize: "10px" }}
+                                      >
                                         Figure:{index + 1}
                                       </td>
                                     </tr>
@@ -272,31 +275,77 @@ const SingleQAadmin = () => {
     `}
                               </style>
                               {eachVersion.answerOptions
-                                ? eachVersion.answerOptions.map((ans, index) => (
-                                    <tr key={uuidv4()}>
-                                      <td>
-                                        <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
-                                          {ans}
-                                        </Button>
-                                      </td>
+                                ? eachVersion.answerOptions.map(
+                                    (ans, index) => (
+                                      <tr key={uuidv4()}>
+                                        <td>
+                                          <Button
+                                            tabIndex="-1"
+                                            style={{ margin: "0" }}
+                                            variant={
+                                              ans === eachVersion.correctAnswer
+                                                ? "success"
+                                                : "danger"
+                                            }
+                                          >
+                                            {ans}
+                                          </Button>
+                                        </td>
 
-                                      <td>
-                                        <span className="visually-hidden">{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}</span>
-                                        {
-                                          <ProgressBar
-                                            aria-hidden="true"
-                                            variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
-                                            style={{
-                                              height: "38px",
-                                              minWidth: "100%",
-                                            }}
-                                            now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == "0" ? responseData(eachVersion.id, ans) : 100}
-                                            label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}
-                                          />
-                                        }
-                                      </td>
-                                    </tr>
-                                  ))
+                                        <td>
+                                          <span className="visually-hidden">{`${
+                                            responseData(eachVersion.id, ans)
+                                              ? responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                              : 0
+                                          }%`}</span>
+                                          {
+                                            <ProgressBar
+                                              aria-hidden="true"
+                                              variant={
+                                                ans ===
+                                                eachVersion.correctAnswer
+                                                  ? "success"
+                                                  : "danger"
+                                              }
+                                              style={{
+                                                height: "38px",
+                                                minWidth: "100%",
+                                              }}
+                                              now={
+                                                responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                ) ||
+                                                responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                ) == "0"
+                                                  ? responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    )
+                                                  : 100
+                                              }
+                                              label={`${
+                                                responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                                  ? responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    )
+                                                  : 0
+                                              }%`}
+                                            />
+                                          }
+                                        </td>
+                                      </tr>
+                                    )
+                                  )
                                 : null}
                             </tbody>
                           </Table>
@@ -313,33 +362,51 @@ const SingleQAadmin = () => {
                                 style={{ paddingTop: "10px" }}
                               >
                                 {eachVersion.explanationImage
-                                  ? eachVersion.explanationImage.map((image, index) => (
-                                      <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
-                                        <thead>
-                                          <tr>
-                                            <th style={{ padding: "0px" }}>
-                                              {" "}
-                                              <img
-                                                alt={eachVersion.explanationImageAltText ? eachVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
-                                                src={image}
-                                                style={{
-                                                  paddingLeft: "10px",
-                                                  maxHeight: `12rem`,
-                                                  maxInlineSize: "100%",
-                                                }}
-                                              />
-                                            </th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td className="text-center" style={{ fontSize: "10px" }}>
-                                              Figure:{index + 1}
-                                            </td>
-                                          </tr>
-                                        </tbody>
-                                      </Table>
-                                    ))
+                                  ? eachVersion.explanationImage.map(
+                                      (image, index) => (
+                                        <Table
+                                          responsive="sm"
+                                          size="sm"
+                                          key={uuidv4()}
+                                          borderless
+                                          style={{ paddingBottom: "0px" }}
+                                        >
+                                          <thead>
+                                            <tr>
+                                              <th style={{ padding: "0px" }}>
+                                                {" "}
+                                                <img
+                                                  alt={
+                                                    eachVersion.explanationImageAltText
+                                                      ? eachVersion
+                                                          .explanationImageAltText[
+                                                          index
+                                                        ]
+                                                      : "We're missing an explanation here, contact us!"
+                                                  }
+                                                  src={image}
+                                                  style={{
+                                                    paddingLeft: "10px",
+                                                    maxHeight: `12rem`,
+                                                    maxInlineSize: "100%",
+                                                  }}
+                                                />
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td
+                                                className="text-center"
+                                                style={{ fontSize: "10px" }}
+                                              >
+                                                Figure:{index + 1}
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </Table>
+                                      )
+                                    )
                                   : null}
                               </Stack>
                             </Accordion.Body>
@@ -459,33 +526,23 @@ const SingleQAadmin = () => {
                                             </th>
                                           </tr>
                                         </thead>
+
                                         <tbody>
                                           <tr>
                                             <td
-                                              className="text-muted text-center"
+                                              className="text-center"
                                               style={{
                                                 fontSize: "10px",
                                                 paddingLeft: "10px",
                                               }}
-                                            />
-                                          </th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td
-                                            className="text-center"
-                                            style={{
-                                              fontSize: "10px",
-                                              paddingLeft: "10px",
-                                            }}
-                                          >
-                                            Figure:{index + 1}
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </Table>
-                                  ))
+                                            >
+                                              Figure:{index + 1}
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </Table>
+                                    )
+                                  )
                                 : null}
                             </Stack>
                           </Card.Header>
@@ -546,31 +603,81 @@ const SingleQAadmin = () => {
     `}
                                   </style>
                                   {newestVersion.answerOptions
-                                    ? newestVersion.answerOptions.map((ans, index) => (
-                                        <tr key={uuidv4()}>
-                                          <td>
-                                            <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === newestVersion.correctAnswer ? "success" : "danger"}>
-                                              {ans}
-                                            </Button>
-                                          </td>
+                                    ? newestVersion.answerOptions.map(
+                                        (ans, index) => (
+                                          <tr key={uuidv4()}>
+                                            <td>
+                                              <Button
+                                                tabIndex="-1"
+                                                style={{ margin: "0" }}
+                                                variant={
+                                                  ans ===
+                                                  newestVersion.correctAnswer
+                                                    ? "success"
+                                                    : "danger"
+                                                }
+                                              >
+                                                {ans}
+                                              </Button>
+                                            </td>
 
-                                          <td>
-                                            <span className="visually-hidden">{`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : 0}%`}</span>
-                                            {
-                                              <ProgressBar
-                                                aria-hidden="true"
-                                                variant={ans === newestVersion.correctAnswer ? "success" : "danger"}
-                                                style={{
-                                                  height: "38px",
-                                                  minWidth: "100%",
-                                                }}
-                                                now={responseData(newestVersion.id, ans) || responseData(newestVersion.id, ans) == "0" ? responseData(newestVersion.id, ans) : 100}
-                                                label={`${responseData(newestVersion.id, ans) ? responseData(newestVersion.id, ans) : 0}%`}
-                                              />
-                                            }
-                                          </td>
-                                        </tr>
-                                      ))
+                                            <td>
+                                              <span className="visually-hidden">{`${
+                                                responseData(
+                                                  newestVersion.id,
+                                                  ans
+                                                )
+                                                  ? responseData(
+                                                      newestVersion.id,
+                                                      ans
+                                                    )
+                                                  : 0
+                                              }%`}</span>
+                                              {
+                                                <ProgressBar
+                                                  aria-hidden="true"
+                                                  variant={
+                                                    ans ===
+                                                    newestVersion.correctAnswer
+                                                      ? "success"
+                                                      : "danger"
+                                                  }
+                                                  style={{
+                                                    height: "38px",
+                                                    minWidth: "100%",
+                                                  }}
+                                                  now={
+                                                    responseData(
+                                                      newestVersion.id,
+                                                      ans
+                                                    ) ||
+                                                    responseData(
+                                                      newestVersion.id,
+                                                      ans
+                                                    ) == "0"
+                                                      ? responseData(
+                                                          newestVersion.id,
+                                                          ans
+                                                        )
+                                                      : 100
+                                                  }
+                                                  label={`${
+                                                    responseData(
+                                                      newestVersion.id,
+                                                      ans
+                                                    )
+                                                      ? responseData(
+                                                          newestVersion.id,
+                                                          ans
+                                                        )
+                                                      : 0
+                                                  }%`}
+                                                />
+                                              }
+                                            </td>
+                                          </tr>
+                                        )
+                                      )
                                     : null}
                                 </tbody>
                               </Table>{" "}
@@ -587,33 +694,53 @@ const SingleQAadmin = () => {
                                     style={{ paddingTop: "10px" }}
                                   >
                                     {newestVersion.explanationImage
-                                      ? newestVersion.explanationImage.map((image, index) => (
-                                          <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
-                                            <thead>
-                                              <tr>
-                                                <th style={{ padding: "0px" }}>
-                                                  {" "}
-                                                  <img
-                                                    alt={newestVersion.explanationImageAltText ? newestVersion.explanationImageAltText[index] : "We're missing an explanation here, contact us!"}
-                                                    src={image}
-                                                    style={{
-                                                      paddingLeft: "10px",
-                                                      maxHeight: `12rem`,
-                                                      maxInlineSize: "100%",
-                                                    }}
-                                                  />
-                                                </th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr>
-                                                <td className="text-center" style={{ fontSize: "10px" }}>
-                                                  Figure:{index + 1}
-                                                </td>
-                                              </tr>
-                                            </tbody>
-                                          </Table>
-                                        ))
+                                      ? newestVersion.explanationImage.map(
+                                          (image, index) => (
+                                            <Table
+                                              responsive="sm"
+                                              size="sm"
+                                              key={uuidv4()}
+                                              borderless
+                                              style={{ paddingBottom: "0px" }}
+                                            >
+                                              <thead>
+                                                <tr>
+                                                  <th
+                                                    style={{ padding: "0px" }}
+                                                  >
+                                                    {" "}
+                                                    <img
+                                                      alt={
+                                                        newestVersion.explanationImageAltText
+                                                          ? newestVersion
+                                                              .explanationImageAltText[
+                                                              index
+                                                            ]
+                                                          : "We're missing an explanation here, contact us!"
+                                                      }
+                                                      src={image}
+                                                      style={{
+                                                        paddingLeft: "10px",
+                                                        maxHeight: `12rem`,
+                                                        maxInlineSize: "100%",
+                                                      }}
+                                                    />
+                                                  </th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td
+                                                    className="text-center"
+                                                    style={{ fontSize: "10px" }}
+                                                  >
+                                                    Figure:{index + 1}
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </Table>
+                                          )
+                                        )
                                       : null}
                                   </Stack>
                                 </Accordion.Body>
@@ -696,33 +823,51 @@ const SingleQAadmin = () => {
                               style={{ paddingTop: "10px" }}
                             >
                               {eachVersion.questionImage
-                                ? eachVersion.questionImage.map((image, index) => (
-                                    <Table responsive="sm" size="sm" key={uuidv4()} borderless style={{ paddingBottom: "0px" }}>
-                                      <thead>
-                                        <tr>
-                                          <th style={{ padding: "0px" }}>
-                                            {" "}
-                                            <img
-                                              alt={eachVersion.questionImageAltText ? eachVersion.questionImageAltText[index] : "We're missing an explanation here, contact us!"}
-                                              src={image}
-                                              style={{
-                                                paddingLeft: "10px",
-                                                maxHeight: `12rem`,
-                                                maxInlineSize: "100%",
-                                              }}
-                                            />
-                                          </th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td className="text-center" style={{ fontSize: "10px" }}>
-                                            Figure:{index + 1}
-                                          </td>
-                                        </tr>
-                                      </tbody>
-                                    </Table>
-                                  ))
+                                ? eachVersion.questionImage.map(
+                                    (image, index) => (
+                                      <Table
+                                        responsive="sm"
+                                        size="sm"
+                                        key={uuidv4()}
+                                        borderless
+                                        style={{ paddingBottom: "0px" }}
+                                      >
+                                        <thead>
+                                          <tr>
+                                            <th style={{ padding: "0px" }}>
+                                              {" "}
+                                              <img
+                                                alt={
+                                                  eachVersion.questionImageAltText
+                                                    ? eachVersion
+                                                        .questionImageAltText[
+                                                        index
+                                                      ]
+                                                    : "We're missing an explanation here, contact us!"
+                                                }
+                                                src={image}
+                                                style={{
+                                                  paddingLeft: "10px",
+                                                  maxHeight: `12rem`,
+                                                  maxInlineSize: "100%",
+                                                }}
+                                              />
+                                            </th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td
+                                              className="text-center"
+                                              style={{ fontSize: "10px" }}
+                                            >
+                                              Figure:{index + 1}
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </Table>
+                                    )
+                                  )
                                 : null}
                             </Stack>
                           </Card.Header>
@@ -769,31 +914,81 @@ const SingleQAadmin = () => {
     `}
                                   </style>
                                   {eachVersion.answerOptions
-                                    ? eachVersion.answerOptions.map((ans, index) => (
-                                        <tr key={uuidv4()}>
-                                          <td>
-                                            <Button tabIndex="-1" style={{ margin: "0" }} variant={ans === eachVersion.correctAnswer ? "success" : "danger"}>
-                                              {ans}
-                                            </Button>
-                                          </td>
+                                    ? eachVersion.answerOptions.map(
+                                        (ans, index) => (
+                                          <tr key={uuidv4()}>
+                                            <td>
+                                              <Button
+                                                tabIndex="-1"
+                                                style={{ margin: "0" }}
+                                                variant={
+                                                  ans ===
+                                                  eachVersion.correctAnswer
+                                                    ? "success"
+                                                    : "danger"
+                                                }
+                                              >
+                                                {ans}
+                                              </Button>
+                                            </td>
 
-                                          <td>
-                                            <span className="visually-hidden">{`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}</span>
-                                            {
-                                              <ProgressBar
-                                                aria-hidden="true"
-                                                variant={ans === eachVersion.correctAnswer ? "success" : "danger"}
-                                                style={{
-                                                  height: "38px",
-                                                  minWidth: "100%",
-                                                }}
-                                                now={responseData(eachVersion.id, ans) || responseData(eachVersion.id, ans) == "0" ? responseData(eachVersion.id, ans) : 100}
-                                                label={`${responseData(eachVersion.id, ans) ? responseData(eachVersion.id, ans) : 0}%`}
-                                              />
-                                            }
-                                          </td>
-                                        </tr>
-                                      ))
+                                            <td>
+                                              <span className="visually-hidden">{`${
+                                                responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                                  ? responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    )
+                                                  : 0
+                                              }%`}</span>
+                                              {
+                                                <ProgressBar
+                                                  aria-hidden="true"
+                                                  variant={
+                                                    ans ===
+                                                    eachVersion.correctAnswer
+                                                      ? "success"
+                                                      : "danger"
+                                                  }
+                                                  style={{
+                                                    height: "38px",
+                                                    minWidth: "100%",
+                                                  }}
+                                                  now={
+                                                    responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    ) ||
+                                                    responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    ) == "0"
+                                                      ? responseData(
+                                                          eachVersion.id,
+                                                          ans
+                                                        )
+                                                      : 100
+                                                  }
+                                                  label={`${
+                                                    responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    )
+                                                      ? responseData(
+                                                          eachVersion.id,
+                                                          ans
+                                                        )
+                                                      : 0
+                                                  }%`}
+                                                />
+                                              }
+                                            </td>
+                                          </tr>
+                                        )
+                                      )
                                     : null}
                                 </tbody>
                               </Table>{" "}
@@ -847,7 +1042,7 @@ const SingleQAadmin = () => {
                                               <tbody>
                                                 <tr>
                                                   <td
-                                                    className="text-muted text-center"
+                                                    className=" text-center"
                                                     style={{ fontSize: "10px" }}
                                                   >
                                                     Figure:{index + 1}
