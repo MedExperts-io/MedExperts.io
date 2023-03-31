@@ -1,169 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Stack from "@mui/material/Stack";
-import {
-  fetchAllUsers,
-  fetchUserQuestions,
-  updateUserQuestion,
-  fetchAllUserQuestions,
-} from "../stats/user_questionsSlice";
+import { fetchAllUsers, fetchUserQuestions, fetchAllUserQuestions } from "../stats/user_questionsSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
-import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
+import { Card, Row, Col, Container } from "react-bootstrap";
+import { v4 as uuidv4 } from "uuid";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
-    isAdmin
-      ? dispatch(fetchAllQuestionsAnswers()).then(() =>
-          dispatch(fetchAllUserQuestions())
-        )
-      : dispatch(fetchAllQuestionsAnswers()).then(() =>
-          dispatch(fetchUserQuestions())
-        );
+    isAdmin ? dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchAllUserQuestions())) : dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions()));
     isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
 
   const allUsers = useSelector((state) => state.userQuestions.allUsers);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const AllUserQuestions = useSelector(
-    (state) => state.userQuestions.UserQuestions
-  );
-  const EasyQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Easy"
-  );
-  const ModerateQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Moderate"
-  );
-  const HardQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Hard"
-  );
-  const UsereasyQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Easy" && question.answered === "right"
-  );
-  const UserModerateQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Moderate" && question.answered === "right"
-  );
-  const UserHardQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.level === "Hard" && question.answered === "right"
-  );
-  const UserAllQuestionsTotal = AllUserQuestions.filter(
-    (question) => question.answered === "right"
-  );
-  const { UserQuestions, userEasy, userModerate, userHard } = useSelector(
-    (state) => state.userQuestions
-  );
-  const UserQuestionsAnswered = UserQuestions.filter(
-    (question) => question.answered !== null
-  );
-  const { questionsAnswers, easy, moderate, hard } = useSelector(
-    (state) => state.questionsAnswers
-  );
+  const AllUserQuestions = useSelector((state) => state.userQuestions.UserQuestions);
+  const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
+  const ModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate");
+  const HardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard");
+  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered === "right");
+  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered === "right");
+  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
+  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
+  const { UserQuestions, userEasy, userModerate, userHard } = useSelector((state) => state.userQuestions);
+  const UserQuestionsAnswered = UserQuestions.filter((question) => question.answered !== null);
+  const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
   const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
   const totalEasyAnswered = `${userEasy?.length} / ${easy?.length}`;
-  const moderatePercentage = Math.round(
-    (userModerate?.length / moderate?.length) * 100
-  );
+  const moderatePercentage = Math.round((userModerate?.length / moderate?.length) * 100);
   const totalmoderateAnswere = `${userModerate?.length} / ${moderate?.length}`;
   const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
   const totalhardAnswered = `${userHard?.length} / ${hard?.length}`;
-  const allPercentage = Math.round(
-    (UserQuestionsAnswered?.length / questionsAnswers?.length) * 100
-  );
+  const allPercentage = Math.round((UserQuestionsAnswered?.length / questionsAnswers?.length) * 100);
   const totalallAnswered = `${UserQuestionsAnswered?.length} / ${questionsAnswers?.length}`;
 
-  const Asthma = questionsAnswers.filter(
-    (question) => question.category === "Asthma"
-  );
-  const Bronchiectasis = questionsAnswers.filter(
-    (question) => question.category === "Bronchiectasis"
-  );
-  const COPD = questionsAnswers.filter(
-    (question) => question.category === "Chronic Obstructive Pulmonary Disease"
-  );
-  const CriticalCare = questionsAnswers.filter(
-    (question) => question.category === "Critical Care"
-  );
-  const Infection = questionsAnswers.filter(
-    (question) => question.category === "Infection"
-  );
-  const InterstitialLungDisease = questionsAnswers.filter(
-    (question) => question.category === "Interstitial Lung Diseases"
-  );
-  const LungCancer = questionsAnswers.filter(
-    (question) => question.category === "Lung Cancer"
-  );
-  const LungTransplant = questionsAnswers.filter(
-    (question) => question.category === "Lung Transplant"
-  );
-  const MediastinalDisorders = questionsAnswers.filter(
-    (question) => question.category === "Mediastinal Disorders"
-  );
-  const OtherPulmonaryDiseases = questionsAnswers.filter(
-    (question) => question.category === "Other Pulmonary Diseases"
-  );
-  const Pharmacology = questionsAnswers.filter(
-    (question) => question.category === "Pharmacology"
-  );
-  const PleuralDisease = questionsAnswers.filter(
-    (question) => question.category === "Pleural Diseases"
-  );
-  const PulmonaryFunctionTesting = questionsAnswers.filter(
-    (question) => question.category === "Pulmonary Function Testing"
-  );
-  const PulmonaryVascularDisease = questionsAnswers.filter(
-    (question) => question.category === "Pulmonary Vascular Disease"
-  );
-  const Sleep = questionsAnswers.filter(
-    (question) => question.category === "Sleep"
-  );
+  const progressBarRatio = (category, plainText) => {
+    const questionAnswers = questionsAnswers.filter((question) => question.category === category).length;
+    const userAnswers = UserQuestions.filter((question) => question.category === category).length;
 
-  const AsthmaUser = UserQuestions.filter(
-    (question) => question.category === "Asthma"
-  );
-  const BronchiectasisUser = UserQuestions.filter(
-    (question) => question.category === "Bronchiectasis"
-  );
-  const COPDUser = UserQuestions.filter(
-    (question) => question.category === "Chronic Obstructive Pulmonary Disease"
-  );
-  const CriticalCareUser = UserQuestions.filter(
-    (question) => question.category === "Critical Care"
-  );
-  const InfectionUser = UserQuestions.filter(
-    (question) => question.category === "Infection"
-  );
-  const InterstitialLungDiseaseUser = UserQuestions.filter(
-    (question) => question.category === "Interstitial Lung Diseases"
-  );
-  const LungCancerUser = UserQuestions.filter(
-    (question) => question.category === "Lung Cancer"
-  );
-  const LungTransplantUser = UserQuestions.filter(
-    (question) => question.category === "Lung Transplant"
-  );
-  const MediastinalDisordersUser = UserQuestions.filter(
-    (question) => question.category === "Mediastinal Disorders"
-  );
-  const OtherPulmonaryDiseasesUser = UserQuestions.filter(
-    (question) => question.category === "Other Pulmonary Diseases"
-  );
-  const PharmacologyUser = UserQuestions.filter(
-    (question) => question.category === "Pharmacology"
-  );
-  const PleuralDiseaseUser = UserQuestions.filter(
-    (question) => question.category === "Pleural Diseases"
-  );
-  const PulmonaryFunctionTestingUser = UserQuestions.filter(
-    (question) => question.category === "Pulmonary Function Testing"
-  );
-  const PulmonaryVascularDiseaseUser = UserQuestions.filter(
-    (question) => question.category === "Pulmonary Vascular Disease"
-  );
-  const SleepUser = UserQuestions.filter(
-    (question) => question.category === "Sleep"
-  );
+    if (plainText) {
+      return `${userAnswers} / ${questionAnswers}`;
+    } else {
+      return userAnswers / questionAnswers;
+    }
+  };
+
+  const allCategories = [
+    "Asthma",
+    "Bronchiectasis",
+    "Chronic Obstructive Pulmonary Disease",
+    "Critical Care",
+    "Infection",
+    "Interstitial Lung Diseases",
+    "Lung Cancer",
+    "Lung Transplant",
+    "Mediastinal Disorders",
+    "Other Pulmonary Diseases",
+    "Pharmacology",
+    "Pleural Diseases",
+    "Pulmonary Function Testing",
+    "Pulmonary Vascular Disease",
+    "Sleep",
+  ];
 
   const progressCircleBackground = (progress, color) => {
     const angle = 360 * progress;
@@ -219,156 +119,6 @@ const Dashboard = () => {
   };
 
   const stylesCategory = {
-    progressAsthma: {
-      background: progressCircleBackground(
-        AsthmaUser.length / Asthma.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressBronchiectasis: {
-      background: progressCircleBackground(
-        BronchiectasisUser.length / Bronchiectasis.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressCOPD: {
-      background: progressCircleBackground(
-        COPDUser.length / COPD.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressCriticalCare: {
-      background: progressCircleBackground(
-        CriticalCareUser.length / CriticalCare.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressInfection: {
-      background: progressCircleBackground(
-        InfectionUser.length / Infection.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressInterstitialLungDisease: {
-      background: progressCircleBackground(
-        InterstitialLungDiseaseUser.length / InterstitialLungDisease.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressLungCancer: {
-      background: progressCircleBackground(
-        LungCancerUser.length / LungCancer.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressLungTransplant: {
-      background: progressCircleBackground(
-        LungTransplantUser.length / LungTransplant.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressMediastinalDisorders: {
-      background: progressCircleBackground(
-        MediastinalDisordersUser.length / MediastinalDisorders.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressOtherPulmonaryDiseases: {
-      background: progressCircleBackground(
-        OtherPulmonaryDiseasesUser.length / OtherPulmonaryDiseases.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressPharmacology: {
-      background: progressCircleBackground(
-        PharmacologyUser.length / Pharmacology.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressPleuralDisease: {
-      background: progressCircleBackground(
-        PleuralDiseaseUser.length / PleuralDisease.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressPulmonaryFunctionTesting: {
-      background: progressCircleBackground(
-        PulmonaryFunctionTestingUser.length / PulmonaryFunctionTesting.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressPulmonaryVascularDisease: {
-      background: progressCircleBackground(
-        PulmonaryVascularDiseaseUser.length / PulmonaryVascularDisease.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
-    progressSleep: {
-      background: progressCircleBackground(
-        SleepUser.length / Sleep.length,
-        "#f5ad27"
-      ),
-      borderRadius: "50%",
-      width: "100px",
-      height: "100px",
-      position: "relative",
-    },
     progressBarBackground: {
       position: "absolute",
       bottom: "30%",
@@ -390,82 +140,63 @@ const Dashboard = () => {
       <div className="mx-auto">
         {!isAdmin ? (
           <Stack>
-            <div className="welcome">
-              Welcome,{" "}
-              {firstName
-                ? firstName.charAt(0).toUpperCase() + firstName.slice(1)
-                : "User"}
-              !
-            </div>
+            <div className="welcome">Welcome, {firstName ? firstName.charAt(0).toUpperCase() + firstName.slice(1) : "User"}!</div>
             {/* top row answered amount out of total */}
             <Stack>
               <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                <Card
-                  className="mx-auto"
-                  style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-                >
-                  <Card.Header
-                    style={{ marginBottom: "20px", fontSize: `200%` }}
-                  >
+                <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
+                  <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
                     <center> Questions Answered </center>
                   </Card.Header>{" "}
                   <Card.Body>
                     <Row>
                       <Col>
-                        <Card id="no-border" className="mx-auto ">
+                        <div className="visually-hidden">Easy Level {totalEasyAnswered} Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto ">
                           <div className="mx-auto" style={styles.progressBarEasy}>
                             <div style={styles.progressBarMiddle}>{totalEasyAnswered}</div>
                             <div style={styles.progressBarBackground}>Completed</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Easy Level
                           </Card.Title>
                         </Card>
                       </Col>
 
                       <Col>
-                        <Card title={`Moderate Level. ${totalmoderateAnswere} Completed`} id="no-border" className="mx-auto">
+                        <div className="visually-hidden">Moderate Level {totalmoderateAnswere} Completed</div>
+                        <Card title={`Moderate Level. ${totalmoderateAnswere} Completed`} aria-hidden="true" id="no-border" className="mx-auto">
                           <div className="mx-auto" style={styles.progressBarModerate}>
                             <div style={styles.progressBarMiddle}>{totalmoderateAnswere}</div>
                             <div style={styles.progressBarBackground}>Completed</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             <center>Moderate Level</center>
                           </Card.Title>
                         </Card>
                       </Col>
 
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <div className="visually-hidden">Hard Level {totalhardAnswered} Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto">
                           <div title={`Hard Level. ${totalhardAnswered} Completed`} className="mx-auto" style={styles.progressBarHard}>
                             <div style={styles.progressBarMiddle}>{totalhardAnswered}</div>
                             <div style={styles.progressBarBackground}>Completed</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Hard Level
                           </Card.Title>
                         </Card>
                       </Col>
 
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <div className="visually-hidden">All Levels {totalallAnswered} Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto">
                           <div title={`All Levels. ${totalhardAnswered} Completed`} className="mx-auto" style={styles.progressBarAll}>
                             <div style={styles.progressBarMiddle}>{totalallAnswered}</div>
                             <div style={styles.progressBarBackground}>Completed</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             All Levels
                           </Card.Title>
                         </Card>
@@ -479,34 +210,28 @@ const Dashboard = () => {
             {/* middle row answered percentage out of total */}
             <Stack>
               <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                <Card
-                  className="mx-auto"
-                  style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-                >
-                  <Card.Header
-                    style={{ marginBottom: "20px", fontSize: `200%` }}
-                  >
+                <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
+                  <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
                     <center> Questions Answered Correctly </center>
                   </Card.Header>{" "}
                   <Card.Body>
                     <Row>
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <div className="visually-hidden">Easy Level {Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}% Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto">
                           <div title={`Easy Level. ${Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}% Correct`} className="mx-auto" style={styles.progressBarEasy}>
                             <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
                             <div style={styles.progressBarBackground}>Correct</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Easy Level
                           </Card.Title>
                         </Card>
                       </Col>
 
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <div className="visually-hidden">Moderate Level {Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}% Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto">
                           <div
                             title={`Moderate Level. ${Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}% Correct`}
                             className="mx-auto"
@@ -515,40 +240,33 @@ const Dashboard = () => {
                             <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
                             <div style={styles.progressBarBackground}>Correct</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             <center>Moderate Level</center>
                           </Card.Title>
                         </Card>
                       </Col>
 
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <div className="visually-hidden">Hard Level {Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}% Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto">
                           <div title={`Hard Level. ${Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}% Correct`} className="mx-auto" style={styles.progressBarHard}>
                             <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
                             <div style={styles.progressBarBackground}>Correct</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             Hard Level
                           </Card.Title>
                         </Card>
                       </Col>
 
                       <Col>
-                        <Card id="no-border" className="mx-auto">
+                        <div className="visually-hidden">All Levels {Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}% Completed</div>
+                        <Card id="no-border" aria-hidden="true" className="mx-auto">
                           <div title={`All Levels. ${Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}% Correct`} className="mx-auto" style={styles.progressBarAll}>
                             <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
                             <div style={styles.progressBarBackground}>Correct</div>
                           </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
+                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
                             All Levels
                           </Card.Title>
                         </Card>
@@ -566,192 +284,36 @@ const Dashboard = () => {
                   <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
                     <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
                       <center> Categories </center>
-                    </Card.Header>{" "}
+                    </Card.Header>
                     <Card.Body>
                       <Row>
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressAsthma}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${AsthmaUser.length} / ${Asthma.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
+                        {allCategories.map((category) => (
+                          <Col key={uuidv4()} style={{ paddingRight: "60px", paddingLeft: "60px", paddingTop: "15px" }}>
+                            <div className="visually-hidden">
+                              {`${category} `} {progressBarRatio(category, true)} Completed
                             </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Asthma
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressBronchiectasis}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${BronchiectasisUser.length} / ${Bronchiectasis.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Bronchiectasis
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressCOPD}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${COPDUser.length} / ${COPD.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              COPD
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressCriticalCare}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${CriticalCareUser.length} / ${CriticalCare.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Critical Care
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressInfection}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${InfectionUser.length} / ${Infection.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Infection
-                            </Card.Title>
-                          </Card>
-                        </Col>
-                      </Row>
-
-                      <Row>
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressInterstitialLungDisease}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${InterstitialLungDiseaseUser.length} / ${InterstitialLungDisease.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Interstitial Lung Disease
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressLungCancer}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${LungCancerUser.length} / ${LungCancer.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Lung Cancer
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressLungTransplant}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${LungTransplantUser.length} / ${LungTransplant.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Lung Transplant
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressMediastinalDisorders}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${MediastinalDisordersUser.length} / ${MediastinalDisorders.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Mediastinal Disorders
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressOtherPulmonaryDiseases}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${OtherPulmonaryDiseasesUser.length} / ${OtherPulmonaryDiseases.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Other Pulmonary Diseases
-                            </Card.Title>
-                          </Card>
-                        </Col>
-                      </Row>
-
-                      <Row>
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressPharmacology}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${PharmacologyUser.length} / ${Pharmacology.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Pharmacology
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressPleuralDisease}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${PleuralDiseaseUser.length} / ${PleuralDisease.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
-                              Pleural Disease
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressPulmonaryFunctionTesting}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${PulmonaryFunctionTestingUser.length} / ${PulmonaryFunctionTesting.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Pulmonary Function Testing
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressPulmonaryVascularDisease}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${PulmonaryVascularDiseaseUser.length} / ${PulmonaryVascularDisease.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Pulmonary Vascular Disease
-                            </Card.Title>
-                          </Card>
-                        </Col>
-
-                        <Col>
-                          <Card id="no-border" className="mx-auto ">
-                            <div className="mx-auto" style={stylesCategory.progressSleep}>
-                              <div style={stylesCategory.progressBarMiddle}>{`${SleepUser.length} / ${Sleep.length}`}</div>
-                              <div style={stylesCategory.progressBarBackground}>Completed</div>
-                            </div>
-                            <Card.Title className="mx-auto" style={{ paddingTop: "5px", textAlign: "center" }}>
-                              Sleep
-                            </Card.Title>
-                          </Card>
-                        </Col>
+                            <Card id="no-border" aria-hidden="true" className="mx-auto">
+                              <div
+                                className="mx-auto"
+                                style={{
+                                  background: progressCircleBackground(progressBarRatio(category, false), "#f5ad27"),
+                                  borderRadius: "50%",
+                                  width: "100px",
+                                  height: "100px",
+                                  position: "relative",
+                                }}
+                              >
+                                <div style={stylesCategory.progressBarMiddle}>{progressBarRatio(category, true)}</div>
+                                <div style={stylesCategory.progressBarBackground}>Completed</div>
+                              </div>
+                              <center>
+                                <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
+                                  {category !== "Chronic Obstructive Pulmonary Disease" ? category : "COPD"}
+                                </Card.Title>
+                              </center>
+                            </Card>
+                          </Col>
+                        ))}
                       </Row>
                     </Card.Body>
                   </Card>

@@ -173,7 +173,7 @@ const SignUp = () => {
                     {showReqs && (
                       <div>
                         <div className="password-strength-meter"></div>
-                        <div className="text-muted">
+                        <div className="">
                           <ul>
                             <small style={{ textDecorationLine: "underline" }}>{passwordStrength < 5 && "Password Requirements"}</small>
                             <small>

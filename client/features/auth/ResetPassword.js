@@ -39,9 +39,7 @@ const ResetPassword = () => {
     eightCharactersOrGreater: password1.match(eightCharactersOrMore),
   };
 
-  const passwordStrength = Object.values(passwordTracker).filter(
-    (value) => value
-  ).length;
+  const passwordStrength = Object.values(passwordTracker).filter((value) => value).length;
   //password checker end
 
   const handleSubmit = (evt) => {
@@ -50,9 +48,7 @@ const ResetPassword = () => {
     const password2 = evt.target.confirmResetPassword.value;
 
     if (validated) {
-      dispatch(resetPassword({ password1, password2, token, uid })).then(() =>
-        navigate("/login")
-      );
+      dispatch(resetPassword({ password1, password2, token, uid })).then(() => navigate("/login"));
     }
   };
 
@@ -63,26 +59,17 @@ const ResetPassword = () => {
           {error ? (
             <>
               <center>
-                <p className="expired-link">
-                  Sorry, your reset password link has either expired or already
-                  been used. You may request a new link below.
-                </p>
+                <p className="expired-link">Sorry, your reset password link has either expired or already been used. You may request a new link below.</p>
               </center>
               <RequestNewPassword />
             </>
           ) : (
             <Card className="shadow mx-auto" id="request-pw-reset-card">
-              <Card.Header id="request-pw-reset-card-header">
-                Reset Account Password
-              </Card.Header>
+              <Card.Header id="request-pw-reset-card-header">Reset Account Password</Card.Header>
               <Card.Body>
                 <div>
                   <div className="mb-3">
-                    <Form
-                      noValidate
-                      validated={validated}
-                      onSubmit={handleSubmit}
-                    >
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
                       <p>Enter your password below.</p>
                       <Form.Group className="mb-3" controlId="resetPassword">
                         <Form.Label>
@@ -99,17 +86,11 @@ const ResetPassword = () => {
                           autoComplete="new-password"
                           placeholder="Enter password"
                         />
-                        <Form.Control.Feedback type="invalid">
-                          Please provide a password.
-                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
                       </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="confirmResetPassword"
-                      >
+                      <Form.Group className="mb-3" controlId="confirmResetPassword">
                         <Form.Label>
-                          Confirm new password{" "}
-                          <span className="asterisk">*</span>
+                          Confirm new password <span className="asterisk">*</span>
                         </Form.Label>
                         <Form.Control
                           onChange={(e) => {
@@ -120,60 +101,27 @@ const ResetPassword = () => {
                           type="password"
                           placeholder="Enter password"
                         />
-                        <Form.Control.Feedback type="invalid">
-                          Please provide a password.
-                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">Please provide a password.</Form.Control.Feedback>
                       </Form.Group>
-                      {password1 !== password2 && (
-                        <div className="warning">Passwords do not match</div>
-                      )}
+                      {password1 !== password2 && <div className="warning">Passwords do not match</div>}
                       {showReqs && (
                         <div>
                           <div className="password-strength-meter"></div>
-                          <div className="text-muted">
+                          <div className="">
                             <ul>
-                              <small
-                                style={{ textDecorationLine: "underline" }}
-                              >
-                                {passwordStrength < 5 &&
-                                  "Password Requirements"}
-                              </small>
+                              <small style={{ textDecorationLine: "underline" }}>{passwordStrength < 5 && "Password Requirements"}</small>
                               <small>
-                                {!passwordTracker.uppercase && (
-                                  <li>
-                                    MUST contain at least one uppercase letter
-                                  </li>
-                                )}
-                                {!passwordTracker.lowercase && (
-                                  <li>
-                                    MUST contain at least one lowercase letter
-                                  </li>
-                                )}
-                                {!passwordTracker.specialCharacter && (
-                                  <li>
-                                    MUST contain at least one special character
-                                    (#?!@$%^&*-)
-                                  </li>
-                                )}
-                                {!passwordTracker.number && (
-                                  <li>MUST contain at least one number</li>
-                                )}
-                                {!passwordTracker.eightCharactersOrGreater && (
-                                  <li>MUST contain at least 8 characters</li>
-                                )}
+                                {!passwordTracker.uppercase && <li>MUST contain at least one uppercase letter</li>}
+                                {!passwordTracker.lowercase && <li>MUST contain at least one lowercase letter</li>}
+                                {!passwordTracker.specialCharacter && <li>MUST contain at least one special character (#?!@$%^&*-)</li>}
+                                {!passwordTracker.number && <li>MUST contain at least one number</li>}
+                                {!passwordTracker.eightCharactersOrGreater && <li>MUST contain at least 8 characters</li>}
                               </small>
                             </ul>
                           </div>
                         </div>
                       )}
-                      <Button
-                        onClick={() => setValidated(true)}
-                        variant="success"
-                        type="submit"
-                        disabled={
-                          password1 !== password2 || passwordStrength != 5
-                        }
-                      >
+                      <Button onClick={() => setValidated(true)} variant="success" type="submit" disabled={password1 !== password2 || passwordStrength != 5}>
                         Reset password
                       </Button>
                     </Form>
