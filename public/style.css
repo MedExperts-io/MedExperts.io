@@ -239,17 +239,22 @@ img {
 #about-card {
   width: 90%;
   margin-top: 30px;
-  /* border: none; */
   margin-bottom: 30px;
 }
 
 .about-heading {
   text-align: center;
-  /* text-decoration-line: underline; */
-
-  font-weight: 420;
+  font-weight: 500;
+  background-color: transparent;
   font-size: 50px;
+  box-shadow: #ff6262;
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+.dept-heading {
+  background-color: #ff6262;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 #member-card {
@@ -264,24 +269,8 @@ img {
   position: relative;
   color: #fff;
   overflow: hidden;
-  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
-}
-.member-card-hover .default {
-  display: block;
 }
 
-.member-card-hover .hover {
-  display: none;
-  box-shadow: 0 0 2px #ff6262;
-}
-
-.member-card-hover:hover .default {
-  display: none;
-}
-
-.member-card-hover:hover .hover {
-  display: block;
-}
 .member-img {
   padding: none;
   margin: none;
@@ -296,9 +285,7 @@ img {
   padding-top: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
-  /* top: auto; */
   bottom: 0;
-  /* opacity: 1; */
   left: 0;
   width: 100%;
   height: 65%;
@@ -316,14 +303,66 @@ img {
 #member-card-title {
   padding: 0;
   width: 100%;
-  /* background-color: transparent */
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  /* height: 6rem; */
 }
-#member-name {
+
+#member-name1 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-weight: 500;
+  text-align: left;
+  font-size: 18px;
+  padding-bottom: 0;
+  color: #ff6262;
+}
+
+#member-role1 {
+  margin: 0;
+  text-align: left;
+  font-weight: 400;
+  font-size: 11px;
+  padding-top: 0;
+  color: black;
+}
+
+#member-desc1 {
+  font-size: 11px;
+  color: black;
+  font-weight: 350;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.member-caption:hover {
+  -webkit-transform: translateY(0px);
+  background-color: #fafafafe;
+  transform: translateY(0px);
+  -webkit-transition: opacity 0.1s, -webkit-transform 0.4s;
+  transition: opacity 0.1s, -webkit-transform 0.4s;
+  transition: transform 0.4s, opacity 0.1s;
+  transition: transform 0.4s, opacity 0.1s, -webkit-transform 0.4s;
+}
+
+/* .member-card-hover .default {
+  display: block;
+}
+
+.member-card-hover .hover {
+  display: none;
+  box-shadow: 0 0 2px #ff6262;
+}
+
+.member-card-hover:hover .default {
+  display: none;
+}
+
+.member-card-hover:hover .hover {
+  display: block;
+} */
+/* #member-name {
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 5px;
@@ -341,48 +380,13 @@ img {
   text-align: center;
   font-weight: 200;
   font-size: 15px;
-}
-#member-name1 {
-  margin-bottom: 0px;
-  margin-top: 0px;
-  font-weight: 500;
-  text-align: left;
-  font-size: 18px;
-  padding-bottom: 0;
-  color: #ff6262;
-}
-#member-role1 {
-  margin: 0;
-  text-align: left;
-  font-weight: 400;
-  font-size: 11px;
-  padding-top: 0;
-  color: black;
-}
-#member-desc1 {
-  font-size: 11px;
-  color: black;
-  font-weight: 350;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.member-caption:hover {
-  /* opacity: 0.6; */
-  -webkit-transform: translateY(0px);
-  background-color: #fafafafe;
-  transform: translateY(0px);
-  -webkit-transition: opacity 0.1s, -webkit-transform 0.4s;
-  transition: opacity 0.1s, -webkit-transform 0.4s;
-  transition: transform 0.4s, opacity 0.1s;
-  transition: transform 0.4s, opacity 0.1s, -webkit-transform 0.4s;
-}
-#member-read {
+} */
+/* #member-read {
   bottom: 0;
   position: absolute;
   left: 35%;
   font-size: 15px;
-}
+} */
 .modal-backdrop {
   --bs-backdrop-bg: rgba(27, 9, 9, 0.961) !important;
 }
