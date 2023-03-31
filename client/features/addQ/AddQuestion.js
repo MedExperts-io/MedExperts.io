@@ -159,7 +159,9 @@ const AddQuestion = () => {
       newLevel === "" ||
       newLevel === "none"
     ) {
-      setAlertMsg("A required field is missing!");
+      setAlertMsg(
+        "A required field is missing! Please fill out Question, Answer, Category, and Level"
+      );
       toggleShowAlert();
     } else {
       dispatch(

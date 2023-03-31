@@ -88,8 +88,6 @@ const SingleQuestion = () => {
     displayId,
   } = singleQ;
 
-  console.log("ALTIMAGETEXT:", questionImageAltText, explanationImageAltText);
-
   const AllUserQuestion = useSelector(
     (state) => state.userQuestions.UserQuestions
   );
