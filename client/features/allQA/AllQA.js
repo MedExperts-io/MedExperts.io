@@ -56,6 +56,10 @@ const QuestionsAnswers = () => {
     "Internal Med",
     "Other",
   ];
+  const answerStatusOptions = ["All", "Answered", "Unanswered"];
+  const currentAnswerStatus = useRef(answerStatusOptions[0]);
+  const answerCorrectOptions = ["All", "Correct", "Incorrect"];
+  const currentCorrectStatus = useRef(answerCorrectOptions[0]);
   const currentExpertise = useRef(userExpertise[0]);
   const userExpertiseRelation = {
     "All Expertise": null,
@@ -162,7 +166,18 @@ const QuestionsAnswers = () => {
   const pickExpertise = (event) => {
     currentExpertise.current = event;
     !seeFavorites ? (isFavorited = true) : null;
-    //filterCriteria[2] = event;
+    filterFunction();
+  };
+
+  const changeAnswerStatus = (event) => {
+    currentAnswerStatus.current = event;
+    !seeFavorites ? (isFavorited = true) : null;
+    filterFunction();
+  };
+
+  const changeCorrectStatus = (event) => {
+    currentCorrectStatus.current = event;
+    !seeFavorites ? (isFavorited = true) : null;
     filterFunction();
   };
 
@@ -183,9 +198,43 @@ const QuestionsAnswers = () => {
 
   const filterFunction = () => {
     let multiFilter = allQuestions;
+
+    let rightAnswers = UserQuestions.filter(
+      (question) => question.answered === "right"
+    ).map((question) => question.questionAnswerId);
+    let wrongAnswers = UserQuestions.filter(
+      (question) => question.answered === "wrong"
+    ).map((question) => question.questionAnswerId);
+    let answered = UserQuestions.filter(
+      (question) => question.answered !== null
+    ).map((question) => question.questionAnswerId);
+
     let favNumbers = UserQuestions.filter(
       (question) => question.favorite === true
     ).map((question) => question.questionAnswerId);
+
+    currentAnswerStatus.current === "Answered"
+      ? (multiFilter = multiFilter.filter((question) =>
+          answered.includes(question.id)
+        ))
+      : null;
+    currentAnswerStatus.current === "Unanswered"
+      ? (multiFilter = multiFilter.filter(
+          (question) => !answered.includes(question.id)
+        ))
+      : null;
+
+    currentCorrectStatus.current === "Correct"
+      ? (multiFilter = multiFilter.filter((question) =>
+          rightAnswers.includes(question.id)
+        ))
+      : null;
+    currentCorrectStatus.current === "Incorrect"
+      ? (multiFilter = multiFilter.filter((question) =>
+          wrongAnswers.includes(question.id)
+        ))
+      : null;
+
     isFavorited
       ? (multiFilter = multiFilter.filter((question) =>
           favNumbers.includes(question.id)
@@ -244,7 +293,7 @@ const QuestionsAnswers = () => {
     if (rightOrWrong && rightOrWrong[id] === "right") {
       return "rgb(144, 238, 144, .25)";
     } else if (rightOrWrong && rightOrWrong[id] === "wrong") {
-      return "rgb(245, 91, 73, .25)";
+      return "rgb(0, 0, 0, .10)";
     }
   };
 
@@ -321,7 +370,10 @@ const QuestionsAnswers = () => {
             <Card.Body>
               <Row>
                 <Col>
-                  <Card id="no-border" className="mx-auto ">
+                  <div className="visually-hidden">
+                    Easy Level {easyPercentage}% Completed
+                  </div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto ">
                     <div className="mx-auto" style={styles.progressBarEasy}>
                       <div style={styles.progressBarMiddle}>
                         {easyPercentage}%
@@ -338,7 +390,10 @@ const QuestionsAnswers = () => {
                 </Col>
 
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <div className="visually-hidden">
+                    Moderate Level {moderatePercentage}% Completed
+                  </div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarModerate}>
                       <div style={styles.progressBarMiddle}>
                         {moderatePercentage}%
@@ -355,7 +410,10 @@ const QuestionsAnswers = () => {
                 </Col>
 
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <div className="visually-hidden">
+                    Hard Level {hardPercentage}% Completed
+                  </div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarHard}>
                       <div style={styles.progressBarMiddle}>
                         {hardPercentage}%
@@ -372,7 +430,10 @@ const QuestionsAnswers = () => {
                 </Col>
 
                 <Col>
-                  <Card id="no-border" className="mx-auto">
+                  <div className="visually-hidden">
+                    All Levels {allPercentage}% Completed
+                  </div>
+                  <Card id="no-border" aria-hidden="true" className="mx-auto">
                     <div className="mx-auto" style={styles.progressBarAll}>
                       <div style={styles.progressBarMiddle}>
                         {allPercentage}%
@@ -473,6 +534,43 @@ const QuestionsAnswers = () => {
                   </Dropdown>
                 </Col>
                 <Col>
+                  <Dropdown
+                    onSelect={(event) => changeAnswerStatus(event)}
+                    style={{ marginBottom: "10px" }}
+                  >
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {currentAnswerStatus.current}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {answerStatusOptions.map((category) => (
+                        <Dropdown.Item key={category} eventKey={category}>
+                          {category}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+                <Col>
+                  <Dropdown
+                    onSelect={(event) => changeCorrectStatus(event)}
+                    style={{ marginBottom: "10px" }}
+                  >
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      {currentCorrectStatus.current}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      {answerCorrectOptions.map((category) => (
+                        <Dropdown.Item key={category} eventKey={category}>
+                          {category}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Col>
+
+                <Col>
                   <Form>
                     <Form.Switch
                       onChange={() => onFavoriteSwitch()}
@@ -514,6 +612,7 @@ const QuestionsAnswers = () => {
                         }}
                       >
                         <Link
+                          aria-label={`Question Number ${question.displayId}, difficulty: ${question.level} `}
                           style={{ textDecoration: "none" }}
                           to={`/questions/${question.id}`}
                         >
@@ -526,16 +625,16 @@ const QuestionsAnswers = () => {
                           >
                             Question Number {question.displayId}
                           </Card.Title>
-                          <Card.Text
-                            style={{
-                              color: "black",
-                              textAlign: "center",
-                              fontSize: "15px",
-                            }}
-                          >
-                            {truncate(question.question)}
-                          </Card.Text>
                         </Link>
+                        <Card.Text
+                          style={{
+                            color: "black",
+                            textAlign: "center",
+                            fontSize: "15px",
+                          }}
+                        >
+                          {truncate(question.question)}
+                        </Card.Text>
                       </Card.Body>
                       <Card.Footer>
                         <Chip
