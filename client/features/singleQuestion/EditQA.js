@@ -201,7 +201,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="question">
                           <Form.Label className="">
-                            <strong className="me-auto">Question {qaVersions[0]?.displayId}</strong>
+                            <strong className="me-auto">
+                              Question {qaVersions[0]?.displayId}
+                            </strong>
                           </Form.Label>
                           <Form.Control
                             as="textarea"
@@ -216,7 +218,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="questionImage">
                           <Form.Label className="">
-                            <strong className="me-auto">Question Figures</strong>
+                            <strong className="me-auto">
+                              Question Figures
+                            </strong>
                           </Form.Label>
 
                           <InputGroup className="mb-3">
@@ -498,7 +502,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanationImage">
                           <Form.Label className="">
-                            <strong className="me-auto">Explanation Figures</strong>
+                            <strong className="me-auto">
+                              Explanation Figures
+                            </strong>
                           </Form.Label>
 
                           <InputGroup className="mb-3">
@@ -664,7 +670,9 @@ const EditQA = () => {
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanationLinks">
                           <Form.Label className="">
-                            <strong className="me-auto">Explanation Sources</strong>
+                            <strong className="me-auto">
+                              Explanation Sources
+                            </strong>
                           </Form.Label>
                           <InputGroup className="mb-3">
                             <InputGroup.Text>Link</InputGroup.Text>

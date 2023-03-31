@@ -359,7 +359,12 @@ const AllQAadmin = () => {
 
   return (
     <Container fluid>
-      <OverlayTrigger key="top" style={{ backgroundColor: "gray" }} placement="top" overlay={<Tooltip id="tooltip-top">Add new question</Tooltip>}>
+      <OverlayTrigger
+        key="top"
+        style={{ backgroundColor: "black" }}
+        placement="top"
+        overlay={<Tooltip id="tooltip-top">Add new question</Tooltip>}
+      >
         <Fab
           size="medium"
           onClick={handleOpen}
@@ -388,8 +393,14 @@ const AllQAadmin = () => {
             <center>Student Progress</center>
             <Row>
               <p style={{ fontSize: `50%` }} className="">
-                The below charts represent the percentage of questions answered correctly in each category (i.e., of the 'Easy' questions answered,{" "}
-                {Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}% were answered correctly).
+                The below charts represent the percentage of questions answered
+                correctly in each category (i.e., of the 'Easy' questions
+                answered,{" "}
+                {Math.round(
+                  (UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) *
+                    100
+                ) || 0}
+                % were answered correctly).
               </p>
             </Row>
           </Card.Header>{" "}
@@ -399,7 +410,14 @@ const AllQAadmin = () => {
                 <div className="visually-hidden">Easy Level {Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}% Completed</div>
                 <Card id="no-border" aria-hidden="true" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarEasy}>
-                    <div style={styles.progressBarMiddle}>{Math.round((UsereasyQuestionsTotal.length / EasyQuestionsTotal.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UsereasyQuestionsTotal.length /
+                          EasyQuestionsTotal.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                     <div style={styles.progressBarBackground}>Correct</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
@@ -412,7 +430,14 @@ const AllQAadmin = () => {
                 <div className="visually-hidden">Moderate Level {Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}% Completed</div>
                 <Card id="no-border" aria-hidden="true" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarModerate}>
-                    <div style={styles.progressBarMiddle}>{Math.round((UserModerateQuestionsTotal.length / ModerateQuestionsTotal.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UserModerateQuestionsTotal.length /
+                          ModerateQuestionsTotal.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                     <div style={styles.progressBarBackground}>Correct</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
@@ -425,7 +450,14 @@ const AllQAadmin = () => {
                 <div className="visually-hidden">Hard Level {Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}% Completed</div>
                 <Card id="no-border" aria-hidden="true" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarHard}>
-                    <div style={styles.progressBarMiddle}>{Math.round((UserHardQuestionsTotal.length / HardQuestionsTotal.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UserHardQuestionsTotal.length /
+                          HardQuestionsTotal.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                     <div style={styles.progressBarBackground}>Correct</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
@@ -438,7 +470,14 @@ const AllQAadmin = () => {
                 <div className="visually-hidden">All Levels {Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}% Completed</div>
                 <Card id="no-border" aria-hidden="true" className="mx-auto">
                   <div className="mx-auto" style={styles.progressBarAll}>
-                    <div style={styles.progressBarMiddle}>{Math.round((UserAllQuestionsTotal.length / AllUserQuestions.length) * 100) || 0}%</div>
+                    <div style={styles.progressBarMiddle}>
+                      {Math.round(
+                        (UserAllQuestionsTotal.length /
+                          AllUserQuestions.length) *
+                          100
+                      ) || 0}
+                      %
+                    </div>
                     <div style={styles.progressBarBackground}>Correct</div>
                   </div>
                   <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
@@ -466,7 +505,11 @@ const AllQAadmin = () => {
             </Col>
           </Card.Header>
           <Card.Body>
-            <Row xs="auto" style={{ marginBottom: "30px" }} className="justify-content-center">
+            <Row
+              xs="auto"
+              style={{ marginBottom: "30px" }}
+              className="justify-content-center"
+            >
               <Col md="auto">
                 <Dropdown onSelect={(event) => pickDifficulty(event)}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -609,7 +652,11 @@ const AllQAadmin = () => {
                         sx={{ width: "100%", height: 8, pb: 0, mb: 0 }}
                         variant="determinate"
                         value={data(question.id)}
-                        color={`${data(question.id) && data(question.id) >= 50 ? "success" : "error"}`}
+                        color={`${
+                          data(question.id) && data(question.id) >= 50
+                            ? "success"
+                            : "error"
+                        }`}
                         aria-hidden="true"
                       />
                       <Card.Footer>
@@ -620,14 +667,32 @@ const AllQAadmin = () => {
                           size="small"
                           variant="outlined"
                         />
-                        <button onClick={() => favorite(question.id)} style={{ border: "none", background: "none", float: "right", cursor: "pointer" }}>
+                        <button
+                          onClick={() => favorite(question.id)}
+                          style={{
+                            border: "none",
+                            background: "none",
+                            float: "right",
+                            cursor: "pointer",
+                          }}
+                        >
                           <Card.Img
                             tabIndex={-1}
                             type="button"
-                            alt={`Heart button for question ${question.displayId}. ${favoriteStatus(question.id) ? "Favorited" : "Not Favorited"} `}
+                            alt={`Heart button for question ${
+                              question.displayId
+                            }. ${
+                              favoriteStatus(question.id)
+                                ? "Favorited"
+                                : "Not Favorited"
+                            } `}
                             style={{ width: "20px" }}
                             variant="top"
-                            src={favoriteStatus(question.id) ? "/heart(red).png" : "/heart.png"}
+                            src={
+                              favoriteStatus(question.id)
+                                ? "/heart(red).png"
+                                : "/heart.png"
+                            }
                           />
                         </button>
                       </Card.Footer>

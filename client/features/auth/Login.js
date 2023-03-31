@@ -1,15 +1,7 @@
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import React, { useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Form,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
+import { Button, Card, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authenticate, navigateToForm } from "../../app/store";
@@ -73,11 +65,7 @@ const Login = () => {
                     </Form.Group>{" "}
                     <Form.Group className="mb-3">
                       <p className="small">
-                        <Link
-                          className="text"
-                          style={{ color: "black" }}
-                          to="/forgotPassword"
-                        >
+                        <Link className="text" style={{ color: "black" }} to="/forgotPassword">
                           Forgot password?
                         </Link>
                       </p>
