@@ -1,6 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Row, Col, Container, Card, Button, Modal, InputGroup, Toast, ToastContainer, Table, ProgressBar, Alert } from "react-bootstrap";
+import {
+  Form,
+  Row,
+  Col,
+  Container,
+  Card,
+  Button,
+  Modal,
+  InputGroup,
+  Toast,
+  ToastContainer,
+  Table,
+  ProgressBar,
+  Alert,
+} from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchQAVersions, editQuestion } from "./singleQuestionSlice";
 import { v4 } from "uuid";
@@ -29,22 +43,38 @@ const EditQA = () => {
   const qaVersions = useSelector((state) => state.SingleQuestion.qaAllVersions);
 
   const [newQuestion, setNewQuestion] = useState(qaVersions[0]?.question);
-  const [newQuestionImage, setNewQuestionImage] = useState(qaVersions[0]?.questionImage);
+  const [newQuestionImage, setNewQuestionImage] = useState(
+    qaVersions[0]?.questionImage
+  );
 
   const [newSingleQImageAltText, setNewSingleQImageAltText] = useState("");
-  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState(qaVersions[0]?.questionImageAltText.slice());
+  const [newQuestionImageAltText, setNewQuestionImageAltText] = useState(
+    qaVersions[0]?.questionImageAltText.slice()
+  );
 
   const [newSingleOption, setNewSingleOption] = useState("");
-  const [newAnswerOptions, setNewAnswerOptions] = useState(qaVersions[0]?.answerOptions);
-  const [newCorrectAnswer, setNewCorrectAnswer] = useState(qaVersions[0]?.correctAnswer);
-  const [newExplanation, setNewExplanation] = useState(qaVersions[0]?.explanation);
-  const [newExplanationImage, setNewExplanationImage] = useState(qaVersions[0]?.explanationImage);
+  const [newAnswerOptions, setNewAnswerOptions] = useState(
+    qaVersions[0]?.answerOptions
+  );
+  const [newCorrectAnswer, setNewCorrectAnswer] = useState(
+    qaVersions[0]?.correctAnswer
+  );
+  const [newExplanation, setNewExplanation] = useState(
+    qaVersions[0]?.explanation
+  );
+  const [newExplanationImage, setNewExplanationImage] = useState(
+    qaVersions[0]?.explanationImage
+  );
   const [newSingleExpImageAltText, setNewSingleExpImageAltText] = useState("");
-  const [newExplanationImageAltText, setNewExplanationImageAltText] = useState(qaVersions[0]?.explanationImageAltText.slice());
+  const [newExplanationImageAltText, setNewExplanationImageAltText] = useState(
+    qaVersions[0]?.explanationImageAltText.slice()
+  );
 
   const [newSingleLink, setNewSingleLink] = useState("");
   const [newSource, setNewSource] = useState("");
-  const [newExplanationLinks, setNewExplanationLinks] = useState(qaVersions[0]?.explanationLinks);
+  const [newExplanationLinks, setNewExplanationLinks] = useState(
+    qaVersions[0]?.explanationLinks
+  );
   const [newCategory, setNewCategory] = useState(qaVersions[0]?.category);
   const [newLevel, setNewLevel] = useState(qaVersions[0]?.level);
 
@@ -56,7 +86,9 @@ const EditQA = () => {
     setNewCorrectAnswer(qaVersions[0]?.correctAnswer);
     setNewExplanation(qaVersions[0]?.explanation);
     setNewExplanationImage(qaVersions[0]?.explanationImage);
-    setNewExplanationImageAltText(qaVersions[0]?.explanationImageAltText.slice());
+    setNewExplanationImageAltText(
+      qaVersions[0]?.explanationImageAltText.slice()
+    );
     setNewExplanationLinks(qaVersions[0]?.explanationLinks);
     setNewCategory(qaVersions[0]?.category);
     setNewLevel(qaVersions[0]?.level);
@@ -85,42 +117,54 @@ const EditQA = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const uploadFile = () => {
     if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${qaVersions[0]?.id}/${imageUpload.name + v4()}`);
+    const imageRef = ref(
+      storage,
+      `images/${qaVersions[0]?.id}/${imageUpload.name + v4()}`
+    );
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setNewQuestionImage((prev) => [...prev, url]);
       });
     });
 
-    listAll(`images/${qaVersions[0]?.id}/${imageUpload.name + v4()}`).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setNewQuestionImage((prev) => [...prev, url]);
+    listAll(`images/${qaVersions[0]?.id}/${imageUpload.name + v4()}`).then(
+      (response) => {
+        response.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            setNewQuestionImage((prev) => [...prev, url]);
+          });
         });
-      });
-    });
-    newQuestionImageAltText[newQuestionImage.length] = newSingleQImageAltText.trim();
+      }
+    );
+    newQuestionImageAltText[newQuestionImage.length] =
+      newSingleQImageAltText.trim();
   };
 
   //Explanation Images
   const [eimageUpload, seteImageUpload] = useState(null);
   const euploadFile = () => {
     if (eimageUpload == null) return;
-    const imageRef = ref(storage, `images/${qaVersions[0]?.id}/explanation/${eimageUpload.name + v4()}`);
+    const imageRef = ref(
+      storage,
+      `images/${qaVersions[0]?.id}/explanation/${eimageUpload.name + v4()}`
+    );
     uploadBytes(imageRef, eimageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setNewExplanationImage((prev) => [...prev, url]);
       });
     });
 
-    listAll(`images/${qaVersions[0]?.id}/explanation/${eimageUpload.name + v4()}`).then((response) => {
+    listAll(
+      `images/${qaVersions[0]?.id}/explanation/${eimageUpload.name + v4()}`
+    ).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
           setNewExplanationImage((prev) => [...prev, url]);
         });
       });
     });
-    newExplanationImageAltText[newExplanationImage.length] = newSingleExpImageAltText.trim();
+    newExplanationImageAltText[newExplanationImage.length] =
+      newSingleExpImageAltText.trim();
   };
 
   const handleSubmit = (evt) => {
@@ -140,7 +184,10 @@ const EditQA = () => {
         category: newCategory,
         level: newLevel,
         ancestorId: qaVersions[0]?.ancestorId || qaVersions[0]?.id,
-        displayId: qaVersions[0]?.displayId || qaVersions[0]?.ancestorId || qaVersions[0]?.id,
+        displayId:
+          qaVersions[0]?.displayId ||
+          qaVersions[0]?.ancestorId ||
+          qaVersions[0]?.id,
       })
     );
   };
@@ -158,7 +205,14 @@ const EditQA = () => {
           <Container>
             <Row className="p-5">
               <ToastContainer className="p-3" position="middle-end">
-                <Toast bg="success" show={showToast} onClose={toggleShowToast} delay={5000} autohide animation={true}>
+                <Toast
+                  bg="success"
+                  show={showToast}
+                  onClose={toggleShowToast}
+                  delay={5000}
+                  autohide
+                  animation={true}
+                >
                   <Toast.Header>
                     <strong
                       className="me-auto"
@@ -178,13 +232,21 @@ const EditQA = () => {
                   </Toast.Body>
                 </Toast>
               </ToastContainer>
-              <Alert variant="danger" dismissible show={showAlert} onClose={toggleShowAlert}>
+              <Alert
+                variant="danger"
+                dismissible
+                show={showAlert}
+                onClose={toggleShowAlert}
+              >
                 <Alert.Heading>
                   <strong>Alert!</strong>
                 </Alert.Heading>
                 <p>You must enter alt text for images.</p>
               </Alert>
-              <Card className="mx-auto" style={{ maxWidth: "900px", padding: "0px" }}>
+              <Card
+                className="mx-auto"
+                style={{ maxWidth: "900px", padding: "0px" }}
+              >
                 <Card.Header
                   className="text-center"
                   style={{
@@ -247,7 +309,9 @@ const EditQA = () => {
                                   if (newSingleQImageAltText.trim() !== "") {
                                     uploadFile();
                                     setNewSingleQImageAltText("");
-                                    setShowUpdate(`Image with alt text: "${newSingleQImageAltText.trim()}".`);
+                                    setShowUpdate(
+                                      `Image with alt text: "${newSingleQImageAltText.trim()}".`
+                                    );
                                     toggleShowToast();
                                   } else {
                                     toggleShowAlert();
@@ -324,31 +388,57 @@ const EditQA = () => {
                                         as="textarea"
                                         rows={3}
                                         onClick={(evt) => {
-                                          if (newQuestionImageAltText[linkIdx] !== undefined) {
-                                            fillField(evt, newQuestionImageAltText[linkIdx]);
+                                          if (
+                                            newQuestionImageAltText[linkIdx] !==
+                                            undefined
+                                          ) {
+                                            fillField(
+                                              evt,
+                                              newQuestionImageAltText[linkIdx]
+                                            );
                                           } else {
                                             fillField(evt, "");
                                           }
                                         }}
-                                        defaultValue={newQuestionImageAltText[linkIdx] || " "}
+                                        defaultValue={
+                                          newQuestionImageAltText[linkIdx] ||
+                                          " "
+                                        }
                                         onChange={(e) => {
-                                          newQuestionImageAltText[linkIdx] = e.target.value;
+                                          newQuestionImageAltText[linkIdx] =
+                                            e.target.value;
                                         }}
-                                        onFocus={(e) => (e.target.placeholder = "Type alt text here")}
+                                        onFocus={(e) =>
+                                          (e.target.placeholder =
+                                            "Type alt text here")
+                                        }
                                       />
                                       <Button
                                         variant="outline-secondary"
                                         onClick={() => {
-                                          if (newQuestionImageAltText[linkIdx].trim() !== "") {
+                                          if (
+                                            newQuestionImageAltText[
+                                              linkIdx
+                                            ].trim() !== ""
+                                          ) {
                                             setNewQuestionImageAltText(
-                                              newQuestionImageAltText?.map((currentText, idx) => {
-                                                if (idx === linkIdx) {
-                                                  currentText = newQuestionImageAltText[linkIdx].trim();
+                                              newQuestionImageAltText?.map(
+                                                (currentText, idx) => {
+                                                  if (idx === linkIdx) {
+                                                    currentText =
+                                                      newQuestionImageAltText[
+                                                        linkIdx
+                                                      ].trim();
+                                                  }
+                                                  return currentText;
                                                 }
-                                                return currentText;
-                                              })
+                                              )
                                             );
-                                            setShowUpdate(`Image with alt text: "${newQuestionImageAltText[linkIdx].trim()}".`);
+                                            setShowUpdate(
+                                              `Image with alt text: "${newQuestionImageAltText[
+                                                linkIdx
+                                              ].trim()}".`
+                                            );
                                             toggleShowToast();
                                           }
                                         }}
@@ -363,14 +453,18 @@ const EditQA = () => {
                                       variant="outline-secondary"
                                       onClick={() => {
                                         setNewQuestionImage(
-                                          newQuestionImage.filter((currentLink, idx) => {
-                                            return idx !== linkIdx;
-                                          })
+                                          newQuestionImage.filter(
+                                            (currentLink, idx) => {
+                                              return idx !== linkIdx;
+                                            }
+                                          )
                                         );
                                         setNewQuestionImageAltText(
-                                          newQuestionImageAltText.filter((currentText, idx) => {
-                                            return idx != linkIdx;
-                                          })
+                                          newQuestionImageAltText.filter(
+                                            (currentText, idx) => {
+                                              return idx != linkIdx;
+                                            }
+                                          )
                                         );
                                       }}
                                     >
@@ -401,7 +495,10 @@ const EditQA = () => {
                               variant="outline-secondary"
                               onClick={() => {
                                 if (newSingleOption.trim() !== "") {
-                                  setNewAnswerOptions([...newAnswerOptions, newSingleOption.trim()]);
+                                  setNewAnswerOptions([
+                                    ...newAnswerOptions,
+                                    newSingleOption.trim(),
+                                  ]);
                                   setNewSingleOption("");
                                   setShowUpdate(newSingleOption.trim());
                                   toggleShowToast();
@@ -424,19 +521,23 @@ const EditQA = () => {
                                 onChange={(e) => {
                                   option = e.target.value;
                                 }}
-                                onFocus={(e) => (e.target.placeholder = "Answer Option")}
+                                onFocus={(e) =>
+                                  (e.target.placeholder = "Answer Option")
+                                }
                               />
                               <Button
                                 variant="outline-secondary"
                                 onClick={() => {
                                   if (option.trim() !== "") {
                                     setNewAnswerOptions(
-                                      newAnswerOptions?.map((currentOption, idx) => {
-                                        if (idx === optionIdx) {
-                                          currentOption = option.trim();
+                                      newAnswerOptions?.map(
+                                        (currentOption, idx) => {
+                                          if (idx === optionIdx) {
+                                            currentOption = option.trim();
+                                          }
+                                          return currentOption;
                                         }
-                                        return currentOption;
-                                      })
+                                      )
                                     );
 
                                     setShowUpdate(option.trim());
@@ -450,9 +551,11 @@ const EditQA = () => {
                                 variant="outline-secondary"
                                 onClick={() => {
                                   setNewAnswerOptions(
-                                    newAnswerOptions.filter((currentOption, idx) => {
-                                      return idx !== optionIdx;
-                                    })
+                                    newAnswerOptions.filter(
+                                      (currentOption, idx) => {
+                                        return idx !== optionIdx;
+                                      }
+                                    )
                                   );
                                 }}
                               >
@@ -531,7 +634,9 @@ const EditQA = () => {
                                   if (newSingleExpImageAltText.trim() !== "") {
                                     euploadFile();
                                     setNewSingleExpImageAltText("");
-                                    setShowUpdate(`Image with alt text: "${newSingleExpImageAltText.trim()}".`);
+                                    setShowUpdate(
+                                      `Image with alt text: "${newSingleExpImageAltText.trim()}".`
+                                    );
                                     toggleShowToast();
                                   } else {
                                     toggleShowAlert();
@@ -608,31 +713,60 @@ const EditQA = () => {
                                         as="textarea"
                                         rows={3}
                                         onClick={(evt) => {
-                                          if (newExplanationImageAltText[linkIdx] !== undefined) {
-                                            fillField(evt, newExplanationImageAltText[linkIdx]);
+                                          if (
+                                            newExplanationImageAltText[
+                                              linkIdx
+                                            ] !== undefined
+                                          ) {
+                                            fillField(
+                                              evt,
+                                              newExplanationImageAltText[
+                                                linkIdx
+                                              ]
+                                            );
                                           } else {
                                             fillField(evt, "");
                                           }
                                         }}
-                                        defaultValue={newExplanationImageAltText[linkIdx] || " "}
+                                        defaultValue={
+                                          newExplanationImageAltText[linkIdx] ||
+                                          " "
+                                        }
                                         onChange={(e) => {
-                                          newExplanationImageAltText[linkIdx] = e.target.value;
+                                          newExplanationImageAltText[linkIdx] =
+                                            e.target.value;
                                         }}
-                                        onFocus={(e) => (e.target.placeholder = "Type alt text here")}
+                                        onFocus={(e) =>
+                                          (e.target.placeholder =
+                                            "Type alt text here")
+                                        }
                                       />
                                       <Button
                                         variant="outline-secondary"
                                         onClick={() => {
-                                          if (newExplanationImageAltText[linkIdx].trim() !== "") {
+                                          if (
+                                            newExplanationImageAltText[
+                                              linkIdx
+                                            ].trim() !== ""
+                                          ) {
                                             setNewExplanationImageAltText(
-                                              newExplanationImageAltText?.map((currentText, idx) => {
-                                                if (idx === linkIdx) {
-                                                  currentText = newExplanationImageAltText[linkIdx].trim();
+                                              newExplanationImageAltText?.map(
+                                                (currentText, idx) => {
+                                                  if (idx === linkIdx) {
+                                                    currentText =
+                                                      newExplanationImageAltText[
+                                                        linkIdx
+                                                      ].trim();
+                                                  }
+                                                  return currentText;
                                                 }
-                                                return currentText;
-                                              })
+                                              )
                                             );
-                                            setShowUpdate(`Image with alt text: "${newExplanationImageAltText[linkIdx].trim()}".`);
+                                            setShowUpdate(
+                                              `Image with alt text: "${newExplanationImageAltText[
+                                                linkIdx
+                                              ].trim()}".`
+                                            );
                                             toggleShowToast();
                                           }
                                         }}
@@ -647,14 +781,18 @@ const EditQA = () => {
                                       variant="outline-secondary"
                                       onClick={() => {
                                         setNewExplanationImage(
-                                          newExplanationImage.filter((currentLink, idx) => {
-                                            return idx !== linkIdx;
-                                          })
+                                          newExplanationImage.filter(
+                                            (currentLink, idx) => {
+                                              return idx !== linkIdx;
+                                            }
+                                          )
                                         );
                                         setNewExplanationImageAltText(
-                                          newExplanationImageAltText.filter((currentText, idx) => {
-                                            return idx != linkIdx;
-                                          })
+                                          newExplanationImageAltText.filter(
+                                            (currentText, idx) => {
+                                              return idx != linkIdx;
+                                            }
+                                          )
                                         );
                                       }}
                                     >
@@ -698,9 +836,21 @@ const EditQA = () => {
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                if (newSingleLink.trim() !== "" && newSource.trim() !== "") {
-                                  setNewExplanationLinks([...newExplanationLinks, `<a href="` + newSingleLink.trim() + `" target="_blank">` + newSource.trim() + `</a`]);
-                                  setShowUpdate(`Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`);
+                                if (
+                                  newSingleLink.trim() !== "" &&
+                                  newSource.trim() !== ""
+                                ) {
+                                  setNewExplanationLinks([
+                                    ...newExplanationLinks,
+                                    `<a href="` +
+                                      newSingleLink.trim() +
+                                      `" target="_blank">` +
+                                      newSource.trim() +
+                                      `</a`,
+                                  ]);
+                                  setShowUpdate(
+                                    `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
+                                  );
                                   setNewSingleLink("");
                                   setNewSource("");
                                   toggleShowToast();
@@ -747,17 +897,27 @@ const EditQA = () => {
                             <tbody style={{ borderTop: "none" }}>
                               {newExplanationLinks?.map((link, linkIdx) => (
                                 <tr key={uuidv4()}>
-                                  <td> {link.slice(9, link.indexOf(">") - 17)}</td>
-                                  <td>{link.slice(link.indexOf(">") + 1, link.lastIndexOf("<"))}</td>
+                                  <td>
+                                    {" "}
+                                    {link.slice(9, link.indexOf(">") - 17)}
+                                  </td>
+                                  <td>
+                                    {link.slice(
+                                      link.indexOf(">") + 1,
+                                      link.lastIndexOf("<")
+                                    )}
+                                  </td>
                                   <td>
                                     {" "}
                                     <Button
                                       variant="outline-secondary"
                                       onClick={() => {
                                         setNewExplanationLinks(
-                                          newExplanationLinks.filter((currentLink, idx) => {
-                                            return idx !== linkIdx;
-                                          })
+                                          newExplanationLinks.filter(
+                                            (currentLink, idx) => {
+                                              return idx !== linkIdx;
+                                            }
+                                          )
                                         );
                                       }}
                                     >
@@ -781,21 +941,42 @@ const EditQA = () => {
                               setNewCategory(e.target.value);
                             }}
                           >
-                            <option defaultValue> {qaVersions[0]?.category}</option>
+                            <option defaultValue>
+                              {" "}
+                              {qaVersions[0]?.category}
+                            </option>
                             <option value="Asthma">Asthma</option>
-                            <option value="Bronchiectasis">Bronchiectasis</option>
-                            <option value="Chronic Obstructive Pulmonary Disease">Chronic Obstructive Pulmonary Disease</option>
+                            <option value="Bronchiectasis">
+                              Bronchiectasis
+                            </option>
+                            <option value="Chronic Obstructive Pulmonary Disease">
+                              Chronic Obstructive Pulmonary Disease
+                            </option>
                             <option value="Critical Care">Critical Care</option>
                             <option value="Infection">Infection</option>
-                            <option value="Interstitial Lung Diseases">Interstitial Lung Diseases</option>
-                            <option value="Lung Transplant">Lung Transplant</option>
+                            <option value="Interstitial Lung Diseases">
+                              Interstitial Lung Diseases
+                            </option>
+                            <option value="Lung Transplant">
+                              Lung Transplant
+                            </option>
                             <option value="Lung Cancer">Lung Cancer</option>
-                            <option value="Mediastinal Disorders">Mediastinal Disorders</option>
-                            <option value="Other Pulmonary Diseases">Other Pulmonary Diseases</option>
+                            <option value="Mediastinal Disorders">
+                              Mediastinal Disorders
+                            </option>
+                            <option value="Other Pulmonary Diseases">
+                              Other Pulmonary Diseases
+                            </option>
                             <option value="Pharmacology">Pharmacology</option>
-                            <option value="Pleural Diseases">Pleural Diseases</option>
-                            <option value="Pulmonary Function Testing">Pulmonary Function Testing</option>
-                            <option value="Pulmonary Vascular Disease">Pulmonary Vascular Disease</option>
+                            <option value="Pleural Diseases">
+                              Pleural Diseases
+                            </option>
+                            <option value="Pulmonary Function Testing">
+                              Pulmonary Function Testing
+                            </option>
+                            <option value="Pulmonary Vascular Disease">
+                              Pulmonary Vascular Disease
+                            </option>
                             <option value="Sleep">Sleep</option>
                           </Form.Select>
                         </Form.Group>
@@ -810,7 +991,10 @@ const EditQA = () => {
                               setNewLevel(e.target.value);
                             }}
                           >
-                            <option defaultValue> {qaVersions[0]?.level}</option>
+                            <option defaultValue>
+                              {" "}
+                              {qaVersions[0]?.level}
+                            </option>
                             <option value="Easy">Easy</option>
                             <option value="Moderate">Moderate</option>
                             <option value="Hard">Hard</option>
@@ -818,12 +1002,18 @@ const EditQA = () => {
                         </Form.Group>
                       </Row>
                       <center>
-                        <Button type="submit" variant="secondary" onClick={handleShow}>
+                        <Button
+                          type="submit"
+                          variant="secondary"
+                          onClick={handleShow}
+                        >
                           Update
                         </Button>
                       </center>
                       <Modal show={show} onHide={handleClose}>
-                        <Modal.Body>Your changes have been recorded!</Modal.Body>
+                        <Modal.Body>
+                          Your changes have been recorded!
+                        </Modal.Body>
                         <Modal.Footer>
                           {/* <Button variant="secondary" onClick={handleClose}>
                             Keep Editing

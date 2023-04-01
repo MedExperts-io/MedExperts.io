@@ -169,18 +169,6 @@ const QuestionsAnswers = () => {
     filterFunction();
   };
 
-  const changeAnswerStatus = (event) => {
-    currentAnswerStatus.current = event;
-    !seeFavorites ? (isFavorited = true) : null;
-    filterFunction();
-  };
-
-  const changeCorrectStatus = (event) => {
-    currentCorrectStatus.current = event;
-    !seeFavorites ? (isFavorited = true) : null;
-    filterFunction();
-  };
-
   const pickCategory1 = (event) => {
     setCurrentCategory1(event);
     !seeFavorites ? (isFavorited = true) : null;
@@ -209,10 +197,6 @@ const QuestionsAnswers = () => {
   };
 
   const filterFunction = () => {
-    console.log("userquestions", UserQuestions, "questionanswers", questionsAnswers);
-    console.log("currentExpertise", currentExpertise, "currentDifficulty", currentDifficulty);
-    console.log("answerStatus", currentAnswerStatus.current, "correctStatus", currentCorrectStatus.current);
-
     let multiFilter = allQuestions;
 
     let rightAnswers = UserQuestions.filter(

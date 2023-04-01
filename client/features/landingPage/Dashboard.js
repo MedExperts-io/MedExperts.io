@@ -14,30 +14,62 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    isAdmin ? dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchAllUserQuestions())) : dispatch(fetchAllQuestionsAnswers()).then(() => dispatch(fetchUserQuestions()));
+    isAdmin
+      ? dispatch(fetchAllQuestionsAnswers()).then(() =>
+          dispatch(fetchAllUserQuestions())
+        )
+      : dispatch(fetchAllQuestionsAnswers()).then(() =>
+          dispatch(fetchUserQuestions())
+        );
     isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
 
   const allUsers = useSelector((state) => state.userQuestions.allUsers);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  const AllUserQuestions = useSelector((state) => state.userQuestions.UserQuestions);
-  const EasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy");
-  const ModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate");
-  const HardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard");
-  const UsereasyQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Easy" && question.answered === "right");
-  const UserModerateQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Moderate" && question.answered === "right");
-  const UserHardQuestionsTotal = AllUserQuestions.filter((question) => question.level === "Hard" && question.answered === "right");
-  const UserAllQuestionsTotal = AllUserQuestions.filter((question) => question.answered === "right");
-  const { UserQuestions, userEasy, userModerate, userHard } = useSelector((state) => state.userQuestions);
-  const UserQuestionsAnswered = UserQuestions.filter((question) => question.answered !== null);
-  const { questionsAnswers, easy, moderate, hard } = useSelector((state) => state.questionsAnswers);
+  const AllUserQuestions = useSelector(
+    (state) => state.userQuestions.UserQuestions
+  );
+  const EasyQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Easy"
+  );
+  const ModerateQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Moderate"
+  );
+  const HardQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Hard"
+  );
+  const UsereasyQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Easy" && question.answered === "right"
+  );
+  const UserModerateQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Moderate" && question.answered === "right"
+  );
+  const UserHardQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.level === "Hard" && question.answered === "right"
+  );
+  const UserAllQuestionsTotal = AllUserQuestions.filter(
+    (question) => question.answered === "right"
+  );
+  const { UserQuestions, userEasy, userModerate, userHard } = useSelector(
+    (state) => state.userQuestions
+  );
+  const UserQuestionsAnswered = UserQuestions.filter(
+    (question) => question.answered !== null
+  );
+  const { questionsAnswers, easy, moderate, hard } = useSelector(
+    (state) => state.questionsAnswers
+  );
   const easyPercentage = Math.round((userEasy?.length / easy?.length) * 100);
   const totalEasyAnswered = `${userEasy?.length} / ${easy?.length}`;
-  const moderatePercentage = Math.round((userModerate?.length / moderate?.length) * 100);
+  const moderatePercentage = Math.round(
+    (userModerate?.length / moderate?.length) * 100
+  );
   const totalmoderateAnswere = `${userModerate?.length} / ${moderate?.length}`;
   const hardPercentage = Math.round((userHard?.length / hard?.length) * 100);
   const totalhardAnswered = `${userHard?.length} / ${hard?.length}`;
-  const allPercentage = Math.round((UserQuestionsAnswered?.length / questionsAnswers?.length) * 100);
+  const allPercentage = Math.round(
+    (UserQuestionsAnswered?.length / questionsAnswers?.length) * 100
+  );
   const totalallAnswered = `${UserQuestionsAnswered?.length} / ${questionsAnswers?.length}`;
 
   const progressBarRatio = (category, plainText) => {
@@ -148,12 +180,23 @@ const Dashboard = () => {
       <div className="mx-auto">
         {!isAdmin ? (
           <Stack>
-            <div className="welcome">Welcome, {firstName ? firstName.charAt(0).toUpperCase() + firstName.slice(1) : "User"}!</div>
+            <div className="welcome">
+              Welcome,{" "}
+              {firstName
+                ? firstName.charAt(0).toUpperCase() + firstName.slice(1)
+                : "User"}
+              !
+            </div>
             {/* top row answered amount out of total */}
             <Stack>
               <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
-                  <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
+                <Card
+                  className="mx-auto"
+                  style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+                >
+                  <Card.Header
+                    style={{ marginBottom: "20px", fontSize: `200%` }}
+                  >
                     <center> Questions Answered </center>
                   </Card.Header>{" "}
                   <Card.Body>
@@ -285,8 +328,13 @@ const Dashboard = () => {
             {/* middle row answered percentage out of total */}
             <Stack>
               <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                <Card className="mx-auto" style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}>
-                  <Card.Header style={{ marginBottom: "20px", fontSize: `200%` }}>
+                <Card
+                  className="mx-auto"
+                  style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
+                >
+                  <Card.Header
+                    style={{ marginBottom: "20px", fontSize: `200%` }}
+                  >
                     <center> Questions Answered Correctly </center>
                   </Card.Header>{" "}
                   <Card.Body>
@@ -376,7 +424,10 @@ const Dashboard = () => {
                               Correct
                             </div>
                           </div>
-                          <Card.Title className="mx-auto" style={{ paddingTop: "5px" }}>
+                          <Card.Title
+                            className="mx-auto"
+                            style={{ paddingTop: "5px" }}
+                          >
                             <center>Moderate Level</center>
                           </Card.Title>
                         </Card>
