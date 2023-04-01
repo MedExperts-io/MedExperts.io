@@ -294,10 +294,48 @@ const SingleQAadmin = () => {
                                         </td>
 
                                         <td>
-                                          <OverlayTrigger
-                                            placement="right"
-                                            overlay={
-                                              <Tooltip id={`tooltip-right`}>{`${
+                                          <span className="visually-hidden">{`${
+                                            responseData(eachVersion.id, ans)
+                                              ? responseData(
+                                                  eachVersion.id,
+                                                  ans
+                                                )
+                                              : 0
+                                          }%`}</span>
+                                          {
+                                            <ProgressBar
+                                              // title="Progress bar for responses"
+                                              // aria-label="Progress bar for responses"
+                                              // name="Progress bar for responses"
+                                              aria-hidden="true"
+                                              variant={
+                                                ans ===
+                                                eachVersion.correctAnswer
+                                                  ? "success"
+                                                  : "danger"
+                                              }
+                                              style={{
+                                                height: "38px",
+                                                minWidth: "100%",
+                                              }}
+                                              now={
+                                                // responseData(
+                                                //   eachVersion.id,
+                                                //   ans
+                                                // ) ||
+                                                // responseData(
+                                                //   eachVersion.id,
+                                                //   ans
+                                                // ) == "0"
+                                                //   ?
+                                                //     responseData(
+                                                //       eachVersion.id,
+                                                //       ans
+                                                //     )
+                                                //   : 100
+                                                100
+                                              }
+                                              label={`${
                                                 responseData(
                                                   eachVersion.id,
                                                   ans
@@ -307,65 +345,10 @@ const SingleQAadmin = () => {
                                                       ans
                                                     )
                                                   : "0"
-                                              }%`}</Tooltip>
-                                            }
-                                          >
-                                            {/* <span className="visually-hidden">{`${
-                                            responseData(eachVersion.id, ans)
-                                              ? responseData(
-                                                  eachVersion.id,
-                                                  ans
-                                                )
-                                              : 0
-                                          }%`}</span> */}
-                                            {
-                                              <ProgressBar
-                                                title="Progress bar for responses"
-                                                aria-label="Progress bar for responses"
-                                                name="Progress bar for responses"
-                                                // aria-hidden="true"
-                                                variant={
-                                                  ans ===
-                                                  eachVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
-                                                }
-                                                style={{
-                                                  height: "38px",
-                                                  minWidth: "100%",
-                                                }}
-                                                now={
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  ) ||
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  ) == 0
-                                                    ? // ) == "0"
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      )
-                                                    : 0
-                                                  // : 100
-                                                }
-                                                label={`${
-                                                  responseData(
-                                                    eachVersion.id,
-                                                    ans
-                                                  )
-                                                    ? responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      )
-                                                    : "0"
-                                                  // : 0
-                                                }%`}
-                                              />
-                                            }
-                                          </OverlayTrigger>
+                                                // : 0
+                                              }%`}
+                                            />
+                                          }
                                         </td>
                                       </tr>
                                     )
@@ -645,33 +628,15 @@ const SingleQAadmin = () => {
                                                 variant={
                                                   ans ===
                                                   newestVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
+                                                    ? "outline-success"
+                                                    : "outline-danger"
                                                 }
                                               >
                                                 {ans}
                                               </Button>
                                             </td>
                                             <td>
-                                              <OverlayTrigger
-                                                placement="right"
-                                                overlay={
-                                                  <Tooltip
-                                                    id={`tooltip-right`}
-                                                  >{`${
-                                                    responseData(
-                                                      newestVersion.id,
-                                                      ans
-                                                    )
-                                                      ? responseData(
-                                                          newestVersion.id,
-                                                          ans
-                                                        )
-                                                      : "0"
-                                                  }%`}</Tooltip>
-                                                }
-                                              >
-                                                {/* <span className="visually-hidden">{`${
+                                              <span className="visually-hidden">{`${
                                                 responseData(
                                                   newestVersion.id,
                                                   ans
@@ -681,55 +646,54 @@ const SingleQAadmin = () => {
                                                       ans
                                                     )
                                                   : 0
-                                              }%`}</span> */}
-                                                {
-                                                  <ProgressBar
-                                                    title="Progress bar for responses"
-                                                    aria-label="Progress bar for responses"
-                                                    name="Progress bar for responses"
-                                                    // aria-hidden="true"
-                                                    variant={
-                                                      ans ===
-                                                      newestVersion.correctAnswer
-                                                        ? "success"
-                                                        : "danger"
-                                                    }
-                                                    style={{
-                                                      height: "38px",
-                                                      minWidth: "100%",
-                                                    }}
-                                                    now={
-                                                      responseData(
-                                                        newestVersion.id,
-                                                        ans
-                                                      ) ||
-                                                      responseData(
-                                                        newestVersion.id,
-                                                        ans
-                                                      ) == 0
-                                                        ? // ) == "0"
-                                                          responseData(
-                                                            newestVersion.id,
-                                                            ans
-                                                          )
-                                                        : 0
-                                                      // : 100
-                                                    }
-                                                    label={`${
-                                                      responseData(
-                                                        newestVersion.id,
-                                                        ans
-                                                      )
-                                                        ? responseData(
-                                                            newestVersion.id,
-                                                            ans
-                                                          )
-                                                        : "0"
-                                                      // : 0
-                                                    }%`}
-                                                  />
-                                                }
-                                              </OverlayTrigger>
+                                              }%`}</span>
+                                              {
+                                                <ProgressBar
+                                                  // title="Progress bar for responses"
+                                                  // aria-label="Progress bar for responses"
+                                                  // name="Progress bar for responses"
+                                                  aria-hidden="true"
+                                                  variant={
+                                                    ans ===
+                                                    newestVersion.correctAnswer
+                                                      ? "success"
+                                                      : "danger"
+                                                  }
+                                                  style={{
+                                                    height: "38px",
+                                                    minWidth: "100%",
+                                                  }}
+                                                  now={
+                                                    // responseData(
+                                                    //   newestVersion.id,
+                                                    //   ans
+                                                    // ) ||
+                                                    // responseData(
+                                                    //   newestVersion.id,
+                                                    //   ans
+                                                    // ) == "0"
+                                                    //   ?
+                                                    //     responseData(
+                                                    //       newestVersion.id,
+                                                    //       ans
+                                                    //     )
+                                                    //   : 100
+                                                    100
+                                                  }
+                                                  label={`${
+                                                    responseData(
+                                                      newestVersion.id,
+                                                      ans
+                                                    )
+                                                      ? responseData(
+                                                          newestVersion.id,
+                                                          ans
+                                                        )
+                                                      : "0"
+                                                    // : 0
+                                                  }%`}
+                                                />
+                                              }
                                             </td>
                                           </tr>
                                         )
@@ -980,33 +944,15 @@ const SingleQAadmin = () => {
                                                 variant={
                                                   ans ===
                                                   eachVersion.correctAnswer
-                                                    ? "success"
-                                                    : "danger"
+                                                    ? "outline-success"
+                                                    : "outline-danger"
                                                 }
                                               >
                                                 {ans}
                                               </Button>
                                             </td>
                                             <td>
-                                              <OverlayTrigger
-                                                placement="right"
-                                                overlay={
-                                                  <Tooltip
-                                                    id={`tooltip-right`}
-                                                  >{`${
-                                                    responseData(
-                                                      eachVersion.id,
-                                                      ans
-                                                    )
-                                                      ? responseData(
-                                                          eachVersion.id,
-                                                          ans
-                                                        )
-                                                      : "0"
-                                                  }%`}</Tooltip>
-                                                }
-                                              >
-                                                {/* <span className="visually-hidden">{`${
+                                              <span className="visually-hidden">{`${
                                                 responseData(
                                                   eachVersion.id,
                                                   ans
@@ -1016,55 +962,54 @@ const SingleQAadmin = () => {
                                                       ans
                                                     )
                                                   : 0
-                                              }%`}</span> */}
-                                                {
-                                                  <ProgressBar
-                                                    title="Progress bar for responses"
-                                                    aria-label="Progress bar for responses"
-                                                    name="Progress bar for responses"
-                                                    // aria-hidden="true"
-                                                    variant={
-                                                      ans ===
-                                                      eachVersion.correctAnswer
-                                                        ? "success"
-                                                        : "danger"
-                                                    }
-                                                    style={{
-                                                      height: "38px",
-                                                      minWidth: "100%",
-                                                    }}
-                                                    now={
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      ) ||
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      ) == 0
-                                                        ? // ) == "0"
-                                                          responseData(
-                                                            eachVersion.id,
-                                                            ans
-                                                          )
-                                                        : 0
-                                                      // : 100
-                                                    }
-                                                    label={`${
-                                                      responseData(
-                                                        eachVersion.id,
-                                                        ans
-                                                      )
-                                                        ? responseData(
-                                                            eachVersion.id,
-                                                            ans
-                                                          )
-                                                        : "0"
-                                                      // : 0
-                                                    }%`}
-                                                  />
-                                                }
-                                              </OverlayTrigger>
+                                              }%`}</span>
+                                              {
+                                                <ProgressBar
+                                                  // title="Progress bar for responses"
+                                                  // aria-label="Progress bar for responses"
+                                                  // name="Progress bar for responses"
+                                                  aria-hidden="true"
+                                                  variant={
+                                                    ans ===
+                                                    eachVersion.correctAnswer
+                                                      ? "success"
+                                                      : "danger"
+                                                  }
+                                                  style={{
+                                                    height: "38px",
+                                                    minWidth: "100%",
+                                                  }}
+                                                  now={
+                                                    // responseData(
+                                                    //   eachVersion.id,
+                                                    //   ans
+                                                    // ) ||
+                                                    // responseData(
+                                                    //   eachVersion.id,
+                                                    //   ans
+                                                    // ) == "0"
+                                                    //   ?
+                                                    //     responseData(
+                                                    //       eachVersion.id,
+                                                    //       ans
+                                                    //     )
+                                                    //   : 100
+                                                    100
+                                                  }
+                                                  label={`${
+                                                    responseData(
+                                                      eachVersion.id,
+                                                      ans
+                                                    )
+                                                      ? responseData(
+                                                          eachVersion.id,
+                                                          ans
+                                                        )
+                                                      : "0"
+                                                    // : 0
+                                                  }%`}
+                                                />
+                                              }
                                             </td>
                                           </tr>
                                         )
