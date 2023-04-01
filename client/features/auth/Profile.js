@@ -126,7 +126,13 @@ const Profile = () => {
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="email">
                       <Form.Label className="">Email Address</Form.Label>
-                      <Form.Control type="email" disabled readOnly aria-describedby="disabled input for email address" placeholder={email}></Form.Control>
+                      <Form.Control
+                        type="email"
+                        disabled
+                        readOnly
+                        aria-describedby="disabled input for email address"
+                        placeholder={email}
+                      ></Form.Control>
                     </Form.Group>
                   </Row>
                   <center>
