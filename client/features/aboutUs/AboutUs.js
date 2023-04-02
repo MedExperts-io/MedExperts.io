@@ -23,7 +23,8 @@ const AboutUs = () => {
         >
           Meet the Team
         </Card.Header>
-        <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
+        {/* <------------------------------------Medical Team -----------------------------------> */}
+        {/* <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
           Medical
         </h1>
         <Row className="justify-content-center">
@@ -75,11 +76,12 @@ const AboutUs = () => {
               </Card>
             );
           })}
-        </Row>{" "}
+        </Row>{" "} */}
+        {/* <------------------------------------Engineering Team -----------------------------------> */}
         <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
           Engineering
         </h1>
-        <Row>
+        <Row className="justify-content-center">
           {engineeringTeam.map((member, idx) => {
             return (
               <Card key={idx} id="member-card">

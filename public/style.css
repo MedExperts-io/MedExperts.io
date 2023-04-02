@@ -253,9 +253,9 @@ img {
 .dept-heading {
   background-color: #ff6262;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 10px;
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 #member-card {
