@@ -14,7 +14,7 @@ const Footer = () => {
           <Row className="mx-auto">
             <Col xs={5}>
               <div className="d-flex justify-content-center">
-                <Col xs={8}>
+                <Col xs={12} md={8} lg={8}>
                   <img
                     src="/MedExpert.svg"
                     className="footer-logo"
