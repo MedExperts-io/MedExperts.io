@@ -8,15 +8,19 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 const Footer = () => {
   return (
     <Navbar id="footer">
-      <Container fluid className="d-flex justify-content-center">
-        <Container>
-          <br />
+      <Container
+        fluid
+        className="d-flex justify-content-center"
+        style={{ paddingTop: "0px", marginTop: "0px" }}
+      >
+        <Container style={{ paddingTop: "0px", marginTop: "0px" }}>
+          {/* <br /> */}
           <Row className="mx-auto">
             <Col xs={5}>
               <div className="d-flex justify-content-center">
                 <Col xs={12} md={8} lg={8}>
                   <img
-                    src="/MedExpert.svg"
+                    src="/blackLogo.png"
                     className="footer-logo"
                     alt="Med Expert Logo"
                   />
