@@ -18,13 +18,15 @@ const AboutUs = () => {
           className="about-heading"
           style={{
             backgroundColor: "transparent",
+            border: "none",
           }}
         >
           Meet the Team
         </Card.Header>
-
+        <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
+          Medical
+        </h1>
         <Row className="justify-content-center">
-          <h1 className="dept-heading">Medical</h1>
           {medicalTeam.map((member, idx) => {
             return (
               <Card key={idx} id="member-card">
@@ -73,7 +75,11 @@ const AboutUs = () => {
               </Card>
             );
           })}
-          <h1 className="dept-heading">Engineering</h1>
+        </Row>{" "}
+        <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
+          Engineering
+        </h1>
+        <Row>
           {engineeringTeam.map((member, idx) => {
             return (
               <Card key={idx} id="member-card">
