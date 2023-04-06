@@ -7,9 +7,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 const AboutUs = () => {
   const medicalTeam = aboutData.filter((member) => member.team === "Medical");
-  const engineeringTeam = aboutData.filter(
-    (member) => member.team === "Engineering"
-  );
+  const engineeringTeam = aboutData
+    .filter((member) => member.team === "Engineering")
+    .sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+  console.log(engineeringTeam);
 
   return (
     <Container fluid>
@@ -78,9 +80,9 @@ const AboutUs = () => {
           })}
         </Row>{" "} */}
         {/* <------------------------------------Engineering Team -----------------------------------> */}
-        <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
+        {/* <h1 className="dept-heading me-auto" style={{ width: "15%" }}>
           Engineering
-        </h1>
+        </h1> */}
         <Row className="justify-content-center">
           {engineeringTeam.map((member, idx) => {
             return (
@@ -101,12 +103,16 @@ const AboutUs = () => {
                         </p>
                         <p id="member-role1"> {member?.title}</p>{" "}
                       </Card.Title>{" "}
-                      <p id="member-desc1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aliquam fringilla purus ac ultricies facilisis. Integer
-                        rutrum, ante et ultricies cursus, augue augue aliquet
-                        orci, non feugiat diam metus sit amet eros.
-                      </p>
+                      {member?.summary ? (
+                        <p id="member-desc1"> {member?.summary} </p>
+                      ) : (
+                        <p id="member-desc1">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Aliquam fringilla purus ac ultricies facilisis.
+                          Integer rutrum, ante et ultricies cursus, augue augue
+                          aliquet orci, non feugiat diam metus sit amet eros.
+                        </p>
+                      )}
                       <p
                         className="d-flex justify-content-start"
                         style={{ paddingTop: "0", marginTop: "0" }}

@@ -54,9 +54,10 @@ const aboutData = [
     lastName: "Hamza",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/13.png",
-    summary: "",
-    linkedin: "",
+    picture: "/teamPics/h.png",
+    summary:
+      "Hamza is a software engineer with a deep passion for problem-solving and a lifelong love of computers. Before discovering his passion for technology, Hamza was a pre-med student who enjoyed making things with hid hands. Now, I'm working on a project that aims to help students succeed by providing them with access to resources and tools that can make a difference in their journey.",
+    linkedin: "https://www.linkedin.com/in/muhamrif",
     github: "https://github.com/muhamrif",
   },
   {
@@ -64,8 +65,9 @@ const aboutData = [
     lastName: "Cruz",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/12.png",
-    summary: "",
+    picture: "/teamPics/m.png",
+    summary:
+      "Emmanuel Cruz is a web developer and an artist. They're passionate about drawing, LGBTQ rights, and work that helps people.",
     linkedin: "",
     github: "https://github.com/emmanuelcruz5",
   },
@@ -74,7 +76,7 @@ const aboutData = [
     lastName: "Brito-Mena",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/13.png",
+    picture: "/teamPics/c.png",
     summary: "",
     linkedin: "https://linkedin.com/in/cynthiabritomena",
     github: "https://github.com/cb2866",
@@ -84,7 +86,7 @@ const aboutData = [
     lastName: "Mollah",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/12.png",
+    picture: "/teamPics/t.png",
     summary:
       "Tasnim (she/hers) is one of MedExperts’ Founding Engineers, developing administrative features and maintaining the database and servers. She is a Fullstack Academy alum, focusing on backend engineering. Based in New York City, she enjoys trying different cuisines, good coffee, and cold weather.",
     linkedin: "",
