@@ -20,7 +20,46 @@ const AboutUs = () => {
         <Card.Header
           className="about-heading"
           style={{
-            backgroundColor: "transparent",
+            color: "black",
+            // backgroundColor: "#f8d4d4",
+            border: "none",
+            // textDecoration: "underline",
+          }}
+        >
+          Our Mission
+        </Card.Header>
+        <Row className="justify-content-center">
+          <Col>
+            <Card.Body>
+              <p
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "300",
+                }}
+              >
+                At MedExperts, our mission is to create a dynamic, engaging, and
+                accessible question-and-answer platform that empowers medical
+                professionals and students in the field of pulmonary medicine to
+                test their knowledge and enhance their understanding of complex
+                medical concepts.
+                <br />
+                <br />
+                We are dedicated to providing a reliable and innovative resource
+                for medical professionals around the world, helping them to stay
+                up-to-date on the latest advances in their field and improve
+                patient outcomes. As we expand to feature other medical fields,
+                our goal is to create a vibrant and inclusive community of
+                experts and learners who are passionate about improving
+                healthcare outcomes and making a positive impact on the world.
+              </p>
+            </Card.Body>
+          </Col>
+        </Row>
+        <Card.Header
+          className="about-heading"
+          style={{
+            color: "black",
+            // backgroundColor: "#ff9090",
             border: "none",
           }}
         >
@@ -127,7 +166,12 @@ const AboutUs = () => {
                             <GitHubIcon />
                           </a>
                         )}
-                        <a target="_blank" style={{ color: "black" }}>
+
+                        <a
+                          target="_blank"
+                          href={member?.linkedin}
+                          style={{ color: "black" }}
+                        >
                           <LinkedInIcon />
                         </a>
                       </p>
