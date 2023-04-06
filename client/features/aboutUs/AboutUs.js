@@ -6,12 +6,13 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 const AboutUs = () => {
-  const medicalTeam = aboutData.filter((member) => member.team === "Medical");
+  const medicalTeam = aboutData
+    .filter((member) => member.team === "Medical")
+    .sort((a, b) => a.lastName.localeCompare(b.lastName));
+
   const engineeringTeam = aboutData
     .filter((member) => member.team === "Engineering")
     .sort((a, b) => a.lastName.localeCompare(b.lastName));
-
-  console.log(engineeringTeam);
 
   return (
     <Container fluid>

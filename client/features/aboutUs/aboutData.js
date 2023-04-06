@@ -56,7 +56,7 @@ const aboutData = [
     title: "Full Stack Software Engineer",
     picture: "/teamPics/h.png",
     summary:
-      "Hamza is a software engineer with a deep passion for problem-solving and a lifelong love of computers. Before discovering his passion for technology, Hamza was a pre-med student who enjoyed making things with hid hands. Now, I'm working on a project that aims to help students succeed by providing them with access to resources and tools that can make a difference in their journey.",
+      "Hamza is a software engineer with a passion for problem-solving and a lifelong love of computers. A former pre-med student, Hamza is excited to be helping medical students succeed by providing them with access to resources and tools to make a difference in their professional journey.",
     linkedin: "https://www.linkedin.com/in/muhamrif",
     github: "https://github.com/muhamrif",
   },
@@ -65,10 +65,10 @@ const aboutData = [
     lastName: "Cruz",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/m.png",
+    picture: "/teamPics/emmanuel.png",
     summary:
-      "Emmanuel Cruz is a web developer and an artist. They're passionate about drawing, LGBTQ rights, and work that helps people.",
-    linkedin: "",
+      "Emmanuel is a web developer and an artist. They're passionate about drawing, LGBTQ rights, and work that helps people.",
+    linkedin: "https://www.linkedin.com/in/emmanuel-cruz-53297694",
     github: "https://github.com/emmanuelcruz5",
   },
   {
@@ -77,7 +77,8 @@ const aboutData = [
     team: "Engineering",
     title: "Full Stack Software Engineer",
     picture: "/teamPics/c.png",
-    summary: "",
+    summary:
+      "Cynthia is a software engineer and native New Yorker with a passion for collaborating with mission-driven organizations. With over six years of experience in the non-profit sector, Cynthia is commited to leveraging her skills to create web applications that empower youth and fellow New Yorkers.",
     linkedin: "https://linkedin.com/in/cynthiabritomena",
     github: "https://github.com/cb2866",
   },
@@ -86,10 +87,10 @@ const aboutData = [
     lastName: "Mollah",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/t.png",
+    picture: "/teamPics/tasnim.png",
     summary:
       "Tasnim (she/hers) is one of MedExperts’ Founding Engineers, developing administrative features and maintaining the database and servers. She is a Fullstack Academy alum, focusing on backend engineering. Based in New York City, she enjoys trying different cuisines, good coffee, and cold weather.",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/tasnimm",
     github: "https://github.com/Tasnimmollah",
   },
   {
@@ -97,9 +98,9 @@ const aboutData = [
     lastName: "Alli",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/13.png",
+    picture: "/teamPics/9.png",
     summary: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/allisarah",
     github: "https://github.com/se7en-illa",
   },
 ];
