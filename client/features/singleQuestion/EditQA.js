@@ -96,21 +96,22 @@ const EditQA = () => {
 
   //------------ toast details
   const [showToast, setShowToast] = useState(false);
-  const [showUpdate, setShowUpdate] = useState("");
+  const [toastMsg, setToastMsg] = useState("");
   const toggleShowToast = () => setShowToast(!showToast);
   //----------- end toast details
 
   //------------ alert details
   const [showAlert, setShowAlert] = useState(false);
+  const [alertMsg, setAlertMsg] = useState("");
   const toggleShowAlert = () => setShowAlert(!showAlert);
   //----------- end alert details
 
   //------------ modal details
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const handleClose = () => {
-    setShow(false);
+    setShowModal(false);
   };
-  const handleShow = () => setShow(true);
+  const handleShow = () => setShowModal(true);
   //----------- end modal details
 
   //Question Images
@@ -198,7 +199,7 @@ const EditQA = () => {
 
   if (qaVersions && qaVersions.length) {
     return (
-      <div>
+      <>
         {loading ? (
           <ProgressBar animated now={100} />
         ) : (
@@ -228,7 +229,7 @@ const EditQA = () => {
                       fontSize: "150%",
                     }}
                   >
-                    {showUpdate}
+                    {toastMsg}
                   </Toast.Body>
                 </Toast>
               </ToastContainer>
@@ -241,18 +242,18 @@ const EditQA = () => {
                 <Alert.Heading>
                   <strong>Alert!</strong>
                 </Alert.Heading>
-                <p>You must enter alt text for images.</p>
+                <p>{alertMsg}</p>
               </Alert>
               <Card
                 className="mx-auto"
                 style={{ maxWidth: "900px", padding: "0px" }}
               >
                 <Card.Header
-                  className="text-center"
                   style={{
                     fontWeight: "bold",
                     fontSize: "150%",
                     padding: "0px",
+                    textAlign: "center",
                   }}
                 >
                   Edit Question
@@ -291,6 +292,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setImageUpload(e.target.files[0]);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <InputGroup.Text>Alt Text</InputGroup.Text>
                             <Form.Control
@@ -305,17 +307,21 @@ const EditQA = () => {
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                if (imageUpload) {
-                                  if (newSingleQImageAltText.trim() !== "") {
-                                    uploadFile();
-                                    setNewSingleQImageAltText("");
-                                    setShowUpdate(
-                                      `Image with alt text: "${newSingleQImageAltText.trim()}".`
-                                    );
-                                    toggleShowToast();
-                                  } else {
-                                    toggleShowAlert();
-                                  }
+                                if (
+                                  imageUpload &&
+                                  newSingleQImageAltText.trim() !== ""
+                                ) {
+                                  uploadFile();
+                                  setToastMsg(
+                                    `Image with alt text: "${newSingleQImageAltText.trim()}".`
+                                  );
+                                  setNewSingleQImageAltText("");
+                                  toggleShowToast();
+                                } else {
+                                  setAlertMsg(
+                                    "You must enter both Image and Alt Text."
+                                  );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -408,10 +414,8 @@ const EditQA = () => {
                                           newQuestionImageAltText[linkIdx] =
                                             e.target.value;
                                         }}
-                                        onFocus={(e) =>
-                                          (e.target.placeholder =
-                                            "Type alt text here")
-                                        }
+                                        placeholder="Type alt text here"
+                                        onFocus={() => setShowAlert(false)}
                                       />
                                       <Button
                                         variant="outline-secondary"
@@ -434,12 +438,17 @@ const EditQA = () => {
                                                 }
                                               )
                                             );
-                                            setShowUpdate(
+                                            setToastMsg(
                                               `Image with alt text: "${newQuestionImageAltText[
                                                 linkIdx
                                               ].trim()}".`
                                             );
                                             toggleShowToast();
+                                          } else {
+                                            setAlertMsg(
+                                              `You must enter an alt text for the image here or 'Remove' this entire row.`
+                                            );
+                                            toggleShowAlert();
                                           }
                                         }}
                                       >
@@ -490,6 +499,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleOption(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -499,9 +509,14 @@ const EditQA = () => {
                                     ...newAnswerOptions,
                                     newSingleOption.trim(),
                                   ]);
+                                  setToastMsg(newSingleOption.trim());
                                   setNewSingleOption("");
-                                  setShowUpdate(newSingleOption.trim());
                                   toggleShowToast();
+                                } else {
+                                  setAlertMsg(
+                                    "You haven't added a new multiple choice option yet."
+                                  );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -509,7 +524,6 @@ const EditQA = () => {
                             </Button>
                           </InputGroup>
 
-                          {/* ------------------------------------------------------------------------------------------------ */}
                           {newAnswerOptions?.map((option, optionIdx) => (
                             <InputGroup className="mb-3" key={uuidv4()}>
                               <Form.Control
@@ -521,9 +535,8 @@ const EditQA = () => {
                                 onChange={(e) => {
                                   option = e.target.value;
                                 }}
-                                onFocus={(e) =>
-                                  (e.target.placeholder = "Answer Option")
-                                }
+                                placeholder="Type multiple choice option"
+                                onFocus={() => setShowAlert(false)}
                               />
                               <Button
                                 variant="outline-secondary"
@@ -540,8 +553,13 @@ const EditQA = () => {
                                       )
                                     );
 
-                                    setShowUpdate(option.trim());
+                                    setToastMsg(option.trim());
                                     toggleShowToast();
+                                  } else {
+                                    setAlertMsg(
+                                      `You must enter a multiple choice option here or 'Remove' this field`
+                                    );
+                                    toggleShowAlert();
                                   }
                                 }}
                               >
@@ -565,7 +583,6 @@ const EditQA = () => {
                           ))}
                         </Form.Group>
                       </Row>
-                      {/* ------------------------------------------------------------------------------------------------ */}
 
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="correctAnswer">
@@ -630,17 +647,21 @@ const EditQA = () => {
                             <Button
                               variant="outline-secondary"
                               onClick={() => {
-                                if (eimageUpload) {
-                                  if (newSingleExpImageAltText.trim() !== "") {
-                                    euploadFile();
-                                    setNewSingleExpImageAltText("");
-                                    setShowUpdate(
-                                      `Image with alt text: "${newSingleExpImageAltText.trim()}".`
-                                    );
-                                    toggleShowToast();
-                                  } else {
-                                    toggleShowAlert();
-                                  }
+                                if (
+                                  eimageUpload &&
+                                  newSingleExpImageAltText.trim() !== ""
+                                ) {
+                                  euploadFile();
+                                  setToastMsg(
+                                    `Image with alt text: "${newSingleExpImageAltText.trim()}".`
+                                  );
+                                  setNewSingleExpImageAltText("");
+                                  toggleShowToast();
+                                } else {
+                                  setAlertMsg(
+                                    "You must enter both Image and Alt Text."
+                                  );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -736,10 +757,8 @@ const EditQA = () => {
                                           newExplanationImageAltText[linkIdx] =
                                             e.target.value;
                                         }}
-                                        onFocus={(e) =>
-                                          (e.target.placeholder =
-                                            "Type alt text here")
-                                        }
+                                        placeholder="Type alt text here"
+                                        onFocus={() => setShowAlert(false)}
                                       />
                                       <Button
                                         variant="outline-secondary"
@@ -762,12 +781,17 @@ const EditQA = () => {
                                                 }
                                               )
                                             );
-                                            setShowUpdate(
+                                            setToastMsg(
                                               `Image with alt text: "${newExplanationImageAltText[
                                                 linkIdx
                                               ].trim()}".`
                                             );
                                             toggleShowToast();
+                                          } else {
+                                            setAlertMsg(
+                                              `You must enter an alt text for the image here or 'Remove' this entire row.`
+                                            );
+                                            toggleShowAlert();
                                           }
                                         }}
                                       >
@@ -822,6 +846,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSingleLink(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <InputGroup.Text>Citation</InputGroup.Text>
                             <Form.Control
@@ -832,6 +857,7 @@ const EditQA = () => {
                               onChange={(e) => {
                                 setNewSource(e.target.value);
                               }}
+                              onFocus={() => setShowAlert(false)}
                             />
                             <Button
                               variant="outline-secondary"
@@ -848,12 +874,17 @@ const EditQA = () => {
                                       newSource.trim() +
                                       `</a`,
                                   ]);
-                                  setShowUpdate(
-                                    `Citation: ${newSource.trim()} \n Link:${newSingleLink.trim()}`
+                                  setToastMsg(
+                                    `Citation: ${newSource.trim()} \n Link: ${newSingleLink.trim()}`
                                   );
                                   setNewSingleLink("");
                                   setNewSource("");
                                   toggleShowToast();
+                                } else {
+                                  setAlertMsg(
+                                    "You must enter both Link and Citation."
+                                  );
+                                  toggleShowAlert();
                                 }
                               }}
                             >
@@ -1010,7 +1041,7 @@ const EditQA = () => {
                           Update
                         </Button>
                       </center>
-                      <Modal show={show} onHide={handleClose}>
+                      <Modal show={showModal} onHide={handleClose}>
                         <Modal.Body>
                           Your changes have been recorded!
                         </Modal.Body>
@@ -1035,7 +1066,7 @@ const EditQA = () => {
             </Row>
           </Container>
         )}
-      </div>
+      </>
     );
   } else {
     return <NoExist />;
