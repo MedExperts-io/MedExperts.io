@@ -242,7 +242,7 @@ const AddQuestion = () => {
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="question">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Question</strong>
                     </Form.Label>
                     <Form.Control
@@ -263,7 +263,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="questionImage">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Question Figures</strong>
                     </Form.Label>
 
@@ -458,7 +458,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="answerOptions">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Options</strong>
                     </Form.Label>
 
@@ -553,7 +553,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="correctAnswer">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Answer</strong>
                     </Form.Label>
                     <Form.Select
@@ -574,7 +574,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="explanation">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Explanation</strong>
                     </Form.Label>
                     <Form.Control
@@ -594,7 +594,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="explanationImage">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Explanation Figures</strong>
                     </Form.Label>
 
@@ -788,7 +788,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="explanationLinks">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Explanation Sources</strong>
                     </Form.Label>
                     <InputGroup className="mb-3">
@@ -916,7 +916,7 @@ const AddQuestion = () => {
 
                 <Row className="mb-3">
                   <Form.Group as={Col} controlId="category">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Category</strong>
                     </Form.Label>
                     <Form.Select
@@ -958,7 +958,7 @@ const AddQuestion = () => {
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="level">
-                    <Form.Label className="text-muted">
+                    <Form.Label>
                       <strong className="me-auto">Level</strong>
                     </Form.Label>
                     <Form.Select
