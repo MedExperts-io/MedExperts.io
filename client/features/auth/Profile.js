@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Form,
-  Row,
-  Col,
-  Container,
-  Card,
-  Button,
-  Modal,
-} from "react-bootstrap";
+import { Form, Row, Col, Container, Card, Button, Modal } from "react-bootstrap";
 import { editProfile } from "./authSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -16,9 +8,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
-  const { id, firstName, lastName, email, expertise, school } = useSelector(
-    (state) => state.auth.me
-  );
+  const { id, firstName, lastName, email, expertise, school } = useSelector((state) => state.auth.me);
   const [userFirstName, setUserFirstName] = useState(firstName);
   const [userLastName, setUserLastName] = useState(lastName);
   const [userExpertise, setUserExpertise] = useState(expertise);
@@ -51,24 +41,11 @@ const Profile = () => {
     setValidated(true);
   };
 
-  const expertiseOptions = [
-    "Student",
-    "Resident",
-    "Fellow",
-    "Physician Assistant",
-    "Nurse",
-    "Nurse Practitioner",
-    "Pharmacist",
-    "Internal Med",
-    "Other",
-  ];
+  const expertiseOptions = ["Student", "Resident", "Fellow", "Physician Assistant", "Nurse", "Nurse Practitioner", "Pharmacist", "Internal Med", "Other"];
 
   return (
     <Container>
-      <Row
-        className="d-flex justify-content-center align-items-center"
-        style={{ paddingTop: "5rem" }}
-      >
+      <Row className="d-flex justify-content-center align-items-center" style={{ paddingTop: "5rem" }}>
         <Col md={10} lg={6} s={10} xs={12}>
           <Card className="mx-auto" id="edit-profile-card">
             <Card.Header className="text-center" id="edit-profile-card-header">
@@ -79,7 +56,7 @@ const Profile = () => {
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="firstName">
-                      <Form.Label className="text-muted">
+                      <Form.Label className="">
                         First Name <span className="asterisk">*</span>
                       </Form.Label>
                       <Form.Control
@@ -94,7 +71,7 @@ const Profile = () => {
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="lastName">
-                      <Form.Label className="text-muted">
+                      <Form.Label className="">
                         Last Name <span className="asterisk">*</span>
                       </Form.Label>
                       <Form.Control
@@ -110,7 +87,7 @@ const Profile = () => {
                   </Row>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="school">
-                      <Form.Label className="text-muted">School</Form.Label>
+                      <Form.Label className="">School</Form.Label>
                       <Form.Control
                         type="text"
                         defaultValue={school}
@@ -118,16 +95,12 @@ const Profile = () => {
                         onChange={(e) => {
                           setUserSchool(e.target.value);
                         }}
-                        onBlur={(e) =>
-                          school && school.length
-                            ? (e.target.placeholder = userSchool)
-                            : (e.target.placeholder = "")
-                        }
+                        onBlur={(e) => (school && school.length ? (e.target.placeholder = userSchool) : (e.target.placeholder = ""))}
                       />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="expertiseLevel">
-                      <Form.Label className="text-muted">
+                      <Form.Label className="">
                         Expertise Level <span className="asterisk">*</span>
                       </Form.Label>
                       <Form.Select
@@ -152,9 +125,7 @@ const Profile = () => {
                   </Row>
                   <Row className="mb-3">
                     <Form.Group as={Col} controlId="email">
-                      <Form.Label className="text-muted">
-                        Email Address
-                      </Form.Label>
+                      <Form.Label className="">Email Address</Form.Label>
                       <Form.Control
                         type="email"
                         disabled
@@ -165,11 +136,7 @@ const Profile = () => {
                     </Form.Group>
                   </Row>
                   <center>
-                    <Button
-                      type="submit"
-                      variant="success"
-                      onClick={handleShow}
-                    >
+                    <Button type="submit" variant="success" onClick={handleShow}>
                       Update
                     </Button>
                   </center>
@@ -180,10 +147,7 @@ const Profile = () => {
                       <Button variant="success" onClick={handleClose}>
                         Keep Editing
                       </Button>
-                      <Button
-                        variant="success"
-                        onClick={() => navigate("/dashboard")}
-                      >
+                      <Button variant="success" onClick={() => navigate("/dashboard")}>
                         Dashboard
                       </Button>
                     </Modal.Footer>

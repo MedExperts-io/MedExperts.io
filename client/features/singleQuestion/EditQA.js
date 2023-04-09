@@ -263,7 +263,7 @@ const EditQA = () => {
                     <Form onSubmit={handleSubmit}>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="question">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">
                               Question {qaVersions[0]?.displayId}
                             </strong>
@@ -280,7 +280,7 @@ const EditQA = () => {
                       </Row>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="questionImage">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">
                               Question Figures
                             </strong>
@@ -488,7 +488,7 @@ const EditQA = () => {
                       </Row>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="answerOptions">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">Options</strong>
                           </Form.Label>
                           <InputGroup className="mb-3">
@@ -586,7 +586,7 @@ const EditQA = () => {
 
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="correctAnswer">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">Answer</strong>
                           </Form.Label>
                           <Form.Select
@@ -606,7 +606,7 @@ const EditQA = () => {
                       </Row>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanation">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">Explanation</strong>
                           </Form.Label>
                           <Form.Control
@@ -621,7 +621,7 @@ const EditQA = () => {
                       </Row>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanationImage">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">
                               Explanation Figures
                             </strong>
@@ -831,7 +831,7 @@ const EditQA = () => {
                       </Row>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="explanationLinks">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">
                               Explanation Sources
                             </strong>
@@ -963,7 +963,7 @@ const EditQA = () => {
                       </Row>
                       <Row className="mb-3">
                         <Form.Group as={Col} controlId="category">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">Category</strong>
                           </Form.Label>
                           <Form.Select
@@ -1013,7 +1013,7 @@ const EditQA = () => {
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="level">
-                          <Form.Label className="text-muted">
+                          <Form.Label className="">
                             <strong className="me-auto">Level</strong>
                           </Form.Label>
                           <Form.Select

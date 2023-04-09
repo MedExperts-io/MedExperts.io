@@ -193,7 +193,7 @@ const SingleQuestion = () => {
                                     <tbody>
                                       <tr>
                                         <td
-                                          className="text-muted text-center"
+                                          className="text-center"
                                           style={{ fontSize: "10px" }}
                                         >
                                           Figure:{index + 1}
@@ -209,7 +209,12 @@ const SingleQuestion = () => {
                       <Card.Body className="mx-auto">
                         <Row style={{ paddingBottom: "2%" }}>
                           <center>
-                            <Divider>Select your answer:</Divider>
+                            <span className="visually-hidden">
+                              Select your answer:
+                            </span>
+                            <Divider aria-hidden="true">
+                              Select your answer:
+                            </Divider>
                           </center>
                         </Row>
                         <Row className="mx-auto">
@@ -361,7 +366,7 @@ const SingleQuestion = () => {
                                       <tbody>
                                         <tr>
                                           <td
-                                            className="text-muted text-center"
+                                            className="text-center"
                                             style={{ fontSize: "10px" }}
                                           >
                                             Figure:{index + 1}
@@ -494,7 +499,7 @@ const SingleQuestion = () => {
                                   <tbody>
                                     <tr>
                                       <td
-                                        className="text-muted text-center"
+                                        className="text-center"
                                         style={{ fontSize: "10px" }}
                                       >
                                         Figure:{index + 1}
@@ -510,7 +515,12 @@ const SingleQuestion = () => {
                     <Card.Body className="mx-auto">
                       <Row style={{ paddingBottom: "2%" }}>
                         <center>
-                          <Divider>Select your answer:</Divider>
+                          <span className="visually-hidden">
+                            Select your answer:
+                          </span>
+                          <Divider aria-hidden="true">
+                            Select your answer:
+                          </Divider>
                         </center>
                       </Row>
                       <Row className="mx-auto">

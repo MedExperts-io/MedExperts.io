@@ -12,7 +12,7 @@ export const fetchAllUserQuestions = createAsyncThunk(
           authorization: window.localStorage.getItem("token"),
         },
       });
-      return data
+      return data;
     } catch (error) {
       console.log(error);
     }
