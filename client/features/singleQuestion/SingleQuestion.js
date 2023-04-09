@@ -70,6 +70,7 @@ const SingleQuestion = () => {
     window.scrollTo(0, 0);
   }, []);
   const singleQ = useSelector((state) => state.SingleQuestion.Question);
+  console.log(singleQ);
 
   const {
     id,

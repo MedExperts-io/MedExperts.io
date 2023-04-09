@@ -37,6 +37,9 @@ const Question_Answer = db.define("question_answer", {
   level: {
     type: Sequelize.ENUM("Easy", "Moderate", "Hard"),
   },
+  topic: {
+    type: Sequelize.JSONB(Sequelize.ARRAY),
+  },
   category: {
     type: Sequelize.ENUM(
       "Pharmacology",
