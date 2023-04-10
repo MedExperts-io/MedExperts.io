@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { User, Question_Answer, User_Question },
+  models: { User, Question_Answer, User_Question, Topic, Topic_Question },
 } = require("../db");
 const { Op } = require("sequelize");
 module.exports = router;
