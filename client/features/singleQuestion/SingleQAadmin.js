@@ -446,7 +446,11 @@ const SingleQAadmin = () => {
                                   )
                                 )
                               ) : (
-                                <p>
+                                <p
+                                  style={{
+                                    fontSize: "16px",
+                                  }}
+                                >
                                   No references available for this question.
                                 </p>
                               )}
@@ -795,7 +799,11 @@ const SingleQAadmin = () => {
                                       )
                                     )
                                   ) : (
-                                    <p>
+                                    <p
+                                      style={{
+                                        fontSize: "16px",
+                                      }}
+                                    >
                                       No references available for this question.
                                     </p>
                                   )}
@@ -1113,7 +1121,11 @@ const SingleQAadmin = () => {
                                       )
                                     )
                                   ) : (
-                                    <p>
+                                    <p
+                                      style={{
+                                        fontSize: "16px",
+                                      }}
+                                    >
                                       No references available for this question.
                                     </p>
                                   )}

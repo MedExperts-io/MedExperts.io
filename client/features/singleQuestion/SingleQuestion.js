@@ -406,7 +406,13 @@ const SingleQuestion = () => {
                               </Card>
                             ))
                           ) : (
-                            <p>No references available for this question.</p>
+                            <p
+                              style={{
+                                fontSize: "16px",
+                              }}
+                            >
+                              No references available for this question.
+                            </p>
                           )}
                         </Accordion.Body>
                       </Accordion.Item>
@@ -662,7 +668,13 @@ border-color: #FF7276;
                             </Card>
                           ))
                         ) : (
-                          <p>No references available for this question.</p>
+                          <p
+                            style={{
+                              fontSize: "16px",
+                            }}
+                          >
+                            No references available for this question.
+                          </p>
                         )}
                       </Accordion.Body>
                     </Accordion.Item>
