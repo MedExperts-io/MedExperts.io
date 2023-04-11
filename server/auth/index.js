@@ -73,11 +73,12 @@ router.post("/signup", async (req, res, next) => {
       req.body;
 
     let tempId = uuidv4();
-    let verificationToken = crypto.randomBytes(32).toString("hex");
+    let verificationToken = crypto.randomBytes(6).toString("hex");
     let fpSalt = await bcrypt.hash(
       verificationToken,
       Number(verificationToken)
     );
+    let emailCode = Math.floor(Math.random() * 90000) + 10000;
     // let expireDate = Date.now() + 86400000; // link will expire after 24 hrs
 
     const user = await User.create({
@@ -94,20 +95,21 @@ router.post("/signup", async (req, res, next) => {
 
     //<------------------------------ START sending mail through nodemailer --------------------------------->
     let source = fs.readFileSync(
-      path.join(__dirname, "/verifyAcctTemplate.hbs"),
+      // path.join(__dirname, "/verifyAcctTemplate.hbs"),
+      path.join(__dirname, "/verifyCodeTemplate.hbs"),
       "utf8"
     );
     let compiledTemplate = handlebars.compile(source);
     let htmlToSend = compiledTemplate({
-      token: encodeURIComponent(fpSalt),
-      uid: encodeURIComponent(tempId),
+      token: encodeURIComponent(emailCode),
+      // uid: encodeURIComponent(tempId),
     });
 
     const message = () => {
       return {
         from: process.env.SENDER_ADDRESS,
         to: email,
-        subject: process.env.VERIFY_ACCT_SUBJECT_LINE_C,
+        subject: process.env.VERIFY_ACCT_SUBJECT_LINE_2,
         html: htmlToSend,
       };
     };
