@@ -84,6 +84,10 @@ Subcategory.belongsToMany(Topic, {
 // });
 
 //Trying associations Emmanuel
+Question_Answer.belongsToMany(Topic, {
+  through: Topic_Question,
+  foreignKey: "questionAnswerId",
+});
 Topic.belongsToMany(Subcategory, {
   through: Topic_Question,
   foreignKey: "topicId",

@@ -5893,21 +5893,21 @@ async function seed() {
       topicId: 1,
       subcategoryId: 1,
     }),
-    // Topic_Question.create({
-    //   questionAnswerId: 1,
-    //   topicId: 2,
-    //   subcategoryId: 2,
-    // }),
-    // Topic_Question.create({
-    //   questionAnswerId: 1,
-    //   topicId: 1,
-    //   subcategoryId: 2,
-    // }),
-    // Topic_Question.create({
-    //   questionAnswerId: 1,
-    //   topicId: 2,
-    //   subcategoryId: 1,
-    // }),
+    Topic_Question.create({
+      questionAnswerId: 1,
+      topicId: 2,
+      subcategoryId: 2,
+    }),
+    Topic_Question.create({
+      questionAnswerId: 1,
+      topicId: 1,
+      subcategoryId: 2,
+    }),
+    Topic_Question.create({
+      questionAnswerId: 1,
+      topicId: 2,
+      subcategoryId: 1,
+    }),
     Topic_Question.create({
       questionAnswerId: 2,
       topicId: 2,
