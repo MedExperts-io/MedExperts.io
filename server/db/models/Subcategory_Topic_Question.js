@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const Topic_Question = db.define("topic_question", {
+const Subcategory_Topic_Question = db.define("subcategory_topic_question", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -13,4 +13,4 @@ const Topic_Question = db.define("topic_question", {
   },
 });
 
-module.exports = Topic_Question;
+module.exports = Subcategory_Topic_Question;

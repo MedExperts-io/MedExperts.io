@@ -9,6 +9,7 @@ const User_Question = require("./models/User_Question");
 const Topic_Question = require("./models/Topic_Question");
 const Topic = require("./models/Topic");
 const Subcategory = require("./models/Subcategory");
+const Subcategory_Topic_Question = require("./models/Subcategory_Topic_Question");
 
 //Super Many-to-Many Associations
 User.belongsToMany(Question_Answer, { through: User_Question }); //onUpdate/onDelete = cascade
@@ -18,6 +19,7 @@ User_Question.belongsTo(User); //Foreign Key in User_Question
 User.hasMany(User_Question);
 Question_Answer.hasMany(User_Question);
 
+
 Topic.belongsToMany(Question_Answer, { through: Topic_Question }); //onUpdate/onDelete = cascade
 Question_Answer.belongsToMany(Topic, { through: Topic_Question }); //onUpdate/onDelete = cascade
 Topic_Question.belongsTo(Question_Answer); //Foreign Key in User_Question
@@ -25,6 +27,16 @@ Topic_Question.belongsTo(Topic); //Foreign Key in User_Question
 Topic.hasMany(Topic_Question);
 Question_Answer.hasMany(Topic_Question);
 
+Subcategory.belongsToMany(Topic_Question, {
+  through: Subcategory_Topic_Question,
+});
+Topic_Question.belongsToMany(Subcategory, {
+  through: Subcategory_Topic_Question,
+});
+Subcategory_Topic_Question.belongsTo(Subcategory);
+Subcategory_Topic_Question.belongsTo(Topic_Question);
+Subcategory.hasMany(Subcategory_Topic_Question);
+Topic_Question.hasMany(Subcategory_Topic_Question);
 //DRAFT FOR MANY-TO-MANY ASSOCIATION WITH SUBCATEGORY TABLE
 // Subcategory.belongsToMany(Topic, { through: Topic_Question });
 // Topic.belongsToMany(Subcategory, { through: Topic_Question });
@@ -33,17 +45,10 @@ Question_Answer.hasMany(Topic_Question);
 // Subcategory.hasMany(Topic);
 // Topic.hasMany(Subcategory);
 
-// FROM CHATGPT
-// Question_Answer.belongsToMany(Subcategory, { through: Topic_Question, foreignKey: 'qaId' });
-// Subcategory.belongsToMany(Question_Answer, { through: Topic_Question, foreignKey: 'subcatId' });
-// Topic.belongsToMany(Subcategory, { through: Topic_Question, foreignKey: 'topicId' });
-// Subcategory.belongsToMany(Topic, { through: Topic_Question, foreignKey: 'subcatId' });
-
 //EXAMPLE
 //What is cancer?
 //topics: Pulmonary, Cancer
 //subcategories: Lungs, Metastatic Disease
-
 
 Question_Answer.hasMany(Question_Answer, {
   // onDelete = SET NULL
