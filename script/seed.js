@@ -5886,21 +5886,39 @@ async function seed() {
     }),
   ]);
 
-  // Creating Topic_Questions
-  // const topic_questions = await Promise.all([
-  //   Topic_Question.create({
-  //     questionAnswerId: 1,
-  //     topicId: 1,
-  //     subcategoryId: 1,
-  //     placeholder: "hello",
-  //   }),
+  //Creating Topic_Questions
+  const topic_questions = await Promise.all([
+    Topic_Question.create({
+      questionAnswerId: 1,
+      topicId: 1,
+      subcategoryId: 1,
+    }),
+    // Topic_Question.create({
+    //   questionAnswerId: 1,
+    //   topicId: 2,
+    //   subcategoryId: 2,
+    // }),
+    // Topic_Question.create({
+    //   questionAnswerId: 1,
+    //   topicId: 1,
+    //   subcategoryId: 2,
+    // }),
     // Topic_Question.create({
     //   questionAnswerId: 1,
     //   topicId: 2,
     //   subcategoryId: 1,
-    //   placeholder: "hello"
     // }),
-  // ]);
+    Topic_Question.create({
+      questionAnswerId: 2,
+      topicId: 2,
+      subcategoryId: 1,
+    }),
+    Topic_Question.create({
+      questionAnswerId: 2,
+      topicId: 2,
+      subcategoryId: 2,
+    }),
+  ]);
 
   console.log(
     `seeded ${users.length} users, and ${Question.length} question(s).`

@@ -18,12 +18,17 @@ User_Question.belongsTo(User); //Foreign Key in User_Question
 User.hasMany(User_Question);
 Question_Answer.hasMany(User_Question);
 
-Topic.belongsToMany(Question_Answer, { through: Topic_Question }); //onUpdate/onDelete = cascade
-Question_Answer.belongsToMany(Topic, { through: Topic_Question }); //onUpdate/onDelete = cascade
-Topic_Question.belongsTo(Question_Answer); //Foreign Key in User_Question
-Topic_Question.belongsTo(Topic); //Foreign Key in User_Question
-Topic.hasMany(Topic_Question);
-Question_Answer.hasMany(Topic_Question);
+// Topic.belongsToMany(Question_Answer, { through: Topic_Question }); //onUpdate/onDelete = cascade
+// Question_Answer.belongsToMany(Topic, { through: Topic_Question }); //onUpdate/onDelete = cascade
+//Subcategory.belongsToMany(Topic, { through: Topic_Question });
+
+// Topic_Question.belongsTo(Question_Answer); //Foreign Key in Topic_Question
+// Topic_Question.belongsTo(Topic); //Foreign Key in Topic_Question
+// Topic_Question.belongsTo(Subcategory); //Foreign Key in Topic_Question
+
+// Topic.hasMany(Topic_Question);
+// Question_Answer.hasMany(Topic_Question);
+// Subcategory.hasMany(Topic_Question);
 
 //DRAFT FOR MANY-TO-MANY ASSOCIATION WITH SUBCATEGORY TABLE
 // Subcategory.belongsToMany(Topic, { through: Topic_Question });
@@ -34,16 +39,68 @@ Question_Answer.hasMany(Topic_Question);
 // Topic.hasMany(Subcategory);
 
 // FROM CHATGPT
+Question_Answer.belongsToMany(Topic, {
+  through: Topic_Question,
+  unique: false,
+  constraints: false,
+  foreignKey: "id",
+});
+Topic.belongsToMany(Question_Answer, {
+  through: Topic_Question,
+  unique: false,
+  constraints: false,
+  foreignKey: "id",
+});
+Question_Answer.belongsToMany(Subcategory, {
+  through: Topic_Question,
+  unique: false,
+  constraints: false,
+  foreignKey: "id",
+});
+Subcategory.belongsToMany(Question_Answer, {
+  through: Topic_Question,
+  unique: false,
+  constraints: false,
+  foreignKey: "id",
+});
+Topic.belongsToMany(Subcategory, {
+  through: Topic_Question,
+  foreignKey: "id",
+  unique: false,
+  constraints: false,
+});
+Subcategory.belongsToMany(Topic, {
+  through: Topic_Question,
+  foreignKey: "id",
+  unique: false,
+  constraints: false,
+});
+
 // Question_Answer.belongsToMany(Subcategory, { through: Topic_Question, foreignKey: 'qaId' });
-// Subcategory.belongsToMany(Question_Answer, { through: Topic_Question, foreignKey: 'subcatId' });
+//Subcategory.belongsToMany(Question_Answer, { through: Topic_Question, foreignKey: 'subcatId' });
 // Topic.belongsToMany(Subcategory, { through: Topic_Question, foreignKey: 'topicId' });
-// Subcategory.belongsToMany(Topic, { through: Topic_Question, foreignKey: 'subcatId' });
+// Subcategory.belongsToMany(Topic, {
+//   through: Topic_Question,
+// });
+
+//Trying associations Emmanuel
+Topic.belongsToMany(Subcategory, {
+  through: Topic_Question,
+  foreignKey: "topicId",
+});
+Subcategory.belongsToMany(Topic, {
+  through: Topic_Question,
+  foreignKey: "subcategoryId",
+});
+// Topic.belongsTo(Question_Answer, { foreignKey: "id" });
+// Subcategory.belongsTo(Question_Answer, { foreignKey: "id" });
+// Question_Answer.hasMany(Topic, { foreignKey: "id" });
+// Question_Answer.hasMany(Subcategory, { foreignKey: "id" });
 
 //EXAMPLE
 //What is cancer?
 //topics: Pulmonary, Cancer
 //subcategories: Lungs, Metastatic Disease
-
 
 Question_Answer.hasMany(Question_Answer, {
   // onDelete = SET NULL
