@@ -5866,6 +5866,16 @@ async function seed() {
     //   }),
   ]);
 
+  // Creating User_Questions
+  const user_questions = await Promise.all([
+    User_Question.create({
+      userId: 1,
+      questionAnswerId: 2,
+      userInput: "Granulomatosis with Polyangiitis (GPA)",
+      answered: "wrong",
+      userExpertise: "Student",
+    }),
+  ]);
   // Creating Topics
   const topics = await Promise.all([
     Topic.create({

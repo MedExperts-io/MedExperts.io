@@ -42,9 +42,14 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         //Condition 2A -- If admin
         let singleQuestion = await Question_Answer.findOne({
           where: { id: qaId },
-          include: {
-            model: User_Question,
-          },
+          include: [
+            {
+              model: User_Question,
+            },
+            {
+              model: Topic,
+            },
+          ],
         });
         if (singleQuestion.ancestorId !== null) {
           //Condition 3A -- If child
@@ -56,7 +61,14 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 { ancestorId: singleQuestion.ancestorId }, //get siblings
               ],
             },
-            include: User_Question,
+            include: [
+              {
+                model: User_Question,
+              },
+              {
+                model: Topic,
+              },
+            ],
           });
           res.json(allVersions);
         } else {
@@ -70,7 +82,14 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 { ancestorId: singleQuestion.id }, //get children
               ],
             },
-            include: User_Question,
+            include: [
+              {
+                model: User_Question,
+              },
+              {
+                model: Topic,
+              },
+            ],
           });
           res.json(allVersions);
         }
