@@ -37,18 +37,11 @@ Subcategory_Topic_Question.belongsTo(Subcategory);
 Subcategory_Topic_Question.belongsTo(Topic_Question);
 Subcategory.hasMany(Subcategory_Topic_Question);
 Topic_Question.hasMany(Subcategory_Topic_Question);
-//DRAFT FOR MANY-TO-MANY ASSOCIATION WITH SUBCATEGORY TABLE
-// Subcategory.belongsToMany(Topic, { through: Topic_Question });
-// Topic.belongsToMany(Subcategory, { through: Topic_Question });
-// Topic_Question.belongsTo(Subcategory);
-// Topic_Question.belongsTo(Topic);
-// Subcategory.hasMany(Topic);
-// Topic.hasMany(Subcategory);
 
-//EXAMPLE
-//What is cancer?
-//topics: Pulmonary, Cancer
-//subcategories: Lungs, Metastatic Disease
+
+
+
+
 
 Question_Answer.hasMany(Question_Answer, {
   // onDelete = SET NULL
@@ -72,3 +65,9 @@ module.exports = {
     Subcategory,
   },
 };
+
+
+//EXAMPLE
+//What is cancer?
+//topics: Pulmonary, Cancer
+//subcategories: Lungs, Metastatic Disease
