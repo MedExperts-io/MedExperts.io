@@ -84,6 +84,14 @@ const ContactForm = () => {
             <Button type="submit"> Submit </Button>
           </div>
         </Form>
+        <form action="?" method="POST">
+          <div
+            class="g-recaptcha"
+            data-sitekey="6LfhBIYlAAAAAIzn87g7kjLB_UzhWkL5WV3Xh82i"
+          ></div>
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
       </Col>
     </Container>
   );
