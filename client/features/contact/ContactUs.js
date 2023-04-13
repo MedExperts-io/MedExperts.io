@@ -58,7 +58,9 @@ const ContactUs = () => {
                     <LocationOnIcon />
                     New York, NY
                   </p>
+
                   <hr style={{ width: "100%" }} />
+
                   <p
                     style={{
                       fontWeight: "600",
