@@ -20,6 +20,7 @@
   "author": "Creators - Tasnim Mollah, Emmanuel Cruz, Cynthia Brito-Mena, Hamza Muhammad, (TeamTECH); Questions data from Fluence LLC.; Built on Boilerplate from Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
@@ -42,6 +43,7 @@
     "react-bootstrap-icons": "^1.10.2",
     "react-html-parser": "^2.0.2",
     "react-paginate": "^8.1.4",
+    "react-scripts": "^5.0.1",
     "seed": "^0.4.4",
     "sequelize": "^6.25.3",
     "uuid": "^9.0.0"
@@ -62,6 +64,7 @@
     "esm": "^3.2.25",
     "mocha": "^10.1.0",
     "nodemon": "^2.0.20",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
