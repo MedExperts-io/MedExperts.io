@@ -8,6 +8,7 @@ const {
     Topic,
     Topic_Question,
     Subcategory,
+    Subcategory_Topic_Question,
   },
 } = require("../server/db");
 require("dotenv").config();
@@ -5866,6 +5867,17 @@ async function seed() {
     //   }),
   ]);
 
+  //-------------------- FAKE DATA ---------------------------
+  // Creating User_Questions
+  const user_questions = await Promise.all([
+    User_Question.create({
+      userId: 1,
+      questionAnswerId: 2,
+      userInput: "Granulomatosis with Polyangiitis (GPA)",
+      answered: "wrong",
+      userExpertise: "Student",
+    }),
+  ]);
   // Creating Topics
   const topics = await Promise.all([
     Topic.create({
@@ -5886,21 +5898,45 @@ async function seed() {
     }),
   ]);
 
-  // Creating Topic_Questions
-  // const topic_questions = await Promise.all([
-  //   Topic_Question.create({
-  //     questionAnswerId: 1,
-  //     topicId: 1,
-  //     subcategoryId: 1,
-  //     placeholder: "hello",
-  //   }),
-    // Topic_Question.create({
-    //   questionAnswerId: 1,
-    //   topicId: 2,
-    //   subcategoryId: 1,
-    //   placeholder: "hello"
-    // }),
-  // ]);
+  //Creating Topic_Questions
+  const topic_questions = await Promise.all([
+    Topic_Question.create({
+      questionAnswerId: 1,
+      topicId: 1,
+    }),
+    Topic_Question.create({
+      questionAnswerId: 1,
+      topicId: 2,
+    }),
+    Topic_Question.create({
+      questionAnswerId: 2,
+      topicId: 1,
+    }),
+    Topic_Question.create({
+      questionAnswerId: 2,
+      topicId: 2,
+    }),
+  ]);
+
+  //Creating Subcategory_Topic_Questions
+  const subcategory_topic_questions = await Promise.all([
+    Subcategory_Topic_Question.create({
+      topicQuestionId: 1,
+      subcategoryId: 1,
+    }),
+    Subcategory_Topic_Question.create({
+      topicQuestionId: 1,
+      subcategoryId: 2,
+    }),
+    Subcategory_Topic_Question.create({
+      topicQuestionId: 2,
+      subcategoryId: 1,
+    }),
+    Subcategory_Topic_Question.create({
+      topicQuestionId: 2,
+      subcategoryId: 2,
+    }),
+  ]);
 
   console.log(
     `seeded ${users.length} users, and ${Question.length} question(s).`

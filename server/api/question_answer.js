@@ -1,6 +1,14 @@
 const router = require("express").Router();
 const {
-  models: { User, Question_Answer, User_Question, Topic, Topic_Question },
+  models: {
+    User,
+    Question_Answer,
+    User_Question,
+    Topic,
+    Topic_Question,
+    Subcategory,
+    Subcategory_Topic_Question,
+  },
 } = require("../db");
 const { Op } = require("sequelize");
 module.exports = router;
@@ -42,9 +50,18 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         //Condition 2A -- If admin
         let singleQuestion = await Question_Answer.findOne({
           where: { id: qaId },
-          include: {
-            model: User_Question,
-          },
+          // include: {
+          //   model: User_Question,
+          // },
+          include: [
+            {
+              model: User_Question,
+            },
+            {
+              model: Topic_Question,
+              include: { model: Subcategory_Topic_Question },
+            },
+          ],
         });
         if (singleQuestion.ancestorId !== null) {
           //Condition 3A -- If child
@@ -56,12 +73,21 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 { ancestorId: singleQuestion.ancestorId }, //get siblings
               ],
             },
-            include: User_Question,
+            // include: User_Question,
+            include: [
+              {
+                model: User_Question,
+              },
+              {
+                model: Topic_Question,
+                include: { model: Subcategory_Topic_Question },
+              },
+            ],
           });
           res.json(allVersions);
         } else {
           //Condition 3B -- If ancestor
-          //May Delete this extra query if URL system is established
+          //May delete this ancestor-checking conditional and the query below if URL system (of always passing req.params.singleQuestionId of latest version of singleQA) is established.
           const allVersions = await Question_Answer.findAll({
             order: [["createdAt", "DESC"]],
             where: {
@@ -70,7 +96,26 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 { ancestorId: singleQuestion.id }, //get children
               ],
             },
-            include: User_Question,
+            include: [
+              {
+                model: User_Question,
+              },
+
+              {
+                model: Topic_Question,
+                include: [
+                  {
+                    model: Topic,
+                    attributes: ["id", "topic"],
+                  },
+                  {
+                    model: Subcategory,
+                    attributes: ["id", "subcategory"],
+                    through: { attributes: [] },
+                  },
+                ],
+              },
+            ],
           });
           res.json(allVersions);
         }

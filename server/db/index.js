@@ -22,8 +22,8 @@ Question_Answer.hasMany(User_Question);
 
 Topic.belongsToMany(Question_Answer, { through: Topic_Question }); //onUpdate/onDelete = cascade
 Question_Answer.belongsToMany(Topic, { through: Topic_Question }); //onUpdate/onDelete = cascade
-Topic_Question.belongsTo(Question_Answer); //Foreign Key in User_Question
-Topic_Question.belongsTo(Topic); //Foreign Key in User_Question
+Topic_Question.belongsTo(Question_Answer); //Foreign Key in Topic_Question
+Topic_Question.belongsTo(Topic); //Foreign Key in Topic_Question
 Topic.hasMany(Topic_Question);
 Question_Answer.hasMany(Topic_Question);
 
@@ -63,6 +63,7 @@ module.exports = {
     Topic,
     Topic_Question,
     Subcategory,
+    Subcategory_Topic_Question
   },
 };
 

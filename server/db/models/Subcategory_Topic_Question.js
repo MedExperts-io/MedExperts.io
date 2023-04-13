@@ -8,9 +8,6 @@ const Subcategory_Topic_Question = db.define("subcategory_topic_question", {
     autoIncrement: true,
     allowNull: false,
   },
-  placeholder: {
-    type: Sequelize.STRING,
-  },
 });
 
 module.exports = Subcategory_Topic_Question;
