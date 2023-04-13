@@ -117,6 +117,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
               },
             ],
           });
+          console.log("allVersions", allVersions)
           res.json(allVersions);
         }
       } else {

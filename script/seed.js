@@ -5896,6 +5896,9 @@ async function seed() {
     Subcategory.create({
       subcategory: "Chest pain",
     }),
+    Subcategory.create({
+      subcategory: "COPD",
+    }),
   ]);
 
   //Creating Topic_Questions
@@ -5926,7 +5929,7 @@ async function seed() {
     }),
     Subcategory_Topic_Question.create({
       topicQuestionId: 1,
-      subcategoryId: 2,
+      subcategoryId: 3,
     }),
     Subcategory_Topic_Question.create({
       topicQuestionId: 2,
