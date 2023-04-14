@@ -70,6 +70,7 @@ export const allQASlice = createSlice({
   name: "allQA",
   initialState: {
     questionsAnswers: [],
+    topic_questions: {},
     easy: [],
     moderate: [],
     hard: [],
@@ -84,17 +85,53 @@ export const allQASlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchAllQuestionsAnswers.fulfilled, (state, action) => {
-        state.questionsAnswers = action.payload;
-        state.easy = action.payload.filter(
-          (question) => question.level === "Easy"
-        );
-        state.moderate = action.payload.filter(
-          (question) => question.level === "Moderate"
-        );
-        state.hard = action.payload.filter(
-          (question) => question.level === "Hard"
-        );
-        state.loading = false;
+        let allQA = action.payload.map((question) => {
+          let topicSubcat = {};
+
+          for (let i = 0; i < question["topic_questions"].length; i++) {
+            const key = question["topic_questions"][i]["topic"]["topic"];
+            const property = question["topic_questions"][i][
+              "subcategories"
+            ].map((subCat) => {
+              return subCat["subcategory"];
+            });
+
+            topicSubcat[key] = property;
+          }
+
+          return {
+            ...question,
+            topicSubcategory: topicSubcat,
+          };
+        });
+
+        state.questionsAnswers = allQA;
+
+        let topicQs = {};
+        for (let i = 0; i < allQA.length; i++) {
+          const question = allQA[i];
+          for (let j = 0; j < question["topic_questions"].length; j++) {
+            const topic = question["topic_questions"][j]["topic"]["topic"];
+            if (!topicQs[topic]) {
+              topicQs[topic] = [];
+            }
+            topicQs[topic].push(question);
+          }
+
+          state.topic_questions = topicQs;
+
+          state.easy = action.payload.filter(
+            (question) => question.level === "Easy"
+          );
+          state.moderate = action.payload.filter(
+            (question) => question.level === "Moderate"
+          );
+          state.hard = action.payload.filter(
+            (question) => question.level === "Hard"
+          );
+
+          state.loading = false;
+        }
       })
       .addCase(NewQuestionsAnswers.fulfilled, (state, action) => {
         state.newQuestion = action.payload;

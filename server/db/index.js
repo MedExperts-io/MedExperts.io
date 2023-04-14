@@ -19,7 +19,6 @@ User_Question.belongsTo(User); //Foreign Key in User_Question
 User.hasMany(User_Question);
 Question_Answer.hasMany(User_Question);
 
-
 Topic.belongsToMany(Question_Answer, { through: Topic_Question }); //onUpdate/onDelete = cascade
 Question_Answer.belongsToMany(Topic, { through: Topic_Question }); //onUpdate/onDelete = cascade
 Topic_Question.belongsTo(Question_Answer); //Foreign Key in Topic_Question
@@ -37,11 +36,6 @@ Subcategory_Topic_Question.belongsTo(Subcategory);
 Subcategory_Topic_Question.belongsTo(Topic_Question);
 Subcategory.hasMany(Subcategory_Topic_Question);
 Topic_Question.hasMany(Subcategory_Topic_Question);
-
-
-
-
-
 
 Question_Answer.hasMany(Question_Answer, {
   // onDelete = SET NULL
@@ -63,10 +57,9 @@ module.exports = {
     Topic,
     Topic_Question,
     Subcategory,
-    Subcategory_Topic_Question
+    Subcategory_Topic_Question,
   },
 };
-
 
 //EXAMPLE
 //What is cancer?

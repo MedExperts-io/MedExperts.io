@@ -32,14 +32,29 @@ router.get("/", getToken, async (req, res, next) => {
         "displayId",
         "color",
       ],
+      include: {
+        model: Topic_Question,
+        include: [
+          {
+            model: Topic,
+            attributes: ["topic"],
+          },
+          {
+            model: Subcategory,
+            attributes: ["subcategory"],
+            through: { attributes: [] },
+          },
+        ],
+      },
     });
+
     res.json(allQs);
   } catch (err) {
     next(err);
   }
 });
 
-//GET/api/questions/:singleQuestionId - For single question view
+//GET/api/questions/:singleQuestionId - For single question view\
 router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
 
@@ -106,18 +121,18 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 include: [
                   {
                     model: Topic,
-                    attributes: ["id", "topic"],
+                    attributes: ["topic"],
                   },
                   {
                     model: Subcategory,
-                    attributes: ["id", "subcategory"],
+                    attributes: ["subcategory"],
                     through: { attributes: [] },
                   },
                 ],
               },
             ],
           });
-          console.log("allVersions", allVersions)
+          console.log("allVersions", allVersions);
           res.json(allVersions);
         }
       } else {
