@@ -14,7 +14,6 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap/";
-import ReactHtmlParser from "react-html-parser";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { useDispatch, useSelector } from "react-redux";
@@ -433,7 +432,9 @@ const SingleQAadmin = () => {
                                         <div>
                                           {index + 1}{" "}
                                           <div>
-                                            {ReactHtmlParser(sourcelink)}
+                                          <div dangerouslySetInnerHTML={{
+    __html: `${sourcelink}`
+}} />
                                             <style>
                                               {` a {
                             color: inherit;
@@ -786,7 +787,9 @@ const SingleQAadmin = () => {
                                             <div>
                                               {index + 1}{" "}
                                               <div>
-                                                {ReactHtmlParser(sourcelink)}
+                                              <div dangerouslySetInnerHTML={{
+    __html: `${sourcelink}`
+}} />
                                                 <style>
                                                   {` a {
                           color: inherit;
@@ -1108,7 +1111,9 @@ const SingleQAadmin = () => {
                                             <div>
                                               {index + 1}{" "}
                                               <div>
-                                                {ReactHtmlParser(sourcelink)}
+                                                <div dangerouslySetInnerHTML={{
+    __html: `${sourcelink}`
+}} />
                                                 <style>
                                                   {` a {
                               color: inherit;
