@@ -16,7 +16,7 @@ module.exports = router;
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
 //GET/api/questions ---- For allQA view for all (Answer & explanation restricted in case of Postman/Insomnia use)
-router.get("/", getToken, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const allQs = await Question_Answer.findAll({
       where: { status: "Active" },
@@ -48,7 +48,54 @@ router.get("/", getToken, async (req, res, next) => {
       },
     });
 
-    res.json(allQs);
+    const topicQuestions = await Topic_Question.findAll({
+      include: [
+        {
+          model: Topic,
+          attributes: ["topic"],
+        },
+        {
+          model: Question_Answer,
+          attributes: ["question"],
+        },
+      ],
+    });
+
+    const subcategoryTopicQuestions = await Subcategory_Topic_Question.findAll({
+      include: [
+        {
+          model: Topic_Question,
+          include: [
+            {
+              model: Topic,
+              attributes: ["topic"],
+            },
+            {
+              model: Question_Answer,
+              where: { status: "Active" },
+              attributes: [
+                "id",
+                "question",
+                "questionImage",
+                "questionImageAltText",
+                "answerOptions",
+                "level",
+                "category",
+                "status",
+                "displayId",
+                "color",
+              ],
+            },
+          ],
+        },
+        {
+          model: Subcategory,
+          attributes: ["subcategory"],
+        },
+      ],
+    });
+
+    res.json([subcategoryTopicQuestions, allQs]);
   } catch (err) {
     next(err);
   }
