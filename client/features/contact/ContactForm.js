@@ -9,10 +9,12 @@ import {
   FloatingLabel,
   Row,
 } from "react-bootstrap";
+import MessageSuccess from "./MessageSuccess";
 
 const ContactForm = () => {
   const form = useRef();
   const [disableSubmit, setDisableSubmit] = useState(true);
+  const [messageSent, setMessageSent] = useState(false);
 
   // const recaptcha = () => {
   //   const recaptchaChecked = recaptcha.getResponse() ? true : false;
@@ -32,18 +34,15 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_yr9uemk",
-        "template_nfr0bgt",
+        `${process.env.REACT_APP_SERVICE_ID}`,
+        `${process.env.REACT_APP_TEMPLATE_ID}`,
         form.current,
-        "qgMVjoE8O_5nO8brf"
-        // `${process.env.REACT_APP_SERVICE_ID}`,
-        // `${process.env.REACT_APP_TEMPLATE_ID}`,
-        // form.current,
-        // `${process.env.REACT_APP_PUBLIC_KEY}`
+        `${process.env.REACT_APP_PUBLIC_KEY}`
       )
       .then(
         (result) => {
           console.log(result.text);
+          setMessageSent(true);
         },
         (error) => {
           console.log(error.text);
@@ -53,68 +52,74 @@ const ContactForm = () => {
   };
 
   return (
-    <Container fluid>
-      <Col>
-        <Form ref={form} onSubmit={sendEmail}>
-          <FloatingLabel className="mb-3" controlId="contact-name" label="Name">
-            <Form.Control
-              type="text"
-              placeholder="Your name"
-              name="from_name"
-            />
-          </FloatingLabel>
+    <>
+      {!messageSent ? (
+        <Container fluid>
+          <Col>
+            <Form ref={form} onSubmit={sendEmail}>
+              <FloatingLabel
+                className="mb-3"
+                controlId="contact-name"
+                label="Name"
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="Your name"
+                  name="from_name"
+                />
+              </FloatingLabel>
 
-          <FloatingLabel
-            className="mb-3"
-            controlId="contact-email"
-            label="Email Address"
-          >
-            <Form.Control
-              type="email"
-              placeholder="Your email address"
-              name="from_email"
-            />
-          </FloatingLabel>
+              <FloatingLabel
+                className="mb-3"
+                controlId="contact-email"
+                label="Email Address"
+              >
+                <Form.Control
+                  type="email"
+                  placeholder="Your email address"
+                  name="from_email"
+                />
+              </FloatingLabel>
 
-          <FloatingLabel
-            className="mb-3"
-            controlId="contact-phone"
-            label="Phone Number"
-          >
-            <Form.Control
-              type="tel"
-              placeholder="Your phone number"
-              name="from_phone"
-            />
-          </FloatingLabel>
+              <FloatingLabel
+                className="mb-3"
+                controlId="contact-phone"
+                label="Phone Number"
+              >
+                <Form.Control
+                  type="tel"
+                  placeholder="Your phone number"
+                  name="from_phone"
+                />
+              </FloatingLabel>
 
-          <FloatingLabel
-            className="mb-3"
-            controlId="contact-msg"
-            label="Message"
-          >
-            <Form.Control
-              as="textarea"
-              style={{ height: "100px" }}
-              placeholder="Your message"
-              name="message"
-            />
-          </FloatingLabel>
-          <br />
+              <FloatingLabel
+                className="mb-3"
+                controlId="contact-msg"
+                label="Message"
+              >
+                <Form.Control
+                  as="textarea"
+                  style={{ height: "100px" }}
+                  placeholder="Your message"
+                  name="message"
+                />
+              </FloatingLabel>
+              <br />
 
-          <div
-            className="g-recaptcha"
-            data-sitekey="6LfhBIYlAAAAAIzn87g7kjLB_UzhWkL5WV3Xh82i"
-            // onChange={() => useCallback()}
-          ></div>
-          <br />
+              <div className="g-recaptcha" data-sitekey=""></div>
+              <br />
 
-          <div className="d-grid gap-2">
-            <Button type="submit"> Submit </Button>
-          </div>
-        </Form>
-      </Col>
-    </Container>
+              <div className="d-grid gap-2">
+                <Button type="submit"> Submit </Button>
+              </div>
+            </Form>
+          </Col>
+        </Container>
+      ) : (
+        <MessageSuccess />
+      )}
+    </>
   );
 };
 

@@ -7,7 +7,6 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-
 const ContactUs = () => {
   return (
     <Container fluid style={{ marginTop: "35px", marginBottom: "35px" }}>
@@ -43,10 +42,7 @@ const ContactUs = () => {
                 >
                   Contact Information
                 </Card.Title>
-                <Card.Body
-                  className="me-auto"
-                  //   style={{ verticalAlign: "middle" }}
-                >
+                <Card.Body className="me-auto">
                   <p
                     style={{
                       fontWeight: "300",
@@ -75,9 +71,6 @@ const ContactUs = () => {
                   </p>
                   <p style={{ fontWeight: "300", fontSize: "14px" }}>
                     <InstagramIcon /> Instagram
-                  </p>
-                  <p style={{ fontWeight: "300", fontSize: "14px" }}>
-                    <GitHubIcon /> GitHub
                   </p>
                 </Card.Body>
               </Card>
