@@ -1,54 +1,54 @@
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
-import { useCallback } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FloatingLabel,
-  Row,
-} from "react-bootstrap";
+import { Button, Col, Container, Form, FloatingLabel } from "react-bootstrap";
 import MessageSuccess from "./MessageSuccess";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm = () => {
   const form = useRef();
-  const [disableSubmit, setDisableSubmit] = useState(true);
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    from_phone: "",
+    message: "",
+  });
+
+  const [captcha, showCaptcha] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
 
-  // const recaptcha = () => {
-  //   const recaptchaChecked = recaptcha.getResponse() ? true : false;
+  const submitForm = (event) => {
+    event.preventDefault();
+    showCaptcha(true);
+  };
 
-  //   if (recaptchaChecked) {
-  //     setDisableSubmit(true);
-  //   } else {
-  //     alert(
-  //       "You must check the 'I am not a robot' box before you can start a game!"
-  //     );
-  //     setDisableSubmit(false);
-  //   }
-  // };
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const sendEmail = (captchaValue) => {
+    const params = {
+      "g-recaptcha-response": captchaValue,
+      ...formData,
+    };
 
     emailjs
-      .sendForm(
-        `${process.env.REACT_APP_SERVICE_ID}`,
-        `${process.env.REACT_APP_TEMPLATE_ID}`,
-        form.current,
-        `${process.env.REACT_APP_PUBLIC_KEY}`
+      .send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        params,
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {
           console.log(result.text);
           setMessageSent(true);
+          form.current.reset();
         },
         (error) => {
-          console.log(error.text);
+          console.log(params);
+          console.log(error);
         }
       );
-    e.target.reset();
   };
 
   return (
@@ -56,7 +56,7 @@ const ContactForm = () => {
       {!messageSent ? (
         <Container fluid>
           <Col>
-            <Form ref={form} onSubmit={sendEmail}>
+            <Form ref={form} onSubmit={submitForm}>
               <FloatingLabel
                 className="mb-3"
                 controlId="contact-name"
@@ -66,6 +66,7 @@ const ContactForm = () => {
                   type="text"
                   placeholder="Your name"
                   name="from_name"
+                  onChange={handleChange}
                 />
               </FloatingLabel>
 
@@ -78,6 +79,7 @@ const ContactForm = () => {
                   type="email"
                   placeholder="Your email address"
                   name="from_email"
+                  onChange={handleChange}
                 />
               </FloatingLabel>
 
@@ -90,6 +92,7 @@ const ContactForm = () => {
                   type="tel"
                   placeholder="Your phone number"
                   name="from_phone"
+                  onChange={handleChange}
                 />
               </FloatingLabel>
 
@@ -103,12 +106,19 @@ const ContactForm = () => {
                   style={{ height: "100px" }}
                   placeholder="Your message"
                   name="message"
+                  onChange={handleChange}
                 />
               </FloatingLabel>
-              <br />
 
-              <div className="g-recaptcha" data-sitekey=""></div>
-              <br />
+              {captcha && (
+                <>
+                  <ReCAPTCHA
+                    sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE}`}
+                    onChange={(captchaValue) => sendEmail(captchaValue)}
+                  />
+                  <br />
+                </>
+              )}
 
               <div className="d-grid gap-2">
                 <Button type="submit"> Submit </Button>
