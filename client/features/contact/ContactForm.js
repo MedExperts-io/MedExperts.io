@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Button, Col, Container, Form, FloatingLabel } from "react-bootstrap";
 import MessageSuccess from "./MessageSuccess";
 import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 
 const ContactForm = () => {
   const form = useRef();
@@ -25,30 +26,30 @@ const ContactForm = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const sendEmail = (captchaValue) => {
+  const sendEmail = async (captchaValue) => {
     const params = {
       "g-recaptcha-response": captchaValue,
       ...formData,
     };
 
-    emailjs
-      .send(
-        process.env.REACT_APP_SERVICE_ID,
-        process.env.REACT_APP_TEMPLATE_ID,
-        params,
-        process.env.REACT_APP_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setMessageSent(true);
-          form.current.reset();
-        },
-        (error) => {
-          console.log(params);
-          console.log(error);
-        }
-      );
+    try {
+      const response = await axios.post("/recaptcha", { token: captchaValue });
+
+      if (response.status === 200) {
+        await emailjs.send(
+          process.env.REACT_APP_SERVICE_ID,
+          process.env.REACT_APP_TEMPLATE_ID,
+          params,
+          process.env.REACT_APP_PUBLIC_KEY
+        );
+        setMessageSent(true);
+        form.current.reset();
+      } else {
+        console.log("Error verifying ReCAPTCHA token");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

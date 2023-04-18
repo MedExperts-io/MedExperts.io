@@ -1,20 +1,24 @@
-const { OAuth2Client } = require("google-auth-library");
 const router = require("express").Router();
 
-router.post("/submit-form", async (req, res, next) => {
-  const { token } = req.body;
+router.post("/", async (req, res) => {
+  try {
+    const { token } = req.body;
 
-  const client = new OAuth2Client(process.env.RECAPTCHA_SECRET);
-  const { data } = await client.verifyIdToken({
-    idToken: token,
-    audience: process.env.RECAPTCHA_SITE,
-  });
+    const { data } = await axios.post(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${
+        process.env.RECAPTCHA_SECRET
+      }&response=${{ token }}`
+    );
 
-  if (data) {
-    res.sendStatus(200);
-  } else {
-    res.status(400).send("reCAPTCHA validation failed");
+    if (data.success) {
+      console.log(data.sucess);
+      res.sendStatus(200);
+    } else {
+      res.json({ success: false });
+    }
+  } catch (error) {
+    console.error(error);
+    res.json({ success: false });
   }
 });
-
 module.exports = router;
