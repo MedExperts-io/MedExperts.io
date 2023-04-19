@@ -63,3 +63,5 @@ const surveyJson = {
     },
   ],
 };
+
+module.exports = { surveyJson };
