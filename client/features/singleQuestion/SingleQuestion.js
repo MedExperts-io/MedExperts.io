@@ -17,7 +17,6 @@ import {
   Accordion,
   Table,
 } from "react-bootstrap/";
-import ReactHtmlParser from "react-html-parser";
 import {
   fetchAllUserQuestions,
   fetchUserQuestions,
@@ -27,6 +26,7 @@ import {
 import SingleQAadmin from "./SingleQAadmin";
 import { Divider } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
+import parse from "html-react-parser";
 
 const SingleQuestion = () => {
   const admin = useSelector((state) => state.auth.me.isAdmin);
@@ -394,7 +394,7 @@ const SingleQuestion = () => {
                                   <div>
                                     {index + 1}{" "}
                                     <div>
-                                      {ReactHtmlParser(sourcelink)}
+                                      {parse(sourcelink)}
                                       <style>
                                         {` a {
                               color: inherit;
@@ -656,7 +656,7 @@ border-color: #FF7276;
                                 <div>
                                   {index + 1}{" "}
                                   <div>
-                                    {ReactHtmlParser(sourcelink)}
+                                    {parse(sourcelink)}
                                     <style>
                                       {` a {
                               color: inherit;
