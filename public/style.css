@@ -4,7 +4,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-image: url("newBG8T.png");
+  /* background-image: url("newBG8T.png"); */
   padding-bottom: 20px;
 }
 

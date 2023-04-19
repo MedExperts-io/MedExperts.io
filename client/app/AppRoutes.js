@@ -20,6 +20,7 @@ import VerifyEmail from "../features/auth/VerifyEmail";
 import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
+import Feedback from "../features/feedback/Feedback";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -52,6 +53,7 @@ const AppRoutes = () => {
             element={<EditQA />}
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/feedback" element={<Feedback />} />
         </Routes>
       ) : (
         <Routes>
