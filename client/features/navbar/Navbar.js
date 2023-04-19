@@ -32,7 +32,7 @@ const SiteNavbar = () => {
             <Link to="/">
               <Navbar.Brand>
                 <img
-                  src="/MedExpert.svg"
+                  src="/img/MedExpert.svg"
                   className="navbar-logo"
                   alt="Med Expert Logo"
                 />
@@ -134,7 +134,7 @@ const SiteNavbar = () => {
             <Link to="/">
               <Navbar.Brand>
                 <img
-                  src="/MedExpert.svg"
+                  src="/img/MedExpert.svg"
                   className="navbar-logo"
                   alt="Med Expert Logo"
                 />

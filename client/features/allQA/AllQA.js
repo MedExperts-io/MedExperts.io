@@ -673,8 +673,8 @@ const QuestionsAnswers = () => {
                             variant="top"
                             src={
                               favoriteStatus(question.id)
-                                ? "/heart(red).png"
-                                : "/heart.png"
+                                ? "/img/heart(red).png"
+                                : "/img/heart.png"
                             }
                           />
                         </button>
