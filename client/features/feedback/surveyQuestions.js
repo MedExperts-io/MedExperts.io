@@ -39,6 +39,10 @@ const surveyJson = {
           text: "MedExperts questions helped me prepare for my exams",
         },
         {
+          value: "recommendable",
+          text: "I would recommend MedExperts to a friend or colleague",
+        },
+        {
           value: "difficulty",
           text: "The difficulty levels assigned to each question are accurate",
         },
