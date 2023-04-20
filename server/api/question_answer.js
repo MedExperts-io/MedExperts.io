@@ -16,6 +16,7 @@ module.exports = router;
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
 //GET/api/questions ---- For allQA view for all (Answer & explanation restricted in case of Postman/Insomnia use)
+//
 router.get("/", async (req, res, next) => {
   try {
     const allQs = await Question_Answer.findAll({
@@ -46,19 +47,6 @@ router.get("/", async (req, res, next) => {
           },
         ],
       },
-    });
-
-    const topicQuestions = await Topic_Question.findAll({
-      include: [
-        {
-          model: Topic,
-          attributes: ["topic"],
-        },
-        {
-          model: Question_Answer,
-          attributes: ["question"],
-        },
-      ],
     });
 
     const subcategoryTopicQuestions = await Subcategory_Topic_Question.findAll({
@@ -95,7 +83,50 @@ router.get("/", async (req, res, next) => {
       ],
     });
 
-    res.json([subcategoryTopicQuestions, allQs]);
+    res.json(subcategoryTopicQuestions);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/:singleTopic", getToken, async (req, res, next) => {
+  const singleTopic =
+    req.params.singleTopic[0].toUpperCase() + req.params.singleTopic.slice(1);
+
+  try {
+    const singleTopicQAs = await Topic.findAll({
+      where: { topic: singleTopic },
+      attributes: ["topic"],
+      include: {
+        model: Topic_Question,
+        include: [
+          {
+            model: Question_Answer,
+            order: [["displayId", "DESC"]],
+            where: { status: "Active" },
+            attributes: [
+              "id",
+              "question",
+              "questionImage",
+              "questionImageAltText",
+              "answerOptions",
+              "level",
+              "category",
+              "status",
+              "displayId",
+              "color",
+            ],
+          },
+          {
+            model: Subcategory,
+            attributes: ["subcategory"],
+            through: { attributes: [] },
+          },
+        ],
+      },
+    });
+
+    res.json(singleTopicQAs[0]);
   } catch (err) {
     next(err);
   }

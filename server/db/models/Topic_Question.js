@@ -8,9 +8,6 @@ const Topic_Question = db.define("topic_question", {
     autoIncrement: true,
     allowNull: false,
   },
-  // placeholder: {
-  //   type: Sequelize.STRING,
-  // },
 });
 
 module.exports = Topic_Question;
