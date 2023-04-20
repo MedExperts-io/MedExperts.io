@@ -6,6 +6,7 @@ const User = require("./models/User");
 const Password_Reset = require("./models/Password_Reset");
 const Question_Answer = require("./models/Question_Answer");
 const User_Question = require("./models/User_Question");
+const User_Feedback = require("./models/User_Feedback");
 
 //-----------------Super Many-to-Many Associations------------------------------
 User.belongsToMany(Question_Answer, { through: User_Question }); //---onUpdate/onDelete = cascade
@@ -15,7 +16,12 @@ User_Question.belongsTo(User); //-------------------------------------Foreign Ke
 User.hasMany(User_Question);
 Question_Answer.hasMany(User_Question);
 
-Question_Answer.hasMany(Question_Answer, {// onDelete = SET NULL
+//Feedback Survey Additions
+User.hasMany(User_Feedback);
+User_Feedback.belongsTo(User);
+
+Question_Answer.hasMany(Question_Answer, {
+  // onDelete = SET NULL
   as: "newVersions",
   foreignKey: "ancestorId",
 });
@@ -31,5 +37,6 @@ module.exports = {
     Question_Answer,
     User_Question,
     Password_Reset,
+    User_Feedback,
   },
 };
