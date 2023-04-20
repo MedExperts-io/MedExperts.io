@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .navbutton {
+    @apply flex flex-col items-center no-underline mt-4 sm:mt-0 text-white hover:text-red-300 mr-4;
+  }
+}

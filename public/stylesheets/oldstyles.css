@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
   min-height: 100vh;
   position: relative;
@@ -6,7 +6,7 @@ body {
   flex-direction: column;
   background-image: url("../img/newBG8T.png");
   padding-bottom: 20px;
-}
+} */
 
 #no-border {
   border: none;

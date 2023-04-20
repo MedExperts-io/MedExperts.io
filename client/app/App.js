@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen relative flex flex-col pb-5 bg-[url('/img/newBG8T.png')]">
       <Navbar />
       <AppRoutes />
       <Footer />
