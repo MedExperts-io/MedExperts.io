@@ -64,18 +64,39 @@ const MainLandingPage = () => {
           </h1>
         </div>
         <span className="text-2xl pb-2">
-          IMPROVE YOUR SKILLS BY WORKING THROUGH PRACTICE PROBLEMS
+          THE ULTIMATE STUDY PLATFORM FOR EVERYONE FROM
         </span>
         <span className="text-2xl pb-4">
-          CURATED BY A TEAM OF MEDICAL PROFESSIONALS
+          MEDICAL STUDENTS TO BOARD-CERTIFIED PHYSICIANS
         </span>
         <button className="bg-red-900 text-white text-xl transform transition duration-500 hover:scale-110 p-3 rounded-full cursor-pointer">
           GET STARTED
         </button>
       </div>
       {/* SECTION 2 */}
-      <div className="flex flex-col items-center bg-gradient-to-b from-black to-gray-700 text-white p-10">
-        <div className="grid grid-cols-3 space-x-4">
+      <div className="flex flex-col items-center bg-gradient-to-b from-black to-gray-700 text-white p-10 space-y-4">
+        <div className="bg-slate-900 rounded-2xl p-10">
+          <span className="text-2xl">
+            200+ questions with detailed answers in over 15 subjects, carefully
+            curated by a team of medical experts.
+          </span>
+        </div>
+        <div className="bg-slate-900 rounded-2xl p-10">
+          <span className="text-2xl">
+            Personalized dashboard for each user to monitor progress and compete
+            with peers.
+          </span>
+        </div>
+        <div className="bg-slate-900 rounded-2xl p-10">
+          <span className="text-2xl">
+            Contribute to the community by authoring questions based on your
+            interest and train specific skill sets.
+          </span>
+        </div>
+      </div>
+      {/* SECTION 3 */}
+      <div className="flex flex-col items-center bg-gradient-to-b from-gray-700 to-black text-white p-10">
+        <div className="flex flex-col md:grid md:grid-cols-3 space-y-4 md:space-x-4">
           {fakeTestimonials?.map((testimonial) => {
             const { name, title, location, quote } = testimonial;
 
