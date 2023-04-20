@@ -4,6 +4,7 @@ import authReducer from "../features/auth/authSlice";
 import allQASliceReducer from "../features/allQA/allQASlice";
 import allUser_QuestionsSliceReducer from "../features/stats/user_questionsSlice";
 import SingleQuestionSliceReducer from "../features/singleQuestion/singleQuestionSlice";
+import userFeedbackSliceReducer from "../features/feedback/user_feedbackSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,8 +12,9 @@ const store = configureStore({
     questionsAnswers: allQASliceReducer,
     SingleQuestion: SingleQuestionSliceReducer,
     userQuestions: allUser_QuestionsSliceReducer,
+    userFeedback: userFeedbackSliceReducer,
   },
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
