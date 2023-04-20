@@ -8,16 +8,18 @@ module.exports = router;
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
 // get route (for admin)
-// post route (for all)
+
+// post route (for all users)
 router.post("/response", getToken, async (req, res, next) => {
   const userId = req.user.id;
-  console.log(userId, "from api route");
-  const { surveyResponse } = req.body;
-  console.log(surveyResponse, "Req.body");
+  const { Source, Satisfaction, Features, OtherFeedback } = req.body;
 
   try {
     const userResponse = await User_Feedback.create({
-      userResponses: surveyResponse,
+      source: Source,
+      suggestedFeatures: Features,
+      otherFeedback: OtherFeedback,
+      satisfaction: Satisfaction,
       userId,
     });
     res.json(userResponse);

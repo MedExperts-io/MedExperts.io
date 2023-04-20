@@ -8,7 +8,10 @@ export const recordUserFeedback = createAsyncThunk(
       const { data } = await axios.post(
         `/api/user_feedback/response`,
         {
-          surveyResponse: { Source, Satisfaction, Features, OtherFeedback },
+          Source,
+          Satisfaction,
+          Features,
+          OtherFeedback,
         },
         {
           headers: {
