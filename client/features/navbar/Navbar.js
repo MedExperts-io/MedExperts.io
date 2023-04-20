@@ -22,6 +22,7 @@ const SiteNavbar = () => {
   const location = useLocation();
 
   const logoutAndRedirectHome = async () => {
+    setActive("home");
     await dispatch(logout());
     navigate("/");
   };
@@ -29,18 +30,23 @@ const SiteNavbar = () => {
   return (
     <>
       <div className="font-sans antialiased">
-        <nav className="flex items-center justify-between flex-wrap p-6 bg-gradient-to-r from-red-500 to-red-800">
-          <div className="flex items-center flex-no-shrink text-white mr-6">
-            <Link to="/">
+        <nav className="flex flex-wrap p-3 bg-gradient-to-r from-red-800 via-red-600 to-red-800 fixed w-full z-40">
+          <div className="flex flex-col items-center flex-no-shrink text-white mr-6 -mt-2">
+            <button
+              onClick={() => {
+                isLoggedIn ? navigate("/dashboard") : navigate("/");
+                setActive("home");
+              }}
+            >
               <img
                 src="/img/MedExpert.svg"
-                className="text-white mt-4 md:w-60 sm:w-56"
+                className="text-white mt-4 w-48 md:w-56"
                 alt="Med Expert Logo"
               />
-            </Link>
+            </button>
           </div>
           {/* RIGHT NAV */}
-          <div className="block sm:hidden items-center">
+          <div className="flex sm:hidden justify-end">
             <button
               onClick={() => {
                 isOpen ? setIsOpen(false) : setIsOpen(true);
@@ -48,7 +54,7 @@ const SiteNavbar = () => {
               className="flex items-center px-3 py-2 text-white"
             >
               <svg
-                className="fill-current h-10 w-10"
+                className="fill-current h-8 w-8"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -125,10 +131,7 @@ const SiteNavbar = () => {
                 {/* LOGOUT */}
                 <div className="flex space-y-2">
                   <button
-                    onClick={() => {
-                      setActive("home");
-                      logoutAndRedirectHome;
-                    }}
+                    onClick={logoutAndRedirectHome}
                     label="logout"
                     className="navbutton"
                   >

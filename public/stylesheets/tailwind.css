@@ -4,6 +4,10 @@
 
 @layer components {
   .navbutton {
-    @apply flex flex-col items-center no-underline mt-4 sm:mt-0 text-white hover:text-red-300 mr-4;
+    @apply flex flex-col items-center no-underline mt-4 sm:mt-0 text-white hover:text-red-300 mr-4 outline-none hover:scale-125;
   }
+}
+
+* {
+  font-family: "Oswald", sans-serif;
 }

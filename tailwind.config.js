@@ -5,6 +5,9 @@ module.exports = {
     "./public/**/*.{html,js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      oswald: ["Playfair Display SC"],
+    },
     extend: {},
   },
   plugins: [],
