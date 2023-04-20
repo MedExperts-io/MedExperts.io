@@ -11,11 +11,13 @@ const { getToken, isAdmin } = require("./userCheckMiddleware");
 // post route (for all)
 router.post("/response", getToken, async (req, res, next) => {
   const userId = req.user.id;
+  console.log(userId, "from api route");
   const { surveyResponse } = req.body;
+  console.log(surveyResponse, "Req.body");
 
   try {
     const userResponse = await User_Feedback.create({
-      surveyResponse,
+      userResponses: surveyResponse,
       userId,
     });
     res.json(userResponse);

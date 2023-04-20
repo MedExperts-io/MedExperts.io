@@ -3,13 +3,12 @@ import axios from "axios";
 
 export const recordUserFeedback = createAsyncThunk(
   "recordUserFeedback",
-  async ({ userId, surveyResponse }) => {
+  async ({ Source, Satisfaction, Features, OtherFeedback }) => {
     try {
       const { data } = await axios.post(
         `/api/user_feedback/response`,
         {
-          userId: userId,
-          surveyResponse: surveyResponse,
+          surveyResponse: { Source, Satisfaction, Features, OtherFeedback },
         },
         {
           headers: {
