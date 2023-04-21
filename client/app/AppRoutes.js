@@ -21,6 +21,7 @@ import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
 import Feedback from "../features/feedback/Feedback";
+import Testing from "../features/tailwindTest/testing";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -54,6 +55,7 @@ const AppRoutes = () => {
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
       ) : (
         <Routes>
@@ -68,6 +70,7 @@ const AppRoutes = () => {
           />
           <Route path="/resetPassword/*" element={<ResetPassword />} />
           <Route path="/verifyEmail/*" element={<VerifyEmail />} />
+          <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
       )}
     </div>
