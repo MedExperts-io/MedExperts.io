@@ -1,3 +1,4 @@
+const sequelize = require("../db/db");
 const router = require("express").Router();
 const {
   models: {
@@ -10,7 +11,7 @@ const {
     Subcategory_Topic_Question,
   },
 } = require("../db");
-const { Op } = require("sequelize");
+const { Op, QueryTypes } = require("sequelize");
 module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
@@ -19,71 +20,60 @@ const { getToken, isAdmin } = require("./userCheckMiddleware");
 //
 router.get("/", async (req, res, next) => {
   try {
-    const allQs = await Question_Answer.findAll({
-      where: { status: "Active" },
-      attributes: [
-        "id",
-        "question",
-        "questionImage",
-        "questionImageAltText",
-        "answerOptions",
-        "level",
-        "category",
-        "status",
-        "displayId",
-        "color",
-      ],
-      include: {
-        model: Topic_Question,
-        include: [
-          {
-            model: Topic,
-            attributes: ["topic"],
-          },
-          {
-            model: Subcategory,
-            attributes: ["subcategory"],
-            through: { attributes: [] },
-          },
-        ],
-      },
-    });
+    // const allQs = await Question_Answer.findAll({
+    //   where: { status: "Active" },
+    //   attributes: [
+    //     "id",
+    //     "question",
+    //     "questionImage",
+    //     "questionImageAltText",
+    //     "answerOptions",
+    //     "level",
+    //     "category",
+    //     "status",
+    //     "displayId",
+    //     "color",
+    //   ],
+    //   include: {
+    //     model: Topic_Question,
+    //     include: [
+    //       {
+    //         model: Topic,
+    //         attributes: ["topic"],
+    //       },
+    //       {
+    //         model: Subcategory,
+    //         attributes: ["subcategory"],
+    //         through: { attributes: [] },
+    //       },
+    //     ],
+    //   },
+    // });
 
-    const subcategoryTopicQuestions = await Subcategory_Topic_Question.findAll({
-      include: [
-        {
-          model: Topic_Question,
-          include: [
-            {
-              model: Topic,
-              attributes: ["topic"],
-            },
-            {
-              model: Question_Answer,
-              where: { status: "Active" },
-              attributes: [
-                "id",
-                "question",
-                "questionImage",
-                "questionImageAltText",
-                "answerOptions",
-                "level",
-                "category",
-                "status",
-                "displayId",
-                "color",
-              ],
-            },
-          ],
-        },
-        {
-          model: Subcategory,
-          attributes: ["subcategory"],
-        },
-      ],
-    });
+    const results = await sequelize.query(`
+SELECT DISTINCT
+  question_answers.id,
+  question,
+  "questionImage",
+  "questionImageAltText",
+  "answerOptions",
+  "level",
+  "category",
+  "status",
+  "displayId",
+  "color",
+  STRING_AGG(subcategories.subcategory, ', ') AS subcategories
+FROM subcategory_topic_questions
+INNER JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id
+INNER JOIN topics ON topic_questions."topicId" = topics.id
+INNER JOIN question_answers ON topic_questions.id = question_answers.id
+INNER JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id
+WHERE question_answers.status = 'Active'
+GROUP BY question_answers.id
+ORDER BY question_answers.id ASC;
+`);
 
-    res.json(subcategoryTopicQuestions);
+    res.json(results[0]);
   } catch (err) {
     next(err);
   }
