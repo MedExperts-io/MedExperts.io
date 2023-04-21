@@ -3,9 +3,13 @@ const surveyJson = {
     {
       type: "text",
       name: "Source",
-      title: "How did you hear about MedExperts?",
+      title: "How did you learn about MedExperts?",
     },
-
+    {
+      type: "text",
+      name: "Frequency",
+      title: "How frequently do you use MedExperts?",
+    },
     {
       type: "matrix",
       name: "Satisfaction",
@@ -39,16 +43,20 @@ const surveyJson = {
           text: "MedExperts questions helped me prepare for my exams",
         },
         {
+          value: "difficulty",
+          text: "The difficulty level of the questions accurately reflects their actual difficulty level",
+        },
+        {
+          value: "quality",
+          text: "I am satisfied with the quality of the questions on MedExperts",
+        },
+        {
           value: "recommendable",
           text: "I would recommend MedExperts to a friend or colleague",
         },
         {
-          value: "difficulty",
-          text: "The difficulty levels assigned to each question are accurate",
-        },
-        {
           value: "usability",
-          text: "MedExperts is easy to use and navigate",
+          text: "MedExperts is easy to navigate and visually appealing",
         },
       ],
       alternateRows: true,
@@ -62,7 +70,8 @@ const surveyJson = {
     {
       type: "comment",
       name: "OtherFeedback",
-      title: "Any other feedback?",
+      title:
+        "Is there anything else we could do to improve your experience on MedExperts?",
       maxLength: 250,
     },
   ],

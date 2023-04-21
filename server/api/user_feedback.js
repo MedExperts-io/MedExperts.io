@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {
   models: { User, User_Feedback },
 } = require("../db");
-const { Op } = "sequelize";
+
 module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
