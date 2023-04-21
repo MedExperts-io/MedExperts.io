@@ -1,6 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// <-------- For admin's dashboard------->
+export const fetchAllUserFeedback = createAsyncThunk(
+  "fetchAllUserFeedback",
+  async () => {
+    try {
+      const { data } = await axios.get(`api/user_feedback`, {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 export const recordUserFeedback = createAsyncThunk(
   "recordUserFeedback",
   async ({ Source, Satisfaction, Features, OtherFeedback }) => {
@@ -33,9 +50,13 @@ export const user_FeedbackSlice = createSlice({
   },
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(recordUserFeedback.fulfilled, (state, action) => {
-      state.response = action.payload;
-    });
+    builder
+      .addCase(recordUserFeedback.fulfilled, (state, action) => {
+        state.response = action.payload;
+      })
+      .addCase(fetchAllUserFeedback.fulfilled, (state, action) => {
+        state.response = action.payload;
+      });
   },
 });
 

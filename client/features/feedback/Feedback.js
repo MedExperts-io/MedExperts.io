@@ -12,7 +12,6 @@ const Feedback = () => {
   const survey = new Model(surveyJson);
   survey.onComplete.add((sender, options) => {
     const { Source, Satisfaction, Features, OtherFeedback } = sender.data;
-    console.log(Source, Satisfaction, Features, OtherFeedback);
     dispatch(
       recordUserFeedback({ Source, Satisfaction, Features, OtherFeedback })
     );

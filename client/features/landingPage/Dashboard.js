@@ -6,17 +6,20 @@ import {
   fetchUserQuestions,
   fetchAllUserQuestions,
 } from "../stats/user_questionsSlice";
+import { fetchAllUserFeedback } from "../feedback/user_feedbackSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Row, Col, Container } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  // console.log(fetchAllUserFeedback);
 
   useEffect(() => {
     isAdmin
-      ? dispatch(fetchAllQuestionsAnswers()).then(() =>
-          dispatch(fetchAllUserQuestions())
+      ? dispatch(fetchAllQuestionsAnswers()).then(
+          () => dispatch(fetchAllUserQuestions()),
+          dispatch(fetchAllUserFeedback())
         )
       : dispatch(fetchAllQuestionsAnswers()).then(() =>
           dispatch(fetchUserQuestions())
