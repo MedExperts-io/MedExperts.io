@@ -13,7 +13,6 @@ import { v4 as uuidv4 } from "uuid";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  // console.log(fetchAllUserFeedback);
 
   useEffect(() => {
     isAdmin

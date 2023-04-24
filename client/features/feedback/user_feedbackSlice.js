@@ -88,15 +88,16 @@ export const fetchOtherFeedback = createAsyncThunk(
 
 export const recordUserFeedback = createAsyncThunk(
   "recordUserFeedback",
-  async ({ Source, Satisfaction, Features, OtherFeedback }) => {
+  async ({ Source, Frequency, Satisfaction, OtherFeedback, Features }) => {
     try {
       const { data } = await axios.post(
         `/api/user_feedback/response`,
         {
           Source,
+          Frequency,
           Satisfaction,
-          Features,
           OtherFeedback,
+          Features,
         },
         {
           headers: {
@@ -127,13 +128,13 @@ export const user_FeedbackSlice = createSlice({
       })
       .addCase(fetchSatisfactionFeedback.fulfilled, (state, action) => {
         state.response = action.payload;
-      })
-      // .addCase(fetchS.fulfilled, (state, action) => {
-      //   state.response = action.payload;
-      // })
-      // .addCase(fetchAllUserFeedback.fulfilled, (state, action) => {
-      //   state.response = action.payload;
-      // });
+      });
+    // .addCase(fetchS.fulfilled, (state, action) => {
+    //   state.response = action.payload;
+    // })
+    // .addCase(fetchAllUserFeedback.fulfilled, (state, action) => {
+    //   state.response = action.payload;
+    // });
   },
 });
 

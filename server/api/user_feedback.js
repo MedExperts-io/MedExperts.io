@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const { sources } = require("webpack");
 const {
   models: { User, User_Feedback },
 } = require("../db");
@@ -69,14 +68,15 @@ router.get("/otherFeedback", getToken, isAdmin, async (req, res, next) => {
 // ---> POST/api/user_feedback/response
 router.post("/response", getToken, async (req, res, next) => {
   const userId = req.user.id;
-  const { Source, Satisfaction, Features, OtherFeedback } = req.body;
+  const { Source, Frequency, Satisfaction, OtherFeedback, Features } = req.body;
 
   try {
     const userResponse = await User_Feedback.create({
       source: Source,
-      suggestedFeatures: Features,
-      otherFeedback: OtherFeedback,
+      frequency: Frequency,
       satisfaction: Satisfaction,
+      otherFeedback: OtherFeedback,
+      suggestedFeatures: Features,
       userId,
     });
     res.json(userResponse);

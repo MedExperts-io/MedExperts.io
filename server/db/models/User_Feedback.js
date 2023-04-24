@@ -5,14 +5,25 @@ const User_Feedback = db.define("user_feedback", {
   source: {
     type: Sequelize.STRING,
   },
-  suggestedFeatures: {
-    type: Sequelize.STRING,
+  frequency: {
+    type: Sequelize.ENUM(
+      "Daily",
+      "Several times a week",
+      "Once a week",
+      "Several times a month",
+      "Once a month",
+      "Rarely",
+      "This is my first time"
+    ),
+  },
+  satisfaction: {
+    type: Sequelize.JSON,
   },
   otherFeedback: {
     type: Sequelize.TEXT,
   },
-  satisfaction: {
-    type: Sequelize.JSON,
+  suggestedFeatures: {
+    type: Sequelize.STRING,
   },
 });
 

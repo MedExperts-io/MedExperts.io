@@ -6,9 +6,18 @@ const surveyJson = {
       title: "How did you learn about MedExperts?",
     },
     {
-      type: "text",
+      type: "dropdown",
       name: "Frequency",
       title: "How frequently do you use MedExperts?",
+      choices: [
+        "Daily",
+        "Several times a week",
+        "Once a week",
+        "Several times a month",
+        "Once a month",
+        "Rarely",
+        "This is my first time",
+      ],
     },
     {
       type: "matrix",
@@ -58,14 +67,13 @@ const surveyJson = {
           value: "usability",
           text: "MedExperts is easy to navigate and visually appealing",
         },
+        {
+          value: "accessibility",
+          text: "Hold for question regarding accessibility",
+        },
       ],
       alternateRows: true,
       isAllRowRequired: true,
-    },
-    {
-      type: "text",
-      name: "Features",
-      title: "Are there any other features you'd like to see included?",
     },
     {
       type: "comment",
@@ -73,6 +81,11 @@ const surveyJson = {
       title:
         "Is there anything else we could do to improve your experience on MedExperts?",
       maxLength: 250,
+    },
+    {
+      type: "text",
+      name: "Features",
+      title: "Are there any other features you'd like to see included?",
     },
   ],
 };
