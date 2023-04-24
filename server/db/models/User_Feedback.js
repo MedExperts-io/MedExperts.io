@@ -17,7 +17,7 @@ const User_Feedback = db.define("user_feedback", {
     ),
   },
   satisfaction: {
-    type: Sequelize.JSON,
+    type: Sequelize.JSONB,
   },
   otherFeedback: {
     type: Sequelize.TEXT,

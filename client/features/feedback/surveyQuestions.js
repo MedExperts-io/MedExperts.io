@@ -3,7 +3,8 @@ const surveyJson = {
     {
       type: "text",
       name: "Source",
-      title: "How did you learn about MedExperts?",
+      title: "How did you hear about MedExperts?",
+      isRequired: true,
     },
     {
       type: "dropdown",
@@ -18,6 +19,7 @@ const surveyJson = {
         "Rarely",
         "This is my first time",
       ],
+      isRequired: true,
     },
     {
       type: "matrix",

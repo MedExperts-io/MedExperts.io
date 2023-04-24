@@ -6,25 +6,32 @@ import {
   fetchUserQuestions,
   fetchAllUserQuestions,
 } from "../stats/user_questionsSlice";
-import { fetchAllUserFeedback } from "../feedback/user_feedbackSlice";
+import {
+  fetchAllUserFeedback,
+  fetchSatisfactionFeedback,
+} from "../feedback/user_feedbackSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Row, Col, Container } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import DraftAdminDash from "./DraftAdminDashboard";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     isAdmin
-      ? dispatch(fetchAllQuestionsAnswers()).then(
-          () => dispatch(fetchAllUserQuestions()),
-          dispatch(fetchAllUserFeedback())
-        )
+      ? // dispatch(fetchAllQuestionsAnswers()).then(
+        //     () => dispatch(fetchAllUserQuestions())
+        dispatch(fetchSatisfactionFeedback())
       : dispatch(fetchAllQuestionsAnswers()).then(() =>
           dispatch(fetchUserQuestions())
         );
     isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
+
+  const surveyDataSatisfaction = useSelector(
+    (state) => state.userFeedback.satisfaction
+  );
 
   const allUsers = useSelector((state) => state.userQuestions.allUsers);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
@@ -612,8 +619,9 @@ const Dashboard = () => {
           </Stack>
         ) : (
           <>
-            <h5>Admin Dashboard place holder</h5>
+            {/* <h5>Admin Dashboard place holder</h5> */}
             Number of users. {allUsers.length}
+            {<DraftAdminDash surveyDataSatisfaction={surveyDataSatisfaction} />}
           </>
         )}
       </div>

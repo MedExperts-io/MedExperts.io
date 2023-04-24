@@ -116,6 +116,7 @@ export const user_FeedbackSlice = createSlice({
   name: "user_Feedback",
   initialState: {
     response: {},
+    satisfaction: {},
   },
   reducers: {},
   extraReducers(builder) {
@@ -127,7 +128,7 @@ export const user_FeedbackSlice = createSlice({
         state.response = action.payload;
       })
       .addCase(fetchSatisfactionFeedback.fulfilled, (state, action) => {
-        state.response = action.payload;
+        state.satisfaction = action.payload;
       });
     // .addCase(fetchS.fulfilled, (state, action) => {
     //   state.response = action.payload;
