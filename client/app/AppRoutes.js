@@ -19,7 +19,7 @@ import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
 import ContactUs from "../features/contact/ContactUs";
-import Testing from "../features/tailwindTest/testing";
+import Testing from "../features/tailwindTest/Testing";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
