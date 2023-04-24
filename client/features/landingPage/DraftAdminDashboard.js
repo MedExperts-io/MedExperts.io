@@ -1,7 +1,16 @@
 import React from "react";
-import { fetchSatisfactionFeedback } from "../feedback/user_feedbackSlice";
+import { ResponsivePie } from "@nivo/pie";
 
-const DraftAdminDash = ({ surveyDataSatisfaction }) => {
+const DraftAdminDash = ({ surveyDataSatisfaction, allUsers }) => {
+  const userTypesObj = {};
+  allUsers.map((user) => {
+    userTypesObj[user.expertise]
+      ? userTypesObj[user.expertise]++
+      : (userTypesObj[user.expertise] = 1);
+  });
+
+  console.log(userTypesObj);
+
   const surveyDataSet = Object.values(surveyDataSatisfaction);
   const helpfulRating = surveyDataSet?.map(
     (rating) => rating.satisfaction.helpful
@@ -25,7 +34,25 @@ const DraftAdminDash = ({ surveyDataSatisfaction }) => {
   console.log("RECOMMENDABLE", recommendableRating);
   console.log("USABILITY", usabilityRating);
 
-  return <h4>Admin Dash Temp</h4>;
+  return (
+    <>
+      <h4>Admin Dash Temp</h4>
+      <ResponsivePie
+        data={userTypesObj}
+        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+        innerRadius={0.5}
+        padAngle={0.7}
+        cornerRadius={3}
+        activeOuterRadiusOffset={8}
+        borderWidth={1}
+        arcLinkLabelsSkipAngle={10}
+        arcLinkLabelsTextColor="#333333"
+        arcLinkLabelsThickness={2}
+        arcLinkLabelsColor={{ from: "color" }}
+        arcLabelsSkipAngle={10}
+      />
+    </>
+  );
 };
 
 export default DraftAdminDash;

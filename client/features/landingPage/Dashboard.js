@@ -34,6 +34,7 @@ const Dashboard = () => {
   );
 
   const allUsers = useSelector((state) => state.userQuestions.allUsers);
+
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const AllUserQuestions = useSelector(
     (state) => state.userQuestions.UserQuestions
@@ -621,7 +622,12 @@ const Dashboard = () => {
           <>
             {/* <h5>Admin Dashboard place holder</h5> */}
             Number of users. {allUsers.length}
-            {<DraftAdminDash surveyDataSatisfaction={surveyDataSatisfaction} />}
+            {
+              <DraftAdminDash
+                surveyDataSatisfaction={surveyDataSatisfaction}
+                allUsers={allUsers}
+              />
+            }
           </>
         )}
       </div>
