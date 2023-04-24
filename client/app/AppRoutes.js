@@ -18,11 +18,8 @@ import VerifyEmail from "../features/auth/VerifyEmail";
 import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
-<<<<<<< HEAD
 import ContactUs from "../features/contact/ContactUs";
-=======
 import Testing from "../features/tailwindTest/testing";
->>>>>>> main
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
