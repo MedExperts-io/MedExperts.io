@@ -49,7 +49,13 @@ const ContactUs = () => {
                       fontSize: "14px",
                     }}
                   >
-                    <EmailIcon /> support@medexperts.io
+                    <a
+                      style={{ color: "black", textDecoration: "none" }}
+                      target="_blank"
+                      href={"mailto:support@medexperts.io"}
+                    >
+                      <EmailIcon /> support@medexperts.io
+                    </a>
                   </p>
                   <p style={{ fontWeight: "300", fontSize: "14px" }}>
                     <LocationOnIcon />
@@ -67,10 +73,22 @@ const ContactUs = () => {
                     Connect with MedExperts on Social Media
                   </p>
                   <p style={{ fontWeight: "300", fontSize: "14px" }}>
-                    <LinkedInIcon /> LinkedIn
+                    <a
+                      style={{ color: "black", textDecoration: "none" }}
+                      target="_blank"
+                      href={"https://www.linkedin.com/company/medexperts-io/"}
+                    >
+                      <LinkedInIcon /> LinkedIn
+                    </a>
                   </p>
                   <p style={{ fontWeight: "300", fontSize: "14px" }}>
-                    <InstagramIcon /> Instagram
+                    <a
+                      style={{ color: "black", textDecoration: "none" }}
+                      target="_blank"
+                      href={"https://www.instagram.com/medexperts.io/"}
+                    >
+                      <InstagramIcon /> Instagram
+                    </a>
                   </p>
                 </Card.Body>
               </Card>
