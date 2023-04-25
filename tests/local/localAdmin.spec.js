@@ -1,6 +1,6 @@
 // @ts-check
 
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
 require("dotenv").config();
 
 test("test", async ({ page }) => {
