@@ -34,9 +34,8 @@ test("test", async ({ page }) => {
   // await page.getByRole('button', { name: 'Heart button for question 1. Favorited' }).click();
   // await page.getByLabel('Favorites Only').uncheck();
   await page
-    .getByRole("link", { name: "Question Number 1, difficulty: Moderate" })
+    .getByRole("link", { name: /.*Question Number 1, difficulty:.*/i })
     .click();
-  // await page.getByText("Question 1 ").click();
   await page.getByRole("cell", { name: "Answer Options" }).click();
   await page.getByRole("cell", { name: "Responses" }).click();
   await page.getByRole("button", { name: "View Explanation" }).click();
