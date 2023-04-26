@@ -7,3 +7,6 @@ yarn-error.log
 package-lock.json
 .env
 client/features/addQ/firebase.js
+/test-results/
+/playwright-report/
+/playwright/.cache/
