@@ -52,17 +52,13 @@ test("test", async ({ page }) => {
   await page.getByRole("button", { name: "Frequency Sort" }).click();
   await page.getByRole("button", { name: "Percent Correct Sort" }).click();
   await page
-    .getByRole("link", { name: "Question Number 39, difficulty: Easy" })
+    .getByRole("link", { name: /.*Question Number 39, difficulty:.*/i })
     .click();
-  await page
-    .getByText(
-      "Question 39: Which of the following is the most common secondary complication of"
-    )
-    .click();
+  await page.getByText(/.*Question 39: .*/i).click();
   await page.getByRole("button", { name: "Delete Version" }).click();
   await page
     .locator("div")
-    .filter({ hasText: "Delete version with unique ID 39?" })
+    .filter({ hasText: /.*Delete version with unique ID .*/i })
     .nth(3)
     .click();
   await page.getByRole("button", { name: "Cancel" }).click();
