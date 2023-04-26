@@ -1,12 +1,18 @@
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Col, Container, Form, FloatingLabel } from "react-bootstrap";
 import MessageSuccess from "./MessageSuccess";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
+import { contactFormResponse } from "./contactFormSlice";
 
 const ContactForm = () => {
   const form = useRef();
+  const dispatch = useDispatch();
+  const { response } = useSelector((state) => state.contactForm);
+
+  console.log(response, "response");
   const [formData, setFormData] = useState({
     from_name: "",
     from_email: "",
@@ -14,42 +20,59 @@ const ContactForm = () => {
     message: "",
   });
 
-  const [captcha, showCaptcha] = useState(false);
+  const [captchaError, setCaptchaError] = useState(null);
+  const [captchaVal, setCaptchaVal] = useState(null);
+
   const [messageSent, setMessageSent] = useState(false);
 
-  const submitForm = (event) => {
-    event.preventDefault();
-    showCaptcha(true);
-  };
-
   const handleChange = (event) => {
+    event.preventDefault();
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const sendEmail = async (captchaValue) => {
+  const sendEmail = async (captchaVal, event) => {
+    console.log("captchaVal from inside", captchaVal);
+    event.preventDefault();
     const params = {
-      "g-recaptcha-response": captchaValue,
+      "g-recaptcha-response": captchaVal,
       ...formData,
     };
 
-    try {
-      const response = await axios.post("/recaptcha", { token: captchaValue });
+    await dispatch(contactFormResponse({ token: captchaVal }));
 
-      if (response.status === 200) {
-        await emailjs.send(
-          process.env.REACT_APP_SERVICE_ID,
-          process.env.REACT_APP_TEMPLATE_ID,
-          params,
-          process.env.REACT_APP_PUBLIC_KEY
-        );
-        setMessageSent(true);
-        form.current.reset();
-      } else {
-        console.log("Error verifying ReCAPTCHA token");
-      }
-    } catch (error) {
-      console.log(error);
+    if (response.status === "OK" || response == "OK") {
+      console.log("i'm ok");
+      emailjs.send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        params,
+        process.env.REACT_APP_PUBLIC_KEY
+      );
+      setMessageSent(true);
+      form.current.reset();
+    } else {
+      console.log("error in dispatch");
     }
+
+    // try {
+    //   const response = await axios.post("/recaptcha", { token: captchaVal });
+    //   console.log(response.status, "RESPONSE>STATUS SENDEMAIL,");
+    //   if (response.status === 200) {
+    //     await emailjs.send(
+    //       process.env.REACT_APP_SERVICE_ID,
+    //       process.env.REACT_APP_TEMPLATE_ID,
+    //       params,
+    //       process.env.REACT_APP_PUBLIC_KEY
+    //     );
+    //     setMessageSent(true);
+    //     form.current.reset();
+    //   } else {
+    //     // setCaptchaError("Error verifying ReCAPTCHA token");
+    //     console.log("Error verifying ReCAPTCHA token");
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
@@ -57,7 +80,7 @@ const ContactForm = () => {
       {!messageSent ? (
         <Container fluid>
           <Col>
-            <Form ref={form} onSubmit={submitForm}>
+            <Form ref={form} onSubmit={(event) => sendEmail(captchaVal, event)}>
               <FloatingLabel
                 className="mb-3"
                 controlId="contact-name"
@@ -111,18 +134,24 @@ const ContactForm = () => {
                 />
               </FloatingLabel>
 
-              {captcha && (
-                <>
-                  <ReCAPTCHA
-                    sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE}`}
-                    onChange={(captchaValue) => sendEmail(captchaValue)}
-                  />
-                  <br />
-                </>
-              )}
+              <>
+                <ReCAPTCHA
+                  sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE}`}
+                  onChange={(captchaValue) => {
+                    setCaptchaVal(captchaValue);
+                  }}
+                />
+
+                <br />
+              </>
 
               <div className="d-grid gap-2">
-                <Button type="submit"> Submit </Button>
+                <Button
+                  type="submit"
+                  disabled={!captchaVal && !formData.length}
+                >
+                  Submit
+                </Button>
               </div>
             </Form>
           </Col>
