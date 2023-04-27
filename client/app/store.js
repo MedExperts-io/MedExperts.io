@@ -5,6 +5,7 @@ import allQASliceReducer from "../features/allQA/allQASlice";
 import allUser_QuestionsSliceReducer from "../features/stats/user_questionsSlice";
 import SingleQuestionSliceReducer from "../features/singleQuestion/singleQuestionSlice";
 import userFeedbackSliceReducer from "../features/feedback/user_feedbackSlice";
+import contactFormSliceReducer from "../features/contact/contactFormSlice";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
     SingleQuestion: SingleQuestionSliceReducer,
     userQuestions: allUser_QuestionsSliceReducer,
     userFeedback: userFeedbackSliceReducer,
+    contactForm: contactFormSliceReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
