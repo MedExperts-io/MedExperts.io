@@ -1,11 +1,10 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const contactFormResponse = createAsyncThunk(
   "contactFormResponse",
   async (token) => {
     const { data } = await axios.post(`/api/recaptcha/`, token);
-    console.log(data, "SLICE data");
     return data;
   }
 );
