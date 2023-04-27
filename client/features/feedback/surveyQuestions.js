@@ -1,9 +1,15 @@
 const surveyJson = {
   elements: [
     {
-      type: "text",
+      type: "dropdown",
       name: "Source",
       title: "How did you hear about MedExperts?",
+      choices: [
+        "Search Engine, (e.g. Google, Yahoo, Bing)",
+        "LinkedIn",
+        "Instagram",
+        "Word of mouth (e.g. friend, colleague, family)",
+      ],
       isRequired: true,
     },
     {

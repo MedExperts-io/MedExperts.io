@@ -3,7 +3,12 @@ const db = require("../db");
 
 const User_Feedback = db.define("user_feedback", {
   source: {
-    type: Sequelize.STRING,
+    type: Sequelize.ENUM(
+      "Search Engine, (e.g. Google, Yahoo, Bing)",
+      "LinkedIn",
+      "Instagram",
+      "Word of mouth (e.g. friend, colleague, family)"
+    ),
   },
   frequency: {
     type: Sequelize.ENUM(
