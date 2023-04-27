@@ -16,11 +16,9 @@ const MessageSuccess = () => {
         <p style={{ fontWeight: "300", fontSize: "14px" }}>
           We have received your message and appreciate you taking the time to
           reach out to us. Our team is reviewing your inquiry and we will do our
-          best to get back to you as soon as possible. Typically, you can expect
-          a response within 24-48 hours, but please note that response times may
-          vary depending on the volume of inquiries we receive.
+          best to get back to you as soon as possible.
           <br />
-          <br />
+          <br /> <br />
           Thank you again for reaching out to MedExperts. We look forward to
           speaking with you soon!
         </p>
