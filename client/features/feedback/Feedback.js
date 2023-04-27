@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Model } from "survey-core";
+import { Container, Row } from "react-bootstrap";
 import { Survey } from "survey-react-ui";
 import { PopupSurvey } from "survey-react-ui";
 import { surveyJson } from "./surveyQuestions";
@@ -24,8 +25,13 @@ const Feedback = () => {
       })
     );
   });
-  return <Survey model={survey} />;
-  // return <PopupSurvey model={survey} isExpanded={true} />;
+  return (
+    <Container fluid>
+      <div style={{ marginTop: "30px", marginBottom: "35px" }}>
+        <Survey id="feedback-survey" model={survey} />
+      </div>
+    </Container>
+  );
 };
 
 export default Feedback;

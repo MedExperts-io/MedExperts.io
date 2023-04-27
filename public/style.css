@@ -238,3 +238,13 @@ img {
   font-weight: 500;
   font-size: 20px;
 }
+
+#feedback-survey {
+  --primary: #4d4d4d;
+  --background: #ffffff;
+  --background-dim: #f3f3f3;
+  --background-dim-light: #f9f9f9;
+  --primary-foreground: #ffffff;
+  --foreground: #161616;
+  --base-unit: 8px;
+}

@@ -1,4 +1,6 @@
 const surveyJson = {
+  title: "Help us improve MedExperts",
+  description: "Tell us about your experience",
   elements: [
     {
       type: "dropdown",
