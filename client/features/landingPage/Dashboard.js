@@ -13,7 +13,6 @@ import {
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Row, Col, Container } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
-import DraftAdminDash from "./DraftAdminDashboard";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -620,14 +619,8 @@ const Dashboard = () => {
           </Stack>
         ) : (
           <>
-            {/* <h5>Admin Dashboard place holder</h5> */}
+            <h5>Admin Dashboard place holder</h5>
             Number of users. {allUsers.length}
-            {
-              <DraftAdminDash
-                surveyDataSatisfaction={surveyDataSatisfaction}
-                allUsers={allUsers}
-              />
-            }
           </>
         )}
       </div>

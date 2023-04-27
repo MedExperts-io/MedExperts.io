@@ -27,8 +27,6 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.8",
-    "@nivo/core": "^0.80.0",
-    "@nivo/pie": "^0.80.0",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.3",
     "compression": "^1.7.4",
