@@ -75,10 +75,6 @@ const surveyJson = {
           value: "usability",
           text: "MedExperts is easy to navigate and visually appealing",
         },
-        {
-          value: "accessibility",
-          text: "Hold for question regarding accessibility",
-        },
       ],
       alternateRows: true,
       isAllRowRequired: true,
@@ -87,7 +83,7 @@ const surveyJson = {
       type: "comment",
       name: "OtherFeedback",
       title:
-        "Is there anything else we could do to improve your experience on MedExperts?",
+        "Is there anything else we could do to improve your experience on MedExperts (e.g. accessibility, design, content, etc.)?",
       maxLength: 250,
     },
     {
