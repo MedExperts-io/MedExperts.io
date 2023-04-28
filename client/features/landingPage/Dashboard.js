@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Stack from "@mui/material/Stack";
+import { Fab, Stack } from "@mui/material";
 import {
   fetchAllUsers,
   fetchUserQuestions,
@@ -8,11 +8,24 @@ import {
 } from "../stats/user_questionsSlice";
 import { fetchAllUserFeedback } from "../feedback/user_feedbackSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import {
+  Card,
+  Row,
+  Col,
+  Container,
+  OverlayTrigger,
+  Tooltip,
+  Modal,
+} from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import Feedback from "../feedback/Feedback";
+import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
 
   useEffect(() => {
     isAdmin
@@ -183,6 +196,40 @@ const Dashboard = () => {
 
   return (
     <Container fluid style={{ marginBottom: "5%" }}>
+      <OverlayTrigger
+        key="top"
+        style={{ backgroundColor: "black" }}
+        placement="top"
+        overlay={<Tooltip id="tooltip-top">Share your feedback</Tooltip>}
+      >
+        <Fab
+          size="medium"
+          onClick={handleOpen}
+          aria-label="Share your feedback with MedExperts"
+          style={{
+            position: "fixed",
+            bottom: "15px",
+            right: "8px",
+            backgroundColor: "blue",
+          }}
+        >
+          <RateReviewIcon style={{ color: "white" }} />
+        </Fab>
+      </OverlayTrigger>
+      <Modal
+        size="lg"
+        centered
+        scrollable={true}
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <Feedback />
+        </Modal.Body>
+      </Modal>
       <div className="mx-auto">
         {!isAdmin ? (
           <Stack>
