@@ -7,8 +7,8 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import QuizIcon from "@mui/icons-material/Quiz";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import React, { useState } from "react";
-import { Container, Navbar, Modal, Button, Row, Col } from "react-bootstrap";
+import React from "react";
+import { Container, Navbar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
@@ -19,16 +19,7 @@ const SiteNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const [showFeedbackModal, setShowFeedbackModal] = useState(false);
-  // const handleClose = () => setShowFeedbackModal(false);
-  // const handleFeedback = () => {
-  //   navigate("/feedback");
-  //   setShowFeedbackModal(false);
-  // };
-  // const handleShow = () => setShowFeedbackModal(true);
-
   const logoutAndRedirectHome = async () => {
-    // setShowFeedbackModal(true);
     await dispatch(logout());
     navigate("/");
   };
@@ -227,34 +218,6 @@ const SiteNavbar = () => {
           </>
         )}
       </Container>
-
-      {/* <Modal show={showFeedbackModal} onHide={handleClose}>
-        <Modal.Header
-          closeButton
-          style={{ border: "none", paddingTop: "2px", paddingBottom: "2px" }}
-        ></Modal.Header>
-        <Modal.Body style={{ border: "none", paddingBottom: "2px" }}>
-          <Row>
-            <Col>
-              <p style={{ fontWeight: "500", fontSize: "24px" }}>
-                Before you go...
-              </p>
-              <p style={{ fontWeight: "300", fontSize: "18px" }}>
-                We'd love to know what you think about MedExperts.
-              </p>
-              <Button onClick={handleFeedback}> Take our survey!</Button>
-            </Col>
-            <Col>
-              <img src="survey.png" />
-            </Col>
-          </Row>
-        </Modal.Body>
-        <Modal.Footer style={{ border: "none", paddingBottom: "2px" }}>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
     </Navbar>
   );
 };

@@ -228,7 +228,7 @@ const Dashboard = () => {
       >
         <Modal.Header
           closeButton
-          style={{ paddingTop: "8px", paddingBottom: "8px", border: "none" }}
+          style={{ paddingTop: "10px", paddingBottom: "10px", border: "none" }}
         ></Modal.Header>
         <Modal.Body style={{ padding: "none" }}>
           <FeedbackModal />
