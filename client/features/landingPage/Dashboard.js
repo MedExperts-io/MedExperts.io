@@ -18,7 +18,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
-import Feedback from "../feedback/Feedback";
+import FeedbackModal from "../feedback/FeedbackModal";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const Dashboard = () => {
@@ -210,7 +210,7 @@ const Dashboard = () => {
             position: "fixed",
             bottom: "15px",
             right: "8px",
-            backgroundColor: "blue",
+            backgroundColor: "#FF6262",
           }}
         >
           <RateReviewIcon style={{ color: "white" }} />
@@ -219,15 +219,19 @@ const Dashboard = () => {
       <Modal
         size="lg"
         centered
+        dialogClassName="modal-90w"
         scrollable={true}
         show={show}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <Feedback />
+        <Modal.Header
+          closeButton
+          style={{ paddingTop: "8px", paddingBottom: "8px", border: "none" }}
+        ></Modal.Header>
+        <Modal.Body style={{ padding: "none" }}>
+          <FeedbackModal />
         </Modal.Body>
       </Modal>
       <div className="mx-auto">

@@ -7,7 +7,7 @@ import { surveyJson } from "./surveyQuestions";
 import "survey-core/defaultV2.min.css";
 import { recordUserFeedback } from "./user_feedbackSlice";
 
-const FeedbackModal = () => {
+const Feedback = () => {
   const dispatch = useDispatch();
 
   const survey = new Model(surveyJson);
@@ -25,12 +25,10 @@ const FeedbackModal = () => {
     );
   });
   return (
-    <Container fluid>
-      <div style={{ marginTop: "30px", marginBottom: "35px" }}>
-        <Survey id="feedback-survey" model={survey} />
-      </div>
-    </Container>
+    <div>
+      <Survey id="feedback-survey" model={survey} />
+    </div>
   );
 };
 
-export default FeedbackModal;
+export default Feedback;

@@ -8,7 +8,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  /* background-image: url("newBG8T.png"); */
+  background-image: url("newBG8T.png");
   padding-bottom: 20px;
 }
 
@@ -240,7 +240,7 @@ img {
 }
 
 #feedback-survey {
-  --primary: #4d4d4d;
+  --primary: black;
   --background: #ffffff;
   --background-dim: #f3f3f3;
   --background-dim-light: #f9f9f9;
