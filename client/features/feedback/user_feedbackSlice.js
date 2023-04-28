@@ -21,26 +21,22 @@ export const fetchAllUserFeedback = createAsyncThunk(
 export const recordUserFeedback = createAsyncThunk(
   "recordUserFeedback",
   async ({ Source, Frequency, Satisfaction, OtherFeedback, Features }) => {
-    try {
-      const { data } = await axios.post(
-        `/api/user_feedback/response`,
-        {
-          Source,
-          Frequency,
-          Satisfaction,
-          OtherFeedback,
-          Features,
+    const { data } = await axios.post(
+      `/api/user_feedback/response`,
+      {
+        Source,
+        Frequency,
+        Satisfaction,
+        OtherFeedback,
+        Features,
+      },
+      {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
         },
-        {
-          headers: {
-            authorization: window.localStorage.getItem("token"),
-          },
-        }
-      );
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+      }
+    );
+    return data;
   }
 );
 
@@ -48,12 +44,16 @@ export const user_FeedbackSlice = createSlice({
   name: "user_Feedback",
   initialState: {
     response: {},
+    error: null,
   },
   reducers: {},
   extraReducers(builder) {
     builder
       .addCase(recordUserFeedback.fulfilled, (state, action) => {
         state.response = action.payload;
+      })
+      .addCase(recordUserFeedback.rejected, (state, action) => {
+        state.error = action.error;
       })
       .addCase(fetchAllUserFeedback.fulfilled, (state, action) => {
         state.response = action.payload;

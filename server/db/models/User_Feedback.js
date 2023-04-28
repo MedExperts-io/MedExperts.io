@@ -4,7 +4,7 @@ const db = require("../db");
 const User_Feedback = db.define("user_feedback", {
   source: {
     type: Sequelize.ENUM(
-      "Search Engine, (e.g. Google, Yahoo, Bing)",
+      "Search Engine (e.g. Google, Yahoo, Bing)",
       "LinkedIn",
       "Instagram",
       "Word of mouth (e.g. friend, colleague, family)"
@@ -21,14 +21,26 @@ const User_Feedback = db.define("user_feedback", {
       "This is my first time"
     ),
   },
-  satisfaction: {
-    type: Sequelize.JSONB,
+  difficultyRating: {
+    type: Sequelize.INTEGER,
+  },
+  helpfulRating: {
+    type: Sequelize.INTEGER,
+  },
+  qualityRating: {
+    type: Sequelize.INTEGER,
+  },
+  recommendableRating: {
+    type: Sequelize.INTEGER,
+  },
+  usabilityRating: {
+    type: Sequelize.INTEGER,
   },
   otherFeedback: {
     type: Sequelize.TEXT,
   },
   suggestedFeatures: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
 });
 

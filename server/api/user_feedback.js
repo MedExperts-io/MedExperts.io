@@ -19,19 +19,6 @@ router.get("/", getToken, isAdmin, async (req, res, next) => {
   }
 });
 
-// ----> GET/api/user_feedback/satisfaction , Admin Dash: (questions with ratings)
-router.get("/satisfaction", getToken, isAdmin, async (req, res, next) => {
-  try {
-    const satisfaction = await User_Feedback.findAll({
-      attributes: ["satisfaction"],
-      include: { model: User },
-    });
-    res.json(satisfaction);
-  } catch (err) {
-    next(err);
-  }
-});
-
 // ----> GET/api/user_feedback/source , Admin Dash: (where did you hear about us?)
 router.get("/source", getToken, isAdmin, async (req, res, next) => {
   try {
@@ -93,7 +80,11 @@ router.post("/response", getToken, async (req, res, next) => {
     const userResponse = await User_Feedback.create({
       source: Source,
       frequency: Frequency,
-      satisfaction: Satisfaction,
+      difficultyRating: Satisfaction.difficulty,
+      helpfulRating: Satisfaction.helpful,
+      qualityRating: Satisfaction.quality,
+      recommendableRating: Satisfaction.recommendable,
+      usabilityRating: Satisfaction.usability,
       otherFeedback: OtherFeedback,
       suggestedFeatures: Features,
       userId,

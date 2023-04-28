@@ -7,10 +7,10 @@ const surveyJson = {
       name: "Source",
       title: "How did you hear about MedExperts?",
       choices: [
-        "Search Engine(e.g. Google, Yahoo, Bing)",
+        "Search Engine (e.g. Google, Yahoo, Bing)",
         "LinkedIn",
         "Instagram",
-        "Word of mouth(e.g. friend, colleague, family)",
+        "Word of mouth (e.g. friend, colleague, family)",
       ],
       isRequired: true,
     },
@@ -86,12 +86,13 @@ const surveyJson = {
       name: "OtherFeedback",
       title:
         "Is there anything else we could do to improve your experience on MedExperts (e.g. accessibility, design, content, etc.)?",
-      maxLength: 250,
+      maxLength: 200,
     },
     {
-      type: "text",
+      type: "comment",
       name: "Features",
       title: "Are there any other features you'd like to see included?",
+      maxLength: 200,
     },
   ],
 };
