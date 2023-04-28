@@ -6,10 +6,7 @@ import {
   fetchUserQuestions,
   fetchAllUserQuestions,
 } from "../stats/user_questionsSlice";
-import {
-  fetchAllUserFeedback,
-  fetchSatisfactionFeedback,
-} from "../feedback/user_feedbackSlice";
+import { fetchAllUserFeedback } from "../feedback/user_feedbackSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
 import { Card, Row, Col, Container } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";

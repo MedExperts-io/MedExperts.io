@@ -10,7 +10,9 @@ const { getToken, isAdmin } = require("./userCheckMiddleware");
 // ----> GET/api/user_feedback <---- For admin dashboard (ALL feedback survey results)
 router.get("/", getToken, isAdmin, async (req, res, next) => {
   try {
-    const allFeedback = await User_Feedback.findAll({});
+    const allFeedback = await User_Feedback.findAll({
+      include: { model: User },
+    });
     res.json(allFeedback);
   } catch (err) {
     next(err);
@@ -22,6 +24,7 @@ router.get("/satisfaction", getToken, isAdmin, async (req, res, next) => {
   try {
     const satisfaction = await User_Feedback.findAll({
       attributes: ["satisfaction"],
+      include: { model: User },
     });
     res.json(satisfaction);
   } catch (err) {
@@ -34,6 +37,20 @@ router.get("/source", getToken, isAdmin, async (req, res, next) => {
   try {
     const source = await User_Feedback.findAll({
       attributes: ["source"],
+      include: { model: User },
+    });
+    res.json(source);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// ----> GET/api/user_feedback/frequency , Admin Dash: (how often do you use MedExperts?)
+router.get("/frequency", getToken, isAdmin, async (req, res, next) => {
+  try {
+    const source = await User_Feedback.findAll({
+      attributes: ["frequency"],
+      include: { model: User },
     });
     res.json(source);
   } catch (err) {
@@ -46,6 +63,7 @@ router.get("/suggestedFeatures", getToken, isAdmin, async (req, res, next) => {
   try {
     const suggestedFeatures = await User_Feedback.findAll({
       attributes: ["suggestedFeatures"],
+      include: { model: User },
     });
     res.json(suggestedFeatures);
   } catch (err) {
@@ -58,6 +76,7 @@ router.get("/otherFeedback", getToken, isAdmin, async (req, res, next) => {
   try {
     const otherFeedback = await User_Feedback.findAll({
       attributes: ["otherFeedback"],
+      include: { model: User },
     });
     res.json(otherFeedback);
   } catch (err) {
