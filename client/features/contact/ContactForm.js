@@ -18,7 +18,6 @@ const ContactForm = () => {
     message: "",
   });
 
-  console.log("FORM DATA", formData.from_email, formData.from_email.length);
   const params = {
     ...formData,
   };
@@ -131,7 +130,6 @@ const ContactForm = () => {
                       captchaVal &&
                       formData.from_email &&
                       formData.from_name &&
-                      formData.from_phone &&
                       formData.message
                     )
                   }
