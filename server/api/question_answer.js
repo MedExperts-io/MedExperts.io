@@ -79,6 +79,7 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         let singleQuestion = await Question_Answer.findOne({
           where: { id: qaId },
         });
+        console.log(singleQuestion)
         res.json(singleQuestion);
         // //Condition 3A -- If student has responded to question
         // if (singleQuestion.user_questions.length) {
