@@ -11,7 +11,7 @@ const {
     Subcategory_Topic_Question,
   },
 } = require("../db");
-const { Op, QueryTypes } = require("sequelize");
+const { Op } = require("sequelize");
 module.exports = router;
 
 const { getToken, isAdmin } = require("./userCheckMiddleware");
@@ -50,36 +50,70 @@ router.get("/", async (req, res, next) => {
     //   },
     // });
 
-    const results = await sequelize.query(`
-SELECT DISTINCT
-  question_answers.id,
-  question,
-  "questionImage",
-  "questionImageAltText",
-  "answerOptions",
-  "level",
-  "category",
-  "status",
-  "displayId",
-  "color",
-  STRING_AGG(subcategories.subcategory, ', ') AS subcategories
-FROM subcategory_topic_questions
-INNER JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id
-INNER JOIN topics ON topic_questions."topicId" = topics.id
-INNER JOIN question_answers ON topic_questions.id = question_answers.id
-INNER JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id
-WHERE question_answers.status = 'Active'
-GROUP BY question_answers.id
-ORDER BY question_answers.id ASC;
-`);
+    //////RAW SEQUEL QUERY
 
-    res.json(results[0]);
+    //     const results = await sequelize.query(`
+    // SELECT DISTINCT
+    //   question_answers.id,
+    //   question,
+    //   "questionImage",
+    //   "questionImageAltText",
+    //   "answerOptions",
+    //   "level",
+    //   "category",
+    //   "status",
+    //   "displayId",
+    //   "color",
+    //   STRING_AGG(subcategories.subcategory, ', ') AS subcategories
+    // FROM subcategory_topic_questions
+    // INNER JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id
+    // INNER JOIN topics ON topic_questions."topicId" = topics.id
+    // INNER JOIN question_answers ON topic_questions.id = question_answers.id
+    // INNER JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id
+    // WHERE question_answers.status = 'Active'
+    // GROUP BY question_answers.id
+    // ORDER BY question_answers.id ASC;
+    // `);
+
+    ///////RAW SEQUEL CONVERTED
+
+    const results = await Question_Answer.findAll({
+      attributes: [
+        "id",
+        "question",
+        "questionImage",
+        "questionImageAltText",
+        "answerOptions",
+        "level",
+        "category",
+        "status",
+        "displayId",
+        "color",
+        [
+          sequelize.literal(
+            '(SELECT STRING_AGG(DISTINCT subcategories.subcategory, \', \') FROM subcategory_topic_questions JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id)'
+          ),
+          "subcategories",
+        ],
+      ],
+      include: [
+        {
+          model: Topic_Question,
+          include: [{ model: Topic }],
+        },
+      ],
+      where: { status: "Active" },
+      order: [["id", "ASC"]],
+    });
+
+    res.json(results);
   } catch (err) {
     next(err);
   }
 });
 
-router.get("/:singleTopic", getToken, async (req, res, next) => {
+//route for fetching all the questions for a given topic.
+router.get("/topic/:singleTopic", async (req, res, next) => {
   const singleTopic =
     req.params.singleTopic[0].toUpperCase() + req.params.singleTopic.slice(1);
 
@@ -92,7 +126,6 @@ router.get("/:singleTopic", getToken, async (req, res, next) => {
         include: [
           {
             model: Question_Answer,
-            order: [["displayId", "DESC"]],
             where: { status: "Active" },
             attributes: [
               "id",

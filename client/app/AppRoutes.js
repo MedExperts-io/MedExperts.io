@@ -41,6 +41,10 @@ const AppRoutes = () => {
             element={<Dashboard isLoggedIn={isLoggedIn} />}
           />
           <Route path="/questions" element={<QuestionsAnswers />} />
+          <Route
+            path="/questions/topic/:topic"
+            element={<QuestionsAnswers />}
+          />
           <Route path="/addQuestion" element={<AddQuestion />} />
           {/* <Route path="/questions/admin" element={<AllQAadmin />} /> */}
           <Route

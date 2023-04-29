@@ -2,7 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
-import { fetchAllQuestionsAnswers } from "./allQASlice";
+import {
+  fetchAllQuestionsAnswers,
+  fetchTopicQuestionsAnswers,
+} from "./allQASlice";
 import { token } from "morgan";
 import {
   fetchUserQuestions,
@@ -12,6 +15,7 @@ import ReactPaginate from "react-paginate";
 import LoadingScreen from "../loading/LoadingScreen";
 import { Chip } from "@mui/material";
 import AllQAadmin from "./AllQAadmin";
+import { v4 as uuidv4 } from "uuid";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
@@ -267,7 +271,7 @@ const QuestionsAnswers = () => {
         multiFilter = multiFilter.filter(
           (question) =>
             question.level === filterCriteria[i] ||
-            question.category === filterCriteria[i]
+            question.subcategories.split(",").includes(filterCriteria[i])
         );
       }
     }
@@ -298,7 +302,12 @@ const QuestionsAnswers = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchAllQuestionsAnswers());
+    const url = window.location.href.split("/");
+    const topic = url[url.length - 1];
+
+    url.length > 4
+      ? dispatch(fetchTopicQuestionsAnswers(topic))
+      : dispatch(fetchAllQuestionsAnswers());
     dispatch(fetchUserQuestions());
   }, []);
 
@@ -346,6 +355,9 @@ const QuestionsAnswers = () => {
       fontSize: "150%",
     },
   };
+
+  console.log(window.location.href);
+  console.log("Question Answer", questionsAnswers);
 
   const previousButton = document.querySelector('[aria-label="Previous page"]');
   previousButton ? previousButton.remove() : null;
@@ -490,7 +502,7 @@ const QuestionsAnswers = () => {
 
                     <Dropdown.Menu>
                       {userExpertise.map((expertise) => (
-                        <Dropdown.Item key={expertise} eventKey={expertise}>
+                        <Dropdown.Item key={uuidv4()} eventKey={expertise}>
                           {expertise}
                         </Dropdown.Item>
                       ))}
@@ -508,7 +520,7 @@ const QuestionsAnswers = () => {
 
                     <Dropdown.Menu>
                       {difficultyLevels.map((difficulty) => (
-                        <Dropdown.Item key={difficulty} eventKey={difficulty}>
+                        <Dropdown.Item key={uuidv4()} eventKey={difficulty}>
                           {difficulty}
                         </Dropdown.Item>
                       ))}
@@ -526,7 +538,7 @@ const QuestionsAnswers = () => {
 
                     <Dropdown.Menu>
                       {categories.map((category) => (
-                        <Dropdown.Item key={category} eventKey={category}>
+                        <Dropdown.Item key={uuidv4()} eventKey={category}>
                           {category}
                         </Dropdown.Item>
                       ))}
@@ -544,7 +556,7 @@ const QuestionsAnswers = () => {
 
                     <Dropdown.Menu>
                       {answerStatusOptions.map((category) => (
-                        <Dropdown.Item key={category} eventKey={category}>
+                        <Dropdown.Item key={uuidv4()} eventKey={category}>
                           {category}
                         </Dropdown.Item>
                       ))}
@@ -562,7 +574,7 @@ const QuestionsAnswers = () => {
 
                     <Dropdown.Menu>
                       {answerCorrectOptions.map((category) => (
-                        <Dropdown.Item key={category} eventKey={category}>
+                        <Dropdown.Item key={uuidv4()} eventKey={category}>
                           {category}
                         </Dropdown.Item>
                       ))}
@@ -590,8 +602,8 @@ const QuestionsAnswers = () => {
                 currentItems !== "nada" ? (
                   currentItems.map((question) => (
                     <Card
+                      key={uuidv4()}
                       className="questionCard"
-                      key={question.id}
                       style={{
                         padding: "0px",
                         width: "18rem",
@@ -637,19 +649,24 @@ const QuestionsAnswers = () => {
                         </Card.Text>
                       </Card.Body>
                       <Card.Footer>
-                        <Chip
-                          alt={`${question.category}`}
-                          label={
-                            question.category ===
-                            "Chronic Obstructive Pulmonary Disease"
-                              ? "COPD"
-                              : question.category
-                          }
-                          onClick={() => pickCategory1(question.category)}
-                          color="default"
-                          variant="outlined"
-                          size="small"
-                        />{" "}
+                        {question.subcategories !== null
+                          ? question.subcategories.map((subcategory) => (
+                              <Chip
+                                key={uuidv4()}
+                                alt={`${subcategory}`}
+                                label={
+                                  question.category ===
+                                  "Chronic Obstructive Pulmonary Disease"
+                                    ? "COPD"
+                                    : subcategory
+                                }
+                                onClick={() => pickCategory1(subcategory)}
+                                color="default"
+                                variant="outlined"
+                                size="small"
+                              />
+                            ))
+                          : null}{" "}
                         <button
                           onClick={() => favorite(question.id)}
                           style={{

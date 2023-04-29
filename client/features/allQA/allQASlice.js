@@ -1,3 +1,4 @@
+import { QuestionAnswer } from "@mui/icons-material";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const token = window.localStorage.getItem("token");
@@ -13,6 +14,22 @@ export const fetchAllQuestionsAnswers = createAsyncThunk(
       },
     });
     // API placeholder until the routes are corrected
+    console.log("ALL QUESTions SLCIE:", "DATA IN SLICE:", data);
+    return data;
+  }
+);
+
+export const fetchTopicQuestionsAnswers = createAsyncThunk(
+  "fetchTopicQuestionsAnswers",
+  async (topic) => {
+    const token = window.localStorage.getItem("token");
+
+    const { data } = await axios.get(`/api/questions/topic/${topic}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    console.log("TOPIC QUESTions SLCIE:", "DATA IN SLICE:", data);
     return data;
   }
 );
@@ -85,94 +102,22 @@ export const allQASlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchAllQuestionsAnswers.fulfilled, (state, action) => {
-        //at the end we want an array of questions, and the questions should have the key topicSubcategory inside of them.
-        //The property is an object that contains all of topics and their subcategories in an array.
-        let allTopicSubQA = action.payload[0].slice();
-        let allQA = action.payload[1].slice();
-        let qaTopicSubcat = {};
+        console.log(action.payload);
+        const allQuestionsSubcategoriesSplit = action.payload.map(
+          (question) => {
+            if (!question.subcategories)
+              return {
+                ...question,
+                subcategories: null,
+              };
+            return {
+              ...question,
+              subcategories: question.subcategories.split(","),
+            };
+          }
+        );
 
-        console.log("allTopicSubQA ONE", allTopicSubQA, "allQA ONE", allQA);
-
-        // for (let i = 0; i < allTopicSubQA.length; i++) {
-        //   const questionId =
-        //     allTopicSubQA[i]["topic_question"]["question_answer"]["id"];
-        //   const topic = allTopicSubQA[i]["topic_question"]["topic"]["topic"];
-        //   const subcategory = allTopicSubQA[i]["subcategory"]["subcategory"];
-
-        //   if (!qaTopicSubcat[questionId]) {
-        //     qaTopicSubcat[questionId] = {};
-        //   }
-        //   if (!qaTopicSubcat[questionId][topic]) {
-        //     qaTopicSubcat[questionId][topic] = [];
-        //   }
-        //   qaTopicSubcat[questionId][topic].push(subcategory);
-        // }
-
-        console.log("allTopicSubQA TWO", allTopicSubQA, "allQA TWO", allQA);
-
-        // allTopicSubQA = allTopicSubQA.map((question) => {
-        //   return {
-        //     ...question,
-        //     topicSubcategory:
-        //       qaTopicSubcat[
-        //         question["topic_question"]["question_answer"]["id"]
-        //       ],
-        //   };
-        // });
-
-        // for (let i = 0; i < allQA.length; i++) {
-        //   const questionId =
-        //     allQA[i]["topic_question"]["question_answer"]["id"];
-        //   const topic = allQA[i]["topic_question"]["topic"]["topic"];
-        //   const subcategory = allQA[i]["subcategory"]["subcategory"];
-
-        //   if (!qaTopicSubcat[questionId]) {
-        //     qaTopicSubcat[questionId] = {};
-        //   }
-        //   if (!qaTopicSubcat[questionId][topic]) {
-        //     qaTopicSubcat[questionId][topic] = [];
-        //   }
-        //   qaTopicSubcat[questionId][topic].push(subcategory);
-        // }
-
-        ///big break
-
-        // let allQA = action.payload.map((question) => {
-        //   let topicSubcat = {};
-
-        //   // for (let i = 0; i < question["topic_questions"].length; i++) {
-        //   //   const key = question["topic_questions"][i]["topic"]["topic"];
-        //   //   const property = question["topic_questions"][i][
-        //   //     "subcategories"
-        //   //   ].map((subCat) => {
-        //   //     return subCat["subcategory"];
-        //   //   });
-
-        //   //   topicSubcat[key] = property;
-        //   // }
-
-        //   return {
-        //     ...question,
-        //     topicSubcategory: topicSubcat,
-        //   };
-        // });
-
-        // let topicQs = {};
-        // for (let i = 0; i < allQA.length; i++) {
-        //   const question = allQA[i];
-        //   for (let j = 0; j < question["topic_questions"].length; j++) {
-        //     const topic = question["topic_questions"][j]["topic"]["topic"];
-        //     if (!topicQs[topic]) {
-        //       topicQs[topic] = [];
-        //     }
-        //     topicQs[topic].push(question);
-        //   }
-
-        let topicQs = {};
-
-        state.questionsAnswers = "plceholder";
-        state.topic_questions = "placeholder";
-
+        state.questionsAnswers = allQuestionsSubcategoriesSplit;
         state.easy = action.payload.filter(
           (question) => question.level === "Easy"
         );
@@ -187,6 +132,34 @@ export const allQASlice = createSlice({
       })
       .addCase(NewQuestionsAnswers.fulfilled, (state, action) => {
         state.newQuestion = action.payload;
+      })
+      .addCase(fetchTopicQuestionsAnswers.fulfilled, (state, action) => {
+        const topicQuestions = action.payload["topic_questions"].map(
+          (question) => {
+            if (!question.subcategories.length)
+              return {
+                ...question.question_answer,
+                subcategories: null,
+              };
+            return {
+              ...question.question_answer,
+              subcategories: question.subcategories.map(
+                (subcategory) => subcategory["subcategory"]
+              ),
+            };
+          }
+        );
+        state.questionsAnswers = topicQuestions;
+        state.easy = topicQuestions.filter(
+          (question) => question.level === "Easy"
+        );
+        state.moderate = topicQuestions.filter(
+          (question) => question.level === "Moderate"
+        );
+        state.hard = topicQuestions.filter(
+          (question) => question.level === "Hard"
+        );
+        state.loading = false;
       })
       .addCase(fetchAllQuestionsAnswers.rejected, (state, action) => {
         state.error = action.error;
