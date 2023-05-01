@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("test", async ({ page }) => {
-  await page.goto("http://localhost:8080/");
+  await page.goto("http://localhost:8080/dashboard");
   await page.getByRole("button", { name: "Login" }).click();
   await page.getByPlaceholder("Enter email").click();
   await page.getByPlaceholder("Enter email").fill(`${process.env.USER_U}`);
@@ -12,12 +12,12 @@ test("test", async ({ page }) => {
     .getByRole("button", { name: "Share your feedback with MedExperts" })
     .click();
   await page.locator("#sq_100").getByPlaceholder("Select...").click();
+  await page.getByText("Search Engine (e.g. Google, Yahoo, Bing)").click();
+  await page.getByPlaceholder("Select...").click();
   await page
-    .getByRole("option", { name: "Search Engine (e.g. Google, Yahoo, Bing)" })
+    .getByRole("option", { name: "Once a month" })
     .locator("div")
     .click();
-  await page.getByPlaceholder("Select...").click();
-  await page.getByRole("option", { name: "Daily" }).locator("div").click();
   await page
     .getByRole("row", {
       name: "MedExperts questions helped me prepare for my exams Strongly agree Agree Neutral Disagree Strongly disagree",
@@ -29,14 +29,6 @@ test("test", async ({ page }) => {
   await page
     .getByRole("row", {
       name: "The difficulty level of the questions accurately reflects their actual difficulty level Strongly agree Agree Neutral Disagree Strongly disagree",
-    })
-    .getByRole("cell", { name: "Neutral" })
-    .locator("span")
-    .first()
-    .click();
-  await page
-    .getByRole("row", {
-      name: "I am satisfied with the quality of the questions on MedExperts Strongly agree Agree Neutral Disagree Strongly disagree",
     })
     .getByRole("cell", { name: "Neutral" })
     .locator("span")
@@ -90,6 +82,11 @@ test("test", async ({ page }) => {
       name: "Are there any other features you'd like to see included?",
     })
     .fill("NA");
-  await page.getByRole("button").dispatchEvent("click");
+  await page
+    .locator("div")
+    .filter({ hasText: /^Complete$/ })
+    .nth(1)
+    .click();
   await page.getByRole("button", { name: "Close" }).click();
+  await page.getByRole("button", { name: "Logout" }).click();
 });
