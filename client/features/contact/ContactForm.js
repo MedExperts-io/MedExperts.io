@@ -17,6 +17,7 @@ const ContactForm = () => {
     from_phone: "",
     message: "",
   });
+
   const params = {
     ...formData,
   };
@@ -124,7 +125,14 @@ const ContactForm = () => {
               <div className="d-grid gap-2">
                 <Button
                   type="submit"
-                  disabled={!captchaVal && !formData.length}
+                  disabled={
+                    !(
+                      captchaVal &&
+                      formData.from_email &&
+                      formData.from_name &&
+                      formData.message
+                    )
+                  }
                 >
                   Submit
                 </Button>
