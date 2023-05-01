@@ -53,7 +53,7 @@ const AppRoutes = () => {
             element={<EditQA />}
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/contactTest" element={<ContactUs />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
@@ -70,7 +70,7 @@ const AppRoutes = () => {
           />
           <Route path="/resetPassword/*" element={<ResetPassword />} />
           <Route path="/verifyEmail/*" element={<VerifyEmail />} />
-          {/* <Route path="/contact" element={<ContactUs />} /> */}
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
       )}
