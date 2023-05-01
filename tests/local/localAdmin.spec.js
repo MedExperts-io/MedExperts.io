@@ -24,6 +24,7 @@ test("test", async ({ page }) => {
     .locator('form[name="login"]')
     .getByRole("button", { name: "Login" })
     .click();
+
   await page.getByRole("button", { name: "Questions" }).click();
   await page.getByText("Student Progress").click();
   await page.getByText("All Levels & All Categories").click();

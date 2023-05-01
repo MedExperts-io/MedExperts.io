@@ -31,7 +31,7 @@ const Dashboard = () => {
     isAdmin
       ? // dispatch(fetchAllQuestionsAnswers()).then(
         //     () => dispatch(fetchAllUserQuestions())
-        dispatch(fetchSatisfactionFeedback())
+        dispatch(fetchAllUserFeedback())
       : dispatch(fetchAllQuestionsAnswers()).then(() =>
           dispatch(fetchUserQuestions())
         );
