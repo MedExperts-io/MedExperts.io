@@ -91,7 +91,7 @@ router.get("/", async (req, res, next) => {
         "color",
         [
           sequelize.literal(
-            '(SELECT STRING_AGG(DISTINCT subcategories.subcategory, \', \') FROM subcategory_topic_questions JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id)'
+            '(SELECT STRING_AGG(DISTINCT subcategories.subcategory, \', \') FROM subcategory_topic_questions JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id WHERE topic_questions."questionAnswerId" = question_answer.id)'
           ),
           "subcategories",
         ],

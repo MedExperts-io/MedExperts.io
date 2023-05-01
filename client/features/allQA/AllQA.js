@@ -160,7 +160,13 @@ const QuestionsAnswers = () => {
     return false;
   };
 
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   const pickDifficulty = (event) => {
+    console.log("Picking difficulty");
+    console.log("EVENT", event);
     setCurrentDifficulty(event);
     !seeFavorites ? (isFavorited = true) : null;
     filterCriteria[0] = event;
@@ -268,10 +274,16 @@ const QuestionsAnswers = () => {
       ) {
         continue;
       } else {
+        console.log(
+          "FILTER CRITERIA",
+          filterCriteria[i],
+          "MULTIFILTER",
+          multiFilter
+        );
         multiFilter = multiFilter.filter(
           (question) =>
             question.level === filterCriteria[i] ||
-            question.subcategories.split(",").includes(filterCriteria[i])
+            question.subcategories.includes(filterCriteria[i])
         );
       }
     }
@@ -511,7 +523,7 @@ const QuestionsAnswers = () => {
                 </Col>
                 <Col>
                   <Dropdown
-                    onSelect={(event) => pickDifficulty(event)}
+                    onSelect={pickDifficulty}
                     style={{ marginBottom: "10px" }}
                   >
                     <Dropdown.Toggle variant="success" id="dropdown-basic">

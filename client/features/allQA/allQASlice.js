@@ -108,7 +108,7 @@ export const allQASlice = createSlice({
             if (!question.subcategories)
               return {
                 ...question,
-                subcategories: null,
+                subcategories: [],
               };
             return {
               ...question,
@@ -139,7 +139,7 @@ export const allQASlice = createSlice({
             if (!question.subcategories.length)
               return {
                 ...question.question_answer,
-                subcategories: null,
+                subcategories: [],
               };
             return {
               ...question.question_answer,
