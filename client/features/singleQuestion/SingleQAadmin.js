@@ -1,3 +1,6 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import parse from "html-react-parser";
 import React, { useEffect, useState } from "react";
 import {
   Accordion,
@@ -5,18 +8,13 @@ import {
   Button,
   Card,
   Container,
-  ProgressBar,
   Modal,
+  ProgressBar,
   Stack,
+  Tab,
   Table,
   Tabs,
-  Tab,
-  OverlayTrigger,
-  Tooltip,
 } from "react-bootstrap/";
-import ReactHtmlParser from "react-html-parser";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -433,7 +431,7 @@ const SingleQAadmin = () => {
                                         <div>
                                           {index + 1}{" "}
                                           <div>
-                                            {ReactHtmlParser(sourcelink)}
+                                            {parse(sourcelink)}
                                             <style>
                                               {` a {
                             color: inherit;
@@ -786,7 +784,7 @@ const SingleQAadmin = () => {
                                             <div>
                                               {index + 1}{" "}
                                               <div>
-                                                {ReactHtmlParser(sourcelink)}
+                                                {parse(sourcelink)}
                                                 <style>
                                                   {` a {
                           color: inherit;
@@ -1108,7 +1106,7 @@ const SingleQAadmin = () => {
                                             <div>
                                               {index + 1}{" "}
                                               <div>
-                                                {ReactHtmlParser(sourcelink)}
+                                                {parse(sourcelink)}
                                                 <style>
                                                   {` a {
                               color: inherit;
