@@ -2,10 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector, Navigate } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import QuestionsAnswers from "../features/allQA/AllQA";
-
 import Login from "../features/auth/Login";
 import SignUp from "../features/auth/Signup";
-// import Home from "../features/home/Home";
 import Profile from "../features/auth/Profile";
 import RequestNewPassword from "../features/auth/RequestNewPW";
 import { me } from "./store";
@@ -20,6 +18,8 @@ import VerifyEmail from "../features/auth/VerifyEmail";
 import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
+import ContactUs from "../features/contact/ContactUs";
+import Testing from "../features/tailwindTest/Testing";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -56,6 +56,8 @@ const AppRoutes = () => {
             element={<EditQA />}
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
       ) : (
         <Routes>
@@ -70,6 +72,8 @@ const AppRoutes = () => {
           />
           <Route path="/resetPassword/*" element={<ResetPassword />} />
           <Route path="/verifyEmail/*" element={<VerifyEmail />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
       )}
     </div>

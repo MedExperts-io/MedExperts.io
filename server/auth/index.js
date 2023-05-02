@@ -49,6 +49,7 @@ router.post("/signup", async (req, res, next) => {
       school,
       status: true,
     });
+
     res.json(user);
     // res.send({ token: await user.generateToken() });
   } catch (err) {

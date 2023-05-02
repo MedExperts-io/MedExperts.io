@@ -292,7 +292,6 @@ router.post("/:singleQuestionId", getToken, isAdmin, async (req, res, next) => {
 //POST/api/questions ----- For admin to add new question
 router.post("/", getToken, isAdmin, async (req, res, next) => {
   try {
-    console.log("REQ BODY", req.body);
     const newQA = await Question_Answer.create(req.body);
     res.json(newQA);
   } catch (err) {
