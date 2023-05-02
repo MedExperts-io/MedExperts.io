@@ -1,13 +1,32 @@
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
+
+require("dotenv").config();
 
 test("test", async ({ page }) => {
-  await page.goto("http://localhost:8080/dashboard");
+  await page.route("**/api/user_feedback/response", (route) => {
+    if (route.request().method() == "POST") route.abort();
+  });
+
+  await page.goto("http://localhost:8080/");
   await page.getByRole("button", { name: "Login" }).click();
+  await page
+    .locator('form[name="login"]')
+    .getByRole("button", { name: "Login" })
+    .click();
+  await page.getByText("Login").nth(1).click();
   await page.getByPlaceholder("Enter email").click();
   await page.getByPlaceholder("Enter email").fill(`${process.env.USER_U}`);
-  await page.getByPlaceholder("Enter email").press("Tab");
+  await page
+    .locator('form[name="login"]')
+    .getByRole("button", { name: "Login" })
+    .click();
+  await page.getByText("Login").nth(1).click();
+  await page.getByPlaceholder("Enter password").click();
   await page.getByPlaceholder("Enter password").fill(`${process.env.USER_P}`);
-  await page.getByPlaceholder("Enter password").press("Enter");
+  await page
+    .locator('form[name="login"]')
+    .getByRole("button", { name: "Login" })
+    .click();
   await page
     .getByRole("button", { name: "Share your feedback with MedExperts" })
     .click();
@@ -82,11 +101,9 @@ test("test", async ({ page }) => {
       name: "Are there any other features you'd like to see included?",
     })
     .fill("NA");
-  await page
-    .locator("div")
-    .filter({ hasText: /^Complete$/ })
-    .nth(1)
-    .click();
+  await page.getByRole("button", { name: "Complete" }).click();
+
   await page.getByRole("button", { name: "Close" }).click();
+  await page.waitForLoadState();
   await page.getByRole("button", { name: "Logout" }).click();
 });
