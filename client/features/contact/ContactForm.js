@@ -9,6 +9,8 @@ import MessageSuccess from "./MessageSuccess";
 const ContactForm = () => {
   const dispatch = useDispatch();
   const form = useRef();
+  const [envIsTest, setEnvIsTest] = useState(process.env.NODE_ENV === "test");
+  console.log(envIsTest, "are we in test mode?");
   const [captchaVal, setCaptchaVal] = useState(null);
   const [messageSent, setMessageSent] = useState(false);
   const [formData, setFormData] = useState({
@@ -112,13 +114,15 @@ const ContactForm = () => {
               </FloatingLabel>
 
               <>
-                <ReCAPTCHA
-                  sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE}`}
-                  onChange={(captchaValue) => {
-                    setCaptchaVal(captchaValue);
-                  }}
-                />
-
+                {envIsTest === false ? (
+                  <ReCAPTCHA
+                    id="recaptcha"
+                    sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE}`}
+                    onChange={(captchaValue) => {
+                      setCaptchaVal(captchaValue);
+                    }}
+                  />
+                ) : null}
                 <br />
               </>
 
@@ -127,7 +131,7 @@ const ContactForm = () => {
                   type="submit"
                   disabled={
                     !(
-                      captchaVal &&
+                      (envIsTest === true || captchaVal) &&
                       formData.from_email &&
                       formData.from_name &&
                       formData.message
