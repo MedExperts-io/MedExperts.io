@@ -16,7 +16,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     from_name: "",
     from_email: "",
-    from_phone: "",
     message: "",
   });
 
@@ -82,19 +81,6 @@ const ContactForm = () => {
                   type="email"
                   placeholder="Your email address"
                   name="from_email"
-                  onChange={handleChange}
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                className="mb-3"
-                controlId="contact-phone"
-                label="Phone Number"
-              >
-                <Form.Control
-                  type="tel"
-                  placeholder="Your phone number"
-                  name="from_phone"
                   onChange={handleChange}
                 />
               </FloatingLabel>

@@ -8,7 +8,6 @@ test("test", async ({ page }) => {
   await page.getByPlaceholder("Your name").press("Tab");
   await page.getByPlaceholder("Your email address").fill("Test@email.com");
   await page.getByPlaceholder("Your email address").press("Tab");
-  await page.getByPlaceholder("Your phone number").fill("1234567891");
   await page.getByPlaceholder("Your message").click();
   await page
     .getByPlaceholder("Your message")
