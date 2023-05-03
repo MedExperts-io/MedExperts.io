@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Card, Dropdown, Row, Col, Form, Container } from "react-bootstrap";
 import { fetchAllQuestionsAnswers } from "./allQASlice";
-import { token } from "morgan";
 import {
   fetchUserQuestions,
   updateUserQuestion,
@@ -15,7 +14,6 @@ import AllQAadmin from "./AllQAadmin";
 
 const QuestionsAnswers = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth.me.id);
   const itemsPerPage = 12;
   const [itemOffset, setItemOffset] = useState(0);
   const [currentItems, setCurrentItems] = useState(null);
@@ -669,7 +667,7 @@ const QuestionsAnswers = () => {
                                 ? "Favorited"
                                 : "Not Favorited"
                             } `}
-                            style={{ width: "20px" }}
+                            style={{ width: "20px", height: "20px" }}
                             variant="top"
                             src={
                               favoriteStatus(question.id)
