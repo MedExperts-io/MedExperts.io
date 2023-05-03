@@ -1,7 +1,7 @@
 node_modules
 public/bundle/
-bundle.js
-bundle.js.map
+public/bundle.js
+public/bundle.js.map
 .DS_Store
 npm-debug.log
 yarn-error.log
