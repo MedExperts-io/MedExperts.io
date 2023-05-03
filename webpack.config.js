@@ -3,7 +3,7 @@ const Dotenv = require("dotenv-webpack");
 module.exports = {
   entry: ["./client/index.js"],
   output: {
-    path: __dirname + "/public",
+    path: __dirname + "/public/bundle",
     filename: "bundle.js",
   },
   plugins: [new Dotenv()],

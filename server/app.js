@@ -5,6 +5,10 @@ const nodemailer = require("nodemailer");
 const app = express();
 require("dotenv").config();
 const ejs = require("ejs");
+const compression = require("compression");
+
+//reduces file size by removing redundant text.
+app.use(compression());
 
 //register template engine
 app.set("view engine', 'ejs");

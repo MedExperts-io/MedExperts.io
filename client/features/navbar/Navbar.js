@@ -32,7 +32,9 @@ const SiteNavbar = () => {
             <Link to="/">
               <Navbar.Brand>
                 <img
-                  src="/MedExpert.svg"
+                  //loading="eager"
+                  style={{ width: "70%", height: "70%" }}
+                  src="/MedExpert.webp"
                   className="navbar-logo"
                   alt="Med Expert Logo"
                 />
@@ -134,7 +136,7 @@ const SiteNavbar = () => {
             <Link to="/">
               <Navbar.Brand>
                 <img
-                  src="/MedExpert.svg"
+                  src="/MedExpert.webp"
                   className="navbar-logo"
                   alt="Med Expert Logo"
                 />

@@ -1,15 +1,6 @@
-const sequelize = require("../db/db");
 const router = require("express").Router();
 const {
-  models: {
-    User,
-    Question_Answer,
-    User_Question,
-    Topic,
-    Topic_Question,
-    Subcategory,
-    Subcategory_Topic_Question,
-  },
+  models: { User, Question_Answer, User_Question },
 } = require("../db");
 const { Op } = require("sequelize");
 module.exports = router;
@@ -17,67 +8,10 @@ module.exports = router;
 const { getToken, isAdmin } = require("./userCheckMiddleware");
 
 //GET/api/questions ---- For allQA view for all (Answer & explanation restricted in case of Postman/Insomnia use)
-//
-router.get("/", async (req, res, next) => {
+router.get("/", getToken, async (req, res, next) => {
   try {
-    // const allQs = await Question_Answer.findAll({
-    //   where: { status: "Active" },
-    //   attributes: [
-    //     "id",
-    //     "question",
-    //     "questionImage",
-    //     "questionImageAltText",
-    //     "answerOptions",
-    //     "level",
-    //     "category",
-    //     "status",
-    //     "displayId",
-    //     "color",
-    //   ],
-    //   include: {
-    //     model: Topic_Question,
-    //     include: [
-    //       {
-    //         model: Topic,
-    //         attributes: ["topic"],
-    //       },
-    //       {
-    //         model: Subcategory,
-    //         attributes: ["subcategory"],
-    //         through: { attributes: [] },
-    //       },
-    //     ],
-    //   },
-    // });
-
-    //////RAW SEQUEL QUERY
-
-    //     const results = await sequelize.query(`
-    // SELECT DISTINCT
-    //   question_answers.id,
-    //   question,
-    //   "questionImage",
-    //   "questionImageAltText",
-    //   "answerOptions",
-    //   "level",
-    //   "category",
-    //   "status",
-    //   "displayId",
-    //   "color",
-    //   STRING_AGG(subcategories.subcategory, ', ') AS subcategories
-    // FROM subcategory_topic_questions
-    // INNER JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id
-    // INNER JOIN topics ON topic_questions."topicId" = topics.id
-    // INNER JOIN question_answers ON topic_questions.id = question_answers.id
-    // INNER JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id
-    // WHERE question_answers.status = 'Active'
-    // GROUP BY question_answers.id
-    // ORDER BY question_answers.id ASC;
-    // `);
-
-    ///////RAW SEQUEL CONVERTED
-
-    const results = await Question_Answer.findAll({
+    const allQs = await Question_Answer.findAll({
+      where: { status: "Active" },
       attributes: [
         "id",
         "question",
@@ -89,73 +23,15 @@ router.get("/", async (req, res, next) => {
         "status",
         "displayId",
         "color",
-        [
-          sequelize.literal(
-            '(SELECT STRING_AGG(DISTINCT subcategories.subcategory, \', \') FROM subcategory_topic_questions JOIN subcategories ON subcategory_topic_questions."subcategoryId" = subcategories.id JOIN topic_questions ON subcategory_topic_questions."topicQuestionId" = topic_questions.id WHERE topic_questions."questionAnswerId" = question_answer.id)'
-          ),
-          "subcategories",
-        ],
       ],
-      include: [
-        {
-          model: Topic_Question,
-          include: [{ model: Topic }],
-        },
-      ],
-      where: { status: "Active" },
-      order: [["id", "ASC"]],
     });
-
-    res.json(results);
+    res.json(allQs);
   } catch (err) {
     next(err);
   }
 });
 
-//route for fetching all the questions for a given topic.
-router.get("/topic/:singleTopic", async (req, res, next) => {
-  const singleTopic =
-    req.params.singleTopic[0].toUpperCase() + req.params.singleTopic.slice(1);
-
-  try {
-    const singleTopicQAs = await Topic.findAll({
-      where: { topic: singleTopic },
-      attributes: ["topic"],
-      include: {
-        model: Topic_Question,
-        include: [
-          {
-            model: Question_Answer,
-            where: { status: "Active" },
-            attributes: [
-              "id",
-              "question",
-              "questionImage",
-              "questionImageAltText",
-              "answerOptions",
-              "level",
-              "category",
-              "status",
-              "displayId",
-              "color",
-            ],
-          },
-          {
-            model: Subcategory,
-            attributes: ["subcategory"],
-            through: { attributes: [] },
-          },
-        ],
-      },
-    });
-
-    res.json(singleTopicQAs[0]);
-  } catch (err) {
-    next(err);
-  }
-});
-
-//GET/api/questions/:singleQuestionId - For single question view\
+//GET/api/questions/:singleQuestionId - For single question view
 router.get("/:singleQuestionId", getToken, async (req, res, next) => {
   const qaId = req.params.singleQuestionId;
 
@@ -166,18 +42,9 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
         //Condition 2A -- If admin
         let singleQuestion = await Question_Answer.findOne({
           where: { id: qaId },
-          // include: {
-          //   model: User_Question,
-          // },
-          include: [
-            {
-              model: User_Question,
-            },
-            {
-              model: Topic_Question,
-              include: { model: Subcategory_Topic_Question },
-            },
-          ],
+          include: {
+            model: User_Question,
+          },
         });
         if (singleQuestion.ancestorId !== null) {
           //Condition 3A -- If child
@@ -189,21 +56,12 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 { ancestorId: singleQuestion.ancestorId }, //get siblings
               ],
             },
-            // include: User_Question,
-            include: [
-              {
-                model: User_Question,
-              },
-              {
-                model: Topic_Question,
-                include: { model: Subcategory_Topic_Question },
-              },
-            ],
+            include: User_Question,
           });
           res.json(allVersions);
         } else {
           //Condition 3B -- If ancestor
-          //May delete this ancestor-checking conditional and the query below if URL system (of always passing req.params.singleQuestionId of latest version of singleQA) is established.
+          //May Delete this extra query if URL system is established
           const allVersions = await Question_Answer.findAll({
             order: [["createdAt", "DESC"]],
             where: {
@@ -212,28 +70,8 @@ router.get("/:singleQuestionId", getToken, async (req, res, next) => {
                 { ancestorId: singleQuestion.id }, //get children
               ],
             },
-            include: [
-              {
-                model: User_Question,
-              },
-
-              {
-                model: Topic_Question,
-                include: [
-                  {
-                    model: Topic,
-                    attributes: ["topic"],
-                  },
-                  {
-                    model: Subcategory,
-                    attributes: ["subcategory"],
-                    through: { attributes: [] },
-                  },
-                ],
-              },
-            ],
+            include: User_Question,
           });
-          console.log("allVersions", allVersions);
           res.json(allVersions);
         }
       } else {

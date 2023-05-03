@@ -48,6 +48,8 @@
     "react-scripts": "^5.0.1",
     "seed": "^0.4.4",
     "sequelize": "^6.25.3",
+    "terser": "^5.17.1",
+    "uglify-js": "^3.17.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

@@ -941,8 +941,8 @@ const AllQAadmin = () => {
                             variant="top"
                             src={
                               favoriteStatus(question.id)
-                                ? "/heart(red).png"
-                                : "/heart.png"
+                                ? "/heart(red).webp"
+                                : "/heart.webp"
                             }
                           />
                         </button>
