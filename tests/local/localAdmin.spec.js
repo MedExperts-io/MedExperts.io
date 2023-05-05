@@ -53,7 +53,7 @@ test("test", async ({ page }) => {
   await page.getByRole("button", { name: "Percent Correct Sort" }).click();
   await page
     .getByRole("link", {
-      name: /Question Number 39, difficulty: (Easy|Moderate|Hard)/i,
+      name: "Question Number 39, difficulty: Easy",
     })
     .click();
   await page.getByText(/.*Question 39: .*/i).click();
