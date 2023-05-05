@@ -194,6 +194,15 @@ const QuestionsAnswers = () => {
     setCurrentItems(filteredQuestions.slice(newOffset, endOffset));
   };
 
+  const handleKeyDown = (callback, param, event) => {
+    console.log("KEY", event.key, "PARAM", param, "CALLBACK", callback);
+    if (param) {
+      callback(param);
+    } else {
+      callback();
+    }
+  };
+
   const filterFunction = () => {
     let multiFilter = allQuestions;
 
@@ -571,8 +580,14 @@ const QuestionsAnswers = () => {
                 <Col>
                   <Form>
                     <Form.Switch
+                      tabIndex={0}
                       onChange={() => onFavoriteSwitch()}
-                      id="custom-switch"
+                      onKeyDown={(event) =>
+                        event.key === "Space" || event.key === "Enter"
+                          ? handleKeyDown(onFavoriteSwitch, null, event)
+                          : null
+                      }
+                      id="Favorites Only Switch"
                       label="Favorites Only"
                       checked={!seeFavorites}
                     />
@@ -644,12 +659,30 @@ const QuestionsAnswers = () => {
                               : question.category
                           }
                           onClick={() => pickCategory1(question.category)}
+                          onKeyDown={(event) =>
+                            event.key === "Space" || event.key === "Enter"
+                              ? handleKeyDown(
+                                  pickCategory1,
+                                  question.category,
+                                  event
+                                )
+                              : null
+                          }
                           color="default"
                           variant="outlined"
                           size="small"
                         />{" "}
                         <button
                           onClick={() => favorite(question.id)}
+                          onKeyDown={(event) =>
+                            event.key === "Space" || event.key === "Enter"
+                              ? handleKeyDown(
+                                  () => favorite,
+                                  question.id,
+                                  event
+                                )
+                              : null
+                          }
                           style={{
                             border: "none",
                             background: "none",
