@@ -14,7 +14,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     from_name: "",
     from_email: "",
-    from_phone: "",
     message: "",
   });
 
@@ -86,19 +85,6 @@ const ContactForm = () => {
 
               <FloatingLabel
                 className="mb-3"
-                controlId="contact-phone"
-                label="Phone Number"
-              >
-                <Form.Control
-                  type="tel"
-                  placeholder="Your phone number"
-                  name="from_phone"
-                  onChange={handleChange}
-                />
-              </FloatingLabel>
-
-              <FloatingLabel
-                className="mb-3"
                 controlId="contact-msg"
                 label="Message"
               >
@@ -113,6 +99,7 @@ const ContactForm = () => {
 
               <>
                 <ReCAPTCHA
+                  id="recaptcha"
                   sitekey={`${process.env.REACT_APP_RECAPTCHA_SITE}`}
                   onChange={(captchaValue) => {
                     setCaptchaVal(captchaValue);
