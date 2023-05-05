@@ -3,7 +3,6 @@ import { test, expect } from "@playwright/test";
 test("test", async ({ page }) => {
   await page.goto("http://localhost:8080/contact");
 
-  console.log("node env inside test", process.env.NODE_ENV);
   await page.getByPlaceholder("Your name").click();
   await page.getByPlaceholder("Your name").fill("Test Name");
   await page.getByPlaceholder("Your name").press("Tab");

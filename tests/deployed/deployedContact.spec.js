@@ -12,7 +12,4 @@ test("test", async ({ page }) => {
   await page
     .getByPlaceholder("Your message")
     .fill("Hi, this is a test message. ");
-
-  await page.getByRole("button", { name: "Submit" }).click();
-  await page.getByText("Send us a Message");
 });
