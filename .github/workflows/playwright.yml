@@ -21,6 +21,8 @@ jobs:
       env:
         ADMIN_U: ${{ secrets.ADMIN_U }}
         ADMIN_P: ${{ secrets.ADMIN_P }}
+        USER_U: ${{ secrets.USER_U }}
+        USER_P: ${{ secrets.USER_P }}
       run: npm run dep:end:test
     - uses: actions/upload-artifact@v3
       if: always()
