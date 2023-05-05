@@ -16,7 +16,7 @@ const store = configureStore({
     userFeedback: userFeedbackSliceReducer,
     contactForm: contactFormSliceReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
