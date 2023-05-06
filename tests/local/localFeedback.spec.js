@@ -35,13 +35,28 @@ test("test", async ({ page }) => {
   if (button) {
     await button.click();
 
-    await page.locator("#sq_100").getByPlaceholder("Select...").click();
-    await page.getByText("Search Engine (e.g. Google, Yahoo, Bing)").click();
-    await page.getByPlaceholder("Select...").click();
     await page
-      .getByRole("option", { name: "Once a month" })
-      .locator("div")
+      .getByRole("combobox", { name: "How did you hear about MedExperts?" })
+      .getByRole("combobox", {
+        name: "How did you hear about MedExperts?",
+        exact: true,
+      })
+      .filter({ hasText: "Clear" })
       .click();
+
+    await page.getByText("Instagram").click();
+
+    await page
+      .getByRole("combobox", { name: "How frequently do you use MedExperts?" })
+      .getByRole("combobox", {
+        name: "How frequently do you use MedExperts?",
+        exact: true,
+      })
+      .filter({ hasText: "Clear" })
+      .click();
+
+    await page.getByText("Several times a week").click();
+
     await page
       .getByRole("row", {
         name: "MedExperts questions helped me prepare for my exams Strongly agree Agree Neutral Disagree Strongly disagree",
