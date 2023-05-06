@@ -1,30 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Stack from "@mui/material/Stack";
+import { Fab, Stack } from "@mui/material";
 import {
   fetchAllUsers,
   fetchUserQuestions,
   fetchAllUserQuestions,
 } from "../stats/user_questionsSlice";
+import { fetchAllUserFeedback } from "../feedback/user_feedbackSlice";
 import { fetchAllQuestionsAnswers } from "../allQA/allQASlice";
-import { Card, Row, Col, Container } from "react-bootstrap";
+import {
+  Card,
+  Row,
+  Col,
+  Container,
+  OverlayTrigger,
+  Tooltip,
+  Modal,
+} from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import FeedbackModal from "../feedback/FeedbackModal";
+import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
 
   useEffect(() => {
     isAdmin
-      ? dispatch(fetchAllQuestionsAnswers()).then(() =>
-          dispatch(fetchAllUserQuestions())
-        )
+      ? // dispatch(fetchAllQuestionsAnswers()).then(
+        //     () => dispatch(fetchAllUserQuestions())
+        dispatch(fetchAllUserFeedback())
       : dispatch(fetchAllQuestionsAnswers()).then(() =>
           dispatch(fetchUserQuestions())
         );
     isAdmin ? dispatch(fetchAllUsers()) : null;
   }, []);
 
+  const surveyDataSatisfaction = useSelector(
+    (state) => state.userFeedback.satisfaction
+  );
+
   const allUsers = useSelector((state) => state.userQuestions.allUsers);
+
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const AllUserQuestions = useSelector(
     (state) => state.userQuestions.UserQuestions
@@ -177,6 +196,45 @@ const Dashboard = () => {
 
   return (
     <Container fluid style={{ marginBottom: "5%" }}>
+      <OverlayTrigger
+        key="top"
+        style={{ backgroundColor: "black" }}
+        placement="top"
+        overlay={<Tooltip id="tooltip-top">Share your feedback</Tooltip>}
+      >
+        <Fab
+          size="medium"
+          onClick={handleOpen}
+          data-testid="feedback-fab"
+          aria-label="Share your feedback with MedExperts"
+          style={{
+            position: "fixed",
+            bottom: "15px",
+            right: "8px",
+            backgroundColor: "#FF6262",
+          }}
+        >
+          <RateReviewIcon style={{ color: "white" }} />
+        </Fab>
+      </OverlayTrigger>
+      <Modal
+        size="lg"
+        centered
+        dialogClassName="modal-90w"
+        scrollable={true}
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header
+          closeButton
+          style={{ paddingTop: "10px", paddingBottom: "10px", border: "none" }}
+        ></Modal.Header>
+        <Modal.Body style={{ padding: "none" }}>
+          <FeedbackModal />
+        </Modal.Body>
+      </Modal>
       <div className="mx-auto">
         {!isAdmin ? (
           <Stack>

@@ -19,6 +19,7 @@ import AddQuestion from "../features/addQ/AddQuestion";
 import MainLandingPage from "../features/landingPage/MainLandingPage";
 import NoExist from "../features/doesNotExist/NoExist";
 import ContactUs from "../features/contact/ContactUs";
+import Feedback from "../features/feedback/Feedback";
 import Testing from "../features/tailwindTest/Testing";
 
 const AppRoutes = () => {
@@ -53,6 +54,7 @@ const AppRoutes = () => {
           />
           <Route path="/profile" element={<Profile />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/tailwind/*" element={<Testing />} />
         </Routes>
       ) : (

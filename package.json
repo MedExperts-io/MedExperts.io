@@ -48,6 +48,7 @@
     "react-scripts": "^5.0.1",
     "seed": "^0.4.4",
     "sequelize": "^6.25.3",
+    "survey-react-ui": "^1.9.84",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
