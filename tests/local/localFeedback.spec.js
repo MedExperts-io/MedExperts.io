@@ -97,10 +97,12 @@ test("test", async ({ page }) => {
       .locator("span")
       .first()
       .click();
+
     await page
-      .locator("#sq_103")
-      .getByRole("textbox", {
-        name: "Is there anything else we could do to improve your experience on MedExperts (e.g. accessibility, design, content, etc.)?",
+      .locator("#sq_103 div")
+      .filter({
+        hasText:
+          "4. Is there anything else we could do to improve your experience on MedExperts (",
       })
       .click();
     await page
@@ -110,9 +112,9 @@ test("test", async ({ page }) => {
       })
       .fill("NA");
     await page
-      .locator("#sq_104")
-      .getByRole("textbox", {
-        name: "Are there any other features you'd like to see included?",
+      .locator("#sq_104 div")
+      .filter({
+        hasText: "5. Are there any other features you'd like to see included?",
       })
       .click();
     await page
