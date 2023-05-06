@@ -27,7 +27,9 @@ test("test", async ({ page }) => {
     .locator('form[name="login"]')
     .getByRole("button", { name: "Login" })
     .click();
-  await page.getByTestId("feedback-fab").click();
+  await page
+    .getByRole("button", { name: "Share your feedback with MedExperts" })
+    .click();
   await page.locator("#sq_100").getByPlaceholder("Select...").click();
   await page.getByText("Search Engine (e.g. Google, Yahoo, Bing)").click();
   await page.getByPlaceholder("Select...").click();
