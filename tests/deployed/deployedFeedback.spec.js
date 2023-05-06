@@ -99,17 +99,15 @@ test("test", async ({ page }) => {
       .click();
 
     await page
-      .locator("#sq_103")
-      .getByRole("textbox", {
-        name: "Is there anything else we could do to improve your experience on MedExperts (e.g. accessibility, design, content, etc.)?",
-      })
+      .getByLabel(
+        "Is there anything else we could do to improve your experience on MedExperts (e.g. accessibility, design, content, etc.)?"
+      )
+      .getByRole("textbox")
       .fill("NA");
 
     await page
-      .locator("#sq_104")
-      .getByRole("textbox", {
-        name: "Are there any other features you'd like to see included?",
-      })
+      .getByLabel("Are there any other features you'd like to see included?")
+      .getByRole("textbox")
       .fill("NA");
 
     await page.getByRole("button", { name: "Complete" }).click();
