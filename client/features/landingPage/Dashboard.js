@@ -205,7 +205,6 @@ const Dashboard = () => {
         <Fab
           size="medium"
           onClick={handleOpen}
-          data-testid="feedback-fab"
           aria-label="Share your feedback with MedExperts"
           style={{
             position: "fixed",
