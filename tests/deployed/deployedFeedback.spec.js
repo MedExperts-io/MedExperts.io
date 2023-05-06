@@ -36,7 +36,7 @@ test("test", async ({ page }) => {
     await button.click();
 
     await page
-
+      .getByRole("combobox", { name: "How did you hear about MedExperts?" })
       .getByRole("combobox", {
         name: "How did you hear about MedExperts?",
         exact: true,
