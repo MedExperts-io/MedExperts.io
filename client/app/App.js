@@ -1,15 +1,18 @@
-import React from "react";
-import Navbar from "../features/navbar/Navbar";
-import Footer from "../features/navbar/Footer";
-import AppRoutes from "./AppRoutes";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import { useSelector } from "react-redux";
+import Footer from "../features/navbar/Footer";
+import Navbar from "../features/navbar/Navbar";
+import AppRoutes from "./AppRoutes";
 
 const App = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+
   return (
     <div>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} />
       <AppRoutes />
-      <Footer />
+      <Footer isLoggedIn={isLoggedIn} />
     </div>
   );
 };

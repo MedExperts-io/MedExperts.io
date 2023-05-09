@@ -13,8 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 
-const SiteNavbar = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+const SiteNavbar = ({ isLoggedIn }) => {
+  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();

@@ -5,7 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const Footer = () => {
+const Footer = ({ isLoggedIn }) => {
   return (
     <Navbar id="footer" className="shadow">
       <Container
@@ -26,7 +26,6 @@ const Footer = () => {
             marginBottom: "0",
           }}
         >
-          {/* <br /> */}
           <Row className="mx-auto">
             <Col xs={5}>
               <div className="d-flex justify-content-center">
@@ -48,9 +47,26 @@ const Footer = () => {
               <div className="d-flex justify-content-center">
                 <ul className="footer-col">
                   <li className="footer-col-header"> Our Company </li>
-                  <li className="footer-li"> Contact Us </li>
+                  <li className="footer-li">
+                    <Link
+                      to="/contact"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      Contact Us{" "}
+                    </Link>{" "}
+                  </li>
                   <li className="footer-li"> About Us </li>
-                  <li className="footer-li"> FAQ </li>
+                  {isLoggedIn && (
+                    <li className="footer-li">
+                      <Link
+                        to="/feedback"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
+                        Share Feedback
+                      </Link>
+                    </li>
+                  )}
+                  {/* <li className="footer-li"> FAQ </li> */}
                 </ul>
               </div>
             </Col>
