@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: sans-serif;
   min-height: 100vh;
@@ -270,4 +274,14 @@ img {
   color: black;
   font-weight: 500;
   font-size: 20px;
+}
+
+#feedback-survey {
+  --primary: black;
+  --background: #ffffff;
+  --background-dim: #f3f3f3;
+  --background-dim-light: #f9f9f9;
+  --primary-foreground: #ffffff;
+  --foreground: #161616;
+  --base-unit: 8px;
 }

@@ -1,0 +1,32 @@
+name: Run Playwright tests against deployed website
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest # or macos-latest, windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+    - name: Install dependencies
+      run: npm install
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      env:
+        ADMIN_U: ${{ secrets.ADMIN_U }}
+        ADMIN_P: ${{ secrets.ADMIN_P }}
+        USER_U: ${{ secrets.USER_U }}
+        USER_P: ${{ secrets.USER_P }}
+      run: npm run dep:end:test
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
