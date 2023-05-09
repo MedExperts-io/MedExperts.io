@@ -1,9 +1,9 @@
-import React from "react";
-import { Container, Navbar, Row, Nav, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import React from "react";
+import { Container, Navbar, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Footer = ({ isLoggedIn }) => {
   return (
@@ -34,26 +34,24 @@ const Footer = ({ isLoggedIn }) => {
             }}
           >
             <div className="mx-auto d-flex justify-content-center align-items-center">
-              <div className="footer-li">
-                <a
-                  target="_blank"
-                  href="https://github.com/MedExperts-io/MedExperts.io"
-                >
-                  <GitHubIcon className="footer-icon" />
-                </a>
-                <a
-                  target="_blank"
-                  href="https://www.instagram.com/medexperts.io/"
-                >
-                  <InstagramIcon className="footer-icon" />
-                </a>
-                <a
-                  target="_blank"
-                  href="https://www.linkedin.com/company/medexperts-io/"
-                >
-                  <LinkedInIcon className="footer-icon" />
-                </a>
-              </div>
+              <a
+                target="_blank"
+                href="https://github.com/MedExperts-io/MedExperts.io"
+              >
+                <GitHubIcon className="footer-icon" />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/medexperts.io/"
+              >
+                <InstagramIcon className="footer-icon" />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/medexperts-io/"
+              >
+                <LinkedInIcon className="footer-icon" />
+              </a>
             </div>
           </Row>{" "}
           <Row
@@ -69,7 +67,7 @@ const Footer = ({ isLoggedIn }) => {
                 style={{
                   textDecoration: "none",
                   color: "inherit",
-                  fontSize: "12px",
+                  fontSize: "11px",
                   fontWeight: "400",
                   padding: "5px",
                 }}
@@ -81,7 +79,7 @@ const Footer = ({ isLoggedIn }) => {
                 style={{
                   textDecoration: "none",
                   color: "inherit",
-                  fontSize: "12px",
+                  fontSize: "11px",
                   fontWeight: "400",
                   padding: "5px",
                 }}
@@ -96,7 +94,7 @@ const Footer = ({ isLoggedIn }) => {
                     style={{
                       textDecoration: "none",
                       color: "inherit",
-                      fontSize: "12px",
+                      fontSize: "11px",
                       fontWeight: "400",
                       padding: "5px",
                     }}
