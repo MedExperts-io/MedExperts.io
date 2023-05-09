@@ -211,6 +211,7 @@ const Dashboard = () => {
             bottom: "15px",
             right: "8px",
             backgroundColor: "#FF6262",
+            boxShadow: "0px 0px 5px 0px rgba(227, 227, 227, 1)",
           }}
         >
           <RateReviewIcon style={{ color: "white" }} />

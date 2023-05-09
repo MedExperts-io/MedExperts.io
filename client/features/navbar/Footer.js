@@ -10,7 +10,7 @@ const Footer = ({ isLoggedIn }) => {
     <Navbar id="footer" className="shadow">
       <Container
         fluid
-        className="d-flex justify-content-center"
+        className="d-flex justify-content-center vertical-align-middle"
         style={{
           paddingTop: "0px",
           marginTop: "0px",
@@ -26,79 +26,86 @@ const Footer = ({ isLoggedIn }) => {
             marginBottom: "0",
           }}
         >
-          <Row className="mx-auto">
-            <Col xs={5}>
-              <div className="d-flex justify-content-center">
-                <Col xs={12} md={8} lg={8}>
-                  <img
-                    src="/MedExpert.svg"
-                    className="footer-logo"
-                    alt="Med Expert Logo"
-                  />
-
-                  <p className="footer-description">
-                    MedExperts is a question and answer portal designed for
-                    medical professionals in the field of pulmonary medicine.
-                  </p>
-                </Col>
+          <Row
+            style={{
+              paddingBottom: "5px",
+              paddingTop: "5px",
+              textAlign: "center",
+            }}
+          >
+            <div className="mx-auto d-flex justify-content-center align-items-center">
+              <div className="footer-li">
+                <a
+                  target="_blank"
+                  href="https://github.com/MedExperts-io/MedExperts.io"
+                >
+                  <GitHubIcon className="footer-icon" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/medexperts.io/"
+                >
+                  <InstagramIcon className="footer-icon" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/company/medexperts-io/"
+                >
+                  <LinkedInIcon className="footer-icon" />
+                </a>
               </div>
-            </Col>
-            <Col xs={3} className="mx-auto">
-              <div className="d-flex justify-content-center">
-                <ul className="footer-col">
-                  <li className="footer-col-header"> Our Company </li>
-                  <li className="footer-li">
-                    <Link
-                      to="/contact"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Contact Us{" "}
-                    </Link>{" "}
-                  </li>
-                  <li className="footer-li"> About Us </li>
-                  {isLoggedIn && (
-                    <li className="footer-li">
-                      <Link
-                        to="/feedback"
-                        style={{ textDecoration: "none", color: "inherit" }}
-                      >
-                        Share Feedback
-                      </Link>
-                    </li>
-                  )}
-                  {/* <li className="footer-li"> FAQ </li> */}
-                </ul>
-              </div>
-            </Col>
-            <Col xs={3} className="mx-auto">
-              <div className="d-flex justify-content-center">
-                <ul className="footer-col">
-                  <li className="footer-col-header"> Follow Us</li>
-                  <li>
-                    <div className="footer-li">
-                      <a
-                        target="_blank"
-                        href="https://github.com/MedExperts-io/MedExperts.io"
-                      >
-                        <GitHubIcon className="footer-icon" />
-                      </a>
-                      <a
-                        target="_blank"
-                        href="https://www.instagram.com/medexperts.io/"
-                      >
-                        <InstagramIcon className="footer-icon" />
-                      </a>
-                      <a
-                        target="_blank"
-                        href="https://www.linkedin.com/company/medexperts-io/"
-                      >
-                        <LinkedInIcon className="footer-icon" />
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </Col>
+            </div>
+          </Row>{" "}
+          <Row
+            style={{
+              paddingBottom: "5px",
+              paddingTop: "5px",
+              textAlign: "center",
+            }}
+          >
+            <div className="mx-auto d-flex justify-content-center align-items-center">
+              <Link
+                to="/contact"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  padding: "5px",
+                }}
+              >
+                Contact Us{" "}
+              </Link>{" "}
+              •
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  padding: "5px",
+                }}
+              >
+                About Us
+              </Link>
+              {isLoggedIn && (
+                <>
+                  •
+                  <Link
+                    to="/feedback"
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                      fontSize: "12px",
+                      fontWeight: "400",
+                      padding: "5px",
+                    }}
+                  >
+                    Share Feedback
+                  </Link>
+                </>
+              )}
+            </div>
           </Row>
           <hr />
           <Row style={{ padding: "0", margin: "0" }}>
@@ -107,6 +114,7 @@ const Footer = ({ isLoggedIn }) => {
               style={{
                 fontSize: "10px",
                 color: "#332C2C",
+                fontWeight: "300",
                 padding: "0px",
                 margin: "0px",
               }}
