@@ -115,6 +115,15 @@ const SingleQuestion = () => {
       .then(() => dispatch(fetchUserQuestions()));
   };
 
+  const handleKeyDown = (callback, param, event) => {
+    console.log("KEY", event.key, "PARAM", param, "CALLBACK", callback);
+    if (param) {
+      callback(param);
+    } else {
+      callback();
+    }
+  };
+
   if (admin) {
     return <SingleQAadmin />;
   } else {
@@ -546,6 +555,15 @@ const SingleQuestion = () => {
                         {answerOptions
                           ? answerOptions.map((ans, index) => (
                               <Button
+                                onKeyDown={(event) =>
+                                  event.key === " " || event.key === "Enter"
+                                    ? handleKeyDown(
+                                        handleOptionSelection,
+                                        ans,
+                                        event
+                                      )
+                                    : null
+                                }
                                 as={Col}
                                 className="ms-3 mb-2"
                                 key={uuidv4()}
