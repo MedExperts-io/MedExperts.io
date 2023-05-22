@@ -35,18 +35,21 @@ const Footer = ({ isLoggedIn }) => {
           >
             <div className="mx-auto d-flex justify-content-center align-items-center">
               <a
+                data-testid="github-link"
                 target="_blank"
                 href="https://github.com/MedExperts-io/MedExperts.io"
               >
                 <GitHubIcon className="footer-icon" />
               </a>
               <a
+                data-testid="insta-link"
                 target="_blank"
                 href="https://www.instagram.com/medexperts.io/"
               >
                 <InstagramIcon className="footer-icon" />
               </a>
               <a
+                data-testid="linkedin-link"
                 target="_blank"
                 href="https://www.linkedin.com/company/medexperts-io/"
               >
