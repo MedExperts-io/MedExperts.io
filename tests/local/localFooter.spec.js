@@ -1,24 +1,24 @@
 import { test, expect } from "@playwright/test";
 require("dotenv").config();
 
-test("test", async ({ page }) => {
+test("test", async ({ page, context }) => {
   await page.goto("http://localhost:8080");
   await page.getByRole("link", { name: "Med Expert Logo" }).click();
 
-  const page1Promise = page.waitForEvent("popup");
-  await page.locator("#footer").getByTestId("github-link").click();
-  const page1 = await page1Promise;
-  await page1.waitForLoadState();
+  const [link1Target] = await Promise.all([
+    context.waitForEvent("page"),
+    page.click('a[data-testid="github-link"]'),
+  ]);
 
-  const page2Promise = page.waitForEvent("popup");
-  await page.locator("#footer").getByTestId("insta-link").click();
-  const page2 = await page2Promise;
-  await page2.waitForLoadState();
+  const [link2Target] = await Promise.all([
+    context.waitForEvent("page"),
+    page.click('a[data-testid="insta-link"]'),
+  ]);
 
-  const page3Promise = page.waitForEvent("popup");
-  await page.locator("#footer").getByTestId("linkedin-link").click();
-  const page3 = await page3Promise;
-  await page3.waitForLoadState();
+  const [link3Target] = await Promise.all([
+    context.waitForEvent("page"),
+    page.click('a[data-testid="linkedin-link"]'),
+  ]);
 
   await page.getByRole("link", { name: "Contact Us" }).click();
   await page.getByRole("link", { name: "About Us" }).click();

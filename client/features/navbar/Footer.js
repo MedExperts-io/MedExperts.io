@@ -37,6 +37,7 @@ const Footer = ({ isLoggedIn }) => {
               <a
                 data-testid="github-link"
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://github.com/MedExperts-io/MedExperts.io"
               >
                 <GitHubIcon className="footer-icon" />
@@ -44,6 +45,7 @@ const Footer = ({ isLoggedIn }) => {
               <a
                 data-testid="insta-link"
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://www.instagram.com/medexperts.io/"
               >
                 <InstagramIcon className="footer-icon" />
@@ -51,6 +53,7 @@ const Footer = ({ isLoggedIn }) => {
               <a
                 data-testid="linkedin-link"
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://www.linkedin.com/company/medexperts-io/"
               >
                 <LinkedInIcon className="footer-icon" />
