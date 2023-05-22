@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 require("dotenv").config();
 
-test("test", async ({ page }) => {
+test("test", async ({ page, context }) => {
   await page.goto("http://medexperts.io/");
   await page.getByRole("link", { name: "Med Expert Logo" }).click();
 
