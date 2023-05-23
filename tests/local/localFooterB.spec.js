@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 require("dotenv").config();
 
-test("test", async ({ page, context }) => {
-  await page.goto("http://medexperts.io/");
+test("test", async ({ page }) => {
+  await page.goto("http://localhost:8080/");
   await page
     .getByTestId("footer")
     .locator("div")

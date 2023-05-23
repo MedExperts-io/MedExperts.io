@@ -70,6 +70,7 @@ const Footer = ({ isLoggedIn }) => {
             <div className="mx-auto d-flex justify-content-center align-items-center">
               <Link
                 to="/contact"
+                data-testid="contact us link"
                 style={{
                   textDecoration: "none",
                   color: "inherit",
@@ -89,6 +90,7 @@ const Footer = ({ isLoggedIn }) => {
                   fontWeight: "400",
                   padding: "5px",
                 }}
+                data-testid="about us link"
               >
                 About Us
               </Link>
@@ -97,6 +99,7 @@ const Footer = ({ isLoggedIn }) => {
                   •
                   <Link
                     to="/feedback"
+                    data-testid="feedback link"
                     style={{
                       textDecoration: "none",
                       color: "inherit",
