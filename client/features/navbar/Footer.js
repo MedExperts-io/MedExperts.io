@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Footer = ({ isLoggedIn }) => {
   return (
-    <Navbar id="footer" className="shadow">
+    <Navbar id="footer" data-testid="footer" className="shadow">
       <Container
         fluid
         className="d-flex justify-content-center vertical-align-middle"
