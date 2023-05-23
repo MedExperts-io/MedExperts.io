@@ -64,7 +64,7 @@ const aboutData = [
     firstName: "Emmanuel",
     lastName: "Cruz",
     team: "Engineering",
-    title: "Full Stack Software Engineer",
+    title: "Software Engineer",
     picture: "/teamPics/emmanuel.png",
     summary:
       "Emmanuel is a web developer and an artist. They're passionate about drawing, LGBTQ rights, and work that helps people.",
@@ -75,7 +75,7 @@ const aboutData = [
     firstName: "Cynthia",
     lastName: "Brito-Mena",
     team: "Engineering",
-    title: "Full Stack Software Engineer",
+    title: "Software Engineer",
     picture: "/teamPics/c.png",
     summary:
       "Cynthia is a software engineer and native New Yorker with a passion for collaborating with mission-driven organizations. With over six years of experience in the non-profit sector, Cynthia is commited to leveraging her skills to create web applications that empower youth and fellow New Yorkers.",
@@ -86,7 +86,7 @@ const aboutData = [
     firstName: "Tasnim",
     lastName: "Mollah",
     team: "Engineering",
-    title: "Full Stack Software Engineer",
+    title: "Software Engineer",
     picture: "/teamPics/tasnim.png",
     summary:
       "Tasnim (she/hers) is one of MedExperts’ Founding Engineers, developing administrative features and maintaining the database and servers. She is a Fullstack Academy alum, focusing on backend engineering. Based in New York City, she enjoys trying different cuisines, good coffee, and cold weather.",
@@ -97,8 +97,8 @@ const aboutData = [
     firstName: "Sarah",
     lastName: "Alli",
     team: "Engineering",
-    title: "Full Stack Software Engineer",
-    picture: "/teamPics/9.png",
+    title: "Software Engineer",
+    picture: "/teamPics/sarah.png",
     summary: "",
     linkedin: "https://www.linkedin.com/in/allisarah",
     github: "https://github.com/se7en-illa",
