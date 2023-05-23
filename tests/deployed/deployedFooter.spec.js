@@ -7,7 +7,7 @@ test("test", async ({ page, context }) => {
 
   const [link1Target] = await Promise.all([
     context.waitForEvent("page"),
-    page.locator("#footer").getByTestId("github-link").click(),
+    page.getByTestId("github-link").click(),
   ]);
   await link1Target.waitForLoadState();
   await expect(link1Target).toHaveURL(
@@ -16,7 +16,7 @@ test("test", async ({ page, context }) => {
 
   const [link2Target] = await Promise.all([
     context.waitForEvent("page"),
-    page.locator("#footer").getByTestId("insta-link").click(),
+    page.getByTestId("insta-link").click(),
   ]);
   await link2Target.waitForLoadState();
   await expect(link2Target).toHaveURL(
@@ -25,7 +25,7 @@ test("test", async ({ page, context }) => {
 
   const [link3Target] = await Promise.all([
     context.waitForEvent("page"),
-    page.locator("#footer").getByTestId("linkedin-link").click(),
+    page.getByTestId("linkedin-link").click(),
   ]);
   await link3Target.waitForLoadState();
   const url = await link3Target.url();
