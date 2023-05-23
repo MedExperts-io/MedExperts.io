@@ -54,7 +54,7 @@ const aboutData = [
     lastName: "Hamza",
     team: "Engineering",
     title: "Full Stack Software Engineer",
-    picture: "/teamPics/h.png",
+    picture: "/teamPics/hamza.webp",
     summary:
       "Hamza is a software engineer with a passion for problem-solving and a lifelong love of computers. A former pre-med student, Hamza is excited to be helping medical students succeed by providing them with access to resources and tools to make a difference in their professional journey.",
     linkedin: "https://www.linkedin.com/in/muhamrif",
@@ -65,7 +65,7 @@ const aboutData = [
     lastName: "Cruz",
     team: "Engineering",
     title: "Software Engineer",
-    picture: "/teamPics/emmanuel.png",
+    picture: "/teamPics/emmanuel.webp",
     summary:
       "Emmanuel is a web developer and an artist. They're passionate about drawing, LGBTQ rights, and work that helps people.",
     linkedin: "https://www.linkedin.com/in/emmanuel-cruz-53297694",
@@ -76,7 +76,7 @@ const aboutData = [
     lastName: "Brito-Mena",
     team: "Engineering",
     title: "Software Engineer",
-    picture: "/teamPics/c.png",
+    picture: "/teamPics/cynthia.webp",
     summary:
       "Cynthia is a software engineer and native New Yorker with a passion for collaborating with mission-driven organizations. With over six years of experience in the non-profit sector, Cynthia is commited to leveraging her skills to create web applications that empower youth and fellow New Yorkers.",
     linkedin: "https://linkedin.com/in/cynthiabritomena",
@@ -87,7 +87,7 @@ const aboutData = [
     lastName: "Mollah",
     team: "Engineering",
     title: "Software Engineer",
-    picture: "/teamPics/tasnim.png",
+    picture: "/teamPics/tasnim.webp",
     summary:
       "Tasnim (she/hers) is one of MedExperts’ Founding Engineers, developing administrative features and maintaining the database and servers. She is a Fullstack Academy alum, focusing on backend engineering. Based in New York City, she enjoys trying different cuisines, good coffee, and cold weather.",
     linkedin: "https://www.linkedin.com/in/tasnimm",
@@ -98,7 +98,7 @@ const aboutData = [
     lastName: "Alli",
     team: "Engineering",
     title: "Software Engineer",
-    picture: "/teamPics/sarah.png",
+    picture: "/teamPics/sarah.webp",
     summary: "",
     linkedin: "https://www.linkedin.com/in/allisarah",
     github: "https://github.com/se7en-illa",
