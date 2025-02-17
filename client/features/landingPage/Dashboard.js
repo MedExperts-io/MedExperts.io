@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Fab, Stack } from "@mui/material";
+import { Fab, Stack, Box } from "@mui/material";
 import {
   fetchAllUsers,
   fetchUserQuestions,
@@ -20,6 +20,8 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import FeedbackModal from "../feedback/FeedbackModal";
 import RateReviewIcon from "@mui/icons-material/RateReview";
+import AdminDashboard from './AdminDashboard';
+import UserDashboard from './UserDashboard';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -29,8 +31,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     isAdmin
-      ? // dispatch(fetchAllQuestionsAnswers()).then(
-        //     () => dispatch(fetchAllUserQuestions())
+      ?
         dispatch(fetchAllUserFeedback())
       : dispatch(fetchAllQuestionsAnswers()).then(() =>
           dispatch(fetchUserQuestions())
@@ -236,440 +237,37 @@ const Dashboard = () => {
       </Modal>
       <div className="mx-auto">
         {!isAdmin ? (
-          <Stack>
-            <div className="welcome">
-              Welcome,{" "}
-              {firstName
-                ? firstName.charAt(0).toUpperCase() + firstName.slice(1)
-                : "User"}
-              !
-            </div>
-            {/* top row answered amount out of total */}
-            <Stack>
-              <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                <Card
-                  className="mx-auto"
-                  style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-                >
-                  <Card.Header
-                    style={{ marginBottom: "20px", fontSize: `200%` }}
-                  >
-                    <center> Questions Answered </center>
-                  </Card.Header>{" "}
-                  <Card.Body>
-                    <Row>
-                      <Col>
-                        <div className="visually-hidden">
-                          Easy Level {totalEasyAnswered} Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto "
-                        >
-                          <div
-                            className="mx-auto"
-                            style={styles.progressBarEasy}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {totalEasyAnswered}
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Completed
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            Easy Level
-                          </Card.Title>
-                        </Card>
-                      </Col>
-
-                      <Col>
-                        <div className="visually-hidden">
-                          Moderate Level {totalmoderateAnswere} Completed
-                        </div>
-                        <Card
-                          title={`Moderate Level. ${totalmoderateAnswere} Completed`}
-                          aria-hidden="true"
-                          id="no-border"
-                          className="mx-auto"
-                        >
-                          <div
-                            className="mx-auto"
-                            style={styles.progressBarModerate}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {totalmoderateAnswere}
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Completed
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            <center>Moderate Level</center>
-                          </Card.Title>
-                        </Card>
-                      </Col>
-
-                      <Col>
-                        <div className="visually-hidden">
-                          Hard Level {totalhardAnswered} Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto"
-                        >
-                          <div
-                            title={`Hard Level. ${totalhardAnswered} Completed`}
-                            className="mx-auto"
-                            style={styles.progressBarHard}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {totalhardAnswered}
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Completed
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            Hard Level
-                          </Card.Title>
-                        </Card>
-                      </Col>
-
-                      <Col>
-                        <div className="visually-hidden">
-                          All Levels {totalallAnswered} Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto"
-                        >
-                          <div
-                            title={`All Levels. ${totalhardAnswered} Completed`}
-                            className="mx-auto"
-                            style={styles.progressBarAll}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {totalallAnswered}
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Completed
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            All Levels
-                          </Card.Title>
-                        </Card>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              </Row>
-            </Stack>
-
-            {/* middle row answered percentage out of total */}
-            <Stack>
-              <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                <Card
-                  className="mx-auto"
-                  style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-                >
-                  <Card.Header
-                    style={{ marginBottom: "20px", fontSize: `200%` }}
-                  >
-                    <center> Questions Answered Correctly </center>
-                  </Card.Header>{" "}
-                  <Card.Body>
-                    <Row>
-                      <Col>
-                        <div className="visually-hidden">
-                          Easy Level{" "}
-                          {Math.round(
-                            (UsereasyQuestionsTotal.length /
-                              EasyQuestionsTotal.length) *
-                              100
-                          ) || 0}
-                          % Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto"
-                        >
-                          <div
-                            title={`Easy Level. ${
-                              Math.round(
-                                (UsereasyQuestionsTotal.length /
-                                  EasyQuestionsTotal.length) *
-                                  100
-                              ) || 0
-                            }% Correct`}
-                            className="mx-auto"
-                            style={styles.progressBarEasy}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {Math.round(
-                                (UsereasyQuestionsTotal.length /
-                                  EasyQuestionsTotal.length) *
-                                  100
-                              ) || 0}
-                              %
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Correct
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            Easy Level
-                          </Card.Title>
-                        </Card>
-                      </Col>
-
-                      <Col>
-                        <div className="visually-hidden">
-                          Moderate Level{" "}
-                          {Math.round(
-                            (UserModerateQuestionsTotal.length /
-                              ModerateQuestionsTotal.length) *
-                              100
-                          ) || 0}
-                          % Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto"
-                        >
-                          <div
-                            title={`Moderate Level. ${
-                              Math.round(
-                                (UserModerateQuestionsTotal.length /
-                                  ModerateQuestionsTotal.length) *
-                                  100
-                              ) || 0
-                            }% Correct`}
-                            className="mx-auto"
-                            style={styles.progressBarModerate}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {Math.round(
-                                (UserModerateQuestionsTotal.length /
-                                  ModerateQuestionsTotal.length) *
-                                  100
-                              ) || 0}
-                              %
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Correct
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            <center>Moderate Level</center>
-                          </Card.Title>
-                        </Card>
-                      </Col>
-
-                      <Col>
-                        <div className="visually-hidden">
-                          Hard Level{" "}
-                          {Math.round(
-                            (UserHardQuestionsTotal.length /
-                              HardQuestionsTotal.length) *
-                              100
-                          ) || 0}
-                          % Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto"
-                        >
-                          <div
-                            title={`Hard Level. ${
-                              Math.round(
-                                (UserHardQuestionsTotal.length /
-                                  HardQuestionsTotal.length) *
-                                  100
-                              ) || 0
-                            }% Correct`}
-                            className="mx-auto"
-                            style={styles.progressBarHard}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {Math.round(
-                                (UserHardQuestionsTotal.length /
-                                  HardQuestionsTotal.length) *
-                                  100
-                              ) || 0}
-                              %
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Correct
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            Hard Level
-                          </Card.Title>
-                        </Card>
-                      </Col>
-
-                      <Col>
-                        <div className="visually-hidden">
-                          All Levels{" "}
-                          {Math.round(
-                            (UserAllQuestionsTotal.length /
-                              AllUserQuestions.length) *
-                              100
-                          ) || 0}
-                          % Completed
-                        </div>
-                        <Card
-                          id="no-border"
-                          aria-hidden="true"
-                          className="mx-auto"
-                        >
-                          <div
-                            title={`All Levels. ${
-                              Math.round(
-                                (UserAllQuestionsTotal.length /
-                                  AllUserQuestions.length) *
-                                  100
-                              ) || 0
-                            }% Correct`}
-                            className="mx-auto"
-                            style={styles.progressBarAll}
-                          >
-                            <div style={styles.progressBarMiddle}>
-                              {Math.round(
-                                (UserAllQuestionsTotal.length /
-                                  AllUserQuestions.length) *
-                                  100
-                              ) || 0}
-                              %
-                            </div>
-                            <div style={styles.progressBarBackground}>
-                              Correct
-                            </div>
-                          </div>
-                          <Card.Title
-                            className="mx-auto"
-                            style={{ paddingTop: "5px" }}
-                          >
-                            All Levels
-                          </Card.Title>
-                        </Card>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              </Row>
-            </Stack>
-
-            {/* bottom row answered amount out of total for each category */}
-            <Stack>
-              <Stack>
-                <Row style={{ marginTop: "30px", marginBottom: "35px" }}>
-                  <Card
-                    className="mx-auto"
-                    style={{ paddingLeft: 0, paddingRight: 0, maxWidth: "90%" }}
-                  >
-                    <Card.Header
-                      style={{ marginBottom: "20px", fontSize: `200%` }}
-                    >
-                      <center> Categories </center>
-                    </Card.Header>
-                    <Card.Body>
-                      <Row>
-                        {allCategories.map((category) => (
-                          <Col
-                            key={uuidv4()}
-                            style={{
-                              paddingRight: "60px",
-                              paddingLeft: "60px",
-                              paddingTop: "15px",
-                            }}
-                          >
-                            <div className="visually-hidden">
-                              {`${category} `}{" "}
-                              {progressBarRatio(category, true)} Completed
-                            </div>
-                            <Card
-                              id="no-border"
-                              aria-hidden="true"
-                              className="mx-auto"
-                            >
-                              <div
-                                className="mx-auto"
-                                style={{
-                                  background: progressCircleBackground(
-                                    progressBarRatio(category, false),
-                                    "#f5ad27"
-                                  ),
-                                  borderRadius: "50%",
-                                  width: "100px",
-                                  height: "100px",
-                                  position: "relative",
-                                }}
-                              >
-                                <div style={stylesCategory.progressBarMiddle}>
-                                  {progressBarRatio(category, true)}
-                                </div>
-                                <div
-                                  style={stylesCategory.progressBarBackground}
-                                >
-                                  Completed
-                                </div>
-                              </div>
-                              <center>
-                                <Card.Title
-                                  className="mx-auto"
-                                  style={{ paddingTop: "5px" }}
-                                >
-                                  {category !==
-                                  "Chronic Obstructive Pulmonary Disease"
-                                    ? category
-                                    : "COPD"}
-                                </Card.Title>
-                              </center>
-                            </Card>
-                          </Col>
-                        ))}
-                      </Row>
-                    </Card.Body>
-                  </Card>
-                </Row>
-              </Stack>
-            </Stack>
-          </Stack>
+          <UserDashboard 
+            firstName={firstName}
+            totalEasyAnswered={totalEasyAnswered}
+            totalmoderateAnswere={totalmoderateAnswere}
+            totalhardAnswered={totalhardAnswered}
+            totalallAnswered={totalallAnswered}
+            UsereasyQuestionsTotal={UsereasyQuestionsTotal}
+            EasyQuestionsTotal={EasyQuestionsTotal}
+            UserModerateQuestionsTotal={UserModerateQuestionsTotal}
+            ModerateQuestionsTotal={ModerateQuestionsTotal}
+            UserHardQuestionsTotal={UserHardQuestionsTotal}
+            HardQuestionsTotal={HardQuestionsTotal}
+            UserAllQuestionsTotal={UserAllQuestionsTotal}
+            AllUserQuestions={AllUserQuestions}
+            allCategories={allCategories}
+            progressBarRatio={progressBarRatio}
+            progressCircleBackground={progressCircleBackground}
+            styles={styles}
+            stylesCategory={stylesCategory}
+          />
         ) : (
-          <>
-            <h5>Admin Dashboard place holder</h5>
-            Number of users. {allUsers.length}
-          </>
+          <AdminDashboard 
+            allUsers={allUsers}
+            questionsAnswers={questionsAnswers}
+            EasyQuestionsTotal={EasyQuestionsTotal}
+            HardQuestionsTotal={HardQuestionsTotal}
+            UserQuestionsAnswered={UserQuestionsAnswered}
+            surveyDataSatisfaction={surveyDataSatisfaction}
+            allCategories={allCategories}
+            progressBarRatio={progressBarRatio}
+          />
         )}
       </div>
     </Container>
